@@ -107,59 +107,59 @@
         };
 
         const DIMERS_HOME_WIN_PCT = {
+            "Tampa Bay Buccaneers": 68,
+            "New York Giants": 58,
             "Philadelphia Eagles": 88,
-            "Seattle Seahawks": 89,
-            "San Francisco 49ers": 87,
-            "Houston Texans": 82,
             "Chicago Bears": 78,
-            "Dallas Cowboys": 73,
-            "Kansas City Chiefs": 71,
-            "Los Angeles Rams": 68,
-            "Green Bay Packers": 58,
-            "Buffalo Bills": 57,
             "Baltimore Ravens": 56,
-            "Pittsburgh Steelers": 61
+            "Houston Texans": 79,
+            "Jacksonville Jaguars": 90,
+            "Green Bay Packers": 58,
+            "Carolina Panthers": 59,
+            "Buffalo Bills": 57,
+            "Pittsburgh Steelers": 60,
+            "Kansas City Chiefs": 71,
+            "Dallas Cowboys": 73,
+            "Los Angeles Rams": 68,
+            "San Francisco 49ers": 87,
+            "Seattle Seahawks": 89
         };
 
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
         let teamStats = {};
 
         function saveApiKey() {
-            const input = document.getElementById('apiKeyInput');
-            apiKey = input.value.trim();
+            apiKey = document.getElementById('apiKeyInput').value.trim();
             if (apiKey) {
                 localStorage.setItem('nfl_odds_api_key', apiKey);
                 document.getElementById('apiSetup').style.display = 'none';
                 loadAllData();
-            } else {
-                showError('Enter valid key');
-            }
+            } else showError('Valid key required');
         }
 
-        function showError(msg) {
-            const el = document.getElementById('error');
-            el.textContent = msg;
-            el.style.display = 'block';
-            setTimeout(() => el.style.display = 'none', 5000);
+        function showError(message) {
+            const errorEl = document.getElementById('error');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            setTimeout(() => errorEl.style.display = 'none', 5000);
         }
 
         async function loadAllData() {
             if (!apiKey) return;
-            document.getElementById('loading').textContent = 'Loading...';
+            document.getElementById('loading').textContent = 'Loading games...';
             try {
                 await fetchTeamStats();
                 await fetchGamesAndOdds();
             } catch (e) {
-                showError('Load failed');
+                showError('Error loading data: ' + e.message);
             }
         }
 
         async function fetchTeamStats() {
-            const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
-            const data = await res.json();
-            teamStats = {};
-            data.sports[0].leagues[0].teams.forEach(t => {
-                teamStats[t.team.displayName] = { record: t.team.record?.items?.[0]?.summary || '0-0' };
+            const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
+            const data = await response.json();
+            data.sports[0].leagues[0].teams.forEach(team => {
+                teamStats[team.team.displayName] = { record: team.team.record?.items?.[0].summary || '0-0' };
             });
         }
 
@@ -167,21 +167,24 @@
             const games = [];
             const today = new Date();
             for (let i = 0; i < 7; i++) {
-                const d = new Date(today);
-                d.setDate(d.getDate() + i);
-                const ds = d.toISOString().split('T')[0].replace(/-/g, '');
-                const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${ds}`);
-                const json = await res.json();
-                if (json.events) games.push(...json.events);
+                const date = new Date(today);
+                date.setDate(date.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0].replace(/-/g, '');
+                const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${dateStr}`);
+                const data = await response.json();
+                if (data.events) games.push(...data.events);
             }
 
             let oddsData = [];
             try {
-                const res = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds?regions=us&markets=h2h,spreads,totals&oddsFormat=american&apiKey=${apiKey}`);
-                if (res.ok) oddsData = await res.json();
+                const response = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds?regions=us&markets=h2h,spreads,totals&oddsFormat=american&apiKey=${apiKey}`);
+                if (response.ok) oddsData = await response.json();
             } catch {}
 
-            const predArray = games.map(g => ({ g, pred: generatePrediction(g, oddsData.find(o => o.home_team === g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName && o.away_team === g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName)) }));
+            const predArray = games.map(g => ({
+                g,
+                pred: generatePrediction(g, oddsData.find(o => o.home_team === g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName && o.away_team === g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName))
+            }));
 
             predArray.sort((a, b) => {
                 const conf = { 'High': 3, 'Medium': 2, 'Low': 1 };
@@ -207,28 +210,28 @@
 
             const totalVal = total !== 'N/A' ? parseFloat(total) : 45;
             const spreadVal = spread !== 'N/A' ? parseFloat(spread) : 0;
-            let homeScore = Math.round(totalVal / 2 + spreadVal / 2 + Math.random() * 4 - 2);
-            let awayScore = Math.round(totalVal / 2 - spreadVal / 2 + Math.random() * 4 - 2);
+            let homeScore = Math.round(totalVal / 2 + spreadVal / 2 + Math.random() * 3 - 1.5);
+            let awayScore = Math.round(totalVal / 2 - spreadVal / 2 + Math.random() * 3 - 1.5);
 
             const dimersPct = DIMERS_HOME_WIN_PCT[home] || 50;
-            const bias = (dimersPct - 50) * 0.15;
+            const bias = (dimersPct - 50) / 10 * 3;
             homeScore += Math.round(bias);
             awayScore -= Math.round(bias);
 
-            homeScore = Math.max(10, homeScore);
-            awayScore = Math.max(10, awayScore);
+            homeScore = Math.max(0, homeScore);
+            awayScore = Math.max(0, awayScore);
 
             const margin = Math.abs(homeScore - awayScore);
             const winner = homeScore > awayScore ? home : away;
-            const confidence = margin > 12 ? 'High' : margin > 6 ? 'Medium' : 'Low';
+            const confidence = margin > 10 ? 'High' : margin > 5 ? 'Medium' : 'Low';
             const winnerColor = TEAM_DATA[winner]?.colors[0] || '#6b4f9e';
 
             return {
                 home, away, homeScore, awayScore, winner, confidence, spread, total,
-                beatsSpread: spread !== 'N/A' ? (homeScore - awayScore > -spreadVal ? `${home} covers` : `${away} covers`) : 'N/A',
-                homeQBYards: Math.round(homeScore * 11 + Math.random() * 50), homeQBTDs: Math.max(1, Math.floor(homeScore / 9)),
-                awayQBYards: Math.round(awayScore * 11 + Math.random() * 50), awayQBTDs: Math.max(1, Math.floor(awayScore / 9)),
-                homeRBYards: Math.round(homeScore * 4.8 + Math.random() * 40), awayRBYards: Math.round(awayScore * 4.8 + Math.random() * 40),
+                beatsSpread: spread !== 'N/A' ? (homeScore - awayScore > -spreadVal ? `${home} covers` : `${away} covers` ) : 'N/A',
+                homeQBYards: Math.round(200 + homeScore * 8 + Math.random() * 50), homeQBTDs: Math.max(0, Math.floor(homeScore / 7 + Math.random() - 0.5)),
+                awayQBYards: Math.round(200 + awayScore * 8 + Math.random() * 50), awayQBTDs: Math.max(0, Math.floor(awayScore / 7 + Math.random() - 0.5)),
+                homeRBYards: Math.round(80 + homeScore * 3 + Math.random() * 30), awayRBYards: Math.round(80 + awayScore * 3 + Math.random() * 30),
                 dimersPct, winnerColor
             };
         }
@@ -241,7 +244,7 @@
             const time = new Date(game.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 
             return `
-                <div class="game-card" style="background: linear-gradient(135deg, ${pred.winnerColor}22 0%, ${pred.winnerColor}44 100%);">
+                <div class="game-card" style="background: linear-gradient(135deg, ${pred.winnerColor}22 0%, ${pred.winnerColor}44 100%); border: 2px solid ${pred.winnerColor}88;">
                     <div class="game-header" style="background-color: ${pred.winnerColor}ee;">
                         <div class="game-meta">
                             <div class="game-time">${time}</div>
@@ -263,7 +266,7 @@
                         <div class="winner-section">
                             <div class="winner-label">SHARP PICK</div>
                             <div class="winner-name sharp-pick">${pred.winner}</div>
-                            <div class="confidence">Dimers home win: ${pred.dimersPct}%</div>
+                            <div class="confidence">Dimers: ${pred.dimersPct}% for home</div>
                         </div>
                         <div class="prediction-section">
                             <div class="prediction-title">Score Projection</div>
@@ -302,11 +305,7 @@
                 return;
             }
             games.forEach(g => {
-                const home = g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName;
-                const away = g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName;
-                const oddsGame = oddsData.find(o => o.home_team === home && o.away_team === away);
-                const pred = generatePrediction(g, oddsGame);
-                container.innerHTML += createGameCard(g, pred);
+                container.innerHTML += createGameCard(g, generatePrediction(g, oddsData.find(o => o.home_team === g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName && o.away_team === g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName)));
             });
         }
 
