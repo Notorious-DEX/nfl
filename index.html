@@ -106,21 +106,22 @@
             "Washington Commanders": { colors: ["#5A1414", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" }
         };
 
-        const FIELD_TYPE = {
-            "ARI": "grass", "ATL": "turf", "BAL": "grass", "BUF": "turf", "CAR": "turf", "CHI": "grass",
-            "CIN": "turf", "CLE": "grass", "DAL": "turf", "DEN": "grass", "DET": "turf", "GB": "grass",
-            "HOU": "turf", "IND": "turf", "JAX": "grass", "KC": "grass", "LV": "turf", "LAC": "turf",
-            "LAR": "turf", "MIA": "grass", "MIN": "turf", "NE": "turf", "NO": "turf", "NYG": "turf",
-            "NYJ": "turf", "PHI": "grass", "PIT": "grass", "SF": "grass", "SEA": "turf", "TB": "grass",
-            "TEN": "turf", "WSH": "grass"
-        };
-
-        const GAME_INFO = {
-            "Philadelphia Eagles": { away: "Las Vegas Raiders", dimersPct: 88, weather: "Cold, possible snow", field: "grass", qbHome: "Jalen Hurts", rbHome: "Saquon Barkley", qbAway: "Aidan O'Connell", rbAway: "Sincere McCormick", topProps: ["Eagles -11.5", "Hurts anytime TD", "Barkley O 80.5 rush"] },
-            "Seattle Seahawks": { away: "Indianapolis Colts", dimersPct: 89, weather: "Dome", field: "turf", qbHome: "Geno Smith", rbHome: "Kenneth Walker", qbAway: "Anthony Richardson", rbAway: "Jonathan Taylor", topProps: ["Seahawks -13.5", "Taylor U rush", "Metcalf O rec"] },
-            "San Francisco 49ers": { away: "Tennessee Titans", dimersPct: 87, weather: "Mild", field: "grass", qbHome: "Brock Purdy", rbHome: "Christian McCaffrey", qbAway: "Will Levis", rbAway: "Tony Pollard", topProps: ["49ers -12.5", "McCaffrey O rush"] },
-            "Jacksonville Jaguars": { away: "New York Jets", dimersPct: 90, weather: "Mild", field: "grass", qbHome: "Trevor Lawrence", rbHome: "Travis Etienne", qbAway: "Aaron Rodgers", rbAway: "Breece Hall", topProps: ["Jaguars cover", "Etienne O rush"] }
-            // Add more for other games
+        const DIMERS_HOME_WIN_PCT = {
+            "New York Giants": 58, // vs Commanders
+            "Philadelphia Eagles": 88, // vs Raiders
+            "Chicago Bears": 78, // vs Browns
+            "Baltimore Ravens": 56, // vs Bengals
+            "Houston Texans": 79, // vs Cardinals
+            "Buffalo Bills": 57, // vs Patriots (assuming home)
+            "Jacksonville Jaguars": 90, // vs Jets
+            "Kansas City Chiefs": 71, // vs Chargers
+            "Seattle Seahawks": 89, // vs Colts
+            "San Francisco 49ers": 87, // vs Titans
+            "Green Bay Packers": 59, // vs Broncos
+            "Carolina Panthers": 59, // vs Saints
+            "Los Angeles Rams": 68, // vs Lions
+            "Dallas Cowboys": 73, // vs Vikings
+            "Pittsburgh Steelers": 60 // vs Dolphins
         };
 
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
@@ -168,7 +169,7 @@
                     });
                 });
             } catch {
-                console.error('Standings fetch failed');
+                teamStats = {}; // fallback empty
             }
         }
 
@@ -224,33 +225,29 @@
             let homeScore = Math.round(totalVal / 2 + spreadVal / 2);
             let awayScore = Math.round(totalVal / 2 - spreadVal / 2);
 
-            const info = GAME_INFO[home] || {};
-            const dimersPct = info.dimersPct || 50;
-            const bias = (dimersPct - 50) * 0.1;
+            const dimersPct = DIMERS_HOME_WIN_PCT[home] || 50;
+            const bias = (dimersPct - 50) * 0.12;
             homeScore += Math.round(bias);
             awayScore -= Math.round(bias);
 
-            homeScore += Math.floor(Math.random() * 5 - 2);
-            awayScore += Math.floor(Math.random() * 5 - 2);
+            homeScore += Math.floor(Math.random() * 4 - 2);
+            awayScore += Math.floor(Math.random() * 4 - 2);
 
             homeScore = Math.max(10, homeScore);
             awayScore = Math.max(10, awayScore);
 
             const margin = Math.abs(homeScore - awayScore);
             const winner = homeScore > awayScore ? home : away;
-            const confidence = margin > 12 ? 'High' : margin > 6 ? 'Medium' : 'Low';
+            const confidence = margin > 10 ? 'High' : margin > 5 ? 'Medium' : 'Low';
             const winnerColor = TEAM_DATA[winner]?.colors[0] || '#6b4f9e';
 
             return {
                 home, away, homeScore, awayScore, winner, confidence, spread, total,
                 beatsSpread: spread !== 'N/A' ? (homeScore - awayScore > -spreadVal ? `${home} covers` : `${away} covers`) : 'N/A',
-                qbHome: info.qbHome || 'QB', rbHome: info.rbHome || 'RB',
-                qbAway: info.qbAway || 'QB', rbAway: info.rbAway || 'RB',
-                homeQBYards: Math.round(homeScore * 10 + Math.random() * 60), homeQBTDs: Math.max(1, Math.floor(homeScore / 10)),
-                awayQBYards: Math.round(awayScore * 10 + Math.random() * 60), awayQBTDs: Math.max(1, Math.floor(awayScore / 10)),
-                homeRBYards: Math.round(homeScore * 4.5 + Math.random() * 40), awayRBYards: Math.round(awayScore * 4.5 + Math.random() * 40),
-                dimersPct, winnerColor, weather: info.weather || 'Standard', field: info.field || 'turf',
-                topProps: info.topProps || ['Check lines']
+                homeQBYards: Math.round(homeScore * 11 + Math.random() * 50), homeQBTDs: Math.max(1, Math.floor(homeScore / 9)),
+                awayQBYards: Math.round(awayScore * 11 + Math.random() * 50), awayQBTDs: Math.max(1, Math.floor(awayScore / 9)),
+                homeRBYards: Math.round(homeScore * 5 + Math.random() * 40), awayRBYards: Math.round(awayScore * 5 + Math.random() * 40),
+                dimersPct, winnerColor
             };
         }
 
@@ -304,23 +301,10 @@
                         <div class="prediction-section">
                             <div class="prediction-title">Player Projections</div>
                             <div class="stats-breakdown">
-                                <div class="stat-row"><span>${pred.home} QB (${pred.qbHome})</span><strong>${pred.homeQBYards} yds, ${pred.homeQBTDs} TD</strong></div>
-                                <div class="stat-row"><span>${pred.away} QB (${pred.qbAway})</span><strong>${pred.awayQBYards} yds, ${pred.awayQBTDs} TD</strong></div>
-                                <div class="stat-row"><span>${pred.home} RB (${pred.rbHome})</span><strong>${pred.homeRBYards} yds</strong></div>
-                                <div class="stat-row"><span>${pred.away} RB (${pred.rbAway})</span><strong>${pred.awayRBYards} yds</strong></div>
-                            </div>
-                        </div>
-                        <div class="prediction-section">
-                            <div class="prediction-title">Best Props for This Game</div>
-                            <div class="stats-breakdown">
-                                ${pred.topProps.map(p => `<div class="stat-row"><strong>${p}</strong></div>`).join('')}
-                            </div>
-                        </div>
-                        <div class="prediction-section">
-                            <div class="prediction-title">Key Factors</div>
-                            <div class="stats-breakdown">
-                                <div class="stat-row"><span>Weather</span><strong>${pred.weather}</strong></div>
-                                <div class="stat-row"><span>Field Type</span><strong>${pred.field}</strong></div>
+                                <div class="stat-row"><span>${pred.home} QB</span><strong>${pred.homeQBYards} yds, ${pred.homeQBTDs} TD</strong></div>
+                                <div class="stat-row"><span>${pred.away} QB</span><strong>${pred.awayQBYards} yds, ${pred.awayQBTDs} TD</strong></div>
+                                <div class="stat-row"><span>${pred.home} rush</span><strong>${pred.homeRBYards} yds</strong></div>
+                                <div class="stat-row"><span>${pred.away} rush</span><strong>${pred.awayRBYards} yds</strong></div>
                             </div>
                         </div>
                     </div>
@@ -332,7 +316,7 @@
             container.innerHTML = '';
             document.getElementById('loading').style.display = 'none';
             if (games.length === 0) {
-                container.innerHTML = '<div style="text-align:center;padding:4rem;">No games loaded</div>';
+                container.innerHTML = '<div style="text-align:center;padding:4rem;">No games</div>';
                 return;
             }
             games.forEach((g, i) => {
