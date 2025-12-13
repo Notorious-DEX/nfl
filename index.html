@@ -71,31 +71,278 @@
     </div>
 
     <script>
-        // Full TEAM_DATA, FIELD_TYPE, GAME_INFO from previous
+        const TEAM_DATA = {
+            "Arizona Cardinals": { colors: ["#97233F", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" },
+            "Atlanta Falcons": { colors: ["#A71930", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" },
+            "Baltimore Ravens": { colors: ["#241773", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" },
+            "Buffalo Bills": { colors: ["#00338D", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" },
+            "Carolina Panthers": { colors: ["#0085CA", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/car.png" },
+            "Chicago Bears": { colors: ["#0B162A", "#C83803"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" },
+            "Cincinnati Bengals": { colors: ["#FB4F14", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" },
+            "Cleveland Browns": { colors: ["#311D00", "#FF3C00"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" },
+            "Dallas Cowboys": { colors: ["#041E42", "#869397"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" },
+            "Denver Broncos": { colors: ["#FB4F14", "#002244"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/den.png" },
+            "Detroit Lions": { colors: ["#0076B6", "#B0B7BC"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/det.png" },
+            "Green Bay Packers": { colors: ["#203731", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" },
+            "Houston Texans": { colors: ["#03202F", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" },
+            "Indianapolis Colts": { colors: ["#002C5F", "#A2AAAD"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" },
+            "Jacksonville Jaguars": { colors: ["#006778", "#D7A22A"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" },
+            "Kansas City Chiefs": { colors: ["#E31837", "#FFB81C"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" },
+            "Las Vegas Raiders": { colors: ["#000000", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" },
+            "Los Angeles Chargers": { colors: ["#0080C6", "#FFC20E"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" },
+            "Los Angeles Rams": { colors: ["#003594", "#FFA300"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" },
+            "Miami Dolphins": { colors: ["#008E97", "#FC4C02"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" },
+            "Minnesota Vikings": { colors: ["#4F2683", "#FFC62F"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/min.png" },
+            "New England Patriots": { colors: ["#002244", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" },
+            "New Orleans Saints": { colors: ["#D3BC8D", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/no.png" },
+            "New York Giants": { colors: ["#0B2265", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" },
+            "New York Jets": { colors: ["#125740", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" },
+            "Philadelphia Eagles": { colors: ["#004C54", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" },
+            "Pittsburgh Steelers": { colors: ["#FFB612", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" },
+            "San Francisco 49ers": { colors: ["#AA0000", "#B3995D"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" },
+            "Seattle Seahawks": { colors: ["#002244", "#69BE28"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" },
+            "Tampa Bay Buccaneers": { colors: ["#D50A0A", "#34302B"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" },
+            "Tennessee Titans": { colors: ["#0C2340", "#4B92DB"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" },
+            "Washington Commanders": { colors: ["#5A1414", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" }
+        };
+
+        const FIELD_TYPE = {
+            "ARI": "grass", "ATL": "turf", "BAL": "grass", "BUF": "turf", "CAR": "turf", "CHI": "grass",
+            "CIN": "turf", "CLE": "grass", "DAL": "turf", "DEN": "grass", "DET": "turf", "GB": "grass",
+            "HOU": "turf", "IND": "turf", "JAX": "grass", "KC": "grass", "LV": "turf", "LAC": "turf",
+            "LAR": "turf", "MIA": "grass", "MIN": "turf", "NE": "turf", "NO": "turf", "NYG": "turf",
+            "NYJ": "turf", "PHI": "grass", "PIT": "grass", "SF": "grass", "SEA": "turf", "TB": "grass",
+            "TEN": "turf", "WSH": "grass"
+        };
+
+        const GAME_INFO = {
+            "Philadelphia Eagles": { away: "Las Vegas Raiders", dimersPct: 88, weather: "Cold, possible snow", field: "grass", qbHome: "Jalen Hurts", rbHome: "Saquon Barkley", qbAway: "Aidan O'Connell", rbAway: "Sincere McCormick", topProps: ["Eagles -11.5", "Hurts anytime TD", "Barkley O 80.5 rush"] },
+            "Seattle Seahawks": { away: "Indianapolis Colts", dimersPct: 89, weather: "Dome", field: "turf", qbHome: "Geno Smith", rbHome: "Kenneth Walker", qbAway: "Anthony Richardson", rbAway: "Jonathan Taylor", topProps: ["Seahawks -13.5", "Taylor U rush", "Metcalf O rec"] },
+            "San Francisco 49ers": { away: "Tennessee Titans", dimersPct: 87, weather: "Mild", field: "grass", qbHome: "Brock Purdy", rbHome: "Christian McCaffrey", qbAway: "Will Levis", rbAway: "Tony Pollard", topProps: ["49ers -12.5", "McCaffrey O rush"] },
+            "Jacksonville Jaguars": { away: "New York Jets", dimersPct: 90, weather: "Mild", field: "grass", qbHome: "Trevor Lawrence", rbHome: "Travis Etienne", qbAway: "Aaron Rodgers", rbAway: "Breece Hall", topProps: ["Jaguars cover", "Etienne O rush"] }
+            // Add more for other games
+        };
 
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
+        let teamStats = {};
 
         function saveApiKey() {
-            const input = document.getElementById('apiKeyInput');
-            apiKey = input.value.trim();
+            apiKey = document.getElementById('apiKeyInput').value.trim();
             if (apiKey) {
                 localStorage.setItem('nfl_odds_api_key', apiKey);
                 document.getElementById('apiSetup').style.display = 'none';
                 loadAllData();
             } else {
-                showError('Enter valid key');
+                showError('Valid key required');
             }
         }
 
-        // Other functions unchanged
+        function showError(msg) {
+            const el = document.getElementById('error');
+            el.textContent = msg;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 5000);
+        }
 
-        // Auto-load only if key exists
+        async function loadAllData() {
+            if (!apiKey) return;
+            document.getElementById('loading').textContent = 'Loading...';
+            try {
+                await fetchTeamStats();
+                await fetchGamesAndOdds();
+            } catch (e) {
+                showError('Load failed');
+            }
+        }
+
+        async function fetchTeamStats() {
+            try {
+                const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/standings');
+                const data = await res.json();
+                teamStats = {};
+                data.children.forEach(conf => {
+                    conf.standings.entries.forEach(entry => {
+                        const wins = entry.stats.find(s => s.name === 'wins')?.value || 0;
+                        const losses = entry.stats.find(s => s.name === 'losses')?.value || 0;
+                        teamStats[entry.team.displayName] = { record: `${wins}-${losses}` };
+                    });
+                });
+            } catch {
+                console.error('Standings fetch failed');
+            }
+        }
+
+        async function fetchGamesAndOdds() {
+            const games = [];
+            const today = new Date();
+            for (let i = -2; i < 5; i++) {
+                const d = new Date(today);
+                d.setDate(d.getDate() + i);
+                const ds = d.toISOString().split('T')[0].replace(/-/g, '');
+                try {
+                    const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${ds}`);
+                    const json = await res.json();
+                    if (json.events) games.push(...json.events);
+                } catch {}
+            }
+
+            let oddsData = [];
+            try {
+                const res = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds?regions=us&markets=h2h,spreads,totals&oddsFormat=american&apiKey=${apiKey}`);
+                if (res.ok) oddsData = await res.json();
+            } catch {}
+
+            const predArray = games.map(g => ({
+                g,
+                pred: generatePrediction(g, oddsData.find(o => o.home_team === g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName && o.away_team === g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName))
+            }));
+
+            predArray.sort((a, b) => {
+                const conf = { 'High': 3, 'Medium': 2, 'Low': 1 };
+                return conf[b.pred.confidence] - conf[a.pred.confidence];
+            });
+
+            displayGames(predArray.map(item => item.g), predArray.map(item => item.pred));
+        }
+
+        function generatePrediction(game, oddsGame) {
+            const comp = game.competitions[0];
+            const home = comp.competitors.find(c => c.homeAway === 'home')?.team.displayName;
+            const away = comp.competitors.find(c => c.homeAway === 'away')?.team.displayName;
+
+            let spread = 'N/A', total = 'N/A';
+            if (oddsGame?.bookmakers?.[0]) {
+                const bk = oddsGame.bookmakers[0];
+                const spreads = bk.markets.find(m => m.key === 'spreads');
+                const totals = bk.markets.find(m => m.key === 'totals');
+                if (spreads) spread = spreads.outcomes.find(o => o.name === home)?.point || 'N/A';
+                if (totals) total = totals.outcomes[0]?.point || 'N/A';
+            }
+
+            const totalVal = total !== 'N/A' ? parseFloat(total) : 45;
+            const spreadVal = spread !== 'N/A' ? parseFloat(spread) : 0;
+            let homeScore = Math.round(totalVal / 2 + spreadVal / 2);
+            let awayScore = Math.round(totalVal / 2 - spreadVal / 2);
+
+            const info = GAME_INFO[home] || {};
+            const dimersPct = info.dimersPct || 50;
+            const bias = (dimersPct - 50) * 0.1;
+            homeScore += Math.round(bias);
+            awayScore -= Math.round(bias);
+
+            homeScore += Math.floor(Math.random() * 5 - 2);
+            awayScore += Math.floor(Math.random() * 5 - 2);
+
+            homeScore = Math.max(10, homeScore);
+            awayScore = Math.max(10, awayScore);
+
+            const margin = Math.abs(homeScore - awayScore);
+            const winner = homeScore > awayScore ? home : away;
+            const confidence = margin > 12 ? 'High' : margin > 6 ? 'Medium' : 'Low';
+            const winnerColor = TEAM_DATA[winner]?.colors[0] || '#6b4f9e';
+
+            return {
+                home, away, homeScore, awayScore, winner, confidence, spread, total,
+                beatsSpread: spread !== 'N/A' ? (homeScore - awayScore > -spreadVal ? `${home} covers` : `${away} covers`) : 'N/A',
+                qbHome: info.qbHome || 'QB', rbHome: info.rbHome || 'RB',
+                qbAway: info.qbAway || 'QB', rbAway: info.rbAway || 'RB',
+                homeQBYards: Math.round(homeScore * 10 + Math.random() * 60), homeQBTDs: Math.max(1, Math.floor(homeScore / 10)),
+                awayQBYards: Math.round(awayScore * 10 + Math.random() * 60), awayQBTDs: Math.max(1, Math.floor(awayScore / 10)),
+                homeRBYards: Math.round(homeScore * 4.5 + Math.random() * 40), awayRBYards: Math.round(awayScore * 4.5 + Math.random() * 40),
+                dimersPct, winnerColor, weather: info.weather || 'Standard', field: info.field || 'turf',
+                topProps: info.topProps || ['Check lines']
+            };
+        }
+
+        function createGameCard(game, pred) {
+            const homeLogo = TEAM_DATA[pred.home]?.logo || '';
+            const awayLogo = TEAM_DATA[pred.away]?.logo || '';
+            const homeRecord = teamStats[pred.home]?.record || '0-0';
+            const awayRecord = teamStats[pred.away]?.record || '0-0';
+            const time = new Date(game.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+
+            return `
+                <div class="game-card" style="background: linear-gradient(135deg, ${pred.winnerColor}22 0%, ${pred.winnerColor}44 100%);">
+                    <div class="game-header" style="background-color: ${pred.winnerColor}ee;">
+                        <div class="game-meta">
+                            <div class="game-time">${time}</div>
+                            <div class="badge confidence-${pred.confidence.toLowerCase()}">${pred.confidence.toUpperCase()}</div>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                ${awayLogo ? `<img src="${awayLogo}" class="team-logo">` : ''}
+                                <div><div class="team-name">${pred.away}</div><div class="team-record">${awayRecord}</div></div>
+                            </div>
+                            <div class="vs">@</div>
+                            <div class="team">
+                                <div style="text-align: right;"><div class="team-name">${pred.home}</div><div class="team-record">${homeRecord}</div></div>
+                                ${homeLogo ? `<img src="${homeLogo}" class="team-logo">` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-body">
+                        <div class="winner-section">
+                            <div class="winner-label">SHARP PICK</div>
+                            <div class="winner-name sharp-pick">${pred.winner}</div>
+                            <div class="confidence">Dimers home win: ${pred.dimersPct}%</div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">Score Projection</div>
+                            <div class="prediction-grid">
+                                <div class="pred-stat"><div class="pred-label">${pred.away}</div><div class="pred-value">${pred.awayScore}</div></div>
+                                <div class="pred-stat"><div class="pred-label">${pred.home}</div><div class="pred-value">${pred.homeScore}</div></div>
+                            </div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">Betting Lines</div>
+                            <div class="stats-breakdown">
+                                <div class="stat-row"><span>Spread (${pred.home})</span><strong>${pred.spread}</strong></div>
+                                <div class="stat-row"><span>Cover Edge</span><strong>${pred.beatsSpread}</strong></div>
+                                <div class="stat-row"><span>Total</span><strong>${pred.total}</strong></div>
+                            </div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">Player Projections</div>
+                            <div class="stats-breakdown">
+                                <div class="stat-row"><span>${pred.home} QB (${pred.qbHome})</span><strong>${pred.homeQBYards} yds, ${pred.homeQBTDs} TD</strong></div>
+                                <div class="stat-row"><span>${pred.away} QB (${pred.qbAway})</span><strong>${pred.awayQBYards} yds, ${pred.awayQBTDs} TD</strong></div>
+                                <div class="stat-row"><span>${pred.home} RB (${pred.rbHome})</span><strong>${pred.homeRBYards} yds</strong></div>
+                                <div class="stat-row"><span>${pred.away} RB (${pred.rbAway})</span><strong>${pred.awayRBYards} yds</strong></div>
+                            </div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">Best Props for This Game</div>
+                            <div class="stats-breakdown">
+                                ${pred.topProps.map(p => `<div class="stat-row"><strong>${p}</strong></div>`).join('')}
+                            </div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">Key Factors</div>
+                            <div class="stats-breakdown">
+                                <div class="stat-row"><span>Weather</span><strong>${pred.weather}</strong></div>
+                                <div class="stat-row"><span>Field Type</span><strong>${pred.field}</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        function displayGames(games, preds) {
+            const container = document.getElementById('games');
+            container.innerHTML = '';
+            document.getElementById('loading').style.display = 'none';
+            if (games.length === 0) {
+                container.innerHTML = '<div style="text-align:center;padding:4rem;">No games loaded</div>';
+                return;
+            }
+            games.forEach((g, i) => {
+                container.innerHTML += createGameCard(g, preds[i]);
+            });
+        }
+
         if (apiKey) {
             document.getElementById('apiSetup').style.display = 'none';
-            document.getElementById('loading').textContent = 'Loading...';
             loadAllData();
-        } else {
-            document.getElementById('loading').textContent = 'Enter API key to start';
         }
     </script>
 </body>
