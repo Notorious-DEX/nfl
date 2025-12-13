@@ -20,7 +20,7 @@
         .games-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem; }
         .game-card { border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: transform 0.3s ease; }
         .game-card:hover { transform: translateY(-5px); }
-        .game-header { padding: 2rem; background: linear-gradient(135deg, #6b4f9e, #7c5caf); }
+        .game-header { padding: 2rem; }
         .game-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         .game-time { font-weight: 600; font-size: 1.1rem; }
         .badge { background: rgba(255,255,255,0.2); padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: bold; }
@@ -106,15 +106,19 @@
             "Washington Commanders": { colors: ["#5A1414", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" }
         };
 
-        const GAME_SPECIFICS = {
-            "Philadelphia Eagles": { away: "Las Vegas Raiders", dimersPct: 88, weather: "Possible snow 2-4in, 34°F", keyInjuries: "Geno Smith out", topProps: ["Eagles -11.5", "Hurts anytime TD", "Jeanty O rushing"] },
-            "Seattle Seahawks": { away: "Indianapolis Colts", dimersPct: 89, weather: "Dome", keyInjuries: "None major", topProps: ["Seahawks -13.5", "Taylor U rushing", "JSN O rec"] },
-            "San Francisco 49ers": { away: "Tennessee Titans", dimersPct: 87, weather: "Mild", keyInjuries: "None", topProps: ["49ers -12.5", "RB overs"] },
-            "Houston Texans": { away: "Arizona Cardinals", dimersPct: 82, weather: "Dome", keyInjuries: "None", topProps: ["Texans -10", "Passing props"] },
-            "Chicago Bears": { away: "Cleveland Browns", dimersPct: 78, weather: "Frigid 10°F", keyInjuries: "None", topProps: ["Bears O total", "RB overs cold"] },
-            "Dallas Cowboys": { away: "Minnesota Vikings", dimersPct: 73, weather: "Dome", keyInjuries: "Jefferson limited", topProps: ["Cowboys -5.5", "Lamb O rec yds"] },
-            "Kansas City Chiefs": { away: "Los Angeles Chargers", dimersPct: 71, weather: "Mild", keyInjuries: "Chiefs OL issues", topProps: ["Chiefs ML", "Mahomes O TD"] },
-            "Los Angeles Rams": { away: "Detroit Lions", dimersPct: 68, weather: "Dome", keyInjuries: "Lions secondary hurt", topProps: ["Rams -6", "Gibbs O rushing"] }
+        const DIMERS_HOME_WIN_PCT = {
+            "Philadelphia Eagles": 88,
+            "Seattle Seahawks": 89,
+            "San Francisco 49ers": 87,
+            "Houston Texans": 82,
+            "Chicago Bears": 78,
+            "Dallas Cowboys": 73,
+            "Kansas City Chiefs": 71,
+            "Los Angeles Rams": 68,
+            "Green Bay Packers": 58,
+            "Buffalo Bills": 57,
+            "Baltimore Ravens": 56,
+            "Pittsburgh Steelers": 61
         };
 
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
@@ -128,7 +132,7 @@
                 document.getElementById('apiSetup').style.display = 'none';
                 loadAllData();
             } else {
-                showError('Enter valid API key');
+                showError('Enter valid key');
             }
         }
 
@@ -141,12 +145,12 @@
 
         async function loadAllData() {
             if (!apiKey) return;
-            document.getElementById('loading').textContent = 'Loading games & odds...';
+            document.getElementById('loading').textContent = 'Loading...';
             try {
                 await fetchTeamStats();
                 await fetchGamesAndOdds();
             } catch (e) {
-                showError('Failed - check key/quota (F12 console)');
+                showError('Load failed');
             }
         }
 
@@ -177,7 +181,14 @@
                 if (res.ok) oddsData = await res.json();
             } catch {}
 
-            displayGames(games.filter(g => g.competitions[0].status.type.name !== 'STATUS_FINAL'), oddsData);
+            const predArray = games.map(g => ({ g, pred: generatePrediction(g, oddsData.find(o => o.home_team === g.competitions[0].competitors.find(c => c.homeAway === 'home')?.team.displayName && o.away_team === g.competitions[0].competitors.find(c => c.homeAway === 'away')?.team.displayName)) }));
+
+            predArray.sort((a, b) => {
+                const conf = { 'High': 3, 'Medium': 2, 'Low': 1 };
+                return conf[b.pred.confidence] - conf[a.pred.confidence];
+            });
+
+            displayGames(predArray.map(item => item.g), oddsData);
         }
 
         function generatePrediction(game, oddsGame) {
@@ -185,49 +196,44 @@
             const home = comp.competitors.find(c => c.homeAway === 'home')?.team.displayName;
             const away = comp.competitors.find(c => c.homeAway === 'away')?.team.displayName;
 
-            let spread = 'N/A', total = 'N/A', homeML = 'N/A', awayML = 'N/A';
+            let spread = 'N/A', total = 'N/A';
             if (oddsGame?.bookmakers?.[0]) {
                 const bk = oddsGame.bookmakers[0];
                 const spreads = bk.markets.find(m => m.key === 'spreads');
                 const totals = bk.markets.find(m => m.key === 'totals');
-                const h2h = bk.markets.find(m => m.key === 'h2h');
                 if (spreads) spread = spreads.outcomes.find(o => o.name === home)?.point || 'N/A';
                 if (totals) total = totals.outcomes[0]?.point || 'N/A';
-                if (h2h) {
-                    homeML = h2h.outcomes.find(o => o.name === home)?.price || 'N/A';
-                    awayML = h2h.outcomes.find(o => o.name === away)?.price || 'N/A';
-                }
             }
 
             const totalVal = total !== 'N/A' ? parseFloat(total) : 45;
             const spreadVal = spread !== 'N/A' ? parseFloat(spread) : 0;
-            let homeScore = Math.round((totalVal + spreadVal) / 2);
-            let awayScore = Math.round((totalVal - spreadVal) / 2);
+            let homeScore = Math.round(totalVal / 2 + spreadVal / 2 + Math.random() * 4 - 2);
+            let awayScore = Math.round(totalVal / 2 - spreadVal / 2 + Math.random() * 4 - 2);
 
-            let dimersPct = 50;
-            const spec = GAME_SPECIFICS[home] || (GAME_SPECIFICS[away] && GAME_SPECIFICS[away].away === home ? { dimersPct: 100 - GAME_SPECIFICS[away].dimersPct } : {});
-            if (spec.dimersPct) dimersPct = spec.dimersPct;
-            const bias = (dimersPct - 50) / 50 * 4;
+            const dimersPct = DIMERS_HOME_WIN_PCT[home] || 50;
+            const bias = (dimersPct - 50) * 0.15;
             homeScore += Math.round(bias);
             awayScore -= Math.round(bias);
 
+            homeScore = Math.max(10, homeScore);
+            awayScore = Math.max(10, awayScore);
+
             const margin = Math.abs(homeScore - awayScore);
             const winner = homeScore > awayScore ? home : away;
-            const confidence = margin > 10 ? 'High' : margin > 5 ? 'Medium' : 'Low';
+            const confidence = margin > 12 ? 'High' : margin > 6 ? 'Medium' : 'Low';
+            const winnerColor = TEAM_DATA[winner]?.colors[0] || '#6b4f9e';
 
             return {
-                home, away, homeScore, awayScore, winner, confidence, spread, total, homeML, awayML,
-                beatsSpread: spread !== 'N/A' ? (homeScore - awayScore + spreadVal > 0 ? `${home} covers` : `${away} covers`) : 'N/A',
-                homeQBYards: Math.round(homeScore * 11.5), homeQBTDs: Math.max(1, Math.floor(homeScore / 8)),
-                awayQBYards: Math.round(awayScore * 11.5), awayQBTDs: Math.max(1, Math.floor(awayScore / 8)),
-                homeRBYards: Math.round(homeScore * 5 + 40), awayRBYards: Math.round(awayScore * 5 + 40),
-                dimersPct, weather: spec.weather || 'Standard', keyInjuries: spec.keyInjuries || 'None major',
-                topProps: spec.topProps || ['Check current lines']
+                home, away, homeScore, awayScore, winner, confidence, spread, total,
+                beatsSpread: spread !== 'N/A' ? (homeScore - awayScore > -spreadVal ? `${home} covers` : `${away} covers`) : 'N/A',
+                homeQBYards: Math.round(homeScore * 11 + Math.random() * 50), homeQBTDs: Math.max(1, Math.floor(homeScore / 9)),
+                awayQBYards: Math.round(awayScore * 11 + Math.random() * 50), awayQBTDs: Math.max(1, Math.floor(awayScore / 9)),
+                homeRBYards: Math.round(homeScore * 4.8 + Math.random() * 40), awayRBYards: Math.round(awayScore * 4.8 + Math.random() * 40),
+                dimersPct, winnerColor
             };
         }
 
         function createGameCard(game, pred) {
-            const color = TEAM_DATA[pred.home]?.colors[0] || '#6b4f9e';
             const homeLogo = TEAM_DATA[pred.home]?.logo || '';
             const awayLogo = TEAM_DATA[pred.away]?.logo || '';
             const homeRecord = teamStats[pred.home]?.record || '';
@@ -235,21 +241,21 @@
             const time = new Date(game.date).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 
             return `
-                <div class="game-card" style="background: linear-gradient(135deg, ${color}22 0%, ${color}44 100%);">
-                    <div class="game-header" style="background-color: ${color}ee;">
+                <div class="game-card" style="background: linear-gradient(135deg, ${pred.winnerColor}22 0%, ${pred.winnerColor}44 100%);">
+                    <div class="game-header" style="background-color: ${pred.winnerColor}ee;">
                         <div class="game-meta">
                             <div class="game-time">${time}</div>
                             <div class="badge confidence-${pred.confidence.toLowerCase()}">${pred.confidence.toUpperCase()}</div>
                         </div>
                         <div class="teams">
                             <div class="team">
-                                ${awayLogo ? `<img src="${awayLogo}" class="team-logo" alt="${pred.away}">` : ''}
+                                ${awayLogo ? `<img src="${awayLogo}" class="team-logo">` : ''}
                                 <div><div class="team-name">${pred.away}</div><div class="team-record">${awayRecord}</div></div>
                             </div>
                             <div class="vs">@</div>
                             <div class="team">
                                 <div style="text-align: right;"><div class="team-name">${pred.home}</div><div class="team-record">${homeRecord}</div></div>
-                                ${homeLogo ? `<img src="${homeLogo}" class="team-logo" alt="${pred.home}">` : ''}
+                                ${homeLogo ? `<img src="${homeLogo}" class="team-logo">` : ''}
                             </div>
                         </div>
                     </div>
@@ -257,7 +263,7 @@
                         <div class="winner-section">
                             <div class="winner-label">SHARP PICK</div>
                             <div class="winner-name sharp-pick">${pred.winner}</div>
-                            <div class="confidence">Dimers: ${pred.dimersPct}% favored</div>
+                            <div class="confidence">Dimers home win: ${pred.dimersPct}%</div>
                         </div>
                         <div class="prediction-section">
                             <div class="prediction-title">Score Projection</div>
@@ -283,19 +289,6 @@
                                 <div class="stat-row"><span>${pred.away} rush</span><strong>${pred.awayRBYards} yds</strong></div>
                             </div>
                         </div>
-                        <div class="prediction-section">
-                            <div class="prediction-title">Best Props for This Game</div>
-                            <div class="stats-breakdown">
-                                ${pred.topProps.map(p => `<div class="stat-row"><strong>${p}</strong></div>`).join('')}
-                            </div>
-                        </div>
-                        <div class="prediction-section">
-                            <div class="prediction-title">Key Factors</div>
-                            <div class="stats-breakdown">
-                                <div class="stat-row"><span>Weather</span><strong>${pred.weather}</strong></div>
-                                <div class="stat-row"><span>Key Injuries</span><strong>${pred.keyInjuries}</strong></div>
-                            </div>
-                        </div>
                     </div>
                 </div>`;
         }
@@ -305,7 +298,7 @@
             container.innerHTML = '';
             document.getElementById('loading').style.display = 'none';
             if (games.length === 0) {
-                container.innerHTML = '<div style="text-align:center;padding:4rem;">No games - check API key</div>';
+                container.innerHTML = '<div style="text-align:center;padding:4rem;">No games</div>';
                 return;
             }
             games.forEach(g => {
