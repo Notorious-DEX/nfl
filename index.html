@@ -648,23 +648,25 @@
             try {
                 console.log('===== FETCHING TEAM STATS AND RANKINGS FROM ESPN STANDINGS PAGES =====');
 
-                // Fetch regular standings (contains records and PPG/PAPG)
+                const parser = new DOMParser();
+
+                // Fetch standings for records and PPG/PAPG
                 const standingsResponse = await fetch('https://www.espn.com/nfl/standings');
                 const standingsHTML = await standingsResponse.text();
-                const parser = new DOMParser();
                 const doc = parser.parseFromString(standingsHTML, 'text/html');
 
-                const teamRows = doc.querySelectorAll('tr.Table__TR.Table__TR--sm.Table__even');
+                const teamRows = doc.querySelectorAll('tr.Table__TR');
 
                 teamRows.forEach(row => {
-                    const teamLink = row.querySelector('.Table__Team a');
+                    const teamLink = row.querySelector('span.TeamLink__Name, .AnchorLink');
                     const statCells = row.querySelectorAll('td');
 
                     if (teamLink && statCells.length >= 6) {
-                        const teamText = teamLink.textContent.trim();
+                        let teamText = teamLink.textContent.trim();
+                        if (teamText === 'Washington Football Team') teamText = 'Washington Commanders';
 
                         const matchedTeam = Object.keys(TEAM_DATA).find(name => 
-                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name.split(' ').pop())
+                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name)
                         );
 
                         if (matchedTeam) {
@@ -695,18 +697,19 @@
                 const offenseResponse = await fetch('https://www.espn.com/nfl/stats/team');
                 const offenseHTML = await offenseResponse.text();
                 const offenseDoc = parser.parseFromString(offenseHTML, 'text/html');
-                const offenseRows = offenseDoc.querySelectorAll('tr.Table__TR.Table__TR--sm.Table__even');
+                const offenseRows = offenseDoc.querySelectorAll('tr.Table__TR');
 
                 offenseRows.forEach((row, index) => {
-                    const teamLink = row.querySelector('.Table__Team a');
+                    if (index === 0) return; // skip header
+                    const teamLink = row.querySelector('span.TeamLink__Name, .AnchorLink');
                     if (teamLink) {
-                        const teamText = teamLink.textContent.trim();
+                        let teamText = teamLink.textContent.trim();
                         const matchedTeam = Object.keys(TEAM_DATA).find(name => 
-                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name.split(' ').pop())
+                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name)
                         );
                         if (matchedTeam) {
                             if (!teamAdvancedStats[matchedTeam]) teamAdvancedStats[matchedTeam] = {};
-                            teamAdvancedStats[matchedTeam].offensiveRank = index + 1;
+                            teamAdvancedStats[matchedTeam].offensiveRank = index;
                             teamAdvancedStats[matchedTeam].pointsFor = teamStats[matchedTeam]?.ppg || 21.5;
                         }
                     }
@@ -716,26 +719,26 @@
                 const defenseResponse = await fetch('https://www.espn.com/nfl/stats/team/_/view/defense');
                 const defenseHTML = await defenseResponse.text();
                 const defenseDoc = parser.parseFromString(defenseHTML, 'text/html');
-                const defenseRows = defenseDoc.querySelectorAll('tr.Table__TR.Table__TR--sm.Table__even');
+                const defenseRows = defenseDoc.querySelectorAll('tr.Table__TR');
 
                 defenseRows.forEach((row, index) => {
-                    const teamLink = row.querySelector('.Table__Team a');
+                    if (index === 0) return; // skip header
+                    const teamLink = row.querySelector('span.TeamLink__Name, .AnchorLink');
                     if (teamLink) {
-                        const teamText = teamLink.textContent.trim();
+                        let teamText = teamLink.textContent.trim();
                         const matchedTeam = Object.keys(TEAM_DATA).find(name => 
-                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name.split(' ').pop())
+                            teamText.includes(TEAM_DATA[name].abbr) || teamText.includes(name)
                         );
                         if (matchedTeam) {
                             if (!teamAdvancedStats[matchedTeam]) teamAdvancedStats[matchedTeam] = {};
-                            teamAdvancedStats[matchedTeam].defensiveRank = index + 1;
+                            teamAdvancedStats[matchedTeam].defensiveRank = index;
                             teamAdvancedStats[matchedTeam].pointsAgainst = teamStats[matchedTeam]?.papg || 21.5;
                         }
                     }
                 });
 
-                // Fallback: if any team missing rankings, calculate from PPG/PAPG
-                const rankedTeams = Object.keys(teamAdvancedStats);
-                const missingRankTeams = Object.keys(teamStats).filter(t => !rankedTeams.includes(t));
+                // Fallback for any missing rankings
+                const missingRankTeams = Object.keys(teamStats).filter(t => !teamAdvancedStats[t]);
 
                 if (missingRankTeams.length > 0) {
                     const allTeams = Object.keys(teamStats).map(name => ({
@@ -1122,8 +1125,8 @@
 
             const homeStats = teamStats[prediction.homeTeam] || {};
             const awayStats = teamStats[prediction.awayTeam] || {};
-            const homeRecord = `${homeStats.wins}-${homeStats.losses}${homeStats.ties > 0 ? '-' + homeStats.ties : ''}`;
-            const awayRecord = `${awayStats.wins}-${awayStats.losses}${awayStats.ties > 0 ? '-' + awayStats.ties : ''}`;
+            const homeRecord = `${homeStats.wins || '0'}-${homeStats.losses || '0'}${homeStats.ties > 0 ? '-' + homeStats.ties : ''}`;
+            const awayRecord = `${awayStats.wins || '0'}-${awayStats.losses || '0'}${awayStats.ties > 0 ? '-' + awayStats.ties : ''}`;
 
             const homeAdv = teamAdvancedStats[prediction.homeTeam] || {};
             const awayAdv = teamAdvancedStats[prediction.awayTeam] || {};
