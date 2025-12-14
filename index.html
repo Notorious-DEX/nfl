@@ -579,13 +579,16 @@
             try {
                 const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
                 const data = await response.json();
-                
+
                 for (const team of data.sports[0].leagues[0].teams) {
                     const teamName = team.team.displayName;
+                    const recordSummary = team.team.record?.items?.[0]?.summary || '0-0';
+                    const recordParts = recordSummary.split('-');
+
                     teamStats[teamName] = {
-                        wins: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'wins')?.value || '0',
-                        losses: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'losses')?.value || '0',
-                        ties: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'ties')?.value || '0'
+                        wins: recordParts[0] || '0',
+                        losses: recordParts[1] || '0',
+                        ties: recordParts[2] || '0'
                     };
                 }
             } catch (error) {
@@ -597,23 +600,38 @@
             try {
                 const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
                 const data = await response.json();
-                
+
                 for (const team of data.sports[0].leagues[0].teams) {
                     const teamName = team.team.displayName;
                     const teamId = team.team.id;
-                    
+
                     try {
                         const rosterResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamId}/roster`);
                         const rosterData = await rosterResponse.json();
-                        
-                        const qb = rosterData.athletes?.find(a => a.position.abbreviation === 'QB');
-                        const rb = rosterData.athletes?.find(a => a.position.abbreviation === 'RB');
-                        
+
+                        let qb = null;
+                        let rb = null;
+
+                        // Search through all roster groups (offense, defense, special teams)
+                        if (rosterData.athletes) {
+                            for (const group of rosterData.athletes) {
+                                if (group.items) {
+                                    if (!qb) {
+                                        qb = group.items.find(a => a.position?.abbreviation === 'QB');
+                                    }
+                                    if (!rb) {
+                                        rb = group.items.find(a => a.position?.abbreviation === 'RB');
+                                    }
+                                }
+                            }
+                        }
+
                         teamRosters[teamName] = {
-                            qb: qb?.fullName || 'QB',
-                            rb: rb?.fullName || 'RB'
+                            qb: qb?.fullName || qb?.displayName || 'QB',
+                            rb: rb?.fullName || rb?.displayName || 'RB'
                         };
                     } catch (e) {
+                        console.error(`Error fetching roster for ${teamName}:`, e);
                         teamRosters[teamName] = { qb: 'QB', rb: 'RB' };
                     }
                 }
@@ -626,27 +644,49 @@
             try {
                 const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
                 const data = await response.json();
-                
+
                 const allTeams = [];
-                
+
                 for (const team of data.sports[0].leagues[0].teams) {
                     const teamName = team.team.displayName;
-                    const stats = team.team.record?.items?.[0]?.stats || [];
-                    
-                    const ppg = parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 24);
-                    const papg = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 24);
-                    
-                    allTeams.push({
-                        name: teamName,
-                        ppg,
-                        papg
-                    });
+                    const teamId = team.team.id;
+
+                    try {
+                        const statsResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamId}/statistics`);
+                        const statsData = await statsResponse.json();
+
+                        const splits = statsData.splits?.categories || [];
+                        let ppg = 20, papg = 20;
+
+                        splits.forEach(category => {
+                            if (category.name === 'scoring') {
+                                const ppgStat = category.stats?.find(s => s.name === 'avgPointsPerGame');
+                                if (ppgStat) ppg = parseFloat(ppgStat.value) || 20;
+                            }
+                            if (category.name === 'defensive') {
+                                const papgStat = category.stats?.find(s => s.name === 'avgPointsPerGame');
+                                if (papgStat) papg = parseFloat(papgStat.value) || 20;
+                            }
+                        });
+
+                        allTeams.push({
+                            name: teamName,
+                            ppg,
+                            papg
+                        });
+                    } catch (e) {
+                        allTeams.push({
+                            name: teamName,
+                            ppg: 20,
+                            papg: 20
+                        });
+                    }
                 }
-                
+
                 // Sort and rank
                 const offenseRanked = [...allTeams].sort((a, b) => b.ppg - a.ppg);
                 const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
-                
+
                 for (const team of allTeams) {
                     teamAdvancedStats[team.name] = {
                         pointsFor: team.ppg,
@@ -664,9 +704,9 @@
             try {
                 const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100');
                 const data = await response.json();
-                
+
                 data.articles?.forEach(article => {
-                    if (article.headline.toLowerCase().includes('injury') || 
+                    if (article.headline.toLowerCase().includes('injury') ||
                         article.headline.toLowerCase().includes('out') ||
                         article.headline.toLowerCase().includes('questionable')) {
                         const teams = article.categories?.filter(c => c.type === 'team');
@@ -675,7 +715,10 @@
                                 injuries[team.description] = [];
                             }
                             if (injuries[team.description].length < 3) {
-                                injuries[team.description].push(article.headline);
+                                injuries[team.description].push({
+                                    headline: article.headline,
+                                    link: article.links?.web?.href || '#'
+                                });
                             }
                         });
                     }
@@ -915,14 +958,20 @@
                 if (prediction.injuries.home.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.homeTeam}:</strong>`;
                     prediction.injuries.home.slice(0, 2).forEach(inj => {
-                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 70)}...</div>`;
+                        const headline = typeof inj === 'string' ? inj : inj.headline;
+                        const link = typeof inj === 'string' ? '#' : inj.link;
+                        const truncated = headline.substring(0, 70) + (headline.length > 70 ? '...' : '');
+                        injuryHTML += `<div class="injury-item">• <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${truncated}</a></div>`;
                     });
                     injuryHTML += '</div>';
                 }
                 if (prediction.injuries.away.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.awayTeam}:</strong>`;
                     prediction.injuries.away.slice(0, 2).forEach(inj => {
-                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 70)}...</div>`;
+                        const headline = typeof inj === 'string' ? inj : inj.headline;
+                        const link = typeof inj === 'string' ? '#' : inj.link;
+                        const truncated = headline.substring(0, 70) + (headline.length > 70 ? '...' : '');
+                        injuryHTML += `<div class="injury-item">• <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${truncated}</a></div>`;
                     });
                     injuryHTML += '</div>';
                 }
@@ -1012,19 +1061,19 @@
                             <div class="prediction-title">🏈 Player Projections</div>
                             <div class="stats-breakdown">
                                 <div class="stat-row">
-                                    <span>${prediction.homeQB}:</span>
+                                    <span>${prediction.homeQB} (${TEAM_DATA[prediction.homeTeam]?.abbr || prediction.homeTeam}):</span>
                                     <strong>${prediction.homeQBYards} yds, ${prediction.homeQBTDs} TDs</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.awayQB}:</span>
+                                    <span>${prediction.awayQB} (${TEAM_DATA[prediction.awayTeam]?.abbr || prediction.awayTeam}):</span>
                                     <strong>${prediction.awayQBYards} yds, ${prediction.awayQBTDs} TDs</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.homeRB}:</span>
+                                    <span>${prediction.homeRB} (${TEAM_DATA[prediction.homeTeam]?.abbr || prediction.homeTeam}):</span>
                                     <strong>${prediction.homeRBYards} yds</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.awayRB}:</span>
+                                    <span>${prediction.awayRB} (${TEAM_DATA[prediction.awayTeam]?.abbr || prediction.awayTeam}):</span>
                                     <strong>${prediction.awayRBYards} yds</strong>
                                 </div>
                             </div>
