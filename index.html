@@ -739,55 +739,59 @@
 
         async function fetchTeamStats() {
             try {
-                console.log('===== FETCHING TEAM STATS FROM ESPN API =====');
+                console.log('===== FETCHING TEAM STATS FROM ESPN STANDINGS =====');
 
-                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32');
+                // Fetch standings which has complete team stats (2025 season)
+                const response = await fetch('https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season=2025');
                 const data = await response.json();
 
-                if (!data.sports?.[0]?.leagues?.[0]?.teams) {
-                    throw new Error('Invalid ESPN API response');
+                if (!data.children) {
+                    throw new Error('Invalid ESPN standings response');
                 }
 
-                const teams = data.sports[0].leagues[0].teams;
-                console.log(`Processing ${teams.length} teams`);
+                // Process both AFC and NFC
+                for (const conference of data.children) {
+                    for (const division of conference.children || []) {
+                        for (const standing of division.standings?.entries || []) {
+                            const team = standing.team;
+                            const teamName = team.displayName;
+                            const stats = standing.stats || [];
 
-                for (const teamObj of teams) {
-                    const team = teamObj.team;
-                    const teamName = team.displayName;
-                    const record = team.record?.items?.[0];
+                            // Extract record
+                            const wins = parseInt(stats.find(s => s.name === 'wins')?.value || 0);
+                            const losses = parseInt(stats.find(s => s.name === 'losses')?.value || 0);
+                            const ties = parseInt(stats.find(s => s.name === 'ties')?.value || 0);
 
-                    if (record) {
-                        const summary = record.summary || '0-0';
-                        const [wins, losses, ties = '0'] = summary.split('-');
-                        const stats = record.stats || [];
+                            // Extract scoring stats
+                            const pointsFor = parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 0);
+                            const pointsAgainst = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 0);
+                            const gamesPlayed = parseInt(stats.find(s => s.name === 'gamesPlayed')?.value || 0) || (wins + losses + ties);
 
-                        const gamesPlayed = parseInt(wins) + parseInt(losses) + parseInt(ties);
-                        let ppg = parseFloat(stats.find(s => s.name === 'avgPointsFor')?.value || 0);
-                        let papg = parseFloat(stats.find(s => s.name === 'avgPointsAgainst')?.value || 0);
+                            const ppg = gamesPlayed > 0 ? pointsFor / gamesPlayed : 0;
+                            const papg = gamesPlayed > 0 ? pointsAgainst / gamesPlayed : 0;
 
-                        if (!ppg && gamesPlayed > 0) {
-                            const pf = parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 0);
-                            ppg = pf / gamesPlayed;
+                            // Extract advanced stats
+                            const totalYards = parseFloat(stats.find(s => s.name === 'totalYards')?.value || 0);
+                            const yardsPerGame = gamesPlayed > 0 ? totalYards / gamesPlayed : 0;
+                            const totalTouchdowns = parseInt(stats.find(s => s.name === 'totalTouchdowns')?.value || 0);
+
+                            teamStats[teamName] = {
+                                wins: wins.toString(),
+                                losses: losses.toString(),
+                                ties: ties.toString(),
+                                winPct: gamesPlayed > 0 ? wins / gamesPlayed : 0,
+                                ppg: ppg,
+                                papg: papg,
+                                yardsPerGame: yardsPerGame,
+                                totalTouchdowns: totalTouchdowns
+                            };
+
+                            console.log(`✓ ${teamName}: ${wins}-${losses} (${ppg.toFixed(1)} PPG, ${papg.toFixed(1)} PAPG)`);
                         }
-                        if (!papg && gamesPlayed > 0) {
-                            const pa = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 0);
-                            papg = pa / gamesPlayed;
-                        }
-
-                        teamStats[teamName] = {
-                            wins,
-                            losses,
-                            ties,
-                            winPct: gamesPlayed > 0 ? parseInt(wins) / gamesPlayed : 0,
-                            ppg: ppg || 0,
-                            papg: papg || 0
-                        };
                     }
                 }
 
-                console.log(`✓ Loaded ${Object.keys(teamStats).length} teams`);
-                const sample = Object.entries(teamStats).slice(0, 2);
-                sample.forEach(([name, data]) => console.log(`  ${name}: ${data.wins}-${data.losses}`));
+                console.log(`✓ Loaded ${Object.keys(teamStats).length} teams from standings`);
 
             } catch (error) {
                 console.error('❌ ERROR fetching team stats:', error);
@@ -845,9 +849,14 @@
 
                 const teams = Object.keys(teamStats).map(name => ({
                     name,
-                    ppg: teamStats[name].ppg,
-                    papg: teamStats[name].papg
+                    ppg: teamStats[name].ppg || 0,
+                    papg: teamStats[name].papg || 0,
+                    ypg: teamStats[name].yardsPerGame || 0
                 }));
+
+                if (teams.length === 0) {
+                    throw new Error('No teams loaded in teamStats');
+                }
 
                 // Rank: highest PPG = #1 offense, lowest PAPG = #1 defense
                 const offenseRanked = [...teams].sort((a, b) => b.ppg - a.ppg);
@@ -857,14 +866,15 @@
                     teamAdvancedStats[team.name] = {
                         pointsFor: team.ppg,
                         pointsAgainst: team.papg,
+                        yardsPerGame: team.ypg,
                         offensiveRank: offenseRanked.findIndex(t => t.name === team.name) + 1,
                         defensiveRank: defenseRanked.findIndex(t => t.name === team.name) + 1
                     };
                 });
 
                 console.log(`✓ Ranked ${teams.length} teams`);
-                console.log('Top 3 Offense:', offenseRanked.slice(0, 3).map((t, i) => `#${i+1} ${t.name}`).join(', '));
-                console.log('Top 3 Defense:', defenseRanked.slice(0, 3).map((t, i) => `#${i+1} ${t.name}`).join(', '));
+                console.log('Top 3 Offense:', offenseRanked.slice(0, 3).map((t, i) => `#${i+1} ${t.name} (${t.ppg.toFixed(1)} PPG)`).join(', '));
+                console.log('Top 3 Defense:', defenseRanked.slice(0, 3).map((t, i) => `#${i+1} ${t.name} (${t.papg.toFixed(1)} PAPG)`).join(', '));
 
             } catch (error) {
                 console.error('❌ ERROR calculating rankings:', error);
@@ -967,18 +977,26 @@
                 weather: weather
             };
 
-            const homeStats = teamStats[homeTeam] || {};
-            const awayStats = teamStats[awayTeam] || {};
-            const homeAdv = teamAdvancedStats[homeTeam] || {};
-            const awayAdv = teamAdvancedStats[awayTeam] || {};
+            const homeStats = teamStats[homeTeam] || { wins: '0', losses: '0', ties: '0', ppg: 20, papg: 20 };
+            const awayStats = teamStats[awayTeam] || { wins: '0', losses: '0', ties: '0', ppg: 20, papg: 20 };
+            const homeAdv = teamAdvancedStats[homeTeam] || { pointsFor: 20, pointsAgainst: 20, offensiveRank: 16, defensiveRank: 16 };
+            const awayAdv = teamAdvancedStats[awayTeam] || { pointsFor: 20, pointsAgainst: 20, offensiveRank: 16, defensiveRank: 16 };
+
+            // Debug logging
+            if (!teamStats[homeTeam]) {
+                console.warn(`⚠️ Missing stats for ${homeTeam}. Available teams:`, Object.keys(teamStats).slice(0, 5));
+            }
+            if (!teamStats[awayTeam]) {
+                console.warn(`⚠️ Missing stats for ${awayTeam}. Available teams:`, Object.keys(teamStats).slice(0, 5));
+            }
 
             const homeWins = parseInt(homeStats.wins || 0);
             const homeLosses = parseInt(homeStats.losses || 0);
             const awayWins = parseInt(awayStats.wins || 0);
             const awayLosses = parseInt(awayStats.losses || 0);
 
-            const homeWinPct = homeWins / (homeWins + homeLosses) || 0.5;
-            const awayWinPct = awayWins / (awayWins + awayLosses) || 0.5;
+            const homeWinPct = (homeWins + homeLosses) > 0 ? homeWins / (homeWins + homeLosses) : 0.5;
+            const awayWinPct = (awayWins + awayLosses) > 0 ? awayWins / (awayWins + awayLosses) : 0.5;
 
             // Matchup analysis
             if (homeAdv.offensiveRank < 10 && awayAdv.defensiveRank > 20) {
@@ -1009,9 +1027,14 @@
                 }
             }
 
-            // Score prediction
-            let baseHomeScore = (homeAdv.pointsFor + awayAdv.pointsAgainst) / 2;
-            let baseAwayScore = (awayAdv.pointsFor + homeAdv.pointsAgainst) / 2;
+            // Score prediction with fallbacks
+            const homePointsFor = homeAdv.pointsFor || 20;
+            const homePointsAgainst = homeAdv.pointsAgainst || 20;
+            const awayPointsFor = awayAdv.pointsFor || 20;
+            const awayPointsAgainst = awayAdv.pointsAgainst || 20;
+
+            let baseHomeScore = (homePointsFor + awayPointsAgainst) / 2;
+            let baseAwayScore = (awayPointsFor + homePointsAgainst) / 2;
 
             if (prediction.spread !== 'N/A' && prediction.total !== 'N/A') {
                 const spread = parseFloat(prediction.spread);
@@ -1051,12 +1074,14 @@
                 }
             }
 
-            prediction.homeScore = Math.max(10, Math.round(baseHomeScore));
-            prediction.awayScore = Math.max(10, Math.round(baseAwayScore));
+            // Ensure scores are never NaN
+            prediction.homeScore = Math.max(10, Math.round(baseHomeScore) || 20);
+            prediction.awayScore = Math.max(10, Math.round(baseAwayScore) || 20);
 
             // Handle ties - give slight edge to home team
-            if (prediction.homeScore === prediction.awayScore) {
-                prediction.homeScore += 1;
+            if (prediction.homeScore === prediction.awayScore || isNaN(prediction.homeScore) || isNaN(prediction.awayScore)) {
+                prediction.homeScore = 24;
+                prediction.awayScore = 20;
             }
 
             // Build rationale
@@ -1110,13 +1135,17 @@
             prediction.awayQB = awayRoster.qb || 'QB';
             prediction.homeRB = homeRoster.rb || 'RB';
             prediction.awayRB = awayRoster.rb || 'RB';
-            
-            prediction.homeQBYards = Math.round(prediction.homeScore * 11);
-            prediction.homeQBTDs = Math.max(1, Math.floor(prediction.homeScore / 8));
-            prediction.awayQBYards = Math.round(prediction.awayScore * 11);
-            prediction.awayQBTDs = Math.max(1, Math.floor(prediction.awayScore / 8));
-            prediction.homeRBYards = Math.round(prediction.homeScore * 4);
-            prediction.awayRBYards = Math.round(prediction.awayScore * 4);
+
+            // Ensure player stats are never NaN
+            const safeHomeScore = prediction.homeScore || 20;
+            const safeAwayScore = prediction.awayScore || 20;
+
+            prediction.homeQBYards = Math.round(safeHomeScore * 11);
+            prediction.homeQBTDs = Math.max(1, Math.floor(safeHomeScore / 8));
+            prediction.awayQBYards = Math.round(safeAwayScore * 11);
+            prediction.awayQBTDs = Math.max(1, Math.floor(safeAwayScore / 8));
+            prediction.homeRBYards = Math.round(safeHomeScore * 4);
+            prediction.awayRBYards = Math.round(safeAwayScore * 4);
             
             if (prediction.spread !== 'N/A') {
                 const actualMargin = prediction.homeScore - prediction.awayScore;
