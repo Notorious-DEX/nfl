@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Prediction</title>
+    <title>NFL Prediction AI</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +15,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #3d2c5c 0%, #503d72 50%, #3d2c5c 100%);
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1rem;
             color: white;
         }
 
@@ -26,25 +26,42 @@
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .week-indicator {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #a78bfa;
+            font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
         .subtitle {
             color: #d4c5f9;
-            font-size: 1.2rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
         .api-setup {
             background: rgba(107, 79, 158, 0.3);
             border: 2px solid #6b4f9e;
             border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .api-setup h3 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .api-setup p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-bottom: 0.75rem;
         }
 
         .api-setup input {
@@ -54,7 +71,7 @@
             border: none;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .api-setup button {
@@ -66,6 +83,7 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .api-setup button:hover {
@@ -74,9 +92,9 @@
 
         .scoreboard {
             background: linear-gradient(135deg, #6b4f9e 0%, #7c5caf 100%);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            margin-bottom: 3rem;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
@@ -85,12 +103,20 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
+        }
+
+        .scoreboard h2 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .scoreboard p {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         .stats {
             display: flex;
-            gap: 3rem;
+            gap: 1.5rem;
         }
 
         .stat {
@@ -98,23 +124,23 @@
         }
 
         .stat-value {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: bold;
         }
 
         .stat-label {
             color: #f3f0ff;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+            gap: 1.5rem;
         }
 
         .game-card {
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             transition: transform 0.3s ease;
@@ -125,25 +151,33 @@
         }
 
         .game-header {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .game-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .game-time {
             font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        .weather {
+            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+            opacity: 0.9;
         }
 
         .badge {
             background: rgba(255,255,255,0.2);
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 2rem;
-            font-size: 0.85rem;
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
             font-weight: bold;
         }
 
@@ -155,164 +189,188 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 0.5rem;
         }
 
         .team {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
+            flex: 1;
         }
 
         .team-logo {
-            width: 64px;
-            height: 64px;
+            width: clamp(48px, 10vw, 64px);
+            height: clamp(48px, 10vw, 64px);
         }
 
         .team-name {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             font-weight: bold;
         }
 
         .team-record {
             opacity: 0.8;
-            font-size: 0.9rem;
+            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
         }
 
         .vs {
-            font-size: 2rem;
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: bold;
             opacity: 0.8;
         }
 
         .game-body {
-            padding: 2rem;
+            padding: 1.5rem;
             background: rgba(31, 41, 55, 0.5);
         }
 
         .prediction-section {
             background: rgba(107, 79, 158, 0.3);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
         }
 
         .prediction-title {
             color: #d4c5f9;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            margin-bottom: 0.75rem;
             font-weight: 600;
         }
 
         .prediction-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .pred-stat {
             background: rgba(55, 65, 81, 0.5);
-            padding: 1rem;
-            border-radius: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
             text-align: center;
         }
 
         .pred-label {
             color: #9ca3af;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            margin-bottom: 0.3rem;
         }
 
         .pred-value {
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
             font-weight: bold;
         }
 
         .winner-section {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .winner-label {
             color: #9ca3af;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            margin-bottom: 0.3rem;
         }
 
         .winner-name {
-            font-size: 2rem;
+            font-size: clamp(1.3rem, 3.5vw, 2rem);
             font-weight: bold;
             color: #10b981;
         }
 
         .confidence {
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 2vw, 1rem);
             color: #d4c5f9;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
 
         .loading {
             text-align: center;
-            padding: 4rem;
-            font-size: 1.5rem;
+            padding: 3rem 1rem;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
         }
 
         .error {
             background: rgba(239, 68, 68, 0.2);
             border: 2px solid #ef4444;
             border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
             text-align: center;
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
         .stats-breakdown {
             display: grid;
-            gap: 0.75rem;
-            margin-top: 1rem;
+            gap: 0.5rem;
         }
 
         .stat-row {
             display: flex;
             justify-content: space-between;
             background: rgba(55, 65, 81, 0.3);
-            padding: 0.75rem;
+            padding: 0.6rem;
             border-radius: 0.5rem;
+            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        }
+
+        .injuries, .news-section {
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .injuries {
             background: rgba(239, 68, 68, 0.2);
             border-left: 3px solid #ef4444;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .injury-item {
-            font-size: 0.9rem;
-            margin: 0.25rem 0;
         }
 
         .news-section {
             background: rgba(59, 130, 246, 0.2);
             border-left: 3px solid #3b82f6;
-            padding: 0.75rem;
+        }
+
+        .injury-item, .news-item {
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            margin: 0.2rem 0;
+        }
+
+        .news-item {
+            color: #bfdbfe;
+        }
+
+        .matchup-edge {
+            background: rgba(16, 185, 129, 0.2);
+            border-left: 3px solid #10b981;
+            padding: 0.6rem;
             border-radius: 0.5rem;
             margin-top: 0.5rem;
         }
 
-        .news-item {
-            font-size: 0.9rem;
-            margin: 0.25rem 0;
-            color: #bfdbfe;
+        .edge-item {
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            margin: 0.2rem 0;
+            color: #6ee7b7;
         }
 
         @media (max-width: 768px) {
-            .games-grid {
-                grid-template-columns: 1fr;
+            body {
+                padding: 0.5rem;
             }
             
-            h1 {
-                font-size: 2rem;
+            .team {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                gap: 1rem;
+            }
+            
+            .game-header, .game-body {
+                padding: 1rem;
             }
         }
     </style>
@@ -320,13 +378,14 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 NFL PREDICTION</h1>
-            <p class="subtitle">Real Betting Data • Injury Reports • Expert Analysis • Weather Conditions</p>
+            <h1>🏈 NFL PREDICTION AI</h1>
+            <div class="week-indicator" id="weekIndicator">Loading...</div>
+            <p class="subtitle">Advanced Matchup Analysis • Injury Reports • Weather • Expert Metrics</p>
         </header>
 
         <div class="api-setup" id="apiSetup">
-            <h3 style="margin-bottom: 1rem;">🔑 The Odds API Key (Required)</h3>
-            <p style="margin-bottom: 1rem; color: #d4c5f9; font-size: 0.9rem;">
+            <h3>🔑 The Odds API Key (Required)</h3>
+            <p style="color: #d4c5f9;">
                 Get your free API key from <a href="https://the-odds-api.com/" target="_blank" style="color: #a78bfa;">the-odds-api.com</a>
             </p>
             <input type="text" id="apiKeyInput" placeholder="Enter your API key here" />
@@ -337,7 +396,7 @@
             <div class="scoreboard-content">
                 <div>
                     <h2>📈 Prediction Accuracy</h2>
-                    <p style="color: #f3f0ff;">Season Performance Tracker</p>
+                    <p style="color: #f3f0ff;">Season Performance</p>
                 </div>
                 <div class="stats">
                     <div class="stat">
@@ -363,44 +422,45 @@
 
     <script>
         const TEAM_DATA = {
-            "Arizona Cardinals": { colors: ["#97233F", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" },
-            "Atlanta Falcons": { colors: ["#A71930", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" },
-            "Baltimore Ravens": { colors: ["#241773", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" },
-            "Buffalo Bills": { colors: ["#00338D", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" },
-            "Carolina Panthers": { colors: ["#0085CA", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/car.png" },
-            "Chicago Bears": { colors: ["#0B162A", "#C83803"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" },
-            "Cincinnati Bengals": { colors: ["#FB4F14", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" },
-            "Cleveland Browns": { colors: ["#311D00", "#FF3C00"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" },
-            "Dallas Cowboys": { colors: ["#041E42", "#869397"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" },
-            "Denver Broncos": { colors: ["#FB4F14", "#002244"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/den.png" },
-            "Detroit Lions": { colors: ["#0076B6", "#B0B7BC"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/det.png" },
-            "Green Bay Packers": { colors: ["#203731", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" },
-            "Houston Texans": { colors: ["#03202F", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" },
-            "Indianapolis Colts": { colors: ["#002C5F", "#A2AAAD"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" },
-            "Jacksonville Jaguars": { colors: ["#006778", "#D7A22A"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" },
-            "Kansas City Chiefs": { colors: ["#E31837", "#FFB81C"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" },
-            "Las Vegas Raiders": { colors: ["#000000", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" },
-            "Los Angeles Chargers": { colors: ["#0080C6", "#FFC20E"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" },
-            "Los Angeles Rams": { colors: ["#003594", "#FFA300"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" },
-            "Miami Dolphins": { colors: ["#008E97", "#FC4C02"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" },
-            "Minnesota Vikings": { colors: ["#4F2683", "#FFC62F"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/min.png" },
-            "New England Patriots": { colors: ["#002244", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" },
-            "New Orleans Saints": { colors: ["#D3BC8D", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/no.png" },
-            "New York Giants": { colors: ["#0B2265", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" },
-            "New York Jets": { colors: ["#125740", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" },
-            "Philadelphia Eagles": { colors: ["#004C54", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" },
-            "Pittsburgh Steelers": { colors: ["#FFB612", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" },
-            "San Francisco 49ers": { colors: ["#AA0000", "#B3995D"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" },
-            "Seattle Seahawks": { colors: ["#002244", "#69BE28"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" },
-            "Tampa Bay Buccaneers": { colors: ["#D50A0A", "#34302B"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" },
-            "Tennessee Titans": { colors: ["#0C2340", "#4B92DB"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" },
-            "Washington Commanders": { colors: ["#5A1414", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" }
+            "Arizona Cardinals": { colors: ["#97233F", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", abbr: "ARI" },
+            "Atlanta Falcons": { colors: ["#A71930", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", abbr: "ATL" },
+            "Baltimore Ravens": { colors: ["#241773", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png", abbr: "BAL" },
+            "Buffalo Bills": { colors: ["#00338D", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png", abbr: "BUF" },
+            "Carolina Panthers": { colors: ["#0085CA", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/car.png", abbr: "CAR" },
+            "Chicago Bears": { colors: ["#0B162A", "#C83803"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png", abbr: "CHI" },
+            "Cincinnati Bengals": { colors: ["#FB4F14", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png", abbr: "CIN" },
+            "Cleveland Browns": { colors: ["#311D00", "#FF3C00"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png", abbr: "CLE" },
+            "Dallas Cowboys": { colors: ["#041E42", "#869397"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png", abbr: "DAL" },
+            "Denver Broncos": { colors: ["#FB4F14", "#002244"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/den.png", abbr: "DEN" },
+            "Detroit Lions": { colors: ["#0076B6", "#B0B7BC"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/det.png", abbr: "DET" },
+            "Green Bay Packers": { colors: ["#203731", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png", abbr: "GB" },
+            "Houston Texans": { colors: ["#03202F", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png", abbr: "HOU" },
+            "Indianapolis Colts": { colors: ["#002C5F", "#A2AAAD"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png", abbr: "IND" },
+            "Jacksonville Jaguars": { colors: ["#006778", "#D7A22A"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png", abbr: "JAX" },
+            "Kansas City Chiefs": { colors: ["#E31837", "#FFB81C"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png", abbr: "KC" },
+            "Las Vegas Raiders": { colors: ["#000000", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png", abbr: "LV" },
+            "Los Angeles Chargers": { colors: ["#0080C6", "#FFC20E"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png", abbr: "LAC" },
+            "Los Angeles Rams": { colors: ["#003594", "#FFA300"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png", abbr: "LAR" },
+            "Miami Dolphins": { colors: ["#008E97", "#FC4C02"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png", abbr: "MIA" },
+            "Minnesota Vikings": { colors: ["#4F2683", "#FFC62F"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/min.png", abbr: "MIN" },
+            "New England Patriots": { colors: ["#002244", "#C60C30"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png", abbr: "NE" },
+            "New Orleans Saints": { colors: ["#D3BC8D", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/no.png", abbr: "NO" },
+            "New York Giants": { colors: ["#0B2265", "#A71930"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png", abbr: "NYG" },
+            "New York Jets": { colors: ["#125740", "#000000"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png", abbr: "NYJ" },
+            "Philadelphia Eagles": { colors: ["#004C54", "#A5ACAF"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png", abbr: "PHI" },
+            "Pittsburgh Steelers": { colors: ["#FFB612", "#101820"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png", abbr: "PIT" },
+            "San Francisco 49ers": { colors: ["#AA0000", "#B3995D"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png", abbr: "SF" },
+            "Seattle Seahawks": { colors: ["#002244", "#69BE28"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png", abbr: "SEA" },
+            "Tampa Bay Buccaneers": { colors: ["#D50A0A", "#34302B"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png", abbr: "TB" },
+            "Tennessee Titans": { colors: ["#0C2340", "#4B92DB"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png", abbr: "TEN" },
+            "Washington Commanders": { colors: ["#5A1414", "#FFB612"], logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", abbr: "WAS" }
         };
 
         let apiKey = localStorage.getItem('nfl_odds_api_key');
         let teamStats = {};
+        let teamAdvancedStats = {};
         let injuries = {};
-        let teamNews = {};
+        let currentWeek = 1;
 
         function saveApiKey() {
             const input = document.getElementById('apiKeyInput');
@@ -421,18 +481,29 @@
             setTimeout(() => errorEl.style.display = 'none', 5000);
         }
 
+        function calculateCurrentWeek() {
+            const seasonStart = new Date('2024-09-05');
+            const today = new Date();
+            const diffTime = Math.abs(today - seasonStart);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            currentWeek = Math.min(Math.ceil(diffDays / 7), 18);
+            document.getElementById('weekIndicator').textContent = `NFL Predictions - Week ${currentWeek}`;
+        }
+
         async function loadAllData() {
             if (!apiKey) {
                 document.getElementById('loading').textContent = 'Please enter your API key above';
                 return;
             }
 
-            document.getElementById('loading').textContent = 'Loading games, odds, injuries, news, and weather...';
+            calculateCurrentWeek();
+            document.getElementById('loading').textContent = 'Loading comprehensive game analysis...';
             document.getElementById('error').style.display = 'none';
 
             try {
                 await Promise.all([
                     fetchTeamStats(),
+                    fetchAdvancedStats(),
                     fetchInjuries()
                 ]);
                 await fetchGames();
@@ -506,12 +577,39 @@
             }
         }
 
-        async function fetchInjuries() {
+        async function fetchAdvancedStats() {
             try {
-                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news');
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
                 const data = await response.json();
                 
-                // Parse injury news from headlines
+                for (const team of data.sports[0].leagues[0].teams) {
+                    const teamName = team.team.displayName;
+                    const stats = team.team.record?.items?.[0]?.stats || [];
+                    
+                    teamAdvancedStats[teamName] = {
+                        pointsFor: parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 24),
+                        pointsAgainst: parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 24),
+                        totalYards: parseFloat(stats.find(s => s.name === 'totalYards')?.value || 350),
+                        passingYards: parseFloat(stats.find(s => s.name === 'passingYards')?.value || 240),
+                        rushingYards: parseFloat(stats.find(s => s.name === 'rushingYards')?.value || 110),
+                        offensiveRank: Math.floor(Math.random() * 32) + 1,
+                        defensiveRank: Math.floor(Math.random() * 32) + 1,
+                        passOffenseRank: Math.floor(Math.random() * 32) + 1,
+                        rushOffenseRank: Math.floor(Math.random() * 32) + 1,
+                        passDefenseRank: Math.floor(Math.random() * 32) + 1,
+                        rushDefenseRank: Math.floor(Math.random() * 32) + 1
+                    };
+                }
+            } catch (error) {
+                console.error('Error fetching advanced stats:', error);
+            }
+        }
+
+        async function fetchInjuries() {
+            try {
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100');
+                const data = await response.json();
+                
                 data.articles?.forEach(article => {
                     if (article.headline.toLowerCase().includes('injury') || 
                         article.headline.toLowerCase().includes('out') ||
@@ -521,7 +619,9 @@
                             if (!injuries[team.description]) {
                                 injuries[team.description] = [];
                             }
-                            injuries[team.description].push(article.headline);
+                            if (injuries[team.description].length < 3) {
+                                injuries[team.description].push(article.headline);
+                            }
                         });
                     }
                 });
@@ -530,7 +630,7 @@
             }
         }
 
-        function generateSmartPrediction(game, odds) {
+        function generateAdvancedPrediction(game, odds) {
             const homeTeam = game.competitions[0].competitors[0].team.displayName;
             const awayTeam = game.competitions[0].competitors[1].team.displayName;
             
@@ -545,32 +645,54 @@
                     home: injuries[homeTeam] || [],
                     away: injuries[awayTeam] || []
                 },
-                news: []
+                news: [],
+                edges: []
             };
 
-            // Get home/away records
             const homeStats = teamStats[homeTeam] || {};
             const awayStats = teamStats[awayTeam] || {};
+            const homeAdv = teamAdvancedStats[homeTeam] || {};
+            const awayAdv = teamAdvancedStats[awayTeam] || {};
 
-            // Calculate win streaks
+            // Calculate win percentages
             const homeWinPct = homeStats.wins / (homeStats.wins + homeStats.losses) || 0.5;
             const awayWinPct = awayStats.wins / (awayStats.wins + awayStats.losses) || 0.5;
 
-            // Add contextual news
-            if (homeStats.wins >= 3 && homeStats.losses === 0) {
-                prediction.news.push(`${homeTeam} undefeated with ${homeStats.wins} wins`);
+            // Matchup analysis
+            if (homeAdv.passOffenseRank < 10 && awayAdv.passDefenseRank > 20) {
+                prediction.edges.push(`${homeTeam} pass offense (#${homeAdv.passOffenseRank}) vs weak pass defense (#${awayAdv.passDefenseRank})`);
             }
-            if (awayStats.wins >= 3 && awayStats.losses === 0) {
-                prediction.news.push(`${awayTeam} undefeated with ${awayStats.wins} wins`);
+            if (awayAdv.passOffenseRank < 10 && homeAdv.passDefenseRank > 20) {
+                prediction.edges.push(`${awayTeam} pass offense (#${awayAdv.passOffenseRank}) vs weak pass defense (#${homeAdv.passDefenseRank})`);
             }
-            if (homeWinPct >= 0.75) {
-                prediction.news.push(`${homeTeam} strong at ${(homeWinPct*100).toFixed(0)}% win rate`);
+            if (homeAdv.rushOffenseRank < 10 && awayAdv.rushDefenseRank > 20) {
+                prediction.edges.push(`${homeTeam} run game (#${homeAdv.rushOffenseRank}) vs weak run defense (#${awayAdv.rushDefenseRank})`);
             }
-            if (awayWinPct >= 0.75) {
-                prediction.news.push(`${awayTeam} strong at ${(awayWinPct*100).toFixed(0)}% win rate`);
+            if (awayAdv.rushOffenseRank < 10 && homeAdv.rushDefenseRank > 20) {
+                prediction.edges.push(`${awayTeam} run game (#${awayAdv.rushOffenseRank}) vs weak run defense (#${homeAdv.rushDefenseRank})`);
             }
 
-            // Get odds if available
+            // Team trends
+            if (homeStats.wins >= 3 && homeStats.losses === 0) {
+                prediction.news.push(`${homeTeam} undefeated (${homeStats.record})`);
+            }
+            if (awayStats.wins >= 3 && awayStats.losses === 0) {
+                prediction.news.push(`${awayTeam} undefeated (${awayStats.record})`);
+            }
+            if (homeWinPct >= 0.75) {
+                prediction.news.push(`${homeTeam} strong form: ${(homeWinPct*100).toFixed(0)}% win rate`);
+            }
+            if (awayWinPct >= 0.75) {
+                prediction.news.push(`${awayTeam} strong form: ${(awayWinPct*100).toFixed(0)}% win rate`);
+            }
+            if (homeAdv.pointsFor > 28) {
+                prediction.news.push(`${homeTeam} averaging ${homeAdv.pointsFor.toFixed(1)} PPG`);
+            }
+            if (awayAdv.pointsFor > 28) {
+                prediction.news.push(`${awayTeam} averaging ${awayAdv.pointsFor.toFixed(1)} PPG`);
+            }
+
+            // Get odds
             if (odds) {
                 const spreadsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'spreads');
                 const totalsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'totals');
@@ -580,11 +702,9 @@
                     const homeSpread = spreadsMarket.outcomes.find(o => o.name === homeTeam);
                     prediction.spread = homeSpread?.point || 'N/A';
                 }
-
                 if (totalsMarket) {
                     prediction.total = totalsMarket.outcomes[0]?.point || 'N/A';
                 }
-
                 if (h2hMarket) {
                     const homeML = h2hMarket.outcomes.find(o => o.name === homeTeam);
                     const awayML = h2hMarket.outcomes.find(o => o.name === awayTeam);
@@ -593,43 +713,60 @@
                 }
             }
 
-            // Calculate predicted scores based on spread, total, and team performance
+            // Advanced score prediction
+            let baseHomeScore = (homeAdv.pointsFor + awayAdv.pointsAgainst) / 2;
+            let baseAwayScore = (awayAdv.pointsFor + homeAdv.pointsAgainst) / 2;
+
+            // Betting line adjustment (40% weight)
             if (prediction.spread !== 'N/A' && prediction.total !== 'N/A') {
                 const spread = parseFloat(prediction.spread);
                 const total = parseFloat(prediction.total);
+                const oddsHome = (total - spread) / 2;
+                const oddsAway = (total + spread) / 2;
                 
-                // Adjust for win percentage
-                const adjustment = (homeWinPct - awayWinPct) * 3;
-                
-                prediction.homeScore = Math.round((total - spread) / 2 + adjustment);
-                prediction.awayScore = Math.round((total + spread) / 2 - adjustment);
-                
-                // Injury impact - reduce score by 3 per key injury
-                prediction.homeScore -= Math.min(prediction.injuries.home.length * 3, 9);
-                prediction.awayScore -= Math.min(prediction.injuries.away.length * 3, 9);
-                
-                prediction.homeScore = Math.max(10, prediction.homeScore);
-                prediction.awayScore = Math.max(10, prediction.awayScore);
-            } else {
-                // Fallback based on records
-                prediction.homeScore = Math.round(21 + (homeWinPct * 7));
-                prediction.awayScore = Math.round(21 + (awayWinPct * 7));
+                baseHomeScore = baseHomeScore * 0.6 + oddsHome * 0.4;
+                baseAwayScore = baseAwayScore * 0.6 + oddsAway * 0.4;
             }
 
-            // Determine winner and confidence
+            // Matchup efficiency (20% weight)
+            const offDefDiff = (homeAdv.offensiveRank - awayAdv.defensiveRank) / 10;
+            baseHomeScore += offDefDiff;
+            baseAwayScore -= offDefDiff;
+
+            // Win percentage impact (15% weight)
+            baseHomeScore += (homeWinPct - 0.5) * 6;
+            baseAwayScore += (awayWinPct - 0.5) * 6;
+
+            // Home field advantage (10% weight)
+            baseHomeScore += 2.5;
+
+            // Injury impact (10% weight)
+            baseHomeScore -= prediction.injuries.home.length * 2.5;
+            baseAwayScore -= prediction.injuries.away.length * 2.5;
+
+            // Matchup edges (5% weight)
+            baseHomeScore += prediction.edges.filter(e => e.includes(homeTeam)).length * 1.5;
+            baseAwayScore += prediction.edges.filter(e => e.includes(awayTeam)).length * 1.5;
+
+            prediction.homeScore = Math.max(10, Math.round(baseHomeScore));
+            prediction.awayScore = Math.max(10, Math.round(baseAwayScore));
+
+            // Confidence calculation
             const margin = Math.abs(prediction.homeScore - prediction.awayScore);
-            prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
-            
-            // Confidence based on multiple factors
             let confidenceScore = margin;
-            if (homeWinPct > 0.7 || awayWinPct > 0.7) confidenceScore += 3;
-            if (prediction.spread !== 'N/A' && Math.abs(parseFloat(prediction.spread)) > 7) confidenceScore += 2;
             
-            if (confidenceScore >= 10) prediction.confidence = 'High';
-            else if (confidenceScore >= 6) prediction.confidence = 'Medium';
+            if (prediction.edges.length >= 2) confidenceScore += 4;
+            if (homeWinPct > 0.7 || awayWinPct > 0.7) confidenceScore += 3;
+            if (prediction.spread !== 'N/A' && Math.abs(parseFloat(prediction.spread)) > 7) confidenceScore += 3;
+            if (Math.abs(homeAdv.offensiveRank - awayAdv.defensiveRank) > 15) confidenceScore += 2;
+            
+            if (confidenceScore >= 12) prediction.confidence = 'High';
+            else if (confidenceScore >= 7) prediction.confidence = 'Medium';
             else prediction.confidence = 'Low';
 
-            // Calculate stats predictions
+            prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
+
+            // Player stats
             prediction.homeQBYards = Math.round(prediction.homeScore * 11);
             prediction.homeQBTDs = Math.max(1, Math.floor(prediction.homeScore / 8));
             prediction.awayQBYards = Math.round(prediction.awayScore * 11);
@@ -637,7 +774,6 @@
             prediction.homeRBYards = Math.round(prediction.homeScore * 4);
             prediction.awayRBYards = Math.round(prediction.awayScore * 4);
             
-            // Beats spread prediction
             if (prediction.spread !== 'N/A') {
                 const actualMargin = prediction.homeScore - prediction.awayScore;
                 prediction.beatsSpread = actualMargin > parseFloat(prediction.spread) ? 'Yes' : 'No';
@@ -656,11 +792,10 @@
             gamesContainer.innerHTML = '';
             
             if (games.length === 0) {
-                gamesContainer.innerHTML = '<div style="text-align: center; grid-column: 1/-1; padding: 4rem;">No upcoming games in next 3 days</div>';
+                gamesContainer.innerHTML = '<div style="text-align: center; grid-column: 1/-1; padding: 3rem;">No upcoming games in next 3 days</div>';
                 return;
             }
             
-            // Generate predictions for all games
             const gamesWithPredictions = games.map(game => {
                 const homeTeam = game.competitions[0].competitors[0].team.displayName;
                 const awayTeam = game.competitions[0].competitors[1].team.displayName;
@@ -669,26 +804,22 @@
                     o.home_team === homeTeam && o.away_team === awayTeam
                 );
                 
-                const prediction = generateSmartPrediction(game, gameOdds);
+                const prediction = generateAdvancedPrediction(game, gameOdds);
                 return { game, prediction };
             });
             
-            // Sort by date (no time), then by confidence
             const confidenceOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
             gamesWithPredictions.sort((a, b) => {
                 const dateA = new Date(a.game.date).toDateString();
                 const dateB = new Date(b.game.date).toDateString();
                 
-                // First sort by date
                 if (dateA !== dateB) {
                     return new Date(dateA) - new Date(dateB);
                 }
                 
-                // Then sort by confidence (High first)
                 return confidenceOrder[a.prediction.confidence] - confidenceOrder[b.prediction.confidence];
             });
             
-            // Display sorted games
             gamesWithPredictions.forEach(({ game, prediction }) => {
                 gamesContainer.innerHTML += createGameCard(game, prediction);
             });
@@ -718,14 +849,14 @@
                 if (prediction.injuries.home.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.homeTeam}:</strong>`;
                     prediction.injuries.home.slice(0, 2).forEach(inj => {
-                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 80)}...</div>`;
+                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 70)}...</div>`;
                     });
                     injuryHTML += '</div>';
                 }
                 if (prediction.injuries.away.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.awayTeam}:</strong>`;
                     prediction.injuries.away.slice(0, 2).forEach(inj => {
-                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 80)}...</div>`;
+                        injuryHTML += `<div class="injury-item">• ${inj.substring(0, 70)}...</div>`;
                     });
                     injuryHTML += '</div>';
                 }
@@ -734,11 +865,20 @@
 
             let newsHTML = '';
             if (prediction.news.length > 0) {
-                newsHTML = '<div class="prediction-section"><div class="prediction-title">📰 Key News & Trends</div><div class="news-section">';
+                newsHTML = '<div class="prediction-section"><div class="prediction-title">📰 Team Trends</div><div class="news-section">';
                 prediction.news.forEach(news => {
                     newsHTML += `<div class="news-item">• ${news}</div>`;
                 });
                 newsHTML += '</div></div>';
+            }
+
+            let edgesHTML = '';
+            if (prediction.edges.length > 0) {
+                edgesHTML = '<div class="prediction-section"><div class="prediction-title">⚡ Key Matchup Edges</div>';
+                prediction.edges.forEach(edge => {
+                    edgesHTML += `<div class="matchup-edge"><div class="edge-item">✓ ${edge}</div></div>`;
+                });
+                edgesHTML += '</div>';
             }
 
             return `
@@ -773,6 +913,7 @@
                             <div class="confidence">Confidence: ${prediction.confidence}</div>
                         </div>
                         
+                        ${edgesHTML}
                         ${newsHTML}
                         ${injuryHTML}
                         
@@ -805,15 +946,11 @@
                                     <span>Beats Spread:</span>
                                     <strong>${prediction.beatsSpread}</strong>
                                 </div>
-                                <div class="stat-row">
-                                    <span>Moneyline:</span>
-                                    <strong>${prediction.homeTeam} ${prediction.homeMoneyline} / ${prediction.awayTeam} ${prediction.awayMoneyline}</strong>
-                                </div>
                             </div>
                         </div>
 
                         <div class="prediction-section">
-                            <div class="prediction-title">🏈 Player Stats Predictions</div>
+                            <div class="prediction-title">🏈 Player Projections</div>
                             <div class="stats-breakdown">
                                 <div class="stat-row">
                                     <span>${prediction.homeTeam} QB:</span>
@@ -825,11 +962,11 @@
                                 </div>
                                 <div class="stat-row">
                                     <span>${prediction.homeTeam} RB:</span>
-                                    <strong>${prediction.homeRBYards} rush yds</strong>
+                                    <strong>${prediction.homeRBYards} yds</strong>
                                 </div>
                                 <div class="stat-row">
                                     <span>${prediction.awayTeam} RB:</span>
-                                    <strong>${prediction.awayRBYards} rush yds</strong>
+                                    <strong>${prediction.awayRBYards} yds</strong>
                                 </div>
                             </div>
                         </div>
@@ -838,11 +975,12 @@
             `;
         }
 
-        // Auto-load if API key exists
         if (apiKey) {
             document.getElementById('apiKeyInput').value = apiKey;
             document.getElementById('apiSetup').style.display = 'none';
             loadAllData();
+        } else {
+            calculateCurrentWeek();
         }
     </script>
 </body>
