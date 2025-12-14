@@ -682,6 +682,18 @@
                     teamCount: teamsData.sports?.[0]?.leagues?.[0]?.teams?.length
                 });
 
+                // Log first team to see structure
+                if (teamsData.sports?.[0]?.leagues?.[0]?.teams?.[0]) {
+                    const sampleTeam = teamsData.sports[0].leagues[0].teams[0].team;
+                    console.log('Sample team structure:', {
+                        name: sampleTeam.displayName,
+                        hasRecord: !!sampleTeam.record,
+                        recordItems: sampleTeam.record?.items?.length || 0,
+                        recordKeys: sampleTeam.record ? Object.keys(sampleTeam.record) : [],
+                        sampleRecord: sampleTeam.record?.items?.[0] || sampleTeam.record
+                    });
+                }
+
                 if (teamsData.sports?.[0]?.leagues?.[0]?.teams) {
                     const teams = teamsData.sports[0].leagues[0].teams;
                     console.log(`Processing ${teams.length} teams...`);
@@ -690,8 +702,24 @@
                         const team = teamObj.team;
                         const teamName = team.displayName;
 
-                        // Extract record from team object
-                        const record = team.record?.items?.[0];
+                        // Try multiple ways to extract record data
+                        let record = team.record?.items?.[0];
+
+                        // Alternative: check if record is directly available
+                        if (!record && team.record) {
+                            record = team.record;
+                        }
+
+                        // Alternative: check standingSummary
+                        if (!record && team.standingSummary) {
+                            const standingMatch = team.standingSummary.match(/(\d+)-(\d+)(?:-(\d+))?/);
+                            if (standingMatch) {
+                                record = {
+                                    summary: standingMatch[0],
+                                    stats: []
+                                };
+                            }
+                        }
 
                         if (record) {
                             const summary = record.summary || '0-0';
@@ -710,6 +738,10 @@
                                     const pointsAgainst = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 0);
                                     ppg = pointsFor / gamesPlayed;
                                     papg = pointsAgainst / gamesPlayed;
+                                } else {
+                                    // Default values as last resort
+                                    ppg = 21.5;
+                                    papg = 21.5;
                                 }
                             }
 
@@ -718,15 +750,25 @@
                                 losses: losses,
                                 ties: ties,
                                 winPct: parseFloat(stats.find(s => s.name === 'winPercent')?.value || (parseInt(wins) / (parseInt(wins) + parseInt(losses)) || 0)),
-                                ppg: ppg || 0,
-                                papg: papg || 0
+                                ppg: ppg || 21.5,
+                                papg: papg || 21.5
                             };
 
                             if (teamName === 'Houston Texans') {
                                 console.log('Texans data sample:', teamStats[teamName]);
                             }
                         } else {
-                            console.warn(`No record found for ${teamName}`);
+                            console.warn(`No record found for ${teamName}, checking alternatives...`);
+
+                            // Try to at least set team with neutral defaults
+                            teamStats[teamName] = {
+                                wins: '0',
+                                losses: '0',
+                                ties: '0',
+                                winPct: 0,
+                                ppg: 21.5,
+                                papg: 21.5
+                            };
                         }
                     }
                 }
@@ -735,7 +777,76 @@
                 console.log(`Successfully loaded stats for ${teamsLoaded} teams`);
 
                 if (teamsLoaded === 0) {
-                    throw new Error('No team data could be loaded from API');
+                    throw new Error('No team data could be loaded from API - check console logs for API response structure');
+                }
+
+                // Check if we got real data or just defaults
+                const teamsWithRealData = Object.values(teamStats).filter(t =>
+                    t.wins !== '0' || t.losses !== '0'
+                ).length;
+
+                if (teamsWithRealData === 0) {
+                    console.warn('⚠️ All teams have default 0-0 records - API may not be returning record data');
+                    console.log('Trying ESPN standings page...');
+
+                    // Try fetching from ESPN standings page
+                    try {
+                        const standingsResponse = await fetch('https://www.espn.com/nfl/standings');
+                        const standingsHTML = await standingsResponse.text();
+
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(standingsHTML, 'text/html');
+
+                        // Find all team rows in the standings table
+                        const teamRows = doc.querySelectorAll('tr.Table__TR');
+
+                        teamRows.forEach(row => {
+                            const teamLink = row.querySelector('.TeamLink a, .AnchorLink');
+                            const cells = row.querySelectorAll('td');
+
+                            if (teamLink && cells.length > 0) {
+                                const teamText = teamLink.textContent.trim();
+
+                                // Match to our TEAM_DATA
+                                const matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                    const abbr = TEAM_DATA[name].abbr;
+                                    return teamText.includes(abbr) || name.includes(teamText) || teamText.includes(name);
+                                });
+
+                                if (matchedTeam) {
+                                    // Extract W-L-T from cells
+                                    const wins = cells[0]?.textContent.trim() || '0';
+                                    const losses = cells[1]?.textContent.trim() || '0';
+                                    const ties = cells[2]?.textContent.trim() || '0';
+                                    const pct = cells[3]?.textContent.trim() || '0';
+                                    const pf = cells[4]?.textContent.trim() || '0';
+                                    const pa = cells[5]?.textContent.trim() || '0';
+
+                                    const gamesPlayed = parseInt(wins) + parseInt(losses) + parseInt(ties);
+                                    const ppg = gamesPlayed > 0 ? parseFloat(pf) / gamesPlayed : 21.5;
+                                    const papg = gamesPlayed > 0 ? parseFloat(pa) / gamesPlayed : 21.5;
+
+                                    teamStats[matchedTeam] = {
+                                        wins: wins,
+                                        losses: losses,
+                                        ties: ties,
+                                        winPct: parseFloat(pct),
+                                        ppg: ppg,
+                                        papg: papg
+                                    };
+                                }
+                            }
+                        });
+
+                        const updatedTeams = Object.values(teamStats).filter(t => t.wins !== '0' || t.losses !== '0').length;
+                        if (updatedTeams > 0) {
+                            console.log(`✓ Loaded standings for ${updatedTeams} teams from ESPN standings page`);
+                        } else {
+                            console.warn('Could not parse standings from ESPN page');
+                        }
+                    } catch (e) {
+                        console.warn('Could not fetch from ESPN standings page:', e);
+                    }
                 }
 
                 // Log sample data
