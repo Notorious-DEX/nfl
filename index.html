@@ -606,6 +606,898 @@
             }
         }
 
+        function showError(message) {
+            const errorEl = document.getElementById('error');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+            // Don't auto-hide critical errors - let user dismiss them
+        }
+
+        function calculateCurrentWeek() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+
+            // NFL 2025 season starts September 4, 2025
+            // NFL 2024 season started September 5, 2024
+            let seasonStart;
+            if (currentYear === 2025 && today.getMonth() >= 8) { // September or later
+                seasonStart = new Date('2025-09-04');
+            } else if (currentYear === 2025 && today.getMonth() < 8) {
+                // Still in 2024 season playoffs
+                seasonStart = new Date('2024-09-05');
+            } else {
+                seasonStart = new Date(`${currentYear}-09-05`);
+            }
+
+            const diffTime = today - seasonStart;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays < 0) {
+                // Season hasn't started yet
+                currentWeek = 1;
+            } else {
+                currentWeek = Math.min(Math.max(1, Math.floor(diffDays / 7) + 1), 18);
+            }
+
+            document.getElementById('weekIndicator').textContent = `NFL Predictions - Week ${currentWeek}`;
+        }
+
+        async function loadAllData() {
+            if (!apiKey) {
+                document.getElementById('loading').textContent = 'Please enter your API key above';
+                return;
+            }
+
+            calculateCurrentWeek();
+            document.getElementById('loading').textContent = 'Loading comprehensive game analysis...';
+            document.getElementById('error').style.display = 'none';
+
+            try {
+                // Load team stats first, then compute rankings based on that data
+                await fetchTeamStats();
+                console.log('Team stats loaded successfully');
+
+                // Compute rankings from the loaded stats
+                await fetchAdvancedStats();
+                console.log('Team rankings computed successfully');
+
+                // Load additional data in parallel
+                await Promise.all([
+                    fetchInjuries(),
+                    fetchRosters()
+                ]);
+                console.log('Injuries and rosters loaded');
+
+                // Finally fetch and display games
+                await fetchGames();
+            } catch (error) {
+                console.error('Failed to load data:', error);
+                showError('❌ Failed to load team data: ' + error.message + '. Please check browser console for details.');
+                document.getElementById('loading').textContent = 'Error loading data. Check the error message above and browser console for details.';
+            }
+        }
+
+        async function fetchGames() {
+            const allGames = [];
+            const today = new Date();
+            
+            for (let i = 0; i < 3; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0].replace(/-/g, '');
+                
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${dateStr}`
+                );
+                const data = await response.json();
+                
+                if (data.events) {
+                    allGames.push(...data.events);
+                }
+            }
+            
+            if (allGames.length > 0) {
+                await fetchOddsAndDisplay(allGames);
+            } else {
+                document.getElementById('loading').textContent = 'No upcoming games in next 3 days';
+            }
+        }
+
+        async function fetchOddsAndDisplay(games) {
+            try {
+                const oddsResponse = await fetch(
+                    `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds?regions=us&markets=h2h,spreads,totals&oddsFormat=american&apiKey=${apiKey}`
+                );
+                
+                if (!oddsResponse.ok) {
+                    throw new Error('Failed to fetch odds. Check your API key.');
+                }
+                
+                const oddsData = await oddsResponse.json();
+                displayGames(games, oddsData);
+            } catch (error) {
+                showError(error.message);
+                displayGames(games, []);
+            }
+        }
+
+        async function fetchTeamStats() {
+            try {
+                console.log('===== FETCHING TEAM RECORDS FROM ESPN STANDINGS =====');
+
+                // Fetch directly from ESPN standings page (PRIMARY source)
+                const standingsResponse = await fetch('https://www.espn.com/nfl/standings');
+
+                if (!standingsResponse.ok) {
+                    throw new Error(`ESPN standings page returned ${standingsResponse.status}`);
+                }
+
+                const standingsHTML = await standingsResponse.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(standingsHTML, 'text/html');
+
+                // Find all team rows - ESPN uses specific table structure
+                const tables = doc.querySelectorAll('table.Table');
+                console.log(`Found ${tables.length} tables on standings page`);
+
+                tables.forEach((table, tableIndex) => {
+                    const rows = table.querySelectorAll('tbody tr');
+                    console.log(`Table ${tableIndex}: ${rows.length} rows`);
+
+                    rows.forEach((row, rowIndex) => {
+                        // Get team name from the row
+                        const teamNameSpan = row.querySelector('.TeamLink .Table__Team .db');
+                        const cells = row.querySelectorAll('td');
+
+                        if (teamNameSpan && cells.length >= 6) {
+                            const teamText = teamNameSpan.textContent.trim();
+
+                            // Match to our TEAM_DATA by team name
+                            let matchedTeam = Object.keys(TEAM_DATA).find(name => name === teamText);
+
+                            // If not found, try matching by abbreviation
+                            if (!matchedTeam) {
+                                matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                    const abbr = TEAM_DATA[name].abbr;
+                                    return teamText.toLowerCase().includes(abbr.toLowerCase());
+                                });
+                            }
+
+                            if (matchedTeam) {
+                                // Extract stats from table cells (W, L, T, PCT, PF, PA)
+                                const wins = cells[0]?.textContent.trim() || '0';
+                                const losses = cells[1]?.textContent.trim() || '0';
+                                const ties = cells[2]?.textContent.trim() || '0';
+                                const pct = cells[3]?.textContent.trim() || '0';
+                                const pf = cells[4]?.textContent.trim() || '0';
+                                const pa = cells[5]?.textContent.trim() || '0';
+
+                                const gamesPlayed = parseInt(wins) + parseInt(losses) + parseInt(ties);
+                                const ppg = gamesPlayed > 0 ? parseFloat(pf) / gamesPlayed : 0;
+                                const papg = gamesPlayed > 0 ? parseFloat(pa) / gamesPlayed : 0;
+
+                                teamStats[matchedTeam] = {
+                                    wins: wins,
+                                    losses: losses,
+                                    ties: ties,
+                                    winPct: parseFloat(pct) || 0,
+                                    ppg: ppg,
+                                    papg: papg
+                                };
+
+                                if (rowIndex < 2) {
+                                    console.log(`  ${matchedTeam}: ${wins}-${losses}-${ties} (${pf} PF, ${pa} PA)`);
+                                }
+                            } else {
+                                console.warn(`Could not match team: "${teamText}"`);
+                            }
+                        }
+                    });
+                });
+
+                const teamsLoaded = Object.keys(teamStats).length;
+                console.log(`✓ Loaded records for ${teamsLoaded} teams from ESPN standings`);
+
+                if (teamsLoaded === 0) {
+                    throw new Error('Could not parse any team data from ESPN standings page - check console for details');
+                }
+
+                // Log sample data
+                const sampleTeams = Object.entries(teamStats).slice(0, 3);
+                console.log('Sample teams:', sampleTeams.map(([name, data]) =>
+                    `${name}: ${data.wins}-${data.losses}, ${data.ppg.toFixed(1)} PPG`
+                ).join(' | '));
+
+            } catch (error) {
+                console.error('❌ ERROR fetching team stats:', error);
+                throw new Error(`Failed to load team data from ESPN standings: ${error.message}`);
+            }
+        }
+
+        async function fetchRosters() {
+            try {
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
+                const data = await response.json();
+
+                for (const team of data.sports[0].leagues[0].teams) {
+                    const teamName = team.team.displayName;
+                    const teamId = team.team.id;
+
+                    try {
+                        const rosterResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamId}/roster`);
+                        const rosterData = await rosterResponse.json();
+
+                        let qb = null;
+                        let rb = null;
+
+                        // Search through all roster groups (offense, defense, special teams)
+                        if (rosterData.athletes) {
+                            for (const group of rosterData.athletes) {
+                                if (group.items) {
+                                    if (!qb) {
+                                        qb = group.items.find(a => a.position?.abbreviation === 'QB');
+                                    }
+                                    if (!rb) {
+                                        rb = group.items.find(a => a.position?.abbreviation === 'RB');
+                                    }
+                                }
+                            }
+                        }
+
+                        teamRosters[teamName] = {
+                            qb: qb?.fullName || qb?.displayName || 'QB',
+                            rb: rb?.fullName || rb?.displayName || 'RB'
+                        };
+                    } catch (e) {
+                        console.error(`Error fetching roster for ${teamName}:`, e);
+                        teamRosters[teamName] = { qb: 'QB', rb: 'RB' };
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching rosters:', error);
+            }
+        }
+
+        async function fetchAdvancedStats() {
+            try {
+                console.log('===== FETCHING ESPN TEAM RANKINGS =====');
+
+                // Ensure we have team stats first
+                if (Object.keys(teamStats).length === 0) {
+                    throw new Error('Cannot fetch rankings without team stats data');
+                }
+
+                console.log('Fetching offensive rankings from ESPN stats page...');
+
+                // Fetch offensive rankings from ESPN stats page
+                const offenseResponse = await fetch('https://www.espn.com/nfl/stats/team');
+                const offenseHTML = await offenseResponse.text();
+
+                const offenseParser = new DOMParser();
+                const offenseDoc = offenseParser.parseFromString(offenseHTML, 'text/html');
+
+                // Find the stats table body
+                const offenseTables = offenseDoc.querySelectorAll('table.Table tbody');
+                console.log(`Found ${offenseTables.length} table bodies on offense stats page`);
+
+                let offenseRank = 1;
+                offenseTables.forEach((tbody) => {
+                    const rows = tbody.querySelectorAll('tr');
+                    rows.forEach((row) => {
+                        const teamNameSpan = row.querySelector('.TeamLink .Table__Team .db');
+                        if (teamNameSpan) {
+                            const teamText = teamNameSpan.textContent.trim();
+
+                            // Match to our TEAM_DATA
+                            let matchedTeam = Object.keys(TEAM_DATA).find(name => name === teamText);
+
+                            if (!matchedTeam) {
+                                matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                    const abbr = TEAM_DATA[name].abbr;
+                                    return teamText.toLowerCase().includes(abbr.toLowerCase());
+                                });
+                            }
+
+                            if (matchedTeam && teamStats[matchedTeam]) {
+                                if (!teamAdvancedStats[matchedTeam]) {
+                                    teamAdvancedStats[matchedTeam] = {
+                                        pointsFor: teamStats[matchedTeam].ppg,
+                                        pointsAgainst: teamStats[matchedTeam].papg
+                                    };
+                                }
+                                teamAdvancedStats[matchedTeam].offensiveRank = offenseRank;
+
+                                if (offenseRank <= 3) {
+                                    console.log(`  #${offenseRank}: ${matchedTeam}`);
+                                }
+                                offenseRank++;
+                            }
+                        }
+                    });
+                });
+
+                console.log(`✓ Loaded ${offenseRank - 1} offensive rankings from ESPN`);
+
+                console.log('Fetching defensive rankings from ESPN stats page...');
+
+                // Fetch defensive rankings from ESPN stats page
+                const defenseResponse = await fetch('https://www.espn.com/nfl/stats/team/_/view/defense');
+                const defenseHTML = await defenseResponse.text();
+
+                const defenseParser = new DOMParser();
+                const defenseDoc = defenseParser.parseFromString(defenseHTML, 'text/html');
+
+                const defenseTables = defenseDoc.querySelectorAll('table.Table tbody');
+                console.log(`Found ${defenseTables.length} table bodies on defense stats page`);
+
+                let defenseRank = 1;
+                defenseTables.forEach((tbody) => {
+                    const rows = tbody.querySelectorAll('tr');
+                    rows.forEach((row) => {
+                        const teamNameSpan = row.querySelector('.TeamLink .Table__Team .db');
+                        if (teamNameSpan) {
+                            const teamText = teamNameSpan.textContent.trim();
+
+                            let matchedTeam = Object.keys(TEAM_DATA).find(name => name === teamText);
+
+                            if (!matchedTeam) {
+                                matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                    const abbr = TEAM_DATA[name].abbr;
+                                    return teamText.toLowerCase().includes(abbr.toLowerCase());
+                                });
+                            }
+
+                            if (matchedTeam && teamStats[matchedTeam]) {
+                                if (!teamAdvancedStats[matchedTeam]) {
+                                    teamAdvancedStats[matchedTeam] = {
+                                        pointsFor: teamStats[matchedTeam].ppg,
+                                        pointsAgainst: teamStats[matchedTeam].papg
+                                    };
+                                }
+                                teamAdvancedStats[matchedTeam].defensiveRank = defenseRank;
+
+                                if (defenseRank <= 3) {
+                                    console.log(`  #${defenseRank}: ${matchedTeam}`);
+                                }
+                                defenseRank++;
+                            }
+                        }
+                    });
+                });
+
+                console.log(`✓ Loaded ${defenseRank - 1} defensive rankings from ESPN`);
+
+                // Log top teams
+                console.log('\nTop 5 Offenses:');
+                Object.entries(teamAdvancedStats)
+                    .sort((a, b) => a[1].offensiveRank - b[1].offensiveRank)
+                    .slice(0, 5)
+                    .forEach(([name, stats]) => {
+                        console.log(`  #${stats.offensiveRank}: ${name}`);
+                    });
+
+                console.log('\nTop 5 Defenses:');
+                Object.entries(teamAdvancedStats)
+                    .sort((a, b) => a[1].defensiveRank - b[1].defensiveRank)
+                    .slice(0, 5)
+                    .forEach(([name, stats]) => {
+                        console.log(`  #${stats.defensiveRank}: ${name}`);
+                    });
+
+                if (teamAdvancedStats['Houston Texans']) {
+                    console.log('\nHouston Texans rankings:', {
+                        offense: `#${teamAdvancedStats['Houston Texans'].offensiveRank}`,
+                        defense: `#${teamAdvancedStats['Houston Texans'].defensiveRank}`
+                    });
+                }
+
+                console.log(`\n✓ Rankings loaded for ${Object.keys(teamAdvancedStats).length} teams`);
+
+            } catch (error) {
+                console.error('❌ ERROR fetching rankings:', error);
+                throw new Error(`Failed to fetch team rankings from ESPN: ${error.message}`);
+            }
+        }
+
+        async function fetchInjuries() {
+            try {
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100');
+                const data = await response.json();
+
+                data.articles?.forEach(article => {
+                    if (article.headline.toLowerCase().includes('injury') ||
+                        article.headline.toLowerCase().includes('out') ||
+                        article.headline.toLowerCase().includes('questionable')) {
+                        const teams = article.categories?.filter(c => c.type === 'team');
+                        teams?.forEach(team => {
+                            if (!injuries[team.description]) {
+                                injuries[team.description] = [];
+                            }
+                            if (injuries[team.description].length < 3) {
+                                injuries[team.description].push({
+                                    headline: article.headline,
+                                    link: article.links?.web?.href || '#'
+                                });
+                            }
+                        });
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching injuries:', error);
+            }
+        }
+
+        async function fetchWeather(homeTeam, gameTime) {
+            try {
+                const teamInfo = TEAM_DATA[homeTeam];
+                if (!teamInfo) return null;
+
+                const gameDate = new Date(gameTime);
+                const dateStr = gameDate.toISOString().split('T')[0];
+
+                const response = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${teamInfo.lat}&longitude=${teamInfo.lon}&hourly=temperature_2m,precipitation,rain,snowfall,weathercode,windspeed_10m&timezone=America/New_York&start_date=${dateStr}&end_date=${dateStr}`
+                );
+                const data = await response.json();
+
+                if (!data.hourly) return null;
+
+                const gameHour = gameDate.getHours();
+                const hourIndex = data.hourly.time.findIndex(t => new Date(t).getHours() === gameHour) || 12;
+
+                const temp = data.hourly.temperature_2m[hourIndex];
+                const precip = data.hourly.precipitation[hourIndex] || 0;
+                const rain = data.hourly.rain[hourIndex] || 0;
+                const snow = data.hourly.snowfall[hourIndex] || 0;
+                const windSpeed = data.hourly.windspeed_10m[hourIndex] || 0;
+                const weatherCode = data.hourly.weathercode[hourIndex];
+
+                let condition = 'Clear';
+                if (snow > 0.5) condition = 'Snow';
+                else if (rain > 2) condition = 'Heavy Rain';
+                else if (rain > 0.5) condition = 'Rain';
+                else if (weatherCode >= 45 && weatherCode < 50) condition = 'Fog';
+                else if (weatherCode >= 51) condition = 'Precipitation';
+
+                return {
+                    temp: Math.round((temp * 9/5) + 32), // Convert C to F
+                    condition,
+                    precipitation: precip,
+                    rain,
+                    snow,
+                    windSpeed: Math.round(windSpeed * 0.621371) // Convert km/h to mph
+                };
+            } catch (error) {
+                console.error('Error fetching weather:', error);
+                return null;
+            }
+        }
+
+        function generateAdvancedPrediction(game, odds, weather) {
+            const homeTeam = game.competitions[0].competitors[0].team.displayName;
+            const awayTeam = game.competitions[0].competitors[1].team.displayName;
+            
+            let prediction = {
+                homeTeam,
+                awayTeam,
+                spread: 'N/A',
+                total: 'N/A',
+                homeMoneyline: 'N/A',
+                awayMoneyline: 'N/A',
+                injuries: {
+                    home: injuries[homeTeam] || [],
+                    away: injuries[awayTeam] || []
+                },
+                news: [],
+                edges: [],
+                rationale: [],
+                weather: weather
+            };
+
+            const homeStats = teamStats[homeTeam] || {};
+            const awayStats = teamStats[awayTeam] || {};
+            const homeAdv = teamAdvancedStats[homeTeam] || {};
+            const awayAdv = teamAdvancedStats[awayTeam] || {};
+
+            const homeWins = parseInt(homeStats.wins || 0);
+            const homeLosses = parseInt(homeStats.losses || 0);
+            const awayWins = parseInt(awayStats.wins || 0);
+            const awayLosses = parseInt(awayStats.losses || 0);
+
+            const homeWinPct = homeWins / (homeWins + homeLosses) || 0.5;
+            const awayWinPct = awayWins / (awayWins + awayLosses) || 0.5;
+
+            // Matchup analysis
+            if (homeAdv.offensiveRank < 10 && awayAdv.defensiveRank > 20) {
+                prediction.edges.push(`${homeTeam} elite offense (#${homeAdv.offensiveRank}) vs weak defense (#${awayAdv.defensiveRank})`);
+            }
+            if (awayAdv.offensiveRank < 10 && homeAdv.defensiveRank > 20) {
+                prediction.edges.push(`${awayTeam} elite offense (#${awayAdv.offensiveRank}) vs weak defense (#${homeAdv.defensiveRank})`);
+            }
+
+            // Get odds
+            if (odds) {
+                const spreadsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'spreads');
+                const totalsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'totals');
+                const h2hMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'h2h');
+
+                if (spreadsMarket) {
+                    const homeSpread = spreadsMarket.outcomes.find(o => o.name === homeTeam);
+                    prediction.spread = homeSpread?.point || 'N/A';
+                }
+                if (totalsMarket) {
+                    prediction.total = totalsMarket.outcomes[0]?.point || 'N/A';
+                }
+                if (h2hMarket) {
+                    const homeML = h2hMarket.outcomes.find(o => o.name === homeTeam);
+                    const awayML = h2hMarket.outcomes.find(o => o.name === awayTeam);
+                    prediction.homeMoneyline = homeML?.price || 'N/A';
+                    prediction.awayMoneyline = awayML?.price || 'N/A';
+                }
+            }
+
+            // Score prediction
+            let baseHomeScore = (homeAdv.pointsFor + awayAdv.pointsAgainst) / 2;
+            let baseAwayScore = (awayAdv.pointsFor + homeAdv.pointsAgainst) / 2;
+
+            if (prediction.spread !== 'N/A' && prediction.total !== 'N/A') {
+                const spread = parseFloat(prediction.spread);
+                const total = parseFloat(prediction.total);
+                const oddsHome = (total - spread) / 2;
+                const oddsAway = (total + spread) / 2;
+                
+                baseHomeScore = baseHomeScore * 0.5 + oddsHome * 0.5;
+                baseAwayScore = baseAwayScore * 0.5 + oddsAway * 0.5;
+            }
+
+            baseHomeScore += (homeWinPct - 0.5) * 5;
+            baseAwayScore += (awayWinPct - 0.5) * 5;
+            baseHomeScore += 2.5; // Home field
+            baseHomeScore -= prediction.injuries.home.length * 2;
+            baseAwayScore -= prediction.injuries.away.length * 2;
+
+            // Weather adjustments - rain/snow favors running teams with good O-line vs bad run defense
+            if (weather && (weather.rain > 0.5 || weather.snow > 0.5)) {
+                const badWeatherFactor = Math.min(weather.rain + weather.snow * 2, 5);
+
+                // Favor teams with better running game (lower offensive rank is better, higher defensive rank is worse)
+                // In bad weather, good offensive teams with strong rushing attack do better
+                // Good defensive teams that stop the run do better
+                if (homeAdv.offensiveRank < awayAdv.offensiveRank) {
+                    baseHomeScore += badWeatherFactor * 0.5;
+                    prediction.edges.push(`${homeTeam} has offensive advantage in ${weather.condition.toLowerCase()} conditions`);
+                } else if (awayAdv.offensiveRank < homeAdv.offensiveRank) {
+                    baseAwayScore += badWeatherFactor * 0.5;
+                    prediction.edges.push(`${awayTeam} has offensive advantage in ${weather.condition.toLowerCase()} conditions`);
+                }
+
+                if (homeAdv.defensiveRank < awayAdv.defensiveRank) {
+                    baseHomeScore += badWeatherFactor * 0.3;
+                } else if (awayAdv.defensiveRank < homeAdv.defensiveRank) {
+                    baseAwayScore += badWeatherFactor * 0.3;
+                }
+            }
+
+            prediction.homeScore = Math.max(10, Math.round(baseHomeScore));
+            prediction.awayScore = Math.max(10, Math.round(baseAwayScore));
+
+            // Handle ties - give slight edge to home team
+            if (prediction.homeScore === prediction.awayScore) {
+                prediction.homeScore += 1;
+            }
+
+            // Build rationale
+            prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
+            const loser = prediction.winner === homeTeam ? awayTeam : homeTeam;
+            
+            prediction.rationale.push(`${prediction.winner} favored by ${Math.abs(prediction.homeScore - prediction.awayScore)} points`);
+            
+            if (prediction.spread !== 'N/A') {
+                const spreadFav = parseFloat(prediction.spread) < 0 ? homeTeam : awayTeam;
+                prediction.rationale.push(`Vegas line favors ${spreadFav} (${Math.abs(parseFloat(prediction.spread))} pts)`);
+            }
+            
+            const winnerAdv = prediction.winner === homeTeam ? homeAdv : awayAdv;
+            const loserAdv = prediction.winner === homeTeam ? awayAdv : homeAdv;
+            prediction.rationale.push(`${prediction.winner} offense (#${winnerAdv.offensiveRank}) stronger than ${loser} defense (#${loserAdv.defensiveRank})`);
+            
+            const winnerWinPct = prediction.winner === homeTeam ? homeWinPct : awayWinPct;
+            if (winnerWinPct > 0.6) {
+                prediction.rationale.push(`${prediction.winner} has strong ${(winnerWinPct * 100).toFixed(0)}% win rate`);
+            }
+            
+            if (prediction.winner === homeTeam) {
+                prediction.rationale.push(`Home field advantage adds ~2.5 points`);
+            }
+            
+            if (prediction.injuries[loser.toLowerCase().includes(homeTeam.toLowerCase()) ? 'home' : 'away'].length > 0) {
+                prediction.rationale.push(`${loser} dealing with key injuries`);
+            }
+
+            if (weather && (weather.rain > 0.5 || weather.snow > 0.5)) {
+                prediction.rationale.push(`${weather.condition} weather expected - favors ground game and strong defense`);
+            }
+
+            // Confidence
+            const margin = Math.abs(prediction.homeScore - prediction.awayScore);
+            let confidenceScore = margin;
+            if (prediction.edges.length >= 2) confidenceScore += 4;
+            if (homeWinPct > 0.7 || awayWinPct > 0.7) confidenceScore += 3;
+            if (prediction.spread !== 'N/A' && Math.abs(parseFloat(prediction.spread)) > 7) confidenceScore += 3;
+            
+            if (confidenceScore >= 12) prediction.confidence = 'High';
+            else if (confidenceScore >= 7) prediction.confidence = 'Medium';
+            else prediction.confidence = 'Low';
+
+            // Player stats
+            const homeRoster = teamRosters[homeTeam] || {};
+            const awayRoster = teamRosters[awayTeam] || {};
+            
+            prediction.homeQB = homeRoster.qb || 'QB';
+            prediction.awayQB = awayRoster.qb || 'QB';
+            prediction.homeRB = homeRoster.rb || 'RB';
+            prediction.awayRB = awayRoster.rb || 'RB';
+            
+            prediction.homeQBYards = Math.round(prediction.homeScore * 11);
+            prediction.homeQBTDs = Math.max(1, Math.floor(prediction.homeScore / 8));
+            prediction.awayQBYards = Math.round(prediction.awayScore * 11);
+            prediction.awayQBTDs = Math.max(1, Math.floor(prediction.awayScore / 8));
+            prediction.homeRBYards = Math.round(prediction.homeScore * 4);
+            prediction.awayRBYards = Math.round(prediction.awayScore * 4);
+            
+            if (prediction.spread !== 'N/A') {
+                const actualMargin = prediction.homeScore - prediction.awayScore;
+                prediction.beatsSpread = actualMargin > parseFloat(prediction.spread) ? 'Yes' : 'No';
+            } else {
+                prediction.beatsSpread = 'N/A';
+            }
+
+            return prediction;
+        }
+
+        async function displayGames(games, oddsData) {
+            const gamesContainer = document.getElementById('games');
+            const loadingEl = document.getElementById('loading');
+            const picksSummary = document.getElementById('picksummary');
+            const picksList = document.getElementById('picks-list');
+
+            loadingEl.style.display = 'none';
+            gamesContainer.innerHTML = '';
+            picksList.innerHTML = '';
+
+            if (games.length === 0) {
+                gamesContainer.innerHTML = '<div style="text-align: center; grid-column: 1/-1; padding: 3rem;">No upcoming games in next 3 days</div>';
+                return;
+            }
+
+            // Fetch weather and create predictions for all games
+            const gamesWithPredictions = await Promise.all(games.map(async (game, index) => {
+                const homeTeam = game.competitions[0].competitors[0].team.displayName;
+                const awayTeam = game.competitions[0].competitors[1].team.displayName;
+
+                const gameOdds = oddsData.find(o =>
+                    o.home_team === homeTeam && o.away_team === awayTeam
+                );
+
+                const weather = await fetchWeather(homeTeam, game.date);
+                const prediction = generateAdvancedPrediction(game, gameOdds, weather);
+                return { game, prediction, gameId: `game-${index}` };
+            }));
+
+            const confidenceOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
+            gamesWithPredictions.sort((a, b) => {
+                const dateA = new Date(a.game.date).toDateString();
+                const dateB = new Date(b.game.date).toDateString();
+
+                if (dateA !== dateB) {
+                    return new Date(dateA) - new Date(dateB);
+                }
+
+                return confidenceOrder[a.prediction.confidence] - confidenceOrder[b.prediction.confidence];
+            });
+
+            // Create winner picks summary
+            gamesWithPredictions.forEach(({ game, prediction, gameId }) => {
+                const teamColor = TEAM_DATA[prediction.winner]?.colors[0] || '#6b4f9e';
+                picksList.innerHTML += `
+                    <div onclick="document.getElementById('${gameId}').scrollIntoView({behavior: 'smooth', block: 'center'})"
+                         style="background: rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.5rem; cursor: pointer; border-left: 4px solid ${teamColor}; transition: all 0.2s;"
+                         onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+                         onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                        <div style="font-weight: bold; font-size: 1.1rem;">${prediction.winner}</div>
+                        <div style="font-size: 0.85rem; opacity: 0.9;">over ${prediction.winner === prediction.homeTeam ? prediction.awayTeam : prediction.homeTeam}</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8; margin-top: 0.25rem;">
+                            ${prediction.homeScore}-${prediction.awayScore} • ${prediction.confidence}
+                        </div>
+                    </div>
+                `;
+            });
+            picksSummary.style.display = 'block';
+
+            // Display game cards
+            gamesWithPredictions.forEach(({ game, prediction, gameId }) => {
+                gamesContainer.innerHTML += createGameCard(game, prediction, gameId);
+            });
+        }
+
+        function createGameCard(game, prediction, gameId) {
+            const teamColor = TEAM_DATA[prediction.homeTeam]?.colors[0] || '#6b4f9e';
+            const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
+            const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
+
+            const homeStats = teamStats[prediction.homeTeam] || {};
+            const awayStats = teamStats[prediction.awayTeam] || {};
+            const homeRecord = `${homeStats.wins}-${homeStats.losses}${homeStats.ties > 0 ? '-' + homeStats.ties : ''}`;
+            const awayRecord = `${awayStats.wins}-${awayStats.losses}${awayStats.ties > 0 ? '-' + awayStats.ties : ''}`;
+
+            const homeAdv = teamAdvancedStats[prediction.homeTeam] || {};
+            const awayAdv = teamAdvancedStats[prediction.awayTeam] || {};
+
+            const gameDate = new Date(game.date);
+            const gameTime = gameDate.toLocaleDateString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+
+            const confidenceClass = `confidence-${prediction.confidence.toLowerCase()}`;
+
+            // Weather display
+            let weatherHTML = '';
+            if (prediction.weather) {
+                const w = prediction.weather;
+                let weatherIcon = '☀️';
+                if (w.condition === 'Snow') weatherIcon = '❄️';
+                else if (w.condition === 'Heavy Rain' || w.condition === 'Rain') weatherIcon = '🌧️';
+                else if (w.condition === 'Fog') weatherIcon = '🌫️';
+                else if (w.condition === 'Precipitation') weatherIcon = '🌦️';
+
+                weatherHTML = `<div class="badge" style="background: rgba(255,255,255,0.3);">${weatherIcon} ${w.temp}°F ${w.condition}${w.windSpeed > 15 ? ` • ${w.windSpeed}mph wind` : ''}</div>`;
+            }
+
+            let rationaleHTML = '';
+            if (prediction.rationale.length > 0) {
+                rationaleHTML = '<div class="rationale">';
+                prediction.rationale.forEach(reason => {
+                    rationaleHTML += `<div class="rationale-item">✓ ${reason}</div>`;
+                });
+                rationaleHTML += '</div>';
+            }
+
+            let injuryHTML = '';
+            if (prediction.injuries.home.length > 0 || prediction.injuries.away.length > 0) {
+                injuryHTML = '<div class="prediction-section"><div class="prediction-title">🏥 Key Injuries</div>';
+                if (prediction.injuries.home.length > 0) {
+                    injuryHTML += `<div class="injuries"><strong>${prediction.homeTeam}:</strong>`;
+                    prediction.injuries.home.slice(0, 2).forEach(inj => {
+                        const headline = typeof inj === 'string' ? inj : inj.headline;
+                        const link = typeof inj === 'string' ? '#' : inj.link;
+                        const truncated = headline.substring(0, 70) + (headline.length > 70 ? '...' : '');
+                        injuryHTML += `<div class="injury-item">• <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${truncated}</a></div>`;
+                    });
+                    injuryHTML += '</div>';
+                }
+                if (prediction.injuries.away.length > 0) {
+                    injuryHTML += `<div class="injuries"><strong>${prediction.awayTeam}:</strong>`;
+                    prediction.injuries.away.slice(0, 2).forEach(inj => {
+                        const headline = typeof inj === 'string' ? inj : inj.headline;
+                        const link = typeof inj === 'string' ? '#' : inj.link;
+                        const truncated = headline.substring(0, 70) + (headline.length > 70 ? '...' : '');
+                        injuryHTML += `<div class="injury-item">• <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">${truncated}</a></div>`;
+                    });
+                    injuryHTML += '</div>';
+                }
+                injuryHTML += '</div>';
+            }
+
+            let edgesHTML = '';
+            if (prediction.edges.length > 0) {
+                edgesHTML = '<div class="prediction-section"><div class="prediction-title">⚡ Key Matchup Edges</div>';
+                prediction.edges.forEach(edge => {
+                    edgesHTML += `<div class="matchup-edge"><div class="edge-item">✓ ${edge}</div></div>`;
+                });
+                edgesHTML += '</div>';
+            }
+
+            return `
+                <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88;">
+                    <div class="game-header" style="background-color: ${teamColor}ee;">
+                        <div class="game-meta">
+                            <div class="game-time">📅 ${gameTime}</div>
+                            ${weatherHTML}
+                            <div class="badge ${confidenceClass}">${prediction.confidence.toUpperCase()}</div>
+                        </div>
+                        <div class="teams">
+                            <div class="team">
+                                ${awayLogo ? `<img src="${awayLogo}" alt="${prediction.awayTeam}" class="team-logo">` : ''}
+                                <div>
+                                    <div class="team-name">${prediction.awayTeam}</div>
+                                    <div class="team-record">${awayRecord}</div>
+                                    <div class="team-rankings">Off: #${awayAdv.offensiveRank || 16} | Def: #${awayAdv.defensiveRank || 16}</div>
+                                </div>
+                            </div>
+                            <div class="vs">@</div>
+                            <div class="team">
+                                <div style="text-align: right;">
+                                    <div class="team-name">${prediction.homeTeam}</div>
+                                    <div class="team-record">${homeRecord}</div>
+                                    <div class="team-rankings">Off: #${homeAdv.offensiveRank || 16} | Def: #${homeAdv.defensiveRank || 16}</div>
+                                </div>
+                                ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-body">
+                        <div class="winner-section">
+                            <div class="winner-label">🎯 PREDICTED WINNER</div>
+                            <div class="winner-name">${prediction.winner}</div>
+                            <div class="confidence">Confidence: ${prediction.confidence}</div>
+                            ${rationaleHTML}
+                        </div>
+                        
+                        ${edgesHTML}
+                        ${injuryHTML}
+                        
+                        <div class="prediction-section">
+                            <div class="prediction-title">📊 Score Prediction</div>
+                            <div class="prediction-grid">
+                                <div class="pred-stat">
+                                    <div class="pred-label">${prediction.homeTeam}</div>
+                                    <div class="pred-value">${prediction.homeScore}</div>
+                                </div>
+                                <div class="pred-stat">
+                                    <div class="pred-label">${prediction.awayTeam}</div>
+                                    <div class="pred-value">${prediction.awayScore}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prediction-section">
+                            <div class="prediction-title">💰 Betting Lines</div>
+                            <div class="stats-breakdown">
+                                <div class="stat-row">
+                                    <span>Spread:</span>
+                                    <strong>${prediction.homeTeam} ${prediction.spread}</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Over/Under:</span>
+                                    <strong>${prediction.total}</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Beats Spread:</span>
+                                    <strong>${prediction.beatsSpread}</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prediction-section">
+                            <div class="prediction-title">🏈 Player Projections</div>
+                            <div class="stats-breakdown">
+                                <div class="stat-row">
+                                    <span>QB : ${prediction.homeQB} (${TEAM_DATA[prediction.homeTeam]?.abbr || prediction.homeTeam})</span>
+                                    <strong>${prediction.homeQBYards} yds, ${prediction.homeQBTDs} TDs</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>QB : ${prediction.awayQB} (${TEAM_DATA[prediction.awayTeam]?.abbr || prediction.awayTeam})</span>
+                                    <strong>${prediction.awayQBYards} yds, ${prediction.awayQBTDs} TDs</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>RB : ${prediction.homeRB} (${TEAM_DATA[prediction.homeTeam]?.abbr || prediction.homeTeam})</span>
+                                    <strong>${prediction.homeRBYards} yds</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>RB : ${prediction.awayRB} (${TEAM_DATA[prediction.awayTeam]?.abbr || prediction.awayTeam})</span>
+                                    <strong>${prediction.awayRBYards} yds</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         if (apiKey) {
             document.getElementById('apiSetup').style.display = 'none';
             loadAllData();
