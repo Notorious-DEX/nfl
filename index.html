@@ -545,7 +545,7 @@
             const errorEl = document.getElementById('error');
             errorEl.textContent = message;
             errorEl.style.display = 'block';
-            setTimeout(() => errorEl.style.display = 'none', 5000);
+            // Don't auto-hide critical errors - let user dismiss them
         }
 
         function calculateCurrentWeek() {
@@ -588,16 +588,27 @@
             document.getElementById('error').style.display = 'none';
 
             try {
+                // Load team stats first, then compute rankings based on that data
+                await fetchTeamStats();
+                console.log('Team stats loaded successfully');
+
+                // Compute rankings from the loaded stats
+                await fetchAdvancedStats();
+                console.log('Team rankings computed successfully');
+
+                // Load additional data in parallel
                 await Promise.all([
-                    fetchTeamStats(),
-                    fetchAdvancedStats(),
                     fetchInjuries(),
                     fetchRosters()
                 ]);
+                console.log('Injuries and rosters loaded');
+
+                // Finally fetch and display games
                 await fetchGames();
             } catch (error) {
-                showError('Error loading data: ' + error.message);
-                document.getElementById('loading').textContent = 'Error loading data. Check console.';
+                console.error('Failed to load data:', error);
+                showError('❌ Failed to load team data: ' + error.message + '. Please check browser console for details.');
+                document.getElementById('loading').textContent = 'Error loading data. Check the error message above and browser console for details.';
             }
         }
 
@@ -647,81 +658,95 @@
 
         async function fetchTeamStats() {
             try {
-                // Try scoreboard endpoint first for current season data
-                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
-                const data = await response.json();
+                console.log('===== FETCHING TEAM STATS =====');
 
-                console.log('Scoreboard API response received');
+                // Get current season info
+                const today = new Date();
+                const currentYear = today.getMonth() >= 8 ? today.getFullYear() : today.getFullYear() - 1;
+                const seasonType = 2; // Regular season
 
-                // Extract team data from league structure
-                if (data.leagues && data.leagues[0]) {
-                    const league = data.leagues[0];
+                console.log(`Fetching data for ${currentYear} season, type ${seasonType}`);
 
-                    // Try to get standings
-                    if (league.standings) {
-                        league.standings.entries?.forEach(entry => {
-                            const team = entry.team;
-                            const stats = entry.stats || [];
+                // First try: Teams endpoint with embedded record data
+                const teamsResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32');
 
-                            teamStats[team.displayName] = {
-                                wins: stats.find(s => s.name === 'wins')?.displayValue || stats.find(s => s.abbreviation === 'W')?.displayValue || '0',
-                                losses: stats.find(s => s.name === 'losses')?.displayValue || stats.find(s => s.abbreviation === 'L')?.displayValue || '0',
-                                ties: stats.find(s => s.name === 'ties')?.displayValue || '0',
-                                winPct: parseFloat(stats.find(s => s.name === 'winPercent')?.value || 0.5),
-                                ppg: parseFloat(stats.find(s => s.name === 'avgPointsFor')?.value || 20),
-                                papg: parseFloat(stats.find(s => s.name === 'avgPointsAgainst')?.value || 20)
-                            };
-                        });
-                    }
+                if (!teamsResponse.ok) {
+                    throw new Error(`Teams API returned ${teamsResponse.status}`);
                 }
 
-                // If no data from scoreboard, try teams endpoint
-                if (Object.keys(teamStats).length === 0) {
-                    console.log('Trying teams endpoint...');
-                    const teamsResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
-                    const teamsData = await teamsResponse.json();
-
-                    if (teamsData.sports && teamsData.sports[0].leagues && teamsData.sports[0].leagues[0].teams) {
-                        teamsData.sports[0].leagues[0].teams.forEach(teamObj => {
-                            const team = teamObj.team;
-                            const record = team.record?.items?.[0];
-
-                            if (record) {
-                                const summary = record.summary || '0-0';
-                                const parts = summary.split('-');
-                                const stats = record.stats || [];
-
-                                teamStats[team.displayName] = {
-                                    wins: parts[0] || '0',
-                                    losses: parts[1] || '0',
-                                    ties: parts[2] || '0',
-                                    winPct: parseFloat(stats.find(s => s.name === 'winPercent')?.value || 0.5),
-                                    ppg: parseFloat(stats.find(s => s.name === 'avgPointsFor')?.value || stats.find(s => s.name === 'pointsFor')?.value || 20),
-                                    papg: parseFloat(stats.find(s => s.name === 'avgPointsAgainst')?.value || stats.find(s => s.name === 'pointsAgainst')?.value || 20)
-                                };
-                            }
-                        });
-                    }
-                }
-
-                console.log('Team stats loaded:', Object.keys(teamStats).length, 'teams');
-                if (Object.keys(teamStats).length > 0) {
-                    console.log('Sample team data:', Object.entries(teamStats)[0]);
-                }
-            } catch (error) {
-                console.error('Error fetching team stats:', error);
-                // Initialize default stats for all teams if fetch fails
-                Object.keys(TEAM_DATA).forEach(teamName => {
-                    teamStats[teamName] = {
-                        wins: '8',
-                        losses: '8',
-                        ties: '0',
-                        winPct: 0.5,
-                        ppg: 20 + Math.random() * 10,
-                        papg: 20 + Math.random() * 10
-                    };
+                const teamsData = await teamsResponse.json();
+                console.log('Teams API response structure:', {
+                    hasSports: !!teamsData.sports,
+                    hasLeagues: !!teamsData.sports?.[0]?.leagues,
+                    hasTeams: !!teamsData.sports?.[0]?.leagues?.[0]?.teams,
+                    teamCount: teamsData.sports?.[0]?.leagues?.[0]?.teams?.length
                 });
-                console.warn('Using fallback team stats');
+
+                if (teamsData.sports?.[0]?.leagues?.[0]?.teams) {
+                    const teams = teamsData.sports[0].leagues[0].teams;
+                    console.log(`Processing ${teams.length} teams...`);
+
+                    for (const teamObj of teams) {
+                        const team = teamObj.team;
+                        const teamName = team.displayName;
+
+                        // Extract record from team object
+                        const record = team.record?.items?.[0];
+
+                        if (record) {
+                            const summary = record.summary || '0-0';
+                            const [wins, losses, ties = '0'] = summary.split('-');
+                            const stats = record.stats || [];
+
+                            // Get points per game stats
+                            let ppg = parseFloat(stats.find(s => s.name === 'avgPointsFor')?.value);
+                            let papg = parseFloat(stats.find(s => s.name === 'avgPointsAgainst')?.value);
+
+                            // Fallback to total points divided by games played
+                            if (isNaN(ppg) || isNaN(papg)) {
+                                const gamesPlayed = parseInt(wins) + parseInt(losses) + parseInt(ties);
+                                if (gamesPlayed > 0) {
+                                    const pointsFor = parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 0);
+                                    const pointsAgainst = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 0);
+                                    ppg = pointsFor / gamesPlayed;
+                                    papg = pointsAgainst / gamesPlayed;
+                                }
+                            }
+
+                            teamStats[teamName] = {
+                                wins: wins,
+                                losses: losses,
+                                ties: ties,
+                                winPct: parseFloat(stats.find(s => s.name === 'winPercent')?.value || (parseInt(wins) / (parseInt(wins) + parseInt(losses)) || 0)),
+                                ppg: ppg || 0,
+                                papg: papg || 0
+                            };
+
+                            if (teamName === 'Houston Texans') {
+                                console.log('Texans data sample:', teamStats[teamName]);
+                            }
+                        } else {
+                            console.warn(`No record found for ${teamName}`);
+                        }
+                    }
+                }
+
+                const teamsLoaded = Object.keys(teamStats).length;
+                console.log(`Successfully loaded stats for ${teamsLoaded} teams`);
+
+                if (teamsLoaded === 0) {
+                    throw new Error('No team data could be loaded from API');
+                }
+
+                // Log sample data
+                const sampleTeams = Object.entries(teamStats).slice(0, 3);
+                console.log('Sample team data:', sampleTeams.map(([name, data]) =>
+                    `${name}: ${data.wins}-${data.losses}, ${data.ppg.toFixed(1)} PPG, ${data.papg.toFixed(1)} PAPG`
+                ).join(' | '));
+
+            } catch (error) {
+                console.error('❌ CRITICAL ERROR fetching team stats:', error);
+                throw new Error(`Failed to load team data: ${error.message}`);
             }
         }
 
@@ -771,45 +796,43 @@
 
         async function fetchAdvancedStats() {
             try {
+                console.log('===== COMPUTING TEAM RANKINGS =====');
+
                 // Ensure we have team stats first
                 if (Object.keys(teamStats).length === 0) {
-                    console.warn('No team stats available, using defaults');
-                    Object.keys(TEAM_DATA).forEach(teamName => {
-                        teamStats[teamName] = {
-                            wins: '8',
-                            losses: '8',
-                            ties: '0',
-                            winPct: 0.5,
-                            ppg: 20 + Math.random() * 10,
-                            papg: 20 + Math.random() * 10
-                        };
-                    });
+                    throw new Error('Cannot compute rankings without team stats data');
                 }
 
-                // Use the ppg and papg data we already have from standings
+                console.log(`Computing rankings for ${Object.keys(teamStats).length} teams`);
+
+                // Build array of teams with their statistics
                 const allTeams = Object.keys(teamStats).map(teamName => {
-                    let ppg = parseFloat(teamStats[teamName]?.ppg);
-                    let papg = parseFloat(teamStats[teamName]?.papg);
-
-                    // If values are invalid or default, add small variation
-                    if (isNaN(ppg) || ppg === 20) {
-                        ppg = 20 + Math.random() * 10;
-                    }
-                    if (isNaN(papg) || papg === 20) {
-                        papg = 20 + Math.random() * 10;
-                    }
-
+                    const stats = teamStats[teamName];
                     return {
                         name: teamName,
-                        ppg: ppg,
-                        papg: papg
+                        ppg: stats.ppg || 0,
+                        papg: stats.papg || 0
                     };
                 });
 
-                // Sort and rank - offense by highest ppg (descending), defense by lowest papg (ascending)
+                // Sort teams for rankings
+                // Offensive rank: Higher PPG = better offense = lower rank number (#1 is best)
                 const offenseRanked = [...allTeams].sort((a, b) => b.ppg - a.ppg);
+
+                // Defensive rank: Lower PAPG = better defense = lower rank number (#1 is best)
                 const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
 
+                console.log('Top 5 Offenses (by PPG):');
+                offenseRanked.slice(0, 5).forEach((t, i) => {
+                    console.log(`  #${i + 1}: ${t.name} - ${t.ppg.toFixed(1)} PPG`);
+                });
+
+                console.log('Top 5 Defenses (by PAPG - lower is better):');
+                defenseRanked.slice(0, 5).forEach((t, i) => {
+                    console.log(`  #${i + 1}: ${t.name} - ${t.papg.toFixed(1)} PAPG`);
+                });
+
+                // Assign ranks to each team
                 for (const team of allTeams) {
                     const offRank = offenseRanked.findIndex(t => t.name === team.name) + 1;
                     const defRank = defenseRanked.findIndex(t => t.name === team.name) + 1;
@@ -822,20 +845,21 @@
                     };
                 }
 
-                console.log('Advanced stats computed for', allTeams.length, 'teams');
-                console.log('Top 5 Offense:', offenseRanked.slice(0, 5).map(t => `${t.name} (#${offenseRanked.findIndex(x => x.name === t.name) + 1}, ${t.ppg.toFixed(1)} ppg)`));
-                console.log('Top 5 Defense:', defenseRanked.slice(0, 5).map(t => `${t.name} (#${defenseRanked.findIndex(x => x.name === t.name) + 1}, ${t.papg.toFixed(1)} papg)`));
+                // Verify specific team the user mentioned
+                if (teamAdvancedStats['Houston Texans']) {
+                    console.log('Houston Texans rankings:', {
+                        offense: `#${teamAdvancedStats['Houston Texans'].offensiveRank}`,
+                        defense: `#${teamAdvancedStats['Houston Texans'].defensiveRank}`,
+                        ppg: teamAdvancedStats['Houston Texans'].pointsFor.toFixed(1),
+                        papg: teamAdvancedStats['Houston Texans'].pointsAgainst.toFixed(1)
+                    });
+                }
+
+                console.log(`✓ Rankings computed for ${Object.keys(teamAdvancedStats).length} teams`);
+
             } catch (error) {
-                console.error('Error fetching advanced stats:', error);
-                // Initialize defaults with variation
-                Object.keys(TEAM_DATA).forEach((teamName, index) => {
-                    teamAdvancedStats[teamName] = {
-                        pointsFor: 20 + Math.random() * 10,
-                        pointsAgainst: 20 + Math.random() * 10,
-                        offensiveRank: Math.floor(Math.random() * 32) + 1,
-                        defensiveRank: Math.floor(Math.random() * 32) + 1
-                    };
-                });
+                console.error('❌ CRITICAL ERROR computing rankings:', error);
+                throw new Error(`Failed to compute team rankings: ${error.message}`);
             }
         }
 
