@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Team Rankings Fetcher - Week 15 2025</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #3498db;
+            text-align: center;
+        }
+        .status {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .loading {
+            color: #3498db;
+        }
+        .success {
+            color: #27ae60;
+        }
+        .error {
+            color: #e74c3c;
+        }
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid rgba(52, 152, 219, 0.3);
+        }
+        .category h2 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .team-list {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .team-item {
+            padding: 0.35rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .team-item:last-child {
+            border-bottom: none;
+        }
+        .rank {
+            display: inline-block;
+            width: 30px;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .value {
+            float: right;
+            color: #95a5a6;
+        }
+        .code-output {
+            background: #0d1117;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            overflow-x: auto;
+        }
+        .code-output pre {
+            margin: 0;
+            color: #58a6ff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+        button {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>NFL Team Rankings Fetcher</h1>
+    <h3 style="text-align: center; color: #95a5a6;">2025 Season - Week 15</h3>
+
+    <div class="status" id="status">
+        <div class="loading">Click "Fetch Rankings" to load data from ESPN API...</div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="fetchAllRankings()">Fetch Rankings</button>
+        <button onclick="copyJSObject()">Copy JavaScript Object</button>
+        <button onclick="downloadJSON()">Download JSON</button>
+    </div>
+
+    <div class="results" id="results"></div>
+    <div class="code-output" id="codeOutput" style="display: none;">
+        <h3>JavaScript Object Format:</h3>
+        <pre id="jsCode"></pre>
+    </div>
+
+    <script>
+        let rankingsData = {
+            teams: {},
+            rankings: {},
+            timestamp: null
+        };
+
+        async function fetchAllRankings() {
+            const statusEl = document.getElementById('status');
+            const resultsEl = document.getElementById('results');
+
+            statusEl.innerHTML = '<div class="loading">Fetching team data from ESPN API...</div>';
+            resultsEl.innerHTML = '';
+
+            try {
+                // Fetch all teams
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32');
+                const data = await response.json();
+
+                if (!data.sports?.[0]?.leagues?.[0]?.teams) {
+                    throw new Error('Invalid ESPN teams response');
+                }
+
+                const teams = data.sports[0].leagues[0].teams;
+                const statsArray = [];
+                let processed = 0;
+                const total = teams.length;
+
+                statusEl.innerHTML = `<div class="loading">Fetching statistics for ${total} teams... (0/${total})</div>`;
+
+                // Fetch stats for each team
+                for (const teamObj of teams) {
+                    const team = teamObj.team;
+                    const teamName = team.displayName;
+
+                    try {
+                        const statsResp = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${team.id}/statistics`);
+                        const statsData = await statsResp.json();
+
+                        const splits = statsData.splits?.categories || [];
+
+                        // Extract offensive stats
+                        const offenseStats = splits.find(c => c.name === 'offensive') || {};
+                        const rushOffYPG = parseFloat(offenseStats.stats?.find(s => s.name === 'rushingYardsPerGame')?.value || 0);
+                        const passOffYPG = parseFloat(offenseStats.stats?.find(s => s.name === 'netPassingYardsPerGame')?.value || 0);
+
+                        // Extract defensive stats
+                        const defenseStats = splits.find(c => c.name === 'defensive') || {};
+                        const rushDefYPG = parseFloat(defenseStats.stats?.find(s => s.name === 'rushingYardsPerGame')?.value || 0);
+                        const passDefYPG = parseFloat(defenseStats.stats?.find(s => s.name === 'passingYardsPerGame')?.value || 0);
+
+                        statsArray.push({
+                            name: teamName,
+                            rushOffYPG,
+                            passOffYPG,
+                            rushDefYPG,
+                            passDefYPG
+                        });
+
+                        rankingsData.teams[teamName] = {
+                            rushOffYPG,
+                            passOffYPG,
+                            rushDefYPG,
+                            passDefYPG
+                        };
+
+                        processed++;
+                        statusEl.innerHTML = `<div class="loading">Fetching statistics for ${total} teams... (${processed}/${total})</div>`;
+
+                        // Small delay to avoid overwhelming the API
+                        await new Promise(resolve => setTimeout(resolve, 100));
+
+                    } catch (err) {
+                        console.warn(`Could not fetch stats for ${teamName}:`, err.message);
+                    }
+                }
+
+                // Calculate rankings
+                const rushOffRanked = [...statsArray].sort((a, b) => b.rushOffYPG - a.rushOffYPG);
+                const passOffRanked = [...statsArray].sort((a, b) => b.passOffYPG - a.passOffYPG);
+                const rushDefRanked = [...statsArray].sort((a, b) => a.rushDefYPG - b.rushDefYPG);
+                const passDefRanked = [...statsArray].sort((a, b) => a.passDefYPG - b.passDefYPG);
+
+                // Store rankings
+                statsArray.forEach(team => {
+                    rankingsData.rankings[team.name] = {
+                        rushOffRank: rushOffRanked.findIndex(t => t.name === team.name) + 1,
+                        passOffRank: passOffRanked.findIndex(t => t.name === team.name) + 1,
+                        rushDefRank: rushDefRanked.findIndex(t => t.name === team.name) + 1,
+                        passDefRank: passDefRanked.findIndex(t => t.name === team.name) + 1
+                    };
+                });
+
+                rankingsData.timestamp = new Date().toISOString();
+
+                // Display results
+                displayResults(rushOffRanked, passOffRanked, rushDefRanked, passDefRanked);
+                generateJSCode();
+
+                statusEl.innerHTML = `<div class="success">Successfully loaded rankings for ${statsArray.length} teams!</div>`;
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                statusEl.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+            }
+        }
+
+        function displayResults(rushOff, passOff, rushDef, passDef) {
+            const resultsEl = document.getElementById('results');
+
+            resultsEl.innerHTML = `
+                ${createCategoryHTML('Rushing Offense Rankings', rushOff, 'rushOffYPG', 'higher')}
+                ${createCategoryHTML('Passing Offense Rankings', passOff, 'passOffYPG', 'higher')}
+                ${createCategoryHTML('Rushing Defense Rankings', rushDef, 'rushDefYPG', 'lower')}
+                ${createCategoryHTML('Passing Defense Rankings', passDef, 'passDefYPG', 'lower')}
+            `;
+        }
+
+        function createCategoryHTML(title, teams, statKey, direction) {
+            const subtitle = direction === 'higher' ? 'Yards Per Game' : 'Yards Allowed Per Game';
+            let html = `<div class="category"><h2>${title}</h2><div style="margin-bottom: 0.5rem; color: #95a5a6; font-size: 0.85rem;">${subtitle}</div><div class="team-list">`;
+
+            teams.forEach((team, index) => {
+                const rank = index + 1;
+                const value = team[statKey].toFixed(1);
+                html += `<div class="team-item"><span class="rank">#${rank}</span> ${team.name}<span class="value">${value} ypg</span></div>`;
+            });
+
+            html += '</div></div>';
+            return html;
+        }
+
+        function generateJSCode() {
+            const codeOutputEl = document.getElementById('codeOutput');
+            const jsCodeEl = document.getElementById('jsCode');
+
+            const jsObject = {
+                generatedAt: rankingsData.timestamp,
+                source: 'ESPN API',
+                week: 15,
+                season: 2025,
+                teamRankings: {}
+            };
+
+            // Build the rankings object
+            for (const teamName in rankingsData.rankings) {
+                jsObject.teamRankings[teamName] = rankingsData.rankings[teamName];
+            }
+
+            const formattedCode = JSON.stringify(jsObject, null, 2);
+            jsCodeEl.textContent = `const NFL_WEEK_15_RANKINGS = ${formattedCode};`;
+            codeOutputEl.style.display = 'block';
+        }
+
+        function copyJSObject() {
+            if (!rankingsData.timestamp) {
+                alert('Please fetch rankings first!');
+                return;
+            }
+
+            const jsCodeEl = document.getElementById('jsCode');
+            const textArea = document.createElement('textarea');
+            textArea.value = jsCodeEl.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert('JavaScript object copied to clipboard!');
+        }
+
+        function downloadJSON() {
+            if (!rankingsData.timestamp) {
+                alert('Please fetch rankings first!');
+                return;
+            }
+
+            const dataToDownload = {
+                generatedAt: rankingsData.timestamp,
+                source: 'ESPN API',
+                week: 15,
+                season: 2025,
+                teams: rankingsData.teams,
+                rankings: rankingsData.rankings
+            };
+
+            const blob = new Blob([JSON.stringify(dataToDownload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'nfl_week_15_rankings_2025.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
