@@ -619,16 +619,60 @@
         }
 
         // ===== FETCH LEAGUE STATS =====
-        async function fetchLeagueStats() {
-            console.log('📊 Loading team rankings...');
+    async function fetchLeagueStats() {
+    console.log('📊 Fetching team rankings from ESPN...');
 
-            // Use hardcoded rankings (more reliable than ESPN API)
-            leagueStats.rankings = HARDCODED_RANKINGS_2025;
-            leagueStats.hasData = true;
+    const urls = {
+        rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/desc',
+        passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/desc',
+        rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/asc',
+        passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/asc'
+    };
 
-            console.log(`✅ Loaded rankings for ${Object.keys(HARDCODED_RANKINGS_2025).length} teams (Week 15 2025)`);
-            console.log('Note: Rankings are hardcoded and updated weekly for accuracy');
+    async function fetchRankings(type, url) {
+        try {
+            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error('Fetch failed');
+            const html = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
+            const ranks = {};
+            rows.forEach(row => {
+                const tds = row.querySelectorAll('.Table__TD');
+                if (tds.length > 1) {
+                    const rk = parseInt(tds[0].textContent.trim());
+                    let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
+                    ranks[teamName] = rk;
+                }
+            });
+            return ranks;
+        } catch (e) {
+            console.warn(`Failed to fetch ${type} rankings:`, e);
+            return null;
         }
+    }
+
+    const [rushOff, passOff, rushDef, passDef] = await Promise.all([
+        fetchRankings('rushOff', urls.rushOff),
+        fetchRankings('passOff', urls.passOff),
+        fetchRankings('rushDef', urls.rushDef),
+        fetchRankings('passDef', urls.passDef)
+    ]);
+
+    leagueStats.rankings = {};
+    for (const team in TEAM_DATA) {
+        leagueStats.rankings[team] = {
+            rushOffRank: rushOff?.[team] || HARDCODED_RANKINGS_2025[team]?.rushOffRank,
+            passOffRank: passOff?.[team] || HARDCODED_RANKINGS_2025[team]?.passOffRank,
+            rushDefRank: rushDef?.[team] || HARDCODED_RANKINGS_2025[team]?.rushDefRank,
+            passDefRank: passDef?.[team] || HARDCODED_RANKINGS_2025[team]?.passDefRank
+        };
+    }
+    leagueStats.hasData = true;
+    console.log(`✅ Loaded rankings for ${Object.keys(leagueStats.rankings).length} teams`);
+}
 
         // ===== FETCH INJURIES =====
         async function fetchInjuries() {
@@ -1199,7 +1243,8 @@
                 }
                 injuryHTML += '</div>';
             }
-
+            const awayRankings = leagueStats.rankings[prediction.awayTeam] || {};
+            const homeRankings = leagueStats.rankings[prediction.homeTeam] || {};
             return `
                 <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88;">
                     <div class="game-header" style="background-color: ${teamColor}ee;">
@@ -1214,6 +1259,10 @@
                                 <div>
                                     <div class="team-name">${prediction.awayTeam}</div>
                                     <div class="team-record">${prediction.awayRecord}</div>
+                                    <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7;">
+                                        Rush O: #$$ {awayRankings.rushOffRank} Pass O: # $${awayRankings.passOffRank}<br>
+                                        Rush D: #$$ {awayRankings.rushDefRank} Pass D: # $${awayRankings.passDefRank}
+                                    </div>
                                 </div>
                             </div>
                             <div class="vs">@</div>
@@ -1221,6 +1270,10 @@
                                 <div style="text-align: right;">
                                     <div class="team-name">${prediction.homeTeam}</div>
                                     <div class="team-record">${prediction.homeRecord}</div>
+                                    <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7; text-align: right;">
+                                        Rush O: #$$ {homeRankings.rushOffRank} Pass O: # $${homeRankings.passOffRank}<br>
+                                        Rush D: #$$ {homeRankings.rushDefRank} Pass D: # $${homeRankings.passDefRank}
+                                    </div>
                                 </div>
                                 ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
                             </div>
