@@ -796,56 +796,148 @@
 
         async function fetchAdvancedStats() {
             try {
-                console.log('===== COMPUTING TEAM RANKINGS =====');
+                console.log('===== FETCHING ESPN TEAM RANKINGS =====');
 
                 // Ensure we have team stats first
                 if (Object.keys(teamStats).length === 0) {
-                    throw new Error('Cannot compute rankings without team stats data');
+                    throw new Error('Cannot fetch rankings without team stats data');
                 }
 
-                console.log(`Computing rankings for ${Object.keys(teamStats).length} teams`);
+                console.log('Fetching offensive rankings from ESPN...');
 
-                // Build array of teams with their statistics
-                const allTeams = Object.keys(teamStats).map(teamName => {
-                    const stats = teamStats[teamName];
-                    return {
+                // Fetch offensive rankings from ESPN stats page
+                try {
+                    const offenseResponse = await fetch('https://www.espn.com/nfl/stats/team');
+                    const offenseHTML = await offenseResponse.text();
+
+                    // Parse the HTML to extract rankings
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(offenseHTML, 'text/html');
+
+                    // Find the stats table
+                    const rows = doc.querySelectorAll('tr.Table__TR');
+
+                    rows.forEach((row, index) => {
+                        const teamCell = row.querySelector('.Table__Team a');
+                        if (teamCell) {
+                            const teamName = teamCell.textContent.trim();
+                            const rank = index + 1;
+
+                            // Match team name to our TEAM_DATA keys
+                            const matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                const abbr = TEAM_DATA[name].abbr;
+                                return teamName.includes(abbr) || teamName.includes(name);
+                            });
+
+                            if (matchedTeam && teamStats[matchedTeam]) {
+                                if (!teamAdvancedStats[matchedTeam]) {
+                                    teamAdvancedStats[matchedTeam] = {
+                                        pointsFor: teamStats[matchedTeam].ppg,
+                                        pointsAgainst: teamStats[matchedTeam].papg
+                                    };
+                                }
+                                teamAdvancedStats[matchedTeam].offensiveRank = rank;
+                            }
+                        }
+                    });
+
+                    console.log('✓ Offensive rankings loaded from ESPN');
+                } catch (e) {
+                    console.warn('Could not fetch offensive rankings from ESPN, using fallback calculation:', e);
+                }
+
+                console.log('Fetching defensive rankings from ESPN...');
+
+                // Fetch defensive rankings from ESPN stats page
+                try {
+                    const defenseResponse = await fetch('https://www.espn.com/nfl/stats/team/_/view/defense');
+                    const defenseHTML = await defenseResponse.text();
+
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(defenseHTML, 'text/html');
+
+                    const rows = doc.querySelectorAll('tr.Table__TR');
+
+                    rows.forEach((row, index) => {
+                        const teamCell = row.querySelector('.Table__Team a');
+                        if (teamCell) {
+                            const teamName = teamCell.textContent.trim();
+                            const rank = index + 1;
+
+                            const matchedTeam = Object.keys(TEAM_DATA).find(name => {
+                                const abbr = TEAM_DATA[name].abbr;
+                                return teamName.includes(abbr) || teamName.includes(name);
+                            });
+
+                            if (matchedTeam && teamStats[matchedTeam]) {
+                                if (!teamAdvancedStats[matchedTeam]) {
+                                    teamAdvancedStats[matchedTeam] = {
+                                        pointsFor: teamStats[matchedTeam].ppg,
+                                        pointsAgainst: teamStats[matchedTeam].papg
+                                    };
+                                }
+                                teamAdvancedStats[matchedTeam].defensiveRank = rank;
+                            }
+                        }
+                    });
+
+                    console.log('✓ Defensive rankings loaded from ESPN');
+                } catch (e) {
+                    console.warn('Could not fetch defensive rankings from ESPN, using fallback calculation:', e);
+                }
+
+                // If fetching from ESPN failed, calculate rankings ourselves
+                const teamsWithoutRankings = Object.keys(teamStats).filter(team =>
+                    !teamAdvancedStats[team] ||
+                    !teamAdvancedStats[team].offensiveRank ||
+                    !teamAdvancedStats[team].defensiveRank
+                );
+
+                if (teamsWithoutRankings.length > 0) {
+                    console.log(`Calculating rankings for ${teamsWithoutRankings.length} teams without ESPN data...`);
+
+                    const allTeams = Object.keys(teamStats).map(teamName => ({
                         name: teamName,
-                        ppg: stats.ppg || 0,
-                        papg: stats.papg || 0
-                    };
-                });
+                        ppg: teamStats[teamName].ppg || 0,
+                        papg: teamStats[teamName].papg || 0
+                    }));
 
-                // Sort teams for rankings
-                // Offensive rank: Higher PPG = better offense = lower rank number (#1 is best)
-                const offenseRanked = [...allTeams].sort((a, b) => b.ppg - a.ppg);
+                    const offenseRanked = [...allTeams].sort((a, b) => b.ppg - a.ppg);
+                    const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
 
-                // Defensive rank: Lower PAPG = better defense = lower rank number (#1 is best)
-                const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
-
-                console.log('Top 5 Offenses (by PPG):');
-                offenseRanked.slice(0, 5).forEach((t, i) => {
-                    console.log(`  #${i + 1}: ${t.name} - ${t.ppg.toFixed(1)} PPG`);
-                });
-
-                console.log('Top 5 Defenses (by PAPG - lower is better):');
-                defenseRanked.slice(0, 5).forEach((t, i) => {
-                    console.log(`  #${i + 1}: ${t.name} - ${t.papg.toFixed(1)} PAPG`);
-                });
-
-                // Assign ranks to each team
-                for (const team of allTeams) {
-                    const offRank = offenseRanked.findIndex(t => t.name === team.name) + 1;
-                    const defRank = defenseRanked.findIndex(t => t.name === team.name) + 1;
-
-                    teamAdvancedStats[team.name] = {
-                        pointsFor: team.ppg,
-                        pointsAgainst: team.papg,
-                        offensiveRank: offRank,
-                        defensiveRank: defRank
-                    };
+                    for (const team of allTeams) {
+                        if (!teamAdvancedStats[team.name]) {
+                            teamAdvancedStats[team.name] = {
+                                pointsFor: team.ppg,
+                                pointsAgainst: team.papg
+                            };
+                        }
+                        if (!teamAdvancedStats[team.name].offensiveRank) {
+                            teamAdvancedStats[team.name].offensiveRank = offenseRanked.findIndex(t => t.name === team.name) + 1;
+                        }
+                        if (!teamAdvancedStats[team.name].defensiveRank) {
+                            teamAdvancedStats[team.name].defensiveRank = defenseRanked.findIndex(t => t.name === team.name) + 1;
+                        }
+                    }
                 }
 
-                // Verify specific team the user mentioned
+                // Log verification
+                console.log('Top 5 Offenses:');
+                Object.entries(teamAdvancedStats)
+                    .sort((a, b) => a[1].offensiveRank - b[1].offensiveRank)
+                    .slice(0, 5)
+                    .forEach(([name, stats]) => {
+                        console.log(`  #${stats.offensiveRank}: ${name} - ${stats.pointsFor.toFixed(1)} PPG`);
+                    });
+
+                console.log('Top 5 Defenses:');
+                Object.entries(teamAdvancedStats)
+                    .sort((a, b) => a[1].defensiveRank - b[1].defensiveRank)
+                    .slice(0, 5)
+                    .forEach(([name, stats]) => {
+                        console.log(`  #${stats.defensiveRank}: ${name} - ${stats.pointsAgainst.toFixed(1)} PAPG`);
+                    });
+
                 if (teamAdvancedStats['Houston Texans']) {
                     console.log('Houston Texans rankings:', {
                         offense: `#${teamAdvancedStats['Houston Texans'].offensiveRank}`,
@@ -855,11 +947,11 @@
                     });
                 }
 
-                console.log(`✓ Rankings computed for ${Object.keys(teamAdvancedStats).length} teams`);
+                console.log(`✓ Rankings loaded for ${Object.keys(teamAdvancedStats).length} teams`);
 
             } catch (error) {
-                console.error('❌ CRITICAL ERROR computing rankings:', error);
-                throw new Error(`Failed to compute team rankings: ${error.message}`);
+                console.error('❌ CRITICAL ERROR fetching rankings:', error);
+                throw new Error(`Failed to fetch team rankings: ${error.message}`);
             }
         }
 
