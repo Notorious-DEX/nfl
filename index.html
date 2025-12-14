@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Prediction AI</title>
+    <title>NFL Predictions</title>
     <style>
         * {
             margin: 0;
@@ -168,11 +168,6 @@
             font-size: clamp(0.8rem, 2vw, 1rem);
         }
 
-        .weather {
-            font-size: clamp(0.75rem, 1.8vw, 0.9rem);
-            opacity: 0.9;
-        }
-
         .badge {
             background: rgba(255,255,255,0.2);
             padding: 0.3rem 0.8rem;
@@ -210,8 +205,14 @@
         }
 
         .team-record {
-            opacity: 0.8;
             font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        .team-rankings {
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            opacity: 0.8;
         }
 
         .vs {
@@ -284,6 +285,20 @@
             font-size: clamp(0.85rem, 2vw, 1rem);
             color: #d4c5f9;
             margin-top: 0.3rem;
+        }
+
+        .rationale {
+            background: rgba(16, 185, 129, 0.15);
+            border-left: 3px solid #10b981;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .rationale-item {
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            margin: 0.3rem 0;
+            color: #d1fae5;
         }
 
         .loading {
@@ -378,9 +393,9 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 NFL PREDICTION AI</h1>
+            <h1>🏈 NFL PREDICTIONS</h1>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
-            <p class="subtitle">Advanced Matchup Analysis • Injury Reports • Weather • Expert Metrics</p>
+            <p class="subtitle">Advanced Matchup Analysis • Injury Reports • Expert Metrics</p>
         </header>
 
         <div class="api-setup" id="apiSetup">
@@ -458,6 +473,7 @@
 
         let apiKey = localStorage.getItem('nfl_odds_api_key');
         let teamStats = {};
+        let teamRosters = {};
         let teamAdvancedStats = {};
         let injuries = {};
         let currentWeek = 1;
@@ -482,11 +498,12 @@
         }
 
         function calculateCurrentWeek() {
+            // NFL 2024 season started September 5, 2024
             const seasonStart = new Date('2024-09-05');
             const today = new Date();
-            const diffTime = Math.abs(today - seasonStart);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            currentWeek = Math.min(Math.ceil(diffDays / 7), 18);
+            const diffTime = today - seasonStart;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            currentWeek = Math.min(Math.max(1, Math.floor(diffDays / 7) + 1), 18);
             document.getElementById('weekIndicator').textContent = `NFL Predictions - Week ${currentWeek}`;
         }
 
@@ -504,7 +521,8 @@
                 await Promise.all([
                     fetchTeamStats(),
                     fetchAdvancedStats(),
-                    fetchInjuries()
+                    fetchInjuries(),
+                    fetchRosters()
                 ]);
                 await fetchGames();
             } catch (error) {
@@ -564,16 +582,43 @@
                 
                 for (const team of data.sports[0].leagues[0].teams) {
                     const teamName = team.team.displayName;
-                    const record = team.team.record?.items?.[0];
                     teamStats[teamName] = {
-                        record: record?.summary || 'N/A',
-                        wins: parseInt(record?.stats?.find(s => s.name === 'wins')?.value || 0),
-                        losses: parseInt(record?.stats?.find(s => s.name === 'losses')?.value || 0),
-                        standing: team.team.standingSummary || ''
+                        wins: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'wins')?.value || '0',
+                        losses: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'losses')?.value || '0',
+                        ties: team.team.record?.items?.[0]?.stats?.find(s => s.name === 'ties')?.value || '0'
                     };
                 }
             } catch (error) {
                 console.error('Error fetching team stats:', error);
+            }
+        }
+
+        async function fetchRosters() {
+            try {
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
+                const data = await response.json();
+                
+                for (const team of data.sports[0].leagues[0].teams) {
+                    const teamName = team.team.displayName;
+                    const teamId = team.team.id;
+                    
+                    try {
+                        const rosterResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamId}/roster`);
+                        const rosterData = await rosterResponse.json();
+                        
+                        const qb = rosterData.athletes?.find(a => a.position.abbreviation === 'QB');
+                        const rb = rosterData.athletes?.find(a => a.position.abbreviation === 'RB');
+                        
+                        teamRosters[teamName] = {
+                            qb: qb?.fullName || 'QB',
+                            rb: rb?.fullName || 'RB'
+                        };
+                    } catch (e) {
+                        teamRosters[teamName] = { qb: 'QB', rb: 'RB' };
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching rosters:', error);
             }
         }
 
@@ -582,22 +627,32 @@
                 const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams');
                 const data = await response.json();
                 
+                const allTeams = [];
+                
                 for (const team of data.sports[0].leagues[0].teams) {
                     const teamName = team.team.displayName;
                     const stats = team.team.record?.items?.[0]?.stats || [];
                     
-                    teamAdvancedStats[teamName] = {
-                        pointsFor: parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 24),
-                        pointsAgainst: parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 24),
-                        totalYards: parseFloat(stats.find(s => s.name === 'totalYards')?.value || 350),
-                        passingYards: parseFloat(stats.find(s => s.name === 'passingYards')?.value || 240),
-                        rushingYards: parseFloat(stats.find(s => s.name === 'rushingYards')?.value || 110),
-                        offensiveRank: Math.floor(Math.random() * 32) + 1,
-                        defensiveRank: Math.floor(Math.random() * 32) + 1,
-                        passOffenseRank: Math.floor(Math.random() * 32) + 1,
-                        rushOffenseRank: Math.floor(Math.random() * 32) + 1,
-                        passDefenseRank: Math.floor(Math.random() * 32) + 1,
-                        rushDefenseRank: Math.floor(Math.random() * 32) + 1
+                    const ppg = parseFloat(stats.find(s => s.name === 'pointsFor')?.value || 24);
+                    const papg = parseFloat(stats.find(s => s.name === 'pointsAgainst')?.value || 24);
+                    
+                    allTeams.push({
+                        name: teamName,
+                        ppg,
+                        papg
+                    });
+                }
+                
+                // Sort and rank
+                const offenseRanked = [...allTeams].sort((a, b) => b.ppg - a.ppg);
+                const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
+                
+                for (const team of allTeams) {
+                    teamAdvancedStats[team.name] = {
+                        pointsFor: team.ppg,
+                        pointsAgainst: team.papg,
+                        offensiveRank: offenseRanked.findIndex(t => t.name === team.name) + 1,
+                        defensiveRank: defenseRanked.findIndex(t => t.name === team.name) + 1
                     };
                 }
             } catch (error) {
@@ -646,7 +701,8 @@
                     away: injuries[awayTeam] || []
                 },
                 news: [],
-                edges: []
+                edges: [],
+                rationale: []
             };
 
             const homeStats = teamStats[homeTeam] || {};
@@ -654,42 +710,20 @@
             const homeAdv = teamAdvancedStats[homeTeam] || {};
             const awayAdv = teamAdvancedStats[awayTeam] || {};
 
-            // Calculate win percentages
-            const homeWinPct = homeStats.wins / (homeStats.wins + homeStats.losses) || 0.5;
-            const awayWinPct = awayStats.wins / (awayStats.wins + awayStats.losses) || 0.5;
+            const homeWins = parseInt(homeStats.wins || 0);
+            const homeLosses = parseInt(homeStats.losses || 0);
+            const awayWins = parseInt(awayStats.wins || 0);
+            const awayLosses = parseInt(awayStats.losses || 0);
+
+            const homeWinPct = homeWins / (homeWins + homeLosses) || 0.5;
+            const awayWinPct = awayWins / (awayWins + awayLosses) || 0.5;
 
             // Matchup analysis
-            if (homeAdv.passOffenseRank < 10 && awayAdv.passDefenseRank > 20) {
-                prediction.edges.push(`${homeTeam} pass offense (#${homeAdv.passOffenseRank}) vs weak pass defense (#${awayAdv.passDefenseRank})`);
+            if (homeAdv.offensiveRank < 10 && awayAdv.defensiveRank > 20) {
+                prediction.edges.push(`${homeTeam} elite offense (#${homeAdv.offensiveRank}) vs weak defense (#${awayAdv.defensiveRank})`);
             }
-            if (awayAdv.passOffenseRank < 10 && homeAdv.passDefenseRank > 20) {
-                prediction.edges.push(`${awayTeam} pass offense (#${awayAdv.passOffenseRank}) vs weak pass defense (#${homeAdv.passDefenseRank})`);
-            }
-            if (homeAdv.rushOffenseRank < 10 && awayAdv.rushDefenseRank > 20) {
-                prediction.edges.push(`${homeTeam} run game (#${homeAdv.rushOffenseRank}) vs weak run defense (#${awayAdv.rushDefenseRank})`);
-            }
-            if (awayAdv.rushOffenseRank < 10 && homeAdv.rushDefenseRank > 20) {
-                prediction.edges.push(`${awayTeam} run game (#${awayAdv.rushOffenseRank}) vs weak run defense (#${homeAdv.rushDefenseRank})`);
-            }
-
-            // Team trends
-            if (homeStats.wins >= 3 && homeStats.losses === 0) {
-                prediction.news.push(`${homeTeam} undefeated (${homeStats.record})`);
-            }
-            if (awayStats.wins >= 3 && awayStats.losses === 0) {
-                prediction.news.push(`${awayTeam} undefeated (${awayStats.record})`);
-            }
-            if (homeWinPct >= 0.75) {
-                prediction.news.push(`${homeTeam} strong form: ${(homeWinPct*100).toFixed(0)}% win rate`);
-            }
-            if (awayWinPct >= 0.75) {
-                prediction.news.push(`${awayTeam} strong form: ${(awayWinPct*100).toFixed(0)}% win rate`);
-            }
-            if (homeAdv.pointsFor > 28) {
-                prediction.news.push(`${homeTeam} averaging ${homeAdv.pointsFor.toFixed(1)} PPG`);
-            }
-            if (awayAdv.pointsFor > 28) {
-                prediction.news.push(`${awayTeam} averaging ${awayAdv.pointsFor.toFixed(1)} PPG`);
+            if (awayAdv.offensiveRank < 10 && homeAdv.defensiveRank > 20) {
+                prediction.edges.push(`${awayTeam} elite offense (#${awayAdv.offensiveRank}) vs weak defense (#${homeAdv.defensiveRank})`);
             }
 
             // Get odds
@@ -713,60 +747,77 @@
                 }
             }
 
-            // Advanced score prediction
+            // Score prediction
             let baseHomeScore = (homeAdv.pointsFor + awayAdv.pointsAgainst) / 2;
             let baseAwayScore = (awayAdv.pointsFor + homeAdv.pointsAgainst) / 2;
 
-            // Betting line adjustment (40% weight)
             if (prediction.spread !== 'N/A' && prediction.total !== 'N/A') {
                 const spread = parseFloat(prediction.spread);
                 const total = parseFloat(prediction.total);
                 const oddsHome = (total - spread) / 2;
                 const oddsAway = (total + spread) / 2;
                 
-                baseHomeScore = baseHomeScore * 0.6 + oddsHome * 0.4;
-                baseAwayScore = baseAwayScore * 0.6 + oddsAway * 0.4;
+                baseHomeScore = baseHomeScore * 0.5 + oddsHome * 0.5;
+                baseAwayScore = baseAwayScore * 0.5 + oddsAway * 0.5;
             }
 
-            // Matchup efficiency (20% weight)
-            const offDefDiff = (homeAdv.offensiveRank - awayAdv.defensiveRank) / 10;
-            baseHomeScore += offDefDiff;
-            baseAwayScore -= offDefDiff;
-
-            // Win percentage impact (15% weight)
-            baseHomeScore += (homeWinPct - 0.5) * 6;
-            baseAwayScore += (awayWinPct - 0.5) * 6;
-
-            // Home field advantage (10% weight)
-            baseHomeScore += 2.5;
-
-            // Injury impact (10% weight)
-            baseHomeScore -= prediction.injuries.home.length * 2.5;
-            baseAwayScore -= prediction.injuries.away.length * 2.5;
-
-            // Matchup edges (5% weight)
-            baseHomeScore += prediction.edges.filter(e => e.includes(homeTeam)).length * 1.5;
-            baseAwayScore += prediction.edges.filter(e => e.includes(awayTeam)).length * 1.5;
+            baseHomeScore += (homeWinPct - 0.5) * 5;
+            baseAwayScore += (awayWinPct - 0.5) * 5;
+            baseHomeScore += 2.5; // Home field
+            baseHomeScore -= prediction.injuries.home.length * 2;
+            baseAwayScore -= prediction.injuries.away.length * 2;
 
             prediction.homeScore = Math.max(10, Math.round(baseHomeScore));
             prediction.awayScore = Math.max(10, Math.round(baseAwayScore));
 
-            // Confidence calculation
+            // Build rationale
+            prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
+            const loser = prediction.winner === homeTeam ? awayTeam : homeTeam;
+            
+            prediction.rationale.push(`${prediction.winner} favored by ${Math.abs(prediction.homeScore - prediction.awayScore)} points`);
+            
+            if (prediction.spread !== 'N/A') {
+                const spreadFav = parseFloat(prediction.spread) < 0 ? homeTeam : awayTeam;
+                prediction.rationale.push(`Vegas line favors ${spreadFav} (${Math.abs(parseFloat(prediction.spread))} pts)`);
+            }
+            
+            const winnerAdv = prediction.winner === homeTeam ? homeAdv : awayAdv;
+            const loserAdv = prediction.winner === homeTeam ? awayAdv : homeAdv;
+            prediction.rationale.push(`${prediction.winner} offense (#${winnerAdv.offensiveRank}) stronger than ${loser} defense (#${loserAdv.defensiveRank})`);
+            
+            const winnerWinPct = prediction.winner === homeTeam ? homeWinPct : awayWinPct;
+            if (winnerWinPct > 0.6) {
+                prediction.rationale.push(`${prediction.winner} has strong ${(winnerWinPct * 100).toFixed(0)}% win rate`);
+            }
+            
+            if (prediction.winner === homeTeam) {
+                prediction.rationale.push(`Home field advantage adds ~2.5 points`);
+            }
+            
+            if (prediction.injuries[loser.toLowerCase().includes(homeTeam.toLowerCase()) ? 'home' : 'away'].length > 0) {
+                prediction.rationale.push(`${loser} dealing with key injuries`);
+            }
+
+            // Confidence
             const margin = Math.abs(prediction.homeScore - prediction.awayScore);
             let confidenceScore = margin;
-            
             if (prediction.edges.length >= 2) confidenceScore += 4;
             if (homeWinPct > 0.7 || awayWinPct > 0.7) confidenceScore += 3;
             if (prediction.spread !== 'N/A' && Math.abs(parseFloat(prediction.spread)) > 7) confidenceScore += 3;
-            if (Math.abs(homeAdv.offensiveRank - awayAdv.defensiveRank) > 15) confidenceScore += 2;
             
             if (confidenceScore >= 12) prediction.confidence = 'High';
             else if (confidenceScore >= 7) prediction.confidence = 'Medium';
             else prediction.confidence = 'Low';
 
-            prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
-
             // Player stats
+            const homeRoster = teamRosters[homeTeam] || {};
+            const awayRoster = teamRosters[awayTeam] || {};
+            
+            prediction.homeQB = homeRoster.qb || 'QB';
+            prediction.awayQB = awayRoster.qb || 'QB';
+            prediction.homeRB = homeRoster.rb || 'RB';
+            prediction.awayRB = awayRoster.rb || 'RB';
+            
             prediction.homeQBYards = Math.round(prediction.homeScore * 11);
             prediction.homeQBTDs = Math.max(1, Math.floor(prediction.homeScore / 8));
             prediction.awayQBYards = Math.round(prediction.awayScore * 11);
@@ -829,8 +880,14 @@
             const teamColor = TEAM_DATA[prediction.homeTeam]?.colors[0] || '#6b4f9e';
             const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
             const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
-            const homeRecord = teamStats[prediction.homeTeam]?.record || '';
-            const awayRecord = teamStats[prediction.awayTeam]?.record || '';
+            
+            const homeStats = teamStats[prediction.homeTeam] || {};
+            const awayStats = teamStats[prediction.awayTeam] || {};
+            const homeRecord = `${homeStats.wins}-${homeStats.losses}${homeStats.ties > 0 ? '-' + homeStats.ties : ''}`;
+            const awayRecord = `${awayStats.wins}-${awayStats.losses}${awayStats.ties > 0 ? '-' + awayStats.ties : ''}`;
+            
+            const homeAdv = teamAdvancedStats[prediction.homeTeam] || {};
+            const awayAdv = teamAdvancedStats[prediction.awayTeam] || {};
 
             const gameDate = new Date(game.date);
             const gameTime = gameDate.toLocaleDateString('en-US', { 
@@ -842,6 +899,15 @@
             });
 
             const confidenceClass = `confidence-${prediction.confidence.toLowerCase()}`;
+
+            let rationaleHTML = '';
+            if (prediction.rationale.length > 0) {
+                rationaleHTML = '<div class="rationale">';
+                prediction.rationale.forEach(reason => {
+                    rationaleHTML += `<div class="rationale-item">✓ ${reason}</div>`;
+                });
+                rationaleHTML += '</div>';
+            }
 
             let injuryHTML = '';
             if (prediction.injuries.home.length > 0 || prediction.injuries.away.length > 0) {
@@ -861,15 +927,6 @@
                     injuryHTML += '</div>';
                 }
                 injuryHTML += '</div>';
-            }
-
-            let newsHTML = '';
-            if (prediction.news.length > 0) {
-                newsHTML = '<div class="prediction-section"><div class="prediction-title">📰 Team Trends</div><div class="news-section">';
-                prediction.news.forEach(news => {
-                    newsHTML += `<div class="news-item">• ${news}</div>`;
-                });
-                newsHTML += '</div></div>';
             }
 
             let edgesHTML = '';
@@ -894,6 +951,7 @@
                                 <div>
                                     <div class="team-name">${prediction.awayTeam}</div>
                                     <div class="team-record">${awayRecord}</div>
+                                    <div class="team-rankings">Off: #${awayAdv.offensiveRank || 'N/A'} | Def: #${awayAdv.defensiveRank || 'N/A'}</div>
                                 </div>
                             </div>
                             <div class="vs">@</div>
@@ -901,6 +959,7 @@
                                 <div style="text-align: right;">
                                     <div class="team-name">${prediction.homeTeam}</div>
                                     <div class="team-record">${homeRecord}</div>
+                                    <div class="team-rankings">Off: #${homeAdv.offensiveRank || 'N/A'} | Def: #${homeAdv.defensiveRank || 'N/A'}</div>
                                 </div>
                                 ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
                             </div>
@@ -911,10 +970,10 @@
                             <div class="winner-label">🎯 PREDICTED WINNER</div>
                             <div class="winner-name">${prediction.winner}</div>
                             <div class="confidence">Confidence: ${prediction.confidence}</div>
+                            ${rationaleHTML}
                         </div>
                         
                         ${edgesHTML}
-                        ${newsHTML}
                         ${injuryHTML}
                         
                         <div class="prediction-section">
@@ -953,19 +1012,19 @@
                             <div class="prediction-title">🏈 Player Projections</div>
                             <div class="stats-breakdown">
                                 <div class="stat-row">
-                                    <span>${prediction.homeTeam} QB:</span>
+                                    <span>${prediction.homeQB}:</span>
                                     <strong>${prediction.homeQBYards} yds, ${prediction.homeQBTDs} TDs</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.awayTeam} QB:</span>
+                                    <span>${prediction.awayQB}:</span>
                                     <strong>${prediction.awayQBYards} yds, ${prediction.awayQBTDs} TDs</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.homeTeam} RB:</span>
+                                    <span>${prediction.homeRB}:</span>
                                     <strong>${prediction.homeRBYards} yds</strong>
                                 </div>
                                 <div class="stat-row">
-                                    <span>${prediction.awayTeam} RB:</span>
+                                    <span>${prediction.awayRB}:</span>
                                     <strong>${prediction.awayRBYards} yds</strong>
                                 </div>
                             </div>
