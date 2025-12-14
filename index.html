@@ -503,12 +503,31 @@
         }
 
         function calculateCurrentWeek() {
-            // NFL 2024 season started September 5, 2024
-            const seasonStart = new Date('2024-09-05');
             const today = new Date();
+            const currentYear = today.getFullYear();
+
+            // NFL 2025 season starts September 4, 2025
+            // NFL 2024 season started September 5, 2024
+            let seasonStart;
+            if (currentYear === 2025 && today.getMonth() >= 8) { // September or later
+                seasonStart = new Date('2025-09-04');
+            } else if (currentYear === 2025 && today.getMonth() < 8) {
+                // Still in 2024 season playoffs
+                seasonStart = new Date('2024-09-05');
+            } else {
+                seasonStart = new Date(`${currentYear}-09-05`);
+            }
+
             const diffTime = today - seasonStart;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            currentWeek = Math.min(Math.max(1, Math.floor(diffDays / 7) + 1), 18);
+
+            if (diffDays < 0) {
+                // Season hasn't started yet
+                currentWeek = 1;
+            } else {
+                currentWeek = Math.min(Math.max(1, Math.floor(diffDays / 7) + 1), 18);
+            }
+
             document.getElementById('weekIndicator').textContent = `NFL Predictions - Week ${currentWeek}`;
         }
 
@@ -590,23 +609,42 @@
                     data.children.forEach(conference => {
                         conference.standings?.entries?.forEach(entry => {
                             const teamName = entry.team.displayName;
-                            const stats = entry.stats;
+                            const stats = entry.stats || [];
+
+                            const winsObj = stats.find(s => s.name === 'wins');
+                            const lossesObj = stats.find(s => s.name === 'losses');
+                            const tiesObj = stats.find(s => s.name === 'ties');
+                            const winPctObj = stats.find(s => s.name === 'winPercent');
+                            const ppgObj = stats.find(s => s.name === 'avgPointsFor');
+                            const papgObj = stats.find(s => s.name === 'avgPointsAgainst');
 
                             teamStats[teamName] = {
-                                wins: stats?.find(s => s.name === 'wins')?.displayValue || '0',
-                                losses: stats?.find(s => s.name === 'losses')?.displayValue || '0',
-                                ties: stats?.find(s => s.name === 'ties')?.displayValue || '0',
-                                winPct: parseFloat(stats?.find(s => s.name === 'winPercent')?.value || 0),
-                                ppg: parseFloat(stats?.find(s => s.name === 'avgPointsFor')?.value || 20),
-                                papg: parseFloat(stats?.find(s => s.name === 'avgPointsAgainst')?.value || 20)
+                                wins: winsObj?.displayValue || winsObj?.value?.toString() || '0',
+                                losses: lossesObj?.displayValue || lossesObj?.value?.toString() || '0',
+                                ties: tiesObj?.displayValue || tiesObj?.value?.toString() || '0',
+                                winPct: parseFloat(winPctObj?.value || winPctObj?.displayValue || 0.5),
+                                ppg: parseFloat(ppgObj?.value || ppgObj?.displayValue || 20),
+                                papg: parseFloat(papgObj?.value || papgObj?.displayValue || 20)
                             };
                         });
                     });
                 }
 
                 console.log('Team stats loaded:', Object.keys(teamStats).length, 'teams');
+                console.log('Sample team stats:', Object.values(teamStats)[0]);
             } catch (error) {
                 console.error('Error fetching team stats:', error);
+                // Initialize default stats for all teams if fetch fails
+                Object.keys(TEAM_DATA).forEach(teamName => {
+                    teamStats[teamName] = {
+                        wins: '0',
+                        losses: '0',
+                        ties: '0',
+                        winPct: 0.5,
+                        ppg: 20,
+                        papg: 20
+                    };
+                });
             }
         }
 
@@ -656,11 +694,26 @@
 
         async function fetchAdvancedStats() {
             try {
+                // Ensure we have team stats first
+                if (Object.keys(teamStats).length === 0) {
+                    console.warn('No team stats available, using defaults');
+                    Object.keys(TEAM_DATA).forEach(teamName => {
+                        teamStats[teamName] = {
+                            wins: '0',
+                            losses: '0',
+                            ties: '0',
+                            winPct: 0.5,
+                            ppg: 20,
+                            papg: 20
+                        };
+                    });
+                }
+
                 // Use the ppg and papg data we already have from standings
                 const allTeams = Object.keys(teamStats).map(teamName => ({
                     name: teamName,
-                    ppg: teamStats[teamName].ppg || 20,
-                    papg: teamStats[teamName].papg || 20
+                    ppg: parseFloat(teamStats[teamName]?.ppg) || 20,
+                    papg: parseFloat(teamStats[teamName]?.papg) || 20
                 }));
 
                 // Sort and rank - offense by highest ppg, defense by lowest papg
@@ -668,11 +721,14 @@
                 const defenseRanked = [...allTeams].sort((a, b) => a.papg - b.papg);
 
                 for (const team of allTeams) {
+                    const offRank = offenseRanked.findIndex(t => t.name === team.name) + 1;
+                    const defRank = defenseRanked.findIndex(t => t.name === team.name) + 1;
+
                     teamAdvancedStats[team.name] = {
                         pointsFor: team.ppg,
                         pointsAgainst: team.papg,
-                        offensiveRank: offenseRanked.findIndex(t => t.name === team.name) + 1,
-                        defensiveRank: defenseRanked.findIndex(t => t.name === team.name) + 1
+                        offensiveRank: offRank,
+                        defensiveRank: defRank
                     };
                 }
 
@@ -683,6 +739,15 @@
                 });
             } catch (error) {
                 console.error('Error fetching advanced stats:', error);
+                // Initialize defaults
+                Object.keys(TEAM_DATA).forEach((teamName, index) => {
+                    teamAdvancedStats[teamName] = {
+                        pointsFor: 20,
+                        pointsAgainst: 20,
+                        offensiveRank: index + 1,
+                        defensiveRank: index + 1
+                    };
+                });
             }
         }
 
@@ -985,11 +1050,10 @@
 
             // Create winner picks summary
             gamesWithPredictions.forEach(({ game, prediction, gameId }) => {
-                const confidenceColor = prediction.confidence === 'High' ? '#10b981' :
-                                       prediction.confidence === 'Medium' ? '#f59e0b' : '#ef4444';
+                const teamColor = TEAM_DATA[prediction.winner]?.colors[0] || '#6b4f9e';
                 picksList.innerHTML += `
                     <div onclick="document.getElementById('${gameId}').scrollIntoView({behavior: 'smooth', block: 'center'})"
-                         style="background: rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.5rem; cursor: pointer; border-left: 4px solid ${confidenceColor}; transition: all 0.2s;"
+                         style="background: rgba(255,255,255,0.1); padding: 0.75rem; border-radius: 0.5rem; cursor: pointer; border-left: 4px solid ${teamColor}; transition: all 0.2s;"
                          onmouseover="this.style.background='rgba(255,255,255,0.2)'"
                          onmouseout="this.style.background='rgba(255,255,255,0.1)'">
                         <div style="font-weight: bold; font-size: 1.1rem;">${prediction.winner}</div>
@@ -1103,7 +1167,7 @@
                                 <div>
                                     <div class="team-name">${prediction.awayTeam}</div>
                                     <div class="team-record">${awayRecord}</div>
-                                    <div class="team-rankings">Off: #${awayAdv.offensiveRank || 'N/A'} | Def: #${awayAdv.defensiveRank || 'N/A'}</div>
+                                    <div class="team-rankings">Off: #${awayAdv.offensiveRank || 16} | Def: #${awayAdv.defensiveRank || 16}</div>
                                 </div>
                             </div>
                             <div class="vs">@</div>
@@ -1111,7 +1175,7 @@
                                 <div style="text-align: right;">
                                     <div class="team-name">${prediction.homeTeam}</div>
                                     <div class="team-record">${homeRecord}</div>
-                                    <div class="team-rankings">Off: #${homeAdv.offensiveRank || 'N/A'} | Def: #${homeAdv.defensiveRank || 'N/A'}</div>
+                                    <div class="team-rankings">Off: #${homeAdv.offensiveRank || 16} | Def: #${homeAdv.defensiveRank || 16}</div>
                                 </div>
                                 ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
                             </div>
