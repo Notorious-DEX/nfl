@@ -523,6 +523,10 @@
 
         let teamRosters = {};
         let injuries = {};
+        let weatherData = {};
+        let currentWeek = 1;
+        let predictions = JSON.parse(localStorage.getItem('nfl_predictions') || '{}');
+        let accuracyStats = JSON.parse(localStorage.getItem('nfl_accuracy') || '{"correct": 0, "total": 0}');
 
         const teamStats = {
             "Arizona Cardinals": { wins: "3", losses: "10", ties: "0", winPct: 0.231, ppg: 21.7, papg: 26.8 },
@@ -653,28 +657,106 @@
             document.getElementById('error').style.display = 'none';
 
             try {
-                // Load team stats first, then compute rankings based on that data
-                await fetchTeamStats();
-                console.log('Team stats loaded successfully');
-
-                // Compute rankings from the loaded stats
-                await fetchAdvancedStats();
-                console.log('Team rankings computed successfully');
+                // Stats are now hardcoded above, skip fetching
 
                 // Load additional data in parallel
                 await Promise.all([
                     fetchInjuries(),
-                    fetchRosters()
+                    fetchRosters(),
+                    checkPredictionResults()
                 ]);
-                console.log('Injuries and rosters loaded');
+                console.log('Data loaded');
 
                 // Finally fetch and display games
                 await fetchGames();
+
+                // Update accuracy display
+                updateAccuracyDisplay();
             } catch (error) {
                 console.error('Failed to load data:', error);
-                showError('❌ Failed to load team data: ' + error.message + '. Please check browser console for details.');
-                document.getElementById('loading').textContent = 'Error loading data. Check the error message above and browser console for details.';
+                showError('❌ Failed to load data: ' + error.message);
+                document.getElementById('loading').textContent = 'Error loading data. Check console.';
             }
+        }
+
+        function savePrediction(gameId, gameDate, prediction) {
+            const gameTime = new Date(gameDate);
+            const now = new Date();
+
+            // Don't save if game has already started
+            if (now >= gameTime) {
+                return false;
+            }
+
+            predictions[gameId] = {
+                ...prediction,
+                gameDate: gameDate,
+                lockedAt: now.toISOString(),
+                checked: false
+            };
+
+            localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
+            console.log(`✓ Saved prediction: ${prediction.winner}`);
+            return true;
+        }
+
+        async function checkPredictionResults() {
+            console.log('=== CHECKING PREDICTIONS ===');
+
+            const unchecked = Object.entries(predictions).filter(([_, p]) => !p.checked);
+            if (unchecked.length === 0) return;
+
+            console.log(`Checking ${unchecked.length} predictions...`);
+
+            for (const [gameId, prediction] of unchecked) {
+                const gameDate = new Date(prediction.gameDate);
+                const now = new Date();
+
+                // Only check finished games (>4 hours after start)
+                if (now - gameDate < 4 * 60 * 60 * 1000) continue;
+
+                try {
+                    const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                    const data = await response.json();
+                    const game = data.events?.find(e => e.id === gameId);
+                    if (!game) continue;
+
+                    const comp = game.competitions?.[0];
+                    if (!comp || comp.status?.type?.completed !== true) continue;
+
+                    const home = comp.competitors.find(c => c.homeAway === 'home');
+                    const away = comp.competitors.find(c => c.homeAway === 'away');
+                    const homeScore = parseInt(home?.score || 0);
+                    const awayScore = parseInt(away?.score || 0);
+                    const actualWinner = homeScore > awayScore ? home.team.displayName : away.team.displayName;
+                    const correct = prediction.winner === actualWinner;
+
+                    accuracyStats.total++;
+                    if (correct) accuracyStats.correct++;
+
+                    predictions[gameId].checked = true;
+                    predictions[gameId].correct = correct;
+                    predictions[gameId].actualScore = `${homeScore}-${awayScore}`;
+
+                    console.log(`${gameId}: ${correct ? '✓' : '✗'} (Predicted ${prediction.winner}, Actual ${actualWinner})`);
+                } catch (error) {
+                    console.error(`Error checking game ${gameId}:`, error);
+                }
+            }
+
+            localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
+            localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
+
+            if (accuracyStats.total > 0) {
+                console.log(`Accuracy: ${accuracyStats.correct}/${accuracyStats.total} (${(accuracyStats.correct / accuracyStats.total * 100).toFixed(1)}%)`);
+            }
+        }
+
+        function updateAccuracyDisplay() {
+            document.getElementById('correct').textContent = accuracyStats.correct;
+            document.getElementById('total').textContent = accuracyStats.total;
+            const accuracy = accuracyStats.total > 0 ? (accuracyStats.correct / accuracyStats.total * 100).toFixed(1) : 0;
+            document.getElementById('accuracy').textContent = accuracy + '%';
         }
 
         async function fetchGames() {
@@ -1281,7 +1363,19 @@
 
                 const weather = await fetchWeather(homeTeam, game.date);
                 const prediction = generateAdvancedPrediction(game, gameOdds, weather);
-                return { game, prediction, gameId: `game-${index}` };
+
+                // Save prediction (locks at game time)
+                const gameId = game.id || `game-${index}`;
+                savePrediction(gameId, game.date, {
+                    winner: prediction.winner,
+                    homeTeam: prediction.homeTeam,
+                    awayTeam: prediction.awayTeam,
+                    homeScore: prediction.homeScore,
+                    awayScore: prediction.awayScore,
+                    confidence: prediction.confidence
+                });
+
+                return { game, prediction, gameId };
             }));
 
             const confidenceOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
