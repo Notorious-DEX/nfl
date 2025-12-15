@@ -456,7 +456,7 @@
         // ===== CONFIGURATION =====
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
         let predictions = JSON.parse(localStorage.getItem('nfl_predictions') || '{}');
-        let accuracyStats = JSON.parse(localStorage.getItem('nfl_accuracy') || '{"correct": 0, "total": 0}');
+        let accuracyStats = { correct: 0, total: 0 }; // Will be loaded from results.json
 
         // Team data (logos only - all stats fetched dynamically)
         const TEAM_DATA = {
@@ -504,14 +504,37 @@
 
         let injuries = {};
 
+        // ===== FETCH GLOBAL ACCURACY =====
+        async function fetchGlobalAccuracy() {
+            try {
+                const response = await fetch('results.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    accuracyStats = {
+                        correct: data.correct || 0,
+                        total: data.total || 0
+                    };
+                    updateAccuracyDisplay();
+                    console.log(`📊 Loaded global accuracy: ${data.correct}/${data.total} (${data.accuracy}%)`);
+                } else {
+                    console.log('📊 No results.json found, starting with 0% accuracy');
+                    updateAccuracyDisplay();
+                }
+            } catch (error) {
+                console.log('📊 Could not load global accuracy, starting with 0%');
+                updateAccuracyDisplay();
+            }
+        }
+
         // ===== INITIALIZATION =====
+        // Load global accuracy first
+        fetchGlobalAccuracy();
+
         if (apiKey) {
             document.getElementById('apiKeyInput').value = apiKey;
             document.getElementById('apiSetup').style.display = 'none';
             loadAllData();
         }
-
-        updateAccuracyDisplay();
 
         function saveApiKey() {
             const input = document.getElementById('apiKeyInput');
@@ -567,9 +590,8 @@
                     console.warn('Could not fetch odds:', e.message);
                 }
 
-                // Step 5: Check past predictions
-                await checkPredictionResults();
-                updateAccuracyDisplay();
+                // Step 5: Refresh global accuracy (GitHub Actions updates this)
+                await fetchGlobalAccuracy();
 
                 // Step 6: Display games with predictions
                 await displayGames(games, oddsData);
@@ -1602,53 +1624,8 @@
             }
         }
 
-        async function checkPredictionResults() {
-            const now = new Date();
-            const fourHoursAgo = new Date(now.getTime() - 4 * 60 * 60 * 1000);
-
-            for (const gameId in predictions) {
-                const pred = predictions[gameId];
-                const gameDate = new Date(pred.date);
-
-                if (gameDate < fourHoursAgo && !pred.checked) {
-                    try {
-                        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${gameId}`);
-                        const data = await response.json();
-
-                        const competition = data.boxscore?.teams;
-                        if (competition && competition.length === 2) {
-                            const homeTeam = competition.find(t => t.homeAway === 'home');
-                            const awayTeam = competition.find(t => t.homeAway === 'away');
-
-                            const homeScore = parseInt(homeTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
-                            const awayScore = parseInt(awayTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
-
-                            // Only count if we have valid final scores (game is actually complete)
-                            if (homeScore > 0 || awayScore > 0) {
-                                const actualWinner = homeScore > awayScore ? homeTeam.team.displayName : awayTeam.team.displayName;
-                                const predictedWinner = pred.prediction.winner;
-
-                                // Update total first (game is complete)
-                                accuracyStats.total++;
-
-                                // Then check if prediction was correct
-                                if (actualWinner === predictedWinner) {
-                                    accuracyStats.correct++;
-                                }
-
-                                pred.checked = true;
-                                predictions[gameId] = pred;
-                            }
-                        }
-                    } catch (e) {
-                        console.warn(`Could not check result for game ${gameId}`);
-                    }
-                }
-            }
-
-            localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
-            localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
-        }
+        // Note: Prediction checking is now handled by GitHub Actions
+        // which updates results.json automatically
     </script>
 </body>
 </html>

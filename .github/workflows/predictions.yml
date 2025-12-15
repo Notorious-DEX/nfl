@@ -1,0 +1,47 @@
+name: NFL Predictions
+
+on:
+  schedule:
+    # Run every Tuesday at 10 AM UTC (before week starts)
+    - cron: '0 10 * * 2'
+    # Run daily at 6 AM UTC to check completed games
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual triggers
+  push:
+    branches:
+      - main
+      - 'claude/**'
+
+permissions:
+  contents: write
+
+jobs:
+  update-predictions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install node-fetch
+
+      - name: Generate predictions
+        run: node scripts/generate-predictions.js
+
+      - name: Check results
+        run: node scripts/check-results.js
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add predictions.json results.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update predictions and results [skip ci]" && git push)
