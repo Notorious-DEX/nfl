@@ -4,7 +4,9 @@
  * Backtest NFL Predictions
  * Tests prediction model accuracy by:
  * - Uses Elo ratings for all weeks (carried over from prior season with 1/3 regression)
- * - Updates Elo ratings after each week based on actual game results
+ * - Updates Elo ratings after each week with adaptive K-factor:
+ *   - K=30 for weeks 1-6 (faster adjustment to new season)
+ *   - K=20 for weeks 7+ (stability for established patterns)
  * - Compare predictions to actual results
  * - Save to test-predictions.json and test-results.json
  */
@@ -456,7 +458,10 @@ async function main() {
             console.log(`📊 Season So Far: ${totalCorrect}/${totalGames} (${((totalCorrect / totalGames) * 100).toFixed(1)}%)`);
 
             // Update Elo ratings based on this week's actual results
-            console.log('🔄 Updating Elo ratings based on actual results...');
+            // Use higher K-factor early season for faster adjustment
+            const kFactor = week <= 6 ? 30 : 20;
+            console.log(`🔄 Updating Elo ratings with K=${kFactor} (${week <= 6 ? 'early season - faster adjustment' : 'mid/late season - stability'})...`);
+
             for (const game of games) {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
@@ -475,12 +480,12 @@ async function main() {
 
                 if (homeScore > awayScore) {
                     // Home team won
-                    const updated = elo.updateElo(homeElo, awayElo, homeScore - awayScore, true);
+                    const updated = elo.updateElo(homeElo, awayElo, homeScore - awayScore, true, kFactor);
                     eloRatings[homeTeam] = updated.winnerElo;
                     eloRatings[awayTeam] = updated.loserElo;
                 } else if (awayScore > homeScore) {
                     // Away team won
-                    const updated = elo.updateElo(awayElo, homeElo, awayScore - homeScore, false);
+                    const updated = elo.updateElo(awayElo, homeElo, awayScore - homeScore, false, kFactor);
                     eloRatings[awayTeam] = updated.winnerElo;
                     eloRatings[homeTeam] = updated.loserElo;
                 }
@@ -492,7 +497,9 @@ async function main() {
         const predictionsPath = path.join(__dirname, '..', 'test-predictions.json');
         fs.writeFileSync(predictionsPath, JSON.stringify({
             generated: new Date().toISOString(),
-            method: 'elo-all-season',
+            method: 'elo-adaptive-k',
+            kFactorEarly: 30,
+            kFactorLate: 20,
             weeks: currentWeek,
             predictions: allPredictions
         }, null, 2));
@@ -500,7 +507,9 @@ async function main() {
         const resultsPath = path.join(__dirname, '..', 'test-results.json');
         fs.writeFileSync(resultsPath, JSON.stringify({
             lastUpdated: new Date().toISOString(),
-            method: 'elo-all-season',
+            method: 'elo-adaptive-k',
+            kFactorEarly: 30,
+            kFactorLate: 20,
             weeks: currentWeek,
             correct: totalCorrect,
             total: totalGames,
