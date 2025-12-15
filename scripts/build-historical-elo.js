@@ -131,7 +131,7 @@ async function main() {
     };
 
     // Initialize 2022 with all teams at 1500
-    console.log('${'='.repeat(60)}');
+    console.log('='.repeat(60));
     console.log('2022 SEASON');
     console.log('='.repeat(60));
     console.log('  🔧 Initializing all teams to Elo 1500');
@@ -153,7 +153,7 @@ async function main() {
     sorted2022.forEach(([team, rating]) => console.log(`     ${team}: ${rating}`));
 
     // Process 2023 season
-    console.log('\n${'='.repeat(60)}');
+    console.log('\n' + '='.repeat(60));
     console.log('2023 SEASON');
     console.log('='.repeat(60));
     console.log('  🔄 Applying 1/3 regression to mean...');
@@ -180,7 +180,7 @@ async function main() {
     sorted2023.forEach(([team, rating]) => console.log(`     ${team}: ${rating}`));
 
     // Process 2024 season
-    console.log('\n${'='.repeat(60)}');
+    console.log('\n' + '='.repeat(60));
     console.log('2024 SEASON');
     console.log('='.repeat(60));
     console.log('  🔄 Applying 1/3 regression to mean...');
@@ -206,7 +206,7 @@ async function main() {
     sorted2024.forEach(([team, rating]) => console.log(`     ${team}: ${rating}`));
 
     // Prepare 2025 starting ratings (with regression)
-    console.log('\n${'='.repeat(60)}');
+    console.log('\n' + '='.repeat(60));
     console.log('2025 STARTING RATINGS');
     console.log('='.repeat(60));
     console.log('  🔄 Applying 1/3 regression to mean for 2025...');
@@ -228,7 +228,7 @@ async function main() {
     const outputPath = path.join(__dirname, '..', 'historical-elo.json');
     fs.writeFileSync(outputPath, JSON.stringify(history, null, 2));
 
-    console.log('\n${'='.repeat(60)}');
+    console.log('\n' + '='.repeat(60));
     console.log('✅ Historical Elo database built successfully');
     console.log(`   Saved to: historical-elo.json`);
     console.log(`   Total games processed: ${games2022.length + games2023.length + games2024.length}`);
