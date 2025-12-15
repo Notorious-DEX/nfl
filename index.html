@@ -624,14 +624,14 @@
 
     const proxy = url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
 
-    // Existing rankings fetch (unchanged structure, but added PPG)
+    // Add season parameters to all URLs for 2025 regular season
     const urls = {
-        rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/table/rushing/sort/rushingYardsPerGame/dir/desc',
-        passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/table/passing/sort/netPassingYardsPerGame/dir/desc',
-        rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/table/rushing/sort/rushingYardsPerGame/dir/asc',
-        passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/table/passing/sort/netPassingYardsPerGame/dir/asc',
-        offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense',  // Points Scored Per Game
-        defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense'   // Points Allowed Per Game
+        rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/desc',
+        passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/desc',
+        rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/asc',
+        passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/asc',
+        offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2',  // Points Scored Per Game
+        defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2'   // Points Allowed Per Game
     };
 
     async function parseRankings(html, type) {
@@ -657,16 +657,11 @@
         const data = {};
         rows.forEach(row => {
             const tds = row.querySelectorAll('.Table__TD');
-            if (tds.length >= 10) {  // PTS/G is usually in the last few columns
+            if (tds.length >= 5) {  // Ensure at least RK, TEAM, GP, PTS, PTS/G
                 let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
-                const ptsGText = Array.from(tds).find(td => {
-                    const val = td.textContent.trim();
-                    return !isNaN(parseFloat(val)) && val !== '';
-                });
-                if (ptsGText) {
-                    const ptsG = parseFloat(ptsGText.textContent.trim());
-                    if (!isNaN(ptsG)) data[teamName] = ptsG;
-                }
+                // PTS/G is in the 5th column (index 4: RK=0, TEAM=1, GP=2, PTS=3, PTS/G=4)
+                const ptsG = parseFloat(tds[4]?.textContent.trim() || '0');
+                if (!isNaN(ptsG)) data[teamName] = ptsG;
             }
         });
         return data;
@@ -702,11 +697,15 @@
                 passDefRank: passDef?.[team] || HARDCODED_RANKINGS_2025[team]?.passDefRank || 16
             };
 
-            // Prefer real PPG, fallback to rank-based estimate (~32 - avg rank)
+            // Prefer real PPG, fallback to realistic rank-based estimate
             const avgOffRank = (leagueStats.rankings[team].rushOffRank + leagueStats.rankings[team].passOffRank) / 2;
             const avgDefRank = (leagueStats.rankings[team].rushDefRank + leagueStats.rankings[team].passDefRank) / 2;
-            leagueStats.ppg.off[team] = offPPG?.[team] ?? (32 - avgOffRank + 22);  // Rough conversion
-            leagueStats.ppg.def[team] = defPPG?.[team] ?? (32 - avgDefRank + 22);
+            // Offense: #1 ~30 PPG, #32 ~15 PPG
+            const offEstimate = 30 - ((avgOffRank - 1) * (15 / 31));
+            // Defense: #1 ~15 PA/G, #32 ~30 PA/G
+            const defEstimate = 15 + ((avgDefRank - 1) * (15 / 31));
+            leagueStats.ppg.off[team] = offPPG?.[team] ?? offEstimate;
+            leagueStats.ppg.def[team] = defPPG?.[team] ?? defEstimate;
         }
 
         leagueStats.hasData = true;
@@ -719,8 +718,8 @@
         for (const team in TEAM_DATA) {
             const avgOff = (HARDCODED_RANKINGS_2025[team].rushOffRank + HARDCODED_RANKINGS_2025[team].passOffRank) / 2;
             const avgDef = (HARDCODED_RANKINGS_2025[team].rushDefRank + HARDCODED_RANKINGS_2025[team].passDefRank) / 2;
-            leagueStats.ppg.off[team] = 32 - avgOff + 22;
-            leagueStats.ppg.def[team] = 32 - avgDef + 22;
+            leagueStats.ppg.off[team] = 30 - ((avgOff - 1) * (15 / 31));
+            leagueStats.ppg.def[team] = 15 + ((avgDef - 1) * (15 / 31));
         }
         leagueStats.hasData = true;
     }
