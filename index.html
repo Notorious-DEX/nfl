@@ -479,19 +479,159 @@
             "Washington Commanders": true
         };
 
-        const HARDCODED_RANKINGS_2025 = {}; // Keep if you have hardcoded, otherwise empty
+        const HARDCODED_RANKINGS_2025 = {}; // Empty — dynamic fetch used
 
         async function fetchLeagueStats() {
-            // Existing fetchLeagueStats code (unchanged from your last version)
-            // ... (the full fetchLeagueStats from your provided code)
+            console.log('Fetching rankings and PPG...');
+
+            const proxy = url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+
+            const urls = {
+                rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/desc',
+                passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/desc',
+                rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/asc',
+                passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/asc',
+                offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2',
+                defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2'
+            };
+
+            async function parseRankings(html) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
+                const data = {};
+                rows.forEach(row => {
+                    const tds = row.querySelectorAll('.Table__TD');
+                    if (tds.length > 1) {
+                        const rk = parseInt(tds[0].textContent.trim()) || 999;
+                        const teamLink = tds[1].querySelector('.AnchorLink');
+                        const teamName = teamLink ? teamLink.textContent.trim() : tds[1].textContent.trim();
+                        data[teamName] = rk;
+                    }
+                });
+                return data;
+            }
+
+            async function parsePPG(html) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
+                const data = {};
+                rows.forEach(row => {
+                    const tds = row.querySelectorAll('.Table__TD');
+                    if (tds.length >= 5) {
+                        const teamLink = tds[1].querySelector('.AnchorLink');
+                        const teamName = teamLink ? teamLink.textContent.trim() : tds[1].textContent.trim();
+                        let ptsG = 0;
+                        for (let i = 3; i < tds.length; i++) {
+                            const val = parseFloat(tds[i].textContent.trim());
+                            if (!isNaN(val) && val >= 15 && val <= 35) {
+                                ptsG = val;
+                                break;
+                            }
+                        }
+                        if (ptsG > 0) data[teamName] = ptsG;
+                    }
+                });
+                return data;
+            }
+
+            try {
+                const responses = await Promise.all([
+                    fetch(proxy(urls.rushOff)).then(r => r.ok ? r.text() : null),
+                    fetch(proxy(urls.passOff)).then(r => r.ok ? r.text() : null),
+                    fetch(proxy(urls.rushDef)).then(r => r.ok ? r.text() : null),
+                    fetch(proxy(urls.passDef)).then(r => r.ok ? r.text() : null),
+                    fetch(proxy(urls.offPPG)).then(r => r.ok ? r.text() : null),
+                    fetch(proxy(urls.defPPG)).then(r => r.ok ? r.text() : null)
+                ]);
+
+                const rushOff = responses[0] ? await parseRankings(responses[0]) : null;
+                const passOff = responses[1] ? await parseRankings(responses[1]) : null;
+                const rushDef = responses[2] ? await parseRankings(responses[2]) : null;
+                const passDef = responses[3] ? await parseRankings(responses[3]) : null;
+                const offPPG = responses[4] ? await parsePPG(responses[4]) : null;
+                const defPPG = responses[5] ? await parsePPG(responses[5]) : null;
+
+                leagueStats.rankings = {};
+                leagueStats.ppg = { off: {}, def: {} };
+
+                for (const team in TEAM_DATA) {
+                    leagueStats.rankings[team] = {
+                        rushOffRank: rushOff?.[team] || 16,
+                        passOffRank: passOff?.[team] || 16,
+                        rushDefRank: rushDef?.[team] || 16,
+                        passDefRank: passDef?.[team] || 16
+                    };
+
+                    const avgOff = (leagueStats.rankings[team].rushOffRank + leagueStats.rankings[team].passOffRank) / 2;
+                    const avgDef = (leagueStats.rankings[team].rushDefRank + leagueStats.rankings[team].passDefRank) / 2;
+                    leagueStats.ppg.off[team] = offPPG?.[team] ?? (30 - (avgOff - 1) * (15 / 31));
+                    leagueStats.ppg.def[team] = defPPG?.[team] ?? (15 + (avgDef - 1) * (15 / 31));
+                }
+
+                leagueStats.hasData = true;
+            } catch (e) {
+                console.warn('Dynamic stats fetch failed, using fallback');
+                for (const team in TEAM_DATA) {
+                    leagueStats.rankings[team] = { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
+                    leagueStats.ppg.off[team] = 23;
+                    leagueStats.ppg.def[team] = 23;
+                }
+                leagueStats.hasData = true;
+            }
         }
 
-        function generatePrediction(event, odds) {
-            // Existing generatePrediction code (unchanged)
-            // ... (your full generatePrediction)
+        function generatePrediction(event, oddsData) {
+            const competitors = event.competitions[0].competitors;
+            const homeComp = competitors.find(c => c.homeAway === 'home');
+            const awayComp = competitors.find(c => c.homeAway === 'away');
+
+            const homeTeam = homeComp.team.displayName;
+            const awayTeam = awayComp.team.displayName;
+            const homeRecord = homeComp.records ? homeComp.records[0].summary : '0-0';
+            const awayRecord = awayComp.records ? awayComp.records[0].summary : '0-0';
+            const homeLogo = homeComp.team.logo || '';
+            const awayLogo = awayComp.team.logo || '';
+
+            let ourHomeScore = 23;
+            let ourAwayScore = 23;
+
+            if (leagueStats.hasData) {
+                const homeOffPPG = leagueStats.ppg.off[homeTeam] || 23;
+                const homeDefPPG = leagueStats.ppg.def[homeTeam] || 23;
+                const awayOffPPG = leagueStats.ppg.off[awayTeam] || 23;
+                const awayDefPPG = leagueStats.ppg.def[awayTeam] || 23;
+
+                ourAwayScore = (awayOffPPG + homeDefPPG) / 2;
+                ourHomeScore = (homeOffPPG + awayDefPPG) / 2;
+            }
+
+            ourHomeScore += 2.5;
+
+            ourHomeScore = Math.max(10, Math.round(ourHomeScore));
+            ourAwayScore = Math.max(10, Math.round(ourAwayScore));
+
+            const winner = ourHomeScore > ourAwayScore ? homeTeam : awayTeam;
+            const confidence = Math.abs(ourHomeScore - ourAwayScore) >= 14 ? 'High' : Math.abs(ourHomeScore - ourAwayScore) >= 8 ? 'Medium' : 'Low';
+
+            return {
+                winner,
+                confidence,
+                homeTeam,
+                awayTeam,
+                homeScore: ourHomeScore,
+                awayScore: ourAwayScore,
+                homeRecord,
+                awayRecord,
+                homeLogo,
+                awayLogo,
+                vegasSpread: 'N/A',
+                vegasTotal: 'N/A'
+            };
         }
 
-        function createGameCard(game, prediction, gameId) {
+        function createGameCard(event, prediction, gameId) {
             const awayRankings = leagueStats.rankings[prediction.awayTeam] || { rushOffRank: '-', passOffRank: '-', rushDefRank: '-', passDefRank: '-' };
             const homeRankings = leagueStats.rankings[prediction.homeTeam] || { rushOffRank: '-', passOffRank: '-', rushDefRank: '-', passDefRank: '-' };
 
@@ -504,39 +644,128 @@
             const homeRushD = homeRankings.rushDefRank || '-';
             const homePassD = homeRankings.passDefRank || '-';
 
-            // Existing template literal (unchanged, using the safe vars above)
             return `
                 <div class="game-card">
-                    // ... your full card HTML (unchanged)
+                    <div class="game-header">
+                        <div class="teams">
+                            <div class="team">
+                                ${prediction.awayLogo ? `<img src="${prediction.awayLogo}" alt="${prediction.awayTeam}" class="team-logo">` : ''}
+                                <div>
+                                    <div class="team-name">${prediction.awayTeam}</div>
+                                    <div class="team-record">${prediction.awayRecord}</div>
+                                    <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7;">
+                                        Rush O: #${awayRushO} Pass O: #${awayPassO}<br>
+                                        Rush D: #${awayRushD} Pass D: #${awayPassD}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vs">@</div>
+                            <div class="team">
+                                <div style="text-align: right;">
+                                    <div class="team-name">${prediction.homeTeam}</div>
+                                    <div class="team-record">${prediction.homeRecord}</div>
+                                    <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7; text-align: right;">
+                                        Rush O: #${homeRushO} Pass O: #${homePassO}<br>
+                                        Rush D: #${homeRushD} Pass D: #${homePassD}
+                                    </div>
+                                </div>
+                                ${prediction.homeLogo ? `<img src="${prediction.homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-body">
+                        <div class="winner-section">
+                            <div class="winner-label">🎯 OUR PREDICTION</div>
+                            <div class="winner-name">${prediction.winner}</div>
+                            <div class="confidence">Confidence: ${prediction.confidence}</div>
+                        </div>
+                        <div class="prediction-section">
+                            <div class="prediction-title">📊 Score Predictions</div>
+                            <div class="prediction-grid">
+                                <div class="pred-stat">
+                                    <div class="pred-label">Our Model</div>
+                                    <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `;
         }
 
         function savePrediction(gameId, gameDate, prediction) {
-            // Existing (unchanged)
+            const gameTime = new Date(gameDate);
+            const now = new Date();
+
+            if (now < gameTime) {
+                predictions[gameId] = {
+                    date: gameDate,
+                    prediction: {
+                        winner: prediction.winner,
+                        homeTeam: prediction.homeTeam,
+                        awayTeam: prediction.awayTeam,
+                        homeScore: prediction.homeScore,
+                        awayScore: prediction.awayScore
+                    }
+                };
+                localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
+            }
         }
 
         async function checkPredictionResults() {
-            // Existing (unchanged)
+            const now = new Date();
+            const fourHoursAgo = new Date(now.getTime() - 4 * 60 * 60 * 1000);
+
+            for (const gameId in predictions) {
+                const pred = predictions[gameId];
+                const gameDate = new Date(pred.date);
+
+                if (gameDate < fourHoursAgo && !pred.checked) {
+                    try {
+                        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${gameId}`);
+                        const data = await response.json();
+
+                        const competition = data.boxscore?.teams;
+                        if (competition && competition.length === 2) {
+                            const homeTeam = competition.find(t => t.homeAway === 'home');
+                            const awayTeam = competition.find(t => t.homeAway === 'away');
+
+                            const homeScore = parseInt(homeTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
+                            const awayScore = parseInt(awayTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
+
+                            const actualWinner = homeScore > awayScore ? homeTeam.team.displayName : awayTeam.team.displayName;
+                            const predictedWinner = pred.prediction.winner;
+
+                            if (actualWinner === predictedWinner) {
+                                accuracyStats.correct++;
+                            }
+                            accuracyStats.total++;
+
+                            pred.checked = true;
+                            predictions[gameId] = pred;
+                        }
+                    } catch (e) {
+                        console.warn(`Could not check result for game ${gameId}`);
+                    }
+                }
+            }
+
+            localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
+            localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
         }
 
         function saveApiKey() {
-            const input = document.getElementById('apiKeyInput');
-            const key = input.value.trim();
-            
+            const key = document.getElementById('apiKeyInput').value.trim();
             if (!key) {
                 showError('Please enter a valid API key from the-odds-api.com');
                 return;
             }
-
             localStorage.setItem('nfl_odds_api_key', key);
             apiKey = key;
-            
             document.getElementById('apiSetup').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             document.getElementById('loading').textContent = 'Loading schedule and odds...';
             document.getElementById('error').style.display = 'none';
-
             loadData();
         }
 
@@ -558,9 +787,23 @@
                 }
                 const oddsData = await oddsResponse.json();
 
-                await displayGames(scheduleData.events, oddsData);
-                await checkPredictionResults();
+                const gamesGrid = document.getElementById('gamesGrid');
+                gamesGrid.innerHTML = '';
 
+                scheduleData.events.forEach(event => {
+                    if (event.status.type.name === 'STATUS_FINAL') return;
+
+                    const prediction = generatePrediction(event, oddsData);
+
+                    if (event.status.type.name === 'STATUS_SCHEDULED') {
+                        savePrediction(event.id, event.date, prediction);
+                    }
+
+                    const cardHTML = createGameCard(event, prediction, event.id);
+                    gamesGrid.innerHTML += cardHTML;
+                });
+
+                await checkPredictionResults();
                 updateAccuracyDisplay();
 
                 document.getElementById('loading').style.display = 'none';
@@ -571,25 +814,6 @@
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('apiSetup').style.display = 'block';
             }
-        }
-
-        async function displayGames(events, oddsData) {
-            const gamesGrid = document.getElementById('gamesGrid');
-            gamesGrid.innerHTML = '';
-
-            events.forEach(event => {
-                if (event.status.type.name === 'STATUS_FINAL') return; // Skip completed games
-
-                // Existing prediction generation and card append
-                let prediction = generatePrediction(event, oddsData);
-
-                if (event.status.type.name === 'STATUS_SCHEDULED') {
-                    savePrediction(event.id, event.date, prediction);
-                }
-
-                const cardHTML = createGameCard(event, prediction, event.id);
-                gamesGrid.innerHTML += cardHTML;
-            });
         }
 
         function showError(message) {
@@ -605,7 +829,6 @@
             document.getElementById('accuracy').textContent = `${accuracy}%`;
         }
 
-        // Auto-load if key already saved
         if (apiKey) {
             document.getElementById('apiSetup').style.display = 'none';
             loadData();
