@@ -974,6 +974,18 @@
             ourHomeScore += 2.5;
             prediction.calculations.push(`Home field advantage: +2.5 pts to ${homeTeam}`);
 
+            // Win percentage for confidence only (record strength indicator)
+            const [homeWins, homeLosses] = homeRecord.split('-').map(n => parseInt(n) || 0);
+            const [awayWins, awayLosses] = awayRecord.split('-').map(n => parseInt(n) || 0);
+            const totalHome = homeWins + homeLosses;
+            const totalAway = awayWins + awayLosses;
+            const homeWinPct = totalHome > 0 ? homeWins / totalHome : 0.5;
+            const awayWinPct = totalAway > 0 ? awayWins / totalAway : 0.5;
+
+            if (Math.abs(homeWinPct - awayWinPct) > 0.3) {
+                prediction.calculations.push(`Large record gap: ${(Math.max(homeWinPct, awayWinPct)*100).toFixed(0)}% vs ${(Math.min(homeWinPct, awayWinPct)*100).toFixed(0)}%`);
+            }
+
             // ===== MATCHUP DIFFERENTIAL (FIXED CALCULATION) =====
             let rushWeight = 1;
             let passWeight = 1;
