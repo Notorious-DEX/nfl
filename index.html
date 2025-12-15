@@ -889,6 +889,36 @@
             // Pass defense (lower yards allowed = better rank)
             const passDefRanked = [...teams].sort((a, b) => leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG);
             passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
+
+            // DEBUG: Log rankings for comparison with ESPN
+            console.log('\n📊 CALCULATED RANKINGS (compare with ESPN):');
+            console.log('\n🏃 Rush Offense (YPG):');
+            rushOffRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].rushYPG.toFixed(1)} YPG`);
+            });
+            console.log('\n✈️ Pass Offense (YPG):');
+            passOffRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].passYPG.toFixed(1)} YPG`);
+            });
+            console.log('\n🛡️ Rush Defense (YPG Allowed):');
+            rushDefRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].rushDefYPG.toFixed(1)} YPG allowed`);
+            });
+            console.log('\n🚫 Pass Defense (YPG Allowed):');
+            passDefRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].passDefYPG.toFixed(1)} YPG allowed`);
+            });
+
+            // Show specific team if it's in a game this week
+            const dolphins = leagueStats.teams['Miami Dolphins'];
+            if (dolphins) {
+                console.log('\n🐬 Miami Dolphins Stats:');
+                console.log(`  Rush Off: ${dolphins.rushYPG.toFixed(1)} YPG (Rank #${leagueStats.rankings['Miami Dolphins'].rushOffRank})`);
+                console.log(`  Pass Off: ${dolphins.passYPG.toFixed(1)} YPG (Rank #${leagueStats.rankings['Miami Dolphins'].passOffRank})`);
+                console.log(`  Rush Def: ${dolphins.rushDefYPG.toFixed(1)} YPG allowed (Rank #${leagueStats.rankings['Miami Dolphins'].rushDefRank})`);
+                console.log(`  Pass Def: ${dolphins.passDefYPG.toFixed(1)} YPG allowed (Rank #${leagueStats.rankings['Miami Dolphins'].passDefRank})`);
+                console.log(`  Games: ${dolphins.gamesPlayed}`);
+            }
         }
 
         // ===== FETCH INJURIES =====
@@ -1070,24 +1100,29 @@
             const homeRecord = homeComp.records?.[0]?.summary || '0-0';
             const awayRecord = awayComp.records?.[0]?.summary || '0-0';
 
-            const homeStats = leagueStats.teams[homeTeam] || {
-                offensiveRating: 24, defensiveRating: 24,
-                rushYPG: 120, rushDefYPG: 120,
-                passYPG: 220, passDefYPG: 220,
-                thirdDownPct: 40, redZonePct: 50,
-                sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
-                turnoverDiff: 0, gamesPlayed: 0
-            };
-            const awayStats = leagueStats.teams[awayTeam] || {
-                offensiveRating: 24, defensiveRating: 24,
-                rushYPG: 120, rushDefYPG: 120,
-                passYPG: 220, passDefYPG: 220,
-                thirdDownPct: 40, redZonePct: 50,
-                sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
-                turnoverDiff: 0, gamesPlayed: 0
-            };
-            const homeRankings = leagueStats.rankings[homeTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
-            const awayRankings = leagueStats.rankings[awayTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
+            // Check if we have real data for both teams
+            const homeStats = leagueStats.teams[homeTeam];
+            const awayStats = leagueStats.teams[awayTeam];
+            const homeRankings = leagueStats.rankings[homeTeam];
+            const awayRankings = leagueStats.rankings[awayTeam];
+
+            // If missing data, return error instead of using fake fallbacks
+            if (!homeStats || !awayStats || !homeRankings || !awayRankings) {
+                const missingTeams = [];
+                if (!homeStats) missingTeams.push(homeTeam);
+                if (!awayStats) missingTeams.push(awayTeam);
+
+                return {
+                    error: true,
+                    homeTeam,
+                    awayTeam,
+                    homeRecord,
+                    awayRecord,
+                    message: `Missing data for: ${missingTeams.join(', ')}`,
+                    missingTeams,
+                    retryable: true
+                };
+            }
 
             let prediction = {
                 homeTeam,
@@ -1435,7 +1470,11 @@
                 const prediction = generatePrediction(game, gameOdds, weather);
 
                 const gameId = game.id;
-                savePrediction(gameId, game.date, prediction);
+
+                // Only save valid predictions (not errors)
+                if (!prediction.error) {
+                    savePrediction(gameId, game.date, prediction);
+                }
 
                 gamesWithPredictions.push({ game, prediction, gameId });
             }
@@ -1447,10 +1486,16 @@
                 if (dateA.toDateString() !== dateB.toDateString()) {
                     return dateA - dateB;
                 }
+                // Show errors last, then sort by confidence
+                if (a.prediction.error && !b.prediction.error) return 1;
+                if (!a.prediction.error && b.prediction.error) return -1;
+                if (a.prediction.error && b.prediction.error) return 0;
                 return confidenceOrder[a.prediction.confidence] - confidenceOrder[b.prediction.confidence];
             });
 
             gamesWithPredictions.forEach(({ prediction, gameId }) => {
+                // Skip error predictions in picks summary
+                if (prediction.error) return;
                 const teamColor = TEAM_DATA[prediction.winner]?.color || '#3498db';
                 const loser = prediction.winner === prediction.homeTeam ? prediction.awayTeam : prediction.homeTeam;
 
@@ -1475,6 +1520,61 @@
         }
 
         function createGameCard(game, prediction, gameId) {
+            // Handle error predictions
+            if (prediction.error) {
+                const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
+                const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
+                const gameDate = new Date(game.date);
+                const gameTime = gameDate.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+
+                return `
+                    <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, #e74c3c22 0%, #e74c3c44 100%); border: 2px solid #e74c3c88;">
+                        <div class="game-header" style="background-color: #e74c3c; text-align: center;">
+                            <div class="game-meta">
+                                <div class="badge">📅 ${gameTime}</div>
+                                <div class="badge" style="background: #c0392b;">⚠️ DATA ERROR</div>
+                            </div>
+                            <div class="teams">
+                                <div class="team">
+                                    ${awayLogo ? `<img src="${awayLogo}" alt="${prediction.awayTeam}" class="team-logo">` : ''}
+                                    <div>
+                                        <div class="team-name">${prediction.awayTeam}</div>
+                                        <div class="team-record">${prediction.awayRecord}</div>
+                                    </div>
+                                </div>
+                                <div style="font-size: 1.5rem; color: white;">@</div>
+                                <div class="team">
+                                    ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
+                                    <div>
+                                        <div class="team-name">${prediction.homeTeam}</div>
+                                        <div class="team-record">${prediction.homeRecord}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 2rem; text-align: center;">
+                            <div style="font-size: 1.5rem; font-weight: bold; color: #e74c3c; margin-bottom: 1rem;">⚠️ Unable to Generate Prediction</div>
+                            <div style="color: #999; margin-bottom: 1rem;">${prediction.message}</div>
+                            <div style="color: #666; font-size: 0.9rem; margin-bottom: 1.5rem;">
+                                Real team data is required for accurate predictions. Using fallback averages would produce misleading results.
+                            </div>
+                            <button onclick="location.reload()" style="background: #3498db; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold;">
+                                🔄 Retry Now
+                            </button>
+                            <div id="retry-timer-${gameId}" style="color: #999; font-size: 0.9rem; margin-top: 1rem;">
+                                Auto-retry in <span id="countdown-${gameId}">15:00</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             const teamColor = TEAM_DATA[prediction.homeTeam]?.color || '#3498db';
             const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
             const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
@@ -1657,6 +1757,38 @@
 
         // Note: Prediction checking is now handled by GitHub Actions
         // which updates results.json automatically
+
+        // ===== AUTO-RETRY FOR FAILED PREDICTIONS =====
+        function startRetryCountdown() {
+            const errorCards = document.querySelectorAll('[id^="retry-timer-"]');
+            if (errorCards.length === 0) return;
+
+            let timeLeft = 15 * 60; // 15 minutes in seconds
+
+            const interval = setInterval(() => {
+                timeLeft--;
+
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                const display = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                errorCards.forEach(card => {
+                    const countdownSpan = card.querySelector('[id^="countdown-"]');
+                    if (countdownSpan) {
+                        countdownSpan.textContent = display;
+                    }
+                });
+
+                if (timeLeft <= 0) {
+                    clearInterval(interval);
+                    console.log('🔄 Auto-retrying to fetch missing data...');
+                    location.reload();
+                }
+            }, 1000);
+        }
+
+        // Start countdown if there are error cards
+        setTimeout(startRetryCountdown, 1000);
     </script>
 </body>
 </html>
