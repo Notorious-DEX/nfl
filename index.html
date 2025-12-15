@@ -619,22 +619,21 @@
         }
 
         // ===== FETCH LEAGUE STATS =====
-    async function fetchLeagueStats() {
+async function fetchLeagueStats() {
     console.log('📊 Fetching team rankings and PPG from ESPN...');
 
     const proxy = url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
 
-    // Add season parameters to all URLs for 2025 regular season
     const urls = {
         rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/desc',
         passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/desc',
         rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/asc',
         passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/asc',
-        offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2',  // Points Scored Per Game
-        defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2'   // Points Allowed Per Game
+        offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2',
+        defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2'
     };
 
-    async function parseRankings(html, type) {
+    async function parseRankings(html) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
@@ -642,26 +641,35 @@
         rows.forEach(row => {
             const tds = row.querySelectorAll('.Table__TD');
             if (tds.length > 1) {
-                const rk = parseInt(tds[0].textContent.trim());
-                let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
+                const rk = parseInt(tds[0].textContent.trim()) || 999;
+                const teamLink = tds[1].querySelector('.AnchorLink');
+                const teamName = teamLink ? teamLink.textContent.trim() : tds[1].textContent.trim();
                 data[teamName] = rk;
             }
         });
         return data;
     }
 
-    async function parsePPG(html, isOffense = true) {
+    async function parsePPG(html) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
         const data = {};
         rows.forEach(row => {
             const tds = row.querySelectorAll('.Table__TD');
-            if (tds.length >= 5) {  // Ensure at least RK, TEAM, GP, PTS, PTS/G
-                let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
-                // PTS/G is in the 5th column (index 4: RK=0, TEAM=1, GP=2, PTS=3, PTS/G=4)
-                const ptsG = parseFloat(tds[4]?.textContent.trim() || '0');
-                if (!isNaN(ptsG)) data[teamName] = ptsG;
+            if (tds.length >= 5) {
+                const teamLink = tds[1].querySelector('.AnchorLink');
+                const teamName = teamLink ? teamLink.textContent.trim() : tds[1].textContent.trim();
+                // PTS/G column varies but usually index 4 or later; find the decimal value ~15-35
+                let ptsG = 0;
+                for (let i = 4; i < tds.length; i++) {
+                    const val = parseFloat(tds[i].textContent.trim());
+                    if (!isNaN(val) && val > 10 && val < 40) {
+                        ptsG = val;
+                        break;
+                    }
+                }
+                if (ptsG > 0) data[teamName] = ptsG;
             }
         });
         return data;
@@ -677,14 +685,12 @@
             fetch(proxy(urls.defPPG)).then(r => r.ok ? r.text() : null)
         ]);
 
-        const [rushOffHtml, passOffHtml, rushDefHtml, passDefHtml, offPPGHtml, defPPGHtml] = responses;
-
-        const rushOff = rushOffHtml ? await parseRankings(rushOffHtml, 'rushOff') : null;
-        const passOff = passOffHtml ? await parseRankings(passOffHtml, 'passOff') : null;
-        const rushDef = rushDefHtml ? await parseRankings(rushDefHtml, 'rushDef') : null;
-        const passDef = passDefHtml ? await parseRankings(passDefHtml, 'passDef') : null;
-        const offPPG = offPPGHtml ? await parsePPG(offPPGHtml, true) : null;
-        const defPPG = defPPGHtml ? await parsePPG(defPPGHtml, false) : null;
+        const rushOff = responses[0] ? await parseRankings(responses[0]) : null;
+        const passOff = responses[1] ? await parseRankings(responses[1]) : null;
+        const rushDef = responses[2] ? await parseRankings(responses[2]) : null;
+        const passDef = responses[3] ? await parseRankings(responses[3]) : null;
+        const offPPG = responses[4] ? await parsePPG(responses[4]) : null;
+        const defPPG = responses[5] ? await parsePPG(responses[5]) : null;
 
         leagueStats.rankings = {};
         leagueStats.ppg = { off: {}, def: {} };
@@ -697,29 +703,33 @@
                 passDefRank: passDef?.[team] || HARDCODED_RANKINGS_2025[team]?.passDefRank || 16
             };
 
-            // Prefer real PPG, fallback to realistic rank-based estimate
-            const avgOffRank = (leagueStats.rankings[team].rushOffRank + leagueStats.rankings[team].passOffRank) / 2;
-            const avgDefRank = (leagueStats.rankings[team].rushDefRank + leagueStats.rankings[team].passDefRank) / 2;
-            // Offense: #1 ~30 PPG, #32 ~15 PPG
-            const offEstimate = 30 - ((avgOffRank - 1) * (15 / 31));
-            // Defense: #1 ~15 PA/G, #32 ~30 PA/G
-            const defEstimate = 15 + ((avgDefRank - 1) * (15 / 31));
-            leagueStats.ppg.off[team] = offPPG?.[team] ?? offEstimate;
-            leagueStats.ppg.def[team] = defPPG?.[team] ?? defEstimate;
+            leagueStats.ppg.off[team] = offPPG?.[team] || null;
+            leagueStats.ppg.def[team] = defPPG?.[team] || null;
+
+            // If no real PPG, use refined rank estimate
+            if (!leagueStats.ppg.off[team]) {
+                const avgOff = (leagueStats.rankings[team].rushOffRank + leagueStats.rankings[team].passOffRank) / 2;
+                leagueStats.ppg.off[team] = 30 - (avgOff - 1) * (15 / 31);
+            }
+            if (!leagueStats.ppg.def[team]) {
+                const avgDef = (leagueStats.rankings[team].rushDefRank + leagueStats.rankings[team].passDefRank) / 2;
+                leagueStats.ppg.def[team] = 15 + (avgDef - 1) * (15 / 31);
+            }
         }
 
         leagueStats.hasData = true;
-        console.log(`✅ Loaded rankings & PPG for ${Object.keys(leagueStats.rankings).length} teams`);
+        console.log(`✅ Loaded stats (real PPG where available)`);
+        console.log('Sample PPG:', 'Vikings Off:', leagueStats.ppg.off['Minnesota Vikings'], 'Cowboys Def:', leagueStats.ppg.def['Dallas Cowboys']);
     } catch (e) {
-        console.warn('Failed to fetch dynamic stats, using hardcoded fallback:', e);
-        // Use existing hardcoded as full fallback
+        console.warn('Dynamic fetch failed, using full fallback:', e);
+        // Full hardcoded fallback as before
         leagueStats.rankings = HARDCODED_RANKINGS_2025;
         leagueStats.ppg = { off: {}, def: {} };
         for (const team in TEAM_DATA) {
             const avgOff = (HARDCODED_RANKINGS_2025[team].rushOffRank + HARDCODED_RANKINGS_2025[team].passOffRank) / 2;
             const avgDef = (HARDCODED_RANKINGS_2025[team].rushDefRank + HARDCODED_RANKINGS_2025[team].passDefRank) / 2;
-            leagueStats.ppg.off[team] = 30 - ((avgOff - 1) * (15 / 31));
-            leagueStats.ppg.def[team] = 15 + ((avgDef - 1) * (15 / 31));
+            leagueStats.ppg.off[team] = 30 - (avgOff - 1) * (15 / 31);
+            leagueStats.ppg.def[team] = 15 + (avgDef - 1) * (15 / 31);
         }
         leagueStats.hasData = true;
     }
