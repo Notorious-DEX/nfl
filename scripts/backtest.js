@@ -3,8 +3,8 @@
 /**
  * Backtest NFL Predictions
  * Tests prediction model accuracy by:
- * - Week 1: Use Elo ratings (carried over from prior season with 1/3 regression)
- * - Week 2+: Use only prior regular season weeks to predict each week
+ * - Uses Elo ratings for all weeks (carried over from prior season with 1/3 regression)
+ * - Updates Elo ratings after each week based on actual game results
  * - Compare predictions to actual results
  * - Save to test-predictions.json and test-results.json
  */
@@ -402,16 +402,12 @@ async function main() {
             console.log(`📅 WEEK ${week}`);
             console.log('='.repeat(60));
 
-            // Calculate stats using only prior data
-            if (week === 1) {
-                if (eloRatings) {
-                    console.log('📊 Using Elo ratings from 2024 season carryover (regressed 1/3 to mean)');
-                } else {
-                    await fetchLeagueStats(week, true); // Fallback to preseason if no Elo data
-                }
-            } else {
-                await fetchLeagueStats(week, false); // Use weeks 1 to week-1
+            if (!eloRatings) {
+                console.error('❌ No Elo ratings available, cannot continue');
+                process.exit(1);
             }
+
+            console.log('📊 Using Elo-based predictions');
 
             // Fetch this week's games
             const games = await fetchWeekGames(week);
@@ -422,10 +418,8 @@ async function main() {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
 
-                // Use Elo for Week 1, regular stats for Week 2+
-                const prediction = (week === 1 && eloRatings)
-                    ? generateEloPrediction(game)
-                    : generatePrediction(game);
+                // Use Elo for all predictions
+                const prediction = generateEloPrediction(game);
                 if (!prediction) continue;
 
                 // Get actual result
@@ -460,13 +454,45 @@ async function main() {
             const weekPct = weekTotal > 0 ? ((weekAccuracy / weekTotal) * 100).toFixed(1) : 0;
             console.log(`\n📊 Week ${week} Accuracy: ${weekAccuracy}/${weekTotal} (${weekPct}%)`);
             console.log(`📊 Season So Far: ${totalCorrect}/${totalGames} (${((totalCorrect / totalGames) * 100).toFixed(1)}%)`);
+
+            // Update Elo ratings based on this week's actual results
+            console.log('🔄 Updating Elo ratings based on actual results...');
+            for (const game of games) {
+                const competition = game.competitions[0];
+                if (!competition.status.type.completed) continue;
+
+                const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+                const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+                const homeTeam = homeComp.team.displayName;
+                const awayTeam = awayComp.team.displayName;
+                const homeScore = parseInt(homeComp.score) || 0;
+                const awayScore = parseInt(awayComp.score) || 0;
+
+                if (!eloRatings[homeTeam] || !eloRatings[awayTeam]) continue;
+
+                const homeElo = eloRatings[homeTeam];
+                const awayElo = eloRatings[awayTeam];
+
+                if (homeScore > awayScore) {
+                    // Home team won
+                    const updated = elo.updateElo(homeElo, awayElo, homeScore - awayScore, true);
+                    eloRatings[homeTeam] = updated.winnerElo;
+                    eloRatings[awayTeam] = updated.loserElo;
+                } else if (awayScore > homeScore) {
+                    // Away team won
+                    const updated = elo.updateElo(awayElo, homeElo, awayScore - homeScore, false);
+                    eloRatings[awayTeam] = updated.winnerElo;
+                    eloRatings[homeTeam] = updated.loserElo;
+                }
+                // Ties don't update Elo
+            }
         }
 
         // Save results
         const predictionsPath = path.join(__dirname, '..', 'test-predictions.json');
         fs.writeFileSync(predictionsPath, JSON.stringify({
             generated: new Date().toISOString(),
-            method: 'backtest',
+            method: 'elo-all-season',
             weeks: currentWeek,
             predictions: allPredictions
         }, null, 2));
@@ -474,7 +500,7 @@ async function main() {
         const resultsPath = path.join(__dirname, '..', 'test-results.json');
         fs.writeFileSync(resultsPath, JSON.stringify({
             lastUpdated: new Date().toISOString(),
-            method: 'backtest',
+            method: 'elo-all-season',
             weeks: currentWeek,
             correct: totalCorrect,
             total: totalGames,
