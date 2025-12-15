@@ -12,6 +12,9 @@ on:
       - main
       - 'claude/**'
 
+permissions:
+  contents: write
+
 jobs:
   update-predictions:
     runs-on: ubuntu-latest
