@@ -281,10 +281,24 @@ function generatePrediction(game) {
     const homeTeam = homeComp.team.displayName;
     const awayTeam = awayComp.team.displayName;
 
-    const homeStats = leagueStats.teams[homeTeam] || { offensiveRating: 24, defensiveRating: 24 };
-    const awayStats = leagueStats.teams[awayTeam] || { offensiveRating: 24, defensiveRating: 24 };
-    const homeRankings = leagueStats.rankings[homeTeam] || {};
-    const awayRankings = leagueStats.rankings[awayTeam] || {};
+    const homeStats = leagueStats.teams[homeTeam] || {
+        offensiveRating: 24, defensiveRating: 24,
+        rushYPG: 120, rushDefYPG: 120,
+        passYPG: 220, passDefYPG: 220,
+        thirdDownPct: 40, redZonePct: 50,
+        sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
+        turnoverDiff: 0, gamesPlayed: 0
+    };
+    const awayStats = leagueStats.teams[awayTeam] || {
+        offensiveRating: 24, defensiveRating: 24,
+        rushYPG: 120, rushDefYPG: 120,
+        passYPG: 220, passDefYPG: 220,
+        thirdDownPct: 40, redZonePct: 50,
+        sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
+        turnoverDiff: 0, gamesPlayed: 0
+    };
+    const homeRankings = leagueStats.rankings[homeTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
+    const awayRankings = leagueStats.rankings[awayTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
 
     // Efficiency rating formula
     const baseAwayScore = (awayStats.offensiveRating + homeStats.defensiveRating) / 2;
