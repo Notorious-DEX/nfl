@@ -494,46 +494,9 @@
             "Washington Commanders": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", color: "#5A1414", lat: 38.9076, lon: -76.8645 }
         };
 
-        // 2025 NFL Week 15 Rankings (Hardcoded Fallback - Update Weekly)
-        const HARDCODED_RANKINGS_2025 = {
-            "Buffalo Bills": { rushOffRank: 1, passOffRank: 10, rushDefRank: 2, passDefRank: 12 },
-            "Philadelphia Eagles": { rushOffRank: 2, passOffRank: 5, rushDefRank: 15, passDefRank: 3 },
-            "Baltimore Ravens": { rushOffRank: 3, passOffRank: 7, rushDefRank: 19, passDefRank: 25 },
-            "Chicago Bears": { rushOffRank: 4, passOffRank: 25, rushDefRank: 4, passDefRank: 10 },
-            "Washington Commanders": { rushOffRank: 5, passOffRank: 12, rushDefRank: 22, passDefRank: 18 },
-            "Detroit Lions": { rushOffRank: 6, passOffRank: 3, rushDefRank: 23, passDefRank: 20 },
-            "Green Bay Packers": { rushOffRank: 7, passOffRank: 14, rushDefRank: 8, passDefRank: 9 },
-            "Pittsburgh Steelers": { rushOffRank: 8, passOffRank: 23, rushDefRank: 1, passDefRank: 1 },
-            "Tampa Bay Buccaneers": { rushOffRank: 9, passOffRank: 1, rushDefRank: 14, passDefRank: 28 },
-            "Dallas Cowboys": { rushOffRank: 10, passOffRank: 2, rushDefRank: 25, passDefRank: 27 },
-            "Los Angeles Chargers": { rushOffRank: 11, passOffRank: 16, rushDefRank: 6, passDefRank: 7 },
-            "Minnesota Vikings": { rushOffRank: 12, passOffRank: 11, rushDefRank: 5, passDefRank: 4 },
-            "San Francisco 49ers": { rushOffRank: 13, passOffRank: 9, rushDefRank: 10, passDefRank: 6 },
-            "Atlanta Falcons": { rushOffRank: 14, passOffRank: 13, rushDefRank: 26, passDefRank: 24 },
-            "Arizona Cardinals": { rushOffRank: 15, passOffRank: 18, rushDefRank: 11, passDefRank: 16 },
-            "Denver Broncos": { rushOffRank: 16, passOffRank: 21, rushDefRank: 3, passDefRank: 2 },
-            "Miami Dolphins": { rushOffRank: 17, passOffRank: 28, rushDefRank: 9, passDefRank: 8 },
-            "Seattle Seahawks": { rushOffRank: 18, passOffRank: 8, rushDefRank: 7, passDefRank: 17 },
-            "Los Angeles Rams": { rushOffRank: 19, passOffRank: 6, rushDefRank: 17, passDefRank: 15 },
-            "Kansas City Chiefs": { rushOffRank: 20, passOffRank: 17, rushDefRank: 16, passDefRank: 19 },
-            "Indianapolis Colts": { rushOffRank: 21, passOffRank: 19, rushDefRank: 13, passDefRank: 13 },
-            "Houston Texans": { rushOffRank: 22, passOffRank: 20, rushDefRank: 12, passDefRank: 5 },
-            "Cincinnati Bengals": { rushOffRank: 23, passOffRank: 4, rushDefRank: 28, passDefRank: 26 },
-            "New Orleans Saints": { rushOffRank: 24, passOffRank: 15, rushDefRank: 18, passDefRank: 22 },
-            "Tennessee Titans": { rushOffRank: 25, passOffRank: 26, rushDefRank: 21, passDefRank: 21 },
-            "Jacksonville Jaguars": { rushOffRank: 26, passOffRank: 22, rushDefRank: 31, passDefRank: 30 },
-            "Cleveland Browns": { rushOffRank: 27, passOffRank: 29, rushDefRank: 20, passDefRank: 11 },
-            "Carolina Panthers": { rushOffRank: 28, passOffRank: 27, rushDefRank: 24, passDefRank: 14 },
-            "New England Patriots": { rushOffRank: 29, passOffRank: 30, rushDefRank: 27, passDefRank: 29 },
-            "Las Vegas Raiders": { rushOffRank: 30, passOffRank: 24, rushDefRank: 29, passDefRank: 31 },
-            "New York Giants": { rushOffRank: 31, passOffRank: 32, rushDefRank: 30, passDefRank: 23 },
-            "New York Jets": { rushOffRank: 32, passOffRank: 31, rushDefRank: 32, passDefRank: 32 }
-        };
-
-        // League stats cache (fetched dynamically with hardcoded fallback)
+        // League stats cache (offensive/defensive efficiency ratings)
         let leagueStats = {
-            teams: {},
-            rankings: {},
+            teams: {}, // Will store { teamName: { offensiveRating: ppg, defensiveRating: ppg allowed } }
             hasData: false
         };
 
@@ -620,14 +583,68 @@
 
         // ===== FETCH LEAGUE STATS =====
         async function fetchLeagueStats() {
-            console.log('📊 Loading team rankings...');
+            console.log('📊 Fetching team efficiency ratings (PPG stats)...');
 
-            // Use hardcoded rankings (more reliable than ESPN API)
-            leagueStats.rankings = HARDCODED_RANKINGS_2025;
-            leagueStats.hasData = true;
+            try {
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=32');
+                const data = await response.json();
 
-            console.log(`✅ Loaded rankings for ${Object.keys(HARDCODED_RANKINGS_2025).length} teams (Week 15 2025)`);
-            console.log('Note: Rankings are hardcoded and updated weekly for accuracy');
+                for (const team of data.sports[0].leagues[0].teams) {
+                    const teamName = team.team.displayName;
+
+                    // Fetch team stats
+                    try {
+                        const statsResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${team.team.id}/statistics`);
+                        const statsData = await statsResponse.json();
+
+                        // Find points per game stats
+                        const splits = statsData.splits?.categories || [];
+                        let offensiveRating = 24; // default league average
+                        let defensiveRating = 24; // default league average
+
+                        for (const category of splits) {
+                            if (category.name === 'scoring') {
+                                const pointsStat = category.stats?.find(s => s.name === 'avgPointsPerGame' || s.name === 'pointsPerGame');
+                                if (pointsStat && pointsStat.value) {
+                                    offensiveRating = parseFloat(pointsStat.value);
+                                }
+                            }
+                            if (category.name === 'defensive') {
+                                const pointsAllowedStat = category.stats?.find(s => s.name === 'avgPointsPerGame' || s.name === 'pointsPerGame');
+                                if (pointsAllowedStat && pointsAllowedStat.value) {
+                                    defensiveRating = parseFloat(pointsAllowedStat.value);
+                                }
+                            }
+                        }
+
+                        leagueStats.teams[teamName] = {
+                            offensiveRating: offensiveRating,
+                            defensiveRating: defensiveRating
+                        };
+
+                        console.log(`${teamName}: OFF ${offensiveRating.toFixed(1)} ppg, DEF ${defensiveRating.toFixed(1)} ppg allowed`);
+                    } catch (err) {
+                        console.warn(`Could not fetch stats for ${teamName}, using league average`);
+                        leagueStats.teams[teamName] = {
+                            offensiveRating: 24,
+                            defensiveRating: 24
+                        };
+                    }
+                }
+
+                leagueStats.hasData = true;
+                console.log(`✅ Loaded efficiency ratings for ${Object.keys(leagueStats.teams).length} teams`);
+            } catch (error) {
+                console.error('Failed to fetch team stats:', error);
+                // Fallback: use league average for all teams
+                for (const teamName in TEAM_DATA) {
+                    leagueStats.teams[teamName] = {
+                        offensiveRating: 24,
+                        defensiveRating: 24
+                    };
+                }
+                leagueStats.hasData = false;
+            }
         }
 
         // ===== FETCH INJURIES =====
@@ -797,7 +814,7 @@
             return impact;
         }
 
-        // ===== GENERATE PREDICTION (DEVIATION ANALYSIS) =====
+        // ===== GENERATE PREDICTION (EFFICIENCY RATING METHOD) =====
         function generatePrediction(game, odds, weather) {
             const competition = game.competitions[0];
             const homeComp = competition.competitors.find(c => c.homeAway === 'home');
@@ -809,8 +826,8 @@
             const homeRecord = homeComp.records?.[0]?.summary || '0-0';
             const awayRecord = awayComp.records?.[0]?.summary || '0-0';
 
-            const homeRankings = leagueStats.rankings[homeTeam] || {};
-            const awayRankings = leagueStats.rankings[awayTeam] || {};
+            const homeStats = leagueStats.teams[homeTeam] || { offensiveRating: 24, defensiveRating: 24 };
+            const awayStats = leagueStats.teams[awayTeam] || { offensiveRating: 24, defensiveRating: 24 };
 
             let prediction = {
                 homeTeam,
@@ -854,117 +871,62 @@
                 }
             }
 
-            // ===== BUILD INDEPENDENT PREDICTION (NO VEGAS) =====
-            const [homeWins, homeLosses] = homeRecord.split('-').map(n => parseInt(n) || 0);
-            const [awayWins, awayLosses] = awayRecord.split('-').map(n => parseInt(n) || 0);
-            const homeWinPct = (homeWins + homeLosses) > 0 ? homeWins / (homeWins + homeLosses) : 0.5;
-            const awayWinPct = (awayWins + awayLosses) > 0 ? awayWins / (awayWins + awayLosses) : 0.5;
+            // ===== EFFICIENCY RATING FORMULA =====
+            // Away projected points = (Away offensive rating + Home defensive rating) / 2
+            // Home projected points = (Home offensive rating + Away defensive rating) / 2 + home field advantage
 
-            // Start with league average (24 ppg)
-            let ourHomeScore = 24;
-            let ourAwayScore = 24;
-            prediction.calculations.push(`Started with league average: 24-24`);
+            const baseAwayScore = (awayStats.offensiveRating + homeStats.defensiveRating) / 2;
+            const baseHomeScore = (homeStats.offensiveRating + awayStats.defensiveRating) / 2;
 
-            // Home field advantage
-            ourHomeScore += 2.5;
-            prediction.calculations.push(`Home field advantage: +2.5 pts to ${homeTeam}`);
+            prediction.calculations.push(`📊 Efficiency Rating Formula:`);
+            prediction.calculations.push(`${awayTeam} base: (${awayStats.offensiveRating.toFixed(1)} OFF + ${homeStats.defensiveRating.toFixed(1)} DEF allowed) / 2 = ${baseAwayScore.toFixed(1)}`);
+            prediction.calculations.push(`${homeTeam} base: (${homeStats.offensiveRating.toFixed(1)} OFF + ${awayStats.defensiveRating.toFixed(1)} DEF allowed) / 2 = ${baseHomeScore.toFixed(1)}`);
 
-            // Win percentage adjustments (team quality)
-            const homeWinAdj = (homeWinPct - 0.5) * 8;
-            const awayWinAdj = (awayWinPct - 0.5) * 8;
-            if (Math.abs(homeWinAdj) > 0.5) {
-                ourHomeScore += homeWinAdj;
-                prediction.calculations.push(`${homeTeam} record (${(homeWinPct*100).toFixed(0)}%): ${homeWinAdj > 0 ? '+' : ''}${homeWinAdj.toFixed(1)} pts`);
+            let ourHomeScore = baseHomeScore;
+            let ourAwayScore = baseAwayScore;
+
+            // Home field advantage (2.5-3 pts)
+            const homeFieldAdv = 2.5;
+            ourHomeScore += homeFieldAdv;
+            prediction.calculations.push(`Home field advantage: +${homeFieldAdv} pts to ${homeTeam}`);
+
+            // Identify matchup edges
+            const offensiveEdge = awayStats.offensiveRating - homeStats.defensiveRating;
+            const defensiveEdge = homeStats.offensiveRating - awayStats.defensiveRating;
+
+            if (offensiveEdge > 5) {
+                prediction.edges.push(`${awayTeam} offensive advantage (${awayStats.offensiveRating.toFixed(1)} ppg vs ${homeStats.defensiveRating.toFixed(1)} allowed)`);
+            } else if (offensiveEdge < -5) {
+                prediction.edges.push(`${homeTeam} defensive strength (${homeStats.defensiveRating.toFixed(1)} allowed vs ${awayStats.offensiveRating.toFixed(1)} ppg)`);
             }
-            if (Math.abs(awayWinAdj) > 0.5) {
-                ourAwayScore += awayWinAdj;
-                prediction.calculations.push(`${awayTeam} record (${(awayWinPct*100).toFixed(0)}%): ${awayWinAdj > 0 ? '+' : ''}${awayWinAdj.toFixed(1)} pts`);
+
+            if (defensiveEdge > 5) {
+                prediction.edges.push(`${homeTeam} offensive advantage (${homeStats.offensiveRating.toFixed(1)} ppg vs ${awayStats.defensiveRating.toFixed(1)} allowed)`);
+            } else if (defensiveEdge < -5) {
+                prediction.edges.push(`${awayTeam} defensive strength (${awayStats.defensiveRating.toFixed(1)} allowed vs ${homeStats.offensiveRating.toFixed(1)} ppg)`);
             }
 
-            // ===== MATCHUP DIFFERENTIAL (FIXED CALCULATION) =====
-            let rushWeight = 1;
-            let passWeight = 1;
-
+            // ===== WEATHER ADJUSTMENTS =====
             if (weather) {
-                if (weather.snow) {
-                    rushWeight = 2.5;
-                    passWeight = 0.4;
-                    prediction.calculations.push(`${weather.condition}: Rush ×2.5, Pass ×0.4`);
-                } else if (weather.rain > 0.5) {
-                    rushWeight = 1.8;
-                    passWeight = 0.6;
-                    prediction.calculations.push(`${weather.condition}: Rush ×1.8, Pass ×0.6`);
-                }
+                if (weather.snow || weather.rain > 0.5 || weather.windSpeed > 20) {
+                    let weatherImpact = 0;
 
-                if (weather.windSpeed > 20) {
-                    passWeight *= 0.4;
-                    prediction.calculations.push(`High winds (${weather.windSpeed}mph): Pass ×0.4`);
-                }
-            }
-
-            if (leagueStats.hasData) {
-                // Home rush offense vs away rush defense
-                if (homeRankings.rushOffRank && awayRankings.rushDefRank) {
-                    const gap = awayRankings.rushDefRank - homeRankings.rushOffRank;
-                    const rawAdvantage = gap * 0.15; // 0.15 pts per rank difference
-                    const advantage = rawAdvantage * rushWeight;
-                    ourHomeScore += advantage;
-
-                    if (Math.abs(gap) > 5) {
-                        const favored = gap > 0 ? homeTeam : awayTeam;
-                        prediction.calculations.push(`${homeTeam} #${homeRankings.rushOffRank} rush O vs ${awayTeam} #${awayRankings.rushDefRank} rush D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
-                        if (Math.abs(gap) > 10) {
-                            prediction.edges.push(`${favored} rush matchup advantage`);
-                        }
+                    if (weather.snow) {
+                        weatherImpact = -4; // Heavy snow reduces scoring
+                        prediction.calculations.push(`${weather.condition}: -4 pts total scoring (favors defense)`);
+                    } else if (weather.rain > 0.5) {
+                        weatherImpact = -2;
+                        prediction.calculations.push(`${weather.condition}: -2 pts total scoring`);
                     }
-                }
 
-                // Home pass offense vs away pass defense
-                if (homeRankings.passOffRank && awayRankings.passDefRank) {
-                    const gap = awayRankings.passDefRank - homeRankings.passOffRank;
-                    const rawAdvantage = gap * 0.15;
-                    const advantage = rawAdvantage * passWeight;
-                    ourHomeScore += advantage;
-
-                    if (Math.abs(gap) > 5) {
-                        const favored = gap > 0 ? homeTeam : awayTeam;
-                        prediction.calculations.push(`${homeTeam} #${homeRankings.passOffRank} pass O vs ${awayTeam} #${awayRankings.passDefRank} pass D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
-                        if (Math.abs(gap) > 10) {
-                            prediction.edges.push(`${favored} pass matchup advantage`);
-                        }
+                    if (weather.windSpeed > 20) {
+                        weatherImpact -= 2;
+                        prediction.calculations.push(`High winds (${weather.windSpeed}mph): -2 pts scoring`);
                     }
-                }
 
-                // Away rush offense vs home rush defense
-                if (awayRankings.rushOffRank && homeRankings.rushDefRank) {
-                    const gap = homeRankings.rushDefRank - awayRankings.rushOffRank;
-                    const rawAdvantage = gap * 0.15;
-                    const advantage = rawAdvantage * rushWeight;
-                    ourAwayScore += advantage;
-
-                    if (Math.abs(gap) > 5) {
-                        const favored = gap > 0 ? awayTeam : homeTeam;
-                        prediction.calculations.push(`${awayTeam} #${awayRankings.rushOffRank} rush O vs ${homeTeam} #${homeRankings.rushDefRank} rush D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
-                        if (Math.abs(gap) > 10) {
-                            prediction.edges.push(`${favored} rush matchup advantage`);
-                        }
-                    }
-                }
-
-                // Away pass offense vs home pass defense
-                if (awayRankings.passOffRank && homeRankings.passDefRank) {
-                    const gap = homeRankings.passDefRank - awayRankings.passOffRank;
-                    const rawAdvantage = gap * 0.15;
-                    const advantage = rawAdvantage * passWeight;
-                    ourAwayScore += advantage;
-
-                    if (Math.abs(gap) > 5) {
-                        const favored = gap > 0 ? awayTeam : homeTeam;
-                        prediction.calculations.push(`${awayTeam} #${awayRankings.passOffRank} pass O vs ${homeTeam} #${homeRankings.passDefRank} pass D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
-                        if (Math.abs(gap) > 10) {
-                            prediction.edges.push(`${favored} pass matchup advantage`);
-                        }
-                    }
+                    // Split weather impact between both teams
+                    ourHomeScore += weatherImpact / 2;
+                    ourAwayScore += weatherImpact / 2;
                 }
             }
 
@@ -999,15 +961,15 @@
                 const scoreDiff = (prediction.homeScore - prediction.awayScore) - (prediction.vegasHomeScore - prediction.vegasAwayScore);
                 const totalDiff = (prediction.homeScore + prediction.awayScore) - (prediction.vegasHomeScore + prediction.vegasAwayScore);
 
-                prediction.deviation.push(`Our prediction: ${homeTeam} ${prediction.homeScore}, ${awayTeam} ${prediction.awayScore}`);
-                prediction.deviation.push(`Vegas prediction: ${homeTeam} ${prediction.vegasHomeScore}, ${awayTeam} ${prediction.vegasAwayScore}`);
+                prediction.deviation.push(`BRObet: ${homeTeam} ${prediction.homeScore}, ${awayTeam} ${prediction.awayScore}`);
+                prediction.deviation.push(`Vegas: ${homeTeam} ${prediction.vegasHomeScore}, ${awayTeam} ${prediction.vegasAwayScore}`);
 
                 if (Math.abs(scoreDiff) > 3) {
                     const favorsTeam = scoreDiff > 0 ? homeTeam : awayTeam;
-                    prediction.deviation.push(`🔥 We favor ${favorsTeam} ${Math.abs(scoreDiff).toFixed(1)} pts more than Vegas`);
-                    prediction.rationale.push(`Significant deviation from Vegas (${Math.abs(scoreDiff).toFixed(1)} pt difference)`);
+                    prediction.deviation.push(`🔥 BRObet favors ${favorsTeam} ${Math.abs(scoreDiff).toFixed(1)} pts more than Vegas`);
+                    prediction.rationale.push(`Significant deviation from Vegas (${Math.abs(scoreDiff).toFixed(1)} pt spread difference)`);
                 } else {
-                    prediction.deviation.push(`✓ Close agreement with Vegas (${Math.abs(scoreDiff).toFixed(1)} pt difference)`);
+                    prediction.deviation.push(`✓ Close agreement with Vegas (${Math.abs(scoreDiff).toFixed(1)} pt spread difference)`);
                 }
 
                 if (Math.abs(totalDiff) > 6) {
@@ -1017,24 +979,24 @@
             }
 
             // Build rationale
-            prediction.rationale.push(`${prediction.winner} by ${margin} points (our model)`);
+            prediction.rationale.push(`${prediction.winner} by ${margin} points`);
 
             if (prediction.vegasSpread !== 'N/A') {
                 const vegasFav = parseFloat(prediction.vegasSpread) < 0 ? homeTeam : awayTeam;
-                prediction.rationale.push(`Vegas: ${vegasFav} by ${Math.abs(parseFloat(prediction.vegasSpread))} pts`);
+                prediction.rationale.push(`Vegas favors: ${vegasFav} by ${Math.abs(parseFloat(prediction.vegasSpread))} pts`);
             }
 
-            const winnerWinPct = prediction.winner === homeTeam ? homeWinPct : awayWinPct;
-            if (winnerWinPct > 0.65) {
-                prediction.rationale.push(`${prediction.winner} strong record (${(winnerWinPct * 100).toFixed(0)}%)`);
-            }
+            // Add efficiency context to rationale
+            const winnerStats = prediction.winner === homeTeam ? homeStats : awayStats;
+            prediction.rationale.push(`${prediction.winner} averages ${winnerStats.offensiveRating.toFixed(1)} ppg`);
 
-            // Confidence based on model strength, NOT Vegas agreement
+            // Confidence based on prediction margin and edge count
             let confidenceScore = margin;
             if (prediction.edges.length >= 2) confidenceScore += 5;
             if (prediction.edges.length >= 3) confidenceScore += 3;
-            if (winnerWinPct > 0.7) confidenceScore += 4;
-            if (Math.abs(homeWinPct - awayWinPct) > 0.3) confidenceScore += 3;
+
+            // Add confidence for strong offensive/defensive matchups
+            if (Math.abs(offensiveEdge) > 7 || Math.abs(defensiveEdge) > 7) confidenceScore += 4;
 
             if (confidenceScore >= 14) prediction.confidence = 'High';
             else if (confidenceScore >= 8) prediction.confidence = 'Medium';
@@ -1243,12 +1205,12 @@
                             <div class="prediction-title">📊 Score Predictions</div>
                             <div class="prediction-grid">
                                 <div class="pred-stat">
-                                    <div class="pred-label">Our Model</div>
+                                    <div class="pred-label">🏈 BRObet</div>
                                     <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
                                 </div>
                                 ${prediction.vegasHomeScore ? `
                                 <div class="pred-stat">
-                                    <div class="pred-label">Vegas Line</div>
+                                    <div class="pred-label">💰 Vegas</div>
                                     <div class="pred-value" style="font-size: 1.5rem; color: #f39c12;">${prediction.vegasHomeScore} - ${prediction.vegasAwayScore}</div>
                                 </div>
                                 ` : ''}
