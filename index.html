@@ -1364,8 +1364,6 @@
             if (prediction.edges.length >= 3) confidenceScore += 3;
 
             // Add confidence for strong offensive/defensive matchups
-            if (Math.abs(offensiveEdge) > 7 || Math.abs(defensiveEdge) > 7) confidenceScore += 4;
-
             if (confidenceScore >= 14) prediction.confidence = 'High';
             else if (confidenceScore >= 8) prediction.confidence = 'Medium';
             else prediction.confidence = 'Low';
