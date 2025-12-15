@@ -583,50 +583,95 @@
 
         // ===== FETCH LEAGUE STATS =====
         async function fetchLeagueStats() {
-            console.log('📊 Fetching team efficiency ratings from ESPN...');
-
-            const proxy = url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+            console.log('📊 Calculating team efficiency ratings from season games...');
 
             try {
-                // Fetch offensive stats (points scored per game)
-                const offUrl = proxy('https://www.espn.com/nfl/stats/team/_/view/offense');
-                const offResponse = await fetch(offUrl);
-                const offHtml = await offResponse.text();
-                const offensiveData = parsePPG(offHtml);
-
-                console.log(`✅ Parsed ${Object.keys(offensiveData).length} teams offensive PPG`);
-
-                // Fetch defensive stats (points allowed per game)
-                const defUrl = proxy('https://www.espn.com/nfl/stats/team/_/view/defense');
-                const defResponse = await fetch(defUrl);
-                const defHtml = await defResponse.text();
-                const defensiveData = parsePPG(defHtml);
-
-                console.log(`✅ Parsed ${Object.keys(defensiveData).length} teams defensive PPG`);
-
-                // Combine offensive and defensive data
+                // Initialize team stats trackers
+                const teamStats = {};
                 for (const teamName in TEAM_DATA) {
-                    leagueStats.teams[teamName] = {
-                        offensiveRating: offensiveData[teamName] || 24,
-                        defensiveRating: defensiveData[teamName] || 24
+                    teamStats[teamName] = {
+                        pointsScored: 0,
+                        pointsAllowed: 0,
+                        gamesPlayed: 0
                     };
                 }
 
-                leagueStats.hasData = Object.keys(offensiveData).length > 0 && Object.keys(defensiveData).length > 0;
+                // Fetch completed games from all weeks of the season
+                const currentWeek = 15; // Update as season progresses
+                let totalGames = 0;
+
+                for (let week = 1; week <= currentWeek; week++) {
+                    try {
+                        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${week}`);
+                        const data = await response.json();
+
+                        for (const event of data.events || []) {
+                            const competition = event.competitions[0];
+
+                            // Only process completed games
+                            if (competition.status.type.completed) {
+                                const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+                                const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+
+                                const homeTeam = homeComp.team.displayName;
+                                const awayTeam = awayComp.team.displayName;
+                                const homeScore = parseInt(homeComp.score) || 0;
+                                const awayScore = parseInt(awayComp.score) || 0;
+
+                                if (teamStats[homeTeam]) {
+                                    teamStats[homeTeam].pointsScored += homeScore;
+                                    teamStats[homeTeam].pointsAllowed += awayScore;
+                                    teamStats[homeTeam].gamesPlayed++;
+                                }
+
+                                if (teamStats[awayTeam]) {
+                                    teamStats[awayTeam].pointsScored += awayScore;
+                                    teamStats[awayTeam].pointsAllowed += homeScore;
+                                    teamStats[awayTeam].gamesPlayed++;
+                                }
+
+                                totalGames++;
+                            }
+                        }
+                    } catch (err) {
+                        console.warn(`Could not fetch week ${week}:`, err.message);
+                    }
+                }
+
+                console.log(`✅ Processed ${totalGames} completed games from ${currentWeek} weeks`);
+
+                // Calculate PPG for each team
+                for (const teamName in teamStats) {
+                    const stats = teamStats[teamName];
+                    if (stats.gamesPlayed > 0) {
+                        leagueStats.teams[teamName] = {
+                            offensiveRating: stats.pointsScored / stats.gamesPlayed,
+                            defensiveRating: stats.pointsAllowed / stats.gamesPlayed
+                        };
+                    } else {
+                        leagueStats.teams[teamName] = {
+                            offensiveRating: 24,
+                            defensiveRating: 24
+                        };
+                    }
+                }
+
+                leagueStats.hasData = totalGames > 0;
 
                 // Log sample for verification
                 const sampleTeams = ['Detroit Lions', 'Buffalo Bills', 'Kansas City Chiefs'];
                 sampleTeams.forEach(team => {
                     if (leagueStats.teams[team]) {
                         const stats = leagueStats.teams[team];
-                        console.log(`${team}: OFF ${stats.offensiveRating.toFixed(1)} ppg, DEF ${stats.defensiveRating.toFixed(1)} ppg allowed`);
+                        const games = teamStats[team].gamesPlayed;
+                        console.log(`${team} (${games} games): OFF ${stats.offensiveRating.toFixed(1)} ppg, DEF ${stats.defensiveRating.toFixed(1)} ppg allowed`);
                     }
                 });
 
-                console.log(`✅ Loaded efficiency ratings for ${Object.keys(leagueStats.teams).length} teams`);
+                console.log(`✅ Calculated efficiency ratings for ${Object.keys(leagueStats.teams).length} teams`);
 
             } catch (error) {
-                console.error('Failed to fetch team stats:', error);
+                console.error('Failed to calculate team stats:', error);
                 // Fallback: use league average for all teams
                 for (const teamName in TEAM_DATA) {
                     leagueStats.teams[teamName] = {
@@ -636,34 +681,6 @@
                 }
                 leagueStats.hasData = false;
             }
-        }
-
-        // Parse PPG from ESPN stats page HTML
-        function parsePPG(html) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
-            const data = {};
-
-            rows.forEach(row => {
-                const tds = row.querySelectorAll('.Table__TD');
-                if (tds.length > 2) {
-                    // Team name is in the second column (index 1)
-                    const teamCell = tds[1];
-                    const teamName = teamCell.querySelector('.AnchorLink')?.textContent.trim() ||
-                                   teamCell.textContent.trim();
-
-                    // PTS/G is in the last column
-                    const ppgCell = tds[tds.length - 1];
-                    const ppg = parseFloat(ppgCell.textContent.trim());
-
-                    if (teamName && !isNaN(ppg) && ppg > 0) {
-                        data[teamName] = ppg;
-                    }
-                }
-            });
-
-            return data;
         }
 
         // ===== FETCH INJURIES =====
