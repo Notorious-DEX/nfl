@@ -807,15 +807,21 @@
 
         // Parse team statistics from box score
         function parseTeamStats(statistics, teamStats, yards) {
+            // DEBUG: Log all stat names we see (only once)
+            if (!window.statNamesLogged) {
+                console.log('📋 Box score stat names available:', statistics.map(s => s.name).join(', '));
+                window.statNamesLogged = true;
+            }
+
             for (const stat of statistics) {
                 const name = stat.name.toLowerCase();
                 const value = parseFloat(stat.displayValue) || 0;
 
-                if (name === 'rushingyards') {
+                if (name === 'rushingyards' || name === 'rushing yards' || name === 'totalrushingyards') {
                     teamStats.rushYards += value;
                     if (yards) yards.rush = value;
                 }
-                else if (name === 'passingyards') {
+                else if (name === 'passingyards' || name === 'passing yards' || name === 'totalpassingyards' || name === 'netpassingyards') {
                     teamStats.passYards += value;
                     if (yards) yards.pass = value;
                 }
