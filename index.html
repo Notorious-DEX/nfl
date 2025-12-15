@@ -392,7 +392,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BRObet</h1>
+            <h1>🏈 BRObet <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.01</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
         </header>
@@ -494,10 +494,12 @@
             "Washington Commanders": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", color: "#5A1414", lat: 38.9076, lon: -76.8645 }
         };
 
-        // League stats cache (offensive/defensive efficiency ratings)
+        // League stats cache (comprehensive team statistics & rankings)
         let leagueStats = {
-            teams: {}, // Will store { teamName: { offensiveRating: ppg, defensiveRating: ppg allowed } }
-            hasData: false
+            teams: {}, // Will store comprehensive stats for each team
+            rankings: {}, // Will store rankings (1-32) for each category
+            hasData: false,
+            lastUpdated: null
         };
 
         let injuries = {};
@@ -583,7 +585,7 @@
 
         // ===== FETCH LEAGUE STATS =====
         async function fetchLeagueStats() {
-            console.log('📊 Calculating team efficiency ratings from season games...');
+            console.log('📊 Calculating comprehensive team statistics from season games...');
 
             try {
                 // Initialize team stats trackers
@@ -592,6 +594,18 @@
                     teamStats[teamName] = {
                         pointsScored: 0,
                         pointsAllowed: 0,
+                        rushYards: 0,
+                        rushYardsAllowed: 0,
+                        passYards: 0,
+                        passYardsAllowed: 0,
+                        thirdDownConversions: 0,
+                        thirdDownAttempts: 0,
+                        redZoneScores: 0,
+                        redZoneAttempts: 0,
+                        sacksAllowed: 0,
+                        sacksTaken: 0,
+                        turnovers: 0,
+                        takeaways: 0,
                         gamesPlayed: 0
                     };
                 }
@@ -599,6 +613,7 @@
                 // Fetch completed games from all weeks of the season
                 const currentWeek = 15; // Update as season progresses
                 let totalGames = 0;
+                let statsProcessed = 0;
 
                 for (let week = 1; week <= currentWeek; week++) {
                     try {
@@ -615,6 +630,8 @@
 
                                 const homeTeam = homeComp.team.displayName;
                                 const awayTeam = awayComp.team.displayName;
+
+                                // Basic scores (from scoreboard)
                                 const homeScore = parseInt(homeComp.score) || 0;
                                 const awayScore = parseInt(awayComp.score) || 0;
 
@@ -630,6 +647,31 @@
                                     teamStats[awayTeam].gamesPlayed++;
                                 }
 
+                                // Fetch detailed statistics from box score
+                                try {
+                                    const statsUrl = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${event.id}`;
+                                    const statsResponse = await fetch(statsUrl);
+                                    const statsData = await statsResponse.json();
+
+                                    const boxscore = statsData.boxscore;
+                                    if (boxscore && boxscore.teams) {
+                                        const homeStats = boxscore.teams.find(t => t.homeAway === 'home');
+                                        const awayStats = boxscore.teams.find(t => t.homeAway === 'away');
+
+                                        // Parse statistics for both teams
+                                        if (homeStats && homeStats.statistics) {
+                                            parseTeamStats(homeStats.statistics, teamStats[homeTeam]);
+                                        }
+                                        if (awayStats && awayStats.statistics) {
+                                            parseTeamStats(awayStats.statistics, teamStats[awayTeam]);
+                                        }
+
+                                        statsProcessed++;
+                                    }
+                                } catch (statErr) {
+                                    console.warn(`Could not fetch stats for game ${event.id}:`, statErr.message);
+                                }
+
                                 totalGames++;
                             }
                         }
@@ -638,49 +680,169 @@
                     }
                 }
 
-                console.log(`✅ Processed ${totalGames} completed games from ${currentWeek} weeks`);
+                console.log(`✅ Processed ${totalGames} completed games, ${statsProcessed} with detailed stats`);
 
-                // Calculate PPG for each team
+                // Calculate per-game averages and percentages
                 for (const teamName in teamStats) {
                     const stats = teamStats[teamName];
                     if (stats.gamesPlayed > 0) {
                         leagueStats.teams[teamName] = {
+                            // Basic ratings
                             offensiveRating: stats.pointsScored / stats.gamesPlayed,
-                            defensiveRating: stats.pointsAllowed / stats.gamesPlayed
+                            defensiveRating: stats.pointsAllowed / stats.gamesPlayed,
+
+                            // Rushing stats
+                            rushYPG: stats.rushYards / stats.gamesPlayed,
+                            rushDefYPG: stats.rushYardsAllowed / stats.gamesPlayed,
+
+                            // Passing stats
+                            passYPG: stats.passYards / stats.gamesPlayed,
+                            passDefYPG: stats.passYardsAllowed / stats.gamesPlayed,
+
+                            // Situational stats
+                            thirdDownPct: stats.thirdDownAttempts > 0 ? (stats.thirdDownConversions / stats.thirdDownAttempts) * 100 : 40,
+                            redZonePct: stats.redZoneAttempts > 0 ? (stats.redZoneScores / stats.redZoneAttempts) * 100 : 50,
+
+                            // Sacks
+                            sacksAllowedPG: stats.sacksAllowed / stats.gamesPlayed,
+                            sacksTakenPG: stats.sacksTaken / stats.gamesPlayed,
+
+                            // Turnovers
+                            turnoverDiff: stats.takeaways - stats.turnovers,
+
+                            // Raw totals (for ranking)
+                            gamesPlayed: stats.gamesPlayed
                         };
                     } else {
+                        // Fallback defaults
                         leagueStats.teams[teamName] = {
-                            offensiveRating: 24,
-                            defensiveRating: 24
+                            offensiveRating: 24, defensiveRating: 24,
+                            rushYPG: 120, rushDefYPG: 120,
+                            passYPG: 220, passDefYPG: 220,
+                            thirdDownPct: 40, redZonePct: 50,
+                            sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
+                            turnoverDiff: 0, gamesPlayed: 0
                         };
                     }
                 }
 
+                // Calculate rankings (1-32) for each category
+                calculateRankings();
+
                 leagueStats.hasData = totalGames > 0;
+                leagueStats.lastUpdated = new Date().toISOString();
 
                 // Log sample for verification
                 const sampleTeams = ['Detroit Lions', 'Buffalo Bills', 'Kansas City Chiefs'];
                 sampleTeams.forEach(team => {
-                    if (leagueStats.teams[team]) {
+                    if (leagueStats.teams[team] && leagueStats.rankings[team]) {
                         const stats = leagueStats.teams[team];
-                        const games = teamStats[team].gamesPlayed;
-                        console.log(`${team} (${games} games): OFF ${stats.offensiveRating.toFixed(1)} ppg, DEF ${stats.defensiveRating.toFixed(1)} ppg allowed`);
+                        const ranks = leagueStats.rankings[team];
+                        console.log(`${team}: OFF #${ranks.rushOffRank} rush, #${ranks.passOffRank} pass | DEF #${ranks.rushDefRank} rush, #${ranks.passDefRank} pass`);
                     }
                 });
 
-                console.log(`✅ Calculated efficiency ratings for ${Object.keys(leagueStats.teams).length} teams`);
+                console.log(`✅ Calculated comprehensive stats for ${Object.keys(leagueStats.teams).length} teams`);
 
             } catch (error) {
                 console.error('Failed to calculate team stats:', error);
                 // Fallback: use league average for all teams
                 for (const teamName in TEAM_DATA) {
                     leagueStats.teams[teamName] = {
-                        offensiveRating: 24,
-                        defensiveRating: 24
+                        offensiveRating: 24, defensiveRating: 24,
+                        rushYPG: 120, rushDefYPG: 120,
+                        passYPG: 220, passDefYPG: 220,
+                        thirdDownPct: 40, redZonePct: 50,
+                        sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
+                        turnoverDiff: 0, gamesPlayed: 0
+                    };
+                    leagueStats.rankings[teamName] = {
+                        rushOffRank: 16, passOffRank: 16,
+                        rushDefRank: 16, passDefRank: 16
                     };
                 }
                 leagueStats.hasData = false;
             }
+        }
+
+        // Parse team statistics from box score
+        function parseTeamStats(statistics, teamStats) {
+            for (const stat of statistics) {
+                const name = stat.name.toLowerCase();
+                const value = parseFloat(stat.displayValue) || 0;
+
+                if (name === 'rushingyards') teamStats.rushYards += value;
+                else if (name === 'passingyards') teamStats.passYards += value;
+                else if (name === 'thirddowneff') {
+                    // Format is "X-Y" where X is conversions, Y is attempts
+                    const parts = stat.displayValue.split('-');
+                    if (parts.length === 2) {
+                        teamStats.thirdDownConversions += parseInt(parts[0]) || 0;
+                        teamStats.thirdDownAttempts += parseInt(parts[1]) || 0;
+                    }
+                }
+                else if (name === 'redzoneeff' || name === 'redzonemade-att') {
+                    const parts = stat.displayValue.split('-');
+                    if (parts.length === 2) {
+                        teamStats.redZoneScores += parseInt(parts[0]) || 0;
+                        teamStats.redZoneAttempts += parseInt(parts[1]) || 0;
+                    }
+                }
+                else if (name === 'sacks' || name === 'sacks-yardslost') {
+                    // This is sacks ALLOWED by the offense
+                    const parts = stat.displayValue.split('-');
+                    teamStats.sacksAllowed += parseInt(parts[0]) || 0;
+                }
+                else if (name === 'interceptions' || name === 'interceptionthrown') {
+                    teamStats.turnovers += value;
+                }
+                else if (name === 'fumblelost' || name === 'fumbleslost') {
+                    teamStats.turnovers += value;
+                }
+                else if (name === 'defensiveinterceptions') {
+                    teamStats.takeaways += value;
+                }
+                else if (name === 'defensivefumblerecoveries' || name === 'fumblerecoveries') {
+                    teamStats.takeaways += value;
+                }
+                else if (name === 'defensivesacks' || name === 'totalsacks') {
+                    teamStats.sacksTaken += value;
+                }
+            }
+
+            // Defensive yards allowed are calculated as opponent's yards
+            // This will be handled when we process both teams
+        }
+
+        // Calculate rankings (1-32) for all categories
+        function calculateRankings() {
+            const teams = Object.keys(leagueStats.teams);
+
+            // Initialize rankings object
+            teams.forEach(team => {
+                leagueStats.rankings[team] = {
+                    rushOffRank: 0,
+                    passOffRank: 0,
+                    rushDefRank: 0,
+                    passDefRank: 0
+                };
+            });
+
+            // Rush offense (higher yards = better rank)
+            const rushOffRanked = teams.sort((a, b) => leagueStats.teams[b].rushYPG - leagueStats.teams[a].rushYPG);
+            rushOffRanked.forEach((team, idx) => leagueStats.rankings[team].rushOffRank = idx + 1);
+
+            // Pass offense (higher yards = better rank)
+            const passOffRanked = teams.sort((a, b) => leagueStats.teams[b].passYPG - leagueStats.teams[a].passYPG);
+            passOffRanked.forEach((team, idx) => leagueStats.rankings[team].passOffRank = idx + 1);
+
+            // Rush defense (lower yards allowed = better rank)
+            const rushDefRanked = teams.sort((a, b) => leagueStats.teams[a].rushDefYPG - leagueStats.teams[b].rushDefYPG);
+            rushDefRanked.forEach((team, idx) => leagueStats.rankings[team].rushDefRank = idx + 1);
+
+            // Pass defense (lower yards allowed = better rank)
+            const passDefRanked = teams.sort((a, b) => leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG);
+            passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
         }
 
         // ===== FETCH INJURIES =====
