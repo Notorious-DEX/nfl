@@ -660,11 +660,11 @@ async function fetchLeagueStats() {
             if (tds.length >= 5) {
                 const teamLink = tds[1].querySelector('.AnchorLink');
                 const teamName = teamLink ? teamLink.textContent.trim() : tds[1].textContent.trim();
-                // PTS/G column varies but usually index 4 or later; find the decimal value ~15-35
                 let ptsG = 0;
-                for (let i = 4; i < tds.length; i++) {
+                // Search columns for realistic PPG (15-35 range)
+                for (let i = 3; i < tds.length; i++) {  // Start after PTS total
                     const val = parseFloat(tds[i].textContent.trim());
-                    if (!isNaN(val) && val > 10 && val < 40) {
+                    if (!isNaN(val) && val >= 15 && val <= 35) {
                         ptsG = val;
                         break;
                     }
@@ -1469,6 +1469,79 @@ async function fetchLeagueStats() {
 
             localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
             localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
+        }
+
+                function saveApiKey() {
+            const input = document.getElementById('apiKeyInput');
+            const key = input.value.trim();
+            
+            if (!key) {
+                showError('Please enter a valid API key from the-odds-api.com');
+                return;
+            }
+
+            localStorage.setItem('nfl_odds_api_key', key);
+            apiKey = key;
+            
+            document.getElementById('apiSetup').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loading').textContent = 'Loading schedule and odds...';
+            document.getElementById('error').style.display = 'none';
+
+            loadData();
+        }
+
+        async function loadData() {
+            try {
+                await fetchLeagueStats();  // Rankings & PPG first
+
+                const scheduleResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                if (!scheduleResponse.ok) throw new Error('ESPN schedule failed');
+                const scheduleData = await scheduleResponse.json();
+
+                const currentWeek = scheduleData.week.number;
+                document.getElementById('weekIndicator').textContent = `Week ${currentWeek}`;
+
+                const oddsResponse = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds?regions=us&markets=h2h,spreads,totals&apiKey=${apiKey}`);
+                if (!oddsResponse.ok) {
+                    const errText = await oddsResponse.text();
+                    throw new Error(`Odds API error: ${oddsResponse.status} - ${errText}`);
+                }
+                const oddsData = await oddsResponse.json();
+
+                await displayGames(scheduleData.events, oddsData);
+                await checkPredictionResults();  // Update accuracy
+
+                updateAccuracyDisplay();
+
+                document.getElementById('loading').style.display = 'none';
+            } catch (err) {
+                console.error(err);
+                showError(`Failed to load data: ${err.message}<br><br>Check your API key and internet connection. Free keys have rate limits.`);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('apiSetup').style.display = 'block';
+            }
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.innerHTML = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function updateAccuracyDisplay() {
+            const accuracy = accuracyStats.total > 0 ? ((accuracyStats.correct / accuracyStats.total) * 100).toFixed(1) : 0;
+            document.getElementById('correct').textContent = accuracyStats.correct;
+            document.getElementById('total').textContent = accuracyStats.total;
+            document.getElementById('accuracy').textContent = `${accuracy}%`;
+        }
+
+        // Auto-load if key already saved
+        if (apiKey) {
+            document.getElementById('apiSetup').style.display = 'none';
+            loadData();
+        } else {
+            updateAccuracyDisplay();  // Show 0/0 on fresh load
         }
     </script>
 </body>
