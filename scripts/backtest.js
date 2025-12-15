@@ -3,7 +3,7 @@
 /**
  * Backtest NFL Predictions
  * Tests prediction model accuracy by:
- * - Week 1: Use preseason data to predict week 1 games
+ * - Week 1: Use Elo ratings (carried over from prior season with 1/3 regression)
  * - Week 2+: Use only prior regular season weeks to predict each week
  * - Compare predictions to actual results
  * - Save to test-predictions.json and test-results.json
@@ -12,6 +12,7 @@
 const fs = require('fs');
 const path = require('path');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const elo = require('./elo');
 
 const TEAM_DATA = {
     "Arizona Cardinals": { lat: 33.5276, lon: -112.2626 },
@@ -53,6 +54,8 @@ let leagueStats = {
     rankings: {},
     hasData: false
 };
+
+let eloRatings = null; // Will be loaded from historical-elo.json
 
 async function fetchLeagueStats(upToWeek, usePreseason = false) {
     console.log(`📊 Calculating team stats ${usePreseason ? 'from preseason' : `through week ${upToWeek - 1}`}...`);
@@ -335,9 +338,57 @@ function generatePrediction(game) {
     };
 }
 
+function generateEloPrediction(game) {
+    const competition = game.competitions[0];
+    const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+    const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+
+    const homeTeam = homeComp.team.displayName;
+    const awayTeam = awayComp.team.displayName;
+
+    if (!eloRatings || !eloRatings[homeTeam] || !eloRatings[awayTeam]) {
+        return null;
+    }
+
+    const homeElo = eloRatings[homeTeam];
+    const awayElo = eloRatings[awayTeam];
+
+    // Calculate expected point spread from Elo
+    const expectedSpread = elo.eloToSpread(homeElo, awayElo);
+
+    // Convert spread to scores (league average ~22 points per team)
+    const leagueAvgScore = 22;
+    const homeScore = Math.max(10, Math.round(leagueAvgScore + expectedSpread / 2));
+    const awayScore = Math.max(10, Math.round(leagueAvgScore - expectedSpread / 2));
+
+    return {
+        gameId: game.id,
+        week: competition.week?.number,
+        date: game.date,
+        homeTeam,
+        awayTeam,
+        homeScore: homeScore === awayScore ? homeScore + 1 : homeScore,
+        awayScore,
+        winner: (homeScore === awayScore ? homeScore + 1 : homeScore) > awayScore ? homeTeam : awayTeam,
+        method: 'elo'
+    };
+}
+
 async function main() {
     try {
         console.log('🏈 NFL Prediction Backtesting Starting...\n');
+
+        // Load historical Elo ratings for Week 1 predictions
+        const eloPath = path.join(__dirname, '..', 'historical-elo.json');
+        if (fs.existsSync(eloPath)) {
+            const eloData = JSON.parse(fs.readFileSync(eloPath, 'utf8'));
+            if (eloData.seasons['2025'] && eloData.seasons['2025'].startOfSeasonRatings) {
+                eloRatings = eloData.seasons['2025'].startOfSeasonRatings;
+                console.log('✅ Loaded 2025 starting Elo ratings from historical data\n');
+            }
+        } else {
+            console.warn('⚠️  No historical Elo data found, will use preseason for Week 1\n');
+        }
 
         const allPredictions = [];
         const allResults = [];
@@ -353,7 +404,11 @@ async function main() {
 
             // Calculate stats using only prior data
             if (week === 1) {
-                await fetchLeagueStats(week, true); // Use preseason
+                if (eloRatings) {
+                    console.log('📊 Using Elo ratings from 2024 season carryover (regressed 1/3 to mean)');
+                } else {
+                    await fetchLeagueStats(week, true); // Fallback to preseason if no Elo data
+                }
             } else {
                 await fetchLeagueStats(week, false); // Use weeks 1 to week-1
             }
@@ -367,7 +422,10 @@ async function main() {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
 
-                const prediction = generatePrediction(game);
+                // Use Elo for Week 1, regular stats for Week 2+
+                const prediction = (week === 1 && eloRatings)
+                    ? generateEloPrediction(game)
+                    : generatePrediction(game);
                 if (!prediction) continue;
 
                 // Get actual result
