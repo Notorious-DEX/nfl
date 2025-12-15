@@ -620,58 +620,110 @@
 
         // ===== FETCH LEAGUE STATS =====
     async function fetchLeagueStats() {
-    console.log('📊 Fetching team rankings from ESPN...');
+    console.log('📊 Fetching team rankings and PPG from ESPN...');
 
+    const proxy = url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+
+    // Existing rankings fetch (unchanged structure, but added PPG)
     const urls = {
-        rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/desc',
-        passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/desc',
-        rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/rushing/sort/rushingYardsPerGame/dir/asc',
-        passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/season/2025/seasontype/2/table/passing/sort/netPassingYardsPerGame/dir/asc'
+        rushOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/table/rushing/sort/rushingYardsPerGame/dir/desc',
+        passOff: 'https://www.espn.com/nfl/stats/team/_/view/offense/table/passing/sort/netPassingYardsPerGame/dir/desc',
+        rushDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/table/rushing/sort/rushingYardsPerGame/dir/asc',
+        passDef: 'https://www.espn.com/nfl/stats/team/_/view/defense/table/passing/sort/netPassingYardsPerGame/dir/asc',
+        offPPG: 'https://www.espn.com/nfl/stats/team/_/view/offense',  // Points Scored Per Game
+        defPPG: 'https://www.espn.com/nfl/stats/team/_/view/defense'   // Points Allowed Per Game
     };
 
-    async function fetchRankings(type, url) {
-        try {
-            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-            const response = await fetch(proxyUrl);
-            if (!response.ok) throw new Error('Fetch failed');
-            const html = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
-            const ranks = {};
-            rows.forEach(row => {
-                const tds = row.querySelectorAll('.Table__TD');
-                if (tds.length > 1) {
-                    const rk = parseInt(tds[0].textContent.trim());
-                    let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
-                    ranks[teamName] = rk;
+    async function parseRankings(html, type) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
+        const data = {};
+        rows.forEach(row => {
+            const tds = row.querySelectorAll('.Table__TD');
+            if (tds.length > 1) {
+                const rk = parseInt(tds[0].textContent.trim());
+                let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
+                data[teamName] = rk;
+            }
+        });
+        return data;
+    }
+
+    async function parsePPG(html, isOffense = true) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const rows = doc.querySelectorAll('.Table__TBODY .Table__TR');
+        const data = {};
+        rows.forEach(row => {
+            const tds = row.querySelectorAll('.Table__TD');
+            if (tds.length >= 10) {  // PTS/G is usually in the last few columns
+                let teamName = tds[1].querySelector('.AnchorLink')?.textContent.trim() || tds[1].textContent.trim();
+                const ptsGText = Array.from(tds).find(td => {
+                    const val = td.textContent.trim();
+                    return !isNaN(parseFloat(val)) && val !== '';
+                });
+                if (ptsGText) {
+                    const ptsG = parseFloat(ptsGText.textContent.trim());
+                    if (!isNaN(ptsG)) data[teamName] = ptsG;
                 }
-            });
-            return ranks;
-        } catch (e) {
-            console.warn(`Failed to fetch ${type} rankings:`, e);
-            return null;
+            }
+        });
+        return data;
+    }
+
+    try {
+        const responses = await Promise.all([
+            fetch(proxy(urls.rushOff)).then(r => r.ok ? r.text() : null),
+            fetch(proxy(urls.passOff)).then(r => r.ok ? r.text() : null),
+            fetch(proxy(urls.rushDef)).then(r => r.ok ? r.text() : null),
+            fetch(proxy(urls.passDef)).then(r => r.ok ? r.text() : null),
+            fetch(proxy(urls.offPPG)).then(r => r.ok ? r.text() : null),
+            fetch(proxy(urls.defPPG)).then(r => r.ok ? r.text() : null)
+        ]);
+
+        const [rushOffHtml, passOffHtml, rushDefHtml, passDefHtml, offPPGHtml, defPPGHtml] = responses;
+
+        const rushOff = rushOffHtml ? await parseRankings(rushOffHtml, 'rushOff') : null;
+        const passOff = passOffHtml ? await parseRankings(passOffHtml, 'passOff') : null;
+        const rushDef = rushDefHtml ? await parseRankings(rushDefHtml, 'rushDef') : null;
+        const passDef = passDefHtml ? await parseRankings(passDefHtml, 'passDef') : null;
+        const offPPG = offPPGHtml ? await parsePPG(offPPGHtml, true) : null;
+        const defPPG = defPPGHtml ? await parsePPG(defPPGHtml, false) : null;
+
+        leagueStats.rankings = {};
+        leagueStats.ppg = { off: {}, def: {} };
+
+        for (const team in TEAM_DATA) {
+            leagueStats.rankings[team] = {
+                rushOffRank: rushOff?.[team] || HARDCODED_RANKINGS_2025[team]?.rushOffRank || 16,
+                passOffRank: passOff?.[team] || HARDCODED_RANKINGS_2025[team]?.passOffRank || 16,
+                rushDefRank: rushDef?.[team] || HARDCODED_RANKINGS_2025[team]?.rushDefRank || 16,
+                passDefRank: passDef?.[team] || HARDCODED_RANKINGS_2025[team]?.passDefRank || 16
+            };
+
+            // Prefer real PPG, fallback to rank-based estimate (~32 - avg rank)
+            const avgOffRank = (leagueStats.rankings[team].rushOffRank + leagueStats.rankings[team].passOffRank) / 2;
+            const avgDefRank = (leagueStats.rankings[team].rushDefRank + leagueStats.rankings[team].passDefRank) / 2;
+            leagueStats.ppg.off[team] = offPPG?.[team] ?? (32 - avgOffRank + 22);  // Rough conversion
+            leagueStats.ppg.def[team] = defPPG?.[team] ?? (32 - avgDefRank + 22);
         }
-    }
 
-    const [rushOff, passOff, rushDef, passDef] = await Promise.all([
-        fetchRankings('rushOff', urls.rushOff),
-        fetchRankings('passOff', urls.passOff),
-        fetchRankings('rushDef', urls.rushDef),
-        fetchRankings('passDef', urls.passDef)
-    ]);
-
-    leagueStats.rankings = {};
-    for (const team in TEAM_DATA) {
-        leagueStats.rankings[team] = {
-            rushOffRank: rushOff?.[team] || HARDCODED_RANKINGS_2025[team]?.rushOffRank,
-            passOffRank: passOff?.[team] || HARDCODED_RANKINGS_2025[team]?.passOffRank,
-            rushDefRank: rushDef?.[team] || HARDCODED_RANKINGS_2025[team]?.rushDefRank,
-            passDefRank: passDef?.[team] || HARDCODED_RANKINGS_2025[team]?.passDefRank
-        };
+        leagueStats.hasData = true;
+        console.log(`✅ Loaded rankings & PPG for ${Object.keys(leagueStats.rankings).length} teams`);
+    } catch (e) {
+        console.warn('Failed to fetch dynamic stats, using hardcoded fallback:', e);
+        // Use existing hardcoded as full fallback
+        leagueStats.rankings = HARDCODED_RANKINGS_2025;
+        leagueStats.ppg = { off: {}, def: {} };
+        for (const team in TEAM_DATA) {
+            const avgOff = (HARDCODED_RANKINGS_2025[team].rushOffRank + HARDCODED_RANKINGS_2025[team].passOffRank) / 2;
+            const avgDef = (HARDCODED_RANKINGS_2025[team].rushDefRank + HARDCODED_RANKINGS_2025[team].passDefRank) / 2;
+            leagueStats.ppg.off[team] = 32 - avgOff + 22;
+            leagueStats.ppg.def[team] = 32 - avgDef + 22;
+        }
+        leagueStats.hasData = true;
     }
-    leagueStats.hasData = true;
-    console.log(`✅ Loaded rankings for ${Object.keys(leagueStats.rankings).length} teams`);
 }
 
         // ===== FETCH INJURIES =====
@@ -898,32 +950,29 @@
                 }
             }
 
-            // ===== BUILD INDEPENDENT PREDICTION (NO VEGAS) =====
-            const [homeWins, homeLosses] = homeRecord.split('-').map(n => parseInt(n) || 0);
-            const [awayWins, awayLosses] = awayRecord.split('-').map(n => parseInt(n) || 0);
-            const homeWinPct = (homeWins + homeLosses) > 0 ? homeWins / (homeWins + homeLosses) : 0.5;
-            const awayWinPct = (awayWins + awayLosses) > 0 ? awayWins / (awayWins + awayLosses) : 0.5;
+            // ===== NEW: PPG-BASED EFFICIENCY PROJECTION =====
+            let ourHomeScore = 23;
+            let ourAwayScore = 23;
 
-            // Start with league average (24 ppg)
-            let ourHomeScore = 24;
-            let ourAwayScore = 24;
-            prediction.calculations.push(`Started with league average: 24-24`);
+            if (leagueStats.hasData && leagueStats.ppg) {
+                const homeOffPPG = leagueStats.ppg.off[homeTeam] || 23;
+                const homeDefPPG = leagueStats.ppg.def[homeTeam] || 23;
+                const awayOffPPG = leagueStats.ppg.off[awayTeam] || 23;
+                const awayDefPPG = leagueStats.ppg.def[awayTeam] || 23;
+
+                ourAwayScore = (awayOffPPG + homeDefPPG) / 2;
+                ourHomeScore = (homeOffPPG + awayDefPPG) / 2;
+
+                prediction.calculations.push(`Base efficiency projection:`);
+                prediction.calculations.push(`  ${awayTeam} offense (${awayOffPPG.toFixed(1)} PPG) vs ${homeTeam} defense (${homeDefPPG.toFixed(1)} PA/G) → ${awayTeam} ${ourAwayScore.toFixed(1)} pts`);
+                prediction.calculations.push(`  ${homeTeam} offense (${homeOffPPG.toFixed(1)} PPG) vs ${awayTeam} defense (${awayDefPPG.toFixed(1)} PA/G) → ${homeTeam} ${ourHomeScore.toFixed(1)} pts`);
+            } else {
+                prediction.calculations.push(`Base projection: Using fallback estimates`);
+            }
 
             // Home field advantage
             ourHomeScore += 2.5;
             prediction.calculations.push(`Home field advantage: +2.5 pts to ${homeTeam}`);
-
-            // Win percentage adjustments (team quality)
-            const homeWinAdj = (homeWinPct - 0.5) * 8;
-            const awayWinAdj = (awayWinPct - 0.5) * 8;
-            if (Math.abs(homeWinAdj) > 0.5) {
-                ourHomeScore += homeWinAdj;
-                prediction.calculations.push(`${homeTeam} record (${(homeWinPct*100).toFixed(0)}%): ${homeWinAdj > 0 ? '+' : ''}${homeWinAdj.toFixed(1)} pts`);
-            }
-            if (Math.abs(awayWinAdj) > 0.5) {
-                ourAwayScore += awayWinAdj;
-                prediction.calculations.push(`${awayTeam} record (${(awayWinPct*100).toFixed(0)}%): ${awayWinAdj > 0 ? '+' : ''}${awayWinAdj.toFixed(1)} pts`);
-            }
 
             // ===== MATCHUP DIFFERENTIAL (FIXED CALCULATION) =====
             let rushWeight = 1;
