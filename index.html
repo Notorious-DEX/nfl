@@ -1296,16 +1296,22 @@
                             const homeScore = parseInt(homeTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
                             const awayScore = parseInt(awayTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
 
-                            const actualWinner = homeScore > awayScore ? homeTeam.team.displayName : awayTeam.team.displayName;
-                            const predictedWinner = pred.prediction.winner;
+                            // Only count if we have valid final scores (game is actually complete)
+                            if (homeScore > 0 || awayScore > 0) {
+                                const actualWinner = homeScore > awayScore ? homeTeam.team.displayName : awayTeam.team.displayName;
+                                const predictedWinner = pred.prediction.winner;
 
-                            if (actualWinner === predictedWinner) {
-                                accuracyStats.correct++;
+                                // Update total first (game is complete)
+                                accuracyStats.total++;
+
+                                // Then check if prediction was correct
+                                if (actualWinner === predictedWinner) {
+                                    accuracyStats.correct++;
+                                }
+
+                                pred.checked = true;
+                                predictions[gameId] = pred;
                             }
-                            accuracyStats.total++;
-
-                            pred.checked = true;
-                            predictions[gameId] = pred;
                         }
                     } catch (e) {
                         console.warn(`Could not check result for game ${gameId}`);
