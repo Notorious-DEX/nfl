@@ -889,6 +889,36 @@
             // Pass defense (lower yards allowed = better rank)
             const passDefRanked = [...teams].sort((a, b) => leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG);
             passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
+
+            // DEBUG: Log rankings for comparison with ESPN
+            console.log('\n📊 CALCULATED RANKINGS (compare with ESPN):');
+            console.log('\n🏃 Rush Offense (YPG):');
+            rushOffRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].rushYPG.toFixed(1)} YPG`);
+            });
+            console.log('\n✈️ Pass Offense (YPG):');
+            passOffRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].passYPG.toFixed(1)} YPG`);
+            });
+            console.log('\n🛡️ Rush Defense (YPG Allowed):');
+            rushDefRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].rushDefYPG.toFixed(1)} YPG allowed`);
+            });
+            console.log('\n🚫 Pass Defense (YPG Allowed):');
+            passDefRanked.slice(0, 10).forEach((team, idx) => {
+                console.log(`  #${idx + 1}: ${team} - ${leagueStats.teams[team].passDefYPG.toFixed(1)} YPG allowed`);
+            });
+
+            // Show specific team if it's in a game this week
+            const dolphins = leagueStats.teams['Miami Dolphins'];
+            if (dolphins) {
+                console.log('\n🐬 Miami Dolphins Stats:');
+                console.log(`  Rush Off: ${dolphins.rushYPG.toFixed(1)} YPG (Rank #${leagueStats.rankings['Miami Dolphins'].rushOffRank})`);
+                console.log(`  Pass Off: ${dolphins.passYPG.toFixed(1)} YPG (Rank #${leagueStats.rankings['Miami Dolphins'].passOffRank})`);
+                console.log(`  Rush Def: ${dolphins.rushDefYPG.toFixed(1)} YPG allowed (Rank #${leagueStats.rankings['Miami Dolphins'].rushDefRank})`);
+                console.log(`  Pass Def: ${dolphins.passDefYPG.toFixed(1)} YPG allowed (Rank #${leagueStats.rankings['Miami Dolphins'].passDefRank})`);
+                console.log(`  Games: ${dolphins.gamesPlayed}`);
+            }
         }
 
         // ===== FETCH INJURIES =====
