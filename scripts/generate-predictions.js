@@ -118,11 +118,25 @@ async function fetchLeagueStats() {
                             const homeStats = boxscore.teams.find(t => t.homeAway === 'home');
                             const awayStats = boxscore.teams.find(t => t.homeAway === 'away');
 
+                            // Temporary objects to store yards before assigning to defense
+                            const homeYards = { rush: 0, pass: 0 };
+                            const awayYards = { rush: 0, pass: 0 };
+
                             if (homeStats && homeStats.statistics) {
-                                parseTeamStats(homeStats.statistics, teamStats[homeTeam]);
+                                parseTeamStats(homeStats.statistics, teamStats[homeTeam], homeYards);
                             }
                             if (awayStats && awayStats.statistics) {
-                                parseTeamStats(awayStats.statistics, teamStats[awayTeam]);
+                                parseTeamStats(awayStats.statistics, teamStats[awayTeam], awayYards);
+                            }
+
+                            // Assign defensive stats (opponent's yards = yards allowed)
+                            if (teamStats[homeTeam]) {
+                                teamStats[homeTeam].rushYardsAllowed += awayYards.rush;
+                                teamStats[homeTeam].passYardsAllowed += awayYards.pass;
+                            }
+                            if (teamStats[awayTeam]) {
+                                teamStats[awayTeam].rushYardsAllowed += homeYards.rush;
+                                teamStats[awayTeam].passYardsAllowed += homeYards.pass;
                             }
                         }
                     } catch (statErr) {
@@ -164,13 +178,19 @@ async function fetchLeagueStats() {
     }
 }
 
-function parseTeamStats(statistics, teamStats) {
+function parseTeamStats(statistics, teamStats, yards) {
     for (const stat of statistics) {
         const name = stat.name.toLowerCase();
         const value = parseFloat(stat.displayValue) || 0;
 
-        if (name === 'rushingyards') teamStats.rushYards += value;
-        else if (name === 'passingyards') teamStats.passYards += value;
+        if (name === 'rushingyards') {
+            teamStats.rushYards += value;
+            if (yards) yards.rush = value;
+        }
+        else if (name === 'passingyards') {
+            teamStats.passYards += value;
+            if (yards) yards.pass = value;
+        }
         else if (name === 'thirddowneff') {
             const parts = stat.displayValue.split('-');
             if (parts.length === 2) {
