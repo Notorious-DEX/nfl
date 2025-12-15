@@ -1230,7 +1230,7 @@ async function fetchLeagueStats() {
             picksSummary.style.display = 'block';
 
             gamesWithPredictions.forEach(({ game, prediction, gameId }) => {
-                gamesContainer.innerHTML += createGameCard(game, prediction, gameId);
+                gamesContainer.innerHTML += (game, prediction, gameId);
             });
         }
 
@@ -1332,8 +1332,6 @@ async function fetchLeagueStats() {
                 }
                 injuryHTML += '</div>';
             }
-            const awayRankings = leagueStats.rankings[prediction.awayTeam] || {};
-            const homeRankings = leagueStats.rankings[prediction.homeTeam] || {};
             return `
                 <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88;">
                     <div class="game-header" style="background-color: ${teamColor}ee;">
@@ -1478,7 +1476,7 @@ async function fetchLeagueStats() {
             localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
         }
 
-function saveApiKey() {
+        function saveApiKey() {
             const input = document.getElementById('apiKeyInput');
             const key = input.value.trim();
             
