@@ -3,7 +3,7 @@
  *
  * Implementation of Elo ratings for NFL teams with:
  * - Standard 1500 starting rating
- * - K-factor of 20 (balanced reactivity)
+ * - Adaptive K-factor (configurable per update, default 20)
  * - Home field advantage adjustment
  * - Season-start regression to mean
  */
@@ -30,9 +30,10 @@ function expectedScore(eloA, eloB) {
  * @param {number} loserElo - Current Elo of losing team
  * @param {number} marginOfVictory - Point differential (absolute value)
  * @param {boolean} homeWin - Whether home team won
+ * @param {number} kFactor - Optional K-factor override (defaults to K_FACTOR)
  * @returns {object} Updated ratings {winnerElo, loserElo}
  */
-function updateElo(winnerElo, loserElo, marginOfVictory, homeWin) {
+function updateElo(winnerElo, loserElo, marginOfVictory, homeWin, kFactor = K_FACTOR) {
     // Calculate expected scores
     const expectedWinner = expectedScore(winnerElo, loserElo);
 
@@ -40,7 +41,7 @@ function updateElo(winnerElo, loserElo, marginOfVictory, homeWin) {
     const movMultiplier = Math.log(Math.max(1, marginOfVictory) + 1);
 
     // Actual K-factor with MOV adjustment
-    const adjustedK = K_FACTOR * movMultiplier;
+    const adjustedK = kFactor * movMultiplier;
 
     // Update ratings
     const change = adjustedK * (1 - expectedWinner);
