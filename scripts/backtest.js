@@ -77,7 +77,7 @@ async function fetchLeagueStats(upToWeek, usePreseason = false) {
         // Fetch preseason games (weeks 1-4 of preseason)
         for (let week = 1; week <= 4; week++) {
             try {
-                const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2024&seasontype=1&week=${week}`);
+                const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=1&week=${week}`);
                 const data = await response.json();
 
                 for (const event of data.events || []) {
