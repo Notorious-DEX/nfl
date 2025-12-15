@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 /**
- * Backtest NFL Predictions - v0.04
+ * Backtest NFL Predictions - v0.05
  * Tests prediction model accuracy by:
  * - Uses Elo ratings for all weeks (carried over from prior season with 1/3 regression)
  * - Updates Elo ratings after each week with K=20
- * - After Week 4: Applies temporary adjustments based on recent performance vs Elo expectations
+ * - Pure Elo approach - no temporary adjustments
  * - Compare predictions to actual results
  * - Save to test-predictions.json and test-results.json
  */
@@ -57,8 +57,6 @@ let leagueStats = {
 };
 
 let eloRatings = null; // Will be loaded from historical-elo.json
-let recentPerformance = {}; // Track recent games for temporary adjustments
-let temporaryAdjustments = {}; // Temporary Elo adjustments based on recent performance
 
 async function fetchLeagueStats(upToWeek, usePreseason = false) {
     console.log(`📊 Calculating team stats ${usePreseason ? 'from preseason' : `through week ${upToWeek - 1}`}...`);
@@ -341,47 +339,7 @@ function generatePrediction(game) {
     };
 }
 
-function calculateTemporaryAdjustments() {
-    // Reset adjustments
-    temporaryAdjustments = {};
-
-    // For each team, look at their last 3-4 games
-    for (const team in recentPerformance) {
-        const games = recentPerformance[team];
-        if (games.length < 3) continue; // Need at least 3 games
-
-        // Take last 4 games
-        const recentGames = games.slice(-4);
-
-        let totalDelta = 0;
-        for (const game of recentGames) {
-            // Calculate expected score based on Elo at time of game
-            const expectedSpread = game.isHome
-                ? elo.eloToSpread(game.teamElo, game.oppElo)
-                : -elo.eloToSpread(game.oppElo, game.teamElo);
-
-            const expectedScore = 22 + expectedSpread / 2;
-            const actualScore = game.teamScore;
-
-            // Delta: how much better/worse than Elo expected
-            totalDelta += (actualScore - expectedScore);
-        }
-
-        // Average delta over recent games
-        const avgDelta = totalDelta / recentGames.length;
-
-        // Convert to Elo adjustment (roughly 1 point = 25 Elo)
-        // Cap at ±25 Elo
-        let adjustment = Math.round(avgDelta * 25);
-        adjustment = Math.max(-25, Math.min(25, adjustment));
-
-        if (adjustment !== 0) {
-            temporaryAdjustments[team] = adjustment;
-        }
-    }
-}
-
-function generateEloPrediction(game, currentWeek) {
+function generateEloPrediction(game) {
     const competition = game.competitions[0];
     const homeComp = competition.competitors.find(c => c.homeAway === 'home');
     const awayComp = competition.competitors.find(c => c.homeAway === 'away');
@@ -393,16 +351,8 @@ function generateEloPrediction(game, currentWeek) {
         return null;
     }
 
-    let homeElo = eloRatings[homeTeam];
-    let awayElo = eloRatings[awayTeam];
-
-    // Apply temporary adjustments after Week 4
-    if (currentWeek > 4) {
-        const homeAdj = temporaryAdjustments[homeTeam] || 0;
-        const awayAdj = temporaryAdjustments[awayTeam] || 0;
-        homeElo += homeAdj;
-        awayElo += awayAdj;
-    }
+    const homeElo = eloRatings[homeTeam];
+    const awayElo = eloRatings[awayTeam];
 
     // Calculate expected point spread from Elo
     const expectedSpread = elo.eloToSpread(homeElo, awayElo);
@@ -421,7 +371,7 @@ function generateEloPrediction(game, currentWeek) {
         homeScore: homeScore === awayScore ? homeScore + 1 : homeScore,
         awayScore,
         winner: (homeScore === awayScore ? homeScore + 1 : homeScore) > awayScore ? homeTeam : awayTeam,
-        method: currentWeek > 4 ? 'elo-adjusted' : 'elo'
+        method: 'elo'
     };
 }
 
@@ -439,11 +389,6 @@ async function main() {
             }
         } else {
             console.warn('⚠️  No historical Elo data found, will use preseason for Week 1\n');
-        }
-
-        // Initialize recent performance tracking for all teams
-        for (const team in TEAM_DATA) {
-            recentPerformance[team] = [];
         }
 
         const allPredictions = [];
@@ -465,15 +410,6 @@ async function main() {
 
             console.log('📊 Using Elo-based predictions');
 
-            // Calculate temporary adjustments if after Week 4
-            if (week > 4) {
-                calculateTemporaryAdjustments();
-                const adjustedTeams = Object.keys(temporaryAdjustments).length;
-                if (adjustedTeams > 0) {
-                    console.log(`🔧 Applied temporary adjustments to ${adjustedTeams} teams based on recent performance`);
-                }
-            }
-
             // Fetch this week's games
             const games = await fetchWeekGames(week);
             console.log(`\n🎯 Generating predictions for ${games.length} games...`);
@@ -484,7 +420,7 @@ async function main() {
                 if (!competition.status.type.completed) continue;
 
                 // Use Elo for all predictions
-                const prediction = generateEloPrediction(game, week);
+                const prediction = generateEloPrediction(game);
                 if (!prediction) continue;
 
                 // Get actual result
@@ -540,22 +476,6 @@ async function main() {
                 const homeElo = eloRatings[homeTeam];
                 const awayElo = eloRatings[awayTeam];
 
-                // Track performance for temporary adjustments
-                recentPerformance[homeTeam].push({
-                    teamElo: homeElo,
-                    oppElo: awayElo,
-                    teamScore: homeScore,
-                    oppScore: awayScore,
-                    isHome: true
-                });
-                recentPerformance[awayTeam].push({
-                    teamElo: awayElo,
-                    oppElo: homeElo,
-                    teamScore: awayScore,
-                    oppScore: homeScore,
-                    isHome: false
-                });
-
                 if (homeScore > awayScore) {
                     // Home team won
                     const updated = elo.updateElo(homeElo, awayElo, homeScore - awayScore, true, kFactor);
@@ -575,10 +495,9 @@ async function main() {
         const predictionsPath = path.join(__dirname, '..', 'test-predictions.json');
         fs.writeFileSync(predictionsPath, JSON.stringify({
             generated: new Date().toISOString(),
-            version: 'v0.04',
-            method: 'elo-with-adjustments',
+            version: 'v0.05',
+            method: 'elo-pure',
             kFactor: 20,
-            temporaryAdjustments: 'Enabled after Week 4 based on recent performance vs Elo expectations',
             weeks: currentWeek,
             predictions: allPredictions
         }, null, 2));
@@ -586,10 +505,9 @@ async function main() {
         const resultsPath = path.join(__dirname, '..', 'test-results.json');
         fs.writeFileSync(resultsPath, JSON.stringify({
             lastUpdated: new Date().toISOString(),
-            version: 'v0.04',
-            method: 'elo-with-adjustments',
+            version: 'v0.05',
+            method: 'elo-pure',
             kFactor: 20,
-            temporaryAdjustments: 'Enabled after Week 4 based on recent performance vs Elo expectations',
             weeks: currentWeek,
             correct: totalCorrect,
             total: totalGames,
