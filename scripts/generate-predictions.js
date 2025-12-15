@@ -219,16 +219,16 @@ function calculateRankings() {
         };
     });
 
-    const rushOffRanked = teams.sort((a, b) => leagueStats.teams[b].rushYPG - leagueStats.teams[a].rushYPG);
+    const rushOffRanked = [...teams].sort((a, b) => leagueStats.teams[b].rushYPG - leagueStats.teams[a].rushYPG);
     rushOffRanked.forEach((team, idx) => leagueStats.rankings[team].rushOffRank = idx + 1);
 
-    const passOffRanked = teams.sort((a, b) => leagueStats.teams[b].passYPG - leagueStats.teams[a].passYPG);
+    const passOffRanked = [...teams].sort((a, b) => leagueStats.teams[b].passYPG - leagueStats.teams[a].passYPG);
     passOffRanked.forEach((team, idx) => leagueStats.rankings[team].passOffRank = idx + 1);
 
-    const rushDefRanked = teams.sort((a, b) => leagueStats.teams[a].rushDefYPG - leagueStats.teams[b].rushDefYPG);
+    const rushDefRanked = [...teams].sort((a, b) => leagueStats.teams[a].rushDefYPG - leagueStats.teams[b].rushDefYPG);
     rushDefRanked.forEach((team, idx) => leagueStats.rankings[team].rushDefRank = idx + 1);
 
-    const passDefRanked = teams.sort((a, b) => leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG);
+    const passDefRanked = [...teams].sort((a, b) => leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG);
     passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
 }
 
