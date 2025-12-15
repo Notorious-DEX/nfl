@@ -617,6 +617,8 @@
 
                 for (let week = 1; week <= currentWeek; week++) {
                     try {
+                        document.getElementById('loading').textContent = `🏈 Loading Week ${week} of ${currentWeek}...`;
+
                         const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${week}`);
                         const data = await response.json();
 
@@ -681,6 +683,8 @@
                 }
 
                 console.log(`✅ Processed ${totalGames} completed games, ${statsProcessed} with detailed stats`);
+
+                document.getElementById('loading').textContent = `📊 Calculating team rankings and statistics...`;
 
                 // Calculate per-game averages and percentages
                 for (const teamName in teamStats) {
@@ -1026,6 +1030,8 @@
 
             const homeStats = leagueStats.teams[homeTeam] || { offensiveRating: 24, defensiveRating: 24 };
             const awayStats = leagueStats.teams[awayTeam] || { offensiveRating: 24, defensiveRating: 24 };
+            const homeRankings = leagueStats.rankings[homeTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
+            const awayRankings = leagueStats.rankings[awayTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
 
             let prediction = {
                 homeTeam,
@@ -1088,23 +1094,165 @@
             ourHomeScore += homeFieldAdv;
             prediction.calculations.push(`Home field advantage: +${homeFieldAdv} pts to ${homeTeam}`);
 
-            // Identify matchup edges
-            const offensiveEdge = awayStats.offensiveRating - homeStats.defensiveRating;
-            const defensiveEdge = homeStats.offensiveRating - awayStats.defensiveRating;
+            // ===== RUSH/PASS MATCHUP ANALYSIS =====
+            // Determine weather weights for rush vs pass importance
+            let rushWeight = 1.0;
+            let passWeight = 1.0;
 
-            if (offensiveEdge > 5) {
-                prediction.edges.push(`${awayTeam} offensive advantage (${awayStats.offensiveRating.toFixed(1)} ppg vs ${homeStats.defensiveRating.toFixed(1)} allowed)`);
-            } else if (offensiveEdge < -5) {
-                prediction.edges.push(`${homeTeam} defensive strength (${homeStats.defensiveRating.toFixed(1)} allowed vs ${awayStats.offensiveRating.toFixed(1)} ppg)`);
+            if (weather) {
+                if (weather.snow) {
+                    rushWeight = 2.0;
+                    passWeight = 0.4;
+                    prediction.calculations.push(`⛄ Snow weather: Rush ×2.0, Pass ×0.4`);
+                } else if (weather.rain > 0.5) {
+                    rushWeight = 1.5;
+                    passWeight = 0.7;
+                    prediction.calculations.push(`🌧️ Rain: Rush ×1.5, Pass ×0.7`);
+                }
+
+                if (weather.windSpeed > 20) {
+                    passWeight *= 0.5;
+                    prediction.calculations.push(`💨 High winds (${weather.windSpeed}mph): Pass ×0.5`);
+                }
             }
 
-            if (defensiveEdge > 5) {
-                prediction.edges.push(`${homeTeam} offensive advantage (${homeStats.offensiveRating.toFixed(1)} ppg vs ${awayStats.defensiveRating.toFixed(1)} allowed)`);
-            } else if (defensiveEdge < -5) {
-                prediction.edges.push(`${awayTeam} defensive strength (${awayStats.defensiveRating.toFixed(1)} allowed vs ${homeStats.offensiveRating.toFixed(1)} ppg)`);
+            // Home team rush offense vs away team rush defense
+            if (leagueStats.hasData && homeRankings.rushOffRank && awayRankings.rushDefRank) {
+                const gap = awayRankings.rushDefRank - homeRankings.rushOffRank;
+                const rawAdvantage = gap * 0.15; // 0.15 pts per rank difference
+                const advantage = rawAdvantage * rushWeight;
+
+                if (Math.abs(gap) > 5) {
+                    ourHomeScore += advantage;
+                    const favored = gap > 0 ? homeTeam : awayTeam;
+                    prediction.calculations.push(`${homeTeam} #${homeRankings.rushOffRank} rush O vs ${awayTeam} #${awayRankings.rushDefRank} rush D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
+                    if (Math.abs(gap) > 10) {
+                        prediction.edges.push(`${favored} rush matchup advantage (#${Math.min(homeRankings.rushOffRank, awayRankings.rushDefRank)} vs #${Math.max(homeRankings.rushOffRank, awayRankings.rushDefRank)})`);
+                    }
+                }
             }
 
-            // ===== WEATHER ADJUSTMENTS =====
+            // Home team pass offense vs away team pass defense
+            if (leagueStats.hasData && homeRankings.passOffRank && awayRankings.passDefRank) {
+                const gap = awayRankings.passDefRank - homeRankings.passOffRank;
+                const rawAdvantage = gap * 0.15;
+                const advantage = rawAdvantage * passWeight;
+
+                if (Math.abs(gap) > 5) {
+                    ourHomeScore += advantage;
+                    const favored = gap > 0 ? homeTeam : awayTeam;
+                    prediction.calculations.push(`${homeTeam} #${homeRankings.passOffRank} pass O vs ${awayTeam} #${awayRankings.passDefRank} pass D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
+                    if (Math.abs(gap) > 10) {
+                        prediction.edges.push(`${favored} pass matchup advantage (#${Math.min(homeRankings.passOffRank, awayRankings.passDefRank)} vs #${Math.max(homeRankings.passOffRank, awayRankings.passDefRank)})`);
+                    }
+                }
+            }
+
+            // Away team rush offense vs home team rush defense
+            if (leagueStats.hasData && awayRankings.rushOffRank && homeRankings.rushDefRank) {
+                const gap = homeRankings.rushDefRank - awayRankings.rushOffRank;
+                const rawAdvantage = gap * 0.15;
+                const advantage = rawAdvantage * rushWeight;
+
+                if (Math.abs(gap) > 5) {
+                    ourAwayScore += advantage;
+                    const favored = gap > 0 ? awayTeam : homeTeam;
+                    prediction.calculations.push(`${awayTeam} #${awayRankings.rushOffRank} rush O vs ${homeTeam} #${homeRankings.rushDefRank} rush D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
+                    if (Math.abs(gap) > 10) {
+                        prediction.edges.push(`${favored} rush matchup advantage (#${Math.min(awayRankings.rushOffRank, homeRankings.rushDefRank)} vs #${Math.max(awayRankings.rushOffRank, homeRankings.rushDefRank)})`);
+                    }
+                }
+            }
+
+            // Away team pass offense vs home team pass defense
+            if (leagueStats.hasData && awayRankings.passOffRank && homeRankings.passDefRank) {
+                const gap = homeRankings.passDefRank - awayRankings.passOffRank;
+                const rawAdvantage = gap * 0.15;
+                const advantage = rawAdvantage * passWeight;
+
+                if (Math.abs(gap) > 5) {
+                    ourAwayScore += advantage;
+                    const favored = gap > 0 ? awayTeam : homeTeam;
+                    prediction.calculations.push(`${awayTeam} #${awayRankings.passOffRank} pass O vs ${homeTeam} #${homeRankings.passDefRank} pass D: ${advantage > 0 ? '+' : ''}${advantage.toFixed(1)} pts`);
+                    if (Math.abs(gap) > 10) {
+                        prediction.edges.push(`${favored} pass matchup advantage (#${Math.min(awayRankings.passOffRank, homeRankings.passDefRank)} vs #${Math.max(awayRankings.passOffRank, homeRankings.passDefRank)})`);
+                    }
+                }
+            }
+
+            // ===== SITUATIONAL EFFICIENCY ADJUSTMENTS =====
+            // Third down efficiency
+            if (homeStats.thirdDownPct > 45) {
+                ourHomeScore += 1.5;
+                prediction.calculations.push(`${homeTeam} 3rd down efficiency (${homeStats.thirdDownPct.toFixed(1)}%): +1.5 pts`);
+            } else if (homeStats.thirdDownPct < 35) {
+                ourHomeScore -= 1.5;
+                prediction.calculations.push(`${homeTeam} poor 3rd down % (${homeStats.thirdDownPct.toFixed(1)}%): -1.5 pts`);
+            }
+
+            if (awayStats.thirdDownPct > 45) {
+                ourAwayScore += 1.5;
+                prediction.calculations.push(`${awayTeam} 3rd down efficiency (${awayStats.thirdDownPct.toFixed(1)}%): +1.5 pts`);
+            } else if (awayStats.thirdDownPct < 35) {
+                ourAwayScore -= 1.5;
+                prediction.calculations.push(`${awayTeam} poor 3rd down % (${awayStats.thirdDownPct.toFixed(1)}%): -1.5 pts`);
+            }
+
+            // Red zone efficiency
+            if (homeStats.redZonePct > 60) {
+                ourHomeScore += 1.5;
+                prediction.calculations.push(`${homeTeam} red zone efficiency (${homeStats.redZonePct.toFixed(1)}%): +1.5 pts`);
+            } else if (homeStats.redZonePct < 45) {
+                ourHomeScore -= 1.5;
+                prediction.calculations.push(`${homeTeam} poor red zone % (${homeStats.redZonePct.toFixed(1)}%): -1.5 pts`);
+            }
+
+            if (awayStats.redZonePct > 60) {
+                ourAwayScore += 1.5;
+                prediction.calculations.push(`${awayTeam} red zone efficiency (${awayStats.redZonePct.toFixed(1)}%): +1.5 pts`);
+            } else if (awayStats.redZonePct < 45) {
+                ourAwayScore -= 1.5;
+                prediction.calculations.push(`${awayTeam} poor red zone % (${awayStats.redZonePct.toFixed(1)}%): -1.5 pts`);
+            }
+
+            // Sack differential (pass rush vs O-line)
+            const homeSackDiff = (awayStats.sacksTakenPG || 0) - (homeStats.sacksAllowedPG || 0);
+            const awaySackDiff = (homeStats.sacksTakenPG || 0) - (awayStats.sacksAllowedPG || 0);
+
+            if (homeSackDiff > 1) {
+                ourHomeScore += 1;
+                prediction.calculations.push(`${homeTeam} pass rush advantage (sack diff +${homeSackDiff.toFixed(1)}): +1 pt`);
+            } else if (homeSackDiff < -1) {
+                ourHomeScore -= 1;
+                prediction.calculations.push(`${awayTeam} O-line advantage (sack diff ${homeSackDiff.toFixed(1)}): -1 pt to ${homeTeam}`);
+            }
+
+            if (awaySackDiff > 1) {
+                ourAwayScore += 1;
+                prediction.calculations.push(`${awayTeam} pass rush advantage (sack diff +${awaySackDiff.toFixed(1)}): +1 pt`);
+            } else if (awaySackDiff < -1) {
+                ourAwayScore -= 1;
+                prediction.calculations.push(`${homeTeam} O-line advantage (sack diff ${awaySackDiff.toFixed(1)}): -1 pt to ${awayTeam}`);
+            }
+
+            // Turnover differential (use cautiously - high variance)
+            if (homeStats.turnoverDiff > 8) {
+                ourHomeScore += 0.5;
+                prediction.calculations.push(`${homeTeam} strong turnover diff (+${homeStats.turnoverDiff}): +0.5 pts`);
+            } else if (homeStats.turnoverDiff < -8) {
+                ourHomeScore -= 0.5;
+                prediction.calculations.push(`${homeTeam} poor turnover diff (${homeStats.turnoverDiff}): -0.5 pts`);
+            }
+
+            if (awayStats.turnoverDiff > 8) {
+                ourAwayScore += 0.5;
+                prediction.calculations.push(`${awayTeam} strong turnover diff (+${awayStats.turnoverDiff}): +0.5 pts`);
+            } else if (awayStats.turnoverDiff < -8) {
+                ourAwayScore -= 0.5;
+                prediction.calculations.push(`${awayTeam} poor turnover diff (${awayStats.turnoverDiff}): -0.5 pts`);
+            }
+
+            // ===== WEATHER SCORING REDUCTION =====
             if (weather) {
                 if (weather.snow || weather.rain > 0.5 || weather.windSpeed > 20) {
                     let weatherImpact = 0;
