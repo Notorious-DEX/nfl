@@ -455,6 +455,13 @@
     <script>
         // ===== CONFIGURATION =====
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
+
+    // Auto-load if key exists (runs on every page load)
+    if (apiKey && apiKey.length > 10) {
+        document.getElementById('apiSetup').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
+    }
+        
         let predictions = JSON.parse(localStorage.getItem('nfl_predictions') || '{}');
         let accuracyStats = JSON.parse(localStorage.getItem('nfl_accuracy') || '{"correct": 0, "total": 0}');
 
@@ -1471,7 +1478,7 @@ async function fetchLeagueStats() {
             localStorage.setItem('nfl_accuracy', JSON.stringify(accuracyStats));
         }
 
-                function saveApiKey() {
+            function saveApiKey() {
             const input = document.getElementById('apiKeyInput');
             const key = input.value.trim();
             
