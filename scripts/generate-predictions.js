@@ -281,24 +281,21 @@ function generatePrediction(game) {
     const homeTeam = homeComp.team.displayName;
     const awayTeam = awayComp.team.displayName;
 
-    const homeStats = leagueStats.teams[homeTeam] || {
-        offensiveRating: 24, defensiveRating: 24,
-        rushYPG: 120, rushDefYPG: 120,
-        passYPG: 220, passDefYPG: 220,
-        thirdDownPct: 40, redZonePct: 50,
-        sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
-        turnoverDiff: 0, gamesPlayed: 0
-    };
-    const awayStats = leagueStats.teams[awayTeam] || {
-        offensiveRating: 24, defensiveRating: 24,
-        rushYPG: 120, rushDefYPG: 120,
-        passYPG: 220, passDefYPG: 220,
-        thirdDownPct: 40, redZonePct: 50,
-        sacksAllowedPG: 2.5, sacksTakenPG: 2.5,
-        turnoverDiff: 0, gamesPlayed: 0
-    };
-    const homeRankings = leagueStats.rankings[homeTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
-    const awayRankings = leagueStats.rankings[awayTeam] || { rushOffRank: 16, passOffRank: 16, rushDefRank: 16, passDefRank: 16 };
+    // Check if we have real data for both teams
+    const homeStats = leagueStats.teams[homeTeam];
+    const awayStats = leagueStats.teams[awayTeam];
+    const homeRankings = leagueStats.rankings[homeTeam];
+    const awayRankings = leagueStats.rankings[awayTeam];
+
+    // If missing data, skip prediction instead of using fake fallbacks
+    if (!homeStats || !awayStats || !homeRankings || !awayRankings) {
+        const missingTeams = [];
+        if (!homeStats) missingTeams.push(homeTeam);
+        if (!awayStats) missingTeams.push(awayTeam);
+
+        console.warn(`⚠️  Skipping prediction for ${awayTeam} @ ${homeTeam} - Missing data for: ${missingTeams.join(', ')}`);
+        return null;  // Return null to indicate no prediction
+    }
 
     // Efficiency rating formula
     const baseAwayScore = (awayStats.offensiveRating + homeStats.defensiveRating) / 2;
@@ -394,8 +391,10 @@ async function main() {
 
         for (const game of games) {
             const prediction = generatePrediction(game);
-            predictions.push(prediction);
-            console.log(`  ✓ ${prediction.awayTeam} @ ${prediction.homeTeam}: ${prediction.winner} (${prediction.awayScore}-${prediction.homeScore})`);
+            if (prediction) {  // Only add valid predictions (skip nulls)
+                predictions.push(prediction);
+                console.log(`  ✓ ${prediction.awayTeam} @ ${prediction.homeTeam}: ${prediction.winner} (${prediction.awayScore}-${prediction.homeScore})`);
+            }
         }
 
         // Save predictions to file
