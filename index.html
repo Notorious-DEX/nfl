@@ -1228,6 +1228,18 @@ async function fetchLeagueStats() {
         }
 
         function createGameCard(game, prediction, gameId) {
+            const awayRankings = leagueStats.rankings[prediction.awayTeam] || { rushOffRank: '-', passOffRank: '-', rushDefRank: '-', passDefRank: '-' };
+            const homeRankings = leagueStats.rankings[prediction.homeTeam] || { rushOffRank: '-', passOffRank: '-', rushDefRank: '-', passDefRank: '-' };
+
+            // Safe display values (avoid undefined)
+            const awayRushO = awayRankings.rushOffRank || '-';
+            const awayPassO = awayRankings.passOffRank || '-';
+            const awayRushD = awayRankings.rushDefRank || '-';
+            const awayPassD = awayRankings.passDefRank || '-';
+            const homeRushO = homeRankings.rushOffRank || '-';
+            const homePassO = homeRankings.passOffRank || '-';
+            const homeRushD = homeRankings.rushDefRank || '-';
+            const homePassD = homeRankings.passDefRank || '-';
             const teamColor = TEAM_DATA[prediction.homeTeam]?.color || '#3498db';
             const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
             const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
@@ -1330,8 +1342,8 @@ async function fetchLeagueStats() {
                                     <div class="team-name">${prediction.awayTeam}</div>
                                     <div class="team-record">${prediction.awayRecord}</div>
                                     <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7;">
-                                        Rush O: #$$ {awayRankings.rushOffRank} Pass O: # $${awayRankings.passOffRank}<br>
-                                        Rush D: #$$ {awayRankings.rushDefRank} Pass D: # $${awayRankings.passDefRank}
+                                        Rush O: #${awayRushO} Pass O: #${awayPassO}<br>
+                                        Rush D: #${awayRushD} Pass D: #${awayPassD}
                                     </div>
                                 </div>
                             </div>
@@ -1341,8 +1353,8 @@ async function fetchLeagueStats() {
                                     <div class="team-name">${prediction.homeTeam}</div>
                                     <div class="team-record">${prediction.homeRecord}</div>
                                     <div class="team-stats" style="font-size: 0.75rem; opacity: 0.7; text-align: right;">
-                                        Rush O: #$$ {homeRankings.rushOffRank} Pass O: # $${homeRankings.passOffRank}<br>
-                                        Rush D: #$$ {homeRankings.rushDefRank} Pass D: # $${homeRankings.passDefRank}
+                                        Rush O: #${homeRushO} Pass O: #${homePassO}<br>
+                                        Rush D: #${homeRushD} Pass D: #${homePassD}
                                     </div>
                                 </div>
                                 ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
