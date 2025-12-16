@@ -1005,56 +1005,67 @@
 
                 // Try to load from cache first
                 const cachedData = await loadCachedData();
+                let usedCache = false;
 
                 if (cachedData) {
-                    // Use cached data
-                    console.log('📦 Using cached data');
-                    document.getElementById('loading').textContent = '📦 Loading from cache...';
+                    try {
+                        // Use cached data
+                        console.log('📦 Using cached data');
+                        document.getElementById('loading').textContent = '📦 Loading from cache...';
 
-                    // Load league stats from cache
-                    if (cachedData.leagueStats) {
-                        leagueStats = cachedData.leagueStats;
-                        console.log('✅ League stats loaded from cache');
+                        // Load league stats from cache
+                        if (cachedData.leagueStats) {
+                            leagueStats = cachedData.leagueStats;
+                            console.log('✅ League stats loaded from cache');
+                        }
+
+                        // Load injuries from cache
+                        if (cachedData.injuries) {
+                            injuries = cachedData.injuries;
+                            console.log('✅ Injuries loaded from cache');
+                        }
+
+                        // Load team accuracy from cache
+                        if (cachedData.teamAccuracy) {
+                            teamAccuracy = cachedData.teamAccuracy;
+                            console.log('✅ Team accuracy loaded from cache');
+                        }
+
+                        // Use cached games
+                        const games = cachedData.games || [];
+
+                        if (games.length === 0) {
+                            const weekNum = cachedData.currentWeek || 'current';
+                            document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
+                            return;
+                        }
+
+                        // Convert cached odds to array format expected by displayGames
+                        const oddsData = Object.values(cachedData.odds || {});
+
+                        // Refresh global accuracy (GitHub Actions updates this)
+                        await fetchGlobalAccuracy();
+
+                        // Display games with predictions
+                        await displayGames(games, oddsData);
+
+                        // Start auto-refresh for live game updates
+                        startAutoRefresh();
+
+                        document.getElementById('loading').style.display = 'none';
+                        console.log('=== DATA LOAD COMPLETE (FROM CACHE) ===');
+                        usedCache = true;
+                    } catch (cacheError) {
+                        console.error('❌ Error using cached data, falling back to live fetch:', cacheError);
+                        console.log('📡 Attempting live data fetch...');
+                        // Fall through to live fetching
                     }
+                }
 
-                    // Load injuries from cache
-                    if (cachedData.injuries) {
-                        injuries = cachedData.injuries;
-                        console.log('✅ Injuries loaded from cache');
-                    }
-
-                    // Load team accuracy from cache
-                    if (cachedData.teamAccuracy) {
-                        teamAccuracy = cachedData.teamAccuracy;
-                        console.log('✅ Team accuracy loaded from cache');
-                    }
-
-                    // Use cached games
-                    const games = cachedData.games || [];
-
-                    if (games.length === 0) {
-                        const weekNum = cachedData.currentWeek || 'current';
-                        document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
-                        return;
-                    }
-
-                    // Convert cached odds to array format expected by displayGames
-                    const oddsData = Object.values(cachedData.odds || {});
-
-                    // Refresh global accuracy (GitHub Actions updates this)
-                    await fetchGlobalAccuracy();
-
-                    // Display games with predictions
-                    await displayGames(games, oddsData);
-
-                    // Start auto-refresh for live game updates
-                    startAutoRefresh();
-
-                    document.getElementById('loading').style.display = 'none';
-                    console.log('=== DATA LOAD COMPLETE (FROM CACHE) ===');
-                } else {
+                if (!usedCache) {
                     // Fall back to live fetching
                     console.log('📡 Fetching live data...');
+                    document.getElementById('loading').textContent = '🏈 Loading NFL data...';
 
                     // Step 1: Fetch league-wide team stats
                     await fetchLeagueStats();

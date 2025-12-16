@@ -235,28 +235,42 @@ async function fetchLeagueStats() {
         for (const [teamName, stats] of Object.entries(teamStats)) {
             const games = stats.gamesPlayed || 1;
             leagueStats.teams[teamName] = {
-                ...stats,
                 // Ratings (used by prediction algorithm)
                 offensiveRating: stats.pointsScored / games,
                 defensiveRating: stats.pointsAllowed / games,
-                // Per-game averages
-                ppg: (stats.pointsScored / games).toFixed(1),
-                papg: (stats.pointsAllowed / games).toFixed(1),
-                rushYPG: (stats.rushYards / games).toFixed(1),
-                rushDefYPG: (stats.rushYardsAllowed / games).toFixed(1),
-                passYPG: (stats.passYards / games).toFixed(1),
-                passDefYPG: (stats.passYardsAllowed / games).toFixed(1),
-                // Percentages
+
+                // Rushing stats (as numbers for calculations)
+                rushYPG: stats.rushYards / games,
+                rushDefYPG: stats.rushYardsAllowed / games,
+
+                // Passing stats (as numbers for calculations)
+                passYPG: stats.passYards / games,
+                passDefYPG: stats.passYardsAllowed / games,
+
+                // Situational stats (as numbers for calculations)
                 thirdDownPct: stats.thirdDownAttempts > 0 ?
-                    ((stats.thirdDownConversions / stats.thirdDownAttempts) * 100).toFixed(1) : '0.0',
+                    (stats.thirdDownConversions / stats.thirdDownAttempts) * 100 : 40,
                 redZonePct: stats.redZoneAttempts > 0 ?
-                    ((stats.redZoneScores / stats.redZoneAttempts) * 100).toFixed(1) : '0.0',
-                // Sack averages (per game)
+                    (stats.redZoneScores / stats.redZoneAttempts) * 100 : 50,
+
+                // Sack averages (as numbers)
                 sacksAllowedPG: stats.sacksAllowed / games,
                 sacksTakenPG: stats.sacksTaken / games,
+
                 // Turnover differential
                 turnoverDiff: stats.takeaways - stats.turnovers,
-                // Record
+
+                // Raw totals
+                gamesPlayed: stats.gamesPlayed,
+                wins: stats.wins,
+                losses: stats.losses,
+                ties: stats.ties,
+                pointsScored: stats.pointsScored,
+                pointsAllowed: stats.pointsAllowed,
+
+                // Display strings (for convenience)
+                ppg: (stats.pointsScored / games).toFixed(1),
+                papg: (stats.pointsAllowed / games).toFixed(1),
                 record: `${stats.wins}-${stats.losses}${stats.ties > 0 ? `-${stats.ties}` : ''}`
             };
         }
@@ -276,25 +290,25 @@ async function fetchLeagueStats() {
 
         // Rush offense (higher yards = better rank)
         const rushOffRanked = [...teams].sort((a, b) =>
-            parseFloat(leagueStats.teams[b].rushYPG) - parseFloat(leagueStats.teams[a].rushYPG)
+            leagueStats.teams[b].rushYPG - leagueStats.teams[a].rushYPG
         );
         rushOffRanked.forEach((team, idx) => leagueStats.rankings[team].rushOffRank = idx + 1);
 
         // Pass offense (higher yards = better rank)
         const passOffRanked = [...teams].sort((a, b) =>
-            parseFloat(leagueStats.teams[b].passYPG) - parseFloat(leagueStats.teams[a].passYPG)
+            leagueStats.teams[b].passYPG - leagueStats.teams[a].passYPG
         );
         passOffRanked.forEach((team, idx) => leagueStats.rankings[team].passOffRank = idx + 1);
 
         // Rush defense (lower yards allowed = better rank)
         const rushDefRanked = [...teams].sort((a, b) =>
-            parseFloat(leagueStats.teams[a].rushDefYPG) - parseFloat(leagueStats.teams[b].rushDefYPG)
+            leagueStats.teams[a].rushDefYPG - leagueStats.teams[b].rushDefYPG
         );
         rushDefRanked.forEach((team, idx) => leagueStats.rankings[team].rushDefRank = idx + 1);
 
         // Pass defense (lower yards allowed = better rank)
         const passDefRanked = [...teams].sort((a, b) =>
-            parseFloat(leagueStats.teams[a].passDefYPG) - parseFloat(leagueStats.teams[b].passDefYPG)
+            leagueStats.teams[a].passDefYPG - leagueStats.teams[b].passDefYPG
         );
         passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
 
