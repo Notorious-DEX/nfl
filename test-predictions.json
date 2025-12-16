@@ -1,9 +1,8 @@
 {
-  "generated": "2025-12-15T23:09:49.005Z",
-  "version": "v0.04",
-  "method": "elo-with-adjustments",
+  "generated": "2025-12-15T23:21:33.389Z",
+  "version": "v0.05",
+  "method": "elo-pure",
   "kFactor": 20,
-  "temporaryAdjustments": "Enabled after Week 4 based on recent performance vs Elo expectations",
   "weeks": 15,
   "predictions": [
     {
@@ -651,30 +650,30 @@
       "date": "2025-10-03T00:15Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "San Francisco 49ers",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772633",
       "date": "2025-10-05T13:30Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Minnesota Vikings",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772851",
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Las Vegas Raiders",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Indianapolis Colts",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772744",
@@ -684,7 +683,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "New Orleans Saints",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772850",
@@ -694,17 +693,17 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "New York Jets",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772745",
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Denver Broncos",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772852",
@@ -714,17 +713,17 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772743",
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Houston Texans",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772747",
@@ -734,7 +733,7 @@
       "homeScore": 27,
       "awayScore": 17,
       "winner": "Arizona Cardinals",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772746",
@@ -744,27 +743,27 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772854",
       "date": "2025-10-05T20:25Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Detroit Lions",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772853",
       "date": "2025-10-05T20:25Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Washington Commanders",
-      "homeScore": 23,
-      "awayScore": 21,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772922",
@@ -774,7 +773,7 @@
       "homeScore": 28,
       "awayScore": 16,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772814",
@@ -784,7 +783,7 @@
       "homeScore": 20,
       "awayScore": 24,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772940",
@@ -794,37 +793,37 @@
       "homeScore": 17,
       "awayScore": 27,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772634",
       "date": "2025-10-12T13:30Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Denver Broncos",
-      "homeScore": 18,
-      "awayScore": 26,
+      "homeScore": 19,
+      "awayScore": 25,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772856",
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Arizona Cardinals",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Indianapolis Colts",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772750",
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Los Angeles Chargers",
-      "homeScore": 23,
-      "awayScore": 22,
-      "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "homeScore": 21,
+      "awayScore": 23,
+      "winner": "Los Angeles Chargers",
+      "method": "elo"
     },
     {
       "gameId": "401772751",
@@ -834,17 +833,17 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "New Orleans Saints",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772748",
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Cleveland Browns",
-      "homeScore": 28,
-      "awayScore": 17,
+      "homeScore": 27,
+      "awayScore": 18,
       "winner": "Pittsburgh Steelers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772858",
@@ -854,7 +853,7 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Dallas Cowboys",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772857",
@@ -864,7 +863,7 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Jacksonville Jaguars",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772855",
@@ -874,7 +873,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772859",
@@ -884,17 +883,17 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Las Vegas Raiders",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772752",
       "date": "2025-10-12T20:25Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Cincinnati Bengals",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772749",
@@ -904,7 +903,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772923",
@@ -914,7 +913,7 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772815",
@@ -924,7 +923,7 @@
       "homeScore": 19,
       "awayScore": 25,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772717",
@@ -934,7 +933,7 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Washington Commanders",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772941",
@@ -944,7 +943,7 @@
       "homeScore": 22,
       "awayScore": 23,
       "winner": "Pittsburgh Steelers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772635",
@@ -954,7 +953,7 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772861",
@@ -964,37 +963,37 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Chicago Bears",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772754",
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Miami Dolphins",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "homeScore": 23,
+      "awayScore": 22,
+      "winner": "Cleveland Browns",
+      "method": "elo"
     },
     {
       "gameId": "401772755",
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "New England Patriots",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772753",
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Las Vegas Raiders",
-      "homeScore": 29,
-      "awayScore": 15,
+      "homeScore": 28,
+      "awayScore": 16,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772862",
@@ -1004,7 +1003,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772860",
@@ -1014,27 +1013,27 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "New York Jets",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772757",
       "date": "2025-10-19T20:05Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "New York Giants",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 28,
+      "awayScore": 16,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772756",
       "date": "2025-10-19T20:05Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Indianapolis Colts",
-      "homeScore": 23,
-      "awayScore": 21,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772864",
@@ -1044,17 +1043,17 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Washington Commanders",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772863",
       "date": "2025-10-19T20:25Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Green Bay Packers",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772924",
@@ -1064,7 +1063,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "San Francisco 49ers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772816",
@@ -1074,7 +1073,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772826",
@@ -1084,17 +1083,17 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772942",
       "date": "2025-10-24T00:15Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Minnesota Vikings",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "homeScore": 23,
+      "awayScore": 22,
+      "winner": "Los Angeles Chargers",
+      "method": "elo"
     },
     {
       "gameId": "401772760",
@@ -1104,7 +1103,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Atlanta Falcons",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772758",
@@ -1114,27 +1113,27 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Cincinnati Bengals",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772868",
       "date": "2025-10-26T17:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Cleveland Browns",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772867",
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "New York Giants",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 28,
+      "awayScore": 16,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772865",
@@ -1144,57 +1143,57 @@
       "homeScore": 19,
       "awayScore": 25,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772759",
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Chicago Bears",
-      "homeScore": 23,
-      "awayScore": 21,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772866",
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "San Francisco 49ers",
-      "homeScore": 24,
-      "awayScore": 20,
+      "homeScore": 23,
+      "awayScore": 21,
       "winner": "Houston Texans",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772869",
       "date": "2025-10-26T20:05Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Tampa Bay Buccaneers",
-      "homeScore": 18,
-      "awayScore": 26,
+      "homeScore": 19,
+      "awayScore": 25,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772762",
       "date": "2025-10-26T20:25Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Dallas Cowboys",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772761",
       "date": "2025-10-26T20:25Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Tennessee Titans",
-      "homeScore": 30,
-      "awayScore": 14,
+      "homeScore": 29,
+      "awayScore": 15,
       "winner": "Indianapolis Colts",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772925",
@@ -1204,7 +1203,7 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772817",
@@ -1214,17 +1213,17 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772943",
       "date": "2025-10-31T00:15Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Baltimore Ravens",
-      "homeScore": 23,
-      "awayScore": 22,
-      "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "homeScore": 21,
+      "awayScore": 23,
+      "winner": "Baltimore Ravens",
+      "method": "elo"
     },
     {
       "gameId": "401772765",
@@ -1234,57 +1233,57 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Cincinnati Bengals",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772871",
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Minnesota Vikings",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772872",
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Carolina Panthers",
-      "homeScore": 30,
-      "awayScore": 14,
+      "homeScore": 29,
+      "awayScore": 15,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772764",
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Los Angeles Chargers",
-      "homeScore": 16,
-      "awayScore": 28,
+      "homeScore": 17,
+      "awayScore": 27,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772763",
       "date": "2025-11-02T18:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Atlanta Falcons",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772767",
       "date": "2025-11-02T18:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "San Francisco 49ers",
-      "homeScore": 23,
-      "awayScore": 22,
-      "winner": "New York Giants",
-      "method": "elo-adjusted"
+      "homeScore": 21,
+      "awayScore": 23,
+      "winner": "San Francisco 49ers",
+      "method": "elo"
     },
     {
       "gameId": "401772766",
@@ -1294,7 +1293,7 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Pittsburgh Steelers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772870",
@@ -1304,7 +1303,7 @@
       "homeScore": 22,
       "awayScore": 23,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772873",
@@ -1314,17 +1313,17 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Las Vegas Raiders",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772874",
       "date": "2025-11-02T21:05Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "New Orleans Saints",
-      "homeScore": 29,
-      "awayScore": 15,
+      "homeScore": 28,
+      "awayScore": 16,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772768",
@@ -1332,19 +1331,19 @@
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Kansas City Chiefs",
       "homeScore": 23,
-      "awayScore": 22,
+      "awayScore": 21,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772926",
       "date": "2025-11-03T01:20Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Seattle Seahawks",
-      "homeScore": 20,
-      "awayScore": 24,
+      "homeScore": 21,
+      "awayScore": 23,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772818",
@@ -1354,27 +1353,27 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Dallas Cowboys",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772944",
       "date": "2025-11-07T01:15Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Las Vegas Raiders",
-      "homeScore": 30,
-      "awayScore": 14,
+      "homeScore": 29,
+      "awayScore": 15,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772636",
       "date": "2025-11-09T14:30Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Atlanta Falcons",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Indianapolis Colts",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772875",
@@ -1384,7 +1383,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Chicago Bears",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772771",
@@ -1394,7 +1393,7 @@
       "homeScore": 18,
       "awayScore": 26,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772876",
@@ -1404,7 +1403,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772769",
@@ -1414,7 +1413,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "New York Jets",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772772",
@@ -1424,7 +1423,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772877",
@@ -1434,17 +1433,17 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Carolina Panthers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772770",
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Jacksonville Jaguars",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "Houston Texans",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772773",
@@ -1454,7 +1453,7 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772879",
@@ -1464,17 +1463,17 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772878",
       "date": "2025-11-09T21:25Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Detroit Lions",
-      "homeScore": 18,
-      "awayScore": 26,
+      "homeScore": 19,
+      "awayScore": 25,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772927",
@@ -1484,7 +1483,7 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772630",
@@ -1494,17 +1493,17 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772945",
       "date": "2025-11-14T01:15Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "New York Jets",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772631",
@@ -1514,7 +1513,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772882",
@@ -1524,7 +1523,7 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Atlanta Falcons",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772776",
@@ -1534,37 +1533,37 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772881",
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Houston Texans",
-      "homeScore": 17,
-      "awayScore": 27,
+      "homeScore": 18,
+      "awayScore": 26,
       "winner": "Houston Texans",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772880",
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Chicago Bears",
-      "homeScore": 23,
-      "awayScore": 21,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772883",
       "date": "2025-11-16T18:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Green Bay Packers",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 18,
+      "awayScore": 26,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772774",
@@ -1574,17 +1573,17 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Pittsburgh Steelers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772775",
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Los Angeles Chargers",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772884",
@@ -1594,7 +1593,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772885",
@@ -1604,7 +1603,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Arizona Cardinals",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772777",
@@ -1614,7 +1613,7 @@
       "homeScore": 19,
       "awayScore": 25,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772778",
@@ -1624,7 +1623,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772928",
@@ -1632,29 +1631,29 @@
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Detroit Lions",
       "homeScore": 23,
-      "awayScore": 22,
+      "awayScore": 21,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772819",
       "date": "2025-11-18T01:15Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Dallas Cowboys",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Dallas Cowboys",
-      "method": "elo-adjusted"
+      "homeScore": 23,
+      "awayScore": 22,
+      "winner": "Las Vegas Raiders",
+      "method": "elo"
     },
     {
       "gameId": "401772946",
       "date": "2025-11-21T01:15Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Buffalo Bills",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "homeScore": 23,
+      "awayScore": 22,
+      "winner": "Houston Texans",
+      "method": "elo"
     },
     {
       "gameId": "401772780",
@@ -1664,7 +1663,7 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Chicago Bears",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772781",
@@ -1674,7 +1673,7 @@
       "homeScore": 21,
       "awayScore": 23,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772888",
@@ -1684,7 +1683,7 @@
       "homeScore": 30,
       "awayScore": 14,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772887",
@@ -1694,17 +1693,17 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772886",
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Seattle Seahawks",
-      "homeScore": 15,
-      "awayScore": 29,
+      "homeScore": 16,
+      "awayScore": 28,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772779",
@@ -1714,7 +1713,7 @@
       "homeScore": 25,
       "awayScore": 19,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772782",
@@ -1724,7 +1723,7 @@
       "homeScore": 28,
       "awayScore": 16,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772784",
@@ -1734,7 +1733,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Las Vegas Raiders",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772783",
@@ -1744,17 +1743,17 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Arizona Cardinals",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772890",
       "date": "2025-11-23T21:25Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Philadelphia Eagles",
-      "homeScore": 20,
-      "awayScore": 24,
+      "homeScore": 19,
+      "awayScore": 25,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772889",
@@ -1762,49 +1761,49 @@
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Atlanta Falcons",
       "homeScore": 23,
-      "awayScore": 22,
+      "awayScore": 21,
       "winner": "New Orleans Saints",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772929",
       "date": "2025-11-24T01:20Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Tampa Bay Buccaneers",
-      "homeScore": 26,
-      "awayScore": 18,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772820",
       "date": "2025-11-25T01:15Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Carolina Panthers",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "San Francisco 49ers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772891",
       "date": "2025-11-27T18:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Green Bay Packers",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 24,
+      "awayScore": 20,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772694",
       "date": "2025-11-27T21:30Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Kansas City Chiefs",
-      "homeScore": 21,
-      "awayScore": 23,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772930",
@@ -1814,27 +1813,27 @@
       "homeScore": 27,
       "awayScore": 17,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772621",
       "date": "2025-11-28T20:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Chicago Bears",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772785",
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "San Francisco 49ers",
-      "homeScore": 19,
-      "awayScore": 25,
+      "homeScore": 20,
+      "awayScore": 24,
       "winner": "San Francisco 49ers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772786",
@@ -1844,27 +1843,27 @@
       "homeScore": 18,
       "awayScore": 26,
       "winner": "Jacksonville Jaguars",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772787",
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Houston Texans",
-      "homeScore": 24,
-      "awayScore": 20,
+      "homeScore": 23,
+      "awayScore": 21,
       "winner": "Indianapolis Colts",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772892",
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "New Orleans Saints",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Miami Dolphins",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772893",
@@ -1874,37 +1873,37 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "New York Jets",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772895",
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "Arizona Cardinals",
-      "homeScore": 24,
-      "awayScore": 20,
+      "homeScore": 25,
+      "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772894",
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Los Angeles Rams",
-      "homeScore": 17,
-      "awayScore": 27,
+      "homeScore": 18,
+      "awayScore": 26,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772896",
       "date": "2025-11-30T21:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Minnesota Vikings",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772789",
@@ -1914,7 +1913,7 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Pittsburgh Steelers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772788",
@@ -1924,7 +1923,7 @@
       "homeScore": 28,
       "awayScore": 16,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772931",
@@ -1934,7 +1933,7 @@
       "homeScore": 19,
       "awayScore": 25,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772821",
@@ -1944,7 +1943,7 @@
       "homeScore": 28,
       "awayScore": 16,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772947",
@@ -1954,7 +1953,7 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Detroit Lions",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772900",
@@ -1964,7 +1963,7 @@
       "homeScore": 18,
       "awayScore": 26,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772902",
@@ -1974,7 +1973,7 @@
       "homeScore": 27,
       "awayScore": 17,
       "winner": "Buffalo Bills",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772898",
@@ -1984,7 +1983,7 @@
       "homeScore": 26,
       "awayScore": 18,
       "winner": "Cleveland Browns",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772899",
@@ -1994,17 +1993,17 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Minnesota Vikings",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772790",
       "date": "2025-12-07T18:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Miami Dolphins",
-      "homeScore": 23,
-      "awayScore": 22,
-      "winner": "New York Jets",
-      "method": "elo-adjusted"
+      "homeScore": 21,
+      "awayScore": 23,
+      "winner": "Miami Dolphins",
+      "method": "elo"
     },
     {
       "gameId": "401772792",
@@ -2014,17 +2013,17 @@
       "homeScore": 27,
       "awayScore": 17,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772793",
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Indianapolis Colts",
-      "homeScore": 24,
-      "awayScore": 20,
+      "homeScore": 23,
+      "awayScore": 21,
       "winner": "Jacksonville Jaguars",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772791",
@@ -2034,7 +2033,7 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Baltimore Ravens",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772794",
@@ -2044,17 +2043,17 @@
       "homeScore": 16,
       "awayScore": 28,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772897",
       "date": "2025-12-07T21:25Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Chicago Bears",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Green Bay Packers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772901",
@@ -2064,7 +2063,7 @@
       "homeScore": 19,
       "awayScore": 25,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772932",
@@ -2074,7 +2073,7 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772822",
@@ -2084,37 +2083,37 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "Los Angeles Chargers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772948",
       "date": "2025-12-12T01:15Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "Atlanta Falcons",
-      "homeScore": 25,
-      "awayScore": 19,
+      "homeScore": 26,
+      "awayScore": 18,
       "winner": "Tampa Bay Buccaneers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772904",
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "Cleveland Browns",
-      "homeScore": 28,
-      "awayScore": 16,
+      "homeScore": 27,
+      "awayScore": 17,
       "winner": "Chicago Bears",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772796",
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Baltimore Ravens",
-      "homeScore": 23,
-      "awayScore": 22,
-      "winner": "Cincinnati Bengals",
-      "method": "elo-adjusted"
+      "homeScore": 21,
+      "awayScore": 23,
+      "winner": "Baltimore Ravens",
+      "method": "elo"
     },
     {
       "gameId": "401772798",
@@ -2124,7 +2123,7 @@
       "homeScore": 24,
       "awayScore": 20,
       "winner": "Kansas City Chiefs",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772795",
@@ -2134,7 +2133,7 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "New England Patriots",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772905",
@@ -2142,9 +2141,9 @@
       "homeTeam": "New York Giants",
       "awayTeam": "Washington Commanders",
       "homeScore": 23,
-      "awayScore": 21,
+      "awayScore": 22,
       "winner": "New York Giants",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772906",
@@ -2154,27 +2153,27 @@
       "homeScore": 30,
       "awayScore": 14,
       "winner": "Philadelphia Eagles",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772797",
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "New York Jets",
-      "homeScore": 28,
-      "awayScore": 16,
+      "homeScore": 27,
+      "awayScore": 17,
       "winner": "Jacksonville Jaguars",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772903",
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Arizona Cardinals",
-      "homeScore": 27,
-      "awayScore": 17,
+      "homeScore": 28,
+      "awayScore": 16,
       "winner": "Houston Texans",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772800",
@@ -2182,9 +2181,9 @@
       "homeTeam": "Denver Broncos",
       "awayTeam": "Green Bay Packers",
       "homeScore": 23,
-      "awayScore": 22,
+      "awayScore": 21,
       "winner": "Denver Broncos",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772909",
@@ -2194,7 +2193,7 @@
       "homeScore": 23,
       "awayScore": 21,
       "winner": "Los Angeles Rams",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772908",
@@ -2204,17 +2203,17 @@
       "homeScore": 23,
       "awayScore": 22,
       "winner": "New Orleans Saints",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772907",
       "date": "2025-12-14T21:25Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Tennessee Titans",
-      "homeScore": 30,
-      "awayScore": 14,
+      "homeScore": 29,
+      "awayScore": 15,
       "winner": "San Francisco 49ers",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772799",
@@ -2224,17 +2223,17 @@
       "homeScore": 27,
       "awayScore": 17,
       "winner": "Seattle Seahawks",
-      "method": "elo-adjusted"
+      "method": "elo"
     },
     {
       "gameId": "401772933",
       "date": "2025-12-15T01:20Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Minnesota Vikings",
-      "homeScore": 24,
-      "awayScore": 20,
+      "homeScore": 23,
+      "awayScore": 21,
       "winner": "Dallas Cowboys",
-      "method": "elo-adjusted"
+      "method": "elo"
     }
   ]
 }
