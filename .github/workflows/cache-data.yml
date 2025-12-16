@@ -1,0 +1,64 @@
+name: Cache NFL Data
+
+on:
+  workflow_dispatch: # Manual trigger
+  schedule:
+    # Daily at 9am ET (14:00 UTC in winter, 13:00 UTC in summer - using 13:00 UTC)
+    - cron: '0 13 * * *'
+
+    # Thursday game day (8:15pm ET game)
+    # Updates at: 4:15pm ET (20:15 UTC), 7:15pm ET (23:15 UTC), 8pm ET (00:00 UTC next day)
+    - cron: '15 20 * * 4'  # 4:15pm ET Thursday
+    - cron: '15 23 * * 4'  # 7:15pm ET Thursday
+    - cron: '0 0 * * 5'    # 8pm ET Thursday (midnight UTC Friday)
+
+    # Saturday game day (late season, weeks 15-18)
+    # Covering 4pm and 8pm games
+    - cron: '0 16,19,20 * * 6'   # 12pm, 3pm, 4pm ET Saturday
+    - cron: '0 23 * * 6'          # 7pm ET Saturday
+    - cron: '0 0 * * 0'           # 8pm ET Saturday (midnight UTC Sunday)
+
+    # Sunday game day (1pm, 4:25pm, 8:20pm ET games)
+    # Updates throughout the day
+    - cron: '0 17,20,21 * * 0'    # 1pm, 4pm, 5pm ET Sunday
+    - cron: '15 23 * * 0'         # 7:15pm ET Sunday
+    - cron: '5 0 * * 1'           # 8:05pm ET Sunday (00:05 UTC Monday)
+
+    # Monday game day (8:15pm ET game)
+    # Same as Thursday
+    - cron: '15 20 * * 1'  # 4:15pm ET Monday
+    - cron: '15 23 * * 1'  # 7:15pm ET Monday
+    - cron: '0 0 * * 2'    # 8pm ET Monday (midnight UTC Tuesday)
+
+permissions:
+  contents: write
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install node-fetch
+
+      - name: Run cache script
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: node scripts/cache-data.js
+
+      - name: Commit and push cached data
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add cached-data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update cached data [skip ci]" && git push)
