@@ -2414,7 +2414,7 @@
                                     <div class="team-record">${prediction.awayRecord}</div>
                                     ${teamAccuracy[prediction.awayTeam] && teamAccuracy[prediction.awayTeam].total > 0 ? `
                                         <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.25rem;">
-                                            ${prediction.awayTeam} Prediction Record: ${teamAccuracy[prediction.awayTeam].correct}-${teamAccuracy[prediction.awayTeam].total - teamAccuracy[prediction.awayTeam].correct}
+                                            ${prediction.awayTeam.split(' ').pop()} Prediction Record: ${teamAccuracy[prediction.awayTeam].correct}-${teamAccuracy[prediction.awayTeam].total - teamAccuracy[prediction.awayTeam].correct}
                                             (${((teamAccuracy[prediction.awayTeam].correct / teamAccuracy[prediction.awayTeam].total) * 100).toFixed(0)}%)
                                         </div>
                                     ` : ''}
@@ -2429,7 +2429,7 @@
                                     <div class="team-record">${prediction.homeRecord}</div>
                                     ${teamAccuracy[prediction.homeTeam] && teamAccuracy[prediction.homeTeam].total > 0 ? `
                                         <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.25rem;">
-                                            ${prediction.homeTeam} Prediction Record: ${teamAccuracy[prediction.homeTeam].correct}-${teamAccuracy[prediction.homeTeam].total - teamAccuracy[prediction.homeTeam].correct}
+                                            ${prediction.homeTeam.split(' ').pop()} Prediction Record: ${teamAccuracy[prediction.homeTeam].correct}-${teamAccuracy[prediction.homeTeam].total - teamAccuracy[prediction.homeTeam].correct}
                                             (${((teamAccuracy[prediction.homeTeam].correct / teamAccuracy[prediction.homeTeam].total) * 100).toFixed(0)}%)
                                         </div>
                                     ` : ''}
