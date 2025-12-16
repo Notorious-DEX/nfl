@@ -250,7 +250,45 @@ async function fetchLeagueStats() {
             };
         }
 
+        // Calculate rankings for each team
+        const teams = Object.keys(leagueStats.teams);
+
+        // Initialize rankings object
+        teams.forEach(team => {
+            leagueStats.rankings[team] = {
+                rushOffRank: 0,
+                passOffRank: 0,
+                rushDefRank: 0,
+                passDefRank: 0
+            };
+        });
+
+        // Rush offense (higher yards = better rank)
+        const rushOffRanked = [...teams].sort((a, b) =>
+            parseFloat(leagueStats.teams[b].rushYPG) - parseFloat(leagueStats.teams[a].rushYPG)
+        );
+        rushOffRanked.forEach((team, idx) => leagueStats.rankings[team].rushOffRank = idx + 1);
+
+        // Pass offense (higher yards = better rank)
+        const passOffRanked = [...teams].sort((a, b) =>
+            parseFloat(leagueStats.teams[b].passYPG) - parseFloat(leagueStats.teams[a].passYPG)
+        );
+        passOffRanked.forEach((team, idx) => leagueStats.rankings[team].passOffRank = idx + 1);
+
+        // Rush defense (lower yards allowed = better rank)
+        const rushDefRanked = [...teams].sort((a, b) =>
+            parseFloat(leagueStats.teams[a].rushDefYPG) - parseFloat(leagueStats.teams[b].rushDefYPG)
+        );
+        rushDefRanked.forEach((team, idx) => leagueStats.rankings[team].rushDefRank = idx + 1);
+
+        // Pass defense (lower yards allowed = better rank)
+        const passDefRanked = [...teams].sort((a, b) =>
+            parseFloat(leagueStats.teams[a].passDefYPG) - parseFloat(leagueStats.teams[b].passDefYPG)
+        );
+        passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
+
         console.log(`✅ Loaded stats for ${Object.keys(leagueStats.teams).length} teams`);
+        console.log(`✅ Calculated rankings for ${Object.keys(leagueStats.rankings).length} teams`);
         return leagueStats;
     } catch (error) {
         console.error('❌ Error fetching league stats:', error.message);
