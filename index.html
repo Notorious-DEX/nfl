@@ -374,6 +374,164 @@
             opacity: 0.7;
         }
 
+        /* Upset alert badge */
+        .upset-alert {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Team name hover/click for Elo graph */
+        .team-name {
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .team-name:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        /* Elo chart tooltip */
+        .elo-chart {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 1rem;
+            z-index: 1000;
+            min-width: 300px;
+            max-width: 400px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .elo-chart.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .elo-chart.sticky {
+            pointer-events: auto;
+        }
+
+        .elo-chart-header {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+            font-size: 1.1rem;
+        }
+
+        .elo-chart-canvas {
+            width: 100%;
+            height: 150px;
+            margin: 0.5rem 0;
+        }
+
+        .elo-current {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Modal for game details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid #3498db;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.5rem;
+        }
+
+        .modal-close:hover {
+            color: #3498db;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .modal-section {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+        }
+
+        .modal-section-title {
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Team accuracy stats */
+        .team-accuracy {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 3px solid #3498db;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team-accuracy-good {
+            border-left-color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .team-accuracy-bad {
+            border-left-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
         @media (max-width: 768px) {
             .teams {
                 flex-direction: column;
@@ -381,10 +539,43 @@
 
             .stats {
                 gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .stat-value {
                 font-size: 2rem;
+            }
+
+            .game-meta {
+                justify-content: center;
+            }
+
+            .prediction-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scoreboard-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .elo-chart {
+                max-width: 90vw;
+                left: 5vw !important;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            .tagline {
+                font-size: 0.9rem !important;
             }
         }
     </style>
@@ -392,7 +583,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BRObet <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.01</span></h1>
+            <h1>🏈 BRObet <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.05</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
         </header>
@@ -452,6 +643,17 @@
         </footer>
     </div>
 
+    <!-- Elo Chart Tooltip -->
+    <div id="eloChart" class="elo-chart"></div>
+
+    <!-- Game Details Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
     <script>
         // ===== CONFIGURATION =====
         let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
@@ -503,6 +705,52 @@
         };
 
         let injuries = {};
+        let weeklyEloData = null; // Weekly Elo snapshots for trend graphs
+        let teamAccuracy = {}; // Track prediction accuracy by team
+
+        // ===== LOAD WEEKLY ELO DATA =====
+        async function loadWeeklyEloData() {
+            try {
+                const response = await fetch('weekly-elo.json');
+                if (response.ok) {
+                    weeklyEloData = await response.json();
+                    console.log(`📈 Loaded ${weeklyEloData.weeks} weeks of Elo data`);
+                }
+            } catch (error) {
+                console.log('Could not load weekly Elo data');
+            }
+        }
+
+        // ===== CALCULATE TEAM ACCURACY =====
+        async function calculateTeamAccuracy() {
+            try {
+                const response = await fetch('test-results.json');
+                if (response.ok) {
+                    const data = await response.json();
+
+                    // Initialize counters for all teams
+                    for (const teamName in TEAM_DATA) {
+                        teamAccuracy[teamName] = { correct: 0, total: 0 };
+                    }
+
+                    // Count correct/total for each team
+                    for (const game of data.games || []) {
+                        if (teamAccuracy[game.homeTeam]) {
+                            teamAccuracy[game.homeTeam].total++;
+                            if (game.correct) teamAccuracy[game.homeTeam].correct++;
+                        }
+                        if (teamAccuracy[game.awayTeam]) {
+                            teamAccuracy[game.awayTeam].total++;
+                            if (game.correct) teamAccuracy[game.awayTeam].correct++;
+                        }
+                    }
+
+                    console.log('📊 Calculated accuracy for all teams');
+                }
+            } catch (error) {
+                console.log('Could not calculate team accuracy');
+            }
+        }
 
         // ===== FETCH GLOBAL ACCURACY =====
         async function fetchGlobalAccuracy() {
@@ -527,8 +775,10 @@
         }
 
         // ===== INITIALIZATION =====
-        // Load global accuracy first
+        // Load global accuracy and supporting data
         fetchGlobalAccuracy();
+        loadWeeklyEloData();
+        calculateTeamAccuracy();
 
         if (apiKey) {
             document.getElementById('apiKeyInput').value = apiKey;
@@ -1596,6 +1846,17 @@
 
             const confidenceClass = `confidence-${prediction.confidence.toLowerCase()}`;
 
+            // Detect upset (underdog favored): team with worse record is predicted to win
+            let isUpset = false;
+            const homeWins = parseInt(prediction.homeRecord.split('-')[0]) || 0;
+            const awayWins = parseInt(prediction.awayRecord.split('-')[0]) || 0;
+            if ((prediction.winner === prediction.homeTeam && awayWins > homeWins + 2) ||
+                (prediction.winner === prediction.awayTeam && homeWins > awayWins + 2)) {
+                isUpset = true;
+            }
+
+            let upsetHTML = isUpset ? '<div class="badge upset-alert">🔥 UPSET ALERT</div>' : '';
+
             let weatherHTML = '';
             if (prediction.weather) {
                 const w = prediction.weather;
@@ -1668,10 +1929,11 @@
             }
 
             return `
-                <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88;">
+                <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88; cursor: pointer;" onclick="showGameDetails('${gameId}')">
                     <div class="game-header" style="background-color: ${teamColor}ee;">
                         <div class="game-meta">
                             <div class="badge">📅 ${gameTime}</div>
+                            ${upsetHTML}
                             ${weatherHTML}
                             <div class="badge ${confidenceClass}">${prediction.confidence.toUpperCase()}</div>
                         </div>
@@ -1679,15 +1941,37 @@
                             <div class="team">
                                 ${awayLogo ? `<img src="${awayLogo}" alt="${prediction.awayTeam}" class="team-logo">` : ''}
                                 <div>
-                                    <div class="team-name">${prediction.awayTeam}</div>
+                                    <div class="team-name"
+                                         onmouseover="showEloChart('${prediction.awayTeam}', event)"
+                                         onmouseout="hideEloChart()"
+                                         onclick="toggleEloChartSticky('${prediction.awayTeam}', event)">
+                                        ${prediction.awayTeam}
+                                    </div>
                                     <div class="team-record">${prediction.awayRecord}</div>
+                                    ${teamAccuracy[prediction.awayTeam] && teamAccuracy[prediction.awayTeam].total > 0 ? `
+                                        <div style="font-size: 0.75rem; opacity: 0.8; margin-top: 0.25rem;">
+                                            ${teamAccuracy[prediction.awayTeam].correct}-${teamAccuracy[prediction.awayTeam].total - teamAccuracy[prediction.awayTeam].correct}
+                                            (${((teamAccuracy[prediction.awayTeam].correct / teamAccuracy[prediction.awayTeam].total) * 100).toFixed(0)}%)
+                                        </div>
+                                    ` : ''}
                                 </div>
                             </div>
                             <div class="vs">@</div>
                             <div class="team">
                                 <div style="text-align: right;">
-                                    <div class="team-name">${prediction.homeTeam}</div>
+                                    <div class="team-name"
+                                         onmouseover="showEloChart('${prediction.homeTeam}', event)"
+                                         onmouseout="hideEloChart()"
+                                         onclick="toggleEloChartSticky('${prediction.homeTeam}', event)">
+                                        ${prediction.homeTeam}
+                                    </div>
                                     <div class="team-record">${prediction.homeRecord}</div>
+                                    ${teamAccuracy[prediction.homeTeam] && teamAccuracy[prediction.homeTeam].total > 0 ? `
+                                        <div style="font-size: 0.75rem; opacity: 0.8; margin-top: 0.25rem;">
+                                            ${teamAccuracy[prediction.homeTeam].correct}-${teamAccuracy[prediction.homeTeam].total - teamAccuracy[prediction.homeTeam].correct}
+                                            (${((teamAccuracy[prediction.homeTeam].correct / teamAccuracy[prediction.homeTeam].total) * 100).toFixed(0)}%)
+                                        </div>
+                                    ` : ''}
                                 </div>
                                 ${homeLogo ? `<img src="${homeLogo}" alt="${prediction.homeTeam}" class="team-logo">` : ''}
                             </div>
@@ -1763,6 +2047,192 @@
 
         // Note: Prediction checking is now handled by GitHub Actions
         // which updates results.json automatically
+
+        // ===== ELO CHART DISPLAY =====
+        let currentEloChart = null;
+        let eloChartSticky = false;
+
+        function showEloChart(teamName, event) {
+            if (!weeklyEloData || !weeklyEloData.snapshots) return;
+
+            const chart = document.getElementById('eloChart');
+            const teamData = [];
+            const weeks = [];
+
+            // Collect Elo ratings for this team across all weeks
+            for (let week = 1; week <= weeklyEloData.weeks; week++) {
+                const snapshot = weeklyEloData.snapshots[`week${week}`];
+                if (snapshot && snapshot[teamName]) {
+                    teamData.push(snapshot[teamName]);
+                    weeks.push(week);
+                }
+            }
+
+            if (teamData.length === 0) return;
+
+            const currentElo = teamData[teamData.length - 1];
+            const startElo = teamData[0];
+            const change = currentElo - startElo;
+            const changeSymbol = change >= 0 ? '↑' : '↓';
+            const changeColor = change >= 0 ? '#27ae60' : '#e74c3c';
+
+            // Create simple ASCII-style chart
+            const max = Math.max(...teamData);
+            const min = Math.min(...teamData);
+            const range = max - min;
+
+            let chartHTML = `
+                <div class="elo-chart-header">${teamName}</div>
+                <div class="elo-current">${currentElo}</div>
+                <div style="text-align: center; color: ${changeColor}; margin-bottom: 0.5rem;">
+                    ${changeSymbol} ${Math.abs(change)} from Week 1
+                </div>
+                <div class="elo-chart-canvas">
+                    <canvas id="eloCanvas" width="350" height="150"></canvas>
+                </div>
+                <div style="font-size: 0.85rem; opacity: 0.8; text-align: center;">
+                    Week 1: ${startElo} • Week ${weeks[weeks.length-1]}: ${currentElo}
+                </div>
+            `;
+
+            chart.innerHTML = chartHTML;
+            chart.className = 'elo-chart show';
+
+            // Position near the team name
+            const rect = event.target.getBoundingClientRect();
+            chart.style.left = Math.min(rect.left, window.innerWidth - 420) + 'px';
+            chart.style.top = (rect.bottom + 10) + 'px';
+
+            // Draw chart on canvas
+            setTimeout(() => {
+                const canvas = document.getElementById('eloCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 350, 150);
+
+                // Draw line
+                ctx.strokeStyle = '#3498db';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+
+                teamData.forEach((elo, i) => {
+                    const x = (i / (teamData.length - 1)) * 330 + 10;
+                    const y = 140 - ((elo - min) / (range || 1)) * 120;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+
+                ctx.stroke();
+
+                // Draw points
+                ctx.fillStyle = '#3498db';
+                teamData.forEach((elo, i) => {
+                    const x = (i / (teamData.length - 1)) * 330 + 10;
+                    const y = 140 - ((elo - min) / (range || 1)) * 120;
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }, 100);
+
+            currentEloChart = teamName;
+        }
+
+        function hideEloChart() {
+            if (eloChartSticky) return;
+            const chart = document.getElementById('eloChart');
+            chart.className = 'elo-chart';
+            currentEloChart = null;
+        }
+
+        function toggleEloChartSticky(teamName, event) {
+            event.stopPropagation();
+            if (currentEloChart === teamName && eloChartSticky) {
+                eloChartSticky = false;
+                hideEloChart();
+            } else {
+                eloChartSticky = true;
+                showEloChart(teamName, event);
+                document.getElementById('eloChart').classList.add('sticky');
+            }
+        }
+
+        // Close sticky chart when clicking elsewhere
+        document.addEventListener('click', (e) => {
+            if (eloChartSticky && !e.target.closest('.elo-chart') && !e.target.closest('.team-name')) {
+                eloChartSticky = false;
+                hideEloChart();
+            }
+        });
+
+        // ===== GAME DETAILS MODAL =====
+        async function showGameDetails(gameId) {
+            try {
+                const response = await fetch('test-results.json');
+                if (!response.ok) return;
+
+                const data = await response.json();
+                const game = data.games.find(g => g.gameId === gameId);
+                if (!game) return;
+
+                const modal = document.getElementById('gameModal');
+                const modalBody = document.getElementById('modalBody');
+
+                const correctSymbol = game.correct ? '✅' : '❌';
+                const resultColor = game.correct ? '#27ae60' : '#e74c3c';
+
+                modalBody.innerHTML = `
+                    <div class="modal-title">${game.awayTeam} @ ${game.homeTeam}</div>
+
+                    <div class="modal-section" style="border-left: 4px solid ${resultColor};">
+                        <div class="modal-section-title">${correctSymbol} Prediction Result</div>
+                        <div style="font-size: 1.2rem; margin: 0.5rem 0;">
+                            <strong>Predicted:</strong> ${game.winner} (${game.awayScore}-${game.homeScore})
+                        </div>
+                        <div style="font-size: 1.2rem; margin: 0.5rem 0;">
+                            <strong>Actual:</strong> ${game.actualWinner} (${game.actualAwayScore}-${game.actualHomeScore})
+                        </div>
+                        <div style="margin-top: 0.5rem; opacity: 0.9;">
+                            ${game.correct ? '✓ Correctly predicted the winner' : '✗ Incorrect prediction'}
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <div class="modal-section-title">📊 Score Analysis</div>
+                        <div style="margin: 0.5rem 0;">
+                            <strong>${game.homeTeam}:</strong> Predicted ${game.homeScore}, Actual ${game.actualHomeScore}
+                            (${game.homeScore > game.actualHomeScore ? 'over' : 'under'} by ${Math.abs(game.homeScore - game.actualHomeScore)})
+                        </div>
+                        <div style="margin: 0.5rem 0;">
+                            <strong>${game.awayTeam}:</strong> Predicted ${game.awayScore}, Actual ${game.actualAwayScore}
+                            (${game.awayScore > game.actualAwayScore ? 'over' : 'under'} by ${Math.abs(game.awayScore - game.actualAwayScore)})
+                        </div>
+                        <div style="margin-top: 0.5rem; opacity: 0.9;">
+                            Total predicted: ${game.homeScore + game.awayScore} • Actual: ${game.actualHomeScore + game.actualAwayScore}
+                        </div>
+                    </div>
+
+                    ${game.week ? `<div class="modal-section">
+                        <div class="modal-section-title">📅 Game Info</div>
+                        <div>Week ${game.week}</div>
+                        <div>${new Date(game.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                    </div>` : ''}
+                `;
+
+                modal.classList.add('show');
+            } catch (error) {
+                console.error('Error loading game details:', error);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('gameModal').classList.remove('show');
+        }
+
+        // Close modal on outside click
+        document.getElementById('gameModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gameModal') closeModal();
+        });
 
         // ===== AUTO-RETRY FOR FAILED PREDICTIONS =====
         function startRetryCountdown() {
