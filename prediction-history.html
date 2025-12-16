@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📜 BRObet - Prediction History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ecf0f1;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: #2980b9;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .filters {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        select, input {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ecf0f1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        select option {
+            background: #2c3e50;
+        }
+
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .reset-btn:hover {
+            background: #c0392b;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(52, 152, 219, 0.3);
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+            cursor: pointer;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            user-select: none;
+        }
+
+        th:hover {
+            background: rgba(52, 152, 219, 0.5);
+        }
+
+        th.sortable::after {
+            content: ' ⇅';
+            opacity: 0.5;
+        }
+
+        th.sorted-asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+
+        th.sorted-desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .correct {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .score-comparison {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .predicted {
+            opacity: 0.7;
+        }
+
+        .actual {
+            font-weight: bold;
+        }
+
+        .point-diff {
+            font-size: 0.85rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .point-diff.good {
+            color: #2ecc71;
+        }
+
+        .point-diff.bad {
+            color: #e74c3c;
+        }
+
+        .confidence-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .confidence-high {
+            background: #27ae60;
+        }
+
+        .confidence-medium {
+            background: #f39c12;
+        }
+
+        .confidence-low {
+            background: #e74c3c;
+        }
+
+        .week-badge {
+            background: rgba(52, 152, 219, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        .analytics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .analytics-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-card h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .analytics-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .analytics-item:last-child {
+            border-bottom: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back to Predictions</a>
+            <h1>📜 BRObet Prediction History</h1>
+            <p style="opacity: 0.8; margin-top: 0.5rem;">Complete season performance analysis</p>
+        </header>
+
+        <div id="statsOverview" class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-value" id="totalGames">-</div>
+                <div class="stat-label">Total Predictions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="correctPredictions">-</div>
+                <div class="stat-label">Correct Predictions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="overallAccuracy">-</div>
+                <div class="stat-label">Overall Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgPointDiff">-</div>
+                <div class="stat-label">Avg Point Differential</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Week</label>
+                <select id="weekFilter">
+                    <option value="all">All Weeks</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Team</label>
+                <select id="teamFilter">
+                    <option value="all">All Teams</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Result</label>
+                <select id="resultFilter">
+                    <option value="all">All Results</option>
+                    <option value="correct">Correct Only</option>
+                    <option value="incorrect">Incorrect Only</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Confidence</label>
+                <select id="confidenceFilter">
+                    <option value="all">All Confidence Levels</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="searchInput" placeholder="Team name...">
+            </div>
+            <button class="reset-btn" onclick="resetFilters()">Reset Filters</button>
+        </div>
+
+        <div class="analytics" id="analytics"></div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="sortable" data-sort="week">Week</th>
+                        <th class="sortable" data-sort="date">Date</th>
+                        <th class="sortable" data-sort="matchup">Matchup</th>
+                        <th class="sortable" data-sort="predicted">Predicted Winner</th>
+                        <th class="sortable" data-sort="actual">Actual Winner</th>
+                        <th class="sortable" data-sort="predictedScore">Predicted Score</th>
+                        <th class="sortable" data-sort="actualScore">Actual Score</th>
+                        <th class="sortable" data-sort="diff">Point Diff</th>
+                        <th class="sortable" data-sort="result">Result</th>
+                    </tr>
+                </thead>
+                <tbody id="gameTable">
+                    <tr>
+                        <td colspan="9" class="loading">Loading prediction history...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let allGames = [];
+        let filteredGames = [];
+        let currentSort = { column: 'date', direction: 'asc' };
+
+        // Team data for logos
+        const TEAM_DATA = {
+            "Arizona Cardinals": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" },
+            "Atlanta Falcons": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" },
+            "Baltimore Ravens": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" },
+            "Buffalo Bills": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" },
+            "Carolina Panthers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/car.png" },
+            "Chicago Bears": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" },
+            "Cincinnati Bengals": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" },
+            "Cleveland Browns": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" },
+            "Dallas Cowboys": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" },
+            "Denver Broncos": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/den.png" },
+            "Detroit Lions": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/det.png" },
+            "Green Bay Packers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" },
+            "Houston Texans": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" },
+            "Indianapolis Colts": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" },
+            "Jacksonville Jaguars": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" },
+            "Kansas City Chiefs": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" },
+            "Las Vegas Raiders": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" },
+            "Los Angeles Chargers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" },
+            "Los Angeles Rams": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" },
+            "Miami Dolphins": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" },
+            "Minnesota Vikings": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/min.png" },
+            "New England Patriots": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" },
+            "New Orleans Saints": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/no.png" },
+            "New York Giants": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" },
+            "New York Jets": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" },
+            "Philadelphia Eagles": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" },
+            "Pittsburgh Steelers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" },
+            "San Francisco 49ers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" },
+            "Seattle Seahawks": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" },
+            "Tampa Bay Buccaneers": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" },
+            "Tennessee Titans": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" },
+            "Washington Commanders": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" }
+        };
+
+        async function loadPredictionHistory() {
+            try {
+                const response = await fetch('test-results.json');
+                if (!response.ok) throw new Error('Failed to load data');
+
+                const data = await response.json();
+                allGames = data.games.map((game, index) => ({
+                    ...game,
+                    week: Math.ceil((index + 1) / 16) // Approximate week number
+                }));
+
+                filteredGames = [...allGames];
+
+                populateFilters();
+                updateStats();
+                updateAnalytics();
+                renderTable();
+            } catch (error) {
+                console.error('Error loading prediction history:', error);
+                document.getElementById('gameTable').innerHTML = `
+                    <tr><td colspan="9" class="loading" style="color: #e74c3c;">
+                        Error loading prediction history. Please try again later.
+                    </td></tr>
+                `;
+            }
+        }
+
+        function populateFilters() {
+            // Populate week filter
+            const weeks = [...new Set(allGames.map(g => g.week))].sort((a, b) => a - b);
+            const weekFilter = document.getElementById('weekFilter');
+            weeks.forEach(week => {
+                const option = document.createElement('option');
+                option.value = week;
+                option.textContent = `Week ${week}`;
+                weekFilter.appendChild(option);
+            });
+
+            // Populate team filter
+            const teams = new Set();
+            allGames.forEach(game => {
+                teams.add(game.homeTeam);
+                teams.add(game.awayTeam);
+            });
+            const teamFilter = document.getElementById('teamFilter');
+            [...teams].sort().forEach(team => {
+                const option = document.createElement('option');
+                option.value = team;
+                option.textContent = team;
+                teamFilter.appendChild(option);
+            });
+        }
+
+        function updateStats() {
+            const correct = filteredGames.filter(g => g.correct).length;
+            const total = filteredGames.length;
+            const accuracy = total > 0 ? ((correct / total) * 100).toFixed(1) : 0;
+
+            // Calculate average point differential
+            let totalDiff = 0;
+            filteredGames.forEach(game => {
+                const predictedTotal = game.homeScore + game.awayScore;
+                const actualTotal = (game.actualHomeScore || 0) + (game.actualAwayScore || 0);
+                totalDiff += Math.abs(predictedTotal - actualTotal);
+            });
+            const avgDiff = total > 0 ? (totalDiff / total).toFixed(1) : 0;
+
+            document.getElementById('totalGames').textContent = total;
+            document.getElementById('correctPredictions').textContent = correct;
+            document.getElementById('overallAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('avgPointDiff').textContent = avgDiff;
+        }
+
+        function updateAnalytics() {
+            const analytics = document.getElementById('analytics');
+
+            // Weekly breakdown
+            const weeklyStats = {};
+            allGames.forEach(game => {
+                if (!weeklyStats[game.week]) {
+                    weeklyStats[game.week] = { correct: 0, total: 0 };
+                }
+                weeklyStats[game.week].total++;
+                if (game.correct) weeklyStats[game.week].correct++;
+            });
+
+            // Team performance
+            const teamStats = {};
+            allGames.forEach(game => {
+                [game.homeTeam, game.awayTeam].forEach(team => {
+                    if (!teamStats[team]) {
+                        teamStats[team] = { correct: 0, total: 0 };
+                    }
+                    teamStats[team].total++;
+                    if (game.correct) teamStats[team].correct++;
+                });
+            });
+
+            // Best/worst weeks
+            const weeklyArray = Object.entries(weeklyStats).map(([week, stats]) => ({
+                week,
+                accuracy: (stats.correct / stats.total * 100).toFixed(1)
+            })).sort((a, b) => b.accuracy - a.accuracy);
+
+            // Best/worst teams
+            const teamArray = Object.entries(teamStats)
+                .filter(([_, stats]) => stats.total >= 3) // At least 3 games
+                .map(([team, stats]) => ({
+                    team,
+                    record: `${stats.correct}-${stats.total - stats.correct}`,
+                    accuracy: (stats.correct / stats.total * 100).toFixed(1)
+                }))
+                .sort((a, b) => b.accuracy - a.accuracy);
+
+            let analyticsHTML = `
+                <div class="analytics-card">
+                    <h3>🏆 Best Weeks</h3>
+            `;
+            weeklyArray.slice(0, 5).forEach(w => {
+                analyticsHTML += `
+                    <div class="analytics-item">
+                        <span>Week ${w.week}</span>
+                        <span class="correct">${w.accuracy}%</span>
+                    </div>
+                `;
+            });
+            analyticsHTML += `</div>`;
+
+            analyticsHTML += `
+                <div class="analytics-card">
+                    <h3>📉 Worst Weeks</h3>
+            `;
+            weeklyArray.slice(-5).reverse().forEach(w => {
+                analyticsHTML += `
+                    <div class="analytics-item">
+                        <span>Week ${w.week}</span>
+                        <span class="incorrect">${w.accuracy}%</span>
+                    </div>
+                `;
+            });
+            analyticsHTML += `</div>`;
+
+            analyticsHTML += `
+                <div class="analytics-card">
+                    <h3>⭐ Best Team Predictions</h3>
+            `;
+            teamArray.slice(0, 5).forEach(t => {
+                analyticsHTML += `
+                    <div class="analytics-item">
+                        <span>${t.team}</span>
+                        <span class="correct">${t.record} (${t.accuracy}%)</span>
+                    </div>
+                `;
+            });
+            analyticsHTML += `</div>`;
+
+            analyticsHTML += `
+                <div class="analytics-card">
+                    <h3>❌ Worst Team Predictions</h3>
+            `;
+            teamArray.slice(-5).reverse().forEach(t => {
+                analyticsHTML += `
+                    <div class="analytics-item">
+                        <span>${t.team}</span>
+                        <span class="incorrect">${t.record} (${t.accuracy}%)</span>
+                    </div>
+                `;
+            });
+            analyticsHTML += `</div>`;
+
+            analytics.innerHTML = analyticsHTML;
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('gameTable');
+
+            if (filteredGames.length === 0) {
+                tbody.innerHTML = `
+                    <tr><td colspan="9" class="loading">No games match your filters</td></tr>
+                `;
+                return;
+            }
+
+            let html = '';
+            filteredGames.forEach(game => {
+                const date = new Date(game.date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                const predictedScore = `${game.awayScore}-${game.homeScore}`;
+                const actualScore = `${game.actualAwayScore || '-'}-${game.actualHomeScore || '-'}`;
+
+                const predictedTotal = game.homeScore + game.awayScore;
+                const actualTotal = (game.actualHomeScore || 0) + (game.actualAwayScore || 0);
+                const pointDiff = Math.abs(predictedTotal - actualTotal);
+
+                html += `
+                    <tr>
+                        <td><span class="week-badge">Week ${game.week}</span></td>
+                        <td>${date}</td>
+                        <td>${game.awayTeam} @ ${game.homeTeam}</td>
+                        <td>${game.winner}</td>
+                        <td class="${game.correct ? 'correct' : 'incorrect'}">${game.actualWinner || 'TBD'}</td>
+                        <td class="predicted">${predictedScore}</td>
+                        <td class="actual">${actualScore}</td>
+                        <td>
+                            <span class="point-diff ${pointDiff <= 7 ? 'good' : 'bad'}">
+                                ${pointDiff > 0 ? pointDiff : '-'}
+                            </span>
+                        </td>
+                        <td class="${game.correct ? 'correct' : 'incorrect'}">
+                            ${game.correct ? '✅ Correct' : '❌ Incorrect'}
+                        </td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        function applyFilters() {
+            const weekFilter = document.getElementById('weekFilter').value;
+            const teamFilter = document.getElementById('teamFilter').value;
+            const resultFilter = document.getElementById('resultFilter').value;
+            const confidenceFilter = document.getElementById('confidenceFilter').value;
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredGames = allGames.filter(game => {
+                if (weekFilter !== 'all' && game.week.toString() !== weekFilter) return false;
+                if (teamFilter !== 'all' && game.homeTeam !== teamFilter && game.awayTeam !== teamFilter) return false;
+                if (resultFilter === 'correct' && !game.correct) return false;
+                if (resultFilter === 'incorrect' && game.correct) return false;
+                if (searchInput && !game.homeTeam.toLowerCase().includes(searchInput) &&
+                    !game.awayTeam.toLowerCase().includes(searchInput)) return false;
+
+                return true;
+            });
+
+            updateStats();
+            sortTable(currentSort.column, currentSort.direction);
+        }
+
+        function resetFilters() {
+            document.getElementById('weekFilter').value = 'all';
+            document.getElementById('teamFilter').value = 'all';
+            document.getElementById('resultFilter').value = 'all';
+            document.getElementById('confidenceFilter').value = 'all';
+            document.getElementById('searchInput').value = '';
+
+            filteredGames = [...allGames];
+            updateStats();
+            renderTable();
+        }
+
+        function sortTable(column, direction) {
+            currentSort = { column, direction };
+
+            filteredGames.sort((a, b) => {
+                let aVal, bVal;
+
+                switch(column) {
+                    case 'week':
+                        aVal = a.week;
+                        bVal = b.week;
+                        break;
+                    case 'date':
+                        aVal = new Date(a.date);
+                        bVal = new Date(b.date);
+                        break;
+                    case 'matchup':
+                        aVal = `${a.awayTeam} @ ${a.homeTeam}`;
+                        bVal = `${b.awayTeam} @ ${b.homeTeam}`;
+                        break;
+                    case 'predicted':
+                        aVal = a.winner;
+                        bVal = b.winner;
+                        break;
+                    case 'actual':
+                        aVal = a.actualWinner || '';
+                        bVal = b.actualWinner || '';
+                        break;
+                    case 'diff':
+                        aVal = Math.abs((a.homeScore + a.awayScore) - ((a.actualHomeScore || 0) + (a.actualAwayScore || 0)));
+                        bVal = Math.abs((b.homeScore + b.awayScore) - ((b.actualHomeScore || 0) + (b.actualAwayScore || 0)));
+                        break;
+                    case 'result':
+                        aVal = a.correct ? 1 : 0;
+                        bVal = b.correct ? 1 : 0;
+                        break;
+                    default:
+                        return 0;
+                }
+
+                if (aVal < bVal) return direction === 'asc' ? -1 : 1;
+                if (aVal > bVal) return direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            // Update sort indicators
+            document.querySelectorAll('th').forEach(th => {
+                th.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            const th = document.querySelector(`th[data-sort="${column}"]`);
+            if (th) {
+                th.classList.add(direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            }
+
+            renderTable();
+        }
+
+        // Event listeners
+        document.getElementById('weekFilter').addEventListener('change', applyFilters);
+        document.getElementById('teamFilter').addEventListener('change', applyFilters);
+        document.getElementById('resultFilter').addEventListener('change', applyFilters);
+        document.getElementById('confidenceFilter').addEventListener('change', applyFilters);
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+        // Sortable columns
+        document.querySelectorAll('th.sortable').forEach(th => {
+            th.addEventListener('click', () => {
+                const column = th.dataset.sort;
+                const direction = currentSort.column === column && currentSort.direction === 'asc' ? 'desc' : 'asc';
+                sortTable(column, direction);
+            });
+        });
+
+        // Initialize
+        loadPredictionHistory();
+
+        // Auto-refresh every 5 minutes to catch newly completed games
+        setInterval(loadPredictionHistory, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
