@@ -423,6 +423,7 @@
                         <th class="sortable" data-sort="date">Date</th>
                         <th class="sortable" data-sort="matchup">Matchup</th>
                         <th class="sortable" data-sort="predicted">Predicted Winner</th>
+                        <th class="sortable" data-sort="confidence">Confidence</th>
                         <th class="sortable" data-sort="actual">Actual Winner</th>
                         <th class="sortable" data-sort="predictedScore">Predicted Score</th>
                         <th class="sortable" data-sort="actualScore">Actual Score</th>
@@ -432,7 +433,7 @@
                 </thead>
                 <tbody id="gameTable">
                     <tr>
-                        <td colspan="9" class="loading">Loading prediction history...</td>
+                        <td colspan="10" class="loading">Loading prediction history...</td>
                     </tr>
                 </tbody>
             </table>
@@ -497,7 +498,7 @@
             } catch (error) {
                 console.error('Error loading prediction history:', error);
                 document.getElementById('gameTable').innerHTML = `
-                    <tr><td colspan="9" class="loading" style="color: #e74c3c;">
+                    <tr><td colspan="10" class="loading" style="color: #e74c3c;">
                         Error loading prediction history. Please try again later.
                     </td></tr>
                 `;
@@ -647,6 +648,37 @@
             });
             analyticsHTML += `</div>`;
 
+            // Confidence performance
+            const confidenceStats = {};
+            allGames.forEach(game => {
+                const conf = game.confidence || 'medium';
+                if (!confidenceStats[conf]) {
+                    confidenceStats[conf] = { correct: 0, total: 0 };
+                }
+                confidenceStats[conf].total++;
+                if (game.correct) confidenceStats[conf].correct++;
+            });
+
+            analyticsHTML += `
+                <div class="analytics-card">
+                    <h3>🎯 Confidence Performance</h3>
+            `;
+            ['high', 'medium', 'low'].forEach(conf => {
+                const stats = confidenceStats[conf];
+                if (stats && stats.total > 0) {
+                    const accuracy = ((stats.correct / stats.total) * 100).toFixed(1);
+                    const record = `${stats.correct}-${stats.total - stats.correct}`;
+                    const color = accuracy >= 65 ? 'correct' : 'incorrect';
+                    analyticsHTML += `
+                        <div class="analytics-item">
+                            <span>${conf.toUpperCase()}</span>
+                            <span class="${color}">${record} (${accuracy}%)</span>
+                        </div>
+                    `;
+                }
+            });
+            analyticsHTML += `</div>`;
+
             analytics.innerHTML = analyticsHTML;
         }
 
@@ -655,7 +687,7 @@
 
             if (filteredGames.length === 0) {
                 tbody.innerHTML = `
-                    <tr><td colspan="9" class="loading">No games match your filters</td></tr>
+                    <tr><td colspan="10" class="loading">No games match your filters</td></tr>
                 `;
                 return;
             }
@@ -674,12 +706,17 @@
                 const actualTotal = (game.actualHomeScore || 0) + (game.actualAwayScore || 0);
                 const pointDiff = Math.abs(predictedTotal - actualTotal);
 
+                // Get confidence badge
+                const confidence = game.confidence || 'medium';
+                const confidenceClass = `confidence-${confidence}`;
+
                 html += `
                     <tr>
                         <td><span class="week-badge">Week ${game.week}</span></td>
                         <td>${date}</td>
                         <td>${game.awayTeam} @ ${game.homeTeam}</td>
                         <td>${game.winner}</td>
+                        <td><span class="confidence-badge ${confidenceClass}">${confidence.toUpperCase()}</span></td>
                         <td class="${game.correct ? 'correct' : 'incorrect'}">${game.actualWinner || 'TBD'}</td>
                         <td class="predicted">${predictedScore}</td>
                         <td class="actual">${actualScore}</td>
@@ -710,6 +747,7 @@
                 if (teamFilter !== 'all' && game.homeTeam !== teamFilter && game.awayTeam !== teamFilter) return false;
                 if (resultFilter === 'correct' && !game.correct) return false;
                 if (resultFilter === 'incorrect' && game.correct) return false;
+                if (confidenceFilter !== 'all' && (game.confidence || 'medium') !== confidenceFilter) return false;
                 if (searchInput && !game.homeTeam.toLowerCase().includes(searchInput) &&
                     !game.awayTeam.toLowerCase().includes(searchInput)) return false;
 
@@ -754,6 +792,12 @@
                     case 'predicted':
                         aVal = a.winner;
                         bVal = b.winner;
+                        break;
+                    case 'confidence':
+                        // Sort by confidence level (high > medium > low)
+                        const confOrder = { 'high': 3, 'medium': 2, 'low': 1 };
+                        aVal = confOrder[a.confidence] || 2;
+                        bVal = confOrder[b.confidence] || 2;
                         break;
                     case 'actual':
                         aVal = a.actualWinner || '';

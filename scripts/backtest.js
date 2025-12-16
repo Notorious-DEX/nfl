@@ -358,6 +358,18 @@ function generateEloPrediction(game) {
     // Calculate expected point spread from Elo
     const expectedSpread = elo.eloToSpread(homeElo, awayElo);
 
+    // Calculate confidence based on Elo rating difference
+    // Larger rating difference = higher confidence
+    const eloDiff = Math.abs(homeElo - awayElo);
+    let confidence;
+    if (eloDiff >= 150) {
+        confidence = 'high';
+    } else if (eloDiff >= 75) {
+        confidence = 'medium';
+    } else {
+        confidence = 'low';
+    }
+
     // Convert spread to scores (league average ~22 points per team)
     const leagueAvgScore = 22;
     const homeScore = Math.max(10, Math.round(leagueAvgScore + expectedSpread / 2));
@@ -372,6 +384,7 @@ function generateEloPrediction(game) {
         homeScore: homeScore === awayScore ? homeScore + 1 : homeScore,
         awayScore,
         winner: (homeScore === awayScore ? homeScore + 1 : homeScore) > awayScore ? homeTeam : awayTeam,
+        confidence,
         method: 'elo'
     };
 }
