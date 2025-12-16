@@ -81,7 +81,35 @@ async function fetchGames() {
             }
         }
 
-        const currentWeek = data.week?.number || null;
+        let currentWeek = data.week?.number || null;
+
+        // If no games found in current week, try next week
+        if (games.length === 0 && currentWeek && currentWeek < 18) {
+            console.log(`⏭️  No upcoming games in week ${currentWeek}, checking week ${currentWeek + 1}...`);
+            try {
+                const nextWeekResponse = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${currentWeek + 1}`
+                );
+                const nextWeekData = await nextWeekResponse.json();
+
+                for (const event of nextWeekData.events || []) {
+                    const competition = event.competitions[0];
+                    const status = competition.status;
+
+                    // Only include upcoming games from next week
+                    if (status.type.name === 'STATUS_SCHEDULED') {
+                        games.push(event);
+                    }
+                }
+
+                if (games.length > 0) {
+                    currentWeek = currentWeek + 1;
+                    console.log(`✅ Found ${games.length} games for week ${currentWeek} (next week)`);
+                }
+            } catch (error) {
+                console.log(`⚠️  Could not fetch next week: ${error.message}`);
+            }
+        }
 
         console.log(`✅ Found ${games.length} games for week ${currentWeek}`);
         return { games, currentWeek };
