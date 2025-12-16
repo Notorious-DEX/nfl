@@ -655,6 +655,36 @@
             color: #95a5a6;
         }
 
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 768px) {
             .teams {
                 flex-direction: column;
@@ -2324,7 +2354,8 @@
                         homeTeam: prediction.homeTeam,
                         awayTeam: prediction.awayTeam,
                         homeScore: prediction.homeScore,
-                        awayScore: prediction.awayScore
+                        awayScore: prediction.awayScore,
+                        confidence: prediction.confidence
                     }
                 };
                 localStorage.setItem('nfl_predictions', JSON.stringify(predictions));
@@ -2599,6 +2630,27 @@
 
         // Start countdown if there are error cards
         setTimeout(startRetryCountdown, 1000);
+
+        // ===== BACK TO TOP BUTTON =====
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
 </body>
 </html>
