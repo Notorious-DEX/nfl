@@ -246,9 +246,10 @@
 
         .week-badge {
             background: rgba(52, 152, 219, 0.3);
-            padding: 0.25rem 0.75rem;
+            padding: 0.25rem 0.5rem;
             border-radius: 12px;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
         }
 
         .analytics {
@@ -315,6 +316,36 @@
             th, td {
                 padding: 0.5rem;
             }
+        }
+
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
         }
     </style>
 </head>
@@ -451,14 +482,11 @@
 
         async function loadPredictionHistory() {
             try {
-                const response = await fetch('test-results.json');
+                const response = await fetch('results.json');
                 if (!response.ok) throw new Error('Failed to load data');
 
                 const data = await response.json();
-                allGames = data.games.map((game, index) => ({
-                    ...game,
-                    week: Math.ceil((index + 1) / 16) // Approximate week number
-                }));
+                allGames = data.games; // Week field now comes from backtest script
 
                 filteredGames = [...allGames];
 
@@ -661,7 +689,7 @@
                             </span>
                         </td>
                         <td class="${game.correct ? 'correct' : 'incorrect'}">
-                            ${game.correct ? '✅ Correct' : '❌ Incorrect'}
+                            ${game.correct ? '✅' : '❌'}
                         </td>
                     </tr>
                 `;
@@ -781,6 +809,27 @@
 
         // Auto-refresh every 5 minutes to catch newly completed games
         setInterval(loadPredictionHistory, 5 * 60 * 1000);
+
+        // Back to Top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
 </body>
 </html>

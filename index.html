@@ -837,7 +837,7 @@
         // ===== CALCULATE TEAM ACCURACY =====
         async function calculateTeamAccuracy() {
             try {
-                const response = await fetch('test-results.json');
+                const response = await fetch('results.json');
                 if (response.ok) {
                     const data = await response.json();
 
@@ -2337,7 +2337,7 @@
         // ===== GAME DETAILS MODAL =====
         async function showGameDetails(gameId) {
             try {
-                const response = await fetch('test-results.json');
+                const response = await fetch('results.json');
                 if (!response.ok) return;
 
                 const data = await response.json();

@@ -7,7 +7,7 @@
  * - Updates Elo ratings after each week with K=20
  * - Pure Elo approach - no temporary adjustments
  * - Compare predictions to actual results
- * - Save to test-predictions.json and test-results.json
+ * - Save to test-predictions.json and results.json
  */
 
 const fs = require('fs');
@@ -436,6 +436,7 @@ async function main() {
                 allPredictions.push(prediction);
                 allResults.push({
                     ...prediction,
+                    week, // Explicitly set week from loop variable
                     actualHomeScore,
                     actualAwayScore,
                     actualWinner,
@@ -506,7 +507,7 @@ async function main() {
             predictions: allPredictions
         }, null, 2));
 
-        const resultsPath = path.join(__dirname, '..', 'test-results.json');
+        const resultsPath = path.join(__dirname, '..', 'results.json');
         fs.writeFileSync(resultsPath, JSON.stringify({
             lastUpdated: new Date().toISOString(),
             version: 'v0.05',
@@ -536,7 +537,7 @@ async function main() {
         console.log(`Accuracy: ${((totalCorrect / totalGames) * 100).toFixed(1)}%`);
         console.log(`\n✅ Results saved to:`);
         console.log(`   - test-predictions.json`);
-        console.log(`   - test-results.json`);
+        console.log(`   - results.json`);
         console.log(`   - weekly-elo.json (${Object.keys(weeklyEloSnapshots).length} weeks)`);
 
     } catch (error) {
