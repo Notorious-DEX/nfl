@@ -236,16 +236,27 @@ async function fetchLeagueStats() {
             const games = stats.gamesPlayed || 1;
             leagueStats.teams[teamName] = {
                 ...stats,
+                // Ratings (used by prediction algorithm)
+                offensiveRating: stats.pointsScored / games,
+                defensiveRating: stats.pointsAllowed / games,
+                // Per-game averages
                 ppg: (stats.pointsScored / games).toFixed(1),
                 papg: (stats.pointsAllowed / games).toFixed(1),
                 rushYPG: (stats.rushYards / games).toFixed(1),
                 rushDefYPG: (stats.rushYardsAllowed / games).toFixed(1),
                 passYPG: (stats.passYards / games).toFixed(1),
                 passDefYPG: (stats.passYardsAllowed / games).toFixed(1),
+                // Percentages
                 thirdDownPct: stats.thirdDownAttempts > 0 ?
                     ((stats.thirdDownConversions / stats.thirdDownAttempts) * 100).toFixed(1) : '0.0',
                 redZonePct: stats.redZoneAttempts > 0 ?
                     ((stats.redZoneScores / stats.redZoneAttempts) * 100).toFixed(1) : '0.0',
+                // Sack averages (per game)
+                sacksAllowedPG: stats.sacksAllowed / games,
+                sacksTakenPG: stats.sacksTaken / games,
+                // Turnover differential
+                turnoverDiff: stats.takeaways - stats.turnovers,
+                // Record
                 record: `${stats.wins}-${stats.losses}${stats.ties > 0 ? `-${stats.ties}` : ''}`
             };
         }

@@ -973,6 +973,22 @@
                     return null;
                 }
 
+                // Validate cache has required data structure
+                if (!cachedData.leagueStats || !cachedData.leagueStats.teams || !cachedData.leagueStats.rankings) {
+                    console.log('⚠️  Cached data missing required structure, falling back to live fetch');
+                    return null;
+                }
+
+                // Validate that team stats have required properties
+                const sampleTeam = Object.keys(cachedData.leagueStats.teams)[0];
+                if (sampleTeam) {
+                    const sampleStats = cachedData.leagueStats.teams[sampleTeam];
+                    if (sampleStats.offensiveRating === undefined || sampleStats.defensiveRating === undefined) {
+                        console.log('⚠️  Cached data missing required properties (offensiveRating/defensiveRating), falling back to live fetch');
+                        return null;
+                    }
+                }
+
                 console.log(`✅ Using cached data (${Math.floor(cacheAge / 60000)} minutes old)`);
                 return cachedData;
             } catch (error) {
