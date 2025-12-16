@@ -598,6 +598,95 @@
             background: rgba(231, 76, 60, 0.1);
         }
 
+        /* Week Results section */
+        .week-results {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .week-results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .week-results-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .week-results-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .week-results-toggle.expanded {
+            transform: rotate(180deg);
+        }
+
+        .week-results-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .week-results-content.expanded {
+            max-height: 2000px;
+            margin-top: 1rem;
+        }
+
+        .result-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item.correct {
+            border-left: 4px solid #27ae60;
+        }
+
+        .result-item.incorrect {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .result-icon {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .result-icon.correct {
+            color: #27ae60;
+        }
+
+        .result-icon.incorrect {
+            color: #e74c3c;
+        }
+
+        .result-teams {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .result-score {
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
         @media (max-width: 768px) {
             .teams {
                 flex-direction: column;
@@ -692,6 +781,17 @@
             <h2 style="margin-bottom: 1rem;">🎯 Top Picks</h2>
             <div id="picks-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem;"></div>
         </div>
+
+        <div id="weekresults" class="week-results" style="display: none;">
+            <div class="week-results-header" onclick="toggleWeekResults()">
+                <h2 id="weekresults-title">📊 Week Results: 0-0 (0%)</h2>
+                <span class="week-results-toggle" id="weekresults-toggle">▼</span>
+            </div>
+            <div class="week-results-content" id="weekresults-content">
+                <div id="weekresults-list"></div>
+            </div>
+        </div>
+
         <div id="games" class="games-grid"></div>
 
         <footer class="footer">
@@ -1881,6 +1981,87 @@
             gamesWithPredictions.forEach(({ game, prediction, gameId }) => {
                 gamesContainer.innerHTML += createGameCard(game, prediction, gameId);
             });
+
+            // Populate Week Results section with completed games
+            await populateWeekResults(games);
+        }
+
+        // ===== WEEK RESULTS SECTION =====
+        async function populateWeekResults(games) {
+            const weekResultsContainer = document.getElementById('weekresults');
+            const weekResultsList = document.getElementById('weekresults-list');
+            const weekResultsTitle = document.getElementById('weekresults-title');
+
+            // Filter for completed games only
+            const completedGames = games.filter(game => {
+                const competition = game.competitions[0];
+                return competition.status.type.completed;
+            });
+
+            if (completedGames.length === 0) {
+                weekResultsContainer.style.display = 'none';
+                return;
+            }
+
+            let correct = 0;
+            let total = 0;
+            weekResultsList.innerHTML = '';
+
+            for (const game of completedGames) {
+                const competition = game.competitions[0];
+                const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+                const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+                const homeTeam = homeComp.team.displayName;
+                const awayTeam = awayComp.team.displayName;
+                const actualHomeScore = parseInt(homeComp.score) || 0;
+                const actualAwayScore = parseInt(awayComp.score) || 0;
+                const actualWinner = actualHomeScore > actualAwayScore ? homeTeam : awayTeam;
+
+                // Get our prediction from localStorage or generate one
+                const savedPrediction = predictions[game.id];
+                let predictedWinner = null;
+
+                if (savedPrediction && savedPrediction.prediction) {
+                    predictedWinner = savedPrediction.prediction.winner;
+                } else {
+                    // Try to infer from current prediction logic
+                    continue; // Skip if no saved prediction
+                }
+
+                const isCorrect = predictedWinner === actualWinner;
+                if (isCorrect) correct++;
+                total++;
+
+                const resultClass = isCorrect ? 'correct' : 'incorrect';
+                const resultIcon = isCorrect ? '✓' : '✗';
+
+                weekResultsList.innerHTML += `
+                    <div class="result-item ${resultClass}" onclick="document.getElementById('${game.id}').scrollIntoView({behavior: 'smooth', block: 'center'})">
+                        <div class="result-icon ${resultClass}">${resultIcon}</div>
+                        <div class="result-teams">
+                            <div style="font-weight: bold;">${predictedWinner}</div>
+                            <div class="result-score">Predicted: ${predictedWinner} • Actual: ${actualWinner} (${actualAwayScore}-${actualHomeScore})</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const percentage = total > 0 ? ((correct / total) * 100).toFixed(0) : 0;
+            weekResultsTitle.textContent = `📊 Week Results: ${correct}-${total - correct} (${percentage}%)`;
+            weekResultsContainer.style.display = 'block';
+        }
+
+        function toggleWeekResults() {
+            const content = document.getElementById('weekresults-content');
+            const toggle = document.getElementById('weekresults-toggle');
+
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                toggle.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                toggle.classList.add('expanded');
+            }
         }
 
         function createGameCard(game, prediction, gameId) {
@@ -2089,7 +2270,7 @@
             }
 
             return `
-                <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88; cursor: pointer;" onclick="showGameDetails('${gameId}')">
+                <div id="${gameId}" class="game-card" style="background: linear-gradient(135deg, ${teamColor}22 0%, ${teamColor}44 100%); border: 2px solid ${teamColor}88;">
                     <div class="game-header" style="background-color: ${teamColor}ee;">
                         <div class="game-meta">
                             <div class="badge">📅 ${gameTime}</div>
@@ -2105,7 +2286,7 @@
                                     <div class="team-name"
                                          onmouseover="showEloChart('${prediction.awayTeam}', event)"
                                          onmouseout="hideEloChart()"
-                                         onclick="toggleEloChartSticky('${prediction.awayTeam}', event)">
+                                         onclick="event.stopPropagation(); toggleEloChartSticky('${prediction.awayTeam}', event)">
                                         ${prediction.awayTeam}
                                     </div>
                                     <div class="team-record">${prediction.awayRecord}</div>
@@ -2123,7 +2304,7 @@
                                     <div class="team-name"
                                          onmouseover="showEloChart('${prediction.homeTeam}', event)"
                                          onmouseout="hideEloChart()"
-                                         onclick="toggleEloChartSticky('${prediction.homeTeam}', event)">
+                                         onclick="event.stopPropagation(); toggleEloChartSticky('${prediction.homeTeam}', event)">
                                         ${prediction.homeTeam}
                                     </div>
                                     <div class="team-record">${prediction.homeRecord}</div>
@@ -2138,7 +2319,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="game-body">
+                    <div class="game-body" onclick="showGameDetails('${gameId}')">
                         ${resultBadgeHTML ? `<div style="text-align: center; margin-bottom: 1.5rem;">${resultBadgeHTML}</div>` : ''}
 
                         ${liveScoresHTML}
