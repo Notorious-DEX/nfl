@@ -726,6 +726,36 @@
                 font-size: 0.9rem !important;
             }
         }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        }
     </style>
 </head>
 <body>
@@ -810,6 +840,9 @@
             <div id="modalBody"></div>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
 
     <script>
         // ===== CONFIGURATION =====
@@ -2750,23 +2783,22 @@
         // ===== BACK TO TOP BUTTON =====
         const backToTopButton = document.getElementById('backToTop');
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
             });
-        });
-    </script>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to top">↑</button>
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
 </body>
 </html>
