@@ -1034,6 +1034,11 @@
                         // Use cached games
                         const games = cachedData.games || [];
 
+                        // Update week indicator
+                        if (cachedData.currentWeek) {
+                            document.getElementById('weekIndicator').textContent = `Week ${cachedData.currentWeek}`;
+                        }
+
                         if (games.length === 0) {
                             const weekNum = cachedData.currentWeek || 'current';
                             document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
