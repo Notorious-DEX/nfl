@@ -57,6 +57,7 @@ let leagueStats = {
 };
 
 let eloRatings = null; // Will be loaded from historical-elo.json
+let weeklyEloSnapshots = {}; // Track Elo ratings at the end of each week
 
 async function fetchLeagueStats(upToWeek, usePreseason = false) {
     console.log(`📊 Calculating team stats ${usePreseason ? 'from preseason' : `through week ${upToWeek - 1}`}...`);
@@ -489,6 +490,9 @@ async function main() {
                 }
                 // Ties don't update Elo
             }
+
+            // Save snapshot of Elo ratings at end of this week
+            weeklyEloSnapshots[`week${week}`] = { ...eloRatings };
         }
 
         // Save results
@@ -515,6 +519,15 @@ async function main() {
             games: allResults
         }, null, 2));
 
+        // Save weekly Elo snapshots for trend visualization
+        const eloSnapshotsPath = path.join(__dirname, '..', 'weekly-elo.json');
+        fs.writeFileSync(eloSnapshotsPath, JSON.stringify({
+            lastUpdated: new Date().toISOString(),
+            season: '2025',
+            weeks: currentWeek,
+            snapshots: weeklyEloSnapshots
+        }, null, 2));
+
         console.log(`\n${'='.repeat(60)}`);
         console.log('📊 FINAL RESULTS');
         console.log('='.repeat(60));
@@ -524,6 +537,7 @@ async function main() {
         console.log(`\n✅ Results saved to:`);
         console.log(`   - test-predictions.json`);
         console.log(`   - test-results.json`);
+        console.log(`   - weekly-elo.json (${Object.keys(weeklyEloSnapshots).length} weeks)`);
 
     } catch (error) {
         console.error('❌ Error during backtesting:', error);
