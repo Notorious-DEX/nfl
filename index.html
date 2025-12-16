@@ -954,46 +954,127 @@
             document.getElementById('accuracy').textContent = accuracy + '%';
         }
 
+        // ===== LOAD CACHED DATA =====
+        async function loadCachedData() {
+            try {
+                console.log('🚀 Attempting to load cached data...');
+                const response = await fetch('cached-data.json');
+                if (!response.ok) {
+                    console.log('⚠️  No cached data found, falling back to live fetch');
+                    return null;
+                }
+
+                const cachedData = await response.json();
+                const cacheAge = Date.now() - new Date(cachedData.lastUpdated).getTime();
+                const maxCacheAge = 6 * 60 * 60 * 1000; // 6 hours
+
+                if (cacheAge > maxCacheAge) {
+                    console.log('⚠️  Cached data is stale, falling back to live fetch');
+                    return null;
+                }
+
+                console.log(`✅ Using cached data (${Math.floor(cacheAge / 60000)} minutes old)`);
+                return cachedData;
+            } catch (error) {
+                console.log('⚠️  Error loading cache, falling back to live fetch:', error.message);
+                return null;
+            }
+        }
+
         // ===== MAIN DATA LOADING =====
         async function loadAllData() {
             try {
                 document.getElementById('loading').textContent = '🏈 Loading NFL data...';
                 console.log('=== STARTING DATA LOAD ===');
 
-                // Step 1: Fetch league-wide team stats
-                await fetchLeagueStats();
+                // Try to load from cache first
+                const cachedData = await loadCachedData();
 
-                // Step 2: Fetch injuries
-                await fetchInjuries();
+                if (cachedData) {
+                    // Use cached data
+                    console.log('📦 Using cached data');
+                    document.getElementById('loading').textContent = '📦 Loading from cache...';
 
-                // Step 3: Fetch upcoming games
-                const games = await fetchGames();
+                    // Load league stats from cache
+                    if (cachedData.leagueStats) {
+                        leagueStats = cachedData.leagueStats;
+                        console.log('✅ League stats loaded from cache');
+                    }
 
-                if (games.length === 0) {
-                    const weekNum = data.week?.number || 'current';
-                    document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
-                    return;
+                    // Load injuries from cache
+                    if (cachedData.injuries) {
+                        injuries = cachedData.injuries;
+                        console.log('✅ Injuries loaded from cache');
+                    }
+
+                    // Load team accuracy from cache
+                    if (cachedData.teamAccuracy) {
+                        teamAccuracy = cachedData.teamAccuracy;
+                        console.log('✅ Team accuracy loaded from cache');
+                    }
+
+                    // Use cached games
+                    const games = cachedData.games || [];
+
+                    if (games.length === 0) {
+                        const weekNum = cachedData.currentWeek || 'current';
+                        document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
+                        return;
+                    }
+
+                    // Convert cached odds to array format expected by displayGames
+                    const oddsData = Object.values(cachedData.odds || {});
+
+                    // Refresh global accuracy (GitHub Actions updates this)
+                    await fetchGlobalAccuracy();
+
+                    // Display games with predictions
+                    await displayGames(games, oddsData);
+
+                    // Start auto-refresh for live game updates
+                    startAutoRefresh();
+
+                    document.getElementById('loading').style.display = 'none';
+                    console.log('=== DATA LOAD COMPLETE (FROM CACHE) ===');
+                } else {
+                    // Fall back to live fetching
+                    console.log('📡 Fetching live data...');
+
+                    // Step 1: Fetch league-wide team stats
+                    await fetchLeagueStats();
+
+                    // Step 2: Fetch injuries
+                    await fetchInjuries();
+
+                    // Step 3: Fetch upcoming games
+                    const games = await fetchGames();
+
+                    if (games.length === 0) {
+                        const weekNum = data.week?.number || 'current';
+                        document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
+                        return;
+                    }
+
+                    // Step 4: Fetch odds
+                    let oddsData = [];
+                    try {
+                        oddsData = await fetchOdds();
+                    } catch (e) {
+                        console.warn('Could not fetch odds:', e.message);
+                    }
+
+                    // Step 5: Refresh global accuracy (GitHub Actions updates this)
+                    await fetchGlobalAccuracy();
+
+                    // Step 6: Display games with predictions
+                    await displayGames(games, oddsData);
+
+                    // Step 7: Start auto-refresh for live game updates
+                    startAutoRefresh();
+
+                    document.getElementById('loading').style.display = 'none';
+                    console.log('=== DATA LOAD COMPLETE (LIVE FETCH) ===');
                 }
-
-                // Step 4: Fetch odds
-                let oddsData = [];
-                try {
-                    oddsData = await fetchOdds();
-                } catch (e) {
-                    console.warn('Could not fetch odds:', e.message);
-                }
-
-                // Step 5: Refresh global accuracy (GitHub Actions updates this)
-                await fetchGlobalAccuracy();
-
-                // Step 6: Display games with predictions
-                await displayGames(games, oddsData);
-
-                // Step 7: Start auto-refresh for live game updates
-                startAutoRefresh();
-
-                document.getElementById('loading').style.display = 'none';
-                console.log('=== DATA LOAD COMPLETE ===');
             } catch (error) {
                 console.error('Error loading data:', error);
                 showError('Failed to load data: ' + error.message);
