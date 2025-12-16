@@ -385,6 +385,72 @@
             50% { opacity: 0.7; }
         }
 
+        /* Live game badge */
+        .live-badge {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            animation: pulse 2s infinite;
+            font-weight: bold;
+        }
+
+        /* Winner/Loser result badges */
+        .result-winner {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .result-loser {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Live scores display */
+        .live-scores {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .live-score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.5rem 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .live-score-row.winning {
+            color: #27ae60;
+        }
+
+        .game-status {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3498db;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
         /* Team name hover/click for Elo graph */
         .team-name {
             cursor: pointer;
@@ -828,7 +894,8 @@
                 const games = await fetchGames();
 
                 if (games.length === 0) {
-                    document.getElementById('loading').textContent = 'No upcoming games in the next 7 days';
+                    const weekNum = data.week?.number || 'current';
+                    document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
                     return;
                 }
 
@@ -845,6 +912,9 @@
 
                 // Step 6: Display games with predictions
                 await displayGames(games, oddsData);
+
+                // Step 7: Start auto-refresh for live game updates
+                startAutoRefresh();
 
                 document.getElementById('loading').style.display = 'none';
                 console.log('=== DATA LOAD COMPLETE ===');
@@ -1220,23 +1290,61 @@
 
             const games = [];
             const now = new Date();
-            const sevenDaysFromNow = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+            const fiveHoursAgo = new Date(now.getTime() - 5 * 60 * 60 * 1000);
+            const oneHourFromNow = new Date(now.getTime() + 60 * 60 * 1000);
 
             const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
             const data = await response.json();
 
+            let currentWeek = null;
             if (data.week && data.week.number) {
-                document.getElementById('weekIndicator').textContent = `Week ${data.week.number}`;
+                currentWeek = data.week.number;
+                document.getElementById('weekIndicator').textContent = `Week ${currentWeek}`;
             }
 
+            // Filter games: include future games, in-progress, and completed within last hour
             for (const event of data.events || []) {
                 const gameDate = new Date(event.date);
-                if (gameDate > now && gameDate < sevenDaysFromNow) {
+                const competition = event.competitions[0];
+                const status = competition.status;
+
+                // Include if:
+                // - Game hasn't started yet (future)
+                // - Game is in progress
+                // - Game completed less than 1 hour ago
+                if (status.type.name === 'STATUS_SCHEDULED' ||
+                    status.type.name === 'STATUS_IN_PROGRESS' ||
+                    (status.type.completed && gameDate >= fiveHoursAgo)) {
+
+                    // If completed, check if it's been more than 1 hour
+                    if (status.type.completed) {
+                        // Estimate completion time as game start + 3.5 hours
+                        const estimatedEnd = new Date(gameDate.getTime() + 3.5 * 60 * 60 * 1000);
+                        if (now - estimatedEnd > 60 * 60 * 1000) {
+                            continue; // Skip games completed more than 1 hour ago
+                        }
+                    }
+
                     games.push(event);
                 }
             }
 
-            console.log(`✅ Found ${games.length} upcoming games`);
+            // If no games found in current week, try next week
+            if (games.length === 0 && currentWeek && currentWeek < 18) {
+                console.log('📥 No active games this week, fetching next week...');
+                const nextWeekResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${currentWeek + 1}`);
+                const nextWeekData = await nextWeekResponse.json();
+
+                if (nextWeekData.week && nextWeekData.week.number) {
+                    document.getElementById('weekIndicator').textContent = `Week ${nextWeekData.week.number}`;
+                }
+
+                for (const event of nextWeekData.events || []) {
+                    games.push(event);
+                }
+            }
+
+            console.log(`✅ Found ${games.length} games to display`);
             return games;
         }
 
@@ -1846,6 +1954,58 @@
 
             const confidenceClass = `confidence-${prediction.confidence.toLowerCase()}`;
 
+            // Get game status from ESPN data
+            const competition = game.competitions[0];
+            const status = competition.status;
+            const isLive = status.type.name === 'STATUS_IN_PROGRESS';
+            const isCompleted = status.type.completed;
+            const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+            const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+            const actualHomeScore = parseInt(homeComp.score) || 0;
+            const actualAwayScore = parseInt(awayComp.score) || 0;
+            const actualWinner = actualHomeScore > actualAwayScore ? prediction.homeTeam : prediction.awayTeam;
+            const predictionCorrect = isCompleted && (actualWinner === prediction.winner);
+
+            // Game status badge (LIVE or game state)
+            let statusBadgeHTML = '';
+            if (isLive) {
+                const period = status.period || 1;
+                const clock = status.displayClock || '';
+                const periodText = period <= 4 ? `Q${period}` : (period === 5 ? 'OT' : `OT${period-4}`);
+                statusBadgeHTML = `<div class="badge live-badge">🔴 LIVE • ${periodText} ${clock}</div>`;
+            }
+
+            // Result badge (WINNER/LOSER)
+            let resultBadgeHTML = '';
+            if (isCompleted) {
+                if (predictionCorrect) {
+                    resultBadgeHTML = `<div class="result-winner">✅ WINNER!</div>`;
+                } else {
+                    resultBadgeHTML = `<div class="result-loser">❌ LOSER</div>`;
+                }
+            }
+
+            // Live scores HTML
+            let liveScoresHTML = '';
+            if (isLive || isCompleted) {
+                const homeWinning = actualHomeScore > actualAwayScore;
+                const awayWinning = actualAwayScore > actualHomeScore;
+                liveScoresHTML = `
+                    <div class="live-scores">
+                        <div class="live-score-row ${awayWinning ? 'winning' : ''}">
+                            <span>${prediction.awayTeam}</span>
+                            <span>${actualAwayScore}</span>
+                        </div>
+                        <div class="live-score-row ${homeWinning ? 'winning' : ''}">
+                            <span>${prediction.homeTeam}</span>
+                            <span>${actualHomeScore}</span>
+                        </div>
+                        ${isLive ? `<div class="game-status">${status.type.shortDetail || 'In Progress'}</div>` : ''}
+                        ${isCompleted ? `<div class="game-status">Final</div>` : ''}
+                    </div>
+                `;
+            }
+
             // Detect upset (underdog favored): team with worse record is predicted to win
             let isUpset = false;
             const homeWins = parseInt(prediction.homeRecord.split('-')[0]) || 0;
@@ -1933,6 +2093,7 @@
                     <div class="game-header" style="background-color: ${teamColor}ee;">
                         <div class="game-meta">
                             <div class="badge">📅 ${gameTime}</div>
+                            ${statusBadgeHTML}
                             ${upsetHTML}
                             ${weatherHTML}
                             <div class="badge ${confidenceClass}">${prediction.confidence.toUpperCase()}</div>
@@ -1978,6 +2139,10 @@
                         </div>
                     </div>
                     <div class="game-body">
+                        ${resultBadgeHTML ? `<div style="text-align: center; margin-bottom: 1.5rem;">${resultBadgeHTML}</div>` : ''}
+
+                        ${liveScoresHTML}
+
                         <div class="winner-section">
                             <div class="winner-label">🎯 OUR PREDICTION</div>
                             <div class="winner-name">${prediction.winner}</div>
@@ -2233,6 +2398,65 @@
         document.getElementById('gameModal').addEventListener('click', (e) => {
             if (e.target.id === 'gameModal') closeModal();
         });
+
+        // ===== AUTO-REFRESH FOR LIVE GAMES =====
+        let refreshInterval = null;
+
+        function startAutoRefresh() {
+            // Refresh every 2.5 minutes (150 seconds)
+            refreshInterval = setInterval(async () => {
+                console.log('🔄 Auto-refreshing game data...');
+                try {
+                    // Fetch latest game data
+                    const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                    const data = await response.json();
+
+                    // Update each game card with latest data
+                    for (const event of data.events || []) {
+                        const gameCard = document.getElementById(event.id);
+                        if (!gameCard) continue;
+
+                        const competition = event.competitions[0];
+                        const status = competition.status;
+
+                        // Check if any games are live
+                        if (status.type.name === 'STATUS_IN_PROGRESS') {
+                            // Reload the entire page to update all games
+                            console.log('📺 Live game detected, reloading page...');
+                            location.reload();
+                            return;
+                        }
+
+                        // Check if any completed games passed the 1-hour mark
+                        if (status.type.completed) {
+                            const gameDate = new Date(event.date);
+                            const estimatedEnd = new Date(gameDate.getTime() + 3.5 * 60 * 60 * 1000);
+                            const now = new Date();
+                            if (now - estimatedEnd > 60 * 60 * 1000) {
+                                // Game completed over an hour ago, reload to remove it
+                                console.log('🗑️ Old game detected, reloading page...');
+                                location.reload();
+                                return;
+                            }
+                        }
+                    }
+
+                    console.log('✅ No updates needed');
+                } catch (error) {
+                    console.error('Error during auto-refresh:', error);
+                }
+            }, 150000); // 150 seconds = 2.5 minutes
+
+            console.log('✅ Auto-refresh enabled (every 2.5 minutes)');
+        }
+
+        function stopAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+                refreshInterval = null;
+                console.log('⏸️ Auto-refresh disabled');
+            }
+        }
 
         // ===== AUTO-RETRY FOR FAILED PREDICTIONS =====
         function startRetryCountdown() {
