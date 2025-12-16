@@ -1034,6 +1034,11 @@
                         // Use cached games
                         const games = cachedData.games || [];
 
+                        // Update week indicator
+                        if (cachedData.currentWeek) {
+                            document.getElementById('weekIndicator').textContent = `Week ${cachedData.currentWeek}`;
+                        }
+
                         if (games.length === 0) {
                             const weekNum = cachedData.currentWeek || 'current';
                             document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
@@ -2029,16 +2034,19 @@
 
             const confidenceOrder = { 'High': 0, 'Medium': 1, 'Low': 2 };
             gamesWithPredictions.sort((a, b) => {
-                const dateA = new Date(a.game.date);
-                const dateB = new Date(b.game.date);
-                if (dateA.toDateString() !== dateB.toDateString()) {
-                    return dateA - dateB;
-                }
-                // Show errors last, then sort by confidence
+                // Show errors last
                 if (a.prediction.error && !b.prediction.error) return 1;
                 if (!a.prediction.error && b.prediction.error) return -1;
                 if (a.prediction.error && b.prediction.error) return 0;
-                return confidenceOrder[a.prediction.confidence] - confidenceOrder[b.prediction.confidence];
+
+                // Sort by confidence first (High -> Medium -> Low)
+                const confDiff = confidenceOrder[a.prediction.confidence] - confidenceOrder[b.prediction.confidence];
+                if (confDiff !== 0) return confDiff;
+
+                // Then by date as secondary sort
+                const dateA = new Date(a.game.date);
+                const dateB = new Date(b.game.date);
+                return dateA - dateB;
             });
 
             gamesWithPredictions.forEach(({ prediction, gameId }) => {
@@ -2204,7 +2212,7 @@
                 `;
             }
 
-            const teamColor = TEAM_DATA[prediction.homeTeam]?.color || '#3498db';
+            const teamColor = TEAM_DATA[prediction.winner]?.color || '#3498db';
             const homeLogo = TEAM_DATA[prediction.homeTeam]?.logo;
             const awayLogo = TEAM_DATA[prediction.awayTeam]?.logo;
 
