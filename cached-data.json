@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-20T20:24:56.523Z",
+  "lastUpdated": "2025-12-20T23:20:48.086Z",
   "currentWeek": 16,
   "games": [
     {
@@ -29,8 +29,8 @@
           "timeValid": true,
           "neutralSite": false,
           "conferenceCompetition": false,
-          "playByPlayAvailable": false,
-          "recent": false,
+          "playByPlayAvailable": true,
+          "recent": true,
           "venue": {
             "id": "3719",
             "fullName": "Northwest Stadium",
@@ -110,7 +110,19 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png"
               },
-              "score": "0",
+              "score": "10",
+              "linescores": [
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                }
+              ],
               "statistics": [],
               "records": [
                 {
@@ -128,128 +140,6 @@
                   "name": "Road",
                   "type": "road",
                   "summary": "2-6"
-                }
-              ],
-              "leaders": [
-                {
-                  "name": "passingLeader",
-                  "displayName": "Passing Leader",
-                  "shortDisplayName": "PASS",
-                  "abbreviation": "PYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "132/213, 1600 YDS, 10 TD, 7 INT",
-                      "value": 1600,
-                      "athlete": {
-                        "id": "2576980",
-                        "fullName": "Marcus Mariota",
-                        "displayName": "Marcus Mariota",
-                        "shortName": "M. Mariota",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/2576980/marcus-mariota"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2576980.png",
-                        "jersey": "8",
-                        "position": {
-                          "abbreviation": "QB"
-                        },
-                        "team": {
-                          "id": "28"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "28"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "rushingLeader",
-                  "displayName": "Rushing Leader",
-                  "shortDisplayName": "RUSH",
-                  "abbreviation": "RYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "143 CAR, 646 YDS, 5 TD",
-                      "value": 646,
-                      "athlete": {
-                        "id": "4575131",
-                        "fullName": "Jacory Croskey-Merritt",
-                        "displayName": "Jacory Croskey-Merritt",
-                        "shortName": "J. Croskey-Merritt",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4575131/jacory-croskey-merritt"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4575131.png",
-                        "jersey": "22",
-                        "position": {
-                          "abbreviation": "RB"
-                        },
-                        "team": {
-                          "id": "28"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "28"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "receivingLeader",
-                  "displayName": "Receiving Leader",
-                  "shortDisplayName": "REC",
-                  "abbreviation": "RECYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "65 REC, 604 YDS, 5 TD",
-                      "value": 604,
-                      "athlete": {
-                        "id": "3126486",
-                        "fullName": "Deebo Samuel",
-                        "displayName": "Deebo Samuel",
-                        "shortName": "D. Samuel",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/3126486/deebo-samuel"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3126486.png",
-                        "jersey": "1",
-                        "position": {
-                          "abbreviation": "WR"
-                        },
-                        "team": {
-                          "id": "28"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "28"
-                      }
-                    }
-                  ]
                 }
               ]
             },
@@ -321,7 +211,19 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png"
               },
-              "score": "0",
+              "score": "7",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
+                }
+              ],
               "statistics": [],
               "records": [
                 {
@@ -340,144 +242,99 @@
                   "type": "road",
                   "summary": "4-3"
                 }
-              ],
-              "leaders": [
-                {
-                  "name": "passingLeader",
-                  "displayName": "Passing Leader",
-                  "shortDisplayName": "PASS",
-                  "abbreviation": "PYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "259/397, 2929 YDS, 22 TD, 6 INT",
-                      "value": 2929,
-                      "athlete": {
-                        "id": "4040715",
-                        "fullName": "Jalen Hurts",
-                        "displayName": "Jalen Hurts",
-                        "shortName": "J. Hurts",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4040715/jalen-hurts"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png",
-                        "jersey": "1",
-                        "position": {
-                          "abbreviation": "QB"
-                        },
-                        "team": {
-                          "id": "21"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "21"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "rushingLeader",
-                  "displayName": "Rushing Leader",
-                  "shortDisplayName": "RUSH",
-                  "abbreviation": "RYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "240 CAR, 940 YDS, 6 TD",
-                      "value": 940,
-                      "athlete": {
-                        "id": "3929630",
-                        "fullName": "Saquon Barkley",
-                        "displayName": "Saquon Barkley",
-                        "shortName": "S. Barkley",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/3929630/saquon-barkley"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png",
-                        "jersey": "26",
-                        "position": {
-                          "abbreviation": "RB"
-                        },
-                        "team": {
-                          "id": "21"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "21"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "receivingLeader",
-                  "displayName": "Receiving Leader",
-                  "shortDisplayName": "REC",
-                  "abbreviation": "RECYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "66 REC, 889 YDS, 3 TD",
-                      "value": 889,
-                      "athlete": {
-                        "id": "4241478",
-                        "fullName": "DeVonta Smith",
-                        "displayName": "DeVonta Smith",
-                        "shortName": "D. Smith",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4241478/devonta-smith"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241478.png",
-                        "jersey": "6",
-                        "position": {
-                          "abbreviation": "WR"
-                        },
-                        "team": {
-                          "id": "21"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "21"
-                      }
-                    }
-                  ]
-                }
               ]
             }
           ],
           "notes": [],
+          "situation": {
+            "lastPlay": {
+              "id": "4017726121830",
+              "type": {
+                "id": "9",
+                "text": "Fumble Recovery (Own)"
+              },
+              "text": "(Shotgun) J.Hurts sacked at PHI 46 for -16 yards (J.Martin). FUMBLES (J.Martin), and recovers at WAS 47. J.Hurts to WAS 43 for 4 yards (N.Igbinoghene).",
+              "scoreValue": 0,
+              "team": {
+                "id": "21"
+              },
+              "probability": {
+                "tiePercentage": 0,
+                "homeWinPercentage": 0.4399,
+                "awayWinPercentage": 0.5601,
+                "secondsLeft": 0
+              },
+              "drive": {
+                "description": "8 plays, 38 yards, 3:05",
+                "start": {
+                  "yardLine": 81,
+                  "text": "PHI 19"
+                },
+                "timeElapsed": {
+                  "displayValue": "3:05"
+                }
+              },
+              "start": {
+                "yardLine": 38,
+                "team": {
+                  "id": "21"
+                }
+              },
+              "end": {
+                "yardLine": 43,
+                "team": {
+                  "id": "21"
+                }
+              },
+              "statYardage": -5,
+              "athletesInvolved": [
+                {
+                  "id": "4040715",
+                  "fullName": "Jalen Hurts",
+                  "displayName": "Jalen Hurts",
+                  "shortName": "J. Hurts",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4040715/jalen-hurts"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png",
+                  "jersey": "1",
+                  "position": "QB",
+                  "team": {
+                    "id": "21"
+                  }
+                }
+              ]
+            },
+            "down": 3,
+            "yardLine": 43,
+            "distance": 8,
+            "downDistanceText": "3rd & 8 at WSH 43",
+            "shortDownDistanceText": "3rd & 8",
+            "possessionText": "WSH 43",
+            "isRedZone": false,
+            "homeTimeouts": 1,
+            "awayTimeouts": 2,
+            "possession": "21"
+          },
           "status": {
-            "clock": 0,
-            "displayClock": "0:00",
-            "period": 0,
+            "clock": 35,
+            "displayClock": "0:35",
+            "period": 2,
             "type": {
-              "id": "1",
-              "name": "STATUS_SCHEDULED",
-              "state": "pre",
+              "id": "2",
+              "name": "STATUS_IN_PROGRESS",
+              "state": "in",
               "completed": false,
-              "description": "Scheduled",
-              "detail": "Sat, December 20th at 5:00 PM EST",
-              "shortDetail": "12/20 - 5:00 PM EST"
+              "description": "In Progress",
+              "detail": "0:35 - 2nd Quarter",
+              "shortDetail": "0:35 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -497,8 +354,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "2929 YDS, 22 TD, 6 INT",
-                  "value": 2929,
+                  "displayValue": "11/15, 108 YDS, 1 TD",
+                  "value": 108,
                   "athlete": {
                     "id": "4040715",
                     "fullName": "Jalen Hurts",
@@ -537,8 +394,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "240 CAR, 940 YDS, 6 TD",
-                  "value": 940,
+                  "displayValue": "9 CAR, 40 YDS",
+                  "value": 40,
                   "athlete": {
                     "id": "3929630",
                     "fullName": "Saquon Barkley",
@@ -577,13 +434,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "66 REC, 889 YDS, 3 TD",
-                  "value": 889,
+                  "displayValue": "7 REC, 82 YDS",
+                  "value": 82,
                   "athlete": {
-                    "id": "4241478",
-                    "fullName": "DeVonta Smith",
-                    "displayName": "DeVonta Smith",
-                    "shortName": "D. Smith",
+                    "id": "4047646",
+                    "fullName": "A.J. Brown",
+                    "displayName": "A.J. Brown",
+                    "shortName": "A.J. Brown",
                     "links": [
                       {
                         "rel": [
@@ -591,11 +448,11 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4241478/devonta-smith"
+                        "href": "https://www.espn.com/nfl/player/_/id/4047646/aj-brown"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241478.png",
-                    "jersey": "6",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4047646.png",
+                    "jersey": "11",
                     "position": {
                       "abbreviation": "WR"
                     },
@@ -616,20 +473,6 @@
               "periods": 4
             }
           },
-          "tickets": [
-            {
-              "summary": "Tickets as low as $101",
-              "numberAvailable": 477,
-              "links": [
-                {
-                  "href": "https://www.vividseats.com/washington-commanders-tickets-northwest-stadium-3-2-2026--sports-nfl-football/production/5470722?wsUser=717"
-                },
-                {
-                  "href": "https://www.vividseats.com/fedex-field-tickets/venue/549?wsUser=717"
-                }
-              ]
-            }
-          ],
           "startDate": "2025-12-20T22:00Z",
           "broadcast": "FOX",
           "geoBroadcasts": [
@@ -649,306 +492,6 @@
               "region": "us"
             }
           ],
-          "odds": [
-            {
-              "provider": {
-                "id": "100",
-                "name": "Draft Kings",
-                "priority": 1,
-                "logos": [
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Light.svg",
-                    "rel": [
-                      "light"
-                    ]
-                  },
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Dark.svg",
-                    "rel": [
-                      "dark"
-                    ]
-                  }
-                ],
-                "displayName": "Draft Kings"
-              },
-              "details": "PHI -7",
-              "overUnder": 44.5,
-              "spread": 7,
-              "awayTeamOdds": {
-                "favorite": true,
-                "underdog": false,
-                "team": {
-                  "id": "21",
-                  "uid": "s:20~l:28~t:21",
-                  "abbreviation": "PHI",
-                  "name": "Eagles",
-                  "displayName": "Philadelphia Eagles",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png"
-                },
-                "favoriteAtOpen": true
-              },
-              "homeTeamOdds": {
-                "favorite": false,
-                "underdog": true,
-                "team": {
-                  "id": "28",
-                  "uid": "s:20~l:28~t:28",
-                  "abbreviation": "WSH",
-                  "name": "Commanders",
-                  "displayName": "Washington Commanders",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png"
-                },
-                "favoriteAtOpen": false
-              },
-              "moneyline": {
-                "displayName": "Moneyline",
-                "shortDisplayName": "ML",
-                "home": {
-                  "close": {
-                    "odds": "+300",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "home",
-                        "desktop",
-                        "bets",
-                        "draft-kings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0ML79742953_1",
-                      "text": "Home Bet",
-                      "shortText": "Home Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "home",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "+210"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "odds": "-380",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "away",
-                        "desktop",
-                        "bets",
-                        "draft-kings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0ML79742953_3",
-                      "text": "Away Bet",
-                      "shortText": "Away Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "away",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "-258"
-                  }
-                }
-              },
-              "pointSpread": {
-                "displayName": "Spread",
-                "shortDisplayName": "Spread",
-                "home": {
-                  "close": {
-                    "line": "+7",
-                    "odds": "EVEN",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "homeSpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0HC79742953P700_1",
-                      "text": "Home Point Spread",
-                      "shortText": "Home Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:WSH+7"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "+5.5",
-                    "odds": "-110"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "line": "-7",
-                    "odds": "-120",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "awaySpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0HC79742953N700_3",
-                      "text": "Away Point Spread",
-                      "shortText": "Away Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:PHI-7"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "-5.5",
-                    "odds": "-110"
-                  }
-                }
-              },
-              "total": {
-                "displayName": "Total",
-                "shortDisplayName": "Total",
-                "over": {
-                  "close": {
-                    "line": "o44.5",
-                    "odds": "-105",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "over",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0OU79742953O4450_1",
-                      "text": "Over Odds",
-                      "shortText": "Over Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "over",
-                          "betType": "straight",
-                          "betDetails": "Over:44.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "o45.5",
-                    "odds": "-110"
-                  }
-                },
-                "under": {
-                  "close": {
-                    "line": "u44.5",
-                    "odds": "-115",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "under",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564%3Foutcomes%3D0OU79742953U4450_3",
-                      "text": "Under Odds",
-                      "shortText": "Under Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772612,
-                          "betSide": "under",
-                          "betType": "straight",
-                          "betDetails": "Under:44.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "u45.5",
-                    "odds": "-110"
-                  }
-                }
-              },
-              "link": {
-                "language": "en-US",
-                "rel": [
-                  "game",
-                  "desktop",
-                  "bets"
-                ],
-                "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225564",
-                "text": "See More Odds",
-                "shortText": "Game",
-                "isExternal": true,
-                "isPremium": false,
-                "tracking": {
-                  "campaign": "betting-integrations",
-                  "tags": {
-                    "league": "nfl",
-                    "sport": "football",
-                    "gameId": 401772612,
-                    "betSide": "none",
-                    "betType": "straight"
-                  }
-                }
-              },
-              "header": {
-                "logo": {
-                  "dark": "https://a.espncdn.com/i/espnbet/dark/espn-bet-square-off.svg",
-                  "light": "https://a.espncdn.com/i/espnbet/espn-bet-square-off.svg",
-                  "exclusivesLogoDark": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg",
-                  "exclusivesLogoLight": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg"
-                },
-                "text": "Game Odds"
-              },
-              "footer": {
-                "disclaimer": "Odds by DraftKings\nGAMBLING PROBLEM? CALL 1-800-GAMBLER, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY).\nPlease Gamble Responsibly. 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD).\n21+ and present in most states. (18+ DC/KY/NH/WY). Void in ONT/OR/NH. Eligibility restrictions apply. On behalf of Boot Hill Casino & Resort (KS). Terms: sportsbook.draftkings.com/promos."
-              }
-            }
-          ],
           "highlights": []
         }
       ],
@@ -956,28 +499,54 @@
         {
           "language": "en-US",
           "rel": [
-            "summary",
+            "live",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game/_/gameId/401772612/eagles-commanders",
+          "href": "https://www.espn.com/nfl/game?gameId=401772612",
           "text": "Gamecast",
           "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401772612",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401772612",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
         }
       ],
       "weather": {
-        "displayValue": "Mostly clear",
-        "temperature": 40,
-        "highTemperature": 40,
-        "conditionId": "34",
+        "displayValue": "33",
+        "temperature": 37,
+        "highTemperature": 37,
+        "conditionId": "Clear",
         "link": {
           "language": "en-US",
           "rel": [
             "20785"
           ],
-          "href": "http://www.accuweather.com/en/us/northwest-stadium-md/20781/hourly-weather-forecast/53589_poi?day=1&hbhhour=17&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/northwest-stadium-md/20781/current-weather/53589_poi?lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -985,17 +554,17 @@
         }
       },
       "status": {
-        "clock": 0,
-        "displayClock": "0:00",
-        "period": 0,
+        "clock": 35,
+        "displayClock": "0:35",
+        "period": 2,
         "type": {
-          "id": "1",
-          "name": "STATUS_SCHEDULED",
-          "state": "pre",
+          "id": "2",
+          "name": "STATUS_IN_PROGRESS",
+          "state": "in",
           "completed": false,
-          "description": "Scheduled",
-          "detail": "Sat, December 20th at 5:00 PM EST",
-          "shortDetail": "12/20 - 5:00 PM EST"
+          "description": "In Progress",
+          "detail": "0:35 - 2nd Quarter",
+          "shortDetail": "0:35 - 2nd"
         }
       }
     },
@@ -1615,8 +1184,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $375",
-              "numberAvailable": 643,
+              "summary": "Tickets as low as $424",
+              "numberAvailable": 370,
               "links": [
                 {
                   "href": "https://www.vividseats.com/chicago-bears-tickets-soldier-field-3-2-2026--sports-nfl-football/production/5470712?wsUser=717"
@@ -1665,10 +1234,11 @@
                       "dark"
                     ]
                   }
-                ]
+                ],
+                "displayName": "Draft Kings"
               },
               "details": "CHI -1.5",
-              "overUnder": 44.5,
+              "overUnder": 45.5,
               "spread": -1.5,
               "awayTeamOdds": {
                 "favorite": false,
@@ -1701,7 +1271,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-118",
+                    "odds": "-120",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1733,7 +1303,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-102",
+                    "odds": "EVEN",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1841,8 +1411,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o44.5",
-                    "odds": "-112",
+                    "line": "o45.5",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1850,7 +1420,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225522%3Foutcomes%3D0OU79742903O4450_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225522%3Foutcomes%3D0OU79742903O4550_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -1863,7 +1433,7 @@
                           "gameId": 401772613,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:44.5"
+                          "betDetails": "Over:45.5"
                         }
                       }
                     }
@@ -1875,8 +1445,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u44.5",
-                    "odds": "-108",
+                    "line": "u45.5",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1884,7 +1454,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225522%3Foutcomes%3D0OU79742903U4450_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225522%3Foutcomes%3D0OU79742903U4550_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -1897,7 +1467,7 @@
                           "gameId": 401772613,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:44.5"
+                          "betDetails": "Under:45.5"
                         }
                       }
                     }
@@ -1965,8 +1535,8 @@
       ],
       "weather": {
         "displayValue": "Clear",
-        "temperature": 34,
-        "highTemperature": 34,
+        "temperature": 38,
+        "highTemperature": 38,
         "conditionId": "33",
         "link": {
           "language": "en-US",
@@ -2611,8 +2181,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $44",
-              "numberAvailable": 1487,
+              "summary": "Tickets as low as $47",
+              "numberAvailable": 1453,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cleveland-browns-tickets-huntington-bank-field-3-4-2026--sports-nfl-football/production/5471086?wsUser=717"
@@ -2697,7 +2267,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+500",
+                    "odds": "+470",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2729,7 +2299,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-700",
+                    "odds": "-650",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3607,8 +3177,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $25",
-              "numberAvailable": 2683,
+              "summary": "Tickets as low as $24",
+              "numberAvailable": 2652,
               "links": [
                 {
                   "href": "https://www.vividseats.com/dallas-cowboys-tickets-att-stadium-3-8-2026--sports-nfl-football/production/5470575?wsUser=717"
@@ -3762,7 +3332,7 @@
                 "home": {
                   "close": {
                     "line": "-1.5",
-                    "odds": "-115",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3796,7 +3366,7 @@
                 "away": {
                   "close": {
                     "line": "+1.5",
-                    "odds": "-105",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3956,10 +3526,10 @@
         }
       ],
       "weather": {
-        "displayValue": "Showers",
-        "temperature": 55,
-        "highTemperature": 55,
-        "conditionId": "12",
+        "displayValue": "Rain",
+        "temperature": 56,
+        "highTemperature": 56,
+        "conditionId": "18",
         "link": {
           "language": "en-US",
           "rel": [
@@ -4604,7 +4174,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $34",
-              "numberAvailable": 2088,
+              "numberAvailable": 1959,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nissan-stadium-3-4-2026--sports-nfl-football/production/5472056?wsUser=717"
@@ -4952,10 +4522,10 @@
         }
       ],
       "weather": {
-        "displayValue": "Mostly cloudy",
-        "temperature": 48,
-        "highTemperature": 48,
-        "conditionId": "6",
+        "displayValue": "Intermittent clouds",
+        "temperature": 47,
+        "highTemperature": 47,
+        "conditionId": "4",
         "link": {
           "language": "en-US",
           "rel": [
@@ -5599,8 +5169,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $19",
-              "numberAvailable": 3457,
+              "summary": "Tickets as low as $23",
+              "numberAvailable": 3275,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-hard-rock-stadium-3-5-2026--sports-nfl-football/production/5471056?wsUser=717"
@@ -5652,7 +5222,7 @@
                 ]
               },
               "details": "CIN -4.5",
-              "overUnder": 47.5,
+              "overUnder": 48.5,
               "spread": 4.5,
               "awayTeamOdds": {
                 "favorite": true,
@@ -5754,7 +5324,7 @@
                 "home": {
                   "close": {
                     "line": "+4.5",
-                    "odds": "-110",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5788,7 +5358,7 @@
                 "away": {
                   "close": {
                     "line": "-4.5",
-                    "odds": "-110",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5825,8 +5395,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o47.5",
-                    "odds": "-112",
+                    "line": "o48.5",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5834,7 +5404,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225779%3Foutcomes%3D0OU79743208O4750_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225779%3Foutcomes%3D0OU79743208O4850_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -5847,7 +5417,7 @@
                           "gameId": 401772934,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:47.5"
+                          "betDetails": "Over:48.5"
                         }
                       }
                     }
@@ -5859,8 +5429,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u47.5",
-                    "odds": "-108",
+                    "line": "u48.5",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5868,7 +5438,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225779%3Foutcomes%3D0OU79743208U4750_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225779%3Foutcomes%3D0OU79743208U4850_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -5881,7 +5451,7 @@
                           "gameId": 401772934,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:47.5"
+                          "betDetails": "Under:48.5"
                         }
                       }
                     }
@@ -6595,8 +6165,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $13",
-              "numberAvailable": 3432,
+              "summary": "Tickets as low as $12",
+              "numberAvailable": 3323,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-orleans-saints-tickets-caesars-superdome-3-8-2026--sports-nfl-football/production/5470896?wsUser=717"
@@ -6945,8 +6515,8 @@
       ],
       "weather": {
         "displayValue": "Cloudy",
-        "temperature": 73,
-        "highTemperature": 73,
+        "temperature": 76,
+        "highTemperature": 76,
         "conditionId": "7",
         "link": {
           "language": "en-US",
@@ -7591,8 +7161,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $34",
-              "numberAvailable": 1948,
+              "summary": "Tickets as low as $38",
+              "numberAvailable": 1927,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-giants-tickets-metlife-stadium-3-5-2026--sports-nfl-football/production/5470601?wsUser=717"
@@ -7941,8 +7511,8 @@
       ],
       "weather": {
         "displayValue": "Mostly sunny",
-        "temperature": 46,
-        "highTemperature": 46,
+        "temperature": 45,
+        "highTemperature": 45,
         "conditionId": "2",
         "link": {
           "language": "en-US",
@@ -8587,8 +8157,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $80",
-              "numberAvailable": 1802,
+              "summary": "Tickets as low as $82",
+              "numberAvailable": 1704,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-bank-of-america-stadium-3-3-2026--sports-nfl-football/production/5470901?wsUser=717"
@@ -9583,8 +9153,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $183",
-              "numberAvailable": 1339,
+              "summary": "Tickets as low as $162",
+              "numberAvailable": 1185,
               "links": [
                 {
                   "href": "https://www.vividseats.com/denver-broncos-tickets-empower-field-at-mile-high-3-4-2026--sports-nfl-football/production/5472082?wsUser=717"
@@ -10579,8 +10149,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $9",
-              "numberAvailable": 4275,
+              "summary": "Tickets as low as $10",
+              "numberAvailable": 4107,
               "links": [
                 {
                   "href": "https://www.vividseats.com/arizona-cardinals-tickets-state-farm-stadium-3-4-2026--sports-nfl-football/production/5470302?wsUser=717"
@@ -10929,8 +10499,8 @@
       ],
       "weather": {
         "displayValue": "Sunny",
-        "temperature": 77,
-        "highTemperature": 77,
+        "temperature": 76,
+        "highTemperature": 76,
         "conditionId": "1",
         "link": {
           "language": "en-US",
@@ -11575,8 +11145,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $239",
-              "numberAvailable": 814,
+              "summary": "Tickets as low as $267",
+              "numberAvailable": 694,
               "links": [
                 {
                   "href": "https://www.vividseats.com/detroit-lions-tickets-ford-field-3-7-2026--sports-nfl-football/production/5470691?wsUser=717"
@@ -11661,7 +11231,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-325",
+                    "odds": "-345",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -11693,7 +11263,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+260",
+                    "odds": "+275",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -12572,7 +12142,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $94",
-              "numberAvailable": 1779,
+              "numberAvailable": 1503,
               "links": [
                 {
                   "href": "https://www.vividseats.com/houston-texans-tickets-nrg-stadium-3-5-2026--sports-nfl-football/production/5471853?wsUser=717"
@@ -13568,8 +13138,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $125",
-              "numberAvailable": 902,
+              "summary": "Tickets as low as $124",
+              "numberAvailable": 905,
               "links": [
                 {
                   "href": "https://www.vividseats.com/baltimore-ravens-tickets-mt-bank-stadium-3-4-2026--sports-nfl-football/production/5471031?wsUser=717"
@@ -14581,7 +14151,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $103",
-              "numberAvailable": 1073,
+              "numberAvailable": 1060,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-8-2026--sports-nfl-football/production/5471973?wsUser=717"
@@ -14949,8 +14519,8 @@
       ],
       "weather": {
         "displayValue": "Cloudy",
-        "temperature": 44,
-        "highTemperature": 44,
+        "temperature": 45,
+        "highTemperature": 45,
         "conditionId": "7",
         "link": {
           "language": "en-US",
