@@ -1862,11 +1862,6 @@
             // Build rationale
             prediction.rationale.push(`${prediction.winner} by ${margin} points`);
 
-            if (prediction.vegasSpread !== 'N/A') {
-                const vegasFav = parseFloat(prediction.vegasSpread) < 0 ? homeTeam : awayTeam;
-                prediction.rationale.push(`Vegas favors: ${vegasFav} by ${Math.abs(parseFloat(prediction.vegasSpread))} pts`);
-            }
-
             // Add efficiency context to rationale
             const winnerStats = prediction.winner === homeTeam ? homeStats : awayStats;
             prediction.rationale.push(`${prediction.winner} averages ${winnerStats.offensiveRating.toFixed(1)} ppg`);
