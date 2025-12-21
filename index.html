@@ -2017,6 +2017,7 @@
                 // Get our prediction from localStorage or generate one
                 const savedPrediction = predictions[game.id];
                 let prediction = null;
+                let predictionFailed = false;
 
                 if (savedPrediction && savedPrediction.prediction) {
                     prediction = savedPrediction.prediction;
@@ -2025,11 +2026,25 @@
                     try {
                         prediction = generatePrediction(game, null, null);
                         if (prediction.error) {
-                            continue; // Skip if we can't generate a prediction
+                            predictionFailed = true;
                         }
                     } catch (err) {
-                        continue; // Skip if prediction fails
+                        predictionFailed = true;
                     }
+                }
+
+                // Show completed game even if prediction failed
+                if (predictionFailed || !prediction) {
+                    weekResultsList.innerHTML += `
+                        <div class="result-item" style="opacity: 0.7;" onclick="document.getElementById('${game.id}').scrollIntoView({behavior: 'smooth', block: 'center'})">
+                            <div class="result-icon" style="background: #95a5a6;">-</div>
+                            <div class="result-teams">
+                                <div style="font-weight: bold;">${actualWinner} won</div>
+                                <div class="result-score">No prediction available • Actual: ${actualWinner} (${actualAwayScore}-${actualHomeScore})</div>
+                            </div>
+                        </div>
+                    `;
+                    continue;
                 }
 
                 const predictedWinner = prediction.winner;
