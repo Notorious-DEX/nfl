@@ -138,7 +138,7 @@ async function fetchLeagueStats() {
     }
 
     try {
-        // Fetch all weeks of current season
+        // Fetch all weeks of current season for game results
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
@@ -192,6 +192,56 @@ async function fetchLeagueStats() {
                 }
             } catch (error) {
                 // Continue if a week fails
+                continue;
+            }
+        }
+
+        // Fetch detailed team statistics from ESPN team endpoints
+        console.log('📊 Fetching detailed team statistics...');
+        for (const teamName in TEAM_DATA) {
+            const teamAbbrev = getTeamAbbreviation(teamName);
+            if (!teamAbbrev) continue;
+
+            try {
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}/statistics`,
+                    { timeout: 5000 }
+                );
+
+                if (!response.ok) continue;
+
+                const data = await response.json();
+
+                // Extract stats from the splits section (season totals)
+                if (data.splits && data.splits.categories) {
+                    for (const category of data.splits.categories) {
+                        if (!category.stats) continue;
+
+                        for (const stat of category.stats) {
+                            const value = parseFloat(stat.value) || 0;
+
+                            // Map stat names to our tracking
+                            switch(stat.name) {
+                                case 'rushingYardsPerGame':
+                                    teamStats[teamName].rushYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'passingYardsPerGame':
+                                    teamStats[teamName].passYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'opposingRushingYardsPerGame':
+                                case 'rushingYardsAllowedPerGame':
+                                    teamStats[teamName].rushYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'opposingPassingYardsPerGame':
+                                case 'passingYardsAllowedPerGame':
+                                    teamStats[teamName].passYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                // Continue if a team fails
                 continue;
             }
         }
@@ -327,45 +377,42 @@ function updateTeamStats(teamStats, statistics, isHome) {
 }
 
 async function fetchInjuries(games) {
-    console.log('🏥 Fetching injury reports from ESPN team endpoints...');
+    console.log('🏥 Fetching injury reports from Sleeper API...');
     const injuries = {};
 
     try {
-        // Fetch injury data for each team from ESPN's team endpoint
-        for (const teamName in TEAM_DATA) {
-            const teamAbbrev = getTeamAbbreviation(teamName);
-            if (!teamAbbrev) continue;
+        // Sleeper API provides free NFL injury data
+        const response = await fetch('https://api.sleeper.app/v1/players/nfl');
 
-            try {
-                const response = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}`,
-                    { timeout: 5000 }
-                );
+        if (!response.ok) {
+            console.log('⚠️  Could not fetch from Sleeper API');
+            return {};
+        }
 
-                if (!response.ok) continue;
+        const players = await response.json();
 
-                const data = await response.json();
+        // Group injuries by team
+        for (const playerId in players) {
+            const player = players[playerId];
 
-                // Check for injuries in the team data
-                if (data.team && data.team.injuries && Array.isArray(data.team.injuries)) {
-                    const teamInjuries = data.team.injuries.filter(inj =>
-                        inj.status && inj.status !== 'Active'
-                    );
+            // Check if player has injury status (not Healthy and has a team)
+            if (player.injury_status && player.injury_status !== 'Healthy' && player.team) {
+                // Map team abbreviations to full names
+                const teamName = getTeamNameFromAbbrev(player.team);
+                if (!teamName) continue;
 
-                    if (teamInjuries.length > 0) {
-                        injuries[teamName] = teamInjuries.map(inj => ({
-                            longComment: inj.longComment || inj.details || inj.status,
-                            status: inj.status,
-                            athlete: {
-                                displayName: inj.athlete?.displayName || inj.athlete?.fullName || 'Unknown',
-                                position: inj.athlete?.position?.abbreviation || ''
-                            }
-                        }));
-                    }
+                if (!injuries[teamName]) {
+                    injuries[teamName] = [];
                 }
-            } catch (error) {
-                // Skip this team if request fails
-                continue;
+
+                injuries[teamName].push({
+                    longComment: player.injury_notes || player.injury_body_part || player.injury_status,
+                    status: player.injury_status,
+                    athlete: {
+                        displayName: `${player.first_name || ''} ${player.last_name || ''}`.trim() || 'Unknown',
+                        position: player.position || ''
+                    }
+                });
             }
         }
 
@@ -376,6 +423,23 @@ async function fetchInjuries(games) {
         console.error('❌ Error fetching injuries:', error.message);
         return {};
     }
+}
+
+function getTeamNameFromAbbrev(abbrev) {
+    const abbrevToName = {
+        "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
+        "BUF": "Buffalo Bills", "CAR": "Carolina Panthers", "CHI": "Chicago Bears",
+        "CIN": "Cincinnati Bengals", "CLE": "Cleveland Browns", "DAL": "Dallas Cowboys",
+        "DEN": "Denver Broncos", "DET": "Detroit Lions", "GB": "Green Bay Packers",
+        "HOU": "Houston Texans", "IND": "Indianapolis Colts", "JAX": "Jacksonville Jaguars",
+        "KC": "Kansas City Chiefs", "LAR": "Los Angeles Rams", "LAC": "Los Angeles Chargers",
+        "LV": "Las Vegas Raiders", "MIA": "Miami Dolphins", "MIN": "Minnesota Vikings",
+        "NE": "New England Patriots", "NO": "New Orleans Saints", "NYG": "New York Giants",
+        "NYJ": "New York Jets", "PHI": "Philadelphia Eagles", "PIT": "Pittsburgh Steelers",
+        "SF": "San Francisco 49ers", "SEA": "Seattle Seahawks", "TB": "Tampa Bay Buccaneers",
+        "TEN": "Tennessee Titans", "WAS": "Washington Commanders"
+    };
+    return abbrevToName[abbrev] || null;
 }
 
 function getTeamAbbreviation(teamName) {
