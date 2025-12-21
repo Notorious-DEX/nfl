@@ -119,39 +119,6 @@ async function fetchGames() {
     }
 }
 
-async function fetchOdds(apiKey) {
-    console.log('💰 Fetching odds...');
-    if (!apiKey) {
-        console.log('⚠️  No API key provided, skipping odds');
-        return {};
-    }
-
-    try {
-        const response = await fetch(
-            `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h,spreads,totals&oddsFormat=american`,
-            { timeout: 10000 }
-        );
-
-        if (!response.ok) {
-            console.log(`⚠️  Odds API returned ${response.status}, skipping odds`);
-            return {};
-        }
-
-        const data = await response.json();
-        const oddsMap = {};
-
-        for (const game of data || []) {
-            oddsMap[game.id] = game;
-        }
-
-        console.log(`✅ Loaded odds for ${Object.keys(oddsMap).length} games`);
-        return oddsMap;
-    } catch (error) {
-        console.log(`⚠️  Error fetching odds: ${error.message}`);
-        return {};
-    }
-}
-
 async function fetchLeagueStats() {
     console.log('📊 Fetching league stats for all teams...');
 
@@ -364,31 +331,97 @@ async function fetchInjuries() {
     const injuries = {};
 
     try {
+        // Try to get injury data from team depth charts (more reliable)
         for (const teamName in TEAM_DATA) {
             const teamAbbrev = getTeamAbbreviation(teamName);
             if (!teamAbbrev) continue;
 
             try {
+                // Try the team API endpoint which includes injury data
                 const response = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}/injuries`,
-                    { timeout: 3000 }
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}`,
+                    { timeout: 5000 }
                 );
 
                 if (response.ok) {
                     const data = await response.json();
-                    if (data.injuries && data.injuries.length > 0) {
-                        injuries[teamName] = data.injuries.filter(inj =>
-                            inj.status !== 'Active' && inj.details?.fantasyStatus !== 'ACTIVE'
-                        );
+                    const teamInjuries = [];
+
+                    // Check if there's an injuries array in the response
+                    if (data.team?.injuries && data.team.injuries.length > 0) {
+                        teamInjuries.push(...data.team.injuries.filter(inj =>
+                            inj.status !== 'ACTIVE' && inj.status !== 'Active'
+                        ));
+                    }
+
+                    // Also check if there's a depthChart with injury info
+                    if (data.team?.depthChart) {
+                        for (const position of data.team.depthChart.positions || []) {
+                            for (const athlete of position.athletes || []) {
+                                if (athlete.injuries && athlete.injuries.length > 0) {
+                                    athlete.injuries.forEach(inj => {
+                                        if (inj.status !== 'ACTIVE' && inj.status !== 'Active') {
+                                            teamInjuries.push({
+                                                longComment: inj.longComment || inj.details || `${inj.status}`,
+                                                status: inj.status,
+                                                athlete: {
+                                                    displayName: athlete.displayName,
+                                                    position: position.name
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    }
+
+                    if (teamInjuries.length > 0) {
+                        injuries[teamName] = teamInjuries;
                     }
                 }
             } catch (error) {
-                // Continue if a team fails
-                continue;
+                // Try alternative endpoint - injuries specific
+                try {
+                    const injResponse = await fetch(
+                        `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/teams/${teamAbbrev}/injuries`,
+                        { timeout: 5000 }
+                    );
+
+                    if (injResponse.ok) {
+                        const injData = await injResponse.json();
+                        if (injData.items && injData.items.length > 0) {
+                            const teamInjuries = [];
+                            for (const item of injData.items) {
+                                try {
+                                    const detailResponse = await fetch(item.$ref, { timeout: 3000 });
+                                    if (detailResponse.ok) {
+                                        const detail = await detailResponse.json();
+                                        if (detail.status !== 'ACTIVE' && detail.status !== 'Active') {
+                                            teamInjuries.push({
+                                                longComment: detail.longComment || detail.details || `${detail.status}`,
+                                                status: detail.status,
+                                                athlete: detail.athlete || {}
+                                            });
+                                        }
+                                    }
+                                } catch (e) {
+                                    continue;
+                                }
+                            }
+                            if (teamInjuries.length > 0) {
+                                injuries[teamName] = teamInjuries;
+                            }
+                        }
+                    }
+                } catch (e2) {
+                    // Continue to next team
+                    continue;
+                }
             }
         }
 
-        console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams`);
+        console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams (${Object.values(injuries).flat().length} total injuries)`);
         return injuries;
     } catch (error) {
         console.error('❌ Error fetching injuries:', error.message);
@@ -451,12 +484,8 @@ async function calculateTeamAccuracy() {
 async function main() {
     console.log('🏈 NFL Data Cache Script Starting...\n');
 
-    // Get API key from environment variable
-    const apiKey = process.env.ODDS_API_KEY || '';
-
     // Fetch all data
     const { games, currentWeek } = await fetchGames();
-    const odds = await fetchOdds(apiKey);
     const leagueStats = await fetchLeagueStats();
     const injuries = await fetchInjuries();
     const teamAccuracy = await calculateTeamAccuracy();
@@ -466,7 +495,6 @@ async function main() {
         lastUpdated: new Date().toISOString(),
         currentWeek,
         games,
-        odds,
         leagueStats,
         injuries,
         teamAccuracy
@@ -480,7 +508,6 @@ async function main() {
     console.log(`📦 Saved to: cached-data.json`);
     console.log(`📅 Current week: ${currentWeek}`);
     console.log(`🎮 Games loaded: ${games.length}`);
-    console.log(`💰 Odds loaded: ${Object.keys(odds).length}`);
     console.log(`📊 Teams with stats: ${Object.keys(leagueStats.teams || {}).length}`);
     console.log(`🏥 Teams with injuries: ${Object.keys(injuries).length}`);
 }

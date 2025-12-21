@@ -4,8 +4,25 @@ on:
   schedule:
     # Run every Tuesday at 10 AM UTC (before week starts)
     - cron: '0 10 * * 2'
-    # Run daily at 6 AM UTC to check completed games
+
+    # Check results during and after games
+    # Thursday game day - check after game ends (midnight ET = 5am UTC Friday)
+    - cron: '0 5 * * 5'
+
+    # Saturday games - check after games end (midnight ET = 5am UTC Sunday)
+    - cron: '0 5 * * 0'
+
+    # Sunday games - check multiple times as games finish
+    - cron: '0 22 * * 0'  # After 1pm ET games (6pm ET = 11pm UTC)
+    - cron: '0 2 * * 1'   # After 4pm ET games (9pm ET = 2am UTC Monday)
+    - cron: '0 5 * * 1'   # After SNF (midnight ET = 5am UTC Monday)
+
+    # Monday game - check after game ends (midnight ET = 5am UTC Tuesday)
+    - cron: '0 5 * * 2'
+
+    # Daily backup check at 6 AM UTC
     - cron: '0 6 * * *'
+
   workflow_dispatch: # Allow manual triggers
   push:
     branches:

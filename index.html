@@ -49,48 +49,6 @@
             margin: 0.5rem 0;
         }
 
-        .api-setup {
-            background: rgba(52, 152, 219, 0.1);
-            border: 2px solid rgba(52, 152, 219, 0.3);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .api-setup h3 {
-            margin-bottom: 1rem;
-            color: #3498db;
-        }
-
-        .api-setup input {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.75rem;
-            margin: 1rem 0;
-            border-radius: 0.5rem;
-            border: 2px solid rgba(52, 152, 219, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .api-setup button {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .api-setup button:hover {
-            transform: scale(1.05);
-        }
-
         .scoreboard {
             background: rgba(52, 152, 219, 0.1);
             border-radius: 1rem;
@@ -766,15 +724,6 @@
             <div class="week-indicator" id="weekIndicator">Loading...</div>
         </header>
 
-        <div class="api-setup" id="apiSetup">
-            <h3>🔑 The Odds API Key Required</h3>
-            <p style="color: #95a5a6;">
-                Get your free API key from <a href="https://the-odds-api.com/" target="_blank" style="color: #3498db;">the-odds-api.com</a>
-            </p>
-            <input type="text" id="apiKeyInput" placeholder="Enter your API key here" />
-            <button onclick="saveApiKey()">Save & Load Predictions</button>
-        </div>
-
         <div class="scoreboard">
             <div class="scoreboard-content">
                 <div>
@@ -846,7 +795,6 @@
 
     <script>
         // ===== CONFIGURATION =====
-        let apiKey = localStorage.getItem('nfl_odds_api_key') || '';
         let predictions = JSON.parse(localStorage.getItem('nfl_predictions') || '{}');
         let accuracyStats = { correct: 0, total: 0 }; // Will be loaded from results.json
 
@@ -955,23 +903,8 @@
         fetchGlobalAccuracy();
         calculateTeamAccuracy();
 
-        if (apiKey) {
-            document.getElementById('apiKeyInput').value = apiKey;
-            document.getElementById('apiSetup').style.display = 'none';
-            loadAllData();
-        }
-
-        function saveApiKey() {
-            const input = document.getElementById('apiKeyInput');
-            apiKey = input.value.trim();
-            if (apiKey) {
-                localStorage.setItem('nfl_odds_api_key', apiKey);
-                document.getElementById('apiSetup').style.display = 'none';
-                loadAllData();
-            } else {
-                showError('Please enter a valid API key');
-            }
-        }
+        // Load data immediately
+        loadAllData();
 
         function showError(message) {
             const errorEl = document.getElementById('error');
@@ -1078,14 +1011,11 @@
                             return;
                         }
 
-                        // Convert cached odds to array format expected by displayGames
-                        const oddsData = Object.values(cachedData.odds || {});
-
                         // Refresh global accuracy (GitHub Actions updates this)
                         await fetchGlobalAccuracy();
 
                         // Display games with predictions
-                        await displayGames(games, oddsData);
+                        await displayGames(games, []);
 
                         // Start auto-refresh for live game updates
                         startAutoRefresh();
@@ -1120,19 +1050,11 @@
                         return;
                     }
 
-                    // Step 4: Fetch odds
-                    let oddsData = [];
-                    try {
-                        oddsData = await fetchOdds();
-                    } catch (e) {
-                        console.warn('Could not fetch odds:', e.message);
-                    }
-
-                    // Step 5: Refresh global accuracy (GitHub Actions updates this)
+                    // Step 4: Refresh global accuracy (GitHub Actions updates this)
                     await fetchGlobalAccuracy();
 
-                    // Step 6: Display games with predictions
-                    await displayGames(games, oddsData);
+                    // Step 5: Display games with predictions
+                    await displayGames(games, []);
 
                     // Step 7: Start auto-refresh for live game updates
                     startAutoRefresh();
@@ -1570,22 +1492,6 @@
             return games;
         }
 
-        // ===== FETCH ODDS =====
-        async function fetchOdds() {
-            if (!apiKey) return [];
-
-            console.log('💰 Fetching odds...');
-            const response = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=spreads,totals,h2h`);
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch odds');
-            }
-
-            const data = await response.json();
-            console.log(`✅ Fetched odds for ${data.length} games`);
-            return data;
-        }
-
         // ===== FETCH WEATHER =====
         async function fetchWeather(homeTeam, gameDate) {
             const teamInfo = TEAM_DATA[homeTeam];
@@ -1715,10 +1621,6 @@
                 awayTeam,
                 homeRecord,
                 awayRecord,
-                vegasSpread: 'N/A',
-                vegasTotal: 'N/A',
-                vegasHomeScore: null,
-                vegasAwayScore: null,
                 weather: weather,
                 rationale: [],
                 edges: [],
@@ -1729,28 +1631,6 @@
                     away: injuries[awayTeam] || []
                 }
             };
-
-            // Parse Vegas odds (for comparison only, NOT as base)
-            if (odds) {
-                const spreadsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'spreads');
-                const totalsMarket = odds.bookmakers?.[0]?.markets?.find(m => m.key === 'totals');
-
-                if (spreadsMarket) {
-                    const homeSpread = spreadsMarket.outcomes.find(o => o.name === homeTeam);
-                    prediction.vegasSpread = homeSpread?.point || 'N/A';
-                }
-                if (totalsMarket) {
-                    prediction.vegasTotal = totalsMarket.outcomes[0]?.point || 'N/A';
-                }
-
-                // Calculate Vegas implied scores
-                if (prediction.vegasSpread !== 'N/A' && prediction.vegasTotal !== 'N/A') {
-                    const spread = parseFloat(prediction.vegasSpread);
-                    const total = parseFloat(prediction.vegasTotal);
-                    prediction.vegasHomeScore = Math.round((total - spread) / 2);
-                    prediction.vegasAwayScore = Math.round((total + spread) / 2);
-                }
-            }
 
             // ===== EFFICIENCY RATING FORMULA =====
             // Away projected points = (Away offensive rating + Home defensive rating) / 2
@@ -1978,28 +1858,6 @@
 
             prediction.winner = prediction.homeScore > prediction.awayScore ? homeTeam : awayTeam;
             const margin = Math.abs(prediction.homeScore - prediction.awayScore);
-
-            // ===== DEVIATION ANALYSIS (Compare to Vegas) =====
-            if (prediction.vegasHomeScore && prediction.vegasAwayScore) {
-                const scoreDiff = (prediction.homeScore - prediction.awayScore) - (prediction.vegasHomeScore - prediction.vegasAwayScore);
-                const totalDiff = (prediction.homeScore + prediction.awayScore) - (prediction.vegasHomeScore + prediction.vegasAwayScore);
-
-                prediction.deviation.push(`BRObet: ${homeTeam} ${prediction.homeScore}, ${awayTeam} ${prediction.awayScore}`);
-                prediction.deviation.push(`Vegas: ${homeTeam} ${prediction.vegasHomeScore}, ${awayTeam} ${prediction.vegasAwayScore}`);
-
-                if (Math.abs(scoreDiff) > 3) {
-                    const favorsTeam = scoreDiff > 0 ? homeTeam : awayTeam;
-                    prediction.deviation.push(`🔥 BRObet favors ${favorsTeam} ${Math.abs(scoreDiff).toFixed(1)} pts more than Vegas`);
-                    prediction.rationale.push(`Significant deviation from Vegas (${Math.abs(scoreDiff).toFixed(1)} pt spread difference)`);
-                } else {
-                    prediction.deviation.push(`✓ Close agreement with Vegas (${Math.abs(scoreDiff).toFixed(1)} pt spread difference)`);
-                }
-
-                if (Math.abs(totalDiff) > 6) {
-                    const direction = totalDiff > 0 ? 'OVER' : 'UNDER';
-                    prediction.deviation.push(`📊 ${direction} Vegas total by ${Math.abs(totalDiff).toFixed(1)} pts`);
-                }
-            }
 
             // Build rationale
             prediction.rationale.push(`${prediction.winner} by ${margin} points`);
@@ -2354,15 +2212,6 @@
                 calculationsHTML += '</div>';
             }
 
-            let deviationHTML = '';
-            if (prediction.deviation && prediction.deviation.length > 0) {
-                deviationHTML = '<div class="rationale" style="margin-top: 1rem; background: rgba(52, 152, 219, 0.15);"><strong>📊 Deviation from Vegas:</strong>';
-                prediction.deviation.forEach(dev => {
-                    deviationHTML += `<div class="rationale-item">→ ${dev}</div>`;
-                });
-                deviationHTML += '</div>';
-            }
-
             let edgesHTML = '';
             if (prediction.edges.length > 0) {
                 edgesHTML = '<div class="prediction-section"><div class="prediction-title">⚡ Key Matchup Edges</div>';
@@ -2448,7 +2297,6 @@
                             <div class="winner-name">${prediction.winner}</div>
                             <div class="confidence">Confidence: ${prediction.confidence}</div>
                             ${rationaleHTML}
-                            ${deviationHTML}
                             ${calculationsHTML}
                         </div>
 
@@ -2456,36 +2304,14 @@
                         ${injuryHTML}
 
                         <div class="prediction-section">
-                            <div class="prediction-title">📊 Score Predictions</div>
+                            <div class="prediction-title">📊 Score Prediction</div>
                             <div class="prediction-grid">
                                 <div class="pred-stat">
                                     <div class="pred-label">🏈 BRObet</div>
                                     <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
                                 </div>
-                                ${prediction.vegasHomeScore ? `
-                                <div class="pred-stat">
-                                    <div class="pred-label">💰 Vegas</div>
-                                    <div class="pred-value" style="font-size: 1.5rem; color: #f39c12;">${prediction.vegasHomeScore} - ${prediction.vegasAwayScore}</div>
-                                </div>
-                                ` : ''}
                             </div>
                         </div>
-
-                        ${prediction.vegasSpread !== 'N/A' ? `
-                        <div class="prediction-section">
-                            <div class="prediction-title">💰 Vegas Betting Lines</div>
-                            <div class="stats-breakdown">
-                                <div class="stat-row">
-                                    <span>Spread:</span>
-                                    <strong>${prediction.homeTeam} ${prediction.vegasSpread}</strong>
-                                </div>
-                                <div class="stat-row">
-                                    <span>Over/Under:</span>
-                                    <strong>${prediction.vegasTotal}</strong>
-                                </div>
-                            </div>
-                        </div>
-                        ` : ''}
                     </div>
                 </div>
             `;
