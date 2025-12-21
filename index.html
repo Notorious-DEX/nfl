@@ -2222,16 +2222,18 @@
                 if (prediction.injuries.home.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.homeTeam}:</strong>`;
                     prediction.injuries.home.slice(0, 3).forEach(inj => {
-                        const truncated = inj.headline.substring(0, 80) + (inj.headline.length > 80 ? '...' : '');
-                        injuryHTML += `<div class="injury-item">• <a href="${inj.link}" target="_blank" rel="noopener noreferrer">${truncated}</a></div>`;
+                        const injuryText = `${inj.athlete?.displayName || 'Unknown'} (${inj.athlete?.position || 'N/A'}) - ${inj.status || 'Injured'}`;
+                        const comment = inj.longComment ? `: ${inj.longComment}` : '';
+                        injuryHTML += `<div class="injury-item">• ${injuryText}${comment}</div>`;
                     });
                     injuryHTML += '</div>';
                 }
                 if (prediction.injuries.away.length > 0) {
                     injuryHTML += `<div class="injuries"><strong>${prediction.awayTeam}:</strong>`;
                     prediction.injuries.away.slice(0, 3).forEach(inj => {
-                        const truncated = inj.headline.substring(0, 80) + (inj.headline.length > 80 ? '...' : '');
-                        injuryHTML += `<div class="injury-item">• <a href="${inj.link}" target="_blank" rel="noopener noreferrer">${truncated}</a></div>`;
+                        const injuryText = `${inj.athlete?.displayName || 'Unknown'} (${inj.athlete?.position || 'N/A'}) - ${inj.status || 'Injured'}`;
+                        const comment = inj.longComment ? `: ${inj.longComment}` : '';
+                        injuryHTML += `<div class="injury-item">• ${injuryText}${comment}</div>`;
                     });
                     injuryHTML += '</div>';
                 }
