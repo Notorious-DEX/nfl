@@ -216,6 +216,7 @@ async function fetchLeagueStats() {
 
                 // Extract stats from the splits section (season totals)
                 if (data.splits && data.splits.categories) {
+                    let foundStats = false;
                     for (const category of data.splits.categories) {
                         if (!category.stats) continue;
 
@@ -225,21 +226,33 @@ async function fetchLeagueStats() {
                             // Map stat names to our tracking
                             switch(stat.name) {
                                 case 'rushingYardsPerGame':
+                                case 'avgRushingYards':
                                     teamStats[teamName].rushYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    foundStats = true;
                                     break;
                                 case 'passingYardsPerGame':
+                                case 'avgPassingYards':
                                     teamStats[teamName].passYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    foundStats = true;
                                     break;
                                 case 'opposingRushingYardsPerGame':
                                 case 'rushingYardsAllowedPerGame':
+                                case 'avgRushingYardsAllowed':
                                     teamStats[teamName].rushYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    foundStats = true;
                                     break;
                                 case 'opposingPassingYardsPerGame':
                                 case 'passingYardsAllowedPerGame':
+                                case 'avgPassingYardsAllowed':
                                     teamStats[teamName].passYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    foundStats = true;
                                     break;
                             }
                         }
+                    }
+                    if (!foundStats && teamName === 'Kansas City Chiefs') {
+                        console.log('⚠️  No matching stats found for KC. Available stat names:',
+                            data.splits.categories.flatMap(c => c.stats?.map(s => s.name) || []).slice(0, 20));
                     }
                 }
             } catch (error) {
