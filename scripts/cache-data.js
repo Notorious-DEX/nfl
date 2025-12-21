@@ -16,6 +16,14 @@ const fs = require('fs');
 const path = require('path');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
+// Debug logging
+const debugLog = [];
+function log(message, data = null) {
+    const entry = { timestamp: new Date().toISOString(), message, data };
+    debugLog.push(entry);
+    console.log(message, data || '');
+}
+
 const TEAM_DATA = {
     "Arizona Cardinals": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png", color: "#97233F", lat: 33.5276, lon: -112.2626 },
     "Atlanta Falcons": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png", color: "#A71930", lat: 33.7554, lon: -84.4008 },
@@ -141,6 +149,9 @@ async function fetchLeagueStats() {
         // Fetch all weeks of current season for game results
         // NFL season year is the year the season started (2025 for 2025-2026 season)
         const seasonYear = 2025;
+        let gamesProcessed = 0;
+        let gamesWithStats = 0;
+
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
@@ -165,6 +176,8 @@ async function fetchLeagueStats() {
 
                     if (!teamStats[homeTeam] || !teamStats[awayTeam]) continue;
 
+                    gamesProcessed++;
+
                     // Update game counts and records
                     teamStats[homeTeam].gamesPlayed++;
                     teamStats[awayTeam].gamesPlayed++;
@@ -188,25 +201,50 @@ async function fetchLeagueStats() {
 
                     // Extract detailed stats if available
                     if (homeComp.statistics && awayComp.statistics) {
+                        gamesWithStats++;
                         updateTeamStats(teamStats[homeTeam], homeComp.statistics, true);
                         updateTeamStats(teamStats[awayTeam], awayComp.statistics, false);
+                    } else {
+                        // Log first game missing statistics for debugging
+                        if (gamesProcessed <= 3) {
+                            log(`⚠️  Week ${week} game missing statistics: ${awayTeam} @ ${homeTeam}`);
+                            log('Available fields in homeComp:', Object.keys(homeComp));
+                            if (homeComp.statistics) {
+                                log('Statistics structure:', homeComp.statistics.slice(0, 3));
+                            }
+                        }
                     }
                 }
             } catch (error) {
-                // Continue if a week fails
+                log(`❌ Error fetching week ${week}:`, error.message);
                 continue;
             }
         }
 
+        log(`📊 Processed ${gamesProcessed} completed games`);
+        log(`📊 Games with statistics: ${gamesWithStats}/${gamesProcessed}`);
+
         // Log summary of extracted stats
         let teamsWithRushYards = 0;
         let teamsWithPassYards = 0;
+        const sampleTeamStats = {};
         for (const teamName in teamStats) {
             if (teamStats[teamName].rushYards > 0) teamsWithRushYards++;
             if (teamStats[teamName].passYards > 0) teamsWithPassYards++;
+
+            // Sample first 3 teams for debugging
+            if (Object.keys(sampleTeamStats).length < 3) {
+                sampleTeamStats[teamName] = {
+                    gamesPlayed: teamStats[teamName].gamesPlayed,
+                    rushYards: teamStats[teamName].rushYards,
+                    passYards: teamStats[teamName].passYards,
+                    pointsScored: teamStats[teamName].pointsScored
+                };
+            }
         }
-        console.log(`📊 Teams with rushing yards: ${teamsWithRushYards}/32`);
-        console.log(`📊 Teams with passing yards: ${teamsWithPassYards}/32`);
+        log(`📊 Teams with rushing yards: ${teamsWithRushYards}/32`);
+        log(`📊 Teams with passing yards: ${teamsWithPassYards}/32`);
+        log('📊 Sample team stats:', JSON.stringify(sampleTeamStats, null, 2));
 
         // If we didn't get statistics from scoreboard, we cannot calculate rankings
         if (teamsWithRushYards === 0 || teamsWithPassYards === 0) {
@@ -486,8 +524,13 @@ async function main() {
     const outputPath = path.join(__dirname, '..', 'cached-data.json');
     fs.writeFileSync(outputPath, JSON.stringify(cachedData, null, 2));
 
+    // Save debug log
+    const debugPath = path.join(__dirname, '..', 'cache-debug.log');
+    fs.writeFileSync(debugPath, JSON.stringify(debugLog, null, 2));
+
     console.log('\n✅ Cache complete!');
     console.log(`📦 Saved to: cached-data.json`);
+    console.log(`📝 Debug log: cache-debug.log`);
     console.log(`📅 Current week: ${currentWeek}`);
     console.log(`🎮 Games loaded: ${games.length}`);
     console.log(`📊 Teams with stats: ${Object.keys(leagueStats.teams || {}).length}`);
