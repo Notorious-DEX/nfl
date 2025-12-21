@@ -144,8 +144,8 @@ async function fetchLeagueStats() {
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${seasonYear}&seasontype=2&week=${week}`,
-                    { timeout: 5000 }
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${seasonYear}&seasontype=2&week=${week}&limit=100`,
+                    { timeout: 10000 }
                 );
                 const data = await response.json();
 
@@ -186,14 +186,10 @@ async function fetchLeagueStats() {
                     teamStats[awayTeam].pointsScored += awayScore;
                     teamStats[awayTeam].pointsAllowed += homeScore;
 
-                    // Try to get detailed stats if available
+                    // Extract detailed stats if available
                     if (homeComp.statistics && awayComp.statistics) {
                         updateTeamStats(teamStats[homeTeam], homeComp.statistics, true);
                         updateTeamStats(teamStats[awayTeam], awayComp.statistics, false);
-                    } else if (week === 1 && homeTeam === 'Kansas City Chiefs') {
-                        // Debug: check why statistics aren't available
-                        console.log('⚠️  No statistics in scoreboard for KC week 1. Available fields:',
-                            Object.keys(homeComp).join(', '));
                     }
                 }
             } catch (error) {
@@ -202,73 +198,21 @@ async function fetchLeagueStats() {
             }
         }
 
-        // Fetch team statistics from ESPN standings which includes yards per game
-        console.log('📊 Fetching team statistics from standings...');
-        try {
-            const standingsResponse = await fetch(
-                'https://site.api.espn.com/apis/site/v2/sports/football/nfl/standings',
-                { timeout: 5000 }
-            );
-
-            if (standingsResponse.ok) {
-                const standingsData = await standingsResponse.json();
-
-                // The standings include team stats
-                if (standingsData.children) {
-                    for (const conference of standingsData.children) {
-                        for (const division of conference.standings.entries) {
-                            const teamName = division.team.displayName;
-                            if (!teamStats[teamName]) continue;
-
-                            // Extract stats from the stats array
-                            if (division.stats) {
-                                for (const stat of division.stats) {
-                                    const value = parseFloat(stat.value) || 0;
-
-                                    switch(stat.name) {
-                                        case 'avgPointsFor':
-                                        case 'pointsFor':
-                                            if (stat.name === 'avgPointsFor') {
-                                                teamStats[teamName].pointsScored = value * (teamStats[teamName].gamesPlayed || 1);
-                                            }
-                                            break;
-                                        case 'avgPointsAgainst':
-                                        case 'pointsAgainst':
-                                            if (stat.name === 'avgPointsAgainst') {
-                                                teamStats[teamName].pointsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
-                                            }
-                                            break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (error) {
-            console.log('⚠️  Could not fetch standings data:', error.message);
-        }
-
-        // Since ESPN doesn't provide detailed rushing/passing yards easily,
-        // estimate based on league averages and offensive/defensive ratings
-        console.log('📊 Estimating rushing/passing yards from offensive ratings...');
+        // Log summary of extracted stats
+        let teamsWithRushYards = 0;
+        let teamsWithPassYards = 0;
         for (const teamName in teamStats) {
-            const games = teamStats[teamName].gamesPlayed || 1;
-            const offRating = teamStats[teamName].pointsScored / games;
-            const defRating = teamStats[teamName].pointsAllowed / games;
+            if (teamStats[teamName].rushYards > 0) teamsWithRushYards++;
+            if (teamStats[teamName].passYards > 0) teamsWithPassYards++;
+        }
+        console.log(`📊 Teams with rushing yards: ${teamsWithRushYards}/32`);
+        console.log(`📊 Teams with passing yards: ${teamsWithPassYards}/32`);
 
-            // NFL average is roughly 110 rush yards and 220 pass yards per game
-            // Estimate based on offensive rating (higher scoring = more yards)
-            const avgOffRating = 22; // NFL average points per game
-            const offMultiplier = offRating / avgOffRating;
-
-            teamStats[teamName].rushYards = 110 * offMultiplier * games;
-            teamStats[teamName].passYards = 220 * offMultiplier * games;
-
-            // Defensive stats (inverse relationship - higher points allowed = more yards allowed)
-            const defMultiplier = defRating / avgOffRating;
-            teamStats[teamName].rushYardsAllowed = 110 * defMultiplier * games;
-            teamStats[teamName].passYardsAllowed = 220 * defMultiplier * games;
+        // If we didn't get statistics from scoreboard, we cannot calculate rankings
+        if (teamsWithRushYards === 0 || teamsWithPassYards === 0) {
+            console.error('❌ No rushing/passing statistics found in scoreboard data');
+            console.log('⚠️  Cannot generate predictions without real statistics');
+            return { teams: {}, rankings: {}, hasData: false };
         }
 
         // Calculate per-game averages
