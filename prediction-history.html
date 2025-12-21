@@ -440,6 +440,9 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
     <script>
         let allGames = [];
         let filteredGames = [];
@@ -857,23 +860,22 @@
         // Back to Top button functionality
         const backToTopButton = document.getElementById('backToTop');
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
             });
-        });
-    </script>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to top">↑</button>
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
 </body>
 </html>
