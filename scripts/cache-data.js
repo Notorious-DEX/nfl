@@ -138,7 +138,7 @@ async function fetchLeagueStats() {
     }
 
     try {
-        // Fetch all weeks of current season
+        // Fetch all weeks of current season for game results
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
@@ -192,6 +192,56 @@ async function fetchLeagueStats() {
                 }
             } catch (error) {
                 // Continue if a week fails
+                continue;
+            }
+        }
+
+        // Fetch detailed team statistics from ESPN team endpoints
+        console.log('📊 Fetching detailed team statistics...');
+        for (const teamName in TEAM_DATA) {
+            const teamAbbrev = getTeamAbbreviation(teamName);
+            if (!teamAbbrev) continue;
+
+            try {
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}/statistics`,
+                    { timeout: 5000 }
+                );
+
+                if (!response.ok) continue;
+
+                const data = await response.json();
+
+                // Extract stats from the splits section (season totals)
+                if (data.splits && data.splits.categories) {
+                    for (const category of data.splits.categories) {
+                        if (!category.stats) continue;
+
+                        for (const stat of category.stats) {
+                            const value = parseFloat(stat.value) || 0;
+
+                            // Map stat names to our tracking
+                            switch(stat.name) {
+                                case 'rushingYardsPerGame':
+                                    teamStats[teamName].rushYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'passingYardsPerGame':
+                                    teamStats[teamName].passYards = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'opposingRushingYardsPerGame':
+                                case 'rushingYardsAllowedPerGame':
+                                    teamStats[teamName].rushYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                                case 'opposingPassingYardsPerGame':
+                                case 'passingYardsAllowedPerGame':
+                                    teamStats[teamName].passYardsAllowed = value * (teamStats[teamName].gamesPlayed || 1);
+                                    break;
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                // Continue if a team fails
                 continue;
             }
         }
