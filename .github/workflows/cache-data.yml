@@ -52,8 +52,6 @@ jobs:
         run: npm install node-fetch
 
       - name: Run cache script
-        env:
-          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: node scripts/cache-data.js
 
       - name: Commit and push cached data

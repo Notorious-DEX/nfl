@@ -119,39 +119,6 @@ async function fetchGames() {
     }
 }
 
-async function fetchOdds(apiKey) {
-    console.log('💰 Fetching odds...');
-    if (!apiKey) {
-        console.log('⚠️  No API key provided, skipping odds');
-        return {};
-    }
-
-    try {
-        const response = await fetch(
-            `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h,spreads,totals&oddsFormat=american`,
-            { timeout: 10000 }
-        );
-
-        if (!response.ok) {
-            console.log(`⚠️  Odds API returned ${response.status}, skipping odds`);
-            return {};
-        }
-
-        const data = await response.json();
-        const oddsMap = {};
-
-        for (const game of data || []) {
-            oddsMap[game.id] = game;
-        }
-
-        console.log(`✅ Loaded odds for ${Object.keys(oddsMap).length} games`);
-        return oddsMap;
-    } catch (error) {
-        console.log(`⚠️  Error fetching odds: ${error.message}`);
-        return {};
-    }
-}
-
 async function fetchLeagueStats() {
     console.log('📊 Fetching league stats for all teams...');
 
@@ -451,12 +418,8 @@ async function calculateTeamAccuracy() {
 async function main() {
     console.log('🏈 NFL Data Cache Script Starting...\n');
 
-    // Get API key from environment variable
-    const apiKey = process.env.ODDS_API_KEY || '';
-
     // Fetch all data
     const { games, currentWeek } = await fetchGames();
-    const odds = await fetchOdds(apiKey);
     const leagueStats = await fetchLeagueStats();
     const injuries = await fetchInjuries();
     const teamAccuracy = await calculateTeamAccuracy();
@@ -466,7 +429,6 @@ async function main() {
         lastUpdated: new Date().toISOString(),
         currentWeek,
         games,
-        odds,
         leagueStats,
         injuries,
         teamAccuracy
@@ -480,7 +442,6 @@ async function main() {
     console.log(`📦 Saved to: cached-data.json`);
     console.log(`📅 Current week: ${currentWeek}`);
     console.log(`🎮 Games loaded: ${games.length}`);
-    console.log(`💰 Odds loaded: ${Object.keys(odds).length}`);
     console.log(`📊 Teams with stats: ${Object.keys(leagueStats.teams || {}).length}`);
     console.log(`🏥 Teams with injuries: ${Object.keys(injuries).length}`);
 }
