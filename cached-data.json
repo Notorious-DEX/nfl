@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-21T21:53:35.142Z",
+  "lastUpdated": "2025-12-21T22:11:33.638Z",
   "currentWeek": 16,
   "games": [
     {
@@ -110,7 +110,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/den.png"
               },
-              "score": "7",
+              "score": "10",
               "linescores": [
                 {
                   "value": 0,
@@ -118,8 +118,8 @@
                   "period": 1
                 },
                 {
-                  "value": 7,
-                  "displayValue": "7",
+                  "value": 10,
+                  "displayValue": "10",
                   "period": 2
                 }
               ],
@@ -248,62 +248,85 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017729131237",
+              "id": "4017729131612",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "24",
+                "text": "Pass Reception",
+                "abbreviation": "REC"
               },
-              "text": "Official Timeout at 12:46.",
+              "text": "T.Lawrence pass deep right to B.Strange to DEN 26 for 23 yards (T.Hufanga).",
               "scoreValue": 0,
               "team": {
-                "id": "7"
+                "id": "30"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.5476,
-                "awayWinPercentage": 0.4524,
+                "homeWinPercentage": 0.5458,
+                "awayWinPercentage": 0.45420000000000005,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "5 plays, 65 yards, 2:21",
+                "description": "4 plays, 33 yards, 1:38",
                 "start": {
-                  "yardLine": 35,
-                  "text": "DEN 35"
-                },
-                "end": {
-                  "yardLine": 100,
-                  "text": "JAX 0"
+                  "yardLine": 59,
+                  "text": "JAX 41"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:21"
-                },
-                "result": "TD"
+                  "displayValue": "1:38"
+                }
               },
               "start": {
-                "yardLine": 85,
+                "yardLine": 49,
                 "team": {
-                  "id": "7"
+                  "id": "30"
                 }
               },
               "end": {
-                "yardLine": 85,
+                "yardLine": 26,
                 "team": {
-                  "id": "7"
+                  "id": "30"
                 }
               },
-              "statYardage": 0
+              "statYardage": 23,
+              "athletesInvolved": [
+                {
+                  "id": "4430539",
+                  "fullName": "Brenton Strange",
+                  "displayName": "Brenton Strange",
+                  "shortName": "B. Strange",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4430539/brenton-strange"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430539.png",
+                  "jersey": "85",
+                  "position": "TE",
+                  "team": {
+                    "id": "30"
+                  }
+                }
+              ]
             },
-            "down": -1,
-            "yardLine": 85,
-            "distance": 0,
-            "isRedZone": true,
+            "down": 1,
+            "yardLine": 26,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at DEN 26",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "DEN 26",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 1
+            "awayTimeouts": 1,
+            "possession": "30"
           },
           "status": {
-            "clock": 766,
-            "displayClock": "12:46",
+            "clock": 452,
+            "displayClock": "7:32",
             "period": 2,
             "type": {
               "id": "2",
@@ -311,8 +334,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "12:46 - 2nd Quarter",
-              "shortDetail": "12:46 - 2nd"
+              "detail": "7:32 - 2nd Quarter",
+              "shortDetail": "7:32 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -332,8 +355,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "7/10, 97 YDS, 1 TD",
-                  "value": 97,
+                  "displayValue": "9/13, 131 YDS, 1 TD",
+                  "value": 131,
                   "athlete": {
                     "id": "4426338",
                     "fullName": "Bo Nix",
@@ -516,8 +539,8 @@
       ],
       "weather": {
         "displayValue": "2",
-        "temperature": 64,
-        "highTemperature": 64,
+        "temperature": 61,
+        "highTemperature": 61,
         "conditionId": "Mostly sunny",
         "link": {
           "language": "en-US",
@@ -532,8 +555,8 @@
         }
       },
       "status": {
-        "clock": 766,
-        "displayClock": "12:46",
+        "clock": 452,
+        "displayClock": "7:32",
         "period": 2,
         "type": {
           "id": "2",
@@ -541,8 +564,575 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "12:46 - 2nd Quarter",
-          "shortDetail": "12:46 - 2nd"
+          "detail": "7:32 - 2nd Quarter",
+          "shortDetail": "7:32 - 2nd"
+        }
+      }
+    },
+    {
+      "id": "401772914",
+      "uid": "s:20~l:28~e:401772914",
+      "date": "2025-12-21T21:05Z",
+      "name": "Atlanta Falcons at Arizona Cardinals",
+      "shortName": "ATL @ ARI",
+      "season": {
+        "year": 2025,
+        "type": 2,
+        "slug": "regular-season"
+      },
+      "week": {
+        "number": 16
+      },
+      "competitions": [
+        {
+          "id": "401772914",
+          "uid": "s:20~l:28~e:401772914~c:401772914",
+          "date": "2025-12-21T21:05Z",
+          "attendance": 0,
+          "type": {
+            "id": "1",
+            "abbreviation": "STD"
+          },
+          "timeValid": true,
+          "neutralSite": false,
+          "conferenceCompetition": false,
+          "playByPlayAvailable": true,
+          "recent": true,
+          "venue": {
+            "id": "3970",
+            "fullName": "State Farm Stadium",
+            "address": {
+              "city": "Glendale",
+              "state": "AZ",
+              "country": "USA"
+            },
+            "indoor": true
+          },
+          "competitors": [
+            {
+              "id": "22",
+              "uid": "s:20~l:28~t:22",
+              "type": "team",
+              "order": 0,
+              "homeAway": "home",
+              "team": {
+                "id": "22",
+                "uid": "s:20~l:28~t:22",
+                "location": "Arizona",
+                "name": "Cardinals",
+                "abbreviation": "ARI",
+                "displayName": "Arizona Cardinals",
+                "shortDisplayName": "Cardinals",
+                "color": "a40227",
+                "alternateColor": "ffffff",
+                "isActive": true,
+                "venue": {
+                  "id": "3970"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/ari/arizona-cardinals",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/ari/arizona-cardinals",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/ari/arizona-cardinals",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/ari",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ari.png"
+              },
+              "score": "13",
+              "linescores": [
+                {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 1
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-11"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-6"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "2-5"
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "uid": "s:20~l:28~t:1",
+              "type": "team",
+              "order": 1,
+              "homeAway": "away",
+              "team": {
+                "id": "1",
+                "uid": "s:20~l:28~t:1",
+                "location": "Atlanta",
+                "name": "Falcons",
+                "abbreviation": "ATL",
+                "displayName": "Atlanta Falcons",
+                "shortDisplayName": "Falcons",
+                "color": "a71930",
+                "alternateColor": "000000",
+                "isActive": true,
+                "venue": {
+                  "id": "5348"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/atl/atlanta-falcons",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/atl/atlanta-falcons",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/atl/atlanta-falcons",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/atl",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png"
+              },
+              "score": "10",
+              "linescores": [
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "5-9"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-4"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "3-5"
+                }
+              ]
+            }
+          ],
+          "notes": [],
+          "situation": {
+            "lastPlay": {
+              "id": "4017729141500",
+              "type": {
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
+              },
+              "text": "C.Kiner left tackle to ATL 44 for 4 yards (X.Watts; K.Street). ARZ-H.Froholdt was injured during the play.",
+              "scoreValue": 0,
+              "team": {
+                "id": "22"
+              },
+              "probability": {
+                "tiePercentage": 0,
+                "homeWinPercentage": 0.6595,
+                "awayWinPercentage": 0.3405,
+                "secondsLeft": 0
+              },
+              "drive": {
+                "description": "4 plays, 21 yards, 2:03",
+                "start": {
+                  "yardLine": 35,
+                  "text": "ARI 35"
+                },
+                "timeElapsed": {
+                  "displayValue": "2:03"
+                }
+              },
+              "start": {
+                "yardLine": 52,
+                "team": {
+                  "id": "22"
+                }
+              },
+              "end": {
+                "yardLine": 56,
+                "team": {
+                  "id": "22"
+                }
+              },
+              "statYardage": 4,
+              "athletesInvolved": [
+                {
+                  "id": "4431431",
+                  "fullName": "Corey Kiner",
+                  "displayName": "Corey Kiner",
+                  "shortName": "C. Kiner",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4431431/corey-kiner"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4431431.png",
+                  "jersey": "37",
+                  "position": "RB",
+                  "team": {
+                    "id": "22"
+                  }
+                }
+              ]
+            },
+            "down": 2,
+            "yardLine": 56,
+            "distance": 6,
+            "downDistanceText": "2nd & 6 at ATL 44",
+            "shortDownDistanceText": "2nd & 6",
+            "possessionText": "ATL 44",
+            "isRedZone": false,
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "22"
+          },
+          "status": {
+            "clock": 593,
+            "displayClock": "9:53",
+            "period": 2,
+            "type": {
+              "id": "2",
+              "name": "STATUS_IN_PROGRESS",
+              "state": "in",
+              "completed": false,
+              "description": "In Progress",
+              "detail": "9:53 - 2nd Quarter",
+              "shortDetail": "9:53 - 2nd"
+            },
+            "isTBDFlex": false
+          },
+          "broadcasts": [
+            {
+              "market": "national",
+              "names": [
+                "FOX"
+              ]
+            }
+          ],
+          "leaders": [
+            {
+              "name": "passingYards",
+              "displayName": "Passing Leader",
+              "shortDisplayName": "PASS",
+              "abbreviation": "PYDS",
+              "leaders": [
+                {
+                  "displayValue": "5/11, 92 YDS, 1 TD",
+                  "value": 92,
+                  "athlete": {
+                    "id": "2578570",
+                    "fullName": "Jacoby Brissett",
+                    "displayName": "Jacoby Brissett",
+                    "shortName": "J. Brissett",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/2578570/jacoby-brissett"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2578570.png",
+                    "jersey": "7",
+                    "position": {
+                      "abbreviation": "QB"
+                    },
+                    "team": {
+                      "id": "22"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "22"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
+              "leaders": [
+                {
+                  "displayValue": "7 CAR, 45 YDS",
+                  "value": 45,
+                  "athlete": {
+                    "id": "4240657",
+                    "fullName": "Michael Carter",
+                    "displayName": "Michael Carter",
+                    "shortName": "M. Carter",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4240657/michael-carter"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4240657.png",
+                    "jersey": "22",
+                    "position": {
+                      "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "22"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "22"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "receivingYards",
+              "displayName": "Receiving Leader",
+              "shortDisplayName": "REC",
+              "abbreviation": "RECYDS",
+              "leaders": [
+                {
+                  "displayValue": "3 REC, 58 YDS, 1 TD",
+                  "value": 58,
+                  "athlete": {
+                    "id": "4430807",
+                    "fullName": "Bijan Robinson",
+                    "displayName": "Bijan Robinson",
+                    "shortName": "B. Robinson",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4430807/bijan-robinson"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430807.png",
+                    "jersey": "7",
+                    "position": {
+                      "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "1"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "1"
+                  }
+                }
+              ]
+            }
+          ],
+          "format": {
+            "regulation": {
+              "periods": 4
+            }
+          },
+          "startDate": "2025-12-21T21:05Z",
+          "broadcast": "FOX",
+          "geoBroadcasts": [
+            {
+              "type": {
+                "id": "1",
+                "shortName": "TV"
+              },
+              "market": {
+                "id": "1",
+                "type": "National"
+              },
+              "media": {
+                "shortName": "FOX"
+              },
+              "lang": "en",
+              "region": "us"
+            }
+          ],
+          "highlights": []
+        }
+      ],
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "live",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game?gameId=401772914",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401772914",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401772914",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "weather": {
+        "displayValue": "1",
+        "temperature": 79,
+        "highTemperature": 79,
+        "conditionId": "Sunny",
+        "link": {
+          "language": "en-US",
+          "rel": [
+            "85305"
+          ],
+          "href": "http://www.accuweather.com/en/us/state-farm-stadium-az/85301/current-weather/53536_poi?lang=en-us",
+          "text": "Weather",
+          "shortText": "Weather",
+          "isExternal": true,
+          "isPremium": false
+        }
+      },
+      "status": {
+        "clock": 593,
+        "displayClock": "9:53",
+        "period": 2,
+        "type": {
+          "id": "2",
+          "name": "STATUS_IN_PROGRESS",
+          "state": "in",
+          "completed": false,
+          "description": "In Progress",
+          "detail": "9:53 - 2nd Quarter",
+          "shortDetail": "9:53 - 2nd"
         }
       }
     },
@@ -654,7 +1244,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/det.png"
               },
-              "score": "0",
+              "score": "3",
               "linescores": [
                 {
                   "value": 0,
@@ -662,8 +1252,8 @@
                   "period": 1
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 3,
+                  "displayValue": "3",
                   "period": 2
                 }
               ],
@@ -792,61 +1382,62 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "401772806840",
+              "id": "4017728061194",
               "type": {
-                "id": "2",
-                "text": "End Period",
-                "abbreviation": "EP"
+                "id": "74",
+                "text": "Official Timeout",
+                "abbreviation": "Off TO"
               },
-              "text": "END QUARTER 1",
+              "text": "Official Timeout at 10:10.",
               "scoreValue": 0,
               "team": {
-                "id": "23"
+                "id": "8"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.5556,
-                "awayWinPercentage": 0.4444,
+                "homeWinPercentage": 0.6227,
+                "awayWinPercentage": 0.37729999999999997,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "3 plays, 13 yards, 2:07",
+                "description": "8 plays, 44 yards, 3:20",
                 "start": {
-                  "yardLine": 97,
-                  "text": "PIT 3"
+                  "yardLine": 38,
+                  "text": "DET 38"
+                },
+                "end": {
+                  "yardLine": 82,
+                  "text": "PIT 18"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:07"
-                }
+                  "displayValue": "3:20"
+                },
+                "result": "FG"
               },
               "start": {
-                "yardLine": 84,
+                "yardLine": 35,
                 "team": {
-                  "id": "23"
+                  "id": "8"
                 }
               },
               "end": {
-                "yardLine": 84,
+                "yardLine": 35,
                 "team": {
-                  "id": "23"
+                  "id": "8"
                 }
               },
               "statYardage": 0
             },
-            "down": 1,
-            "yardLine": 84,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at PIT 16",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "PIT 16",
-            "isRedZone": false,
+            "down": -1,
+            "yardLine": 35,
+            "distance": 0,
+            "isRedZone": true,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "23"
+            "awayTimeouts": 2
           },
           "status": {
-            "clock": 900,
-            "displayClock": "15:00",
+            "clock": 610,
+            "displayClock": "10:10",
             "period": 2,
             "type": {
               "id": "2",
@@ -854,8 +1445,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "15:00 - 2nd Quarter",
-              "shortDetail": "15:00 - 2nd"
+              "detail": "10:10 - 2nd Quarter",
+              "shortDetail": "10:10 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -875,8 +1466,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "7/9, 57 YDS",
-                  "value": 57,
+                  "displayValue": "10/14, 104 YDS",
+                  "value": 104,
                   "athlete": {
                     "id": "3046779",
                     "fullName": "Jared Goff",
@@ -915,13 +1506,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "2 CAR, 17 YDS",
-                  "value": 17,
+                  "displayValue": "3 CAR, 23 YDS",
+                  "value": 23,
                   "athlete": {
-                    "id": "4035538",
-                    "fullName": "David Montgomery",
-                    "displayName": "David Montgomery",
-                    "shortName": "D. Montgomery",
+                    "id": "4371733",
+                    "fullName": "Kenneth Gainwell",
+                    "displayName": "Kenneth Gainwell",
+                    "shortName": "K. Gainwell",
                     "links": [
                       {
                         "rel": [
@@ -929,21 +1520,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4035538/david-montgomery"
+                        "href": "https://www.espn.com/nfl/player/_/id/4371733/kenneth-gainwell"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4035538.png",
-                    "jersey": "5",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4371733.png",
+                    "jersey": "14",
                     "position": {
                       "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "8"
+                      "id": "23"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "8"
+                    "id": "23"
                   }
                 }
               ]
@@ -1075,8 +1666,8 @@
         }
       },
       "status": {
-        "clock": 900,
-        "displayClock": "15:00",
+        "clock": 610,
+        "displayClock": "10:10",
         "period": 2,
         "type": {
           "id": "2",
@@ -1084,8 +1675,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "15:00 - 2nd Quarter",
-          "shortDetail": "15:00 - 2nd"
+          "detail": "10:10 - 2nd Quarter",
+          "shortDetail": "10:10 - 2nd"
         }
       }
     },
@@ -1203,6 +1794,11 @@
                   "value": 7,
                   "displayValue": "7",
                   "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
                 }
               ],
               "statistics": [],
@@ -1299,6 +1895,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
                 }
               ],
               "statistics": [],
@@ -1325,46 +1926,41 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "401772805717",
+              "id": "4017728051127",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "2",
+                "text": "End Period",
+                "abbreviation": "EP"
               },
-              "text": "Official Timeout at 07:08.",
+              "text": "END QUARTER 1",
               "scoreValue": 0,
               "team": {
                 "id": "13"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.8864,
-                "awayWinPercentage": 0.11360000000000003,
+                "homeWinPercentage": 0.8325,
+                "awayWinPercentage": 0.16749999999999998,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "3 plays, 6 yards, 1:02",
+                "description": "2 plays, 39 yards, 1:05",
                 "start": {
-                  "yardLine": 18,
-                  "text": "HOU 18"
-                },
-                "end": {
-                  "yardLine": 24,
-                  "text": "HOU 24"
+                  "yardLine": 61,
+                  "text": "LV 39"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:02"
-                },
-                "result": "PUNT"
+                  "displayValue": "1:05"
+                }
               },
               "start": {
-                "yardLine": 80,
+                "yardLine": 22,
                 "team": {
                   "id": "13"
                 }
               },
               "end": {
-                "yardLine": 80,
+                "yardLine": 22,
                 "team": {
                   "id": "13"
                 }
@@ -1372,28 +1968,28 @@
               "statYardage": 0
             },
             "down": 1,
-            "yardLine": 80,
+            "yardLine": 22,
             "distance": 10,
-            "downDistanceText": "1st & 10 at LV 20",
+            "downDistanceText": "1st & 10 at HOU 22",
             "shortDownDistanceText": "1st & 10",
-            "possessionText": "LV 20",
+            "possessionText": "HOU 22",
             "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
+            "awayTimeouts": 1,
             "possession": "13"
           },
           "status": {
-            "clock": 428,
-            "displayClock": "7:08",
-            "period": 1,
+            "clock": 900,
+            "displayClock": "15:00",
+            "period": 2,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "7:08 - 1st Quarter",
-              "shortDetail": "7:08 - 1st"
+              "detail": "15:00 - 2nd Quarter",
+              "shortDetail": "15:00 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -1413,13 +2009,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "2/7, 16 YDS",
-                  "value": 16,
+                  "displayValue": "4/8, 59 YDS, 1 INT",
+                  "value": 59,
                   "athlete": {
-                    "id": "4432577",
-                    "fullName": "C.J. Stroud",
-                    "displayName": "C.J. Stroud",
-                    "shortName": "C.J. Stroud",
+                    "id": "15864",
+                    "fullName": "Geno Smith",
+                    "displayName": "Geno Smith",
+                    "shortName": "G. Smith",
                     "links": [
                       {
                         "rel": [
@@ -1427,21 +2023,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4432577/cj-stroud"
+                        "href": "https://www.espn.com/nfl/player/_/id/15864/geno-smith"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4432577.png",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/15864.png",
                     "jersey": "7",
                     "position": {
                       "abbreviation": "QB"
                     },
                     "team": {
-                      "id": "34"
+                      "id": "13"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "34"
+                    "id": "13"
                   }
                 }
               ]
@@ -1453,8 +2049,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "4 CAR, 14 YDS",
-                  "value": 14,
+                  "displayValue": "7 CAR, 17 YDS",
+                  "value": 17,
                   "athlete": {
                     "id": "4890973",
                     "fullName": "Ashton Jeanty",
@@ -1493,13 +2089,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "1 REC, 10 YDS",
-                  "value": 10,
+                  "displayValue": "1 REC, 37 YDS",
+                  "value": 37,
                   "athlete": {
-                    "id": "3117256",
-                    "fullName": "Dalton Schultz",
-                    "displayName": "Dalton Schultz",
-                    "shortName": "D. Schultz",
+                    "id": "4603186",
+                    "fullName": "Jack Bech",
+                    "displayName": "Jack Bech",
+                    "shortName": "J. Bech",
                     "links": [
                       {
                         "rel": [
@@ -1507,21 +2103,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3117256/dalton-schultz"
+                        "href": "https://www.espn.com/nfl/player/_/id/4603186/jack-bech"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3117256.png",
-                    "jersey": "86",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4603186.png",
+                    "jersey": "18",
                     "position": {
-                      "abbreviation": "TE"
+                      "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "34"
+                      "id": "13"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "34"
+                    "id": "13"
                   }
                 }
               ]
@@ -1596,10 +2192,10 @@
         }
       ],
       "weather": {
-        "displayValue": "6",
+        "displayValue": "2",
         "temperature": 79,
         "highTemperature": 79,
-        "conditionId": "Mostly cloudy",
+        "conditionId": "Mostly sunny",
         "link": {
           "language": "en-US",
           "rel": [
@@ -1613,17 +2209,17 @@
         }
       },
       "status": {
-        "clock": 428,
-        "displayClock": "7:08",
-        "period": 1,
+        "clock": 900,
+        "displayClock": "15:00",
+        "period": 2,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "7:08 - 1st Quarter",
-          "shortDetail": "7:08 - 1st"
+          "detail": "15:00 - 2nd Quarter",
+          "shortDetail": "15:00 - 2nd"
         }
       }
     },
@@ -2396,7 +2992,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3687",
             "fullName": "AT&T Stadium",
@@ -3131,7 +3727,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3810",
             "fullName": "Nissan Stadium",
@@ -3866,7 +4462,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3948",
             "fullName": "Hard Rock Stadium",
@@ -4601,7 +5197,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3493",
             "fullName": "Caesars Superdome",
@@ -5008,112 +5604,6 @@
               "region": "us"
             }
           ],
-          "headlines": [
-            {
-              "type": "Recap",
-              "description": "— Chris Olave caught touchdown passes from Tyler Shough and Taysom Hill, Charlie Smyth tied a Saints record with five field goals and New Orleans extended its winning streak to three with a 29-6 victory over the reeling New York Jets on Sunday.",
-              "shortLinkText": "Olave's 2 TDs and Smyth's 5 field goals help Saints top Jets 29-6 for a third straight win",
-              "video": [
-                {
-                  "id": 47382439,
-                  "source": "espn",
-                  "headline": "Saints win third in a row after taking down the Jets",
-                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.jpg",
-                  "duration": 70,
-                  "tracking": {
-                    "sportName": "football",
-                    "leagueName": "NFL",
-                    "coverageType": "Final Game Highlight",
-                    "trackingName": "COM_NFL Highlight (Saints win third in a row after taking down the Jets) 2025/12/21 ESHEET",
-                    "trackingId": "dm_20251221_NFL_saints_win_third_in_a_row_after_taking_down_the_jets",
-                    "program": "espnnfl"
-                  },
-                  "deviceRestrictions": {
-                    "type": "whitelist",
-                    "devices": [
-                      "desktop",
-                      "ipad",
-                      "settop",
-                      "handset",
-                      "tablet"
-                    ]
-                  },
-                  "links": {
-                    "web": {
-                      "href": "https://www.espn.com/video/clip?id=47382439",
-                      "self": {
-                        "href": "https://www.espn.com/video/clip?id=47382439"
-                      },
-                      "seo": {
-                        "href": "https://www.espn.com/video/clip/_/id/47382439"
-                      }
-                    },
-                    "mobile": {
-                      "source": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.mp4"
-                      },
-                      "alert": {
-                        "href": "https://m.espn.com/general/video/videoAlert?vid=47382439"
-                      },
-                      "streaming": {
-                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/52af20a4-e1a9-4395-a339-63207a64ee58/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382439"
-                      },
-                      "progressiveDownload": {
-                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/52af20a4-e1a9-4395-a339-63207a64ee58/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382439"
-                      }
-                    },
-                    "api": {
-                      "self": {
-                        "href": "https://content.core.api.espn.com/v1/video/clips/47382439"
-                      },
-                      "artwork": {
-                        "href": "https://artwork.api.espn.com/artwork/collections/media/52af20a4-e1a9-4395-a339-63207a64ee58"
-                      }
-                    },
-                    "source": {
-                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_360p30_1464k.mp4",
-                      "mezzanine": {
-                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.mp4"
-                      },
-                      "flash": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.smil"
-                      },
-                      "hds": {
-                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_rel.smil/manifest.f4m"
-                      },
-                      "HLS": {
-                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8",
-                        "HD": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
-                        },
-                        "cmaf": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8",
-                          "9x16": {
-                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
-                          }
-                        },
-                        "9x16": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
-                        },
-                        "shield": {
-                          "href": "https://watch.auth.api.espn.com/video/auth/media/52af20a4-e1a9-4395-a339-63207a64ee58/asset"
-                        }
-                      },
-                      "HD": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_720p30_2896k.mp4"
-                      },
-                      "full": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_360p30_1464k.mp4"
-                      }
-                    },
-                    "sportscenter": {
-                      "href": "sportscenter://x-callback-url/showVideo?videoID=47382439&videoDSI=c50682ed689e5"
-                    }
-                  }
-                }
-              ]
-            }
-          ],
           "highlights": [
             {
               "id": 47382439,
@@ -5223,6 +5713,112 @@
                 "trackingId": "dm_20251221_NFL_saints_win_third_in_a_row_after_taking_down_the_jets",
                 "program": "espnnfl"
               }
+            }
+          ],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— Chris Olave caught touchdown passes from Tyler Shough and Taysom Hill, Charlie Smyth tied a Saints record with five field goals and New Orleans extended its winning streak to three with a 29-6 victory over the reeling New York Jets on Sunday.",
+              "shortLinkText": "Olave's 2 TDs and Smyth's 5 field goals help Saints top Jets 29-6 for a third straight win",
+              "video": [
+                {
+                  "id": 47382439,
+                  "source": "espn",
+                  "headline": "Saints win third in a row after taking down the Jets",
+                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.jpg",
+                  "duration": 70,
+                  "tracking": {
+                    "sportName": "football",
+                    "leagueName": "NFL",
+                    "coverageType": "Final Game Highlight",
+                    "trackingName": "COM_NFL Highlight (Saints win third in a row after taking down the Jets) 2025/12/21 ESHEET",
+                    "trackingId": "dm_20251221_NFL_saints_win_third_in_a_row_after_taking_down_the_jets",
+                    "program": "espnnfl"
+                  },
+                  "deviceRestrictions": {
+                    "type": "whitelist",
+                    "devices": [
+                      "desktop",
+                      "ipad",
+                      "settop",
+                      "handset",
+                      "tablet"
+                    ]
+                  },
+                  "links": {
+                    "web": {
+                      "href": "https://www.espn.com/video/clip?id=47382439",
+                      "self": {
+                        "href": "https://www.espn.com/video/clip?id=47382439"
+                      },
+                      "seo": {
+                        "href": "https://www.espn.com/video/clip/_/id/47382439"
+                      }
+                    },
+                    "mobile": {
+                      "source": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.mp4"
+                      },
+                      "alert": {
+                        "href": "https://m.espn.com/general/video/videoAlert?vid=47382439"
+                      },
+                      "streaming": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/52af20a4-e1a9-4395-a339-63207a64ee58/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382439"
+                      },
+                      "progressiveDownload": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/52af20a4-e1a9-4395-a339-63207a64ee58/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382439"
+                      }
+                    },
+                    "api": {
+                      "self": {
+                        "href": "https://content.core.api.espn.com/v1/video/clips/47382439"
+                      },
+                      "artwork": {
+                        "href": "https://artwork.api.espn.com/artwork/collections/media/52af20a4-e1a9-4395-a339-63207a64ee58"
+                      }
+                    },
+                    "source": {
+                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_360p30_1464k.mp4",
+                      "mezzanine": {
+                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.mp4"
+                      },
+                      "flash": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8.smil"
+                      },
+                      "hds": {
+                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_rel.smil/manifest.f4m"
+                      },
+                      "HLS": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8",
+                        "HD": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
+                        },
+                        "cmaf": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8",
+                          "9x16": {
+                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
+                          }
+                        },
+                        "9x16": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/playlist.m3u8"
+                        },
+                        "shield": {
+                          "href": "https://watch.auth.api.espn.com/video/auth/media/52af20a4-e1a9-4395-a339-63207a64ee58/asset"
+                        }
+                      },
+                      "HD": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_720p30_2896k.mp4"
+                      },
+                      "full": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/9ee6664a-c21b-4884-b3ae-ac8a44908aa8/9ee6664a-c21b-4884-b3ae-ac8a44908aa8_360p30_1464k.mp4"
+                      }
+                    },
+                    "sportscenter": {
+                      "href": "sportscenter://x-callback-url/showVideo?videoID=47382439&videoDSI=c50682ed689e5"
+                    }
+                  }
+                }
+              ]
             }
           ]
         }
@@ -5336,7 +5932,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3839",
             "fullName": "MetLife Stadium",
@@ -6077,7 +6673,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "3628",
             "fullName": "Bank of America Stadium",
@@ -6484,6 +7080,112 @@
               "region": "us"
             }
           ],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— Bryce Young threw for 191 yards and two touchdowns, Lathan Ransom intercepted Baker Mayfield with 42 seconds left and the Carolina Panthers beat the Tampa Bay Buccaneers 23-20 on Sunday to take over first place in the NFC South.",
+              "shortLinkText": "Bryce Young throws 2 TDs, Panthers finally beat Bucs 23-20 to take over first place in NFC South",
+              "video": [
+                {
+                  "id": 47382364,
+                  "source": "espn",
+                  "headline": "Panthers take control in NFC South with win over the Bucs",
+                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.jpg",
+                  "duration": 71,
+                  "tracking": {
+                    "sportName": "football",
+                    "leagueName": "NFL",
+                    "coverageType": "Final Game Highlight",
+                    "trackingName": "COM_NFL Highlight (Panthers take control in NFC South with win over the Bucs) 2025/12/21 ESHEET",
+                    "trackingId": "dm_20251221_NFL_panthers_take_control_in_nfc_south_with_win_over_the_bucs",
+                    "program": "espnnfl"
+                  },
+                  "deviceRestrictions": {
+                    "type": "whitelist",
+                    "devices": [
+                      "desktop",
+                      "ipad",
+                      "settop",
+                      "handset",
+                      "tablet"
+                    ]
+                  },
+                  "links": {
+                    "web": {
+                      "href": "https://www.espn.com/video/clip?id=47382364",
+                      "self": {
+                        "href": "https://www.espn.com/video/clip?id=47382364"
+                      },
+                      "seo": {
+                        "href": "https://www.espn.com/video/clip/_/id/47382364"
+                      }
+                    },
+                    "mobile": {
+                      "source": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.mp4"
+                      },
+                      "alert": {
+                        "href": "https://m.espn.com/general/video/videoAlert?vid=47382364"
+                      },
+                      "streaming": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/744032c3-838b-4c3b-b36f-796333ef1f61/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382364"
+                      },
+                      "progressiveDownload": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/744032c3-838b-4c3b-b36f-796333ef1f61/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382364"
+                      }
+                    },
+                    "api": {
+                      "self": {
+                        "href": "https://content.core.api.espn.com/v1/video/clips/47382364"
+                      },
+                      "artwork": {
+                        "href": "https://artwork.api.espn.com/artwork/collections/media/744032c3-838b-4c3b-b36f-796333ef1f61"
+                      }
+                    },
+                    "source": {
+                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_360p30_1464k.mp4",
+                      "mezzanine": {
+                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.mp4"
+                      },
+                      "flash": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.smil"
+                      },
+                      "hds": {
+                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_rel.smil/manifest.f4m"
+                      },
+                      "HLS": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8",
+                        "HD": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
+                        },
+                        "cmaf": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8",
+                          "9x16": {
+                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
+                          }
+                        },
+                        "9x16": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
+                        },
+                        "shield": {
+                          "href": "https://watch.auth.api.espn.com/video/auth/media/744032c3-838b-4c3b-b36f-796333ef1f61/asset"
+                        }
+                      },
+                      "HD": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_720p30_2896k.mp4"
+                      },
+                      "full": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_360p30_1464k.mp4"
+                      }
+                    },
+                    "sportscenter": {
+                      "href": "sportscenter://x-callback-url/showVideo?videoID=47382364&videoDSI=f7beea743cef9"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
           "highlights": [
             {
               "id": 47382364,
@@ -6593,112 +7295,6 @@
                 "trackingId": "dm_20251221_NFL_panthers_take_control_in_nfc_south_with_win_over_the_bucs",
                 "program": "espnnfl"
               }
-            }
-          ],
-          "headlines": [
-            {
-              "type": "Recap",
-              "description": "— Bryce Young threw for 191 yards and two touchdowns, Lathan Ransom intercepted Baker Mayfield with 42 seconds left and the Carolina Panthers beat the Tampa Bay Buccaneers 23-20 on Sunday to take over first place in the NFC South.",
-              "shortLinkText": "Bryce Young throws 2 TDs, Panthers finally beat Bucs 23-20 to take over first place in NFC South",
-              "video": [
-                {
-                  "id": 47382364,
-                  "source": "espn",
-                  "headline": "Panthers take control in NFC South with win over the Bucs",
-                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.jpg",
-                  "duration": 71,
-                  "tracking": {
-                    "sportName": "football",
-                    "leagueName": "NFL",
-                    "coverageType": "Final Game Highlight",
-                    "trackingName": "COM_NFL Highlight (Panthers take control in NFC South with win over the Bucs) 2025/12/21 ESHEET",
-                    "trackingId": "dm_20251221_NFL_panthers_take_control_in_nfc_south_with_win_over_the_bucs",
-                    "program": "espnnfl"
-                  },
-                  "deviceRestrictions": {
-                    "type": "whitelist",
-                    "devices": [
-                      "desktop",
-                      "ipad",
-                      "settop",
-                      "handset",
-                      "tablet"
-                    ]
-                  },
-                  "links": {
-                    "web": {
-                      "href": "https://www.espn.com/video/clip?id=47382364",
-                      "self": {
-                        "href": "https://www.espn.com/video/clip?id=47382364"
-                      },
-                      "seo": {
-                        "href": "https://www.espn.com/video/clip/_/id/47382364"
-                      }
-                    },
-                    "mobile": {
-                      "source": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.mp4"
-                      },
-                      "alert": {
-                        "href": "https://m.espn.com/general/video/videoAlert?vid=47382364"
-                      },
-                      "streaming": {
-                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/744032c3-838b-4c3b-b36f-796333ef1f61/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382364"
-                      },
-                      "progressiveDownload": {
-                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/744032c3-838b-4c3b-b36f-796333ef1f61/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47382364"
-                      }
-                    },
-                    "api": {
-                      "self": {
-                        "href": "https://content.core.api.espn.com/v1/video/clips/47382364"
-                      },
-                      "artwork": {
-                        "href": "https://artwork.api.espn.com/artwork/collections/media/744032c3-838b-4c3b-b36f-796333ef1f61"
-                      }
-                    },
-                    "source": {
-                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_360p30_1464k.mp4",
-                      "mezzanine": {
-                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.mp4"
-                      },
-                      "flash": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305.smil"
-                      },
-                      "hds": {
-                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_rel.smil/manifest.f4m"
-                      },
-                      "HLS": {
-                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8",
-                        "HD": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
-                        },
-                        "cmaf": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8",
-                          "9x16": {
-                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
-                          }
-                        },
-                        "9x16": {
-                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305/playlist.m3u8"
-                        },
-                        "shield": {
-                          "href": "https://watch.auth.api.espn.com/video/auth/media/744032c3-838b-4c3b-b36f-796333ef1f61/asset"
-                        }
-                      },
-                      "HD": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_720p30_2896k.mp4"
-                      },
-                      "full": {
-                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1221/34b46d24-07c9-4c04-9298-3bea484c6305/34b46d24-07c9-4c04-9298-3bea484c6305_360p30_1464k.mp4"
-                      }
-                    },
-                    "sportscenter": {
-                      "href": "sportscenter://x-callback-url/showVideo?videoID=47382364&videoDSI=f7beea743cef9"
-                    }
-                  }
-                }
-              ]
             }
           ]
         }
@@ -8118,24 +8714,6 @@
               },
               "score": "0",
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "10-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "4-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "6-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -8256,6 +8834,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "10-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "4-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "6-2"
                 }
               ]
             }
@@ -8819,10 +9415,10 @@
       "Arizona Cardinals": {
         "offensiveRating": 21.571428571428573,
         "defensiveRating": 27.714285714285715,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 107.85714285714286,
+        "rushDefYPG": 138.57142857142858,
+        "passYPG": 215.71428571428572,
+        "passDefYPG": 277.14285714285717,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8841,10 +9437,10 @@
       "Atlanta Falcons": {
         "offensiveRating": 20.071428571428573,
         "defensiveRating": 24.357142857142858,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 100.35714285714288,
+        "rushDefYPG": 121.78571428571429,
+        "passYPG": 200.71428571428575,
+        "passDefYPG": 243.57142857142858,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8863,10 +9459,10 @@
       "Baltimore Ravens": {
         "offensiveRating": 23.928571428571427,
         "defensiveRating": 22.857142857142858,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 119.64285714285712,
+        "rushDefYPG": 114.2857142857143,
+        "passYPG": 239.28571428571425,
+        "passDefYPG": 228.5714285714286,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8885,10 +9481,10 @@
       "Buffalo Bills": {
         "offensiveRating": 28.933333333333334,
         "defensiveRating": 22.933333333333334,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 144.66666666666666,
+        "rushDefYPG": 114.66666666666667,
+        "passYPG": 289.3333333333333,
+        "passDefYPG": 229.33333333333334,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8907,10 +9503,10 @@
       "Carolina Panthers": {
         "offensiveRating": 19.133333333333333,
         "defensiveRating": 22.466666666666665,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 95.66666666666666,
+        "rushDefYPG": 112.33333333333334,
+        "passYPG": 191.33333333333331,
+        "passDefYPG": 224.66666666666669,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8929,10 +9525,10 @@
       "Chicago Bears": {
         "offensiveRating": 25.8,
         "defensiveRating": 23.6,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 129,
+        "rushDefYPG": 118,
+        "passYPG": 258,
+        "passDefYPG": 236,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8951,10 +9547,10 @@
       "Cincinnati Bengals": {
         "offensiveRating": 23.933333333333334,
         "defensiveRating": 30.533333333333335,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 119.66666666666667,
+        "rushDefYPG": 152.66666666666669,
+        "passYPG": 239.33333333333334,
+        "passDefYPG": 305.33333333333337,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8973,10 +9569,10 @@
       "Cleveland Browns": {
         "offensiveRating": 16.4,
         "defensiveRating": 23.666666666666668,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 81.99999999999999,
+        "rushDefYPG": 118.33333333333336,
+        "passYPG": 163.99999999999997,
+        "passDefYPG": 236.6666666666667,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -8995,10 +9591,10 @@
       "Dallas Cowboys": {
         "offensiveRating": 28.266666666666666,
         "defensiveRating": 30.266666666666666,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 141.33333333333334,
+        "rushDefYPG": 151.33333333333334,
+        "passYPG": 282.6666666666667,
+        "passDefYPG": 302.6666666666667,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9017,10 +9613,10 @@
       "Denver Broncos": {
         "offensiveRating": 24.428571428571427,
         "defensiveRating": 18.642857142857142,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 122.14285714285712,
+        "rushDefYPG": 93.21428571428571,
+        "passYPG": 244.28571428571425,
+        "passDefYPG": 186.42857142857142,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9039,10 +9635,10 @@
       "Detroit Lions": {
         "offensiveRating": 30.571428571428573,
         "defensiveRating": 24.642857142857142,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 152.85714285714286,
+        "rushDefYPG": 123.21428571428571,
+        "passYPG": 305.7142857142857,
+        "passDefYPG": 246.42857142857142,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9061,10 +9657,10 @@
       "Green Bay Packers": {
         "offensiveRating": 24.266666666666666,
         "defensiveRating": 20.2,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 121.33333333333333,
+        "rushDefYPG": 100.99999999999999,
+        "passYPG": 242.66666666666666,
+        "passDefYPG": 201.99999999999997,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9083,10 +9679,10 @@
       "Houston Texans": {
         "offensiveRating": 23.071428571428573,
         "defensiveRating": 16.285714285714285,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 115.35714285714286,
+        "rushDefYPG": 81.42857142857142,
+        "passYPG": 230.71428571428572,
+        "passDefYPG": 162.85714285714283,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9105,10 +9701,10 @@
       "Indianapolis Colts": {
         "offensiveRating": 28,
         "defensiveRating": 21.642857142857142,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 140,
+        "rushDefYPG": 108.21428571428571,
+        "passYPG": 280,
+        "passDefYPG": 216.42857142857142,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9127,10 +9723,10 @@
       "Jacksonville Jaguars": {
         "offensiveRating": 26.857142857142858,
         "defensiveRating": 20.857142857142858,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 134.28571428571428,
+        "rushDefYPG": 104.28571428571429,
+        "passYPG": 268.57142857142856,
+        "passDefYPG": 208.57142857142858,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9149,10 +9745,10 @@
       "Kansas City Chiefs": {
         "offensiveRating": 22.466666666666665,
         "defensiveRating": 19.6,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 112.33333333333334,
+        "rushDefYPG": 98.00000000000001,
+        "passYPG": 224.66666666666669,
+        "passDefYPG": 196.00000000000003,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9171,10 +9767,10 @@
       "Las Vegas Raiders": {
         "offensiveRating": 14,
         "defensiveRating": 25.928571428571427,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 70,
+        "rushDefYPG": 129.64285714285714,
+        "passYPG": 140,
+        "passDefYPG": 259.2857142857143,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9193,10 +9789,10 @@
       "Los Angeles Chargers": {
         "offensiveRating": 23.266666666666666,
         "defensiveRating": 20.066666666666666,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 116.33333333333334,
+        "rushDefYPG": 100.33333333333333,
+        "passYPG": 232.66666666666669,
+        "passDefYPG": 200.66666666666666,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9215,10 +9811,10 @@
       "Los Angeles Rams": {
         "offensiveRating": 30.466666666666665,
         "defensiveRating": 19.933333333333334,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 152.33333333333331,
+        "rushDefYPG": 99.66666666666667,
+        "passYPG": 304.66666666666663,
+        "passDefYPG": 199.33333333333334,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9237,10 +9833,10 @@
       "Miami Dolphins": {
         "offensiveRating": 21.133333333333333,
         "defensiveRating": 24.6,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 105.66666666666666,
+        "rushDefYPG": 123,
+        "passYPG": 211.33333333333331,
+        "passDefYPG": 246,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9259,10 +9855,10 @@
       "Minnesota Vikings": {
         "offensiveRating": 20.333333333333332,
         "defensiveRating": 21.333333333333332,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 101.66666666666666,
+        "rushDefYPG": 106.66666666666666,
+        "passYPG": 203.33333333333331,
+        "passDefYPG": 213.33333333333331,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9281,10 +9877,10 @@
       "New England Patriots": {
         "offensiveRating": 27.285714285714285,
         "defensiveRating": 19.714285714285715,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 136.42857142857142,
+        "rushDefYPG": 98.57142857142858,
+        "passYPG": 272.85714285714283,
+        "passDefYPG": 197.14285714285717,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9303,10 +9899,10 @@
       "New Orleans Saints": {
         "offensiveRating": 17,
         "defensiveRating": 22.533333333333335,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 85,
+        "rushDefYPG": 112.66666666666669,
+        "passYPG": 170,
+        "passDefYPG": 225.33333333333337,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9325,10 +9921,10 @@
       "New York Giants": {
         "offensiveRating": 20.866666666666667,
         "defensiveRating": 27.466666666666665,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 104.33333333333333,
+        "rushDefYPG": 137.33333333333331,
+        "passYPG": 208.66666666666666,
+        "passDefYPG": 274.66666666666663,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9347,10 +9943,10 @@
       "New York Jets": {
         "offensiveRating": 18.8,
         "defensiveRating": 28.4,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 94,
+        "rushDefYPG": 142,
+        "passYPG": 188,
+        "passDefYPG": 284,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9369,10 +9965,10 @@
       "Philadelphia Eagles": {
         "offensiveRating": 23.266666666666666,
         "defensiveRating": 19.266666666666666,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 116.33333333333334,
+        "rushDefYPG": 96.33333333333333,
+        "passYPG": 232.66666666666669,
+        "passDefYPG": 192.66666666666666,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9391,10 +9987,10 @@
       "Pittsburgh Steelers": {
         "offensiveRating": 24,
         "defensiveRating": 23.285714285714285,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 119.99999999999999,
+        "rushDefYPG": 116.42857142857142,
+        "passYPG": 239.99999999999997,
+        "passDefYPG": 232.85714285714283,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9413,10 +10009,10 @@
       "San Francisco 49ers": {
         "offensiveRating": 24.571428571428573,
         "defensiveRating": 20.928571428571427,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 122.85714285714288,
+        "rushDefYPG": 104.64285714285714,
+        "passYPG": 245.71428571428575,
+        "passDefYPG": 209.28571428571428,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9435,10 +10031,10 @@
       "Seattle Seahawks": {
         "offensiveRating": 29.533333333333335,
         "defensiveRating": 18.6,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 147.66666666666669,
+        "rushDefYPG": 93.00000000000001,
+        "passYPG": 295.33333333333337,
+        "passDefYPG": 186.00000000000003,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9457,10 +10053,10 @@
       "Tampa Bay Buccaneers": {
         "offensiveRating": 23.133333333333333,
         "defensiveRating": 25.133333333333333,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 115.66666666666667,
+        "rushDefYPG": 125.66666666666666,
+        "passYPG": 231.33333333333334,
+        "passDefYPG": 251.33333333333331,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9479,10 +10075,10 @@
       "Tennessee Titans": {
         "offensiveRating": 16.733333333333334,
         "defensiveRating": 26.866666666666667,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 83.66666666666667,
+        "rushDefYPG": 134.33333333333334,
+        "passYPG": 167.33333333333334,
+        "passDefYPG": 268.6666666666667,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9501,10 +10097,10 @@
       "Washington Commanders": {
         "offensiveRating": 20.6,
         "defensiveRating": 26.933333333333334,
-        "rushYPG": 0,
-        "rushDefYPG": 0,
-        "passYPG": 0,
-        "passDefYPG": 0,
+        "rushYPG": 103,
+        "rushDefYPG": 134.66666666666669,
+        "passYPG": 206,
+        "passDefYPG": 269.33333333333337,
         "thirdDownPct": 40,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
@@ -9523,196 +10119,196 @@
     },
     "rankings": {
       "Arizona Cardinals": {
-        "rushOffRank": 1,
-        "passOffRank": 1,
-        "rushDefRank": 1,
-        "passDefRank": 1
+        "rushOffRank": 21,
+        "passOffRank": 21,
+        "rushDefRank": 29,
+        "passDefRank": 29
       },
       "Atlanta Falcons": {
-        "rushOffRank": 2,
-        "passOffRank": 2,
-        "rushDefRank": 2,
-        "passDefRank": 2
+        "rushOffRank": 26,
+        "passOffRank": 26,
+        "rushDefRank": 21,
+        "passDefRank": 21
       },
       "Baltimore Ravens": {
-        "rushOffRank": 3,
-        "passOffRank": 3,
-        "rushDefRank": 3,
-        "passDefRank": 3
+        "rushOffRank": 15,
+        "passOffRank": 15,
+        "rushDefRank": 16,
+        "passDefRank": 16
       },
       "Buffalo Bills": {
         "rushOffRank": 4,
         "passOffRank": 4,
-        "rushDefRank": 4,
-        "passDefRank": 4
+        "rushDefRank": 17,
+        "passDefRank": 17
       },
       "Carolina Panthers": {
-        "rushOffRank": 5,
-        "passOffRank": 5,
-        "rushDefRank": 5,
-        "passDefRank": 5
+        "rushOffRank": 27,
+        "passOffRank": 27,
+        "rushDefRank": 14,
+        "passDefRank": 14
       },
       "Chicago Bears": {
-        "rushOffRank": 6,
-        "passOffRank": 6,
-        "rushDefRank": 6,
-        "passDefRank": 6
-      },
-      "Cincinnati Bengals": {
-        "rushOffRank": 7,
-        "passOffRank": 7,
-        "rushDefRank": 7,
-        "passDefRank": 7
-      },
-      "Cleveland Browns": {
-        "rushOffRank": 8,
-        "passOffRank": 8,
-        "rushDefRank": 8,
-        "passDefRank": 8
-      },
-      "Dallas Cowboys": {
         "rushOffRank": 9,
         "passOffRank": 9,
-        "rushDefRank": 9,
-        "passDefRank": 9
+        "rushDefRank": 19,
+        "passDefRank": 19
+      },
+      "Cincinnati Bengals": {
+        "rushOffRank": 14,
+        "passOffRank": 14,
+        "rushDefRank": 32,
+        "passDefRank": 32
+      },
+      "Cleveland Browns": {
+        "rushOffRank": 31,
+        "passOffRank": 31,
+        "rushDefRank": 20,
+        "passDefRank": 20
+      },
+      "Dallas Cowboys": {
+        "rushOffRank": 5,
+        "passOffRank": 5,
+        "rushDefRank": 31,
+        "passDefRank": 31
       },
       "Denver Broncos": {
-        "rushOffRank": 10,
-        "passOffRank": 10,
-        "rushDefRank": 10,
-        "passDefRank": 10
-      },
-      "Detroit Lions": {
         "rushOffRank": 11,
         "passOffRank": 11,
-        "rushDefRank": 11,
-        "passDefRank": 11
+        "rushDefRank": 3,
+        "passDefRank": 3
+      },
+      "Detroit Lions": {
+        "rushOffRank": 1,
+        "passOffRank": 1,
+        "rushDefRank": 23,
+        "passDefRank": 23
       },
       "Green Bay Packers": {
         "rushOffRank": 12,
         "passOffRank": 12,
-        "rushDefRank": 12,
-        "passDefRank": 12
+        "rushDefRank": 9,
+        "passDefRank": 9
       },
       "Houston Texans": {
-        "rushOffRank": 13,
-        "passOffRank": 13,
+        "rushOffRank": 19,
+        "passOffRank": 19,
+        "rushDefRank": 1,
+        "passDefRank": 1
+      },
+      "Indianapolis Colts": {
+        "rushOffRank": 6,
+        "passOffRank": 6,
         "rushDefRank": 13,
         "passDefRank": 13
       },
-      "Indianapolis Colts": {
-        "rushOffRank": 14,
-        "passOffRank": 14,
-        "rushDefRank": 14,
-        "passDefRank": 14
-      },
       "Jacksonville Jaguars": {
-        "rushOffRank": 15,
-        "passOffRank": 15,
-        "rushDefRank": 15,
-        "passDefRank": 15
+        "rushOffRank": 8,
+        "passOffRank": 8,
+        "rushDefRank": 10,
+        "passDefRank": 10
       },
       "Kansas City Chiefs": {
-        "rushOffRank": 16,
-        "passOffRank": 16,
-        "rushDefRank": 16,
-        "passDefRank": 16
-      },
-      "Las Vegas Raiders": {
-        "rushOffRank": 17,
-        "passOffRank": 17,
-        "rushDefRank": 17,
-        "passDefRank": 17
-      },
-      "Los Angeles Chargers": {
-        "rushOffRank": 18,
-        "passOffRank": 18,
-        "rushDefRank": 18,
-        "passDefRank": 18
-      },
-      "Los Angeles Rams": {
-        "rushOffRank": 19,
-        "passOffRank": 19,
-        "rushDefRank": 19,
-        "passDefRank": 19
-      },
-      "Miami Dolphins": {
         "rushOffRank": 20,
         "passOffRank": 20,
-        "rushDefRank": 20,
-        "passDefRank": 20
+        "rushDefRank": 5,
+        "passDefRank": 5
       },
-      "Minnesota Vikings": {
-        "rushOffRank": 21,
-        "passOffRank": 21,
-        "rushDefRank": 21,
-        "passDefRank": 21
+      "Las Vegas Raiders": {
+        "rushOffRank": 32,
+        "passOffRank": 32,
+        "rushDefRank": 25,
+        "passDefRank": 25
       },
-      "New England Patriots": {
+      "Los Angeles Chargers": {
+        "rushOffRank": 16,
+        "passOffRank": 16,
+        "rushDefRank": 8,
+        "passDefRank": 8
+      },
+      "Los Angeles Rams": {
+        "rushOffRank": 2,
+        "passOffRank": 2,
+        "rushDefRank": 7,
+        "passDefRank": 7
+      },
+      "Miami Dolphins": {
         "rushOffRank": 22,
         "passOffRank": 22,
         "rushDefRank": 22,
         "passDefRank": 22
       },
-      "New Orleans Saints": {
-        "rushOffRank": 23,
-        "passOffRank": 23,
-        "rushDefRank": 23,
-        "passDefRank": 23
-      },
-      "New York Giants": {
-        "rushOffRank": 24,
-        "passOffRank": 24,
-        "rushDefRank": 24,
-        "passDefRank": 24
-      },
-      "New York Jets": {
+      "Minnesota Vikings": {
         "rushOffRank": 25,
         "passOffRank": 25,
-        "rushDefRank": 25,
-        "passDefRank": 25
+        "rushDefRank": 12,
+        "passDefRank": 12
       },
-      "Philadelphia Eagles": {
-        "rushOffRank": 26,
-        "passOffRank": 26,
-        "rushDefRank": 26,
-        "passDefRank": 26
+      "New England Patriots": {
+        "rushOffRank": 7,
+        "passOffRank": 7,
+        "rushDefRank": 6,
+        "passDefRank": 6
       },
-      "Pittsburgh Steelers": {
-        "rushOffRank": 27,
-        "passOffRank": 27,
-        "rushDefRank": 27,
-        "passDefRank": 27
+      "New Orleans Saints": {
+        "rushOffRank": 29,
+        "passOffRank": 29,
+        "rushDefRank": 15,
+        "passDefRank": 15
       },
-      "San Francisco 49ers": {
-        "rushOffRank": 28,
-        "passOffRank": 28,
+      "New York Giants": {
+        "rushOffRank": 23,
+        "passOffRank": 23,
         "rushDefRank": 28,
         "passDefRank": 28
       },
-      "Seattle Seahawks": {
-        "rushOffRank": 29,
-        "passOffRank": 29,
-        "rushDefRank": 29,
-        "passDefRank": 29
-      },
-      "Tampa Bay Buccaneers": {
-        "rushOffRank": 30,
-        "passOffRank": 30,
+      "New York Jets": {
+        "rushOffRank": 28,
+        "passOffRank": 28,
         "rushDefRank": 30,
         "passDefRank": 30
       },
+      "Philadelphia Eagles": {
+        "rushOffRank": 17,
+        "passOffRank": 17,
+        "rushDefRank": 4,
+        "passDefRank": 4
+      },
+      "Pittsburgh Steelers": {
+        "rushOffRank": 13,
+        "passOffRank": 13,
+        "rushDefRank": 18,
+        "passDefRank": 18
+      },
+      "San Francisco 49ers": {
+        "rushOffRank": 10,
+        "passOffRank": 10,
+        "rushDefRank": 11,
+        "passDefRank": 11
+      },
+      "Seattle Seahawks": {
+        "rushOffRank": 3,
+        "passOffRank": 3,
+        "rushDefRank": 2,
+        "passDefRank": 2
+      },
+      "Tampa Bay Buccaneers": {
+        "rushOffRank": 18,
+        "passOffRank": 18,
+        "rushDefRank": 24,
+        "passDefRank": 24
+      },
       "Tennessee Titans": {
-        "rushOffRank": 31,
-        "passOffRank": 31,
-        "rushDefRank": 31,
-        "passDefRank": 31
+        "rushOffRank": 30,
+        "passOffRank": 30,
+        "rushDefRank": 26,
+        "passDefRank": 26
       },
       "Washington Commanders": {
-        "rushOffRank": 32,
-        "passOffRank": 32,
-        "rushDefRank": 32,
-        "passDefRank": 32
+        "rushOffRank": 24,
+        "passOffRank": 24,
+        "rushDefRank": 27,
+        "passDefRank": 27
       }
     },
     "hasData": true
@@ -11088,6 +11684,14 @@
         }
       },
       {
+        "longComment": "Chest",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jake Hansen",
+          "position": "LB"
+        }
+      },
+      {
         "longComment": "Undisclosed",
         "status": "PUP",
         "athlete": {
@@ -11457,6 +12061,14 @@
         "athlete": {
           "displayName": "Reese Taylor",
           "position": "CB"
+        }
+      },
+      {
+        "longComment": "Knee",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Nate Adkins",
+          "position": "TE"
         }
       },
       {
@@ -13418,6 +14030,14 @@
         }
       },
       {
+        "longComment": "Achilles",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Garrett Williams",
+          "position": "DB"
+        }
+      },
+      {
         "longComment": "Knee - ACL",
         "status": "IR",
         "athlete": {
@@ -14367,6 +14987,14 @@
       }
     ],
     "Green Bay Packers": [
+      {
+        "longComment": "Knee",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Josh Jacobs",
+          "position": "RB"
+        }
+      },
       {
         "longComment": "Fracture",
         "status": "IR",
