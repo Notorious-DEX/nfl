@@ -327,45 +327,53 @@ function updateTeamStats(teamStats, statistics, isHome) {
 }
 
 async function fetchInjuries(games) {
-    console.log('🏥 Extracting injury reports from game data...');
+    console.log('🏥 Fetching injury reports from ESPN team endpoints...');
     const injuries = {};
 
     try {
-        // Extract injury data from the games we already fetched
-        for (const event of games || []) {
-            const competition = event.competitions[0];
+        // Fetch injury data for each team from ESPN's team endpoint
+        for (const teamName in TEAM_DATA) {
+            const teamAbbrev = getTeamAbbreviation(teamName);
+            if (!teamAbbrev) continue;
 
-            for (const competitor of competition.competitors || []) {
-                const teamName = competitor.team.displayName;
+            try {
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}`,
+                    { timeout: 5000 }
+                );
 
-                // Check for injuries in the competitor data
-                if (competitor.injuries && Array.isArray(competitor.injuries) && competitor.injuries.length > 0) {
-                    if (!injuries[teamName]) {
-                        injuries[teamName] = [];
+                if (!response.ok) continue;
+
+                const data = await response.json();
+
+                // Check for injuries in the team data
+                if (data.team && data.team.injuries && Array.isArray(data.team.injuries)) {
+                    const teamInjuries = data.team.injuries.filter(inj =>
+                        inj.status && inj.status !== 'Active'
+                    );
+
+                    if (teamInjuries.length > 0) {
+                        injuries[teamName] = teamInjuries.map(inj => ({
+                            longComment: inj.longComment || inj.details || inj.status,
+                            status: inj.status,
+                            athlete: {
+                                displayName: inj.athlete?.displayName || inj.athlete?.fullName || 'Unknown',
+                                position: inj.athlete?.position?.abbreviation || ''
+                            }
+                        }));
                     }
-
-                    competitor.injuries.forEach(inj => {
-                        // Only include non-active injuries
-                        if (inj.status && inj.status !== 'Active') {
-                            injuries[teamName].push({
-                                longComment: inj.details || inj.longComment || inj.status,
-                                status: inj.status,
-                                athlete: {
-                                    displayName: inj.athlete?.displayName || inj.athlete?.fullName || 'Unknown',
-                                    position: inj.athlete?.position?.abbreviation || inj.athlete?.position || ''
-                                }
-                            });
-                        }
-                    });
                 }
+            } catch (error) {
+                // Skip this team if request fails
+                continue;
             }
         }
 
         const totalInjuries = Object.values(injuries).reduce((sum, team) => sum + team.length, 0);
-        console.log(`✅ Extracted injuries for ${Object.keys(injuries).length} teams (${totalInjuries} total injuries)`);
+        console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams (${totalInjuries} total injuries)`);
         return injuries;
     } catch (error) {
-        console.error('❌ Error extracting injuries:', error.message);
+        console.error('❌ Error fetching injuries:', error.message);
         return {};
     }
 }
