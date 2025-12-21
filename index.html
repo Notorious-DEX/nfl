@@ -1541,39 +1541,58 @@
             let impact = { points: 0, notes: [] };
 
             for (const injury of teamInjuries) {
-                const text = (injury.headline + ' ' + injury.description).toLowerCase();
+                // Sleeper API format: {athlete: {displayName, position}, status, longComment}
+                const position = (injury.athlete?.position || '').toUpperCase();
+                const playerName = injury.athlete?.displayName || 'Unknown';
+                const status = (injury.status || '').toLowerCase();
+                const comment = (injury.longComment || '').toLowerCase();
 
                 // QB injuries - huge impact
-                if (text.includes('quarterback') || text.includes(' qb ')) {
-                    if (text.includes('out') || text.includes('ruled out')) {
+                if (position === 'QB') {
+                    if (status === 'out' || comment.includes('out')) {
                         impact.points -= 8;
-                        impact.notes.push('Starting QB out (-8 pts)');
-                    } else if (text.includes('questionable') || text.includes('doubtful')) {
+                        impact.notes.push(`🏥 ${playerName} (QB) out (-8 pts)`);
+                    } else if (status === 'questionable' || status === 'doubtful') {
                         impact.points -= 4;
-                        impact.notes.push('Starting QB questionable (-4 pts)');
+                        impact.notes.push(`🏥 ${playerName} (QB) ${status} (-4 pts)`);
                     }
                 }
 
                 // RB injuries - big impact
-                else if (text.includes('running back') || text.includes(' rb ')) {
-                    if (text.includes('out') || text.includes('ruled out')) {
+                else if (position === 'RB') {
+                    if (status === 'out' || comment.includes('out')) {
                         impact.points -= 4;
-                        impact.notes.push('Key RB out (-4 pts)');
-                    } else if (text.includes('questionable')) {
+                        impact.notes.push(`🏥 ${playerName} (RB) out (-4 pts)`);
+                    } else if (status === 'questionable' || status === 'doubtful') {
                         impact.points -= 2;
-                        impact.notes.push('Key RB questionable (-2 pts)');
+                        impact.notes.push(`🏥 ${playerName} (RB) ${status} (-2 pts)`);
                     }
                 }
 
-                // WR injuries - significant for passing
-                else if (text.includes('wide receiver') || text.includes(' wr ') || text.includes('receiver')) {
-                    if (text.includes('out') || text.includes('ruled out')) {
+                // WR/TE injuries - significant for passing
+                else if (position === 'WR' || position === 'TE') {
+                    if (status === 'out' || comment.includes('out')) {
                         impact.points -= 3;
-                        impact.notes.push('Key WR out (-3 pts)');
-                    } else if (text.includes('questionable')) {
+                        impact.notes.push(`🏥 ${playerName} (${position}) out (-3 pts)`);
+                    } else if (status === 'questionable' || status === 'doubtful') {
                         impact.points -= 1.5;
-                        impact.notes.push('Key WR questionable (-1.5 pts)');
+                        impact.notes.push(`🏥 ${playerName} (${position}) ${status} (-1.5 pts)`);
                     }
+                }
+
+                // Offensive line injuries - affects both run and pass
+                else if (position === 'OL' || position === 'T' || position === 'G' || position === 'C') {
+                    if (status === 'out' || comment.includes('out')) {
+                        impact.points -= 2;
+                        impact.notes.push(`🏥 ${playerName} (OL) out (-2 pts)`);
+                    }
+                }
+
+                // Defensive impact (positive for opponent)
+                // Only track major defensive injuries for elite players
+                else if ((position === 'CB' || position === 'S') && (status === 'out' || comment.includes('out'))) {
+                    // Don't directly boost opponent score, but note it
+                    impact.notes.push(`ℹ️ ${playerName} (${position}) out`);
                 }
             }
 
@@ -1997,14 +2016,23 @@
 
                 // Get our prediction from localStorage or generate one
                 const savedPrediction = predictions[game.id];
-                let predictedWinner = null;
+                let prediction = null;
 
                 if (savedPrediction && savedPrediction.prediction) {
-                    predictedWinner = savedPrediction.prediction.winner;
+                    prediction = savedPrediction.prediction;
                 } else {
-                    // Try to infer from current prediction logic
-                    continue; // Skip if no saved prediction
+                    // Generate prediction for completed games we didn't predict before
+                    try {
+                        prediction = generatePrediction(game, null, null);
+                        if (prediction.error) {
+                            continue; // Skip if we can't generate a prediction
+                        }
+                    } catch (err) {
+                        continue; // Skip if prediction fails
+                    }
                 }
+
+                const predictedWinner = prediction.winner;
 
                 const isCorrect = predictedWinner === actualWinner;
                 if (isCorrect) correct++;
