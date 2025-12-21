@@ -139,8 +139,8 @@ async function fetchLeagueStats() {
 
     try {
         // Fetch all weeks of current season for game results
-        // NFL season year is the year the season started (2024 for 2024-2025 season)
-        const seasonYear = 2024;
+        // NFL season year is the year the season started (2025 for 2025-2026 season)
+        const seasonYear = 2025;
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
