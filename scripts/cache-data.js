@@ -326,105 +326,46 @@ function updateTeamStats(teamStats, statistics, isHome) {
     }
 }
 
-async function fetchInjuries() {
-    console.log('🏥 Fetching injury reports...');
+async function fetchInjuries(games) {
+    console.log('🏥 Extracting injury reports from game data...');
     const injuries = {};
 
     try {
-        // Try to get injury data from team depth charts (more reliable)
-        for (const teamName in TEAM_DATA) {
-            const teamAbbrev = getTeamAbbreviation(teamName);
-            if (!teamAbbrev) continue;
+        // Extract injury data from the games we already fetched
+        for (const event of games || []) {
+            const competition = event.competitions[0];
 
-            try {
-                // Try the team API endpoint which includes injury data
-                const response = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${teamAbbrev}`,
-                    { timeout: 5000 }
-                );
+            for (const competitor of competition.competitors || []) {
+                const teamName = competitor.team.displayName;
 
-                if (response.ok) {
-                    const data = await response.json();
-                    const teamInjuries = [];
-
-                    // Check if there's an injuries array in the response
-                    if (data.team?.injuries && data.team.injuries.length > 0) {
-                        teamInjuries.push(...data.team.injuries.filter(inj =>
-                            inj.status !== 'ACTIVE' && inj.status !== 'Active'
-                        ));
+                // Check for injuries in the competitor data
+                if (competitor.injuries && Array.isArray(competitor.injuries) && competitor.injuries.length > 0) {
+                    if (!injuries[teamName]) {
+                        injuries[teamName] = [];
                     }
 
-                    // Also check if there's a depthChart with injury info
-                    if (data.team?.depthChart) {
-                        for (const position of data.team.depthChart.positions || []) {
-                            for (const athlete of position.athletes || []) {
-                                if (athlete.injuries && athlete.injuries.length > 0) {
-                                    athlete.injuries.forEach(inj => {
-                                        if (inj.status !== 'ACTIVE' && inj.status !== 'Active') {
-                                            teamInjuries.push({
-                                                longComment: inj.longComment || inj.details || `${inj.status}`,
-                                                status: inj.status,
-                                                athlete: {
-                                                    displayName: athlete.displayName,
-                                                    position: position.name
-                                                }
-                                            });
-                                        }
-                                    });
+                    competitor.injuries.forEach(inj => {
+                        // Only include non-active injuries
+                        if (inj.status && inj.status !== 'Active') {
+                            injuries[teamName].push({
+                                longComment: inj.details || inj.longComment || inj.status,
+                                status: inj.status,
+                                athlete: {
+                                    displayName: inj.athlete?.displayName || inj.athlete?.fullName || 'Unknown',
+                                    position: inj.athlete?.position?.abbreviation || inj.athlete?.position || ''
                                 }
-                            }
+                            });
                         }
-                    }
-
-                    if (teamInjuries.length > 0) {
-                        injuries[teamName] = teamInjuries;
-                    }
-                }
-            } catch (error) {
-                // Try alternative endpoint - injuries specific
-                try {
-                    const injResponse = await fetch(
-                        `https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/teams/${teamAbbrev}/injuries`,
-                        { timeout: 5000 }
-                    );
-
-                    if (injResponse.ok) {
-                        const injData = await injResponse.json();
-                        if (injData.items && injData.items.length > 0) {
-                            const teamInjuries = [];
-                            for (const item of injData.items) {
-                                try {
-                                    const detailResponse = await fetch(item.$ref, { timeout: 3000 });
-                                    if (detailResponse.ok) {
-                                        const detail = await detailResponse.json();
-                                        if (detail.status !== 'ACTIVE' && detail.status !== 'Active') {
-                                            teamInjuries.push({
-                                                longComment: detail.longComment || detail.details || `${detail.status}`,
-                                                status: detail.status,
-                                                athlete: detail.athlete || {}
-                                            });
-                                        }
-                                    }
-                                } catch (e) {
-                                    continue;
-                                }
-                            }
-                            if (teamInjuries.length > 0) {
-                                injuries[teamName] = teamInjuries;
-                            }
-                        }
-                    }
-                } catch (e2) {
-                    // Continue to next team
-                    continue;
+                    });
                 }
             }
         }
 
-        console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams (${Object.values(injuries).flat().length} total injuries)`);
+        const totalInjuries = Object.values(injuries).reduce((sum, team) => sum + team.length, 0);
+        console.log(`✅ Extracted injuries for ${Object.keys(injuries).length} teams (${totalInjuries} total injuries)`);
         return injuries;
     } catch (error) {
-        console.error('❌ Error fetching injuries:', error.message);
+        console.error('❌ Error extracting injuries:', error.message);
         return {};
     }
 }
@@ -487,7 +428,7 @@ async function main() {
     // Fetch all data
     const { games, currentWeek } = await fetchGames();
     const leagueStats = await fetchLeagueStats();
-    const injuries = await fetchInjuries();
+    const injuries = await fetchInjuries(games);  // Pass games to extract injury data
     const teamAccuracy = await calculateTeamAccuracy();
 
     // Combine into cached data
