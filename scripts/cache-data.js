@@ -489,7 +489,9 @@ async function fetchInjuries(games) {
                     athlete: {
                         displayName: `${player.first_name || ''} ${player.last_name || ''}`.trim() || 'Unknown',
                         position: player.position || ''
-                    }
+                    },
+                    depthChartPosition: player.depth_chart_position || null,
+                    depthChartOrder: player.depth_chart_order || null
                 });
             }
         }
