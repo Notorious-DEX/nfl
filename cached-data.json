@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-22T02:03:24.708Z",
+  "lastUpdated": "2025-12-22T02:12:45.493Z",
   "currentWeek": 16,
   "games": [
     {
@@ -248,62 +248,66 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728041061",
+              "id": "4017728041170",
               "type": {
                 "id": "74",
                 "text": "Official Timeout",
                 "abbreviation": "Off TO"
               },
-              "text": "Official Timeout at 11:17.",
+              "text": "Official Timeout at 10:21.",
               "scoreValue": 0,
               "team": {
                 "id": "17"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.601,
-                "awayWinPercentage": 0.399,
+                "homeWinPercentage": 0.5595,
+                "awayWinPercentage": 0.4405,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "10 plays, 68 yards, 5:26",
+                "description": "3 plays, 1 yard, 0:56",
                 "start": {
-                  "yardLine": 68,
-                  "text": "NE 32"
+                  "yardLine": 35,
+                  "text": "BAL 35"
                 },
                 "end": {
-                  "yardLine": 0,
-                  "text": "BAL 0"
+                  "yardLine": 36,
+                  "text": "BAL 36"
                 },
                 "timeElapsed": {
-                  "displayValue": "5:26"
+                  "displayValue": "0:56"
                 },
-                "result": "TD"
+                "result": "PUNT"
               },
               "start": {
-                "yardLine": 15,
+                "yardLine": 75,
                 "team": {
                   "id": "17"
                 }
               },
               "end": {
-                "yardLine": 15,
+                "yardLine": 75,
                 "team": {
                   "id": "17"
                 }
               },
               "statYardage": 0
             },
-            "down": -1,
-            "yardLine": 15,
-            "distance": 0,
-            "isRedZone": true,
+            "down": 1,
+            "yardLine": 75,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at NE 25",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "NE 25",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2
+            "awayTimeouts": 2,
+            "possession": "17"
           },
           "status": {
-            "clock": 677,
-            "displayClock": "11:17",
+            "clock": 621,
+            "displayClock": "10:21",
             "period": 2,
             "type": {
               "id": "2",
@@ -311,8 +315,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "11:17 - 2nd Quarter",
-              "shortDetail": "11:17 - 2nd"
+              "detail": "10:21 - 2nd Quarter",
+              "shortDetail": "10:21 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -548,8 +552,8 @@
         }
       },
       "status": {
-        "clock": 677,
-        "displayClock": "11:17",
+        "clock": 621,
+        "displayClock": "10:21",
         "period": 2,
         "type": {
           "id": "2",
@@ -557,8 +561,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "11:17 - 2nd Quarter",
-          "shortDetail": "11:17 - 2nd"
+          "detail": "10:21 - 2nd Quarter",
+          "shortDetail": "10:21 - 2nd"
         }
       }
     },
