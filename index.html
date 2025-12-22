@@ -1906,28 +1906,6 @@
                 awayInjuryImpact.notes.forEach(note => prediction.calculations.push(`${awayTeam}: ${note}`));
             }
 
-            // ===== STARTER CHANGES (vs Week 1 baseline) =====
-            // Apply penalties when QB1/RB1/WR1 differs from Week 1 baseline
-            const starterChanges = cachedData.starterChanges || {};
-
-            if (starterChanges[homeTeam]) {
-                starterChanges[homeTeam].forEach(change => {
-                    ourHomeScore += change.penalty;
-                    prediction.calculations.push(
-                        `${homeTeam}: ${change.position} change: ${change.baseline} → ${change.current} (${change.penalty} pts)`
-                    );
-                });
-            }
-
-            if (starterChanges[awayTeam]) {
-                starterChanges[awayTeam].forEach(change => {
-                    ourAwayScore += change.penalty;
-                    prediction.calculations.push(
-                        `${awayTeam}: ${change.position} change: ${change.baseline} → ${change.current} (${change.penalty} pts)`
-                    );
-                });
-            }
-
             // ===== QUALITY WINS BONUS (Week 12+) =====
             // Teams with better records vs .500+ opponents get a bonus
             const currentWeek = game.week?.number || 0;
