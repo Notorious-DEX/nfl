@@ -1567,33 +1567,51 @@
                     }
                 }
 
-                // RB injuries - big impact
+                // RB injuries - big impact (only for starters)
                 else if (position === 'RB') {
-                    if (status === 'out' || comment.includes('out')) {
-                        impact.points -= 4;
-                        impact.notes.push(`🏥 ${playerName} (RB) out (-4 pts)`);
-                    } else if (status === 'questionable' || status === 'doubtful') {
-                        impact.points -= 2;
-                        impact.notes.push(`🏥 ${playerName} (RB) ${status} (-2 pts)`);
+                    const isStarter = injury.depthChartPosition === 1;
+
+                    if (isStarter) {
+                        if (status === 'out' || comment.includes('out')) {
+                            impact.points -= 4;
+                            impact.notes.push(`🏥 ${playerName} (RB) out (-4 pts)`);
+                        } else if (status === 'questionable' || status === 'doubtful') {
+                            impact.points -= 2;
+                            impact.notes.push(`🏥 ${playerName} (RB) ${status} (-2 pts)`);
+                        }
+                    } else if (status === 'out' || comment.includes('out')) {
+                        impact.notes.push(`🏥 ${playerName} (Backup RB) out`);
                     }
                 }
 
-                // WR/TE injuries - significant for passing
+                // WR/TE injuries - significant for passing (only for starters)
                 else if (position === 'WR' || position === 'TE') {
-                    if (status === 'out' || comment.includes('out')) {
-                        impact.points -= 3;
-                        impact.notes.push(`🏥 ${playerName} (${position}) out (-3 pts)`);
-                    } else if (status === 'questionable' || status === 'doubtful') {
-                        impact.points -= 1.5;
-                        impact.notes.push(`🏥 ${playerName} (${position}) ${status} (-1.5 pts)`);
+                    const isStarter = injury.depthChartPosition === 1;
+
+                    if (isStarter) {
+                        if (status === 'out' || comment.includes('out')) {
+                            impact.points -= 3;
+                            impact.notes.push(`🏥 ${playerName} (${position}) out (-3 pts)`);
+                        } else if (status === 'questionable' || status === 'doubtful') {
+                            impact.points -= 1.5;
+                            impact.notes.push(`🏥 ${playerName} (${position}) ${status} (-1.5 pts)`);
+                        }
+                    } else if (status === 'out' || comment.includes('out')) {
+                        impact.notes.push(`🏥 ${playerName} (Backup ${position}) out`);
                     }
                 }
 
-                // Offensive line injuries - affects both run and pass
+                // Offensive line injuries - affects both run and pass (only for starters)
                 else if (position === 'OL' || position === 'T' || position === 'G' || position === 'C') {
-                    if (status === 'out' || comment.includes('out')) {
-                        impact.points -= 2;
-                        impact.notes.push(`🏥 ${playerName} (OL) out (-2 pts)`);
+                    const isStarter = injury.depthChartPosition === 1;
+
+                    if (isStarter) {
+                        if (status === 'out' || comment.includes('out')) {
+                            impact.points -= 2;
+                            impact.notes.push(`🏥 ${playerName} (OL) out (-2 pts)`);
+                        }
+                    } else if (status === 'out' || comment.includes('out')) {
+                        impact.notes.push(`🏥 ${playerName} (Backup OL) out`);
                     }
                 }
 
