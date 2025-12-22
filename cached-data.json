@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-22T02:24:11.790Z",
+  "lastUpdated": "2025-12-22T02:26:09.580Z",
   "currentWeek": 16,
   "games": [
     {
@@ -248,62 +248,85 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728041413",
+              "id": "4017728041469",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "Official Timeout at 05:39.",
+              "text": "D.Henry left tackle to BLT 41 for no gain.",
               "scoreValue": 0,
               "team": {
-                "id": "17"
+                "id": "33"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.4988,
-                "awayWinPercentage": 0.5012,
+                "homeWinPercentage": 0.5088,
+                "awayWinPercentage": 0.49119999999999997,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "9 plays, 48 yards, 4:42",
+                "description": "1 play, 6 yards, 0:00",
                 "start": {
-                  "yardLine": 75,
-                  "text": "NE 25"
-                },
-                "end": {
-                  "yardLine": 27,
-                  "text": "BAL 27"
+                  "yardLine": 35,
+                  "text": "BAL 35"
                 },
                 "timeElapsed": {
-                  "displayValue": "4:42"
-                },
-                "result": "FG"
+                  "displayValue": "0:00"
+                }
               },
               "start": {
-                "yardLine": 65,
+                "yardLine": 41,
                 "team": {
-                  "id": "17"
+                  "id": "33"
                 }
               },
               "end": {
-                "yardLine": 65,
+                "yardLine": 41,
                 "team": {
-                  "id": "17"
+                  "id": "33"
                 }
               },
-              "statYardage": 0
+              "statYardage": 0,
+              "athletesInvolved": [
+                {
+                  "id": "3043078",
+                  "fullName": "Derrick Henry",
+                  "displayName": "Derrick Henry",
+                  "shortName": "D. Henry",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
+                  "jersey": "22",
+                  "position": "RB",
+                  "team": {
+                    "id": "33"
+                  }
+                }
+              ]
             },
-            "down": -1,
-            "yardLine": 65,
-            "distance": 0,
-            "isRedZone": true,
+            "down": 3,
+            "yardLine": 41,
+            "distance": 4,
+            "downDistanceText": "3rd & 4 at BAL 41",
+            "shortDownDistanceText": "3rd & 4",
+            "possessionText": "BAL 41",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 1
+            "awayTimeouts": 1,
+            "possession": "33"
           },
           "status": {
-            "clock": 339,
-            "displayClock": "5:39",
+            "clock": 304,
+            "displayClock": "5:04",
             "period": 2,
             "type": {
               "id": "2",
@@ -311,8 +334,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "5:39 - 2nd Quarter",
-              "shortDetail": "5:39 - 2nd"
+              "detail": "5:04 - 2nd Quarter",
+              "shortDetail": "5:04 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -373,8 +396,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "7 CAR, 50 YDS, 1 TD",
-                  "value": 50,
+                  "displayValue": "8 CAR, 56 YDS, 1 TD",
+                  "value": 56,
                   "athlete": {
                     "id": "3043078",
                     "fullName": "Derrick Henry",
@@ -548,8 +571,8 @@
         }
       },
       "status": {
-        "clock": 339,
-        "displayClock": "5:39",
+        "clock": 304,
+        "displayClock": "5:04",
         "period": 2,
         "type": {
           "id": "2",
@@ -557,8 +580,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "5:39 - 2nd Quarter",
-          "shortDetail": "5:39 - 2nd"
+          "detail": "5:04 - 2nd Quarter",
+          "shortDetail": "5:04 - 2nd"
         }
       }
     },
@@ -1252,7 +1275,7 @@
                 "displayName": "Draft Kings"
               },
               "details": "SF -5.5",
-              "overUnder": 46.5,
+              "overUnder": 45.5,
               "spread": 5.5,
               "awayTeamOdds": {
                 "favorite": true,
@@ -1285,7 +1308,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+205",
+                    "odds": "+220",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1317,7 +1340,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-250",
+                    "odds": "-270",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1354,7 +1377,7 @@
                 "home": {
                   "close": {
                     "line": "+5.5",
-                    "odds": "-112",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1388,7 +1411,7 @@
                 "away": {
                   "close": {
                     "line": "-5.5",
-                    "odds": "-108",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1425,8 +1448,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o46.5",
-                    "odds": "EVEN",
+                    "line": "o45.5",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1434,7 +1457,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225649%3Foutcomes%3D0OU79743050O4650_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225649%3Foutcomes%3D0OU79743050O4550_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -1447,7 +1470,7 @@
                           "gameId": 401772824,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:46.5"
+                          "betDetails": "Over:45.5"
                         }
                       }
                     }
@@ -1459,8 +1482,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u46.5",
-                    "odds": "-120",
+                    "line": "u45.5",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1468,7 +1491,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225649%3Foutcomes%3D0OU79743050U4650_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225649%3Foutcomes%3D0OU79743050U4550_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -1481,7 +1504,7 @@
                           "gameId": 401772824,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:46.5"
+                          "betDetails": "Under:45.5"
                         }
                       }
                     }
