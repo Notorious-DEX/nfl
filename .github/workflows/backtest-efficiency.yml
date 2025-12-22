@@ -1,16 +1,16 @@
-name: NFL Backtest
+name: Efficiency Rating Backtest
 
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    # Run weekly on Mondays at 10 AM UTC (after week completes)
-    - cron: '0 10 * * 1'
+    # Run weekly on Mondays at 11 AM UTC (after Elo backtest)
+    - cron: '0 11 * * 1'
 
 permissions:
   contents: write
 
 jobs:
-  backtest:
+  backtest-efficiency:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,12 +27,12 @@ jobs:
       - name: Install dependencies
         run: npm install node-fetch
 
-      - name: Run backtest
-        run: node scripts/backtest.js
+      - name: Run efficiency backtest
+        run: node scripts/backtest-efficiency.js
 
       - name: Commit and push results
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add test-predictions.json results.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update backtest results [skip ci]" && git fetch && git pull --rebase && git push)
+          git add efficiency-results.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update efficiency backtest results [skip ci]" && git fetch && git pull --rebase && git push)
