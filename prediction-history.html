@@ -210,21 +210,6 @@
             font-weight: bold;
         }
 
-        .point-diff {
-            font-size: 0.85rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .point-diff.good {
-            color: #2ecc71;
-        }
-
-        .point-diff.bad {
-            color: #e74c3c;
-        }
-
         .confidence-badge {
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
@@ -370,10 +355,6 @@
                 <div class="stat-value" id="overallAccuracy">-</div>
                 <div class="stat-label">Overall Accuracy</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="avgPointDiff">-</div>
-                <div class="stat-label">Avg Point Differential</div>
-            </div>
         </div>
 
         <div class="filters">
@@ -427,13 +408,12 @@
                         <th class="sortable" data-sort="actual">Actual Winner</th>
                         <th class="sortable" data-sort="predictedScore">Predicted Score</th>
                         <th class="sortable" data-sort="actualScore">Actual Score</th>
-                        <th class="sortable" data-sort="diff">Point Diff</th>
                         <th class="sortable" data-sort="result">Result</th>
                     </tr>
                 </thead>
                 <tbody id="gameTable">
                     <tr>
-                        <td colspan="10" class="loading">Loading prediction history...</td>
+                        <td colspan="9" class="loading">Loading prediction history...</td>
                     </tr>
                 </tbody>
             </table>
@@ -539,19 +519,9 @@
             const total = filteredGames.length;
             const accuracy = total > 0 ? ((correct / total) * 100).toFixed(1) : 0;
 
-            // Calculate average point differential
-            let totalDiff = 0;
-            filteredGames.forEach(game => {
-                const predictedTotal = game.homeScore + game.awayScore;
-                const actualTotal = (game.actualHomeScore || 0) + (game.actualAwayScore || 0);
-                totalDiff += Math.abs(predictedTotal - actualTotal);
-            });
-            const avgDiff = total > 0 ? (totalDiff / total).toFixed(1) : 0;
-
             document.getElementById('totalGames').textContent = total;
             document.getElementById('correctPredictions').textContent = correct;
             document.getElementById('overallAccuracy').textContent = `${accuracy}%`;
-            document.getElementById('avgPointDiff').textContent = avgDiff;
         }
 
         function updateAnalytics() {
@@ -705,10 +675,6 @@
                 const predictedScore = `${game.awayScore}-${game.homeScore}`;
                 const actualScore = `${game.actualAwayScore || '-'}-${game.actualHomeScore || '-'}`;
 
-                const predictedTotal = game.homeScore + game.awayScore;
-                const actualTotal = (game.actualHomeScore || 0) + (game.actualAwayScore || 0);
-                const pointDiff = Math.abs(predictedTotal - actualTotal);
-
                 // Get confidence badge
                 const confidence = game.confidence || 'medium';
                 const confidenceClass = `confidence-${confidence}`;
@@ -723,11 +689,6 @@
                         <td class="${game.correct ? 'correct' : 'incorrect'}">${game.actualWinner || 'TBD'}</td>
                         <td class="predicted">${predictedScore}</td>
                         <td class="actual">${actualScore}</td>
-                        <td>
-                            <span class="point-diff ${pointDiff <= 7 ? 'good' : 'bad'}">
-                                ${pointDiff > 0 ? pointDiff : '-'}
-                            </span>
-                        </td>
                         <td class="${game.correct ? 'correct' : 'incorrect'}">
                             ${game.correct ? '✅' : '❌'}
                         </td>
