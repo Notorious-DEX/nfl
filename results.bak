@@ -1,12 +1,16 @@
 {
-  "generated": "2025-12-22T18:03:14.411Z",
+  "lastUpdated": "2025-12-22T17:48:37.636Z",
   "version": "v0.05",
   "method": "elo-pure",
   "kFactor": 20,
-  "weeks": 16,
-  "predictions": [
+  "weeks": 15,
+  "correct": 147,
+  "total": 224,
+  "accuracy": "65.6",
+  "games": [
     {
       "gameId": "401772510",
+      "week": 1,
       "date": "2025-09-05T00:20Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Dallas Cowboys",
@@ -14,10 +18,15 @@
       "awayScore": 18,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 20,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772714",
+      "week": 1,
       "date": "2025-09-06T00:00Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Kansas City Chiefs",
@@ -25,10 +34,15 @@
       "awayScore": 22,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 21,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772830",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -36,10 +50,15 @@
       "awayScore": 23,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 23,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": true
     },
     {
       "gameId": "401772829",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Cincinnati Bengals",
@@ -47,10 +66,15 @@
       "awayScore": 24,
       "winner": "Cincinnati Bengals",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 17,
+      "actualWinner": "Cincinnati Bengals",
+      "correct": true
     },
     {
       "gameId": "401772719",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Miami Dolphins",
@@ -58,10 +82,15 @@
       "awayScore": 22,
       "winner": "Indianapolis Colts",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 8,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772720",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Las Vegas Raiders",
@@ -69,10 +98,15 @@
       "awayScore": 21,
       "winner": "New England Patriots",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 20,
+      "actualWinner": "Las Vegas Raiders",
+      "correct": false
     },
     {
       "gameId": "401772718",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Arizona Cardinals",
@@ -80,10 +114,15 @@
       "awayScore": 22,
       "winner": "New Orleans Saints",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 20,
+      "actualWinner": "Arizona Cardinals",
+      "correct": false
     },
     {
       "gameId": "401772721",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Pittsburgh Steelers",
@@ -91,10 +130,15 @@
       "awayScore": 22,
       "winner": "New York Jets",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 32,
+      "actualAwayScore": 34,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": false
     },
     {
       "gameId": "401772827",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "New York Giants",
@@ -102,10 +146,15 @@
       "awayScore": 18,
       "winner": "Washington Commanders",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 6,
+      "actualWinner": "Washington Commanders",
+      "correct": true
     },
     {
       "gameId": "401772828",
+      "week": 1,
       "date": "2025-09-07T17:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Carolina Panthers",
@@ -113,10 +162,15 @@
       "awayScore": 20,
       "winner": "Jacksonville Jaguars",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 10,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": true
     },
     {
       "gameId": "401772832",
+      "week": 1,
       "date": "2025-09-07T20:05Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Tennessee Titans",
@@ -124,10 +178,15 @@
       "awayScore": 17,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 12,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772831",
+      "week": 1,
       "date": "2025-09-07T20:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "San Francisco 49ers",
@@ -135,10 +194,15 @@
       "awayScore": 20,
       "winner": "Seattle Seahawks",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 17,
+      "actualWinner": "San Francisco 49ers",
+      "correct": false
     },
     {
       "gameId": "401772722",
+      "week": 1,
       "date": "2025-09-07T20:25Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Detroit Lions",
@@ -146,10 +210,15 @@
       "awayScore": 22,
       "winner": "Green Bay Packers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 13,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772723",
+      "week": 1,
       "date": "2025-09-07T20:25Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Houston Texans",
@@ -157,10 +226,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Rams",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 14,
+      "actualAwayScore": 9,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772918",
+      "week": 1,
       "date": "2025-09-08T00:20Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Baltimore Ravens",
@@ -168,10 +242,15 @@
       "awayScore": 21,
       "winner": "Buffalo Bills",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 41,
+      "actualAwayScore": 40,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772810",
+      "week": 1,
       "date": "2025-09-09T00:15Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "Minnesota Vikings",
@@ -179,10 +258,15 @@
       "awayScore": 24,
       "winner": "Minnesota Vikings",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 27,
+      "actualWinner": "Minnesota Vikings",
+      "correct": true
     },
     {
       "gameId": "401772936",
+      "week": 2,
       "date": "2025-09-12T00:15Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Washington Commanders",
@@ -190,10 +274,15 @@
       "awayScore": 19,
       "winner": "Green Bay Packers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 18,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772725",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Jacksonville Jaguars",
@@ -201,10 +290,15 @@
       "awayScore": 18,
       "winner": "Cincinnati Bengals",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 27,
+      "actualWinner": "Cincinnati Bengals",
+      "correct": true
     },
     {
       "gameId": "401772834",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "New York Giants",
@@ -212,10 +306,15 @@
       "awayScore": 19,
       "winner": "Dallas Cowboys",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 40,
+      "actualAwayScore": 37,
+      "actualWinner": "Dallas Cowboys",
+      "correct": true
     },
     {
       "gameId": "401772835",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Chicago Bears",
@@ -223,10 +322,15 @@
       "awayScore": 16,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 52,
+      "actualAwayScore": 21,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772724",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Los Angeles Rams",
@@ -234,10 +338,15 @@
       "awayScore": 25,
       "winner": "Los Angeles Rams",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 19,
+      "actualAwayScore": 33,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772728",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "New England Patriots",
@@ -245,10 +354,15 @@
       "awayScore": 19,
       "winner": "Miami Dolphins",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 33,
+      "actualWinner": "New England Patriots",
+      "correct": false
     },
     {
       "gameId": "401772833",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "San Francisco 49ers",
@@ -256,10 +370,15 @@
       "awayScore": 23,
       "winner": "San Francisco 49ers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 26,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772727",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Buffalo Bills",
@@ -267,10 +386,15 @@
       "awayScore": 25,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 30,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772836",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Seattle Seahawks",
@@ -278,10 +402,15 @@
       "awayScore": 20,
       "winner": "Pittsburgh Steelers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 31,
+      "actualWinner": "Seattle Seahawks",
+      "correct": false
     },
     {
       "gameId": "401772726",
+      "week": 2,
       "date": "2025-09-14T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Cleveland Browns",
@@ -289,10 +418,15 @@
       "awayScore": 16,
       "winner": "Baltimore Ravens",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 41,
+      "actualAwayScore": 17,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772729",
+      "week": 2,
       "date": "2025-09-14T20:05Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Denver Broncos",
@@ -300,10 +434,15 @@
       "awayScore": 22,
       "winner": "Indianapolis Colts",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 29,
+      "actualAwayScore": 28,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772730",
+      "week": 2,
       "date": "2025-09-14T20:05Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Carolina Panthers",
@@ -311,10 +450,15 @@
       "awayScore": 18,
       "winner": "Arizona Cardinals",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 22,
+      "actualWinner": "Arizona Cardinals",
+      "correct": true
     },
     {
       "gameId": "401772837",
+      "week": 2,
       "date": "2025-09-14T20:25Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Philadelphia Eagles",
@@ -322,10 +466,15 @@
       "awayScore": 22,
       "winner": "Kansas City Chiefs",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 20,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": false
     },
     {
       "gameId": "401772919",
+      "week": 2,
       "date": "2025-09-15T00:20Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Atlanta Falcons",
@@ -333,10 +482,15 @@
       "awayScore": 17,
       "winner": "Minnesota Vikings",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 6,
+      "actualAwayScore": 22,
+      "actualWinner": "Atlanta Falcons",
+      "correct": false
     },
     {
       "gameId": "401772715",
+      "week": 2,
       "date": "2025-09-15T23:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -344,10 +498,15 @@
       "awayScore": 22,
       "winner": "Houston Texans",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 19,
+      "actualAwayScore": 20,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": false
     },
     {
       "gameId": "401772811",
+      "week": 2,
       "date": "2025-09-16T02:00Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Los Angeles Chargers",
@@ -355,10 +514,15 @@
       "awayScore": 24,
       "winner": "Los Angeles Chargers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 9,
+      "actualAwayScore": 20,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772937",
+      "week": 3,
       "date": "2025-09-19T00:15Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Miami Dolphins",
@@ -366,10 +530,15 @@
       "awayScore": 16,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 21,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772842",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Green Bay Packers",
@@ -377,10 +546,15 @@
       "awayScore": 26,
       "winner": "Green Bay Packers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 10,
+      "actualWinner": "Cleveland Browns",
+      "correct": false
     },
     {
       "gameId": "401772733",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Indianapolis Colts",
@@ -388,10 +562,15 @@
       "awayScore": 24,
       "winner": "Indianapolis Colts",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 41,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772731",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Cincinnati Bengals",
@@ -399,10 +578,15 @@
       "awayScore": 21,
       "winner": "Minnesota Vikings",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 48,
+      "actualAwayScore": 10,
+      "actualWinner": "Minnesota Vikings",
+      "correct": true
     },
     {
       "gameId": "401772732",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Pittsburgh Steelers",
@@ -410,10 +594,15 @@
       "awayScore": 23,
       "winner": "Pittsburgh Steelers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 14,
+      "actualAwayScore": 21,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     },
     {
       "gameId": "401772839",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Los Angeles Rams",
@@ -421,10 +610,15 @@
       "awayScore": 19,
       "winner": "Philadelphia Eagles",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 26,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772840",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "New York Jets",
@@ -432,10 +626,15 @@
       "awayScore": 18,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 29,
+      "actualAwayScore": 27,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": true
     },
     {
       "gameId": "401772841",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Las Vegas Raiders",
@@ -443,10 +642,15 @@
       "awayScore": 18,
       "winner": "Washington Commanders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 41,
+      "actualAwayScore": 24,
+      "actualWinner": "Washington Commanders",
+      "correct": true
     },
     {
       "gameId": "401772838",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Atlanta Falcons",
@@ -454,10 +658,15 @@
       "awayScore": 23,
       "winner": "Atlanta Falcons",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 0,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772734",
+      "week": 3,
       "date": "2025-09-21T17:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Houston Texans",
@@ -465,10 +674,15 @@
       "awayScore": 22,
       "winner": "Jacksonville Jaguars",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 10,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": true
     },
     {
       "gameId": "401772735",
+      "week": 3,
       "date": "2025-09-21T20:05Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Denver Broncos",
@@ -476,10 +690,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 20,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772736",
+      "week": 3,
       "date": "2025-09-21T20:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "New Orleans Saints",
@@ -487,10 +706,15 @@
       "awayScore": 18,
       "winner": "Seattle Seahawks",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 13,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772844",
+      "week": 3,
       "date": "2025-09-21T20:25Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "Dallas Cowboys",
@@ -498,10 +722,15 @@
       "awayScore": 22,
       "winner": "Chicago Bears",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 14,
+      "actualWinner": "Chicago Bears",
+      "correct": true
     },
     {
       "gameId": "401772843",
+      "week": 3,
       "date": "2025-09-21T20:25Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Arizona Cardinals",
@@ -509,10 +738,15 @@
       "awayScore": 20,
       "winner": "San Francisco 49ers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 15,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772920",
+      "week": 3,
       "date": "2025-09-22T00:20Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Kansas City Chiefs",
@@ -520,10 +754,15 @@
       "awayScore": 25,
       "winner": "Kansas City Chiefs",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 9,
+      "actualAwayScore": 22,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": true
     },
     {
       "gameId": "401772812",
+      "week": 3,
       "date": "2025-09-23T00:15Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Detroit Lions",
@@ -531,10 +770,15 @@
       "awayScore": 21,
       "winner": "Baltimore Ravens",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 38,
+      "actualWinner": "Detroit Lions",
+      "correct": false
     },
     {
       "gameId": "401772938",
+      "week": 4,
       "date": "2025-09-26T00:15Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Seattle Seahawks",
@@ -542,10 +786,15 @@
       "awayScore": 22,
       "winner": "Arizona Cardinals",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 23,
+      "actualWinner": "Seattle Seahawks",
+      "correct": false
     },
     {
       "gameId": "401772632",
+      "week": 4,
       "date": "2025-09-28T13:30Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Minnesota Vikings",
@@ -553,10 +802,15 @@
       "awayScore": 22,
       "winner": "Pittsburgh Steelers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 21,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     },
     {
       "gameId": "401772739",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Washington Commanders",
@@ -564,10 +818,15 @@
       "awayScore": 23,
       "winner": "Washington Commanders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 27,
+      "actualWinner": "Atlanta Falcons",
+      "correct": false
     },
     {
       "gameId": "401772740",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "New Orleans Saints",
@@ -575,10 +834,15 @@
       "awayScore": 15,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 19,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772846",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Cleveland Browns",
@@ -586,10 +850,15 @@
       "awayScore": 15,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 10,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772847",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Carolina Panthers",
@@ -597,10 +866,15 @@
       "awayScore": 21,
       "winner": "New England Patriots",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 42,
+      "actualAwayScore": 13,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772737",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Los Angeles Chargers",
@@ -608,10 +882,15 @@
       "awayScore": 26,
       "winner": "Los Angeles Chargers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 18,
+      "actualWinner": "New York Giants",
+      "correct": false
     },
     {
       "gameId": "401772845",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "Philadelphia Eagles",
@@ -619,10 +898,15 @@
       "awayScore": 23,
       "winner": "Philadelphia Eagles",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 25,
+      "actualAwayScore": 31,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772738",
+      "week": 4,
       "date": "2025-09-28T17:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Tennessee Titans",
@@ -630,10 +914,15 @@
       "awayScore": 18,
       "winner": "Houston Texans",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 0,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772849",
+      "week": 4,
       "date": "2025-09-28T20:05Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Indianapolis Colts",
@@ -641,10 +930,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Rams",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 20,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772848",
+      "week": 4,
       "date": "2025-09-28T20:05Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Jacksonville Jaguars",
@@ -652,10 +946,15 @@
       "awayScore": 19,
       "winner": "San Francisco 49ers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 26,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": false
     },
     {
       "gameId": "401772741",
+      "week": 4,
       "date": "2025-09-28T20:25Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Baltimore Ravens",
@@ -663,10 +962,15 @@
       "awayScore": 22,
       "winner": "Kansas City Chiefs",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 37,
+      "actualAwayScore": 20,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": true
     },
     {
       "gameId": "401772742",
+      "week": 4,
       "date": "2025-09-28T20:25Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Chicago Bears",
@@ -674,10 +978,15 @@
       "awayScore": 22,
       "winner": "Las Vegas Raiders",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 25,
+      "actualWinner": "Chicago Bears",
+      "correct": false
     },
     {
       "gameId": "401772921",
+      "week": 4,
       "date": "2025-09-29T00:20Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Green Bay Packers",
@@ -685,10 +994,15 @@
       "awayScore": 24,
       "winner": "Green Bay Packers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 40,
+      "actualAwayScore": 40,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772813",
+      "week": 4,
       "date": "2025-09-29T23:15Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "New York Jets",
@@ -696,10 +1010,15 @@
       "awayScore": 21,
       "winner": "Miami Dolphins",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 21,
+      "actualWinner": "Miami Dolphins",
+      "correct": true
     },
     {
       "gameId": "401772716",
+      "week": 4,
       "date": "2025-09-30T00:15Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Cincinnati Bengals",
@@ -707,10 +1026,15 @@
       "awayScore": 20,
       "winner": "Denver Broncos",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 3,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772939",
+      "week": 5,
       "date": "2025-10-03T00:15Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "San Francisco 49ers",
@@ -718,10 +1042,15 @@
       "awayScore": 19,
       "winner": "Los Angeles Rams",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 26,
+      "actualWinner": "San Francisco 49ers",
+      "correct": false
     },
     {
       "gameId": "401772633",
+      "week": 5,
       "date": "2025-10-05T13:30Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Minnesota Vikings",
@@ -729,10 +1058,15 @@
       "awayScore": 24,
       "winner": "Minnesota Vikings",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 21,
+      "actualWinner": "Minnesota Vikings",
+      "correct": true
     },
     {
       "gameId": "401772851",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Las Vegas Raiders",
@@ -740,10 +1074,15 @@
       "awayScore": 18,
       "winner": "Indianapolis Colts",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 40,
+      "actualAwayScore": 6,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772744",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "New York Giants",
@@ -751,10 +1090,15 @@
       "awayScore": 21,
       "winner": "New Orleans Saints",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 14,
+      "actualWinner": "New Orleans Saints",
+      "correct": true
     },
     {
       "gameId": "401772850",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Dallas Cowboys",
@@ -762,10 +1106,15 @@
       "awayScore": 22,
       "winner": "New York Jets",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 37,
+      "actualWinner": "Dallas Cowboys",
+      "correct": false
     },
     {
       "gameId": "401772745",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Denver Broncos",
@@ -773,10 +1122,15 @@
       "awayScore": 19,
       "winner": "Philadelphia Eagles",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 21,
+      "actualWinner": "Denver Broncos",
+      "correct": false
     },
     {
       "gameId": "401772852",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Miami Dolphins",
@@ -784,10 +1138,15 @@
       "awayScore": 23,
       "winner": "Miami Dolphins",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 24,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772743",
+      "week": 5,
       "date": "2025-10-05T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Houston Texans",
@@ -795,10 +1154,15 @@
       "awayScore": 18,
       "winner": "Baltimore Ravens",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 44,
+      "actualWinner": "Houston Texans",
+      "correct": false
     },
     {
       "gameId": "401772747",
+      "week": 5,
       "date": "2025-10-05T20:05Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Tennessee Titans",
@@ -806,10 +1170,15 @@
       "awayScore": 17,
       "winner": "Arizona Cardinals",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 22,
+      "actualWinner": "Tennessee Titans",
+      "correct": false
     },
     {
       "gameId": "401772746",
+      "week": 5,
       "date": "2025-10-05T20:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -817,10 +1186,15 @@
       "awayScore": 20,
       "winner": "Seattle Seahawks",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 35,
+      "actualAwayScore": 38,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": false
     },
     {
       "gameId": "401772854",
+      "week": 5,
       "date": "2025-10-05T20:25Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Detroit Lions",
@@ -828,10 +1202,15 @@
       "awayScore": 24,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 37,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772853",
+      "week": 5,
       "date": "2025-10-05T20:25Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Washington Commanders",
@@ -839,10 +1218,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 27,
+      "actualWinner": "Washington Commanders",
+      "correct": false
     },
     {
       "gameId": "401772922",
+      "week": 5,
       "date": "2025-10-06T00:20Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "New England Patriots",
@@ -850,10 +1234,15 @@
       "awayScore": 16,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 23,
+      "actualWinner": "New England Patriots",
+      "correct": false
     },
     {
       "gameId": "401772814",
+      "week": 5,
       "date": "2025-10-07T00:15Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Kansas City Chiefs",
@@ -861,10 +1250,15 @@
       "awayScore": 24,
       "winner": "Kansas City Chiefs",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 28,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": false
     },
     {
       "gameId": "401772940",
+      "week": 6,
       "date": "2025-10-10T00:15Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Philadelphia Eagles",
@@ -872,10 +1266,15 @@
       "awayScore": 27,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 17,
+      "actualWinner": "New York Giants",
+      "correct": false
     },
     {
       "gameId": "401772634",
+      "week": 6,
       "date": "2025-10-12T13:30Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Denver Broncos",
@@ -883,10 +1282,15 @@
       "awayScore": 25,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 11,
+      "actualAwayScore": 13,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772856",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Arizona Cardinals",
@@ -894,10 +1298,15 @@
       "awayScore": 20,
       "winner": "Indianapolis Colts",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 27,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772750",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Los Angeles Chargers",
@@ -905,10 +1314,15 @@
       "awayScore": 23,
       "winner": "Los Angeles Chargers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 29,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772751",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "New England Patriots",
@@ -916,10 +1330,15 @@
       "awayScore": 22,
       "winner": "New Orleans Saints",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 19,
+      "actualAwayScore": 25,
+      "actualWinner": "New England Patriots",
+      "correct": false
     },
     {
       "gameId": "401772748",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Cleveland Browns",
@@ -927,10 +1346,15 @@
       "awayScore": 18,
       "winner": "Pittsburgh Steelers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 9,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     },
     {
       "gameId": "401772858",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Dallas Cowboys",
@@ -938,10 +1362,15 @@
       "awayScore": 23,
       "winner": "Dallas Cowboys",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 27,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772857",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Seattle Seahawks",
@@ -949,10 +1378,15 @@
       "awayScore": 22,
       "winner": "Jacksonville Jaguars",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 12,
+      "actualAwayScore": 20,
+      "actualWinner": "Seattle Seahawks",
+      "correct": false
     },
     {
       "gameId": "401772855",
+      "week": 6,
       "date": "2025-10-12T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Los Angeles Rams",
@@ -960,10 +1394,15 @@
       "awayScore": 21,
       "winner": "Baltimore Ravens",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 3,
+      "actualAwayScore": 17,
+      "actualWinner": "Los Angeles Rams",
+      "correct": false
     },
     {
       "gameId": "401772859",
+      "week": 6,
       "date": "2025-10-12T20:05Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Tennessee Titans",
@@ -971,10 +1410,15 @@
       "awayScore": 20,
       "winner": "Las Vegas Raiders",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 10,
+      "actualWinner": "Las Vegas Raiders",
+      "correct": true
     },
     {
       "gameId": "401772752",
+      "week": 6,
       "date": "2025-10-12T20:25Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Cincinnati Bengals",
@@ -982,10 +1426,15 @@
       "awayScore": 18,
       "winner": "Green Bay Packers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 18,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772749",
+      "week": 6,
       "date": "2025-10-12T20:25Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "San Francisco 49ers",
@@ -993,10 +1442,15 @@
       "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 19,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": true
     },
     {
       "gameId": "401772923",
+      "week": 6,
       "date": "2025-10-13T00:20Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Detroit Lions",
@@ -1004,10 +1458,15 @@
       "awayScore": 23,
       "winner": "Detroit Lions",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 17,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": false
     },
     {
       "gameId": "401772815",
+      "week": 6,
       "date": "2025-10-13T23:15Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Buffalo Bills",
@@ -1015,10 +1474,15 @@
       "awayScore": 25,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 14,
+      "actualWinner": "Atlanta Falcons",
+      "correct": false
     },
     {
       "gameId": "401772717",
+      "week": 6,
       "date": "2025-10-14T00:15Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Chicago Bears",
@@ -1026,10 +1490,15 @@
       "awayScore": 18,
       "winner": "Washington Commanders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 25,
+      "actualWinner": "Chicago Bears",
+      "correct": false
     },
     {
       "gameId": "401772941",
+      "week": 7,
       "date": "2025-10-17T00:15Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Pittsburgh Steelers",
@@ -1037,10 +1506,15 @@
       "awayScore": 23,
       "winner": "Pittsburgh Steelers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 31,
+      "actualWinner": "Cincinnati Bengals",
+      "correct": false
     },
     {
       "gameId": "401772635",
+      "week": 7,
       "date": "2025-10-19T13:30Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Los Angeles Rams",
@@ -1048,10 +1522,15 @@
       "awayScore": 23,
       "winner": "Los Angeles Rams",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 7,
+      "actualAwayScore": 35,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772861",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "New Orleans Saints",
@@ -1059,10 +1538,15 @@
       "awayScore": 19,
       "winner": "Chicago Bears",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 14,
+      "actualWinner": "Chicago Bears",
+      "correct": true
     },
     {
       "gameId": "401772754",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Miami Dolphins",
@@ -1070,10 +1554,15 @@
       "awayScore": 22,
       "winner": "Cleveland Browns",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 6,
+      "actualWinner": "Cleveland Browns",
+      "correct": true
     },
     {
       "gameId": "401772755",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "New England Patriots",
@@ -1081,10 +1570,15 @@
       "awayScore": 24,
       "winner": "New England Patriots",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 31,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772753",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Las Vegas Raiders",
@@ -1092,10 +1586,15 @@
       "awayScore": 16,
       "winner": "Kansas City Chiefs",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 0,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": true
     },
     {
       "gameId": "401772862",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Philadelphia Eagles",
@@ -1103,10 +1602,15 @@
       "awayScore": 21,
       "winner": "Minnesota Vikings",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 28,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": false
     },
     {
       "gameId": "401772860",
+      "week": 7,
       "date": "2025-10-19T17:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Carolina Panthers",
@@ -1114,10 +1618,15 @@
       "awayScore": 21,
       "winner": "New York Jets",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 6,
+      "actualAwayScore": 13,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772757",
+      "week": 7,
       "date": "2025-10-19T20:05Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "New York Giants",
@@ -1125,10 +1634,15 @@
       "awayScore": 16,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 32,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772756",
+      "week": 7,
       "date": "2025-10-19T20:05Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Indianapolis Colts",
@@ -1136,10 +1650,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 38,
+      "actualWinner": "Indianapolis Colts",
+      "correct": false
     },
     {
       "gameId": "401772864",
+      "week": 7,
       "date": "2025-10-19T20:25Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Washington Commanders",
@@ -1147,10 +1666,15 @@
       "awayScore": 23,
       "winner": "Washington Commanders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 22,
+      "actualWinner": "Dallas Cowboys",
+      "correct": false
     },
     {
       "gameId": "401772863",
+      "week": 7,
       "date": "2025-10-19T20:25Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Green Bay Packers",
@@ -1158,10 +1682,15 @@
       "awayScore": 24,
       "winner": "Green Bay Packers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 27,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772924",
+      "week": 7,
       "date": "2025-10-20T00:20Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Atlanta Falcons",
@@ -1169,10 +1698,15 @@
       "awayScore": 21,
       "winner": "San Francisco 49ers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 10,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772816",
+      "week": 7,
       "date": "2025-10-20T23:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -1180,10 +1714,15 @@
       "awayScore": 19,
       "winner": "Detroit Lions",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 9,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772826",
+      "week": 7,
       "date": "2025-10-21T02:00Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Houston Texans",
@@ -1191,10 +1730,15 @@
       "awayScore": 20,
       "winner": "Seattle Seahawks",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 19,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772942",
+      "week": 8,
       "date": "2025-10-24T00:15Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Minnesota Vikings",
@@ -1202,10 +1746,15 @@
       "awayScore": 22,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 37,
+      "actualAwayScore": 10,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772760",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Miami Dolphins",
@@ -1213,10 +1762,15 @@
       "awayScore": 19,
       "winner": "Atlanta Falcons",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 34,
+      "actualWinner": "Miami Dolphins",
+      "correct": false
     },
     {
       "gameId": "401772758",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "New York Jets",
@@ -1224,10 +1778,15 @@
       "awayScore": 18,
       "winner": "Cincinnati Bengals",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 38,
+      "actualAwayScore": 39,
+      "actualWinner": "New York Jets",
+      "correct": false
     },
     {
       "gameId": "401772868",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Cleveland Browns",
@@ -1235,10 +1794,15 @@
       "awayScore": 19,
       "winner": "New England Patriots",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 32,
+      "actualAwayScore": 13,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772867",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "New York Giants",
@@ -1246,10 +1810,15 @@
       "awayScore": 16,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 38,
+      "actualAwayScore": 20,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772865",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Buffalo Bills",
@@ -1257,10 +1826,15 @@
       "awayScore": 25,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 9,
+      "actualAwayScore": 40,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772759",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Chicago Bears",
@@ -1268,10 +1842,15 @@
       "awayScore": 20,
       "winner": "Baltimore Ravens",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 16,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772866",
+      "week": 8,
       "date": "2025-10-26T17:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "San Francisco 49ers",
@@ -1279,10 +1858,15 @@
       "awayScore": 21,
       "winner": "Houston Texans",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 15,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772869",
+      "week": 8,
       "date": "2025-10-26T20:05Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -1290,10 +1874,15 @@
       "awayScore": 25,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 3,
+      "actualAwayScore": 23,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": true
     },
     {
       "gameId": "401772762",
+      "week": 8,
       "date": "2025-10-26T20:25Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Dallas Cowboys",
@@ -1301,10 +1890,15 @@
       "awayScore": 18,
       "winner": "Denver Broncos",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 24,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772761",
+      "week": 8,
       "date": "2025-10-26T20:25Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Tennessee Titans",
@@ -1312,10 +1906,15 @@
       "awayScore": 15,
       "winner": "Indianapolis Colts",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 38,
+      "actualAwayScore": 14,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772925",
+      "week": 8,
       "date": "2025-10-27T00:20Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Green Bay Packers",
@@ -1323,10 +1922,15 @@
       "awayScore": 23,
       "winner": "Green Bay Packers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 25,
+      "actualAwayScore": 35,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772817",
+      "week": 8,
       "date": "2025-10-28T00:15Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Washington Commanders",
@@ -1334,10 +1938,15 @@
       "awayScore": 18,
       "winner": "Kansas City Chiefs",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 7,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": true
     },
     {
       "gameId": "401772943",
+      "week": 9,
       "date": "2025-10-31T00:15Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Baltimore Ravens",
@@ -1345,10 +1954,15 @@
       "awayScore": 23,
       "winner": "Baltimore Ravens",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 6,
+      "actualAwayScore": 28,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772765",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Chicago Bears",
@@ -1356,10 +1970,15 @@
       "awayScore": 20,
       "winner": "Cincinnati Bengals",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 42,
+      "actualAwayScore": 47,
+      "actualWinner": "Chicago Bears",
+      "correct": false
     },
     {
       "gameId": "401772871",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Minnesota Vikings",
@@ -1367,10 +1986,15 @@
       "awayScore": 18,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 27,
+      "actualWinner": "Minnesota Vikings",
+      "correct": false
     },
     {
       "gameId": "401772872",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Carolina Panthers",
@@ -1378,10 +2002,15 @@
       "awayScore": 15,
       "winner": "Green Bay Packers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 16,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772764",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Los Angeles Chargers",
@@ -1389,10 +2018,15 @@
       "awayScore": 27,
       "winner": "Los Angeles Chargers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 27,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772763",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Atlanta Falcons",
@@ -1400,10 +2034,15 @@
       "awayScore": 19,
       "winner": "New England Patriots",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 23,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772767",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "San Francisco 49ers",
@@ -1411,10 +2050,15 @@
       "awayScore": 23,
       "winner": "San Francisco 49ers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 34,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772766",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Indianapolis Colts",
@@ -1422,10 +2066,15 @@
       "awayScore": 22,
       "winner": "Pittsburgh Steelers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 20,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     },
     {
       "gameId": "401772870",
+      "week": 9,
       "date": "2025-11-02T18:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Denver Broncos",
@@ -1433,10 +2082,15 @@
       "awayScore": 23,
       "winner": "Denver Broncos",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 15,
+      "actualAwayScore": 18,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772873",
+      "week": 9,
       "date": "2025-11-02T21:05Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Jacksonville Jaguars",
@@ -1444,10 +2098,15 @@
       "awayScore": 22,
       "winner": "Las Vegas Raiders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 29,
+      "actualAwayScore": 30,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": false
     },
     {
       "gameId": "401772874",
+      "week": 9,
       "date": "2025-11-02T21:05Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "New Orleans Saints",
@@ -1455,10 +2114,15 @@
       "awayScore": 16,
       "winner": "Los Angeles Rams",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 10,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772768",
+      "week": 9,
       "date": "2025-11-02T21:25Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Kansas City Chiefs",
@@ -1466,10 +2130,15 @@
       "awayScore": 21,
       "winner": "Buffalo Bills",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 21,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772926",
+      "week": 9,
       "date": "2025-11-03T01:20Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Seattle Seahawks",
@@ -1477,10 +2146,15 @@
       "awayScore": 23,
       "winner": "Seattle Seahawks",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 14,
+      "actualAwayScore": 38,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772818",
+      "week": 9,
       "date": "2025-11-04T01:15Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Arizona Cardinals",
@@ -1488,10 +2162,15 @@
       "awayScore": 20,
       "winner": "Dallas Cowboys",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 27,
+      "actualWinner": "Arizona Cardinals",
+      "correct": false
     },
     {
       "gameId": "401772944",
+      "week": 10,
       "date": "2025-11-07T01:15Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Las Vegas Raiders",
@@ -1499,10 +2178,15 @@
       "awayScore": 15,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 7,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772636",
+      "week": 10,
       "date": "2025-11-09T14:30Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Atlanta Falcons",
@@ -1510,10 +2194,15 @@
       "awayScore": 18,
       "winner": "Indianapolis Colts",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 25,
+      "actualWinner": "Indianapolis Colts",
+      "correct": true
     },
     {
       "gameId": "401772875",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "New York Giants",
@@ -1521,10 +2210,15 @@
       "awayScore": 19,
       "winner": "Chicago Bears",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 20,
+      "actualWinner": "Chicago Bears",
+      "correct": true
     },
     {
       "gameId": "401772771",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Buffalo Bills",
@@ -1532,10 +2226,15 @@
       "awayScore": 26,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 30,
+      "actualAwayScore": 13,
+      "actualWinner": "Miami Dolphins",
+      "correct": false
     },
     {
       "gameId": "401772876",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Baltimore Ravens",
@@ -1543,10 +2242,15 @@
       "awayScore": 21,
       "winner": "Minnesota Vikings",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 19,
+      "actualAwayScore": 27,
+      "actualWinner": "Baltimore Ravens",
+      "correct": false
     },
     {
       "gameId": "401772769",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Cleveland Browns",
@@ -1554,10 +2258,15 @@
       "awayScore": 21,
       "winner": "New York Jets",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 20,
+      "actualWinner": "New York Jets",
+      "correct": true
     },
     {
       "gameId": "401772772",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "New England Patriots",
@@ -1565,10 +2274,15 @@
       "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 28,
+      "actualWinner": "New England Patriots",
+      "correct": false
     },
     {
       "gameId": "401772877",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "New Orleans Saints",
@@ -1576,10 +2290,15 @@
       "awayScore": 19,
       "winner": "Carolina Panthers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 7,
+      "actualAwayScore": 17,
+      "actualWinner": "New Orleans Saints",
+      "correct": false
     },
     {
       "gameId": "401772770",
+      "week": 10,
       "date": "2025-11-09T18:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Jacksonville Jaguars",
@@ -1587,10 +2306,15 @@
       "awayScore": 19,
       "winner": "Houston Texans",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 36,
+      "actualAwayScore": 29,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772773",
+      "week": 10,
       "date": "2025-11-09T21:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Arizona Cardinals",
@@ -1598,10 +2322,15 @@
       "awayScore": 18,
       "winner": "Seattle Seahawks",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 22,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772879",
+      "week": 10,
       "date": "2025-11-09T21:25Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Los Angeles Rams",
@@ -1609,10 +2338,15 @@
       "awayScore": 23,
       "winner": "Los Angeles Rams",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 42,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772878",
+      "week": 10,
       "date": "2025-11-09T21:25Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Detroit Lions",
@@ -1620,10 +2354,15 @@
       "awayScore": 25,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 44,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772927",
+      "week": 10,
       "date": "2025-11-10T01:20Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Pittsburgh Steelers",
@@ -1631,10 +2370,15 @@
       "awayScore": 20,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 25,
+      "actualAwayScore": 10,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772630",
+      "week": 10,
       "date": "2025-11-11T01:15Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Philadelphia Eagles",
@@ -1642,10 +2386,15 @@
       "awayScore": 21,
       "winner": "Green Bay Packers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 7,
+      "actualAwayScore": 10,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": false
     },
     {
       "gameId": "401772945",
+      "week": 11,
       "date": "2025-11-14T01:15Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "New York Jets",
@@ -1653,10 +2402,15 @@
       "awayScore": 18,
       "winner": "New England Patriots",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 14,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772631",
+      "week": 11,
       "date": "2025-11-16T14:30Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "Washington Commanders",
@@ -1664,10 +2418,15 @@
       "awayScore": 21,
       "winner": "Miami Dolphins",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 13,
+      "actualWinner": "Miami Dolphins",
+      "correct": true
     },
     {
       "gameId": "401772882",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Carolina Panthers",
@@ -1675,10 +2434,15 @@
       "awayScore": 20,
       "winner": "Atlanta Falcons",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 30,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772776",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -1686,10 +2450,15 @@
       "awayScore": 20,
       "winner": "Buffalo Bills",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 32,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772881",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Houston Texans",
@@ -1697,10 +2466,15 @@
       "awayScore": 26,
       "winner": "Houston Texans",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 16,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772880",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Chicago Bears",
@@ -1708,10 +2482,15 @@
       "awayScore": 20,
       "winner": "Minnesota Vikings",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 19,
+      "actualWinner": "Chicago Bears",
+      "correct": false
     },
     {
       "gameId": "401772883",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Green Bay Packers",
@@ -1719,10 +2498,15 @@
       "awayScore": 26,
       "winner": "Green Bay Packers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 27,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772774",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Cincinnati Bengals",
@@ -1730,10 +2514,15 @@
       "awayScore": 19,
       "winner": "Pittsburgh Steelers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 12,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     },
     {
       "gameId": "401772775",
+      "week": 11,
       "date": "2025-11-16T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Los Angeles Chargers",
@@ -1741,10 +2530,15 @@
       "awayScore": 24,
       "winner": "Los Angeles Chargers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 35,
+      "actualAwayScore": 6,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": false
     },
     {
       "gameId": "401772884",
+      "week": 11,
       "date": "2025-11-16T21:05Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Seattle Seahawks",
@@ -1752,10 +2546,15 @@
       "awayScore": 21,
       "winner": "Los Angeles Rams",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 19,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772885",
+      "week": 11,
       "date": "2025-11-16T21:05Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "San Francisco 49ers",
@@ -1763,10 +2562,15 @@
       "awayScore": 21,
       "winner": "Arizona Cardinals",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 41,
+      "actualWinner": "San Francisco 49ers",
+      "correct": false
     },
     {
       "gameId": "401772777",
+      "week": 11,
       "date": "2025-11-16T21:25Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Baltimore Ravens",
@@ -1774,10 +2578,15 @@
       "awayScore": 25,
       "winner": "Baltimore Ravens",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 23,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772778",
+      "week": 11,
       "date": "2025-11-16T21:25Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Kansas City Chiefs",
@@ -1785,10 +2594,15 @@
       "awayScore": 21,
       "winner": "Denver Broncos",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 19,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772928",
+      "week": 11,
       "date": "2025-11-17T01:20Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Detroit Lions",
@@ -1796,10 +2610,15 @@
       "awayScore": 21,
       "winner": "Philadelphia Eagles",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 9,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772819",
+      "week": 11,
       "date": "2025-11-18T01:15Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Dallas Cowboys",
@@ -1807,10 +2626,15 @@
       "awayScore": 22,
       "winner": "Las Vegas Raiders",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 33,
+      "actualWinner": "Dallas Cowboys",
+      "correct": false
     },
     {
       "gameId": "401772946",
+      "week": 12,
       "date": "2025-11-21T01:15Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Buffalo Bills",
@@ -1818,10 +2642,15 @@
       "awayScore": 22,
       "winner": "Houston Texans",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 19,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772780",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "Pittsburgh Steelers",
@@ -1829,10 +2658,15 @@
       "awayScore": 22,
       "winner": "Chicago Bears",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 28,
+      "actualWinner": "Chicago Bears",
+      "correct": true
     },
     {
       "gameId": "401772781",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "New England Patriots",
@@ -1840,10 +2674,15 @@
       "awayScore": 23,
       "winner": "New England Patriots",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 26,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772888",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "New York Giants",
@@ -1851,10 +2690,15 @@
       "awayScore": 14,
       "winner": "Detroit Lions",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 27,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772887",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Minnesota Vikings",
@@ -1862,10 +2706,15 @@
       "awayScore": 18,
       "winner": "Green Bay Packers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 6,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772886",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Seattle Seahawks",
@@ -1873,10 +2722,15 @@
       "awayScore": 28,
       "winner": "Seattle Seahawks",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 30,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772779",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Indianapolis Colts",
@@ -1884,10 +2738,15 @@
       "awayScore": 19,
       "winner": "Kansas City Chiefs",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 20,
+      "actualWinner": "Kansas City Chiefs",
+      "correct": true
     },
     {
       "gameId": "401772782",
+      "week": 12,
       "date": "2025-11-23T18:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "New York Jets",
@@ -1895,10 +2754,15 @@
       "awayScore": 16,
       "winner": "Baltimore Ravens",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 23,
+      "actualAwayScore": 10,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772784",
+      "week": 12,
       "date": "2025-11-23T21:05Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Cleveland Browns",
@@ -1906,10 +2770,15 @@
       "awayScore": 21,
       "winner": "Las Vegas Raiders",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 24,
+      "actualWinner": "Cleveland Browns",
+      "correct": false
     },
     {
       "gameId": "401772783",
+      "week": 12,
       "date": "2025-11-23T21:05Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Jacksonville Jaguars",
@@ -1917,10 +2786,15 @@
       "awayScore": 22,
       "winner": "Arizona Cardinals",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 27,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": false
     },
     {
       "gameId": "401772890",
+      "week": 12,
       "date": "2025-11-23T21:25Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Philadelphia Eagles",
@@ -1928,10 +2802,15 @@
       "awayScore": 25,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 21,
+      "actualWinner": "Dallas Cowboys",
+      "correct": false
     },
     {
       "gameId": "401772889",
+      "week": 12,
       "date": "2025-11-23T21:25Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Atlanta Falcons",
@@ -1939,10 +2818,15 @@
       "awayScore": 21,
       "winner": "New Orleans Saints",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 24,
+      "actualWinner": "Atlanta Falcons",
+      "correct": false
     },
     {
       "gameId": "401772929",
+      "week": 12,
       "date": "2025-11-24T01:20Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Tampa Bay Buccaneers",
@@ -1950,10 +2834,15 @@
       "awayScore": 19,
       "winner": "Los Angeles Rams",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 7,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772820",
+      "week": 12,
       "date": "2025-11-25T01:15Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Carolina Panthers",
@@ -1961,10 +2850,15 @@
       "awayScore": 18,
       "winner": "San Francisco 49ers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 9,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772891",
+      "week": 13,
       "date": "2025-11-27T18:00Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Green Bay Packers",
@@ -1972,10 +2866,15 @@
       "awayScore": 20,
       "winner": "Detroit Lions",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 24,
+      "actualAwayScore": 31,
+      "actualWinner": "Green Bay Packers",
+      "correct": false
     },
     {
       "gameId": "401772694",
+      "week": 13,
       "date": "2025-11-27T21:30Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Kansas City Chiefs",
@@ -1983,10 +2882,15 @@
       "awayScore": 24,
       "winner": "Kansas City Chiefs",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 28,
+      "actualWinner": "Dallas Cowboys",
+      "correct": false
     },
     {
       "gameId": "401772930",
+      "week": 13,
       "date": "2025-11-28T01:20Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Cincinnati Bengals",
@@ -1994,10 +2898,15 @@
       "awayScore": 17,
       "winner": "Baltimore Ravens",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 14,
+      "actualAwayScore": 32,
+      "actualWinner": "Cincinnati Bengals",
+      "correct": false
     },
     {
       "gameId": "401772621",
+      "week": 13,
       "date": "2025-11-28T20:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Chicago Bears",
@@ -2005,10 +2914,15 @@
       "awayScore": 18,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 15,
+      "actualAwayScore": 24,
+      "actualWinner": "Chicago Bears",
+      "correct": false
     },
     {
       "gameId": "401772785",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "San Francisco 49ers",
@@ -2016,10 +2930,15 @@
       "awayScore": 24,
       "winner": "San Francisco 49ers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 8,
+      "actualAwayScore": 26,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772786",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Tennessee Titans",
       "awayTeam": "Jacksonville Jaguars",
@@ -2027,10 +2946,15 @@
       "awayScore": 26,
       "winner": "Jacksonville Jaguars",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 3,
+      "actualAwayScore": 25,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": true
     },
     {
       "gameId": "401772787",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Indianapolis Colts",
       "awayTeam": "Houston Texans",
@@ -2038,10 +2962,15 @@
       "awayScore": 21,
       "winner": "Indianapolis Colts",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 16,
+      "actualAwayScore": 20,
+      "actualWinner": "Houston Texans",
+      "correct": false
     },
     {
       "gameId": "401772892",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Miami Dolphins",
       "awayTeam": "New Orleans Saints",
@@ -2049,10 +2978,15 @@
       "awayScore": 18,
       "winner": "Miami Dolphins",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 17,
+      "actualWinner": "Miami Dolphins",
+      "correct": true
     },
     {
       "gameId": "401772893",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Atlanta Falcons",
@@ -2060,10 +2994,15 @@
       "awayScore": 22,
       "winner": "New York Jets",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 27,
+      "actualAwayScore": 24,
+      "actualWinner": "New York Jets",
+      "correct": true
     },
     {
       "gameId": "401772895",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "Arizona Cardinals",
@@ -2071,10 +3010,15 @@
       "awayScore": 19,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 17,
+      "actualWinner": "Tampa Bay Buccaneers",
+      "correct": true
     },
     {
       "gameId": "401772894",
+      "week": 13,
       "date": "2025-11-30T18:00Z",
       "homeTeam": "Carolina Panthers",
       "awayTeam": "Los Angeles Rams",
@@ -2082,10 +3026,15 @@
       "awayScore": 26,
       "winner": "Los Angeles Rams",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 28,
+      "actualWinner": "Carolina Panthers",
+      "correct": false
     },
     {
       "gameId": "401772896",
+      "week": 13,
       "date": "2025-11-30T21:05Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Minnesota Vikings",
@@ -2093,10 +3042,15 @@
       "awayScore": 18,
       "winner": "Seattle Seahawks",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 0,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772789",
+      "week": 13,
       "date": "2025-11-30T21:25Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Buffalo Bills",
@@ -2104,10 +3058,15 @@
       "awayScore": 22,
       "winner": "Pittsburgh Steelers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 7,
+      "actualAwayScore": 26,
+      "actualWinner": "Buffalo Bills",
+      "correct": false
     },
     {
       "gameId": "401772788",
+      "week": 13,
       "date": "2025-11-30T21:25Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Las Vegas Raiders",
@@ -2115,10 +3074,15 @@
       "awayScore": 16,
       "winner": "Los Angeles Chargers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 14,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772931",
+      "week": 13,
       "date": "2025-12-01T01:20Z",
       "homeTeam": "Washington Commanders",
       "awayTeam": "Denver Broncos",
@@ -2126,10 +3090,15 @@
       "awayScore": 25,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 27,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772821",
+      "week": 13,
       "date": "2025-12-02T01:15Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "New York Giants",
@@ -2137,10 +3106,15 @@
       "awayScore": 16,
       "winner": "New England Patriots",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 15,
+      "actualWinner": "New England Patriots",
+      "correct": true
     },
     {
       "gameId": "401772947",
+      "week": 14,
       "date": "2025-12-05T01:15Z",
       "homeTeam": "Detroit Lions",
       "awayTeam": "Dallas Cowboys",
@@ -2148,10 +3122,15 @@
       "awayScore": 18,
       "winner": "Detroit Lions",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 44,
+      "actualAwayScore": 30,
+      "actualWinner": "Detroit Lions",
+      "correct": true
     },
     {
       "gameId": "401772900",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Atlanta Falcons",
       "awayTeam": "Seattle Seahawks",
@@ -2159,10 +3138,15 @@
       "awayScore": 26,
       "winner": "Seattle Seahawks",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 9,
+      "actualAwayScore": 37,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772902",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Buffalo Bills",
       "awayTeam": "Cincinnati Bengals",
@@ -2170,10 +3154,15 @@
       "awayScore": 17,
       "winner": "Buffalo Bills",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 39,
+      "actualAwayScore": 34,
+      "actualWinner": "Buffalo Bills",
+      "correct": true
     },
     {
       "gameId": "401772898",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Cleveland Browns",
       "awayTeam": "Tennessee Titans",
@@ -2181,10 +3170,15 @@
       "awayScore": 18,
       "winner": "Cleveland Browns",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 29,
+      "actualAwayScore": 31,
+      "actualWinner": "Tennessee Titans",
+      "correct": false
     },
     {
       "gameId": "401772899",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Minnesota Vikings",
       "awayTeam": "Washington Commanders",
@@ -2192,10 +3186,15 @@
       "awayScore": 20,
       "winner": "Minnesota Vikings",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 0,
+      "actualWinner": "Minnesota Vikings",
+      "correct": true
     },
     {
       "gameId": "401772790",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "New York Jets",
       "awayTeam": "Miami Dolphins",
@@ -2203,10 +3202,15 @@
       "awayScore": 23,
       "winner": "Miami Dolphins",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 34,
+      "actualWinner": "Miami Dolphins",
+      "correct": true
     },
     {
       "gameId": "401772792",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "New Orleans Saints",
@@ -2214,10 +3218,15 @@
       "awayScore": 17,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 24,
+      "actualWinner": "New Orleans Saints",
+      "correct": false
     },
     {
       "gameId": "401772793",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "Indianapolis Colts",
@@ -2225,10 +3234,15 @@
       "awayScore": 21,
       "winner": "Jacksonville Jaguars",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 36,
+      "actualAwayScore": 19,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": true
     },
     {
       "gameId": "401772791",
+      "week": 14,
       "date": "2025-12-07T18:00Z",
       "homeTeam": "Baltimore Ravens",
       "awayTeam": "Pittsburgh Steelers",
@@ -2236,10 +3250,15 @@
       "awayScore": 20,
       "winner": "Baltimore Ravens",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 27,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": false
     },
     {
       "gameId": "401772794",
+      "week": 14,
       "date": "2025-12-07T21:05Z",
       "homeTeam": "Las Vegas Raiders",
       "awayTeam": "Denver Broncos",
@@ -2247,10 +3266,15 @@
       "awayScore": 28,
       "winner": "Denver Broncos",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 24,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772897",
+      "week": 14,
       "date": "2025-12-07T21:25Z",
       "homeTeam": "Green Bay Packers",
       "awayTeam": "Chicago Bears",
@@ -2258,10 +3282,15 @@
       "awayScore": 18,
       "winner": "Green Bay Packers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 21,
+      "actualWinner": "Green Bay Packers",
+      "correct": true
     },
     {
       "gameId": "401772901",
+      "week": 14,
       "date": "2025-12-07T21:25Z",
       "homeTeam": "Arizona Cardinals",
       "awayTeam": "Los Angeles Rams",
@@ -2269,10 +3298,15 @@
       "awayScore": 25,
       "winner": "Los Angeles Rams",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 45,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772932",
+      "week": 14,
       "date": "2025-12-08T01:20Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Houston Texans",
@@ -2280,10 +3314,15 @@
       "awayScore": 20,
       "winner": "Kansas City Chiefs",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 10,
+      "actualAwayScore": 20,
+      "actualWinner": "Houston Texans",
+      "correct": false
     },
     {
       "gameId": "401772822",
+      "week": 14,
       "date": "2025-12-09T01:15Z",
       "homeTeam": "Los Angeles Chargers",
       "awayTeam": "Philadelphia Eagles",
@@ -2291,10 +3330,15 @@
       "awayScore": 22,
       "winner": "Los Angeles Chargers",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 22,
+      "actualAwayScore": 19,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": true
     },
     {
       "gameId": "401772948",
+      "week": 15,
       "date": "2025-12-12T01:15Z",
       "homeTeam": "Tampa Bay Buccaneers",
       "awayTeam": "Atlanta Falcons",
@@ -2302,10 +3346,15 @@
       "awayScore": 18,
       "winner": "Tampa Bay Buccaneers",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 29,
+      "actualWinner": "Atlanta Falcons",
+      "correct": false
     },
     {
       "gameId": "401772904",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Chicago Bears",
       "awayTeam": "Cleveland Browns",
@@ -2313,10 +3362,15 @@
       "awayScore": 17,
       "winner": "Chicago Bears",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 3,
+      "actualWinner": "Chicago Bears",
+      "correct": true
     },
     {
       "gameId": "401772796",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Cincinnati Bengals",
       "awayTeam": "Baltimore Ravens",
@@ -2324,10 +3378,15 @@
       "awayScore": 23,
       "winner": "Baltimore Ravens",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 0,
+      "actualAwayScore": 24,
+      "actualWinner": "Baltimore Ravens",
+      "correct": true
     },
     {
       "gameId": "401772798",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Kansas City Chiefs",
       "awayTeam": "Los Angeles Chargers",
@@ -2335,10 +3394,15 @@
       "awayScore": 20,
       "winner": "Kansas City Chiefs",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 13,
+      "actualAwayScore": 16,
+      "actualWinner": "Los Angeles Chargers",
+      "correct": false
     },
     {
       "gameId": "401772795",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "New England Patriots",
       "awayTeam": "Buffalo Bills",
@@ -2346,10 +3410,15 @@
       "awayScore": 22,
       "winner": "New England Patriots",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 35,
+      "actualWinner": "Buffalo Bills",
+      "correct": false
     },
     {
       "gameId": "401772905",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "New York Giants",
       "awayTeam": "Washington Commanders",
@@ -2357,10 +3426,15 @@
       "awayScore": 22,
       "winner": "New York Giants",
       "confidence": "medium",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 21,
+      "actualAwayScore": 29,
+      "actualWinner": "Washington Commanders",
+      "correct": false
     },
     {
       "gameId": "401772906",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Philadelphia Eagles",
       "awayTeam": "Las Vegas Raiders",
@@ -2368,10 +3442,15 @@
       "awayScore": 14,
       "winner": "Philadelphia Eagles",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 0,
+      "actualWinner": "Philadelphia Eagles",
+      "correct": true
     },
     {
       "gameId": "401772797",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Jacksonville Jaguars",
       "awayTeam": "New York Jets",
@@ -2379,10 +3458,15 @@
       "awayScore": 17,
       "winner": "Jacksonville Jaguars",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 48,
+      "actualAwayScore": 20,
+      "actualWinner": "Jacksonville Jaguars",
+      "correct": true
     },
     {
       "gameId": "401772903",
+      "week": 15,
       "date": "2025-12-14T18:00Z",
       "homeTeam": "Houston Texans",
       "awayTeam": "Arizona Cardinals",
@@ -2390,10 +3474,15 @@
       "awayScore": 16,
       "winner": "Houston Texans",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 40,
+      "actualAwayScore": 20,
+      "actualWinner": "Houston Texans",
+      "correct": true
     },
     {
       "gameId": "401772800",
+      "week": 15,
       "date": "2025-12-14T21:25Z",
       "homeTeam": "Denver Broncos",
       "awayTeam": "Green Bay Packers",
@@ -2401,10 +3490,15 @@
       "awayScore": 21,
       "winner": "Denver Broncos",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 34,
+      "actualAwayScore": 26,
+      "actualWinner": "Denver Broncos",
+      "correct": true
     },
     {
       "gameId": "401772909",
+      "week": 15,
       "date": "2025-12-14T21:25Z",
       "homeTeam": "Los Angeles Rams",
       "awayTeam": "Detroit Lions",
@@ -2412,10 +3506,15 @@
       "awayScore": 21,
       "winner": "Los Angeles Rams",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 41,
+      "actualAwayScore": 34,
+      "actualWinner": "Los Angeles Rams",
+      "correct": true
     },
     {
       "gameId": "401772908",
+      "week": 15,
       "date": "2025-12-14T21:25Z",
       "homeTeam": "New Orleans Saints",
       "awayTeam": "Carolina Panthers",
@@ -2423,10 +3522,15 @@
       "awayScore": 22,
       "winner": "New Orleans Saints",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 20,
+      "actualAwayScore": 17,
+      "actualWinner": "New Orleans Saints",
+      "correct": true
     },
     {
       "gameId": "401772907",
+      "week": 15,
       "date": "2025-12-14T21:25Z",
       "homeTeam": "San Francisco 49ers",
       "awayTeam": "Tennessee Titans",
@@ -2434,10 +3538,15 @@
       "awayScore": 15,
       "winner": "San Francisco 49ers",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 37,
+      "actualAwayScore": 24,
+      "actualWinner": "San Francisco 49ers",
+      "correct": true
     },
     {
       "gameId": "401772799",
+      "week": 15,
       "date": "2025-12-14T21:25Z",
       "homeTeam": "Seattle Seahawks",
       "awayTeam": "Indianapolis Colts",
@@ -2445,10 +3554,15 @@
       "awayScore": 17,
       "winner": "Seattle Seahawks",
       "confidence": "high",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 18,
+      "actualAwayScore": 16,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true
     },
     {
       "gameId": "401772933",
+      "week": 15,
       "date": "2025-12-15T01:20Z",
       "homeTeam": "Dallas Cowboys",
       "awayTeam": "Minnesota Vikings",
@@ -2456,10 +3570,15 @@
       "awayScore": 21,
       "winner": "Dallas Cowboys",
       "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 26,
+      "actualAwayScore": 34,
+      "actualWinner": "Minnesota Vikings",
+      "correct": false
     },
     {
       "gameId": "401772823",
+      "week": 15,
       "date": "2025-12-16T01:15Z",
       "homeTeam": "Pittsburgh Steelers",
       "awayTeam": "Miami Dolphins",
@@ -2467,172 +3586,11 @@
       "awayScore": 20,
       "winner": "Pittsburgh Steelers",
       "confidence": "low",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772949",
-      "date": "2025-12-19T01:15Z",
-      "homeTeam": "Seattle Seahawks",
-      "awayTeam": "Los Angeles Rams",
-      "homeScore": 23,
-      "awayScore": 21,
-      "winner": "Seattle Seahawks",
-      "confidence": "low",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772612",
-      "date": "2025-12-20T22:00Z",
-      "homeTeam": "Washington Commanders",
-      "awayTeam": "Philadelphia Eagles",
-      "homeScore": 19,
-      "awayScore": 25,
-      "winner": "Philadelphia Eagles",
-      "confidence": "high",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772613",
-      "date": "2025-12-21T01:20Z",
-      "homeTeam": "Chicago Bears",
-      "awayTeam": "Green Bay Packers",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Green Bay Packers",
-      "confidence": "medium",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772802",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "Cleveland Browns",
-      "awayTeam": "Buffalo Bills",
-      "homeScore": 17,
-      "awayScore": 27,
-      "winner": "Buffalo Bills",
-      "confidence": "high",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772910",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "Dallas Cowboys",
-      "awayTeam": "Los Angeles Chargers",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Los Angeles Chargers",
-      "confidence": "medium",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772803",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "Tennessee Titans",
-      "awayTeam": "Kansas City Chiefs",
-      "homeScore": 17,
-      "awayScore": 27,
-      "winner": "Kansas City Chiefs",
-      "confidence": "high",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772934",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "Miami Dolphins",
-      "awayTeam": "Cincinnati Bengals",
-      "homeScore": 24,
-      "awayScore": 20,
-      "winner": "Miami Dolphins",
-      "confidence": "low",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772801",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "New Orleans Saints",
-      "awayTeam": "New York Jets",
-      "homeScore": 24,
-      "awayScore": 20,
-      "winner": "New Orleans Saints",
-      "confidence": "low",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772911",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "New York Giants",
-      "awayTeam": "Minnesota Vikings",
-      "homeScore": 19,
-      "awayScore": 25,
-      "winner": "Minnesota Vikings",
-      "confidence": "high",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772912",
-      "date": "2025-12-21T18:00Z",
-      "homeTeam": "Carolina Panthers",
-      "awayTeam": "Tampa Bay Buccaneers",
-      "homeScore": 21,
-      "awayScore": 23,
-      "winner": "Tampa Bay Buccaneers",
-      "confidence": "medium",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772913",
-      "date": "2025-12-21T21:05Z",
-      "homeTeam": "Denver Broncos",
-      "awayTeam": "Jacksonville Jaguars",
-      "homeScore": 26,
-      "awayScore": 18,
-      "winner": "Denver Broncos",
-      "confidence": "medium",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772914",
-      "date": "2025-12-21T21:05Z",
-      "homeTeam": "Arizona Cardinals",
-      "awayTeam": "Atlanta Falcons",
-      "homeScore": 23,
-      "awayScore": 21,
-      "winner": "Arizona Cardinals",
-      "confidence": "low",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772806",
-      "date": "2025-12-21T21:25Z",
-      "homeTeam": "Detroit Lions",
-      "awayTeam": "Pittsburgh Steelers",
-      "homeScore": 25,
-      "awayScore": 19,
-      "winner": "Detroit Lions",
-      "confidence": "medium",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772805",
-      "date": "2025-12-21T21:25Z",
-      "homeTeam": "Houston Texans",
-      "awayTeam": "Las Vegas Raiders",
-      "homeScore": 30,
-      "awayScore": 14,
-      "winner": "Houston Texans",
-      "confidence": "high",
-      "method": "elo"
-    },
-    {
-      "gameId": "401772804",
-      "date": "2025-12-22T01:20Z",
-      "homeTeam": "Baltimore Ravens",
-      "awayTeam": "New England Patriots",
-      "homeScore": 24,
-      "awayScore": 20,
-      "winner": "Baltimore Ravens",
-      "confidence": "low",
-      "method": "elo"
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 15,
+      "actualWinner": "Pittsburgh Steelers",
+      "correct": true
     }
   ]
 }
