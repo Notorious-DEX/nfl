@@ -374,43 +374,94 @@ async function main() {
         // Fetch league stats
         await fetchLeagueStats();
 
+        // Load existing predictions to preserve unchecked ones
+        let existingPredictions = [];
+        const predictionsPath = path.join(__dirname, '..', 'predictions.json');
+        if (fs.existsSync(predictionsPath)) {
+            try {
+                const existingData = JSON.parse(fs.readFileSync(predictionsPath, 'utf8'));
+                existingPredictions = existingData.predictions || [];
+                console.log(`📋 Loaded ${existingPredictions.length} existing predictions`);
+            } catch (error) {
+                console.warn('⚠️  Could not load existing predictions:', error.message);
+            }
+        }
+
+        // Load results to see what's been checked
+        let checkedGameIds = new Set();
+        const resultsPath = path.join(__dirname, '..', 'results.json');
+        if (fs.existsSync(resultsPath)) {
+            try {
+                const resultsData = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+                const games = resultsData.games || [];
+                games.forEach(game => checkedGameIds.add(game.gameId));
+                console.log(`✅ Loaded ${checkedGameIds.size} checked results`);
+            } catch (error) {
+                console.warn('⚠️  Could not load results:', error.message);
+            }
+        }
+
         // Fetch upcoming games
         const games = await fetchGames();
 
         if (games.length === 0) {
-            console.log('No upcoming games found. Exiting.');
+            console.log('No upcoming games found.');
 
-            // Save empty predictions file
-            const predictionsPath = path.join(__dirname, '..', 'predictions.json');
+            // Preserve unchecked predictions even if no new games
+            const uncheckedPredictions = existingPredictions.filter(pred => {
+                return !checkedGameIds.has(pred.gameId);
+            });
+
+            if (uncheckedPredictions.length > 0) {
+                console.log(`📌 Preserving ${uncheckedPredictions.length} unchecked predictions`);
+            } else {
+                console.log('No unchecked predictions to preserve.');
+            }
+
+            // Save predictions file (either unchecked or empty)
             fs.writeFileSync(predictionsPath, JSON.stringify({
                 generated: new Date().toISOString(),
-                predictions: []
+                predictions: uncheckedPredictions
             }, null, 2));
 
             return;
         }
 
-        // Generate predictions
-        console.log('\n🎯 Generating predictions...');
-        const predictions = [];
+        // Generate predictions for upcoming games
+        console.log('\n🎯 Generating predictions for upcoming games...');
+        const newPredictions = [];
 
         for (const game of games) {
             const prediction = generatePrediction(game);
             if (prediction) {  // Only add valid predictions (skip nulls)
-                predictions.push(prediction);
+                newPredictions.push(prediction);
                 console.log(`  ✓ ${prediction.awayTeam} @ ${prediction.homeTeam}: ${prediction.winner} (${prediction.awayScore}-${prediction.homeScore})`);
             }
         }
 
+        // Preserve unchecked predictions from existing file
+        const uncheckedPredictions = existingPredictions.filter(pred => {
+            return !checkedGameIds.has(pred.gameId);
+        });
+
+        if (uncheckedPredictions.length > 0) {
+            console.log(`\n📌 Preserving ${uncheckedPredictions.length} unchecked predictions from previous run`);
+            uncheckedPredictions.forEach(pred => {
+                console.log(`  → ${pred.awayTeam} @ ${pred.homeTeam} (${pred.gameId})`);
+            });
+        }
+
+        // Combine unchecked old predictions with new predictions
+        const allPredictions = [...uncheckedPredictions, ...newPredictions];
+
         // Save predictions to file
-        const predictionsPath = path.join(__dirname, '..', 'predictions.json');
         const output = {
             generated: new Date().toISOString(),
-            predictions
+            predictions: allPredictions
         };
 
         fs.writeFileSync(predictionsPath, JSON.stringify(output, null, 2));
-        console.log(`\n✅ Saved ${predictions.length} predictions to predictions.json`);
+        console.log(`\n✅ Saved ${allPredictions.length} predictions to predictions.json (${uncheckedPredictions.length} preserved + ${newPredictions.length} new)`);
 
     } catch (error) {
         console.error('❌ Error generating predictions:', error);
