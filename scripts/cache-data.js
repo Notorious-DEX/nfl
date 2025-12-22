@@ -409,6 +409,13 @@ function updateTeamStats(teamStats, statistics, isHome) {
 }
 
 function parseBoxscoreStats(statistics, teamStats, yards) {
+    // Debug: Log stat names from first game
+    if (!parseBoxscoreStats.logged) {
+        const statNames = statistics.map(s => s.name).join(', ');
+        log('📋 Available stat names in boxscore:', statNames);
+        parseBoxscoreStats.logged = true;
+    }
+
     for (const stat of statistics) {
         const name = stat.name.toLowerCase();
         const value = parseFloat(stat.displayValue) || 0;
@@ -417,7 +424,7 @@ function parseBoxscoreStats(statistics, teamStats, yards) {
             teamStats.rushYards += value;
             if (yards) yards.rush = value;
         }
-        else if (name === 'passingyards') {
+        else if (name === 'passingyards' || name === 'netpassingyards') {
             teamStats.passYards += value;
             if (yards) yards.pass = value;
         }
