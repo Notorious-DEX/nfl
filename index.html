@@ -1104,7 +1104,13 @@
                 }
 
                 // Fetch completed games from all weeks of the season
-                const currentWeek = 15; // Update as season progresses
+                // First, get current week from ESPN API
+                document.getElementById('loading').textContent = `🏈 Detecting current NFL week...`;
+                const currentWeekResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                const currentWeekData = await currentWeekResponse.json();
+                const currentWeek = currentWeekData.week?.number || 18;
+                console.log(`📅 Current NFL week: ${currentWeek}`);
+
                 let totalGames = 0;
                 let statsProcessed = 0;
 
