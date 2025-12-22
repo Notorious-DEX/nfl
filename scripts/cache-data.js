@@ -498,144 +498,9 @@ async function fetchInjuries(games) {
 
         const totalInjuries = Object.values(injuries).reduce((sum, team) => sum + team.length, 0);
         console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams (${totalInjuries} total injuries)`);
-        return { injuries, players };
+        return injuries;
     } catch (error) {
         console.error('❌ Error fetching injuries:', error.message);
-        return { injuries: {}, players: null };
-    }
-}
-
-function detectStarterChanges(players) {
-    console.log('🔍 Detecting starter changes vs Week 1 baseline...');
-
-    try {
-        // Load baseline starters
-        const baselinePath = path.join(__dirname, '..', 'baseline-starters.json');
-        if (!fs.existsSync(baselinePath)) {
-            console.log('⚠️  baseline-starters.json not found, skipping starter change detection');
-            return {};
-        }
-
-        const baselineData = JSON.parse(fs.readFileSync(baselinePath, 'utf8'));
-        const baseline = baselineData.starters;
-
-        if (!players) {
-            console.log('⚠️  No player data available');
-            return {};
-        }
-
-        const starterChanges = {};
-
-        // Build current depth chart from players
-        const currentDepthChart = {};
-        const abbrevToName = {
-            "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
-            "BUF": "Buffalo Bills", "CAR": "Carolina Panthers", "CHI": "Chicago Bears",
-            "CIN": "Cincinnati Bengals", "CLE": "Cleveland Browns", "DAL": "Dallas Cowboys",
-            "DEN": "Denver Broncos", "DET": "Detroit Lions", "GB": "Green Bay Packers",
-            "HOU": "Houston Texans", "IND": "Indianapolis Colts", "JAX": "Jacksonville Jaguars",
-            "KC": "Kansas City Chiefs", "LAR": "Los Angeles Rams", "LAC": "Los Angeles Chargers",
-            "LV": "Las Vegas Raiders", "MIA": "Miami Dolphins", "MIN": "Minnesota Vikings",
-            "NE": "New England Patriots", "NO": "New Orleans Saints", "NYG": "New York Giants",
-            "NYJ": "New York Jets", "PHI": "Philadelphia Eagles", "PIT": "Pittsburgh Steelers",
-            "SF": "San Francisco 49ers", "SEA": "Seattle Seahawks", "TB": "Tampa Bay Buccaneers",
-            "TEN": "Tennessee Titans", "WSH": "Washington Commanders"
-        };
-
-        for (const teamAbbrev in abbrevToName) {
-            const teamName = abbrevToName[teamAbbrev];
-            currentDepthChart[teamName] = {
-                QB1: null,
-                RB1: null,
-                WR1: null
-            };
-        }
-
-        // Find current starters (depth_chart_position === 1)
-        for (const playerId in players) {
-            const player = players[playerId];
-
-            if (!player.team || !player.depth_chart_position || player.status === 'Retired') continue;
-
-            const teamName = abbrevToName[player.team];
-            if (!teamName) continue;
-
-            const position = player.position;
-            const depthPosition = player.depth_chart_position;
-
-            if (depthPosition !== 1) continue;
-
-            const playerName = `${player.first_name || ''} ${player.last_name || ''}`.trim();
-
-            if (position === 'QB' && !currentDepthChart[teamName].QB1) {
-                currentDepthChart[teamName].QB1 = playerName;
-            } else if (position === 'RB' && !currentDepthChart[teamName].RB1) {
-                currentDepthChart[teamName].RB1 = playerName;
-            } else if (position === 'WR' && !currentDepthChart[teamName].WR1) {
-                currentDepthChart[teamName].WR1 = playerName;
-            }
-        }
-
-        // Compare current vs baseline
-        let changeCount = 0;
-        for (const teamName in baseline) {
-            const baselineStarters = baseline[teamName];
-            const currentStarters = currentDepthChart[teamName];
-
-            if (!currentStarters) continue;
-
-            const changes = [];
-
-            if (baselineStarters.QB1 && currentStarters.QB1 && baselineStarters.QB1 !== currentStarters.QB1) {
-                changes.push({
-                    position: 'QB1',
-                    baseline: baselineStarters.QB1,
-                    current: currentStarters.QB1,
-                    penalty: -8
-                });
-                changeCount++;
-            }
-
-            if (baselineStarters.RB1 && currentStarters.RB1 && baselineStarters.RB1 !== currentStarters.RB1) {
-                changes.push({
-                    position: 'RB1',
-                    baseline: baselineStarters.RB1,
-                    current: currentStarters.RB1,
-                    penalty: -4
-                });
-                changeCount++;
-            }
-
-            if (baselineStarters.WR1 && currentStarters.WR1 && baselineStarters.WR1 !== currentStarters.WR1) {
-                changes.push({
-                    position: 'WR1',
-                    baseline: baselineStarters.WR1,
-                    current: currentStarters.WR1,
-                    penalty: -3
-                });
-                changeCount++;
-            }
-
-            if (changes.length > 0) {
-                starterChanges[teamName] = changes;
-            }
-        }
-
-        if (changeCount > 0) {
-            console.log(`⚠️  Detected ${changeCount} starter changes:`);
-            for (const [team, changes] of Object.entries(starterChanges)) {
-                changes.forEach(change => {
-                    console.log(`   ${team}: ${change.position} changed from ${change.baseline} to ${change.current} (${change.penalty} pts)`);
-                });
-            }
-        } else {
-            console.log(`✅ No starter changes detected`);
-        }
-
-        return starterChanges;
-
-    } catch (error) {
-        console.error('❌ Error detecting starter changes:', error.message);
         return {};
     }
 }
@@ -815,8 +680,7 @@ async function main() {
     // Fetch all data
     const { games, currentWeek } = await fetchGames();
     const leagueStats = await fetchLeagueStats();
-    const { injuries, players } = await fetchInjuries(games);  // Get both injuries and player data
-    const starterChanges = detectStarterChanges(players);  // Detect QB1/RB1/WR1 changes vs Week 1 baseline
+    const injuries = await fetchInjuries(games);
     const teamAccuracy = await calculateTeamAccuracy();
     const qualityWins = calculateQualityWins();
 
@@ -827,7 +691,6 @@ async function main() {
         games,
         leagueStats,
         injuries,
-        starterChanges,
         teamAccuracy,
         qualityWins
     };
