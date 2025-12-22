@@ -24,12 +24,12 @@ jobs:
       - name: Install dependencies
         run: npm install node-fetch
 
-      - name: Build baseline starters
-        run: node scripts/build-baseline-starters.js
+      - name: Build baseline starters from Week 1 actual games
+        run: node scripts/fetch-week1-starters.js
 
       - name: Commit and push baseline
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
           git add baseline-starters.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Create baseline starters from Week 1 depth charts [skip ci]" && git fetch && git pull --rebase && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Create baseline starters from Week 1 actual games [skip ci]" && git fetch && git pull --rebase && git push)
