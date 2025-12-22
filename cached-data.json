@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-22T03:13:56.425Z",
+  "lastUpdated": "2025-12-22T03:47:11.198Z",
   "currentWeek": 16,
   "games": [
     {
@@ -110,7 +110,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png"
               },
-              "score": "10",
+              "score": "24",
               "linescores": [
                 {
                   "value": 7,
@@ -123,9 +123,14 @@
                   "period": 2
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -216,7 +221,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png"
               },
-              "score": "10",
+              "score": "13",
               "linescores": [
                 {
                   "value": 0,
@@ -229,9 +234,14 @@
                   "period": 2
                 },
                 {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 3
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 3
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -258,51 +268,51 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728042461",
+              "id": "-319866",
               "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
+                "id": "61",
+                "text": "Extra Point Good",
+                "abbreviation": "XP"
               },
-              "text": "(Shotgun) D.Maye pass incomplete deep right to R.Stevenson.",
-              "scoreValue": 0,
+              "text": "(Tyler Loop Kick)",
+              "scoreValue": 1,
               "team": {
-                "id": "17"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.4994,
-                "awayWinPercentage": 0.5005999999999999,
-                "secondsLeft": 0
+                "id": "33"
               },
               "drive": {
-                "description": "5 plays, 32 yards, 2:46",
+                "description": "7 plays, 44 yards, 4:03",
                 "start": {
-                  "yardLine": 54,
-                  "text": "NE 46"
+                  "yardLine": 56,
+                  "text": "NE 44"
+                },
+                "end": {
+                  "yardLine": 100,
+                  "text": "NE 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:46"
-                }
+                  "displayValue": "4:03"
+                },
+                "result": "TD"
               },
               "start": {
-                "yardLine": 22,
+                "yardLine": 85,
                 "team": {
-                  "id": "17"
+                  "id": "33"
                 }
               },
               "end": {
-                "yardLine": 22,
+                "yardLine": 35,
                 "team": {
-                  "id": "17"
+                  "id": "33"
                 }
               },
               "statYardage": 0,
               "athletesInvolved": [
                 {
-                  "id": "4569173",
-                  "fullName": "Rhamondre Stevenson",
-                  "displayName": "Rhamondre Stevenson",
-                  "shortName": "R. Stevenson",
+                  "id": "3043078",
+                  "fullName": "Derrick Henry",
+                  "displayName": "Derrick Henry",
+                  "shortName": "D. Henry",
                   "links": [
                     {
                       "rel": [
@@ -310,41 +320,38 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4569173/rhamondre-stevenson"
+                      "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4569173.png",
-                  "jersey": "38",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
+                  "jersey": "22",
                   "position": "RB",
                   "team": {
-                    "id": "17"
+                    "id": "33"
                   }
                 }
               ]
             },
-            "down": 4,
-            "yardLine": 22,
-            "distance": 2,
-            "downDistanceText": "4th & 2 at BAL 22",
-            "shortDownDistanceText": "4th & 2",
-            "possessionText": "BAL 22",
+            "down": 1,
+            "yardLine": 35,
+            "distance": 10,
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
-            "possession": "17"
+            "possession": "33"
           },
           "status": {
-            "clock": 472,
-            "displayClock": "7:52",
-            "period": 3,
+            "clock": 770,
+            "displayClock": "12:50",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "7:52 - 3rd Quarter",
-              "shortDetail": "7:52 - 3rd"
+              "detail": "12:50 - 4th Quarter",
+              "shortDetail": "12:50 - 4th"
             },
             "isTBDFlex": false
           },
@@ -365,8 +372,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "17/25, 205 YDS, 1 TD, 1 INT",
-                  "value": 205,
+                  "displayValue": "19/30, 241 YDS, 1 TD, 1 INT",
+                  "value": 241,
                   "athlete": {
                     "id": "4431452",
                     "fullName": "Drake Maye",
@@ -405,8 +412,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "11 CAR, 84 YDS, 1 TD",
-                  "value": 84,
+                  "displayValue": "18 CAR, 128 YDS, 2 TD",
+                  "value": 128,
                   "athlete": {
                     "id": "3043078",
                     "fullName": "Derrick Henry",
@@ -445,8 +452,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "5 REC, 76 YDS",
-                  "value": 76,
+                  "displayValue": "6 REC, 99 YDS",
+                  "value": 99,
                   "athlete": {
                     "id": "2976212",
                     "fullName": "Stefon Diggs",
@@ -564,8 +571,8 @@
       ],
       "weather": {
         "displayValue": "33",
-        "temperature": 37,
-        "highTemperature": 37,
+        "temperature": 36,
+        "highTemperature": 36,
         "conditionId": "Clear",
         "link": {
           "language": "en-US",
@@ -580,17 +587,17 @@
         }
       },
       "status": {
-        "clock": 472,
-        "displayClock": "7:52",
-        "period": 3,
+        "clock": 770,
+        "displayClock": "12:50",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "7:52 - 3rd Quarter",
-          "shortDetail": "7:52 - 3rd"
+          "detail": "12:50 - 4th Quarter",
+          "shortDetail": "12:50 - 4th"
         }
       }
     },
@@ -1211,8 +1218,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $103",
-              "numberAvailable": 653,
+              "summary": "Tickets as low as $105",
+              "numberAvailable": 689,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-8-2026--sports-nfl-football/production/5471973?wsUser=717"
@@ -6566,6 +6573,16 @@
         "depthChartOrder": null
       },
       {
+        "longComment": "Hamstring",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "DeMario Douglas",
+          "position": "WR"
+        },
+        "depthChartPosition": "SWR",
+        "depthChartOrder": 4
+      },
+      {
         "longComment": "Undisclosed",
         "status": "IR",
         "athlete": {
@@ -6646,8 +6663,8 @@
         "depthChartOrder": 9
       },
       {
-        "longComment": "Undisclosed",
-        "status": "Questionable",
+        "longComment": "Head",
+        "status": "Out",
         "athlete": {
           "displayName": "TreVeyon Henderson",
           "position": "RB"
@@ -9389,6 +9406,232 @@
     "Washington Commanders": {
       "correct": 9,
       "total": 14
+    }
+  },
+  "qualityWins": {
+    "Philadelphia Eagles": {
+      "wins": 5,
+      "losses": 3,
+      "total": 8,
+      "winPct": 0.625,
+      "differential": 2
+    },
+    "Dallas Cowboys": {
+      "wins": 3,
+      "losses": 3,
+      "total": 6,
+      "winPct": 0.5,
+      "differential": 0
+    },
+    "Los Angeles Chargers": {
+      "wins": 5,
+      "losses": 3,
+      "total": 8,
+      "winPct": 0.625,
+      "differential": 2
+    },
+    "Kansas City Chiefs": {
+      "wins": 2,
+      "losses": 6,
+      "total": 8,
+      "winPct": 0.25,
+      "differential": -4
+    },
+    "Atlanta Falcons": {
+      "wins": 4,
+      "losses": 5,
+      "total": 9,
+      "winPct": 0.4444444444444444,
+      "differential": -1
+    },
+    "Tampa Bay Buccaneers": {
+      "wins": 2,
+      "losses": 5,
+      "total": 7,
+      "winPct": 0.2857142857142857,
+      "differential": -3
+    },
+    "Cleveland Browns": {
+      "wins": 1,
+      "losses": 6,
+      "total": 7,
+      "winPct": 0.14285714285714285,
+      "differential": -5
+    },
+    "Cincinnati Bengals": {
+      "wins": 3,
+      "losses": 7,
+      "total": 10,
+      "winPct": 0.3,
+      "differential": -4
+    },
+    "Indianapolis Colts": {
+      "wins": 2,
+      "losses": 6,
+      "total": 8,
+      "winPct": 0.25,
+      "differential": -4
+    },
+    "Miami Dolphins": {
+      "wins": 2,
+      "losses": 3,
+      "total": 5,
+      "winPct": 0.4,
+      "differential": -1
+    },
+    "New England Patriots": {
+      "wins": 2,
+      "losses": 2,
+      "total": 4,
+      "winPct": 0.5,
+      "differential": 0
+    },
+    "Las Vegas Raiders": {
+      "wins": 0,
+      "losses": 9,
+      "total": 9,
+      "winPct": 0,
+      "differential": -9
+    },
+    "New Orleans Saints": {
+      "wins": 3,
+      "losses": 7,
+      "total": 10,
+      "winPct": 0.3,
+      "differential": -4
+    },
+    "Arizona Cardinals": {
+      "wins": 0,
+      "losses": 10,
+      "total": 10,
+      "winPct": 0,
+      "differential": -10
+    },
+    "New York Jets": {
+      "wins": 0,
+      "losses": 7,
+      "total": 7,
+      "winPct": 0,
+      "differential": -7
+    },
+    "Pittsburgh Steelers": {
+      "wins": 4,
+      "losses": 4,
+      "total": 8,
+      "winPct": 0.5,
+      "differential": 0
+    },
+    "Washington Commanders": {
+      "wins": 2,
+      "losses": 6,
+      "total": 8,
+      "winPct": 0.25,
+      "differential": -4
+    },
+    "New York Giants": {
+      "wins": 2,
+      "losses": 7,
+      "total": 9,
+      "winPct": 0.2222222222222222,
+      "differential": -5
+    },
+    "Jacksonville Jaguars": {
+      "wins": 4,
+      "losses": 3,
+      "total": 7,
+      "winPct": 0.5714285714285714,
+      "differential": 1
+    },
+    "Carolina Panthers": {
+      "wins": 3,
+      "losses": 3,
+      "total": 6,
+      "winPct": 0.5,
+      "differential": 0
+    },
+    "Denver Broncos": {
+      "wins": 4,
+      "losses": 2,
+      "total": 6,
+      "winPct": 0.6666666666666666,
+      "differential": 2
+    },
+    "Tennessee Titans": {
+      "wins": 1,
+      "losses": 8,
+      "total": 9,
+      "winPct": 0.1111111111111111,
+      "differential": -7
+    },
+    "Seattle Seahawks": {
+      "wins": 4,
+      "losses": 2,
+      "total": 6,
+      "winPct": 0.6666666666666666,
+      "differential": 2
+    },
+    "San Francisco 49ers": {
+      "wins": 4,
+      "losses": 3,
+      "total": 7,
+      "winPct": 0.5714285714285714,
+      "differential": 1
+    },
+    "Green Bay Packers": {
+      "wins": 4,
+      "losses": 3,
+      "total": 7,
+      "winPct": 0.5714285714285714,
+      "differential": 1
+    },
+    "Detroit Lions": {
+      "wins": 4,
+      "losses": 3,
+      "total": 7,
+      "winPct": 0.5714285714285714,
+      "differential": 1
+    },
+    "Los Angeles Rams": {
+      "wins": 6,
+      "losses": 3,
+      "total": 9,
+      "winPct": 0.6666666666666666,
+      "differential": 3
+    },
+    "Houston Texans": {
+      "wins": 5,
+      "losses": 4,
+      "total": 9,
+      "winPct": 0.5555555555555556,
+      "differential": 1
+    },
+    "Buffalo Bills": {
+      "wins": 5,
+      "losses": 3,
+      "total": 8,
+      "winPct": 0.625,
+      "differential": 2
+    },
+    "Baltimore Ravens": {
+      "wins": 2,
+      "losses": 3,
+      "total": 5,
+      "winPct": 0.4,
+      "differential": -1
+    },
+    "Chicago Bears": {
+      "wins": 4,
+      "losses": 1,
+      "total": 5,
+      "winPct": 0.8,
+      "differential": 3
+    },
+    "Minnesota Vikings": {
+      "wins": 2,
+      "losses": 6,
+      "total": 8,
+      "winPct": 0.25,
+      "differential": -4
     }
   }
 }
