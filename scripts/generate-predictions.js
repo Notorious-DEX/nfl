@@ -77,7 +77,12 @@ async function fetchLeagueStats() {
             };
         }
 
-        const currentWeek = 15;
+        // Fetch current week from ESPN API
+        const currentWeekResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+        const currentWeekData = await currentWeekResponse.json();
+        const currentWeek = currentWeekData.week?.number || 18;
+        console.log(`📅 Current NFL week: ${currentWeek}`);
+
         let totalGames = 0;
 
         for (let week = 1; week <= currentWeek; week++) {
