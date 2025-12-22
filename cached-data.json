@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-22T02:12:45.493Z",
+  "lastUpdated": "2025-12-22T02:24:11.790Z",
   "currentWeek": 16,
   "games": [
     {
@@ -211,7 +211,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png"
               },
-              "score": "7",
+              "score": "10",
               "linescores": [
                 {
                   "value": 0,
@@ -219,8 +219,8 @@
                   "period": 1
                 },
                 {
-                  "value": 7,
-                  "displayValue": "7",
+                  "value": 10,
+                  "displayValue": "10",
                   "period": 2
                 }
               ],
@@ -248,66 +248,62 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728041170",
+              "id": "4017728041413",
               "type": {
                 "id": "74",
                 "text": "Official Timeout",
                 "abbreviation": "Off TO"
               },
-              "text": "Official Timeout at 10:21.",
+              "text": "Official Timeout at 05:39.",
               "scoreValue": 0,
               "team": {
                 "id": "17"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.5595,
-                "awayWinPercentage": 0.4405,
+                "homeWinPercentage": 0.4988,
+                "awayWinPercentage": 0.5012,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "3 plays, 1 yard, 0:56",
+                "description": "9 plays, 48 yards, 4:42",
                 "start": {
-                  "yardLine": 35,
-                  "text": "BAL 35"
+                  "yardLine": 75,
+                  "text": "NE 25"
                 },
                 "end": {
-                  "yardLine": 36,
-                  "text": "BAL 36"
+                  "yardLine": 27,
+                  "text": "BAL 27"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:56"
+                  "displayValue": "4:42"
                 },
-                "result": "PUNT"
+                "result": "FG"
               },
               "start": {
-                "yardLine": 75,
+                "yardLine": 65,
                 "team": {
                   "id": "17"
                 }
               },
               "end": {
-                "yardLine": 75,
+                "yardLine": 65,
                 "team": {
                   "id": "17"
                 }
               },
               "statYardage": 0
             },
-            "down": 1,
-            "yardLine": 75,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at NE 25",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "NE 25",
-            "isRedZone": false,
+            "down": -1,
+            "yardLine": 65,
+            "distance": 0,
+            "isRedZone": true,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "17"
+            "awayTimeouts": 1
           },
           "status": {
-            "clock": 621,
-            "displayClock": "10:21",
+            "clock": 339,
+            "displayClock": "5:39",
             "period": 2,
             "type": {
               "id": "2",
@@ -315,8 +311,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "10:21 - 2nd Quarter",
-              "shortDetail": "10:21 - 2nd"
+              "detail": "5:39 - 2nd Quarter",
+              "shortDetail": "5:39 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -337,8 +333,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "8/11, 95 YDS, 1 TD, 1 INT",
-                  "value": 95,
+                  "displayValue": "11/15, 143 YDS, 1 TD, 1 INT",
+                  "value": 143,
                   "athlete": {
                     "id": "4431452",
                     "fullName": "Drake Maye",
@@ -417,13 +413,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 51 YDS",
-                  "value": 51,
+                  "displayValue": "2 REC, 58 YDS",
+                  "value": 58,
                   "athlete": {
-                    "id": "4429615",
-                    "fullName": "Zay Flowers",
-                    "displayName": "Zay Flowers",
-                    "shortName": "Z. Flowers",
+                    "id": "2976212",
+                    "fullName": "Stefon Diggs",
+                    "displayName": "Stefon Diggs",
+                    "shortName": "S. Diggs",
                     "links": [
                       {
                         "rel": [
@@ -431,21 +427,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4429615/zay-flowers"
+                        "href": "https://www.espn.com/nfl/player/_/id/2976212/stefon-diggs"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429615.png",
-                    "jersey": "4",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2976212.png",
+                    "jersey": "8",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "33"
+                      "id": "17"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "33"
+                    "id": "17"
                   }
                 }
               ]
@@ -536,8 +532,8 @@
       ],
       "weather": {
         "displayValue": "33",
-        "temperature": 37,
-        "highTemperature": 37,
+        "temperature": 36,
+        "highTemperature": 36,
         "conditionId": "Clear",
         "link": {
           "language": "en-US",
@@ -552,8 +548,8 @@
         }
       },
       "status": {
-        "clock": 621,
-        "displayClock": "10:21",
+        "clock": 339,
+        "displayClock": "5:39",
         "period": 2,
         "type": {
           "id": "2",
@@ -561,8 +557,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "10:21 - 2nd Quarter",
-          "shortDetail": "10:21 - 2nd"
+          "detail": "5:39 - 2nd Quarter",
+          "shortDetail": "5:39 - 2nd"
         }
       }
     },
@@ -1183,8 +1179,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $102",
-              "numberAvailable": 685,
+              "summary": "Tickets as low as $104",
+              "numberAvailable": 674,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-8-2026--sports-nfl-football/production/5471973?wsUser=717"
@@ -1585,9 +1581,907 @@
     }
   ],
   "leagueStats": {
-    "teams": {},
-    "rankings": {},
-    "hasData": false
+    "teams": {
+      "Arizona Cardinals": {
+        "offensiveRating": 21.4,
+        "defensiveRating": 27.6,
+        "rushYPG": 97.46666666666667,
+        "rushDefYPG": 126.33333333333333,
+        "passYPG": 235.06666666666666,
+        "passDefYPG": 224.13333333333333,
+        "thirdDownPct": 43,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 1,
+        "gamesPlayed": 15,
+        "wins": 3,
+        "losses": 12,
+        "ties": 0,
+        "pointsScored": 321,
+        "pointsAllowed": 414,
+        "ppg": "21.4",
+        "papg": "27.6",
+        "record": "3-12"
+      },
+      "Atlanta Falcons": {
+        "offensiveRating": 20.466666666666665,
+        "defensiveRating": 24,
+        "rushYPG": 124.66666666666667,
+        "rushDefYPG": 128.2,
+        "passYPG": 215.86666666666667,
+        "passDefYPG": 195.13333333333333,
+        "thirdDownPct": 33.33333333333333,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": -3,
+        "gamesPlayed": 15,
+        "wins": 6,
+        "losses": 9,
+        "ties": 0,
+        "pointsScored": 307,
+        "pointsAllowed": 360,
+        "ppg": "20.5",
+        "papg": "24.0",
+        "record": "6-9"
+      },
+      "Baltimore Ravens": {
+        "offensiveRating": 23.928571428571427,
+        "defensiveRating": 22.857142857142858,
+        "rushYPG": 146.21428571428572,
+        "rushDefYPG": 111.07142857142857,
+        "passYPG": 178.35714285714286,
+        "passDefYPG": 233.35714285714286,
+        "thirdDownPct": 37.34939759036144,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 0,
+        "gamesPlayed": 14,
+        "wins": 7,
+        "losses": 7,
+        "ties": 0,
+        "pointsScored": 335,
+        "pointsAllowed": 320,
+        "ppg": "23.9",
+        "papg": "22.9",
+        "record": "7-7"
+      },
+      "Buffalo Bills": {
+        "offensiveRating": 28.933333333333334,
+        "defensiveRating": 22.933333333333334,
+        "rushYPG": 158.86666666666667,
+        "rushDefYPG": 144.26666666666668,
+        "passYPG": 214.2,
+        "passDefYPG": 167.13333333333333,
+        "thirdDownPct": 45.05494505494506,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 11,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 434,
+        "pointsAllowed": 344,
+        "ppg": "28.9",
+        "papg": "22.9",
+        "record": "11-4"
+      },
+      "Carolina Panthers": {
+        "offensiveRating": 19.133333333333333,
+        "defensiveRating": 22.466666666666665,
+        "rushYPG": 123.93333333333334,
+        "rushDefYPG": 119.53333333333333,
+        "passYPG": 182.8,
+        "passDefYPG": 209.6,
+        "thirdDownPct": 38.70967741935484,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 8,
+        "losses": 7,
+        "ties": 0,
+        "pointsScored": 287,
+        "pointsAllowed": 337,
+        "ppg": "19.1",
+        "papg": "22.5",
+        "record": "8-7"
+      },
+      "Chicago Bears": {
+        "offensiveRating": 25.8,
+        "defensiveRating": 23.6,
+        "rushYPG": 152.06666666666666,
+        "rushDefYPG": 131,
+        "passYPG": 219.4,
+        "passDefYPG": 217.06666666666666,
+        "thirdDownPct": 42.64705882352941,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 11,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 387,
+        "pointsAllowed": 354,
+        "ppg": "25.8",
+        "papg": "23.6",
+        "record": "11-4"
+      },
+      "Cincinnati Bengals": {
+        "offensiveRating": 23.933333333333334,
+        "defensiveRating": 30.533333333333335,
+        "rushYPG": 88.6,
+        "rushDefYPG": 156,
+        "passYPG": 231.6,
+        "passDefYPG": 246.8,
+        "thirdDownPct": 41.53846153846154,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 10,
+        "gamesPlayed": 15,
+        "wins": 5,
+        "losses": 10,
+        "ties": 0,
+        "pointsScored": 359,
+        "pointsAllowed": 458,
+        "ppg": "23.9",
+        "papg": "30.5",
+        "record": "5-10"
+      },
+      "Cleveland Browns": {
+        "offensiveRating": 16.4,
+        "defensiveRating": 23.666666666666668,
+        "rushYPG": 96.86666666666666,
+        "rushDefYPG": 113.73333333333333,
+        "passYPG": 169.46666666666667,
+        "passDefYPG": 164.06666666666666,
+        "thirdDownPct": 33.33333333333333,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 10,
+        "gamesPlayed": 15,
+        "wins": 3,
+        "losses": 12,
+        "ties": 0,
+        "pointsScored": 246,
+        "pointsAllowed": 355,
+        "ppg": "16.4",
+        "papg": "23.7",
+        "record": "3-12"
+      },
+      "Dallas Cowboys": {
+        "offensiveRating": 28.266666666666666,
+        "defensiveRating": 30.266666666666666,
+        "rushYPG": 118.8,
+        "rushDefYPG": 122.26666666666667,
+        "passYPG": 274.3333333333333,
+        "passDefYPG": 257.8,
+        "thirdDownPct": 41.988950276243095,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 3,
+        "gamesPlayed": 15,
+        "wins": 6,
+        "losses": 8,
+        "ties": 1,
+        "pointsScored": 424,
+        "pointsAllowed": 454,
+        "ppg": "28.3",
+        "papg": "30.3",
+        "record": "6-8-1"
+      },
+      "Denver Broncos": {
+        "offensiveRating": 24.133333333333333,
+        "defensiveRating": 19.666666666666668,
+        "rushYPG": 118.26666666666667,
+        "rushDefYPG": 90.2,
+        "passYPG": 233.86666666666667,
+        "passDefYPG": 201.4,
+        "thirdDownPct": 40,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 4,
+        "gamesPlayed": 15,
+        "wins": 12,
+        "losses": 3,
+        "ties": 0,
+        "pointsScored": 362,
+        "pointsAllowed": 295,
+        "ppg": "24.1",
+        "papg": "19.7",
+        "record": "12-3"
+      },
+      "Detroit Lions": {
+        "offensiveRating": 30.133333333333333,
+        "defensiveRating": 24.933333333333334,
+        "rushYPG": 123.4,
+        "rushDefYPG": 114.93333333333334,
+        "passYPG": 255.26666666666668,
+        "passDefYPG": 232.46666666666667,
+        "thirdDownPct": 38.50267379679144,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 8,
+        "losses": 7,
+        "ties": 0,
+        "pointsScored": 452,
+        "pointsAllowed": 374,
+        "ppg": "30.1",
+        "papg": "24.9",
+        "record": "8-7"
+      },
+      "Green Bay Packers": {
+        "offensiveRating": 24.266666666666666,
+        "defensiveRating": 20.2,
+        "rushYPG": 122,
+        "rushDefYPG": 103.8,
+        "passYPG": 222.66666666666666,
+        "passDefYPG": 197.8,
+        "thirdDownPct": 50.26737967914438,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 1,
+        "gamesPlayed": 15,
+        "wins": 9,
+        "losses": 5,
+        "ties": 1,
+        "pointsScored": 364,
+        "pointsAllowed": 303,
+        "ppg": "24.3",
+        "papg": "20.2",
+        "record": "9-5-1"
+      },
+      "Houston Texans": {
+        "offensiveRating": 23.066666666666666,
+        "defensiveRating": 16.6,
+        "rushYPG": 106.66666666666667,
+        "rushDefYPG": 96.2,
+        "passYPG": 217.2,
+        "passDefYPG": 176.06666666666666,
+        "thirdDownPct": 38.164251207729464,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 4,
+        "gamesPlayed": 15,
+        "wins": 10,
+        "losses": 5,
+        "ties": 0,
+        "pointsScored": 346,
+        "pointsAllowed": 249,
+        "ppg": "23.1",
+        "papg": "16.6",
+        "record": "10-5"
+      },
+      "Indianapolis Colts": {
+        "offensiveRating": 28,
+        "defensiveRating": 21.642857142857142,
+        "rushYPG": 128.85714285714286,
+        "rushDefYPG": 95.14285714285714,
+        "passYPG": 229,
+        "passDefYPG": 247.57142857142858,
+        "thirdDownPct": 41.509433962264154,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 4,
+        "gamesPlayed": 14,
+        "wins": 8,
+        "losses": 6,
+        "ties": 0,
+        "pointsScored": 392,
+        "pointsAllowed": 303,
+        "ppg": "28.0",
+        "papg": "21.6",
+        "record": "8-6"
+      },
+      "Jacksonville Jaguars": {
+        "offensiveRating": 27.333333333333332,
+        "defensiveRating": 20.8,
+        "rushYPG": 118.06666666666666,
+        "rushDefYPG": 87.26666666666667,
+        "passYPG": 218.33333333333334,
+        "passDefYPG": 230.33333333333334,
+        "thirdDownPct": 38.144329896907216,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 6,
+        "gamesPlayed": 15,
+        "wins": 11,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 410,
+        "pointsAllowed": 312,
+        "ppg": "27.3",
+        "papg": "20.8",
+        "record": "11-4"
+      },
+      "Kansas City Chiefs": {
+        "offensiveRating": 22.466666666666665,
+        "defensiveRating": 19.6,
+        "rushYPG": 109.73333333333333,
+        "rushDefYPG": 103.4,
+        "passYPG": 233.2,
+        "passDefYPG": 204.53333333333333,
+        "thirdDownPct": 39.26701570680628,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 11,
+        "gamesPlayed": 15,
+        "wins": 6,
+        "losses": 9,
+        "ties": 0,
+        "pointsScored": 337,
+        "pointsAllowed": 294,
+        "ppg": "22.5",
+        "papg": "19.6",
+        "record": "6-9"
+      },
+      "Las Vegas Raiders": {
+        "offensiveRating": 14.466666666666667,
+        "defensiveRating": 25.733333333333334,
+        "rushYPG": 75.73333333333333,
+        "rushDefYPG": 116.46666666666667,
+        "passYPG": 173.13333333333333,
+        "passDefYPG": 209.66666666666666,
+        "thirdDownPct": 35.32608695652174,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 13,
+        "gamesPlayed": 15,
+        "wins": 2,
+        "losses": 13,
+        "ties": 0,
+        "pointsScored": 217,
+        "pointsAllowed": 386,
+        "ppg": "14.5",
+        "papg": "25.7",
+        "record": "2-13"
+      },
+      "Los Angeles Chargers": {
+        "offensiveRating": 23.266666666666666,
+        "defensiveRating": 20.066666666666666,
+        "rushYPG": 125.33333333333333,
+        "rushDefYPG": 103.8,
+        "passYPG": 220.2,
+        "passDefYPG": 179.33333333333334,
+        "thirdDownPct": 47.22222222222222,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 6,
+        "gamesPlayed": 15,
+        "wins": 11,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 349,
+        "pointsAllowed": 301,
+        "ppg": "23.3",
+        "papg": "20.1",
+        "record": "11-4"
+      },
+      "Los Angeles Rams": {
+        "offensiveRating": 30.466666666666665,
+        "defensiveRating": 19.933333333333334,
+        "rushYPG": 126.26666666666667,
+        "rushDefYPG": 105.73333333333333,
+        "passYPG": 270.46666666666664,
+        "passDefYPG": 221.33333333333334,
+        "thirdDownPct": 38.036809815950924,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": -2,
+        "gamesPlayed": 15,
+        "wins": 11,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 457,
+        "pointsAllowed": 299,
+        "ppg": "30.5",
+        "papg": "19.9",
+        "record": "11-4"
+      },
+      "Miami Dolphins": {
+        "offensiveRating": 21.133333333333333,
+        "defensiveRating": 24.6,
+        "rushYPG": 122.4,
+        "rushDefYPG": 130.33333333333334,
+        "passYPG": 186.53333333333333,
+        "passDefYPG": 209.13333333333333,
+        "thirdDownPct": 34.73053892215569,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 12,
+        "gamesPlayed": 15,
+        "wins": 6,
+        "losses": 9,
+        "ties": 0,
+        "pointsScored": 317,
+        "pointsAllowed": 369,
+        "ppg": "21.1",
+        "papg": "24.6",
+        "record": "6-9"
+      },
+      "Minnesota Vikings": {
+        "offensiveRating": 20.333333333333332,
+        "defensiveRating": 21.333333333333332,
+        "rushYPG": 103.06666666666666,
+        "rushDefYPG": 127.6,
+        "passYPG": 173.66666666666666,
+        "passDefYPG": 169.2,
+        "thirdDownPct": 33.13953488372093,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 13,
+        "gamesPlayed": 15,
+        "wins": 7,
+        "losses": 8,
+        "ties": 0,
+        "pointsScored": 305,
+        "pointsAllowed": 320,
+        "ppg": "20.3",
+        "papg": "21.3",
+        "record": "7-8"
+      },
+      "New England Patriots": {
+        "offensiveRating": 27.285714285714285,
+        "defensiveRating": 19.714285714285715,
+        "rushYPG": 122.42857142857143,
+        "rushDefYPG": 95.07142857142857,
+        "passYPG": 241.78571428571428,
+        "passDefYPG": 205.07142857142858,
+        "thirdDownPct": 43.11377245508982,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 0,
+        "gamesPlayed": 14,
+        "wins": 11,
+        "losses": 3,
+        "ties": 0,
+        "pointsScored": 382,
+        "pointsAllowed": 276,
+        "ppg": "27.3",
+        "papg": "19.7",
+        "record": "11-3"
+      },
+      "New Orleans Saints": {
+        "offensiveRating": 17,
+        "defensiveRating": 22.533333333333335,
+        "rushYPG": 92.8,
+        "rushDefYPG": 126.2,
+        "passYPG": 211.73333333333332,
+        "passDefYPG": 177.26666666666668,
+        "thirdDownPct": 39.795918367346935,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 1,
+        "gamesPlayed": 15,
+        "wins": 5,
+        "losses": 10,
+        "ties": 0,
+        "pointsScored": 255,
+        "pointsAllowed": 338,
+        "ppg": "17.0",
+        "papg": "22.5",
+        "record": "5-10"
+      },
+      "New York Giants": {
+        "offensiveRating": 20.866666666666667,
+        "defensiveRating": 27.466666666666665,
+        "rushYPG": 125.26666666666667,
+        "rushDefYPG": 150.93333333333334,
+        "passYPG": 204.46666666666667,
+        "passDefYPG": 222.06666666666666,
+        "thirdDownPct": 38.578680203045685,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 4,
+        "gamesPlayed": 15,
+        "wins": 2,
+        "losses": 13,
+        "ties": 0,
+        "pointsScored": 313,
+        "pointsAllowed": 412,
+        "ppg": "20.9",
+        "papg": "27.5",
+        "record": "2-13"
+      },
+      "New York Jets": {
+        "offensiveRating": 18.8,
+        "defensiveRating": 28.4,
+        "rushYPG": 124.2,
+        "rushDefYPG": 133.66666666666666,
+        "passYPG": 145.93333333333334,
+        "passDefYPG": 208.66666666666666,
+        "thirdDownPct": 35,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 3,
+        "losses": 12,
+        "ties": 0,
+        "pointsScored": 282,
+        "pointsAllowed": 426,
+        "ppg": "18.8",
+        "papg": "28.4",
+        "record": "3-12"
+      },
+      "Philadelphia Eagles": {
+        "offensiveRating": 23.266666666666666,
+        "defensiveRating": 19.266666666666666,
+        "rushYPG": 121.73333333333333,
+        "rushDefYPG": 123.46666666666667,
+        "passYPG": 197.86666666666667,
+        "passDefYPG": 192.26666666666668,
+        "thirdDownPct": 37.704918032786885,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": -2,
+        "gamesPlayed": 15,
+        "wins": 10,
+        "losses": 5,
+        "ties": 0,
+        "pointsScored": 349,
+        "pointsAllowed": 289,
+        "ppg": "23.3",
+        "papg": "19.3",
+        "record": "10-5"
+      },
+      "Pittsburgh Steelers": {
+        "offensiveRating": 24.333333333333332,
+        "defensiveRating": 23.333333333333332,
+        "rushYPG": 101.66666666666667,
+        "rushDefYPG": 113.8,
+        "passYPG": 199.33333333333334,
+        "passDefYPG": 249.33333333333334,
+        "thirdDownPct": 40.22346368715084,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 3,
+        "gamesPlayed": 15,
+        "wins": 9,
+        "losses": 6,
+        "ties": 0,
+        "pointsScored": 365,
+        "pointsAllowed": 350,
+        "ppg": "24.3",
+        "papg": "23.3",
+        "record": "9-6"
+      },
+      "San Francisco 49ers": {
+        "offensiveRating": 24.571428571428573,
+        "defensiveRating": 20.928571428571427,
+        "rushYPG": 101.35714285714286,
+        "rushDefYPG": 106.07142857142857,
+        "passYPG": 246.14285714285714,
+        "passDefYPG": 227.57142857142858,
+        "thirdDownPct": 49.18032786885246,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 7,
+        "gamesPlayed": 14,
+        "wins": 10,
+        "losses": 4,
+        "ties": 0,
+        "pointsScored": 344,
+        "pointsAllowed": 293,
+        "ppg": "24.6",
+        "papg": "20.9",
+        "record": "10-4"
+      },
+      "Seattle Seahawks": {
+        "offensiveRating": 29.533333333333335,
+        "defensiveRating": 18.6,
+        "rushYPG": 116.86666666666666,
+        "rushDefYPG": 94.06666666666666,
+        "passYPG": 238.06666666666666,
+        "passDefYPG": 209.13333333333333,
+        "thirdDownPct": 37.85310734463277,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 2,
+        "gamesPlayed": 15,
+        "wins": 12,
+        "losses": 3,
+        "ties": 0,
+        "pointsScored": 443,
+        "pointsAllowed": 279,
+        "ppg": "29.5",
+        "papg": "18.6",
+        "record": "12-3"
+      },
+      "Tampa Bay Buccaneers": {
+        "offensiveRating": 23.133333333333333,
+        "defensiveRating": 25.133333333333333,
+        "rushYPG": 116.93333333333334,
+        "rushDefYPG": 101.33333333333333,
+        "passYPG": 198.33333333333334,
+        "passDefYPG": 242,
+        "thirdDownPct": 40,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 4,
+        "gamesPlayed": 15,
+        "wins": 7,
+        "losses": 8,
+        "ties": 0,
+        "pointsScored": 347,
+        "pointsAllowed": 377,
+        "ppg": "23.1",
+        "papg": "25.1",
+        "record": "7-8"
+      },
+      "Tennessee Titans": {
+        "offensiveRating": 16.733333333333334,
+        "defensiveRating": 26.866666666666667,
+        "rushYPG": 93.6,
+        "rushDefYPG": 118.73333333333333,
+        "passYPG": 165.26666666666668,
+        "passDefYPG": 222.93333333333334,
+        "thirdDownPct": 32.01970443349754,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": -3,
+        "gamesPlayed": 15,
+        "wins": 3,
+        "losses": 12,
+        "ties": 0,
+        "pointsScored": 251,
+        "pointsAllowed": 403,
+        "ppg": "16.7",
+        "papg": "26.9",
+        "record": "3-12"
+      },
+      "Washington Commanders": {
+        "offensiveRating": 20.6,
+        "defensiveRating": 26.933333333333334,
+        "rushYPG": 133.93333333333334,
+        "rushDefYPG": 141.33333333333334,
+        "passYPG": 187.2,
+        "passDefYPG": 241.73333333333332,
+        "thirdDownPct": 37.2093023255814,
+        "redZonePct": 50,
+        "sacksAllowedPG": 0,
+        "sacksTakenPG": 0,
+        "turnoverDiff": 1,
+        "gamesPlayed": 15,
+        "wins": 4,
+        "losses": 11,
+        "ties": 0,
+        "pointsScored": 309,
+        "pointsAllowed": 404,
+        "ppg": "20.6",
+        "papg": "26.9",
+        "record": "4-11"
+      }
+    },
+    "rankings": {
+      "Arizona Cardinals": {
+        "rushOffRank": 27,
+        "passOffRank": 7,
+        "rushDefRank": 23,
+        "passDefRank": 22
+      },
+      "Atlanta Falcons": {
+        "rushOffRank": 9,
+        "passOffRank": 17,
+        "rushDefRank": 25,
+        "passDefRank": 8
+      },
+      "Baltimore Ravens": {
+        "rushOffRank": 3,
+        "passOffRank": 27,
+        "rushDefRank": 13,
+        "passDefRank": 26
+      },
+      "Buffalo Bills": {
+        "rushOffRank": 1,
+        "passOffRank": 18,
+        "rushDefRank": 30,
+        "passDefRank": 2
+      },
+      "Carolina Panthers": {
+        "rushOffRank": 11,
+        "passOffRank": 26,
+        "rushDefRank": 19,
+        "passDefRank": 16
+      },
+      "Chicago Bears": {
+        "rushOffRank": 2,
+        "passOffRank": 14,
+        "rushDefRank": 27,
+        "passDefRank": 18
+      },
+      "Cincinnati Bengals": {
+        "rushOffRank": 31,
+        "passOffRank": 10,
+        "rushDefRank": 32,
+        "passDefRank": 29
+      },
+      "Cleveland Browns": {
+        "rushOffRank": 28,
+        "passOffRank": 30,
+        "rushDefRank": 14,
+        "passDefRank": 1
+      },
+      "Dallas Cowboys": {
+        "rushOffRank": 17,
+        "passOffRank": 1,
+        "rushDefRank": 20,
+        "passDefRank": 32
+      },
+      "Denver Broncos": {
+        "rushOffRank": 18,
+        "passOffRank": 8,
+        "rushDefRank": 2,
+        "passDefRank": 10
+      },
+      "Detroit Lions": {
+        "rushOffRank": 12,
+        "passOffRank": 3,
+        "rushDefRank": 16,
+        "passDefRank": 25
+      },
+      "Green Bay Packers": {
+        "rushOffRank": 15,
+        "passOffRank": 12,
+        "rushDefRank": 9,
+        "passDefRank": 9
+      },
+      "Houston Texans": {
+        "rushOffRank": 23,
+        "passOffRank": 16,
+        "rushDefRank": 6,
+        "passDefRank": 4
+      },
+      "Indianapolis Colts": {
+        "rushOffRank": 5,
+        "passOffRank": 11,
+        "rushDefRank": 5,
+        "passDefRank": 30
+      },
+      "Jacksonville Jaguars": {
+        "rushOffRank": 19,
+        "passOffRank": 15,
+        "rushDefRank": 1,
+        "passDefRank": 24
+      },
+      "Kansas City Chiefs": {
+        "rushOffRank": 22,
+        "passOffRank": 9,
+        "rushDefRank": 8,
+        "passDefRank": 11
+      },
+      "Las Vegas Raiders": {
+        "rushOffRank": 32,
+        "passOffRank": 29,
+        "rushDefRank": 17,
+        "passDefRank": 17
+      },
+      "Los Angeles Chargers": {
+        "rushOffRank": 7,
+        "passOffRank": 13,
+        "rushDefRank": 10,
+        "passDefRank": 6
+      },
+      "Los Angeles Rams": {
+        "rushOffRank": 6,
+        "passOffRank": 2,
+        "rushDefRank": 11,
+        "passDefRank": 19
+      },
+      "Miami Dolphins": {
+        "rushOffRank": 14,
+        "passOffRank": 25,
+        "rushDefRank": 26,
+        "passDefRank": 14
+      },
+      "Minnesota Vikings": {
+        "rushOffRank": 24,
+        "passOffRank": 28,
+        "rushDefRank": 24,
+        "passDefRank": 3
+      },
+      "New England Patriots": {
+        "rushOffRank": 13,
+        "passOffRank": 5,
+        "rushDefRank": 4,
+        "passDefRank": 12
+      },
+      "New Orleans Saints": {
+        "rushOffRank": 30,
+        "passOffRank": 19,
+        "rushDefRank": 22,
+        "passDefRank": 5
+      },
+      "New York Giants": {
+        "rushOffRank": 8,
+        "passOffRank": 20,
+        "rushDefRank": 31,
+        "passDefRank": 20
+      },
+      "New York Jets": {
+        "rushOffRank": 10,
+        "passOffRank": 32,
+        "rushDefRank": 28,
+        "passDefRank": 13
+      },
+      "Philadelphia Eagles": {
+        "rushOffRank": 16,
+        "passOffRank": 23,
+        "rushDefRank": 21,
+        "passDefRank": 7
+      },
+      "Pittsburgh Steelers": {
+        "rushOffRank": 25,
+        "passOffRank": 21,
+        "rushDefRank": 15,
+        "passDefRank": 31
+      },
+      "San Francisco 49ers": {
+        "rushOffRank": 26,
+        "passOffRank": 4,
+        "rushDefRank": 12,
+        "passDefRank": 23
+      },
+      "Seattle Seahawks": {
+        "rushOffRank": 21,
+        "passOffRank": 6,
+        "rushDefRank": 3,
+        "passDefRank": 15
+      },
+      "Tampa Bay Buccaneers": {
+        "rushOffRank": 20,
+        "passOffRank": 22,
+        "rushDefRank": 7,
+        "passDefRank": 28
+      },
+      "Tennessee Titans": {
+        "rushOffRank": 29,
+        "passOffRank": 31,
+        "rushDefRank": 18,
+        "passDefRank": 21
+      },
+      "Washington Commanders": {
+        "rushOffRank": 4,
+        "passOffRank": 24,
+        "rushDefRank": 29,
+        "passDefRank": 27
+      }
+    },
+    "hasData": true
   },
   "injuries": {
     "Buffalo Bills": [
