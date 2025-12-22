@@ -408,6 +408,7 @@ async function main() {
             console.log('No upcoming games found.');
 
             // Preserve unchecked predictions even if no new games
+            // (Note: This case shouldn't have duplicates since there are no new predictions)
             const uncheckedPredictions = existingPredictions.filter(pred => {
                 return !checkedGameIds.has(pred.gameId);
             });
@@ -439,9 +440,12 @@ async function main() {
             }
         }
 
-        // Preserve unchecked predictions from existing file
+        // Get IDs of newly predicted games
+        const newGameIds = new Set(newPredictions.map(p => p.gameId));
+
+        // Preserve unchecked predictions that aren't being re-predicted
         const uncheckedPredictions = existingPredictions.filter(pred => {
-            return !checkedGameIds.has(pred.gameId);
+            return !checkedGameIds.has(pred.gameId) && !newGameIds.has(pred.gameId);
         });
 
         if (uncheckedPredictions.length > 0) {
@@ -451,7 +455,7 @@ async function main() {
             });
         }
 
-        // Combine unchecked old predictions with new predictions
+        // Combine unchecked old predictions with new predictions (no duplicates)
         const allPredictions = [...uncheckedPredictions, ...newPredictions];
 
         // Save predictions to file
