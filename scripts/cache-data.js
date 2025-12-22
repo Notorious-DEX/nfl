@@ -199,19 +199,42 @@ async function fetchLeagueStats() {
                     teamStats[awayTeam].pointsScored += awayScore;
                     teamStats[awayTeam].pointsAllowed += homeScore;
 
-                    // Extract detailed stats if available
-                    if (homeComp.statistics && awayComp.statistics) {
-                        gamesWithStats++;
-                        updateTeamStats(teamStats[homeTeam], homeComp.statistics, true);
-                        updateTeamStats(teamStats[awayTeam], awayComp.statistics, false);
-                    } else {
-                        // Log first game missing statistics for debugging
-                        if (gamesProcessed <= 3) {
-                            log(`⚠️  Week ${week} game missing statistics: ${awayTeam} @ ${homeTeam}`);
-                            log('Available fields in homeComp:', Object.keys(homeComp));
-                            if (homeComp.statistics) {
-                                log('Statistics structure:', homeComp.statistics.slice(0, 3));
+                    // Fetch detailed boxscore for this game (like backtest.js does)
+                    try {
+                        const statsUrl = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${event.id}`;
+                        const statsResponse = await fetch(statsUrl, { timeout: 10000 });
+                        const statsData = await statsResponse.json();
+
+                        const boxscore = statsData.boxscore;
+                        if (boxscore && boxscore.teams) {
+                            const homeStats = boxscore.teams.find(t => t.homeAway === 'home');
+                            const awayStats = boxscore.teams.find(t => t.homeAway === 'away');
+
+                            const homeYards = { rush: 0, pass: 0 };
+                            const awayYards = { rush: 0, pass: 0 };
+
+                            if (homeStats && homeStats.statistics) {
+                                parseBoxscoreStats(homeStats.statistics, teamStats[homeTeam], homeYards);
+                                gamesWithStats++;
                             }
+                            if (awayStats && awayStats.statistics) {
+                                parseBoxscoreStats(awayStats.statistics, teamStats[awayTeam], awayYards);
+                            }
+
+                            // Update defensive stats (yards allowed)
+                            if (teamStats[homeTeam]) {
+                                teamStats[homeTeam].rushYardsAllowed += awayYards.rush;
+                                teamStats[homeTeam].passYardsAllowed += awayYards.pass;
+                            }
+                            if (teamStats[awayTeam]) {
+                                teamStats[awayTeam].rushYardsAllowed += homeYards.rush;
+                                teamStats[awayTeam].passYardsAllowed += homeYards.pass;
+                            }
+                        }
+                    } catch (boxscoreError) {
+                        // Log first few failures for debugging
+                        if (gamesProcessed <= 3) {
+                            log(`⚠️  Could not fetch boxscore for game ${event.id}:`, boxscoreError.message);
                         }
                     }
                 }
@@ -222,7 +245,7 @@ async function fetchLeagueStats() {
         }
 
         log(`📊 Processed ${gamesProcessed} completed games`);
-        log(`📊 Games with statistics: ${gamesWithStats}/${gamesProcessed}`);
+        log(`📊 Games with boxscore statistics: ${gamesWithStats}/${gamesProcessed}`);
 
         // Log summary of extracted stats
         let teamsWithRushYards = 0;
@@ -238,6 +261,8 @@ async function fetchLeagueStats() {
                     gamesPlayed: teamStats[teamName].gamesPlayed,
                     rushYards: teamStats[teamName].rushYards,
                     passYards: teamStats[teamName].passYards,
+                    rushYardsAllowed: teamStats[teamName].rushYardsAllowed,
+                    passYardsAllowed: teamStats[teamName].passYardsAllowed,
                     pointsScored: teamStats[teamName].pointsScored
                 };
             }
@@ -246,9 +271,9 @@ async function fetchLeagueStats() {
         log(`📊 Teams with passing yards: ${teamsWithPassYards}/32`);
         log('📊 Sample team stats:', JSON.stringify(sampleTeamStats, null, 2));
 
-        // If we didn't get statistics from scoreboard, we cannot calculate rankings
+        // If we didn't get statistics from boxscore, we cannot calculate rankings
         if (teamsWithRushYards === 0 || teamsWithPassYards === 0) {
-            console.error('❌ No rushing/passing statistics found in scoreboard data');
+            console.error('❌ No rushing/passing statistics found in boxscore data');
             console.log('⚠️  Cannot generate predictions without real statistics');
             return { teams: {}, rankings: {}, hasData: false };
         }
@@ -379,6 +404,45 @@ function updateTeamStats(teamStats, statistics, isHome) {
             case 'turnovers':
                 teamStats.turnovers += value;
                 break;
+        }
+    }
+}
+
+function parseBoxscoreStats(statistics, teamStats, yards) {
+    for (const stat of statistics) {
+        const name = stat.name.toLowerCase();
+        const value = parseFloat(stat.displayValue) || 0;
+
+        if (name === 'rushingyards') {
+            teamStats.rushYards += value;
+            if (yards) yards.rush = value;
+        }
+        else if (name === 'passingyards') {
+            teamStats.passYards += value;
+            if (yards) yards.pass = value;
+        }
+        else if (name === 'thirddowneff') {
+            const parts = stat.displayValue.split('-');
+            if (parts.length === 2) {
+                teamStats.thirdDownConversions += parseInt(parts[0]) || 0;
+                teamStats.thirdDownAttempts += parseInt(parts[1]) || 0;
+            }
+        }
+        else if (name === 'redzoneeff' || name === 'redzonemade-att') {
+            const parts = stat.displayValue.split('-');
+            if (parts.length === 2) {
+                teamStats.redZoneScores += parseInt(parts[0]) || 0;
+                teamStats.redZoneAttempts += parseInt(parts[1]) || 0;
+            }
+        }
+        else if (name === 'sacks') {
+            teamStats.sacksTaken += value;
+        }
+        else if (name === 'turnovers') {
+            teamStats.turnovers += value;
+        }
+        else if (name === 'interceptions' || name === 'fumblesrecovered') {
+            teamStats.takeaways += value;
         }
     }
 }
