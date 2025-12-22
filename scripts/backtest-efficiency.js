@@ -433,6 +433,7 @@ async function main() {
 
         const allPredictions = [];
         const allResults = [];
+        const weeklyStats = [];
         let totalCorrect = 0;
         let totalGames = 0;
 
@@ -452,6 +453,9 @@ async function main() {
             const games = await fetchWeekGames(week);
             console.log(`\n🎯 Generating predictions for ${games.length} games...`);
 
+            let weekCorrect = 0;
+            let weekTotal = 0;
+
             // Generate predictions
             for (const game of games) {
                 const competition = game.competitions[0];
@@ -470,8 +474,12 @@ async function main() {
                 if (prediction) {
                     const correct = prediction.winner === actualWinner;
 
-                    if (correct) totalCorrect++;
+                    if (correct) {
+                        totalCorrect++;
+                        weekCorrect++;
+                    }
                     totalGames++;
+                    weekTotal++;
 
                     const symbol = correct ? '✅' : '❌';
                     console.log(`  ${symbol} ${prediction.awayTeam} @ ${prediction.homeTeam}`);
@@ -498,8 +506,22 @@ async function main() {
                 }
             }
 
-            const weekAccuracy = totalGames > 0 ? ((totalCorrect / totalGames) * 100).toFixed(1) : '0.0';
-            console.log(`\n📊 Running accuracy: ${totalCorrect}/${totalGames} (${weekAccuracy}%)`);
+            // Calculate week stats
+            const weekAccuracy = weekTotal > 0 ? ((weekCorrect / weekTotal) * 100).toFixed(1) : '0.0';
+            const runningAccuracy = totalGames > 0 ? ((totalCorrect / totalGames) * 100).toFixed(1) : '0.0';
+
+            weeklyStats.push({
+                week: week,
+                correct: weekCorrect,
+                total: weekTotal,
+                accuracy: weekAccuracy,
+                runningCorrect: totalCorrect,
+                runningTotal: totalGames,
+                runningAccuracy: runningAccuracy
+            });
+
+            console.log(`\n📊 Week ${week}: ${weekCorrect}/${weekTotal} (${weekAccuracy}%)`);
+            console.log(`📊 Running total: ${totalCorrect}/${totalGames} (${runningAccuracy}%)`);
         }
 
         // Save results
@@ -511,6 +533,7 @@ async function main() {
             correct: totalCorrect,
             total: totalGames,
             accuracy: ((totalCorrect / totalGames) * 100).toFixed(1),
+            weeklyStats: weeklyStats,
             games: allResults
         };
 
@@ -524,6 +547,10 @@ async function main() {
         console.log(`Correct Predictions: ${totalCorrect}`);
         console.log(`Total Games: ${totalGames}`);
         console.log(`Accuracy: ${output.accuracy}%`);
+        console.log(`\n📈 WEEKLY BREAKDOWN:`);
+        weeklyStats.forEach(ws => {
+            console.log(`   Week ${ws.week}: ${ws.correct}/${ws.total} (${ws.accuracy}%) - Running: ${ws.runningCorrect}/${ws.runningTotal} (${ws.runningAccuracy}%)`);
+        });
         console.log(`\n✅ Results saved to efficiency-results.json`);
         console.log(`\nCompare to Elo results in results.json`);
 
