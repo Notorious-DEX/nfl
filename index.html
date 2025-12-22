@@ -844,6 +844,7 @@
 
         let injuries = {};
         let teamAccuracy = {}; // Track prediction accuracy by team
+        let qualityWins = {}; // Track records vs .500+ teams
 
         // ===== CALCULATE TEAM ACCURACY =====
         async function calculateTeamAccuracy() {
@@ -995,6 +996,12 @@
                         if (cachedData.teamAccuracy) {
                             teamAccuracy = cachedData.teamAccuracy;
                             console.log('✅ Team accuracy loaded from cache');
+                        }
+
+                        // Load quality wins from cache
+                        if (cachedData.qualityWins) {
+                            qualityWins = cachedData.qualityWins;
+                            console.log('✅ Quality wins loaded from cache');
                         }
 
                         // Use cached games
@@ -1891,6 +1898,46 @@
             if (awayInjuryImpact.points !== 0) {
                 ourAwayScore += awayInjuryImpact.points;
                 awayInjuryImpact.notes.forEach(note => prediction.calculations.push(`${awayTeam}: ${note}`));
+            }
+
+            // ===== QUALITY WINS BONUS (Week 12+) =====
+            // Teams with better records vs .500+ opponents get a bonus
+            const currentWeek = game.week?.number || 0;
+            if (currentWeek >= 12 && qualityWins && qualityWins[homeTeam] && qualityWins[awayTeam]) {
+                const homeQW = qualityWins[homeTeam];
+                const awayQW = qualityWins[awayTeam];
+
+                // Only apply if both teams have played at least 5 games vs .500+ teams
+                const minGames = 5;
+                if (homeQW.total >= minGames && awayQW.total >= minGames) {
+                    // Calculate differential advantage
+                    const diffAdvantage = homeQW.differential - awayQW.differential;
+
+                    // Find max differential across league for scaling
+                    const allDiffs = Object.values(qualityWins).map(qw => qw.differential);
+                    const maxDiff = Math.max(...allDiffs);
+                    const minDiff = Math.min(...allDiffs);
+                    const diffRange = maxDiff - minDiff;
+
+                    // Scale to 0-3 point range based on differential advantage
+                    if (diffRange > 0 && Math.abs(diffAdvantage) > 0) {
+                        const maxBonus = 3;
+                        const bonus = (diffAdvantage / diffRange) * maxBonus;
+
+                        ourHomeScore += bonus;
+
+                        const qwNote = bonus > 0
+                            ? `🎯 Quality wins: ${homeTeam} (${homeQW.wins}-${homeQW.losses} vs .500+) vs ${awayTeam} (${awayQW.wins}-${awayQW.losses} vs .500+): ${bonus > 0 ? '+' : ''}${bonus.toFixed(1)} pts`
+                            : `🎯 Quality wins: ${awayTeam} (${awayQW.wins}-${awayQW.losses} vs .500+) vs ${homeTeam} (${homeQW.wins}-${homeQW.losses} vs .500+): ${bonus.toFixed(1)} pts to ${homeTeam}`;
+
+                        prediction.calculations.push(qwNote);
+
+                        if (Math.abs(bonus) >= 2) {
+                            const favored = bonus > 0 ? homeTeam : awayTeam;
+                            prediction.edges.push(`${favored} proven vs quality opponents`);
+                        }
+                    }
+                }
             }
 
             // Finalize our prediction

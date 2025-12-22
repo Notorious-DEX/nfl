@@ -574,6 +574,106 @@ async function calculateTeamAccuracy() {
     }
 }
 
+function calculateQualityWins() {
+    console.log('🎯 Calculating quality wins (vs .500+ teams)...');
+    try {
+        const resultsPath = path.join(__dirname, '..', 'results.json');
+        if (!fs.existsSync(resultsPath)) {
+            console.log('⚠️  results.json not found, skipping quality wins');
+            return {};
+        }
+
+        const resultsData = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+        const results = resultsData.games || [];
+
+        // Track each team's record as the season progresses
+        const teamRecords = {};
+        const vsWinningTeams = {};
+
+        // Initialize all teams
+        const allTeams = new Set();
+        results.forEach(game => {
+            if (game.homeTeam) allTeams.add(game.homeTeam);
+            if (game.awayTeam) allTeams.add(game.awayTeam);
+        });
+
+        allTeams.forEach(team => {
+            teamRecords[team] = { wins: 0, losses: 0 };
+            vsWinningTeams[team] = { wins: 0, losses: 0 };
+        });
+
+        // Sort games by week to process chronologically
+        results.sort((a, b) => a.week - b.week);
+
+        // Process each game
+        results.forEach(game => {
+            // Skip games without actual results
+            if (typeof game.actualHomeScore === 'undefined' || typeof game.actualAwayScore === 'undefined') return;
+            if (!game.homeTeam || !game.awayTeam) return;
+
+            const homeTeam = game.homeTeam;
+            const awayTeam = game.awayTeam;
+
+            // Check opponent's record at time of this game
+            const homeRecord = teamRecords[homeTeam];
+            const awayRecord = teamRecords[awayTeam];
+
+            const homeWinPct = homeRecord.wins + homeRecord.losses === 0 ? 0.000 : homeRecord.wins / (homeRecord.wins + homeRecord.losses);
+            const awayWinPct = awayRecord.wins + awayRecord.losses === 0 ? 0.000 : awayRecord.wins / (awayRecord.wins + awayRecord.losses);
+
+            const homeWon = game.actualHomeScore > game.actualAwayScore;
+
+            // Check if opponent had .500 or better record
+            if (awayWinPct >= 0.500) {
+                if (homeWon) {
+                    vsWinningTeams[homeTeam].wins++;
+                } else {
+                    vsWinningTeams[homeTeam].losses++;
+                }
+            }
+
+            if (homeWinPct >= 0.500) {
+                if (!homeWon) {
+                    vsWinningTeams[awayTeam].wins++;
+                } else {
+                    vsWinningTeams[awayTeam].losses++;
+                }
+            }
+
+            // Update records after this game
+            if (homeWon) {
+                teamRecords[homeTeam].wins++;
+                teamRecords[awayTeam].losses++;
+            } else {
+                teamRecords[awayTeam].wins++;
+                teamRecords[homeTeam].losses++;
+            }
+        });
+
+        // Convert to output format
+        const qualityWins = {};
+        for (const [team, record] of Object.entries(vsWinningTeams)) {
+            const total = record.wins + record.losses;
+            const winPct = total === 0 ? 0 : record.wins / total;
+            const differential = record.wins - record.losses;
+
+            qualityWins[team] = {
+                wins: record.wins,
+                losses: record.losses,
+                total: total,
+                winPct: winPct,
+                differential: differential
+            };
+        }
+
+        console.log(`✅ Quality wins calculated for ${Object.keys(qualityWins).length} teams`);
+        return qualityWins;
+    } catch (error) {
+        console.error('❌ Error calculating quality wins:', error.message);
+        return {};
+    }
+}
+
 async function main() {
     console.log('🏈 NFL Data Cache Script Starting...\n');
 
@@ -582,6 +682,7 @@ async function main() {
     const leagueStats = await fetchLeagueStats();
     const injuries = await fetchInjuries(games);  // Pass games to extract injury data
     const teamAccuracy = await calculateTeamAccuracy();
+    const qualityWins = calculateQualityWins();
 
     // Combine into cached data
     const cachedData = {
@@ -590,7 +691,8 @@ async function main() {
         games,
         leagueStats,
         injuries,
-        teamAccuracy
+        teamAccuracy,
+        qualityWins
     };
 
     // Save to file
