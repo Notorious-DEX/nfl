@@ -674,6 +674,27 @@ function calculateQualityWins() {
     }
 }
 
+function loadManualInjuries() {
+    console.log('📝 Loading manual injury overrides...');
+    try {
+        const manualPath = path.join(__dirname, '..', 'manual-injuries.json');
+        if (!fs.existsSync(manualPath)) {
+            console.log('⚠️  manual-injuries.json not found, skipping manual overrides');
+            return {};
+        }
+
+        const manualInjuries = JSON.parse(fs.readFileSync(manualPath, 'utf8'));
+        const teamCount = Object.keys(manualInjuries).length;
+        const totalOverrides = Object.values(manualInjuries).reduce((sum, team) => sum + team.length, 0);
+
+        console.log(`✅ Loaded ${totalOverrides} manual injury overrides for ${teamCount} teams`);
+        return manualInjuries;
+    } catch (error) {
+        console.error('❌ Error loading manual injuries:', error.message);
+        return {};
+    }
+}
+
 async function main() {
     console.log('🏈 NFL Data Cache Script Starting...\n');
 
@@ -683,6 +704,16 @@ async function main() {
     const injuries = await fetchInjuries(games);
     const teamAccuracy = await calculateTeamAccuracy();
     const qualityWins = calculateQualityWins();
+
+    // Load and merge manual injury overrides
+    const manualInjuries = loadManualInjuries();
+    for (const [teamName, manualTeamInjuries] of Object.entries(manualInjuries)) {
+        if (!injuries[teamName]) {
+            injuries[teamName] = [];
+        }
+        // Add manual injuries to the beginning of the array (they take priority)
+        injuries[teamName] = [...manualTeamInjuries, ...injuries[teamName]];
+    }
 
     // Combine into cached data
     const cachedData = {
