@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-23T01:57:08.040Z",
+  "lastUpdated": "2025-12-23T02:38:48.543Z",
   "currentWeek": 16,
   "games": [
     {
@@ -110,7 +110,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
               },
-              "score": "7",
+              "score": "14",
               "linescores": [
                 {
                   "value": 7,
@@ -118,8 +118,8 @@
                   "period": 1
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 2
                 }
               ],
@@ -211,7 +211,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sf.png"
               },
-              "score": "14",
+              "score": "24",
               "linescores": [
                 {
                   "value": 14,
@@ -219,8 +219,8 @@
                   "period": 1
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 10,
+                  "displayValue": "10",
                   "period": 2
                 }
               ],
@@ -248,61 +248,86 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728241046",
+              "id": "4017728241939",
               "type": {
-                "id": "2",
-                "text": "End Period",
-                "abbreviation": "EP"
+                "id": "59",
+                "text": "Field Goal Good",
+                "abbreviation": "FG"
               },
-              "text": "END QUARTER 1",
-              "scoreValue": 0,
+              "text": "E.Pineiro 25 yard field goal is GOOD, Center-J.Weeks, Holder-T.Morstead.",
+              "scoreValue": 3,
               "team": {
-                "id": "11"
+                "id": "25"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.2926,
-                "awayWinPercentage": 0.7074,
+                "homeWinPercentage": 0.1677,
+                "awayWinPercentage": 0.8323,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "9 plays, 48 yards, 4:33",
+                "description": "12 plays, 75 yards, 5:18",
                 "start": {
-                  "yardLine": 34,
-                  "text": "IND 34"
+                  "yardLine": 82,
+                  "text": "SF 18"
+                },
+                "end": {
+                  "yardLine": 7,
+                  "text": "IND 7"
                 },
                 "timeElapsed": {
-                  "displayValue": "4:33"
-                }
+                  "displayValue": "5:18"
+                },
+                "result": "FG"
               },
               "start": {
-                "yardLine": 82,
+                "yardLine": 7,
                 "team": {
-                  "id": "11"
+                  "id": "25"
                 }
               },
               "end": {
-                "yardLine": 82,
+                "yardLine": 0,
                 "team": {
-                  "id": "11"
+                  "id": "25"
                 }
               },
-              "statYardage": 0
+              "statYardage": 25,
+              "athletesInvolved": [
+                {
+                  "id": "12701",
+                  "fullName": "Thomas Morstead",
+                  "displayName": "Thomas Morstead",
+                  "shortName": "T. Morstead",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/12701/thomas-morstead"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/12701.png",
+                  "jersey": "7",
+                  "position": "P",
+                  "team": {
+                    "id": "25"
+                  }
+                }
+              ]
             },
-            "down": 1,
-            "yardLine": 82,
-            "distance": 18,
-            "downDistanceText": "1st & Goal at SF 18",
-            "shortDownDistanceText": "1st & Goal",
-            "possessionText": "SF 18",
+            "down": -1,
+            "yardLine": 0,
+            "distance": 10,
             "isRedZone": true,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "11"
+            "awayTimeouts": 2
           },
           "status": {
-            "clock": 900,
-            "displayClock": "15:00",
+            "clock": 111,
+            "displayClock": "1:51",
             "period": 2,
             "type": {
               "id": "2",
@@ -310,8 +335,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "15:00 - 2nd Quarter",
-              "shortDetail": "15:00 - 2nd"
+              "detail": "1:51 - 2nd Quarter",
+              "shortDetail": "1:51 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -332,8 +357,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "9/13, 121 YDS, 1 TD",
-                  "value": 121,
+                  "displayValue": "12/17, 153 YDS, 2 TD",
+                  "value": 153,
                   "athlete": {
                     "id": "5529",
                     "fullName": "Philip Rivers",
@@ -372,8 +397,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "5 CAR, 26 YDS",
-                  "value": 26,
+                  "displayValue": "11 CAR, 67 YDS",
+                  "value": 67,
                   "athlete": {
                     "id": "3117251",
                     "fullName": "Christian McCaffrey",
@@ -412,13 +437,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 51 YDS",
-                  "value": 51,
+                  "displayValue": "5 REC, 78 YDS, 1 TD",
+                  "value": 78,
                   "athlete": {
-                    "id": "4688813",
-                    "fullName": "Josh Downs",
-                    "displayName": "Josh Downs",
-                    "shortName": "J. Downs",
+                    "id": "3040151",
+                    "fullName": "George Kittle",
+                    "displayName": "George Kittle",
+                    "shortName": "G. Kittle",
                     "links": [
                       {
                         "rel": [
@@ -426,21 +451,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4688813/josh-downs"
+                        "href": "https://www.espn.com/nfl/player/_/id/3040151/george-kittle"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4688813.png",
-                    "jersey": "2",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3040151.png",
+                    "jersey": "85",
                     "position": {
-                      "abbreviation": "WR"
+                      "abbreviation": "TE"
                     },
                     "team": {
-                      "id": "11"
+                      "id": "25"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "11"
+                    "id": "25"
                   }
                 }
               ]
@@ -563,8 +588,8 @@
         }
       },
       "status": {
-        "clock": 900,
-        "displayClock": "15:00",
+        "clock": 111,
+        "displayClock": "1:51",
         "period": 2,
         "type": {
           "id": "2",
@@ -572,8 +597,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "15:00 - 2nd Quarter",
-          "shortDetail": "15:00 - 2nd"
+          "detail": "1:51 - 2nd Quarter",
+          "shortDetail": "1:51 - 2nd"
         }
       }
     }
@@ -5278,6 +5303,16 @@
     ],
     "Kansas City Chiefs": [
       {
+        "longComment": "Not starting",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Patrick Mahomes",
+          "position": "QB"
+        },
+        "depthChartPosition": 1,
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Surgery",
         "status": "IR",
         "athlete": {
@@ -5540,6 +5575,16 @@
     ],
     "Indianapolis Colts": [
       {
+        "longComment": "Not starting",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Daniel Jones",
+          "position": "QB"
+        },
+        "depthChartPosition": 1,
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Shoulder",
         "status": "Out",
         "athlete": {
@@ -5748,6 +5793,16 @@
         },
         "depthChartPosition": "RB",
         "depthChartOrder": 5
+      },
+      {
+        "longComment": "Oblique",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "JT Tuimoloau",
+          "position": "DL"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 3
       },
       {
         "longComment": "Knee - ACL",
