@@ -1,0 +1,51 @@
+name: Run Backtest
+
+on:
+  schedule:
+    # Run weekly on Monday at 10 AM UTC (after weekend games)
+    - cron: '0 10 * * 1'
+
+  workflow_dispatch:  # Allow manual triggers
+    inputs:
+      start_week:
+        description: 'Start week'
+        required: false
+        default: '1'
+      end_week:
+        description: 'End week (leave empty for current week)'
+        required: false
+        default: ''
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run backtest
+        run: |
+          if [ -n "${{ github.event.inputs.end_week }}" ]; then
+            npm run backtest -- ${{ github.event.inputs.start_week }} ${{ github.event.inputs.end_week }}
+          else
+            npm run backtest -- ${{ github.event.inputs.start_week }}
+          fi
+
+      - name: Commit and push results
+        run: |
+          git config user.name "NFL Bot"
+          git config user.email "bot@nflv2.local"
+          git add data/test-results.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update backtest results [skip ci]" && git pull --rebase && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

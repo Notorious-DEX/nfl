@@ -1,0 +1,62 @@
+name: Update Data
+
+on:
+  schedule:
+    # During NFL games - every 3 minutes (respecting API limits)
+    # Thursday Night Football (8:15 PM ET / 00:15 UTC Friday)
+    - cron: '*/3 16-23 * * 4'  # Thursday 4 PM - 11 PM ET
+    - cron: '*/3 0-2 * * 5'    # Friday 12 AM - 2 AM ET (TNF continues)
+
+    # Saturday games (Weeks 15-18)
+    - cron: '*/3 12-23 * 12 6'  # Saturday 12 PM - 11 PM ET in December
+    - cron: '*/3 0-2 * 12 0'    # Sunday 12 AM - 2 AM ET (Saturday games continue)
+
+    # Sunday games (1 PM, 4:25 PM, 8:20 PM ET)
+    - cron: '*/3 13-23 * * 0'   # Sunday 1 PM - 11 PM ET
+    - cron: '*/3 0-2 * * 1'     # Monday 12 AM - 2 AM ET (SNF continues)
+
+    # Monday Night Football (8:15 PM ET)
+    - cron: '*/3 16-23 * * 1'   # Monday 4 PM - 11 PM ET
+    - cron: '*/3 0-2 * * 2'     # Tuesday 12 AM - 2 AM ET (MNF continues)
+
+    # Off-peak updates (once per hour)
+    - cron: '0 * * * *'         # Every hour when no games
+
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update data
+        run: npm run update
+
+      - name: Generate predictions
+        run: npm run predict
+        continue-on-error: true
+
+      - name: Check results
+        run: npm run check
+        continue-on-error: true
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "NFL Bot"
+          git config user.email "bot@nflv2.local"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update data [skip ci]" && git pull --rebase && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

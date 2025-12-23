@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": "NFL Predictions v2",
+    "version": "2.0.0",
+    "description": "Advanced NFL game predictions using combined Elo and efficiency models"
+  },
+  "models": {
+    "elo": {
+      "enabled": true,
+      "weight": 0.6
+    },
+    "efficiency": {
+      "enabled": true,
+      "weight": 0.4
+    }
+  },
+  "updates": {
+    "autoUpdate": true,
+    "updateInterval": 180,
+    "checkResultsAfterHours": 4
+  },
+  "display": {
+    "theme": "modern",
+    "showConfidence": true,
+    "showEloRatings": true,
+    "showModelDetails": true
+  }
+}

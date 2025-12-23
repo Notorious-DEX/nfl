@@ -1,0 +1,30 @@
+{
+  "name": "nfl-predictions-v2",
+  "version": "2.0.0",
+  "description": "NFL game predictions using Elo and efficiency models - Rewritten v2",
+  "type": "module",
+  "main": "src/workflows/update-data.js",
+  "scripts": {
+    "update": "node src/workflows/update-data.js",
+    "predict": "node src/workflows/generate-predictions.js",
+    "check": "node src/workflows/check-results.js",
+    "backtest": "node src/workflows/backtest.js",
+    "all": "npm run update && npm run predict"
+  },
+  "keywords": [
+    "nfl",
+    "predictions",
+    "elo",
+    "efficiency",
+    "sports",
+    "analytics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
