@@ -2446,10 +2446,14 @@
 
                         <div class="prediction-section">
                             <div class="prediction-title">📊 Score Prediction</div>
-                            <div class="prediction-grid">
-                                <div class="pred-stat">
-                                    <div class="pred-label">🏈 BROpicks</div>
-                                    <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
+                            <div class="live-scores">
+                                <div class="live-score-row">
+                                    <span>${prediction.awayTeam}</span>
+                                    <span>${prediction.awayScore}</span>
+                                </div>
+                                <div class="live-score-row">
+                                    <span>${prediction.homeTeam}</span>
+                                    <span>${prediction.homeScore}</span>
                                 </div>
                             </div>
                         </div>
