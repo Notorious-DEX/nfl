@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRObet - NFL Predictions (Beta)</title>
+    <title>BROpicks - NFL Predictions (Beta)</title>
     <style>
         * {
             margin: 0;
@@ -719,7 +719,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BRObet <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.06</span></h1>
+            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.07</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
         </header>
@@ -768,10 +768,10 @@
         <div id="games" class="games-grid"></div>
 
         <footer class="footer">
-            <div>© 2025 BRObet. All rights reserved.</div>
+            <div>© 2025 BROpicks. All rights reserved.</div>
             <div class="disclaimer">
                 <strong>DISCLAIMER:</strong> This website is for informational and entertainment purposes only.
-                BRObet provides NFL game predictions and analysis based on statistical models and publicly available data.
+                BROpicks provides NFL game predictions and analysis based on statistical models and publicly available data.
                 No guarantees are made regarding the accuracy of predictions. Sports betting involves risk, and you should never
                 wager more than you can afford to lose. We are not responsible for any losses incurred through the use of
                 information provided on this site. Users assume all risk and liability for their betting decisions.
@@ -845,6 +845,7 @@
         let injuries = {};
         let teamAccuracy = {}; // Track prediction accuracy by team
         let qualityWins = {}; // Track records vs .500+ teams
+        let eloRatings = {}; // Store team Elo ratings
 
         // ===== CALCULATE TEAM ACCURACY =====
         async function calculateTeamAccuracy() {
@@ -899,10 +900,30 @@
             }
         }
 
+        // ===== LOAD ELO RATINGS =====
+        async function loadEloRatings() {
+            try {
+                const response = await fetch('historical-elo.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    // Get the 2025 start of season ratings
+                    if (data.seasons && data.seasons['2025'] && data.seasons['2025'].startOfSeasonRatings) {
+                        eloRatings = data.seasons['2025'].startOfSeasonRatings;
+                        console.log('📊 Loaded Elo ratings for 2025 season');
+                    }
+                } else {
+                    console.log('⚠️ Could not load Elo ratings');
+                }
+            } catch (error) {
+                console.log('⚠️ Error loading Elo ratings:', error);
+            }
+        }
+
         // ===== INITIALIZATION =====
         // Load global accuracy and supporting data
         fetchGlobalAccuracy();
         calculateTeamAccuracy();
+        loadEloRatings();
 
         // Load data immediately
         loadAllData();
@@ -1946,6 +1967,11 @@
                 }
             }
 
+            // Add Elo ratings to calculations
+            if (eloRatings[homeTeam] && eloRatings[awayTeam]) {
+                prediction.calculations.push(`⚡ Elo Ratings: ${homeTeam} ${eloRatings[homeTeam]} vs ${awayTeam} ${eloRatings[awayTeam]}`);
+            }
+
             // Finalize our prediction
             prediction.homeScore = Math.max(10, Math.round(ourHomeScore));
             prediction.awayScore = Math.max(10, Math.round(ourAwayScore));
@@ -2416,22 +2442,25 @@
                             <div class="winner-label">🎯 OUR PREDICTION</div>
                             <div class="winner-name">${prediction.winner}</div>
                             <div class="confidence">Confidence: ${prediction.confidence}</div>
+                        </div>
+
+                        <div class="prediction-section">
+                            <div class="prediction-title">📊 Score Prediction</div>
+                            <div class="prediction-grid">
+                                <div class="pred-stat">
+                                    <div class="pred-label">🏈 BROpicks</div>
+                                    <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="winner-section" style="margin-top: 1rem;">
                             ${rationaleHTML}
                             ${calculationsHTML}
                         </div>
 
                         ${edgesHTML}
                         ${injuryHTML}
-
-                        <div class="prediction-section">
-                            <div class="prediction-title">📊 Score Prediction</div>
-                            <div class="prediction-grid">
-                                <div class="pred-stat">
-                                    <div class="pred-label">🏈 BRObet</div>
-                                    <div class="pred-value" style="font-size: 1.5rem;">${prediction.homeScore} - ${prediction.awayScore}</div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             `;
