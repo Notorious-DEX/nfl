@@ -1574,6 +1574,8 @@
             const teamInjuries = injuries[teamName] || [];
             let impact = { points: 0, notes: [] };
 
+            console.log(`🏥 Analyzing injuries for ${teamName}, found ${teamInjuries.length} injuries`);
+
             for (const injury of teamInjuries) {
                 // Sleeper API format: {athlete: {displayName, position}, status, longComment}
                 const position = (injury.athlete?.position || '').toUpperCase();
@@ -1583,16 +1585,19 @@
 
                 // QB injuries - huge impact (only for starters)
                 if (position === 'QB') {
-                    // Only apply significant penalty if this is the starting QB (depth chart position 1)
-                    const isStarter = injury.depthChartPosition === 1;
+                    console.log(`  🏈 QB found: ${playerName}, status: ${status}, depthPos: ${injury.depthChartPosition}, depthOrder: ${injury.depthChartOrder}`);
+                    // Only apply significant penalty if this is the starting QB (depth chart position 1 or order 1)
+                    const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
 
                     if (isStarter) {
                         if (status === 'out' || comment.includes('out')) {
                             impact.points -= 8;
                             impact.notes.push(`🏥 ${playerName} (QB) out (-8 pts)`);
+                            console.log(`⚠️ QB INJURY DETECTED: ${teamName} - ${playerName} out, applying -8 pts`);
                         } else if (status === 'questionable' || status === 'doubtful') {
                             impact.points -= 4;
                             impact.notes.push(`🏥 ${playerName} (QB) ${status} (-4 pts)`);
+                            console.log(`⚠️ QB INJURY DETECTED: ${teamName} - ${playerName} ${status}, applying -4 pts`);
                         }
                     }
                     // Backup QBs have minimal impact - only log if out
@@ -1603,7 +1608,7 @@
 
                 // RB injuries - big impact (only for starters)
                 else if (position === 'RB') {
-                    const isStarter = injury.depthChartPosition === 1;
+                    const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
 
                     if (isStarter) {
                         if (status === 'out' || comment.includes('out')) {
@@ -1620,7 +1625,7 @@
 
                 // WR/TE injuries - significant for passing (only for starters)
                 else if (position === 'WR' || position === 'TE') {
-                    const isStarter = injury.depthChartPosition === 1;
+                    const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
 
                     if (isStarter) {
                         if (status === 'out' || comment.includes('out')) {
@@ -1637,7 +1642,7 @@
 
                 // Offensive line injuries - affects both run and pass (only for starters)
                 else if (position === 'OL' || position === 'T' || position === 'G' || position === 'C') {
-                    const isStarter = injury.depthChartPosition === 1;
+                    const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
 
                     if (isStarter) {
                         if (status === 'out' || comment.includes('out')) {
