@@ -1426,39 +1426,68 @@
         }
 
         // ===== FETCH INJURIES =====
+        function getTeamNameFromAbbrev(abbrev) {
+            const abbrevToName = {
+                "ARI": "Arizona Cardinals", "ATL": "Atlanta Falcons", "BAL": "Baltimore Ravens",
+                "BUF": "Buffalo Bills", "CAR": "Carolina Panthers", "CHI": "Chicago Bears",
+                "CIN": "Cincinnati Bengals", "CLE": "Cleveland Browns", "DAL": "Dallas Cowboys",
+                "DEN": "Denver Broncos", "DET": "Detroit Lions", "GB": "Green Bay Packers",
+                "HOU": "Houston Texans", "IND": "Indianapolis Colts", "JAX": "Jacksonville Jaguars",
+                "KC": "Kansas City Chiefs", "LAR": "Los Angeles Rams", "LAC": "Los Angeles Chargers",
+                "LV": "Las Vegas Raiders", "MIA": "Miami Dolphins", "MIN": "Minnesota Vikings",
+                "NE": "New England Patriots", "NO": "New Orleans Saints", "NYG": "New York Giants",
+                "NYJ": "New York Jets", "PHI": "Philadelphia Eagles", "PIT": "Pittsburgh Steelers",
+                "SF": "San Francisco 49ers", "SEA": "Seattle Seahawks", "TB": "Tampa Bay Buccaneers",
+                "TEN": "Tennessee Titans", "WAS": "Washington Commanders"
+            };
+            return abbrevToName[abbrev] || null;
+        }
+
         async function fetchInjuries() {
-            console.log('🏥 Fetching injuries from ESPN...');
+            console.log('🏥 Fetching injury reports from Sleeper API...');
 
             try {
-                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=100');
-                const data = await response.json();
+                // Sleeper API provides free NFL injury data
+                const response = await fetch('https://api.sleeper.app/v1/players/nfl');
 
-                for (const article of data.articles || []) {
-                    if (article.headline.toLowerCase().includes('injury') ||
-                        article.headline.toLowerCase().includes('out') ||
-                        article.headline.toLowerCase().includes('questionable')) {
+                if (!response.ok) {
+                    console.log('⚠️  Could not fetch from Sleeper API');
+                    return;
+                }
 
-                        for (const teamName in TEAM_DATA) {
-                            if (article.headline.includes(teamName) ||
-                                (article.description && article.description.includes(teamName))) {
+                const players = await response.json();
 
-                                if (!injuries[teamName]) {
-                                    injuries[teamName] = [];
-                                }
+                // Group injuries by team
+                for (const playerId in players) {
+                    const player = players[playerId];
 
-                                injuries[teamName].push({
-                                    headline: article.headline,
-                                    link: article.links?.web?.href || '#',
-                                    description: article.description || ''
-                                });
-                            }
+                    // Check if player has injury status (not Healthy and has a team)
+                    if (player.injury_status && player.injury_status !== 'Healthy' && player.team) {
+                        // Map team abbreviations to full names
+                        const teamName = getTeamNameFromAbbrev(player.team);
+                        if (!teamName) continue;
+
+                        if (!injuries[teamName]) {
+                            injuries[teamName] = [];
                         }
+
+                        injuries[teamName].push({
+                            longComment: player.injury_notes || player.injury_body_part || player.injury_status,
+                            status: player.injury_status,
+                            athlete: {
+                                displayName: `${player.first_name || ''} ${player.last_name || ''}`.trim() || 'Unknown',
+                                position: player.position || ''
+                            },
+                            depthChartPosition: player.depth_chart_position || null,
+                            depthChartOrder: player.depth_chart_order || null
+                        });
                     }
                 }
 
-                console.log(`✅ Found injury reports for ${Object.keys(injuries).length} teams`);
+                const totalInjuries = Object.values(injuries).reduce((sum, team) => sum + team.length, 0);
+                console.log(`✅ Loaded injuries for ${Object.keys(injuries).length} teams (${totalInjuries} total injuries)`);
             } catch (error) {
-                console.warn('Could not fetch injuries:', error.message);
+                console.error('❌ Error fetching injuries:', error.message);
             }
         }
 

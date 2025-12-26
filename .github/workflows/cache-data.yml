@@ -3,8 +3,9 @@ name: Cache NFL Data
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    # Daily at 9am ET (14:00 UTC in winter, 13:00 UTC in summer - using 13:00 UTC)
-    - cron: '0 13 * * *'
+    # Run every 5 hours to ensure cache never exceeds 6 hour stale threshold
+    # Runs at: 00:00, 05:00, 10:00, 15:00, 20:00 UTC daily
+    - cron: '0 */5 * * *'
 
     # Thursday game day (8:15pm ET game)
     # Updates at: 4:15pm ET (20:15 UTC), 7:15pm ET (23:15 UTC), 8pm ET (00:00 UTC next day)
