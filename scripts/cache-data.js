@@ -445,10 +445,18 @@ function parseBoxscoreStats(statistics, teamStats, yards) {
         else if (name === 'sacks') {
             teamStats.sacksTaken += value;
         }
-        else if (name === 'turnovers') {
+        // Turnovers committed (fumbles lost + INTs thrown)
+        else if (name === 'fumbleslost' || name === 'fumblelost') {
             teamStats.turnovers += value;
         }
-        else if (name === 'interceptions' || name === 'fumblesrecovered') {
+        else if (name === 'interceptions' || name === 'interceptionthrown') {
+            teamStats.turnovers += value;
+        }
+        // Takeaways (defensive fumble recoveries + defensive INTs)
+        else if (name === 'defensivefumblerecoveries' || name === 'fumblerecoveries') {
+            teamStats.takeaways += value;
+        }
+        else if (name === 'defensiveinterceptions') {
             teamStats.takeaways += value;
         }
     }
