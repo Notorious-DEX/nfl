@@ -2028,23 +2028,6 @@
                 prediction.calculations.push(`${homeTeam} O-line advantage (sack diff ${awaySackDiff.toFixed(1)}): -1 pt to ${awayTeam}`);
             }
 
-            // Turnover differential (use cautiously - high variance)
-            if (homeStats.turnoverDiff > 8) {
-                ourHomeScore += 0.5;
-                prediction.calculations.push(`${homeTeam} strong turnover diff (+${homeStats.turnoverDiff}): +0.5 pts`);
-            } else if (homeStats.turnoverDiff < -8) {
-                ourHomeScore -= 0.5;
-                prediction.calculations.push(`${homeTeam} poor turnover diff (${homeStats.turnoverDiff}): -0.5 pts`);
-            }
-
-            if (awayStats.turnoverDiff > 8) {
-                ourAwayScore += 0.5;
-                prediction.calculations.push(`${awayTeam} strong turnover diff (+${awayStats.turnoverDiff}): +0.5 pts`);
-            } else if (awayStats.turnoverDiff < -8) {
-                ourAwayScore -= 0.5;
-                prediction.calculations.push(`${awayTeam} poor turnover diff (${awayStats.turnoverDiff}): -0.5 pts`);
-            }
-
             // ===== WEATHER SCORING REDUCTION =====
             if (weather) {
                 if (weather.snow || weather.rain > 0.5 || weather.windSpeed > 20) {
