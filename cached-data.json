@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-25T23:30:36.642Z",
+  "lastUpdated": "2025-12-26T00:49:03.581Z",
   "currentWeek": 17,
   "games": [
     {
@@ -110,7 +110,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/min.png"
               },
-              "score": "7",
+              "score": "23",
               "linescores": [
                 {
                   "value": 7,
@@ -123,9 +123,14 @@
                   "period": 2
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 6,
+                  "displayValue": "6",
                   "period": 3
+                },
+                {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -216,7 +221,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/det.png"
               },
-              "score": "7",
+              "score": "10",
               "linescores": [
                 {
                   "value": 0,
@@ -232,6 +237,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -258,75 +268,70 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017727112050",
+              "id": "4017727113803",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "21",
+                "text": "Timeout",
+                "abbreviation": "TO"
               },
-              "text": "Official Timeout at 11:05.",
+              "text": "Timeout #4 by DET at 00:38.",
               "scoreValue": 0,
               "team": {
-                "id": "16"
+                "id": "8"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.3257,
-                "awayWinPercentage": 0.6743,
+                "homeWinPercentage": 0.999,
+                "awayWinPercentage": 0.0010000000000000009,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "5 plays, 14 yards, 3:55",
+                "description": "2 plays, 17 yards, 0:26",
                 "start": {
-                  "yardLine": 67,
-                  "text": "DET 33"
-                },
-                "end": {
-                  "yardLine": 53,
-                  "text": "DET 47"
+                  "yardLine": 65,
+                  "text": "DET 35"
                 },
                 "timeElapsed": {
-                  "displayValue": "3:55"
-                },
-                "result": "PUNT"
+                  "displayValue": "0:26"
+                }
               },
               "start": {
-                "yardLine": 14,
+                "yardLine": 48,
                 "team": {
-                  "id": "16"
+                  "id": "8"
                 }
               },
               "end": {
-                "yardLine": 14,
+                "yardLine": 48,
                 "team": {
-                  "id": "16"
+                  "id": "8"
                 }
               },
               "statYardage": 0
             },
-            "down": 1,
-            "yardLine": 14,
+            "down": 2,
+            "yardLine": 48,
             "distance": 10,
-            "downDistanceText": "1st & 10 at MIN 14",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "MIN 14",
+            "downDistanceText": "2nd & 10 at MIN 48",
+            "shortDownDistanceText": "2nd & 10",
+            "possessionText": "MIN 48",
             "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "16"
+            "homeTimeouts": 1,
+            "awayTimeouts": 0,
+            "possession": "8"
           },
           "status": {
-            "clock": 665,
-            "displayClock": "11:05",
-            "period": 3,
+            "clock": 38,
+            "displayClock": "0:38",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "11:05 - 3rd Quarter",
-              "shortDetail": "11:05 - 3rd"
+              "detail": "0:38 - 4th Quarter",
+              "shortDetail": "0:38 - 4th"
             },
             "isTBDFlex": false
           },
@@ -346,8 +351,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "10/14, 113 YDS, 1 TD",
-                  "value": 113,
+                  "displayValue": "16/27, 179 YDS, 1 TD, 2 INT",
+                  "value": 179,
                   "athlete": {
                     "id": "3046779",
                     "fullName": "Jared Goff",
@@ -386,13 +391,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "10 CAR, 37 YDS, 1 TD",
-                  "value": 37,
+                  "displayValue": "1 CAR, 65 YDS, 1 TD",
+                  "value": 65,
                   "athlete": {
-                    "id": "3042519",
-                    "fullName": "Aaron Jones Sr.",
-                    "displayName": "Aaron Jones Sr.",
-                    "shortName": "A. Jones Sr.",
+                    "id": "4429205",
+                    "fullName": "Jordan Addison",
+                    "displayName": "Jordan Addison",
+                    "shortName": "J. Addison",
                     "links": [
                       {
                         "rel": [
@@ -400,13 +405,13 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3042519/aaron-jones-sr"
+                        "href": "https://www.espn.com/nfl/player/_/id/4429205/jordan-addison"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3042519.png",
-                    "jersey": "33",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429205.png",
+                    "jersey": "3",
                     "position": {
-                      "abbreviation": "RB"
+                      "abbreviation": "WR"
                     },
                     "team": {
                       "id": "16"
@@ -426,8 +431,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "6 REC, 56 YDS",
-                  "value": 56,
+                  "displayValue": "8 REC, 68 YDS",
+                  "value": 68,
                   "athlete": {
                     "id": "4374302",
                     "fullName": "Amon-Ra St. Brown",
@@ -517,18 +522,6 @@
         {
           "language": "en-US",
           "rel": [
-            "highlights",
-            "desktop"
-          ],
-          "href": "https://www.espn.com/nfl/video?gameId=401772711",
-          "text": "Highlights",
-          "shortText": "Highlights",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -542,8 +535,8 @@
       ],
       "weather": {
         "displayValue": "7",
-        "temperature": 32,
-        "highTemperature": 32,
+        "temperature": 34,
+        "highTemperature": 34,
         "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
@@ -558,17 +551,17 @@
         }
       },
       "status": {
-        "clock": 665,
-        "displayClock": "11:05",
-        "period": 3,
+        "clock": 38,
+        "displayClock": "0:38",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "11:05 - 3rd Quarter",
-          "shortDetail": "11:05 - 3rd"
+          "detail": "0:38 - 4th Quarter",
+          "shortDetail": "0:38 - 4th"
         }
       }
     },
@@ -600,7 +593,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "3622",
             "fullName": "GEHA Field at Arrowhead Stadium",
@@ -1189,7 +1182,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $63",
-              "numberAvailable": 337,
+              "numberAvailable": 85,
               "links": [
                 {
                   "href": "https://www.vividseats.com/kansas-city-chiefs-tickets-geha-field-at-arrowhead-stadium-3-1-2026--sports-nfl-football/production/5472311?wsUser=717"
@@ -1242,7 +1235,7 @@
                 "displayName": "Draft Kings"
               },
               "details": "DEN -13.5",
-              "overUnder": 38.5,
+              "overUnder": 37.5,
               "spread": 13.5,
               "awayTeamOdds": {
                 "favorite": true,
@@ -1344,7 +1337,7 @@
                 "home": {
                   "close": {
                     "line": "+13.5",
-                    "odds": "-110",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1378,7 +1371,7 @@
                 "away": {
                   "close": {
                     "line": "-13.5",
-                    "odds": "-110",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1415,8 +1408,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o38.5",
-                    "odds": "-105",
+                    "line": "o37.5",
+                    "odds": "-120",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1424,7 +1417,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225684%3Foutcomes%3D0OU79743089O3850_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225684%3Foutcomes%3D0OU79743089O3750_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -1437,7 +1430,7 @@
                           "gameId": 401772622,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:38.5"
+                          "betDetails": "Over:37.5"
                         }
                       }
                     }
@@ -1449,8 +1442,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u38.5",
-                    "odds": "-115",
+                    "line": "u37.5",
+                    "odds": "EVEN",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1458,7 +1451,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225684%3Foutcomes%3D0OU79743089U3850_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225684%3Foutcomes%3D0OU79743089U3750_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -1471,7 +1464,7 @@
                           "gameId": 401772622,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:38.5"
+                          "betDetails": "Under:37.5"
                         }
                       }
                     }
@@ -1538,10 +1531,10 @@
         }
       ],
       "weather": {
-        "displayValue": "Partly cloudy",
+        "displayValue": "Intermittent clouds",
         "temperature": 60,
         "highTemperature": 60,
-        "conditionId": "35",
+        "conditionId": "36",
         "link": {
           "language": "en-US",
           "rel": [
@@ -2185,8 +2178,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $93",
-              "numberAvailable": 2437,
+              "summary": "Tickets as low as $87",
+              "numberAvailable": 2596,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-chargers-tickets-sofi-stadium-3-4-2026--sports-nfl-football/production/5472498?wsUser=717"
@@ -3181,8 +3174,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $137",
-              "numberAvailable": 911,
+              "summary": "Tickets as low as $127",
+              "numberAvailable": 605,
               "links": [
                 {
                   "href": "https://www.vividseats.com/green-bay-packers-tickets-lambeau-field-3-7-2026--sports-nfl-football/production/5470740?wsUser=717"
@@ -3233,9 +3226,9 @@
                   }
                 ]
               },
-              "details": "GB -4.5",
+              "details": "GB -5.5",
               "overUnder": 40.5,
-              "spread": -4.5,
+              "spread": -5.5,
               "awayTeamOdds": {
                 "favorite": false,
                 "underdog": true,
@@ -3335,8 +3328,8 @@
                 "shortDisplayName": "Spread",
                 "home": {
                   "close": {
-                    "line": "-4.5",
-                    "odds": "-112",
+                    "line": "-5.5",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3344,7 +3337,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981N450_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981N550_1",
                       "text": "Home Point Spread",
                       "shortText": "Home Point Spread",
                       "isExternal": true,
@@ -3357,7 +3350,7 @@
                           "gameId": 401772953,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:GB-4.5"
+                          "betDetails": "Spread:GB-5.5"
                         }
                       }
                     }
@@ -3369,8 +3362,8 @@
                 },
                 "away": {
                   "close": {
-                    "line": "+4.5",
-                    "odds": "-108",
+                    "line": "+5.5",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3378,7 +3371,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981P450_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981P550_3",
                       "text": "Away Point Spread",
                       "shortText": "Away Point Spread",
                       "isExternal": true,
@@ -3391,7 +3384,7 @@
                           "gameId": 401772953,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:BAL+4.5"
+                          "betDetails": "Spread:BAL+5.5"
                         }
                       }
                     }
@@ -4177,8 +4170,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $13",
-              "numberAvailable": 3161,
+              "summary": "Tickets as low as $14",
+              "numberAvailable": 2959,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-paycor-stadium-3-8-2026--sports-nfl-football/production/5471098?wsUser=717"
@@ -5173,8 +5166,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $69",
-              "numberAvailable": 2474,
+              "summary": "Tickets as low as $67",
+              "numberAvailable": 2445,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cleveland-browns-tickets-huntington-bank-field-3-3-2026--sports-nfl-football/production/5471085?wsUser=717"
@@ -6169,8 +6162,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $65",
-              "numberAvailable": 989,
+              "summary": "Tickets as low as $63",
+              "numberAvailable": 990,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nissan-stadium-3-9-2026--sports-nfl-football/production/5472072?wsUser=717"
@@ -6870,24 +6863,6 @@
               },
               "score": "0",
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "11-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "6-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "5-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -7008,6 +6983,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "11-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "6-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "5-2"
                 }
               ]
             }
@@ -7165,8 +7158,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $68",
-              "numberAvailable": 1877,
+              "summary": "Tickets as low as $70",
+              "numberAvailable": 1872,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-2-2026--sports-nfl-football/production/5471938?wsUser=717"
@@ -8161,8 +8154,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $86",
-              "numberAvailable": 2250,
+              "summary": "Tickets as low as $92",
+              "numberAvailable": 2199,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-hard-rock-stadium-3-8-2026--sports-nfl-football/production/5471060?wsUser=717"
@@ -9157,8 +9150,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $68",
-              "numberAvailable": 3102,
+              "summary": "Tickets as low as $69",
+              "numberAvailable": 3139,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-jets-tickets-metlife-stadium-3-1-2026--sports-nfl-football/production/5471064?wsUser=717"
@@ -10153,8 +10146,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $111",
-              "numberAvailable": 2877,
+              "summary": "Tickets as low as $109",
+              "numberAvailable": 2904,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-bank-of-america-stadium-3-5-2026--sports-nfl-football/production/5470903?wsUser=717"
@@ -11150,7 +11143,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $67",
-              "numberAvailable": 2881,
+              "numberAvailable": 2950,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-allegiant-stadium-3-7-2026--sports-nfl-football/production/5472439?wsUser=717"
@@ -12145,8 +12138,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $283",
-              "numberAvailable": 1894,
+              "summary": "Tickets as low as $279",
+              "numberAvailable": 1901,
               "links": [
                 {
                   "href": "https://www.vividseats.com/buffalo-bills-tickets-highmark-stadium-3-8-2026--sports-nfl-football/production/5470966?wsUser=717"
@@ -13142,8 +13135,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $318",
-              "numberAvailable": 2619,
+              "summary": "Tickets as low as $314",
+              "numberAvailable": 2625,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-levis-stadium-3-8-2026--sports-nfl-football/production/5470915?wsUser=717"
@@ -13647,6 +13640,24 @@
               },
               "score": "0",
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "6-9"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-4"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-5"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -13767,24 +13778,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "6-9"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-4"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-5"
                 }
               ]
             },
@@ -14154,7 +14147,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $46",
-              "numberAvailable": 3173,
+              "numberAvailable": 3114,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-mercedes-benz-stadium-3-4-2026--sports-nfl-football/production/5470590?wsUser=717"
@@ -17754,6 +17747,16 @@
         "depthChartOrder": 3
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Geron Christian",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
         "longComment": "Undisclosed",
         "status": "Questionable",
         "athlete": {
@@ -17844,6 +17847,16 @@
         "depthChartOrder": null
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jordan Jackson",
+          "position": "DL"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 2
+      },
+      {
         "longComment": "Shoulder",
         "status": "IR",
         "athlete": {
@@ -17902,6 +17915,26 @@
         },
         "depthChartPosition": "LWR",
         "depthChartOrder": 8
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Sai'vion Jones",
+          "position": "DE"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Que Robinson",
+          "position": "LB"
+        },
+        "depthChartPosition": "ROLB",
+        "depthChartOrder": 3
       },
       {
         "longComment": "Undisclosed",
@@ -18934,8 +18967,8 @@
         "depthChartOrder": 2
       },
       {
-        "longComment": "Lower Leg",
-        "status": "Questionable",
+        "longComment": "Ankle",
+        "status": "Out",
         "athlete": {
           "displayName": "Myles Price",
           "position": "WR"
@@ -19238,6 +19271,16 @@
         "depthChartOrder": 3
       },
       {
+        "longComment": "Head",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Alex Anzalone",
+          "position": "LB"
+        },
+        "depthChartPosition": "LOLB",
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Foot",
         "status": "IR",
         "athlete": {
@@ -19406,6 +19449,16 @@
         },
         "depthChartPosition": "RDT",
         "depthChartOrder": 3
+      },
+      {
+        "longComment": "Head",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Thomas Harper",
+          "position": "DB"
+        },
+        "depthChartPosition": "SS",
+        "depthChartOrder": 1
       },
       {
         "longComment": "Leg",
@@ -19743,7 +19796,7 @@
       },
       {
         "longComment": "Illness",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Derrick Nnadi",
           "position": "DT"
@@ -19782,16 +19835,6 @@
         "depthChartOrder": 3
       },
       {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Nick Bolton",
-          "position": "LB"
-        },
-        "depthChartPosition": "MLB",
-        "depthChartOrder": 1
-      },
-      {
         "longComment": "Foot",
         "status": "IR",
         "athlete": {
@@ -19803,13 +19846,23 @@
       },
       {
         "longComment": "Knee",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Jaylon Moore",
           "position": "OL"
         },
         "depthChartPosition": "OL",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Dameon Pierce",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 4
       },
       {
         "longComment": "Concussion",
@@ -19830,6 +19883,16 @@
         },
         "depthChartPosition": "RB",
         "depthChartOrder": 6
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Tyreke Smith",
+          "position": "DL"
+        },
+        "depthChartPosition": "ROLB",
+        "depthChartOrder": 2
       },
       {
         "longComment": "Shoulder",
@@ -19859,16 +19922,6 @@
           "position": "DB"
         },
         "depthChartPosition": "LCB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "George Karlaftis",
-          "position": "DL"
-        },
-        "depthChartPosition": "LDE",
         "depthChartOrder": 1
       },
       {
@@ -19920,6 +19973,16 @@
         },
         "depthChartPosition": "SWR",
         "depthChartOrder": 4
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "C.J. Hanson",
+          "position": "OG"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
       },
       {
         "longComment": "Surgery",
@@ -19979,6 +20042,26 @@
           "position": "TE"
         },
         "depthChartPosition": "TE",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Ethan Downs",
+          "position": "DE"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Melvin Smith",
+          "position": "DB"
+        },
+        "depthChartPosition": "NB",
         "depthChartOrder": 3
       }
     ],
