@@ -257,6 +257,64 @@ function calculateRankings() {
     passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
 }
 
+function loadManualInjuries() {
+    console.log('📝 Loading manual injury overrides...');
+    try {
+        const manualPath = path.join(__dirname, '..', 'manual-injuries.json');
+        if (!fs.existsSync(manualPath)) {
+            console.log('⚠️  manual-injuries.json not found, skipping manual overrides');
+            return {};
+        }
+
+        const manualInjuries = JSON.parse(fs.readFileSync(manualPath, 'utf8'));
+        const teamCount = Object.keys(manualInjuries).length;
+        const totalOverrides = Object.values(manualInjuries).reduce((sum, team) => sum + team.length, 0);
+
+        console.log(`✅ Loaded ${totalOverrides} manual injury overrides for ${teamCount} teams`);
+        return manualInjuries;
+    } catch (error) {
+        console.error('❌ Error loading manual injuries:', error.message);
+        return {};
+    }
+}
+
+function analyzeInjuryImpact(teamName, injuries) {
+    const teamInjuries = injuries[teamName] || [];
+    let impact = { points: 0, notes: [] };
+
+    if (teamInjuries.length === 0) {
+        return impact;
+    }
+
+    console.log(`🏥 Analyzing injuries for ${teamName}, found ${teamInjuries.length} injuries`);
+
+    for (const injury of teamInjuries) {
+        const position = (injury.athlete?.position || '').toUpperCase();
+        const playerName = injury.athlete?.displayName || 'Unknown';
+        const status = (injury.status || '').toLowerCase();
+        const comment = (injury.longComment || '').toLowerCase();
+
+        // QB injuries - huge impact (only for starters)
+        if (position === 'QB') {
+            const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
+
+            if (isStarter) {
+                if (status === 'out' || comment.includes('out')) {
+                    impact.points -= 8;
+                    impact.notes.push(`🏥 ${playerName} (QB) out (-8 pts)`);
+                    console.log(`⚠️ QB INJURY DETECTED: ${teamName} - ${playerName} out, applying -8 pts`);
+                } else if (status === 'questionable' || status === 'doubtful') {
+                    impact.points -= 4;
+                    impact.notes.push(`🏥 ${playerName} (QB) ${status} (-4 pts)`);
+                    console.log(`⚠️ QB INJURY DETECTED: ${teamName} - ${playerName} ${status}, applying -4 pts`);
+                }
+            }
+        }
+    }
+
+    return impact;
+}
+
 async function fetchGames() {
     console.log('📥 Fetching upcoming games...');
 
@@ -278,7 +336,7 @@ async function fetchGames() {
     return games;
 }
 
-function generatePrediction(game) {
+function generatePrediction(game, injuries = {}) {
     const competition = game.competitions[0];
     const homeComp = competition.competitors.find(c => c.homeAway === 'home');
     const awayComp = competition.competitors.find(c => c.homeAway === 'away');
@@ -352,6 +410,20 @@ function generatePrediction(game) {
     if (awayStats.redZonePct > 60) ourAwayScore += 1.5;
     else if (awayStats.redZonePct < 45) ourAwayScore -= 1.5;
 
+    // Apply injury adjustments
+    const homeInjuryImpact = analyzeInjuryImpact(homeTeam, injuries);
+    const awayInjuryImpact = analyzeInjuryImpact(awayTeam, injuries);
+
+    if (homeInjuryImpact.points !== 0) {
+        ourHomeScore += homeInjuryImpact.points;
+        console.log(`  ${homeTeam} injury adjustment: ${homeInjuryImpact.points} pts`);
+    }
+
+    if (awayInjuryImpact.points !== 0) {
+        ourAwayScore += awayInjuryImpact.points;
+        console.log(`  ${awayTeam} injury adjustment: ${awayInjuryImpact.points} pts`);
+    }
+
     // Finalize prediction
     const homeScore = Math.max(10, Math.round(ourHomeScore));
     const awayScore = Math.max(10, Math.round(ourAwayScore));
@@ -373,6 +445,9 @@ async function main() {
 
         // Fetch league stats
         await fetchLeagueStats();
+
+        // Load manual injury overrides
+        const injuries = loadManualInjuries();
 
         // Load existing predictions to preserve unchecked ones
         let existingPredictions = [];
@@ -433,7 +508,7 @@ async function main() {
         const newPredictions = [];
 
         for (const game of games) {
-            const prediction = generatePrediction(game);
+            const prediction = generatePrediction(game, injuries);
             if (prediction) {  // Only add valid predictions (skip nulls)
                 newPredictions.push(prediction);
                 console.log(`  ✓ ${prediction.awayTeam} @ ${prediction.homeTeam}: ${prediction.winner} (${prediction.awayScore}-${prediction.homeScore})`);
