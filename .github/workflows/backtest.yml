@@ -3,8 +3,8 @@ name: NFL Backtest
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    # Run weekly on Mondays at 10 AM UTC (after week completes)
-    - cron: '0 10 * * 1'
+    # Run daily at 10 AM UTC to catch new week games
+    - cron: '0 10 * * *'
 
 permissions:
   contents: write
