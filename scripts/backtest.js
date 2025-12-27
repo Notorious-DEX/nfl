@@ -525,19 +525,6 @@ async function main() {
             predictions: allPredictions
         }, null, 2));
 
-        const resultsPath = path.join(__dirname, '..', 'results.json');
-        fs.writeFileSync(resultsPath, JSON.stringify({
-            lastUpdated: new Date().toISOString(),
-            version: 'v0.05',
-            method: 'elo-pure',
-            kFactor: 20,
-            weeks: currentWeek,
-            correct: totalCorrect,
-            total: totalGames,
-            accuracy: ((totalCorrect / totalGames) * 100).toFixed(1),
-            games: allResults
-        }, null, 2));
-
         // Save weekly Elo snapshots for trend visualization
         const eloSnapshotsPath = path.join(__dirname, '..', 'weekly-elo.json');
         fs.writeFileSync(eloSnapshotsPath, JSON.stringify({
@@ -555,7 +542,6 @@ async function main() {
         console.log(`Accuracy: ${((totalCorrect / totalGames) * 100).toFixed(1)}%`);
         console.log(`\n✅ Results saved to:`);
         console.log(`   - test-predictions.json`);
-        console.log(`   - results.json`);
         console.log(`   - weekly-elo.json (${Object.keys(weeklyEloSnapshots).length} weeks)`);
 
     } catch (error) {
