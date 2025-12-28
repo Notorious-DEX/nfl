@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-28T20:11:16.975Z",
+  "lastUpdated": "2025-12-28T20:12:32.437Z",
   "currentWeek": 17,
   "games": [
     {
@@ -258,16 +258,16 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017729543020",
+              "id": "4017729543027",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "53",
+                "text": "Kickoff",
+                "abbreviation": "K"
               },
-              "text": "Official Timeout at 01:38.",
+              "text": "E.McPherson kicks 62 yards from CIN 35 to ARZ 3. S.Sims ran ob at ARZ 29 for 26 yards (I.Foskey).",
               "scoreValue": 0,
               "team": {
-                "id": "4"
+                "id": "22"
               },
               "probability": {
                 "tiePercentage": 0,
@@ -276,38 +276,60 @@
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "10 plays, 82 yards, 4:45",
+                "description": "0 plays, 0 yards, 0:00",
                 "start": {
-                  "yardLine": 18,
-                  "text": "CIN 18"
-                },
-                "end": {
-                  "yardLine": 100,
-                  "text": "ARI 0"
+                  "yardLine": 0,
+                  "text": "CIN 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "4:45"
-                },
-                "result": "TD"
+                  "displayValue": "0:00"
+                }
               },
               "start": {
-                "yardLine": 85,
+                "yardLine": 35,
                 "team": {
                   "id": "4"
                 }
               },
               "end": {
-                "yardLine": 85,
+                "yardLine": 71,
                 "team": {
-                  "id": "4"
+                  "id": "22"
                 }
               },
-              "statYardage": 0
+              "statYardage": 26,
+              "athletesInvolved": [
+                {
+                  "id": "3917960",
+                  "fullName": "Steven Sims",
+                  "displayName": "Steven Sims",
+                  "shortName": "S. Sims",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/3917960/steven-sims"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3917960.png",
+                  "jersey": "80",
+                  "position": "WR",
+                  "team": {
+                    "id": "22"
+                  }
+                }
+              ]
             },
-            "down": -1,
-            "yardLine": 85,
-            "distance": 0,
-            "isRedZone": true,
+            "down": 1,
+            "yardLine": 71,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at ARI 29",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "ARI 29",
+            "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3
           },
@@ -1380,58 +1402,81 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728092724",
+              "id": "4017728092769",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "Official Timeout at 01:51.",
+              "text": "T.Pollard right guard to TEN 40 for 5 yards (A.Taylor).",
               "scoreValue": 0,
               "team": {
-                "id": "18"
+                "id": "10"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.6179,
-                "awayWinPercentage": 0.3821,
+                "homeWinPercentage": 0.6469,
+                "awayWinPercentage": 0.35309999999999997,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "8 plays, 27 yards, 5:29",
+                "description": "1 play, 5 yards, 0:00",
                 "start": {
-                  "yardLine": 66,
-                  "text": "NO 34"
-                },
-                "end": {
-                  "yardLine": 39,
-                  "text": "TEN 39"
+                  "yardLine": 35,
+                  "text": "TEN 35"
                 },
                 "timeElapsed": {
-                  "displayValue": "5:29"
-                },
-                "result": "FG"
+                  "displayValue": "0:00"
+                }
               },
               "start": {
-                "yardLine": 65,
+                "yardLine": 35,
                 "team": {
-                  "id": "18"
+                  "id": "10"
                 }
               },
               "end": {
-                "yardLine": 65,
+                "yardLine": 40,
                 "team": {
-                  "id": "18"
+                  "id": "10"
                 }
               },
-              "statYardage": 0
+              "statYardage": 5,
+              "athletesInvolved": [
+                {
+                  "id": "3916148",
+                  "fullName": "Tony Pollard",
+                  "displayName": "Tony Pollard",
+                  "shortName": "T. Pollard",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/3916148/tony-pollard"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3916148.png",
+                  "jersey": "20",
+                  "position": "RB",
+                  "team": {
+                    "id": "10"
+                  }
+                }
+              ]
             },
-            "down": -1,
-            "yardLine": 65,
-            "distance": 0,
-            "isRedZone": true,
+            "down": 2,
+            "yardLine": 40,
+            "distance": 5,
+            "downDistanceText": "2nd & 5 at TEN 40",
+            "shortDownDistanceText": "2nd & 5",
+            "possessionText": "TEN 40",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 3
+            "awayTimeouts": 3,
+            "possession": "10"
           },
           "status": {
             "clock": 111,
@@ -1504,8 +1549,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "12 CAR, 59 YDS",
-                  "value": 59,
+                  "displayValue": "13 CAR, 64 YDS",
+                  "value": 64,
                   "athlete": {
                     "id": "3916148",
                     "fullName": "Tony Pollard",
@@ -1934,52 +1979,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017729152898",
+              "id": "4017729152951",
               "type": {
                 "id": "24",
                 "text": "Pass Reception",
                 "abbreviation": "REC"
               },
-              "text": "(Shotgun) T.Lawrence pass short left to P.Washington pushed ob at IND 32 for 4 yards (C.Mitchell).",
+              "text": "(Shotgun) T.Lawrence pass short middle to J.Meyers to IND 23 for 9 yards (M.Blackmon, S.Ebukam).",
               "scoreValue": 0,
               "team": {
                 "id": "30"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.4701,
-                "awayWinPercentage": 0.5299,
+                "homeWinPercentage": 0.4371,
+                "awayWinPercentage": 0.5629,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "5 plays, 35 yards, 2:12",
+                "description": "6 plays, 44 yards, 2:18",
                 "start": {
                   "yardLine": 67,
                   "text": "JAX 33"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:12"
+                  "displayValue": "2:18"
                 }
               },
               "start": {
-                "yardLine": 36,
-                "team": {
-                  "id": "30"
-                }
-              },
-              "end": {
                 "yardLine": 32,
                 "team": {
                   "id": "30"
                 }
               },
-              "statYardage": 4,
+              "end": {
+                "yardLine": 23,
+                "team": {
+                  "id": "30"
+                }
+              },
+              "statYardage": 9,
               "athletesInvolved": [
                 {
-                  "id": "4432620",
-                  "fullName": "Parker Washington",
-                  "displayName": "Parker Washington",
-                  "shortName": "P. Washington",
+                  "id": "3045527",
+                  "fullName": "Samson Ebukam",
+                  "displayName": "Samson Ebukam",
+                  "shortName": "S. Ebukam",
                   "links": [
                     {
                       "rel": [
@@ -1987,32 +2032,32 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4432620/parker-washington"
+                      "href": "https://www.espn.com/nfl/player/_/id/3045527/samson-ebukam"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4432620.png",
-                  "jersey": "11",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3045527.png",
+                  "jersey": "52",
+                  "position": "DE",
                   "team": {
-                    "id": "30"
+                    "id": "11"
                   }
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 32,
-            "distance": 6,
-            "downDistanceText": "2nd & 6 at IND 32",
-            "shortDownDistanceText": "2nd & 6",
-            "possessionText": "IND 32",
+            "down": 1,
+            "yardLine": 23,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at IND 23",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "IND 23",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 2,
             "possession": "30"
           },
           "status": {
-            "clock": 226,
-            "displayClock": "3:46",
+            "clock": 220,
+            "displayClock": "3:40",
             "period": 3,
             "type": {
               "id": "2",
@@ -2020,8 +2065,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "3:46 - 3rd Quarter",
-              "shortDetail": "3:46 - 3rd"
+              "detail": "3:40 - 3rd Quarter",
+              "shortDetail": "3:40 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -2041,8 +2086,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "18/27, 214 YDS, 1 INT",
-                  "value": 214,
+                  "displayValue": "19/28, 223 YDS, 1 INT",
+                  "value": 223,
                   "athlete": {
                     "id": "4360310",
                     "fullName": "Trevor Lawrence",
@@ -2241,8 +2286,8 @@
         }
       },
       "status": {
-        "clock": 226,
-        "displayClock": "3:46",
+        "clock": 220,
+        "displayClock": "3:40",
         "period": 3,
         "type": {
           "id": "2",
@@ -2250,8 +2295,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "3:46 - 3rd Quarter",
-          "shortDetail": "3:46 - 3rd"
+          "detail": "3:40 - 3rd Quarter",
+          "shortDetail": "3:40 - 3rd"
         }
       }
     },
@@ -3075,13 +3120,13 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017728082860",
+              "id": "4017728082901",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "Official Timeout at 04:42.",
+              "text": "T.Henderson left guard to NYJ 29 for 2 yards (Q.Williams).",
               "scoreValue": 0,
               "team": {
                 "id": "17"
@@ -3093,43 +3138,67 @@
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "3 plays, 35 yards, 1:01",
+                "description": "5 plays, 38 yards, 2:15",
                 "start": {
                   "yardLine": 66,
                   "text": "NE 34"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:01"
+                  "displayValue": "2:15"
                 }
               },
               "start": {
-                "yardLine": 36,
+                "yardLine": 31,
                 "team": {
                   "id": "17"
                 }
               },
               "end": {
-                "yardLine": 36,
+                "yardLine": 29,
                 "team": {
                   "id": "17"
                 }
               },
-              "statYardage": 0
+              "statYardage": 2,
+              "athletesInvolved": [
+                {
+                  "id": "4432710",
+                  "fullName": "TreVeyon Henderson",
+                  "displayName": "TreVeyon Henderson",
+                  "shortName": "T. Henderson",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4432710/treveyon-henderson"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4432710.png",
+                  "jersey": "32",
+                  "position": "RB",
+                  "team": {
+                    "id": "17"
+                  }
+                }
+              ]
             },
             "down": 2,
-            "yardLine": 36,
-            "distance": 3,
-            "downDistanceText": "2nd & 3 at NYJ 36",
-            "shortDownDistanceText": "2nd & 3",
-            "possessionText": "NYJ 36",
+            "yardLine": 29,
+            "distance": 8,
+            "downDistanceText": "2nd & 8 at NYJ 29",
+            "shortDownDistanceText": "2nd & 8",
+            "possessionText": "NYJ 29",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "17"
           },
           "status": {
-            "clock": 270,
-            "displayClock": "4:30",
+            "clock": 235,
+            "displayClock": "3:55",
             "period": 3,
             "type": {
               "id": "2",
@@ -3137,8 +3206,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "4:30 - 3rd Quarter",
-              "shortDetail": "4:30 - 3rd"
+              "detail": "3:55 - 3rd Quarter",
+              "shortDetail": "3:55 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -3198,8 +3267,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "17 CAR, 79 YDS",
-                  "value": 79,
+                  "displayValue": "18 CAR, 81 YDS",
+                  "value": 81,
                   "athlete": {
                     "id": "4432710",
                     "fullName": "TreVeyon Henderson",
@@ -3358,8 +3427,8 @@
         }
       },
       "status": {
-        "clock": 270,
-        "displayClock": "4:30",
+        "clock": 235,
+        "displayClock": "3:55",
         "period": 3,
         "type": {
           "id": "2",
@@ -3367,8 +3436,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "4:30 - 3rd Quarter",
-          "shortDetail": "4:30 - 3rd"
+          "detail": "3:55 - 3rd Quarter",
+          "shortDetail": "3:55 - 3rd"
         }
       }
     },
@@ -3628,46 +3697,46 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4017729523071",
+              "id": "4017729523105",
               "type": {
                 "id": "5",
                 "text": "Rush",
                 "abbreviation": "RUSH"
               },
-              "text": "(Shotgun) B.Young scrambles left end ran ob at CAR 48 for 8 yards (N.Emmanwori).",
+              "text": "B.Young scrambles right end ran ob at CAR 49 for 1 yard (D.Lawrence).",
               "scoreValue": 0,
               "team": {
                 "id": "29"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.0681,
-                "awayWinPercentage": 0.9319,
+                "homeWinPercentage": 0.0598,
+                "awayWinPercentage": 0.9402,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "4 plays, 17 yards, 1:19",
+                "description": "5 plays, 18 yards, 1:58",
                 "start": {
                   "yardLine": 31,
                   "text": "CAR 31"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:19"
+                  "displayValue": "1:58"
                 }
               },
               "start": {
-                "yardLine": 40,
-                "team": {
-                  "id": "29"
-                }
-              },
-              "end": {
                 "yardLine": 48,
                 "team": {
                   "id": "29"
                 }
               },
-              "statYardage": 8,
+              "end": {
+                "yardLine": 49,
+                "team": {
+                  "id": "29"
+                }
+              },
+              "statYardage": 1,
               "athletesInvolved": [
                 {
                   "id": "4685720",
@@ -3693,20 +3762,20 @@
                 }
               ]
             },
-            "down": 1,
-            "yardLine": 48,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at CAR 48",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "CAR 48",
+            "down": 2,
+            "yardLine": 49,
+            "distance": 9,
+            "downDistanceText": "2nd & 9 at CAR 49",
+            "shortDownDistanceText": "2nd & 9",
+            "possessionText": "CAR 49",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 2,
             "possession": "29"
           },
           "status": {
-            "clock": 253,
-            "displayClock": "4:13",
+            "clock": 214,
+            "displayClock": "3:34",
             "period": 3,
             "type": {
               "id": "2",
@@ -3714,8 +3783,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "4:13 - 3rd Quarter",
-              "shortDetail": "4:13 - 3rd"
+              "detail": "3:34 - 3rd Quarter",
+              "shortDetail": "3:34 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -3935,8 +4004,8 @@
         }
       },
       "status": {
-        "clock": 253,
-        "displayClock": "4:13",
+        "clock": 214,
+        "displayClock": "3:34",
         "period": 3,
         "type": {
           "id": "2",
@@ -3944,8 +4013,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "4:13 - 3rd Quarter",
-          "shortDetail": "4:13 - 3rd"
+          "detail": "3:34 - 3rd Quarter",
+          "shortDetail": "3:34 - 3rd"
         }
       }
     },
@@ -3977,7 +4046,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "6501",
             "fullName": "Allegiant Stadium",
