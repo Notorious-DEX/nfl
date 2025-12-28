@@ -1,7 +1,574 @@
 {
-  "lastUpdated": "2025-12-28T00:59:58.447Z",
+  "lastUpdated": "2025-12-28T01:55:52.465Z",
   "currentWeek": 17,
   "games": [
+    {
+      "id": "401772953",
+      "uid": "s:20~l:28~e:401772953",
+      "date": "2025-12-28T01:00Z",
+      "name": "Baltimore Ravens at Green Bay Packers",
+      "shortName": "BAL @ GB",
+      "season": {
+        "year": 2025,
+        "type": 2,
+        "slug": "regular-season"
+      },
+      "week": {
+        "number": 17
+      },
+      "competitions": [
+        {
+          "id": "401772953",
+          "uid": "s:20~l:28~e:401772953~c:401772953",
+          "date": "2025-12-28T01:00Z",
+          "attendance": 0,
+          "type": {
+            "id": "1",
+            "abbreviation": "STD"
+          },
+          "timeValid": true,
+          "neutralSite": false,
+          "conferenceCompetition": false,
+          "playByPlayAvailable": true,
+          "recent": true,
+          "venue": {
+            "id": "3798",
+            "fullName": "Lambeau Field",
+            "address": {
+              "city": "Green Bay",
+              "state": "WI",
+              "country": "USA"
+            },
+            "indoor": false
+          },
+          "competitors": [
+            {
+              "id": "9",
+              "uid": "s:20~l:28~t:9",
+              "type": "team",
+              "order": 0,
+              "homeAway": "home",
+              "team": {
+                "id": "9",
+                "uid": "s:20~l:28~t:9",
+                "location": "Green Bay",
+                "name": "Packers",
+                "abbreviation": "GB",
+                "displayName": "Green Bay Packers",
+                "shortDisplayName": "Packers",
+                "color": "204e32",
+                "alternateColor": "ffb612",
+                "isActive": true,
+                "venue": {
+                  "id": "3798"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/gb/green-bay-packers",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/gb/green-bay-packers",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/gb",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png"
+              },
+              "score": "7",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "9-5-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "5-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-3-1"
+                }
+              ]
+            },
+            {
+              "id": "33",
+              "uid": "s:20~l:28~t:33",
+              "type": "team",
+              "order": 1,
+              "homeAway": "away",
+              "team": {
+                "id": "33",
+                "uid": "s:20~l:28~t:33",
+                "location": "Baltimore",
+                "name": "Ravens",
+                "abbreviation": "BAL",
+                "displayName": "Baltimore Ravens",
+                "shortDisplayName": "Ravens",
+                "color": "29126f",
+                "alternateColor": "000000",
+                "isActive": true,
+                "venue": {
+                  "id": "3814"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/bal/baltimore-ravens",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/bal/baltimore-ravens",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/bal",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png"
+              },
+              "score": "14",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "7-8"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "3-6"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-2"
+                }
+              ]
+            }
+          ],
+          "notes": [],
+          "situation": {
+            "lastPlay": {
+              "id": "4017729531217",
+              "type": {
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
+              },
+              "text": "D.Henry right guard to GB 4 for 2 yards (E.Cooper).",
+              "scoreValue": 0,
+              "team": {
+                "id": "33"
+              },
+              "probability": {
+                "tiePercentage": 0,
+                "homeWinPercentage": 0.2366,
+                "awayWinPercentage": 0.7634,
+                "secondsLeft": 0
+              },
+              "drive": {
+                "description": "5 plays, 30 yards, 2:37",
+                "start": {
+                  "yardLine": 34,
+                  "text": "GB 34"
+                },
+                "timeElapsed": {
+                  "displayValue": "2:37"
+                }
+              },
+              "start": {
+                "yardLine": 6,
+                "team": {
+                  "id": "33"
+                }
+              },
+              "end": {
+                "yardLine": 4,
+                "team": {
+                  "id": "33"
+                }
+              },
+              "statYardage": 2,
+              "athletesInvolved": [
+                {
+                  "id": "3043078",
+                  "fullName": "Derrick Henry",
+                  "displayName": "Derrick Henry",
+                  "shortName": "D. Henry",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
+                  "jersey": "22",
+                  "position": "RB",
+                  "team": {
+                    "id": "33"
+                  }
+                }
+              ]
+            },
+            "down": 2,
+            "yardLine": 4,
+            "distance": 4,
+            "downDistanceText": "2nd & Goal at GB 4",
+            "shortDownDistanceText": "2nd & Goal",
+            "possessionText": "GB 4",
+            "isRedZone": true,
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "33"
+          },
+          "status": {
+            "clock": 523,
+            "displayClock": "8:43",
+            "period": 2,
+            "type": {
+              "id": "2",
+              "name": "STATUS_IN_PROGRESS",
+              "state": "in",
+              "completed": false,
+              "description": "In Progress",
+              "detail": "8:43 - 2nd Quarter",
+              "shortDetail": "8:43 - 2nd"
+            },
+            "isTBDFlex": false
+          },
+          "broadcasts": [
+            {
+              "market": "national",
+              "names": [
+                "Peacock"
+              ]
+            }
+          ],
+          "leaders": [
+            {
+              "name": "passingYards",
+              "displayName": "Passing Leader",
+              "shortDisplayName": "PASS",
+              "abbreviation": "PYDS",
+              "leaders": [
+                {
+                  "displayValue": "3/3, 87 YDS, 1 TD",
+                  "value": 87,
+                  "athlete": {
+                    "id": "4242512",
+                    "fullName": "Malik Willis",
+                    "displayName": "Malik Willis",
+                    "shortName": "M. Willis",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4242512/malik-willis"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4242512.png",
+                    "jersey": "2",
+                    "position": {
+                      "abbreviation": "QB"
+                    },
+                    "team": {
+                      "id": "9"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "9"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
+              "leaders": [
+                {
+                  "displayValue": "17 CAR, 90 YDS, 2 TD",
+                  "value": 90,
+                  "athlete": {
+                    "id": "3043078",
+                    "fullName": "Derrick Henry",
+                    "displayName": "Derrick Henry",
+                    "shortName": "D. Henry",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
+                    "jersey": "22",
+                    "position": {
+                      "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "33"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "33"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "receivingYards",
+              "displayName": "Receiving Leader",
+              "shortDisplayName": "REC",
+              "abbreviation": "RECYDS",
+              "leaders": [
+                {
+                  "displayValue": "1 REC, 40 YDS",
+                  "value": 40,
+                  "athlete": {
+                    "id": "4361432",
+                    "fullName": "Romeo Doubs",
+                    "displayName": "Romeo Doubs",
+                    "shortName": "R. Doubs",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4361432/romeo-doubs"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361432.png",
+                    "jersey": "87",
+                    "position": {
+                      "abbreviation": "WR"
+                    },
+                    "team": {
+                      "id": "9"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "9"
+                  }
+                }
+              ]
+            }
+          ],
+          "format": {
+            "regulation": {
+              "periods": 4
+            }
+          },
+          "startDate": "2025-12-28T01:00Z",
+          "broadcast": "Peacock",
+          "geoBroadcasts": [
+            {
+              "type": {
+                "id": "4",
+                "shortName": "Streaming"
+              },
+              "market": {
+                "id": "1",
+                "type": "National"
+              },
+              "media": {
+                "shortName": "Peacock"
+              },
+              "lang": "en",
+              "region": "us"
+            }
+          ],
+          "highlights": []
+        }
+      ],
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "live",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game?gameId=401772953",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401772953",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401772953",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "weather": {
+        "displayValue": "7",
+        "temperature": 36,
+        "highTemperature": 36,
+        "conditionId": "Cloudy",
+        "link": {
+          "language": "en-US",
+          "rel": [
+            "54304"
+          ],
+          "href": "http://www.accuweather.com/en/us/lambeau-field-wi/54303/current-weather/29742_poi?lang=en-us",
+          "text": "Weather",
+          "shortText": "Weather",
+          "isExternal": true,
+          "isPremium": false
+        }
+      },
+      "status": {
+        "clock": 523,
+        "displayClock": "8:43",
+        "period": 2,
+        "type": {
+          "id": "2",
+          "name": "STATUS_IN_PROGRESS",
+          "state": "in",
+          "completed": false,
+          "description": "In Progress",
+          "detail": "8:43 - 2nd Quarter",
+          "shortDetail": "8:43 - 2nd"
+        }
+      }
+    },
     {
       "id": "401772951",
       "uid": "s:20~l:28~e:401772951",
@@ -738,1003 +1305,6 @@
       }
     },
     {
-      "id": "401772953",
-      "uid": "s:20~l:28~e:401772953",
-      "date": "2025-12-28T01:00Z",
-      "name": "Baltimore Ravens at Green Bay Packers",
-      "shortName": "BAL @ GB",
-      "season": {
-        "year": 2025,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 17
-      },
-      "competitions": [
-        {
-          "id": "401772953",
-          "uid": "s:20~l:28~e:401772953~c:401772953",
-          "date": "2025-12-28T01:00Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": false,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": false,
-          "recent": true,
-          "venue": {
-            "id": "3798",
-            "fullName": "Lambeau Field",
-            "address": {
-              "city": "Green Bay",
-              "state": "WI",
-              "country": "USA"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "9",
-              "uid": "s:20~l:28~t:9",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "9",
-                "uid": "s:20~l:28~t:9",
-                "location": "Green Bay",
-                "name": "Packers",
-                "abbreviation": "GB",
-                "displayName": "Green Bay Packers",
-                "shortDisplayName": "Packers",
-                "color": "204e32",
-                "alternateColor": "ffb612",
-                "isActive": true,
-                "venue": {
-                  "id": "3798"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/gb/green-bay-packers",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/gb/green-bay-packers",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/gb",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png"
-              },
-              "score": "0",
-              "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "9-5-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "5-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-3-1"
-                }
-              ],
-              "leaders": [
-                {
-                  "name": "passingLeader",
-                  "displayName": "Passing Leader",
-                  "shortDisplayName": "PASS",
-                  "abbreviation": "PYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "12/14, 134 YDS, 2 TD",
-                      "value": 134,
-                      "athlete": {
-                        "id": "4242512",
-                        "fullName": "Malik Willis",
-                        "displayName": "Malik Willis",
-                        "shortName": "M. Willis",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4242512/malik-willis"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4242512.png",
-                        "jersey": "2",
-                        "position": {
-                          "abbreviation": "QB"
-                        },
-                        "team": {
-                          "id": "9"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "9"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "rushingLeader",
-                  "displayName": "Rushing Leader",
-                  "shortDisplayName": "RUSH",
-                  "abbreviation": "RYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "230 CAR, 926 YDS, 13 TD",
-                      "value": 926,
-                      "athlete": {
-                        "id": "4047365",
-                        "fullName": "Josh Jacobs",
-                        "displayName": "Josh Jacobs",
-                        "shortName": "J. Jacobs",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4047365/josh-jacobs"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4047365.png",
-                        "jersey": "8",
-                        "position": {
-                          "abbreviation": "RB"
-                        },
-                        "team": {
-                          "id": "9"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "9"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "receivingLeader",
-                  "displayName": "Receiving Leader",
-                  "shortDisplayName": "REC",
-                  "abbreviation": "RECYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "52 REC, 662 YDS, 6 TD",
-                      "value": 662,
-                      "athlete": {
-                        "id": "4361432",
-                        "fullName": "Romeo Doubs",
-                        "displayName": "Romeo Doubs",
-                        "shortName": "R. Doubs",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4361432/romeo-doubs"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361432.png",
-                        "jersey": "87",
-                        "position": {
-                          "abbreviation": "WR"
-                        },
-                        "team": {
-                          "id": "9"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "9"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "33",
-              "uid": "s:20~l:28~t:33",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "33",
-                "uid": "s:20~l:28~t:33",
-                "location": "Baltimore",
-                "name": "Ravens",
-                "abbreviation": "BAL",
-                "displayName": "Baltimore Ravens",
-                "shortDisplayName": "Ravens",
-                "color": "29126f",
-                "alternateColor": "000000",
-                "isActive": true,
-                "venue": {
-                  "id": "3814"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/bal/baltimore-ravens",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/bal/baltimore-ravens",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/bal",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png"
-              },
-              "score": "0",
-              "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "7-8"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "3-6"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-2"
-                }
-              ],
-              "leaders": [
-                {
-                  "name": "passingLeader",
-                  "displayName": "Passing Leader",
-                  "shortDisplayName": "PASS",
-                  "abbreviation": "PYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "36/47, 319 YDS, 1 TD",
-                      "value": 319,
-                      "athlete": {
-                        "id": "4035671",
-                        "fullName": "Tyler Huntley",
-                        "displayName": "Tyler Huntley",
-                        "shortName": "T. Huntley",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4035671/tyler-huntley"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4035671.png",
-                        "jersey": "5",
-                        "position": {
-                          "abbreviation": "QB"
-                        },
-                        "team": {
-                          "id": "33"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "33"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "rushingLeader",
-                  "displayName": "Rushing Leader",
-                  "shortDisplayName": "RUSH",
-                  "abbreviation": "RYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "251 CAR, 1253 YDS, 12 TD",
-                      "value": 1253,
-                      "athlete": {
-                        "id": "3043078",
-                        "fullName": "Derrick Henry",
-                        "displayName": "Derrick Henry",
-                        "shortName": "D. Henry",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
-                        "jersey": "22",
-                        "position": {
-                          "abbreviation": "RB"
-                        },
-                        "team": {
-                          "id": "33"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "33"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "name": "receivingLeader",
-                  "displayName": "Receiving Leader",
-                  "shortDisplayName": "REC",
-                  "abbreviation": "RECYDS",
-                  "leaders": [
-                    {
-                      "displayValue": "78 REC, 1043 YDS, 2 TD",
-                      "value": 1043,
-                      "athlete": {
-                        "id": "4429615",
-                        "fullName": "Zay Flowers",
-                        "displayName": "Zay Flowers",
-                        "shortName": "Z. Flowers",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/4429615/zay-flowers"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429615.png",
-                        "jersey": "4",
-                        "position": {
-                          "abbreviation": "WR"
-                        },
-                        "team": {
-                          "id": "33"
-                        },
-                        "active": true
-                      },
-                      "team": {
-                        "id": "33"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "notes": [],
-          "status": {
-            "clock": 0,
-            "displayClock": "0:00",
-            "period": 0,
-            "type": {
-              "id": "1",
-              "name": "STATUS_SCHEDULED",
-              "state": "pre",
-              "completed": false,
-              "description": "Scheduled",
-              "detail": "Sat, December 27th at 8:00 PM EST",
-              "shortDetail": "12/27 - 8:00 PM EST"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "Peacock"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "319 YDS, 1 TD",
-                  "value": 319,
-                  "athlete": {
-                    "id": "4035671",
-                    "fullName": "Tyler Huntley",
-                    "displayName": "Tyler Huntley",
-                    "shortName": "T. Huntley",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4035671/tyler-huntley"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4035671.png",
-                    "jersey": "5",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "33"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "33"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "251 CAR, 1253 YDS, 12 TD",
-                  "value": 1253,
-                  "athlete": {
-                    "id": "3043078",
-                    "fullName": "Derrick Henry",
-                    "displayName": "Derrick Henry",
-                    "shortName": "D. Henry",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
-                    "jersey": "22",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "33"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "33"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "78 REC, 1043 YDS, 2 TD",
-                  "value": 1043,
-                  "athlete": {
-                    "id": "4429615",
-                    "fullName": "Zay Flowers",
-                    "displayName": "Zay Flowers",
-                    "shortName": "Z. Flowers",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4429615/zay-flowers"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429615.png",
-                    "jersey": "4",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "33"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "33"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            }
-          },
-          "tickets": [
-            {
-              "summary": "Tickets as low as $137",
-              "numberAvailable": 21,
-              "links": [
-                {
-                  "href": "https://www.vividseats.com/green-bay-packers-tickets-lambeau-field-3-7-2026--sports-nfl-football/production/5470740?wsUser=717"
-                },
-                {
-                  "href": "https://www.vividseats.com/lambeau-field-tickets/venue/895?wsUser=717"
-                }
-              ]
-            }
-          ],
-          "startDate": "2025-12-28T01:00Z",
-          "broadcast": "Peacock",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "4",
-                "shortName": "Streaming"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "Peacock"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "odds": [
-            {
-              "provider": {
-                "id": "100",
-                "name": "Draft Kings",
-                "priority": 1,
-                "logos": [
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Light.svg",
-                    "rel": [
-                      "light"
-                    ]
-                  },
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Dark.svg",
-                    "rel": [
-                      "dark"
-                    ]
-                  }
-                ],
-                "displayName": "Draft Kings"
-              },
-              "details": "GB -2.5",
-              "overUnder": 37.5,
-              "spread": -2.5,
-              "awayTeamOdds": {
-                "favorite": false,
-                "underdog": true,
-                "team": {
-                  "id": "33",
-                  "uid": "s:20~l:28~t:33",
-                  "abbreviation": "BAL",
-                  "name": "Ravens",
-                  "displayName": "Baltimore Ravens",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png"
-                },
-                "favoriteAtOpen": false
-              },
-              "homeTeamOdds": {
-                "favorite": true,
-                "underdog": false,
-                "team": {
-                  "id": "9",
-                  "uid": "s:20~l:28~t:9",
-                  "abbreviation": "GB",
-                  "name": "Packers",
-                  "displayName": "Green Bay Packers",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png"
-                },
-                "favoriteAtOpen": true
-              },
-              "moneyline": {
-                "displayName": "Moneyline",
-                "shortDisplayName": "ML",
-                "home": {
-                  "close": {
-                    "odds": "-142",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "home",
-                        "desktop",
-                        "bets",
-                        "draft-kings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0ML79742981_1",
-                      "text": "Home Bet",
-                      "shortText": "Home Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "home",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "-142"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "odds": "+120",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "away",
-                        "desktop",
-                        "bets",
-                        "draft-kings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0ML79742981_3",
-                      "text": "Away Bet",
-                      "shortText": "Away Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "away",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "+120"
-                  }
-                }
-              },
-              "pointSpread": {
-                "displayName": "Spread",
-                "shortDisplayName": "Spread",
-                "home": {
-                  "close": {
-                    "line": "-2.5",
-                    "odds": "-112",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "homeSpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981N250_1",
-                      "text": "Home Point Spread",
-                      "shortText": "Home Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:GB-2.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "-2.5",
-                    "odds": "-110"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "line": "+2.5",
-                    "odds": "-108",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "awaySpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0HC79742981P250_3",
-                      "text": "Away Point Spread",
-                      "shortText": "Away Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:BAL+2.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "+2.5",
-                    "odds": "-110"
-                  }
-                }
-              },
-              "total": {
-                "displayName": "Total",
-                "shortDisplayName": "Total",
-                "over": {
-                  "close": {
-                    "line": "o37.5",
-                    "odds": "-108",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "over",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981O3750_1",
-                      "text": "Over Odds",
-                      "shortText": "Over Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "over",
-                          "betType": "straight",
-                          "betDetails": "Over:37.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "o46.5",
-                    "odds": "-110"
-                  }
-                },
-                "under": {
-                  "close": {
-                    "line": "u37.5",
-                    "odds": "-112",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "under",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981U3750_3",
-                      "text": "Under Odds",
-                      "shortText": "Under Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401772953,
-                          "betSide": "under",
-                          "betType": "straight",
-                          "betDetails": "Under:37.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "u46.5",
-                    "odds": "-110"
-                  }
-                }
-              },
-              "link": {
-                "language": "en-US",
-                "rel": [
-                  "game",
-                  "desktop",
-                  "bets"
-                ],
-                "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588",
-                "text": "See More Odds",
-                "shortText": "Game",
-                "isExternal": true,
-                "isPremium": false,
-                "tracking": {
-                  "campaign": "betting-integrations",
-                  "tags": {
-                    "league": "nfl",
-                    "sport": "football",
-                    "gameId": 401772953,
-                    "betSide": "none",
-                    "betType": "straight"
-                  }
-                }
-              },
-              "header": {
-                "logo": {
-                  "dark": "https://a.espncdn.com/i/espnbet/dark/espn-bet-square-off.svg",
-                  "light": "https://a.espncdn.com/i/espnbet/espn-bet-square-off.svg",
-                  "exclusivesLogoDark": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg",
-                  "exclusivesLogoLight": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg"
-                },
-                "text": "Game Odds"
-              },
-              "footer": {
-                "disclaimer": "Odds by DraftKings\nGAMBLING PROBLEM? CALL 1-800-GAMBLER, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY).\nPlease Gamble Responsibly. 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD).\n21+ and present in most states. (18+ DC/KY/NH/WY). Void in ONT/OR/NH. Eligibility restrictions apply. On behalf of Boot Hill Casino & Resort (KS). Terms: sportsbook.draftkings.com/promos."
-              }
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "summary",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game/_/gameId/401772953/ravens-packers",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "Cloudy",
-        "temperature": 37,
-        "highTemperature": 37,
-        "conditionId": "7",
-        "link": {
-          "language": "en-US",
-          "rel": [
-            "54304"
-          ],
-          "href": "http://www.accuweather.com/en/us/lambeau-field-wi/54303/hourly-weather-forecast/29742_poi?day=1&hbhhour=19&lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
-          "isPremium": false
-        }
-      },
-      "status": {
-        "clock": 0,
-        "displayClock": "0:00",
-        "period": 0,
-        "type": {
-          "id": "1",
-          "name": "STATUS_SCHEDULED",
-          "state": "pre",
-          "completed": false,
-          "description": "Scheduled",
-          "detail": "Sat, December 27th at 8:00 PM EST",
-          "shortDetail": "12/27 - 8:00 PM EST"
-        }
-      }
-    },
-    {
       "id": "401772954",
       "uid": "s:20~l:28~e:401772954",
       "date": "2025-12-28T18:00Z",
@@ -2350,8 +1920,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $36",
-              "numberAvailable": 710,
+              "summary": "Tickets as low as $43",
+              "numberAvailable": 860,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-paycor-stadium-3-8-2026--sports-nfl-football/production/5471098?wsUser=717"
@@ -2400,7 +1970,8 @@
                       "dark"
                     ]
                   }
-                ]
+                ],
+                "displayName": "Draft Kings"
               },
               "details": "CIN -7",
               "overUnder": 53.5,
@@ -3347,7 +2918,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $52",
-              "numberAvailable": 1950,
+              "numberAvailable": 1802,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cleveland-browns-tickets-huntington-bank-field-3-3-2026--sports-nfl-football/production/5471085?wsUser=717"
@@ -3398,9 +2969,9 @@
                   }
                 ]
               },
-              "details": "PIT -3",
-              "overUnder": 33.5,
-              "spread": 3,
+              "details": "PIT -3.5",
+              "overUnder": 34.5,
+              "spread": 3.5,
               "awayTeamOdds": {
                 "favorite": true,
                 "underdog": false,
@@ -3432,7 +3003,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+150",
+                    "odds": "+160",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3464,7 +3035,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-180",
+                    "odds": "-192",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3500,8 +3071,8 @@
                 "shortDisplayName": "Spread",
                 "home": {
                   "close": {
-                    "line": "+3",
-                    "odds": "-108",
+                    "line": "+3.5",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3509,7 +3080,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0HC79742918P300_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0HC79742918P350_1",
                       "text": "Home Point Spread",
                       "shortText": "Home Point Spread",
                       "isExternal": true,
@@ -3522,7 +3093,7 @@
                           "gameId": 401772807,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:CLE+3"
+                          "betDetails": "Spread:CLE+3.5"
                         }
                       }
                     }
@@ -3534,8 +3105,8 @@
                 },
                 "away": {
                   "close": {
-                    "line": "-3",
-                    "odds": "-112",
+                    "line": "-3.5",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3543,7 +3114,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0HC79742918N300_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0HC79742918N350_3",
                       "text": "Away Point Spread",
                       "shortText": "Away Point Spread",
                       "isExternal": true,
@@ -3556,7 +3127,7 @@
                           "gameId": 401772807,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:PIT-3"
+                          "betDetails": "Spread:PIT-3.5"
                         }
                       }
                     }
@@ -3572,8 +3143,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o33.5",
-                    "odds": "-115",
+                    "line": "o34.5",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3581,7 +3152,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918O3350_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918O3450_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -3594,7 +3165,7 @@
                           "gameId": 401772807,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:33.5"
+                          "betDetails": "Over:34.5"
                         }
                       }
                     }
@@ -3606,8 +3177,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u33.5",
-                    "odds": "-105",
+                    "line": "u34.5",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3615,7 +3186,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918U3350_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918U3450_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -3628,7 +3199,7 @@
                           "gameId": 401772807,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:33.5"
+                          "betDetails": "Under:34.5"
                         }
                       }
                     }
@@ -4342,8 +3913,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $70",
-              "numberAvailable": 692,
+              "summary": "Tickets as low as $81",
+              "numberAvailable": 743,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nissan-stadium-3-9-2026--sports-nfl-football/production/5472072?wsUser=717"
@@ -5339,7 +4910,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $53",
-              "numberAvailable": 1458,
+              "numberAvailable": 1338,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-2-2026--sports-nfl-football/production/5471938?wsUser=717"
@@ -6334,8 +5905,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $103",
-              "numberAvailable": 1173,
+              "summary": "Tickets as low as $105",
+              "numberAvailable": 1075,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-hard-rock-stadium-3-8-2026--sports-nfl-football/production/5471060?wsUser=717"
@@ -6420,7 +5991,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+225",
+                    "odds": "+230",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -6452,7 +6023,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-278",
+                    "odds": "-285",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -7330,8 +6901,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $67",
-              "numberAvailable": 2000,
+              "summary": "Tickets as low as $69",
+              "numberAvailable": 2082,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-jets-tickets-metlife-stadium-3-1-2026--sports-nfl-football/production/5471064?wsUser=717"
@@ -8326,8 +7897,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $101",
-              "numberAvailable": 1921,
+              "summary": "Tickets as low as $97",
+              "numberAvailable": 1641,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-bank-of-america-stadium-3-5-2026--sports-nfl-football/production/5470903?wsUser=717"
@@ -8412,7 +7983,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+295",
+                    "odds": "+280",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -8444,7 +8015,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-375",
+                    "odds": "-355",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -8481,7 +8052,7 @@
                 "home": {
                   "close": {
                     "line": "+7",
-                    "odds": "-102",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -8515,7 +8086,7 @@
                 "away": {
                   "close": {
                     "line": "-7",
-                    "odds": "-118",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -9322,8 +8893,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $63",
-              "numberAvailable": 1388,
+              "summary": "Tickets as low as $65",
+              "numberAvailable": 1271,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-allegiant-stadium-3-7-2026--sports-nfl-football/production/5472439?wsUser=717"
@@ -10318,8 +9889,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $218",
-              "numberAvailable": 1186,
+              "summary": "Tickets as low as $228",
+              "numberAvailable": 1166,
               "links": [
                 {
                   "href": "https://www.vividseats.com/buffalo-bills-tickets-highmark-stadium-3-8-2026--sports-nfl-football/production/5470966?wsUser=717"
@@ -11316,7 +10887,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $334",
-              "numberAvailable": 2138,
+              "numberAvailable": 1784,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-levis-stadium-3-8-2026--sports-nfl-football/production/5470915?wsUser=717"
@@ -11820,6 +11391,24 @@
               },
               "score": "0",
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "6-9"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-4"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-5"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -11940,24 +11529,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "6-9"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-4"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-5"
                 }
               ]
             },
@@ -12327,7 +11898,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $56",
-              "numberAvailable": 2336,
+              "numberAvailable": 2362,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-mercedes-benz-stadium-3-4-2026--sports-nfl-football/production/5470590?wsUser=717"
@@ -12976,26 +12547,26 @@
         "record": "9-5-1"
       },
       "Houston Texans": {
-        "offensiveRating": 23.066666666666666,
-        "defensiveRating": 16.6,
-        "rushYPG": 106.66666666666667,
-        "rushDefYPG": 96.2,
-        "passYPG": 217.2,
-        "passDefYPG": 176.06666666666666,
-        "thirdDownPct": 38.164251207729464,
+        "offensiveRating": 22.875,
+        "defensiveRating": 16.5625,
+        "rushYPG": 107.375,
+        "rushDefYPG": 94.8125,
+        "passYPG": 218.875,
+        "passDefYPG": 177.625,
+        "thirdDownPct": 37.61467889908257,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -17,
-        "gamesPlayed": 15,
-        "wins": 10,
+        "turnoverDiff": -21,
+        "gamesPlayed": 16,
+        "wins": 11,
         "losses": 5,
         "ties": 0,
-        "pointsScored": 346,
-        "pointsAllowed": 249,
-        "ppg": "23.1",
+        "pointsScored": 366,
+        "pointsAllowed": 265,
+        "ppg": "22.9",
         "papg": "16.6",
-        "record": "10-5"
+        "record": "11-5"
       },
       "Indianapolis Colts": {
         "offensiveRating": 27.933333333333334,
@@ -13086,26 +12657,26 @@
         "record": "2-13"
       },
       "Los Angeles Chargers": {
-        "offensiveRating": 23.266666666666666,
-        "defensiveRating": 20.066666666666666,
-        "rushYPG": 125.33333333333333,
-        "rushDefYPG": 103.8,
-        "passYPG": 220.2,
-        "passDefYPG": 179.33333333333334,
-        "thirdDownPct": 47.22222222222222,
+        "offensiveRating": 22.8125,
+        "defensiveRating": 20.0625,
+        "rushYPG": 122.125,
+        "rushDefYPG": 104.6875,
+        "passYPG": 219,
+        "passDefYPG": 183.375,
+        "thirdDownPct": 46.75324675324675,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -30,
-        "gamesPlayed": 15,
+        "turnoverDiff": -32,
+        "gamesPlayed": 16,
         "wins": 11,
-        "losses": 4,
+        "losses": 5,
         "ties": 0,
-        "pointsScored": 349,
-        "pointsAllowed": 301,
-        "ppg": "23.3",
+        "pointsScored": 365,
+        "pointsAllowed": 321,
+        "ppg": "22.8",
         "papg": "20.1",
-        "record": "11-4"
+        "record": "11-5"
       },
       "Los Angeles Rams": {
         "offensiveRating": 30.466666666666665,
@@ -13424,7 +12995,7 @@
         "passDefRank": 23
       },
       "Atlanta Falcons": {
-        "rushOffRank": 8,
+        "rushOffRank": 7,
         "passOffRank": 17,
         "rushDefRank": 25,
         "passDefRank": 9
@@ -13442,14 +13013,14 @@
         "passDefRank": 2
       },
       "Carolina Panthers": {
-        "rushOffRank": 12,
+        "rushOffRank": 11,
         "passOffRank": 26,
         "rushDefRank": 19,
         "passDefRank": 16
       },
       "Chicago Bears": {
         "rushOffRank": 2,
-        "passOffRank": 14,
+        "passOffRank": 13,
         "rushDefRank": 27,
         "passDefRank": 18
       },
@@ -13466,7 +13037,7 @@
         "passDefRank": 1
       },
       "Dallas Cowboys": {
-        "rushOffRank": 9,
+        "rushOffRank": 8,
         "passOffRank": 1,
         "rushDefRank": 20,
         "passDefRank": 32
@@ -13491,19 +13062,19 @@
       },
       "Houston Texans": {
         "rushOffRank": 23,
-        "passOffRank": 16,
+        "passOffRank": 15,
         "rushDefRank": 4,
-        "passDefRank": 4
+        "passDefRank": 5
       },
       "Indianapolis Colts": {
-        "rushOffRank": 11,
+        "rushOffRank": 10,
         "passOffRank": 9,
         "rushDefRank": 5,
         "passDefRank": 31
       },
       "Jacksonville Jaguars": {
         "rushOffRank": 19,
-        "passOffRank": 15,
+        "passOffRank": 16,
         "rushDefRank": 1,
         "passDefRank": 25
       },
@@ -13520,8 +13091,8 @@
         "passDefRank": 17
       },
       "Los Angeles Chargers": {
-        "rushOffRank": 6,
-        "passOffRank": 13,
+        "rushOffRank": 13,
+        "passOffRank": 14,
         "rushDefRank": 10,
         "passDefRank": 6
       },
@@ -13532,7 +13103,7 @@
         "passDefRank": 20
       },
       "Miami Dolphins": {
-        "rushOffRank": 13,
+        "rushOffRank": 12,
         "passOffRank": 25,
         "rushDefRank": 26,
         "passDefRank": 14
@@ -13553,16 +13124,16 @@
         "rushOffRank": 30,
         "passOffRank": 19,
         "rushDefRank": 23,
-        "passDefRank": 5
+        "passDefRank": 4
       },
       "New York Giants": {
-        "rushOffRank": 7,
+        "rushOffRank": 6,
         "passOffRank": 20,
         "rushDefRank": 31,
         "passDefRank": 21
       },
       "New York Jets": {
-        "rushOffRank": 10,
+        "rushOffRank": 9,
         "passOffRank": 32,
         "rushDefRank": 28,
         "passDefRank": 13
@@ -13672,7 +13243,7 @@
           "position": "WR"
         },
         "depthChartPosition": "KR",
-        "depthChartOrder": 8
+        "depthChartOrder": 7
       },
       {
         "longComment": "Surgery",
@@ -14976,7 +14547,7 @@
           "position": "TE"
         },
         "depthChartPosition": "TE",
-        "depthChartOrder": 3
+        "depthChartOrder": 4
       },
       {
         "longComment": "Achilles",
@@ -14986,7 +14557,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 4
+        "depthChartOrder": 5
       },
       {
         "longComment": "Knee",
@@ -15036,7 +14607,7 @@
           "position": "TE"
         },
         "depthChartPosition": "TE",
-        "depthChartOrder": 4
+        "depthChartOrder": 5
       },
       {
         "longComment": "Ankle",
@@ -15056,7 +14627,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 6
+        "depthChartOrder": 7
       },
       {
         "longComment": "Surgery",
@@ -15399,8 +14970,8 @@
           "displayName": "Maxx Crosby",
           "position": "DE"
         },
-        "depthChartPosition": "LDE",
-        "depthChartOrder": 1
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
       },
       {
         "longComment": "Back",
@@ -16489,8 +16060,8 @@
           "displayName": "Benito Jones",
           "position": "DT"
         },
-        "depthChartPosition": "NT",
-        "depthChartOrder": 2
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
       },
       {
         "longComment": "Neck",
@@ -16509,7 +16080,7 @@
           "displayName": "Dee Eskridge",
           "position": "WR"
         },
-        "depthChartPosition": "LWR",
+        "depthChartPosition": "KR",
         "depthChartOrder": 8
       },
       {
@@ -17478,7 +17049,7 @@
           "position": "WR"
         },
         "depthChartPosition": "LWR",
-        "depthChartOrder": 6
+        "depthChartOrder": 7
       },
       {
         "longComment": "Knee",
@@ -17488,7 +17059,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 4
+        "depthChartOrder": 5
       },
       {
         "longComment": "Knee",
@@ -17518,7 +17089,7 @@
           "position": "WR"
         },
         "depthChartPosition": null,
-        "depthChartOrder": 7
+        "depthChartOrder": 9
       },
       {
         "longComment": "Illness",
@@ -17538,7 +17109,7 @@
           "position": "WR"
         },
         "depthChartPosition": null,
-        "depthChartOrder": 8
+        "depthChartOrder": 10
       },
       {
         "longComment": "Shoulder",
@@ -17548,7 +17119,7 @@
           "position": "WR"
         },
         "depthChartPosition": "LWR",
-        "depthChartOrder": 9
+        "depthChartOrder": 11
       },
       {
         "longComment": "Groin",
@@ -17578,7 +17149,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 5
+        "depthChartOrder": 6
       },
       {
         "longComment": "Hip",
@@ -17598,7 +17169,7 @@
           "position": "QB"
         },
         "depthChartPosition": "QB",
-        "depthChartOrder": 4
+        "depthChartOrder": 5
       }
     ],
     "Arizona Cardinals": [
@@ -18884,7 +18455,7 @@
           "position": "QB"
         },
         "depthChartPosition": "QB",
-        "depthChartOrder": 2
+        "depthChartOrder": 3
       },
       {
         "longComment": "Knee",
@@ -18944,7 +18515,7 @@
           "position": "WR"
         },
         "depthChartPosition": "RWR",
-        "depthChartOrder": 5
+        "depthChartOrder": 7
       },
       {
         "longComment": "Suspension",
@@ -19186,7 +18757,7 @@
           "position": "WR"
         },
         "depthChartPosition": "SWR",
-        "depthChartOrder": 6
+        "depthChartOrder": 10
       },
       {
         "longComment": "Coach's Decision",
