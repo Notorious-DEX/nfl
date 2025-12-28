@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-27T23:22:12.208Z",
+  "lastUpdated": "2025-12-28T00:59:58.447Z",
   "currentWeek": 17,
   "games": [
     {
@@ -21,7 +21,7 @@
           "id": "401772951",
           "uid": "s:20~l:28~e:401772951~c:401772951",
           "date": "2025-12-27T21:30Z",
-          "attendance": 0,
+          "attendance": 73066,
           "type": {
             "id": "1",
             "abbreviation": "STD"
@@ -48,6 +48,7 @@
               "type": "team",
               "order": 0,
               "homeAway": "home",
+              "winner": false,
               "team": {
                 "id": "24",
                 "uid": "s:20~l:28~t:24",
@@ -110,7 +111,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lac.png"
               },
-              "score": "3",
+              "score": "16",
               "linescores": [
                 {
                   "value": 0,
@@ -123,23 +124,28 @@
                   "period": 2
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 3
+                },
+                {
+                  "value": 6,
+                  "displayValue": "6",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "11-4"
+                  "summary": "11-5"
                 },
                 {
                   "name": "Home",
                   "type": "home",
-                  "summary": "6-2"
+                  "summary": "6-3"
                 },
                 {
                   "name": "Road",
@@ -154,6 +160,7 @@
               "type": "team",
               "order": 1,
               "homeAway": "away",
+              "winner": true,
               "team": {
                 "id": "34",
                 "uid": "s:20~l:28~t:34",
@@ -216,7 +223,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png"
               },
-              "score": "14",
+              "score": "20",
               "linescores": [
                 {
                   "value": 14,
@@ -229,18 +236,23 @@
                   "period": 2
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 3,
+                  "displayValue": "3",
                   "period": 3
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "10-5"
+                  "summary": "11-5"
                 },
                 {
                   "name": "Home",
@@ -250,101 +262,24 @@
                 {
                   "name": "Road",
                   "type": "road",
-                  "summary": "4-3"
+                  "summary": "5-3"
                 }
               ]
             }
           ],
           "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4017729512324",
-              "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
-              },
-              "text": "(Shotgun) C.Stroud pass incomplete short left to C.Kirk (T.Dye).",
-              "scoreValue": 0,
-              "team": {
-                "id": "34"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.2029,
-                "awayWinPercentage": 0.7971,
-                "secondsLeft": 0
-              },
-              "drive": {
-                "description": "3 plays, 6 yards, 1:23",
-                "start": {
-                  "yardLine": 85,
-                  "text": "HOU 15"
-                },
-                "timeElapsed": {
-                  "displayValue": "1:23"
-                }
-              },
-              "start": {
-                "yardLine": 79,
-                "team": {
-                  "id": "34"
-                }
-              },
-              "end": {
-                "yardLine": 79,
-                "team": {
-                  "id": "34"
-                }
-              },
-              "statYardage": 0,
-              "athletesInvolved": [
-                {
-                  "id": "3895856",
-                  "fullName": "Christian Kirk",
-                  "displayName": "Christian Kirk",
-                  "shortName": "C. Kirk",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/3895856/christian-kirk"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3895856.png",
-                  "jersey": "13",
-                  "position": "WR",
-                  "team": {
-                    "id": "34"
-                  }
-                }
-              ]
-            },
-            "down": 4,
-            "yardLine": 79,
-            "distance": 4,
-            "downDistanceText": "4th & 4 at HOU 21",
-            "shortDownDistanceText": "4th & 4",
-            "possessionText": "HOU 21",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "34"
-          },
           "status": {
-            "clock": 719,
-            "displayClock": "11:59",
-            "period": 3,
+            "clock": 0,
+            "displayClock": "0:00",
+            "period": 4,
             "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "11:59 - 3rd Quarter",
-              "shortDetail": "11:59 - 3rd"
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
             },
             "isTBDFlex": false
           },
@@ -364,8 +299,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "11/20, 196 YDS, 2 TD, 2 INT",
-                  "value": 196,
+                  "displayValue": "16/28, 244 YDS, 2 TD, 2 INT",
+                  "value": 244,
                   "athlete": {
                     "id": "4432577",
                     "fullName": "C.J. Stroud",
@@ -404,8 +339,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "7 CAR, 39 YDS",
-                  "value": 39,
+                  "displayValue": "19 CAR, 71 YDS",
+                  "value": 71,
                   "athlete": {
                     "id": "4429059",
                     "fullName": "Woody Marks",
@@ -444,8 +379,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 90 YDS",
-                  "value": 90,
+                  "displayValue": "5 REC, 98 YDS",
+                  "value": 98,
                   "athlete": {
                     "id": "4429025",
                     "fullName": "Quentin Johnston",
@@ -502,18 +437,234 @@
               "region": "us"
             }
           ],
-          "highlights": []
+          "highlights": [
+            {
+              "id": 47429846,
+              "cerebroId": "69507f5becde0442813d755e",
+              "source": "espn",
+              "headline": "Houston Texans vs. Los Angeles Chargers Game Highlights",
+              "description": "Houston Texans vs. Los Angeles Chargers Game Highlights",
+              "lastModified": "2025-12-28T00:54:02Z",
+              "originalPublishDate": "2025-12-28T00:52:40Z",
+              "duration": 60,
+              "timeRestrictions": {
+                "embargoDate": "2025-12-28T00:52:40Z",
+                "expirationDate": "2025-12-30T00:52:40Z"
+              },
+              "deviceRestrictions": {
+                "type": "whitelist",
+                "devices": [
+                  "desktop",
+                  "ipad",
+                  "settop",
+                  "handset",
+                  "tablet"
+                ]
+              },
+              "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.jpg",
+              "links": {
+                "web": {
+                  "href": "https://www.espn.com/video/clip?id=47429846",
+                  "self": {
+                    "href": "https://www.espn.com/video/clip?id=47429846"
+                  },
+                  "seo": {
+                    "href": "https://www.espn.com/video/clip/_/id/47429846"
+                  }
+                },
+                "mobile": {
+                  "source": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.mp4"
+                  },
+                  "alert": {
+                    "href": "https://m.espn.com/general/video/videoAlert?vid=47429846"
+                  },
+                  "streaming": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47429846"
+                  },
+                  "progressiveDownload": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47429846"
+                  }
+                },
+                "api": {
+                  "self": {
+                    "href": "https://content.core.api.espn.com/v1/video/clips/47429846"
+                  },
+                  "artwork": {
+                    "href": "https://artwork.api.espn.com/artwork/collections/media/152438ed-0d3f-4a8b-ad3e-5a553e86016c"
+                  }
+                },
+                "source": {
+                  "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_360p30_1464k.mp4",
+                  "mezzanine": {
+                    "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.mp4"
+                  },
+                  "flash": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.smil"
+                  },
+                  "hds": {
+                    "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_rel.smil/manifest.f4m"
+                  },
+                  "HLS": {
+                    "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8",
+                    "HD": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                    },
+                    "cmaf": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8",
+                      "9x16": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                      }
+                    },
+                    "9x16": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                    },
+                    "shield": {
+                      "href": "https://watch.auth.api.espn.com/video/auth/media/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset"
+                    }
+                  },
+                  "HD": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_720p30_2896k.mp4"
+                  },
+                  "full": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_360p30_1464k.mp4"
+                  }
+                },
+                "sportscenter": {
+                  "href": "sportscenter://x-callback-url/showVideo?videoID=47429846&videoDSI=4c3c100d4b1dc"
+                }
+              },
+              "ad": {
+                "sport": "nfl",
+                "bundle": "nfl_one_plays"
+              },
+              "tracking": {
+                "sportName": "football",
+                "leagueName": "NFL",
+                "coverageType": "Final Game Highlight",
+                "trackingName": "NFL_One-Play (Houston Texans vs. Los Angeles Chargers Game Highlights) 2025/12/27 ESHEET",
+                "trackingId": "dm_20251227_NFL_houston_texans_vs_los_angeles_chargers_game_highlights",
+                "program": "espnnfl"
+              }
+            }
+          ],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— C.J. Stroud threw for two long touchdowns on Houston's first two drives of the game, and the Texans went on to beat the Los Angeles Chargers 20-16 on Saturday and clinch a third consecutive playoff berth for the first time in franchise history.",
+              "shortLinkText": "Texans clinch third consecutive playoff berth with 20-16 win over Chargers",
+              "video": [
+                {
+                  "id": 47429846,
+                  "source": "espn",
+                  "headline": "Houston Texans vs. Los Angeles Chargers Game Highlights",
+                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.jpg",
+                  "duration": 60,
+                  "tracking": {
+                    "sportName": "football",
+                    "leagueName": "NFL",
+                    "coverageType": "Final Game Highlight",
+                    "trackingName": "NFL_One-Play (Houston Texans vs. Los Angeles Chargers Game Highlights) 2025/12/27 ESHEET",
+                    "trackingId": "dm_20251227_NFL_houston_texans_vs_los_angeles_chargers_game_highlights",
+                    "program": "espnnfl"
+                  },
+                  "deviceRestrictions": {
+                    "type": "whitelist",
+                    "devices": [
+                      "desktop",
+                      "ipad",
+                      "settop",
+                      "handset",
+                      "tablet"
+                    ]
+                  },
+                  "links": {
+                    "web": {
+                      "href": "https://www.espn.com/video/clip?id=47429846",
+                      "self": {
+                        "href": "https://www.espn.com/video/clip?id=47429846"
+                      },
+                      "seo": {
+                        "href": "https://www.espn.com/video/clip/_/id/47429846"
+                      }
+                    },
+                    "mobile": {
+                      "source": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.mp4"
+                      },
+                      "alert": {
+                        "href": "https://m.espn.com/general/video/videoAlert?vid=47429846"
+                      },
+                      "streaming": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47429846"
+                      },
+                      "progressiveDownload": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47429846"
+                      }
+                    },
+                    "api": {
+                      "self": {
+                        "href": "https://content.core.api.espn.com/v1/video/clips/47429846"
+                      },
+                      "artwork": {
+                        "href": "https://artwork.api.espn.com/artwork/collections/media/152438ed-0d3f-4a8b-ad3e-5a553e86016c"
+                      }
+                    },
+                    "source": {
+                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_360p30_1464k.mp4",
+                      "mezzanine": {
+                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.mp4"
+                      },
+                      "flash": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417.smil"
+                      },
+                      "hds": {
+                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_rel.smil/manifest.f4m"
+                      },
+                      "HLS": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8",
+                        "HD": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                        },
+                        "cmaf": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8",
+                          "9x16": {
+                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                          }
+                        },
+                        "9x16": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417/playlist.m3u8"
+                        },
+                        "shield": {
+                          "href": "https://watch.auth.api.espn.com/video/auth/media/152438ed-0d3f-4a8b-ad3e-5a553e86016c/asset"
+                        }
+                      },
+                      "HD": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_720p30_2896k.mp4"
+                      },
+                      "full": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1228/e625e829-5fdb-4a67-81eb-190c3aa22417/e625e829-5fdb-4a67-81eb-190c3aa22417_360p30_1464k.mp4"
+                      }
+                    },
+                    "sportscenter": {
+                      "href": "sportscenter://x-callback-url/showVideo?videoID=47429846&videoDSI=4c3c100d4b1dc"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "links": [
         {
           "language": "en-US",
           "rel": [
-            "live",
+            "summary",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game?gameId=401772951",
+          "href": "https://www.espn.com/nfl/game/_/gameId/401772951/texans-chargers",
           "text": "Gamecast",
           "shortText": "Gamecast",
           "isExternal": false,
@@ -535,6 +686,18 @@
         {
           "language": "en-US",
           "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401772951",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -544,37 +707,33 @@
           "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "1",
-        "temperature": 59,
-        "highTemperature": 59,
-        "conditionId": "Sunny",
-        "link": {
+        },
+        {
           "language": "en-US",
           "rel": [
-            "90301"
+            "recap",
+            "desktop",
+            "event"
           ],
-          "href": "http://www.accuweather.com/en/us/sofi-stadium-ca/90301/current-weather/209205_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
+          "href": "https://www.espn.com/nfl/recap?gameId=401772951",
+          "text": "Recap",
+          "shortText": "Recap",
+          "isExternal": false,
           "isPremium": false
         }
-      },
+      ],
       "status": {
-        "clock": 719,
-        "displayClock": "11:59",
-        "period": 3,
+        "clock": 0,
+        "displayClock": "0:00",
+        "period": 4,
         "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "11:59 - 3rd Quarter",
-          "shortDetail": "11:59 - 3rd"
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final",
+          "shortDetail": "Final"
         }
       }
     },
@@ -606,7 +765,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "3798",
             "fullName": "Lambeau Field",
@@ -1194,8 +1353,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $203",
-              "numberAvailable": 17,
+              "summary": "Tickets as low as $137",
+              "numberAvailable": 21,
               "links": [
                 {
                   "href": "https://www.vividseats.com/green-bay-packers-tickets-lambeau-field-3-7-2026--sports-nfl-football/production/5470740?wsUser=717"
@@ -1248,7 +1407,7 @@
                 "displayName": "Draft Kings"
               },
               "details": "GB -2.5",
-              "overUnder": 38.5,
+              "overUnder": 37.5,
               "spread": -2.5,
               "awayTeamOdds": {
                 "favorite": false,
@@ -1281,7 +1440,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-135",
+                    "odds": "-142",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1313,7 +1472,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+114",
+                    "odds": "+120",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1350,7 +1509,7 @@
                 "home": {
                   "close": {
                     "line": "-2.5",
-                    "odds": "-108",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1384,7 +1543,7 @@
                 "away": {
                   "close": {
                     "line": "+2.5",
-                    "odds": "-112",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1421,8 +1580,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o38.5",
-                    "odds": "-105",
+                    "line": "o37.5",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1430,7 +1589,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981O3850_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981O3750_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -1443,7 +1602,7 @@
                           "gameId": 401772953,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:38.5"
+                          "betDetails": "Over:37.5"
                         }
                       }
                     }
@@ -1455,8 +1614,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u38.5",
-                    "odds": "-115",
+                    "line": "u37.5",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1464,7 +1623,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981U3850_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225588%3Foutcomes%3D0OU79742981U3750_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -1477,7 +1636,7 @@
                           "gameId": 401772953,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:38.5"
+                          "betDetails": "Under:37.5"
                         }
                       }
                     }
@@ -1545,8 +1704,8 @@
       ],
       "weather": {
         "displayValue": "Cloudy",
-        "temperature": 36,
-        "highTemperature": 36,
+        "temperature": 37,
+        "highTemperature": 37,
         "conditionId": "7",
         "link": {
           "language": "en-US",
@@ -2191,8 +2350,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $31",
-              "numberAvailable": 787,
+              "summary": "Tickets as low as $36",
+              "numberAvailable": 710,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-paycor-stadium-3-8-2026--sports-nfl-football/production/5471098?wsUser=717"
@@ -3188,7 +3347,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $52",
-              "numberAvailable": 2018,
+              "numberAvailable": 1950,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cleveland-browns-tickets-huntington-bank-field-3-3-2026--sports-nfl-football/production/5471085?wsUser=717"
@@ -3240,7 +3399,7 @@
                 ]
               },
               "details": "PIT -3",
-              "overUnder": 34.5,
+              "overUnder": 33.5,
               "spread": 3,
               "awayTeamOdds": {
                 "favorite": true,
@@ -3342,7 +3501,7 @@
                 "home": {
                   "close": {
                     "line": "+3",
-                    "odds": "-102",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3376,7 +3535,7 @@
                 "away": {
                   "close": {
                     "line": "-3",
-                    "odds": "-118",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3413,8 +3572,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o34.5",
-                    "odds": "-105",
+                    "line": "o33.5",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3422,7 +3581,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918O3450_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918O3350_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -3435,7 +3594,7 @@
                           "gameId": 401772807,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:34.5"
+                          "betDetails": "Over:33.5"
                         }
                       }
                     }
@@ -3447,8 +3606,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u34.5",
-                    "odds": "-115",
+                    "line": "u33.5",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -3456,7 +3615,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918U3450_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F32225537%3Foutcomes%3D0OU79742918U3350_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -3469,7 +3628,7 @@
                           "gameId": 401772807,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:34.5"
+                          "betDetails": "Under:33.5"
                         }
                       }
                     }
@@ -4183,8 +4342,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $67",
-              "numberAvailable": 695,
+              "summary": "Tickets as low as $70",
+              "numberAvailable": 692,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nissan-stadium-3-9-2026--sports-nfl-football/production/5472072?wsUser=717"
@@ -5179,8 +5338,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $55",
-              "numberAvailable": 1543,
+              "summary": "Tickets as low as $53",
+              "numberAvailable": 1458,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-lucas-oil-stadium-3-2-2026--sports-nfl-football/production/5471938?wsUser=717"
@@ -6175,8 +6334,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $96",
-              "numberAvailable": 1419,
+              "summary": "Tickets as low as $103",
+              "numberAvailable": 1173,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-hard-rock-stadium-3-8-2026--sports-nfl-football/production/5471060?wsUser=717"
@@ -7171,8 +7330,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $61",
-              "numberAvailable": 2303,
+              "summary": "Tickets as low as $67",
+              "numberAvailable": 2000,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-jets-tickets-metlife-stadium-3-1-2026--sports-nfl-football/production/5471064?wsUser=717"
@@ -8167,8 +8326,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $102",
-              "numberAvailable": 1964,
+              "summary": "Tickets as low as $101",
+              "numberAvailable": 1921,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-bank-of-america-stadium-3-5-2026--sports-nfl-football/production/5470903?wsUser=717"
@@ -9163,8 +9322,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $67",
-              "numberAvailable": 1505,
+              "summary": "Tickets as low as $63",
+              "numberAvailable": 1388,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-allegiant-stadium-3-7-2026--sports-nfl-football/production/5472439?wsUser=717"
@@ -10159,8 +10318,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $211",
-              "numberAvailable": 1397,
+              "summary": "Tickets as low as $218",
+              "numberAvailable": 1186,
               "links": [
                 {
                   "href": "https://www.vividseats.com/buffalo-bills-tickets-highmark-stadium-3-8-2026--sports-nfl-football/production/5470966?wsUser=717"
@@ -11156,8 +11315,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $306",
-              "numberAvailable": 2265,
+              "summary": "Tickets as low as $334",
+              "numberAvailable": 2138,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-levis-stadium-3-8-2026--sports-nfl-football/production/5470915?wsUser=717"
@@ -11257,7 +11416,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-166",
+                    "odds": "-170",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -11289,7 +11448,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+140",
+                    "odds": "+142",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -11661,24 +11820,6 @@
               },
               "score": "0",
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "6-9"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-4"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-5"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -11800,6 +11941,24 @@
                     }
                   ]
                 }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "6-9"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-4"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-5"
+                }
               ]
             },
             {
@@ -11872,6 +12031,24 @@
               },
               "score": "0",
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "11-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "6-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "5-3"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -11992,24 +12169,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "11-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "6-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "5-3"
                 }
               ]
             }
@@ -12168,7 +12327,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $56",
-              "numberAvailable": 2726,
+              "numberAvailable": 2336,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-mercedes-benz-stadium-3-4-2026--sports-nfl-football/production/5470590?wsUser=717"
@@ -14847,6 +15006,16 @@
           "position": "DB"
         },
         "depthChartPosition": "RCB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Head",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Hassan Haskins",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
         "depthChartOrder": 2
       },
       {
@@ -18709,7 +18878,7 @@
     "Baltimore Ravens": [
       {
         "longComment": "Bruise",
-        "status": "Doubtful",
+        "status": "Out",
         "athlete": {
           "displayName": "Lamar Jackson",
           "position": "QB"
@@ -18726,6 +18895,16 @@
         },
         "depthChartPosition": "RDE",
         "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Joseph Noteboom",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
       },
       {
         "longComment": "Neck",
@@ -18756,6 +18935,16 @@
         },
         "depthChartPosition": "LDE",
         "depthChartOrder": 1
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Tylan Wallace",
+          "position": "WR"
+        },
+        "depthChartPosition": "RWR",
+        "depthChartOrder": 5
       },
       {
         "longComment": "Suspension",
@@ -18808,6 +18997,16 @@
         "depthChartOrder": null
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Aeneas Peebles",
+          "position": "DT"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 3
+      },
+      {
         "longComment": "Strain",
         "status": "IR",
         "athlete": {
@@ -18826,6 +19025,16 @@
         },
         "depthChartPosition": "LB",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Keyon Martin",
+          "position": "CB"
+        },
+        "depthChartPosition": "NB",
+        "depthChartOrder": 2
       }
     ],
     "Green Bay Packers": [
@@ -18890,16 +19099,6 @@
         "depthChartOrder": null
       },
       {
-        "longComment": "Neck",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Aaron Banks",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
         "longComment": "Pectoral",
         "status": "IR",
         "athlete": {
@@ -18908,36 +19107,6 @@
         },
         "depthChartPosition": "ROLB",
         "depthChartOrder": 2
-      },
-      {
-        "longComment": "Shoulder",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Malik Willis",
-          "position": "QB"
-        },
-        "depthChartPosition": "QB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Watson",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Bo Melton",
-          "position": "WR"
-        },
-        "depthChartPosition": "SWR",
-        "depthChartOrder": 7
       },
       {
         "longComment": "Fracture",
@@ -18950,18 +19119,8 @@
         "depthChartOrder": null
       },
       {
-        "longComment": "Knee",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Sean Rhyan",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
         "longComment": "Back",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Zach Tom",
           "position": "OL"
@@ -19000,16 +19159,6 @@
         "depthChartOrder": 4
       },
       {
-        "longComment": "Sprain",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Evan Williams",
-          "position": "DB"
-        },
-        "depthChartPosition": "FS",
-        "depthChartOrder": 1
-      },
-      {
         "longComment": "Shoulder",
         "status": "IR",
         "athlete": {
@@ -19031,13 +19180,33 @@
       },
       {
         "longComment": "Foot",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Savion Williams",
           "position": "WR"
         },
         "depthChartPosition": "SWR",
         "depthChartOrder": 6
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Barryn Sorrell",
+          "position": "DE"
+        },
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Collin Oliver",
+          "position": "DE"
+        },
+        "depthChartPosition": "RDT",
+        "depthChartOrder": 4
       },
       {
         "longComment": "Undisclosed",
@@ -19048,6 +19217,16 @@
         },
         "depthChartPosition": "OL",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Nazir Stackhouse",
+          "position": "DL"
+        },
+        "depthChartPosition": "RDT",
+        "depthChartOrder": 3
       }
     ],
     "Chicago Bears": [
