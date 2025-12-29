@@ -2234,17 +2234,19 @@
             const weekResultsList = document.getElementById('weekresults-list');
             const weekResultsTitle = document.getElementById('weekresults-title');
 
-            // Check if we should display weekly results (before Monday 11:59pm)
+            // Check if we should display weekly results
+            // Show from Thursday game end through Monday 11:59pm
+            // Hide on Tuesday and Wednesday (until next Thursday game)
             const now = new Date();
-            const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday
             const currentHour = now.getHours();
             const currentMinute = now.getMinutes();
 
-            // Calculate if we're past Monday 11:59pm
-            // Monday is day 1, and we want to hide results after 23:59 (11:59pm)
-            const isPastMondayDeadline = dayOfWeek > 1 || (dayOfWeek === 1 && (currentHour > 23 || (currentHour === 23 && currentMinute >= 59)));
+            // Hide weekly results on Tuesday and Wednesday, and after Monday 11:59pm
+            const shouldHideResults = dayOfWeek === 2 || dayOfWeek === 3 ||
+                                     (dayOfWeek === 1 && (currentHour > 23 || (currentHour === 23 && currentMinute >= 59)));
 
-            if (isPastMondayDeadline) {
+            if (shouldHideResults) {
                 weekResultsContainer.style.display = 'none';
                 return;
             }
