@@ -458,11 +458,25 @@ async function main() {
         const predictionsPath = path.join(__dirname, '..', 'test-predictions.json');
         fs.writeFileSync(predictionsPath, JSON.stringify({
             generated: new Date().toISOString(),
-            version: 'v0.05',
-            method: 'elo-pure',
+            version: 'v0.06',
+            method: 'index.html-algorithm',
             kFactor: 20,
             weeks: currentWeek,
             predictions: allPredictions
+        }, null, 2));
+
+        // Save historical results (for index.html and prediction-history.html)
+        const resultsPath = path.join(__dirname, '..', 'results.json');
+        fs.writeFileSync(resultsPath, JSON.stringify({
+            lastUpdated: new Date().toISOString(),
+            version: 'v0.06',
+            method: 'index.html-algorithm',
+            kFactor: 20,
+            weeks: currentWeek,
+            correct: totalCorrect,
+            total: totalGames,
+            accuracy: totalGames > 0 ? ((totalCorrect / totalGames) * 100).toFixed(1) : '0.0',
+            games: allResults
         }, null, 2));
 
         // Save weekly Elo snapshots for trend visualization
@@ -481,6 +495,7 @@ async function main() {
         console.log(`Correct Predictions: ${totalCorrect}`);
         console.log(`Accuracy: ${((totalCorrect / totalGames) * 100).toFixed(1)}%`);
         console.log(`\n✅ Results saved to:`);
+        console.log(`   - results.json (${allResults.length} games with actual results)`);
         console.log(`   - test-predictions.json`);
         console.log(`   - weekly-elo.json (${Object.keys(weeklyEloSnapshots).length} weeks)`);
 
