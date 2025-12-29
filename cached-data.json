@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-12-28T23:31:15.452Z",
+  "lastUpdated": "2025-12-29T00:58:43.327Z",
   "currentWeek": 17,
   "games": [
     {
@@ -21,7 +21,7 @@
           "id": "401772950",
           "uid": "s:20~l:28~e:401772950~c:401772950",
           "date": "2025-12-28T21:05Z",
-          "attendance": 0,
+          "attendance": 62021,
           "type": {
             "id": "1",
             "abbreviation": "STD"
@@ -30,7 +30,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": true,
-          "recent": true,
+          "recent": false,
           "venue": {
             "id": "6501",
             "fullName": "Allegiant Stadium",
@@ -48,6 +48,7 @@
               "type": "team",
               "order": 0,
               "homeAway": "home",
+              "winner": false,
               "team": {
                 "id": "13",
                 "uid": "s:20~l:28~t:13",
@@ -137,14 +138,14 @@
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "2-13"
+                  "summary": "2-14"
                 },
                 {
                   "name": "Home",
                   "type": "home",
-                  "summary": "1-6"
+                  "summary": "1-7"
                 },
                 {
                   "name": "Road",
@@ -159,6 +160,7 @@
               "type": "team",
               "order": 1,
               "homeAway": "away",
+              "winner": true,
               "team": {
                 "id": "19",
                 "uid": "s:20~l:28~t:19",
@@ -221,7 +223,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
               },
-              "score": "27",
+              "score": "34",
               "linescores": [
                 {
                   "value": 7,
@@ -239,8 +241,8 @@
                   "period": 3
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 4
                 }
               ],
@@ -248,9 +250,9 @@
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "2-13"
+                  "summary": "3-13"
                 },
                 {
                   "name": "Home",
@@ -260,102 +262,24 @@
                 {
                   "name": "Road",
                   "type": "road",
-                  "summary": "0-8"
+                  "summary": "1-8"
                 }
               ]
             }
           ],
           "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4017729503286",
-              "type": {
-                "id": "5",
-                "text": "Rush",
-                "abbreviation": "RUSH"
-              },
-              "text": "(Shotgun) D.Singletary up the middle to LV 44 for 4 yards (M.Koonce; T.Booker).",
-              "scoreValue": 0,
-              "team": {
-                "id": "19"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.0066,
-                "awayWinPercentage": 0.9934,
-                "secondsLeft": 0
-              },
-              "drive": {
-                "description": "4 plays, 31 yards, 2:03",
-                "start": {
-                  "yardLine": 75,
-                  "text": "NYG 25"
-                },
-                "timeElapsed": {
-                  "displayValue": "2:03"
-                }
-              },
-              "start": {
-                "yardLine": 48,
-                "team": {
-                  "id": "19"
-                }
-              },
-              "end": {
-                "yardLine": 44,
-                "team": {
-                  "id": "19"
-                }
-              },
-              "statYardage": 4,
-              "athletesInvolved": [
-                {
-                  "id": "4360749",
-                  "fullName": "Thomas Booker IV",
-                  "displayName": "Thomas Booker IV",
-                  "shortName": "T. Booker IV",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4360749/thomas-booker-iv"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4360749.png",
-                  "jersey": "99",
-                  "position": "DT",
-                  "team": {
-                    "id": "13"
-                  }
-                }
-              ]
-            },
-            "down": 2,
-            "yardLine": 44,
-            "distance": 6,
-            "downDistanceText": "2nd & 6 at LV 44",
-            "shortDownDistanceText": "2nd & 6",
-            "possessionText": "LV 44",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "19"
-          },
           "status": {
-            "clock": 626,
-            "displayClock": "10:26",
+            "clock": 0,
+            "displayClock": "0:00",
             "period": 4,
             "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "10:26 - 4th Quarter",
-              "shortDetail": "10:26 - 4th"
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
             },
             "isTBDFlex": false
           },
@@ -375,8 +299,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "19/26, 184 YDS",
-                  "value": 184,
+                  "displayValue": "22/30, 207 YDS",
+                  "value": 207,
                   "athlete": {
                     "id": "4689114",
                     "fullName": "Jaxson Dart",
@@ -415,8 +339,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "10 CAR, 58 YDS",
-                  "value": 58,
+                  "displayValue": "14 CAR, 62 YDS",
+                  "value": 62,
                   "athlete": {
                     "id": "4360516",
                     "fullName": "Tyrone Tracy Jr.",
@@ -513,18 +437,25 @@
               "region": "us"
             }
           ],
-          "highlights": []
+          "highlights": [],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— The Las Vegas Raiders moved into position to snag the top pick in next year's draft after losing 34-10 to Jaxson Dart and the New York Giants on Sunday in a matchup of teams with the NFL's two worst records.",
+              "shortLinkText": "Raiders in position for top draft pick after 34-10 loss to Giants"
+            }
+          ]
         }
       ],
       "links": [
         {
           "language": "en-US",
           "rel": [
-            "live",
+            "summary",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game?gameId=401772950",
+          "href": "https://www.espn.com/nfl/game/_/gameId/401772950/giants-raiders",
           "text": "Gamecast",
           "shortText": "Gamecast",
           "isExternal": false,
@@ -546,6 +477,18 @@
         {
           "language": "en-US",
           "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401772950",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -555,37 +498,33 @@
           "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "1",
-        "temperature": 57,
-        "highTemperature": 57,
-        "conditionId": "Sunny",
-        "link": {
+        },
+        {
           "language": "en-US",
           "rel": [
-            "89118"
+            "recap",
+            "desktop",
+            "event"
           ],
-          "href": "http://www.accuweather.com/en/us/allegiant-stadium-nv/89101/current-weather/209206_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
+          "href": "https://www.espn.com/nfl/recap?gameId=401772950",
+          "text": "Recap",
+          "shortText": "Recap",
+          "isExternal": false,
           "isPremium": false
         }
-      },
+      ],
       "status": {
-        "clock": 626,
-        "displayClock": "10:26",
+        "clock": 0,
+        "displayClock": "0:00",
         "period": 4,
         "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "10:26 - 4th Quarter",
-          "shortDetail": "10:26 - 4th"
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final",
+          "shortDetail": "Final"
         }
       }
     },
@@ -608,7 +547,7 @@
           "id": "401772917",
           "uid": "s:20~l:28~e:401772917~c:401772917",
           "date": "2025-12-28T21:25Z",
-          "attendance": 0,
+          "attendance": 71105,
           "type": {
             "id": "1",
             "abbreviation": "STD"
@@ -635,6 +574,7 @@
               "type": "team",
               "order": 0,
               "homeAway": "home",
+              "winner": false,
               "team": {
                 "id": "2",
                 "uid": "s:20~l:28~t:2",
@@ -697,7 +637,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/buf.png"
               },
-              "score": "0",
+              "score": "12",
               "linescores": [
                 {
                   "value": 0,
@@ -713,20 +653,25 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 12,
+                  "displayValue": "12",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "11-4"
+                  "summary": "11-5"
                 },
                 {
                   "name": "Home",
                   "type": "home",
-                  "summary": "6-1"
+                  "summary": "6-2"
                 },
                 {
                   "name": "Road",
@@ -741,6 +686,7 @@
               "type": "team",
               "order": 1,
               "homeAway": "away",
+              "winner": true,
               "team": {
                 "id": "21",
                 "uid": "s:20~l:28~t:21",
@@ -819,15 +765,20 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "10-5"
+                  "summary": "11-5"
                 },
                 {
                   "name": "Home",
@@ -837,101 +788,24 @@
                 {
                   "name": "Road",
                   "type": "road",
-                  "summary": "5-3"
+                  "summary": "6-3"
                 }
               ]
             }
           ],
           "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4017729172585",
-              "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
-              },
-              "text": "(Shotgun) J.Hurts pass deep right to D.Smith to PHI 33 for 17 yards (Ta.Johnson) [A.Epenesa].\nBuffalo challenged the pass completion ruling, and the play was REVERSED.\n(Shotgun) J.Hurts pass incomplete deep right to D.Smith [A.Epenesa].",
-              "scoreValue": 0,
-              "team": {
-                "id": "21"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.0843,
-                "awayWinPercentage": 0.9157,
-                "secondsLeft": 0
-              },
-              "drive": {
-                "description": "2 plays, 0 yards, 0:03",
-                "start": {
-                  "yardLine": 84,
-                  "text": "PHI 16"
-                },
-                "timeElapsed": {
-                  "displayValue": "0:03"
-                }
-              },
-              "start": {
-                "yardLine": 84,
-                "team": {
-                  "id": "21"
-                }
-              },
-              "end": {
-                "yardLine": 84,
-                "team": {
-                  "id": "21"
-                }
-              },
-              "statYardage": 0,
-              "athletesInvolved": [
-                {
-                  "id": "4241478",
-                  "fullName": "DeVonta Smith",
-                  "displayName": "DeVonta Smith",
-                  "shortName": "D. Smith",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4241478/devonta-smith"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241478.png",
-                  "jersey": "6",
-                  "position": "WR",
-                  "team": {
-                    "id": "21"
-                  }
-                }
-              ]
-            },
-            "down": 3,
-            "yardLine": 84,
-            "distance": 10,
-            "downDistanceText": "3rd & 10 at PHI 16",
-            "shortDownDistanceText": "3rd & 10",
-            "possessionText": "PHI 16",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "21"
-          },
           "status": {
-            "clock": 384,
-            "displayClock": "6:24",
-            "period": 3,
+            "clock": 0,
+            "displayClock": "0:00",
+            "period": 4,
             "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "6:24 - 3rd Quarter",
-              "shortDetail": "6:24 - 3rd"
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
             },
             "isTBDFlex": false
           },
@@ -951,8 +825,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "11/17, 121 YDS",
-                  "value": 121,
+                  "displayValue": "23/35, 262 YDS",
+                  "value": 262,
                   "athlete": {
                     "id": "3918298",
                     "fullName": "Josh Allen",
@@ -991,13 +865,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "14 CAR, 64 YDS",
-                  "value": 64,
+                  "displayValue": "20 CAR, 74 YDS",
+                  "value": 74,
                   "athlete": {
-                    "id": "3929630",
-                    "fullName": "Saquon Barkley",
-                    "displayName": "Saquon Barkley",
-                    "shortName": "S. Barkley",
+                    "id": "4379399",
+                    "fullName": "James Cook III",
+                    "displayName": "James Cook III",
+                    "shortName": "J. Cook III",
                     "links": [
                       {
                         "rel": [
@@ -1005,21 +879,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3929630/saquon-barkley"
+                        "href": "https://www.espn.com/nfl/player/_/id/4379399/james-cook-iii"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png",
-                    "jersey": "26",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4379399.png",
+                    "jersey": "4",
                     "position": {
                       "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "21"
+                      "id": "2"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "21"
+                    "id": "2"
                   }
                 }
               ]
@@ -1031,13 +905,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "5 REC, 68 YDS",
-                  "value": 68,
+                  "displayValue": "4 REC, 101 YDS",
+                  "value": 101,
                   "athlete": {
-                    "id": "4047646",
-                    "fullName": "A.J. Brown",
-                    "displayName": "A.J. Brown",
-                    "shortName": "A.J. Brown",
+                    "id": "16731",
+                    "fullName": "Brandin Cooks",
+                    "displayName": "Brandin Cooks",
+                    "shortName": "B. Cooks",
                     "links": [
                       {
                         "rel": [
@@ -1045,21 +919,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4047646/aj-brown"
+                        "href": "https://www.espn.com/nfl/player/_/id/16731/brandin-cooks"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4047646.png",
-                    "jersey": "11",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/16731.png",
+                    "jersey": "18",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "21"
+                      "id": "2"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "21"
+                    "id": "2"
                   }
                 }
               ]
@@ -1089,18 +963,234 @@
               "region": "us"
             }
           ],
-          "highlights": []
+          "highlights": [
+            {
+              "id": 47439202,
+              "cerebroId": "6951cdef992a84686aba2e75",
+              "source": "espn",
+              "headline": "Eagles down Bills in thriller",
+              "description": "The Bills can't connect on their two-point conversion attempt as the Eagles take the win on the road.",
+              "lastModified": "2025-12-29T00:44:47Z",
+              "originalPublishDate": "2025-12-29T00:40:13Z",
+              "duration": 56,
+              "timeRestrictions": {
+                "embargoDate": "2025-12-29T00:40:13Z",
+                "expirationDate": "2025-12-31T00:40:13Z"
+              },
+              "deviceRestrictions": {
+                "type": "whitelist",
+                "devices": [
+                  "desktop",
+                  "ipad",
+                  "settop",
+                  "handset",
+                  "tablet"
+                ]
+              },
+              "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.jpg",
+              "links": {
+                "web": {
+                  "href": "https://www.espn.com/video/clip?id=47439202",
+                  "self": {
+                    "href": "https://www.espn.com/video/clip?id=47439202"
+                  },
+                  "seo": {
+                    "href": "https://www.espn.com/video/clip/_/id/47439202"
+                  }
+                },
+                "mobile": {
+                  "source": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.mp4"
+                  },
+                  "alert": {
+                    "href": "https://m.espn.com/general/video/videoAlert?vid=47439202"
+                  },
+                  "streaming": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/41046122-4ff2-46a5-8165-a5b48041f16d/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47439202"
+                  },
+                  "progressiveDownload": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/41046122-4ff2-46a5-8165-a5b48041f16d/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47439202"
+                  }
+                },
+                "api": {
+                  "self": {
+                    "href": "https://content.core.api.espn.com/v1/video/clips/47439202"
+                  },
+                  "artwork": {
+                    "href": "https://artwork.api.espn.com/artwork/collections/media/41046122-4ff2-46a5-8165-a5b48041f16d"
+                  }
+                },
+                "source": {
+                  "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_360p30_1464k.mp4",
+                  "mezzanine": {
+                    "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.mp4"
+                  },
+                  "flash": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.smil"
+                  },
+                  "hds": {
+                    "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_rel.smil/manifest.f4m"
+                  },
+                  "HLS": {
+                    "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8",
+                    "HD": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                    },
+                    "cmaf": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8",
+                      "9x16": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                      }
+                    },
+                    "9x16": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                    },
+                    "shield": {
+                      "href": "https://watch.auth.api.espn.com/video/auth/media/41046122-4ff2-46a5-8165-a5b48041f16d/asset"
+                    }
+                  },
+                  "HD": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_720p30_2896k.mp4"
+                  },
+                  "full": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_360p30_1464k.mp4"
+                  }
+                },
+                "sportscenter": {
+                  "href": "sportscenter://x-callback-url/showVideo?videoID=47439202&videoDSI=fc746e3295a96"
+                }
+              },
+              "ad": {
+                "sport": "nfl",
+                "bundle": "sportscenter"
+              },
+              "tracking": {
+                "sportName": "football",
+                "leagueName": "NFL",
+                "coverageType": "Final Game Highlight",
+                "trackingName": "COM_NFL Highlight (Eagles down Bills in thriller) 2025/12/28 ESHEET",
+                "trackingId": "dm_20251228_NFL_eagles_down_bills_in_thriller",
+                "program": "espnnfl"
+              }
+            }
+          ],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— Josh Allen sailed a 2-point conversion attempt wide of open receiver Khalil Shakir in the back of the end zone with 5 seconds remaining, and the Philadelphia Eagles hung on for a 13-12 win...",
+              "shortLinkText": "Eagles hang on to beat Bills 13-12 when Josh Allen misses an open Khalil Shakir on 2-point try",
+              "video": [
+                {
+                  "id": 47439202,
+                  "source": "espn",
+                  "headline": "Eagles down Bills in thriller",
+                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.jpg",
+                  "duration": 56,
+                  "tracking": {
+                    "sportName": "football",
+                    "leagueName": "NFL",
+                    "coverageType": "Final Game Highlight",
+                    "trackingName": "COM_NFL Highlight (Eagles down Bills in thriller) 2025/12/28 ESHEET",
+                    "trackingId": "dm_20251228_NFL_eagles_down_bills_in_thriller",
+                    "program": "espnnfl"
+                  },
+                  "deviceRestrictions": {
+                    "type": "whitelist",
+                    "devices": [
+                      "desktop",
+                      "ipad",
+                      "settop",
+                      "handset",
+                      "tablet"
+                    ]
+                  },
+                  "links": {
+                    "web": {
+                      "href": "https://www.espn.com/video/clip?id=47439202",
+                      "self": {
+                        "href": "https://www.espn.com/video/clip?id=47439202"
+                      },
+                      "seo": {
+                        "href": "https://www.espn.com/video/clip/_/id/47439202"
+                      }
+                    },
+                    "mobile": {
+                      "source": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.mp4"
+                      },
+                      "alert": {
+                        "href": "https://m.espn.com/general/video/videoAlert?vid=47439202"
+                      },
+                      "streaming": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/41046122-4ff2-46a5-8165-a5b48041f16d/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47439202"
+                      },
+                      "progressiveDownload": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/41046122-4ff2-46a5-8165-a5b48041f16d/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47439202"
+                      }
+                    },
+                    "api": {
+                      "self": {
+                        "href": "https://content.core.api.espn.com/v1/video/clips/47439202"
+                      },
+                      "artwork": {
+                        "href": "https://artwork.api.espn.com/artwork/collections/media/41046122-4ff2-46a5-8165-a5b48041f16d"
+                      }
+                    },
+                    "source": {
+                      "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_360p30_1464k.mp4",
+                      "mezzanine": {
+                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.mp4"
+                      },
+                      "flash": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739.smil"
+                      },
+                      "hds": {
+                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_rel.smil/manifest.f4m"
+                      },
+                      "HLS": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8",
+                        "HD": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                        },
+                        "cmaf": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8",
+                          "9x16": {
+                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                          }
+                        },
+                        "9x16": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739/playlist.m3u8"
+                        },
+                        "shield": {
+                          "href": "https://watch.auth.api.espn.com/video/auth/media/41046122-4ff2-46a5-8165-a5b48041f16d/asset"
+                        }
+                      },
+                      "HD": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_720p30_2896k.mp4"
+                      },
+                      "full": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2025/1229/b1bea497-db59-4e77-852b-cfc52213b739/b1bea497-db59-4e77-852b-cfc52213b739_360p30_1464k.mp4"
+                      }
+                    },
+                    "sportscenter": {
+                      "href": "sportscenter://x-callback-url/showVideo?videoID=47439202&videoDSI=fc746e3295a96"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "links": [
         {
           "language": "en-US",
           "rel": [
-            "live",
+            "summary",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game?gameId=401772917",
+          "href": "https://www.espn.com/nfl/game/_/gameId/401772917/eagles-bills",
           "text": "Gamecast",
           "shortText": "Gamecast",
           "isExternal": false,
@@ -1122,6 +1212,18 @@
         {
           "language": "en-US",
           "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401772917",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -1131,37 +1233,33 @@
           "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "12",
-        "temperature": 44,
-        "highTemperature": 44,
-        "conditionId": "Light rain",
-        "link": {
+        },
+        {
           "language": "en-US",
           "rel": [
-            "14127"
+            "recap",
+            "desktop",
+            "event"
           ],
-          "href": "http://www.accuweather.com/en/us/highmark-stadium-ny/14127/current-weather/43037_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
+          "href": "https://www.espn.com/nfl/recap?gameId=401772917",
+          "text": "Recap",
+          "shortText": "Recap",
+          "isExternal": false,
           "isPremium": false
         }
-      },
+      ],
       "status": {
-        "clock": 384,
-        "displayClock": "6:24",
-        "period": 3,
+        "clock": 0,
+        "displayClock": "0:00",
+        "period": 4,
         "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "6:24 - 3rd Quarter",
-          "shortDetail": "6:24 - 3rd"
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final",
+          "shortDetail": "Final"
         }
       }
     },
@@ -1193,7 +1291,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "4738",
             "fullName": "Levi's Stadium",
@@ -1275,24 +1373,6 @@
               },
               "score": "0",
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "11-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "4-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "7-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -1413,6 +1493,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "11-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "4-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "7-2"
                 }
               ]
             },
@@ -1783,7 +1881,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $345",
-              "numberAvailable": 393,
+              "numberAvailable": 218,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-levis-stadium-3-8-2026--sports-nfl-football/production/5470915?wsUser=717"
@@ -1884,7 +1982,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-185",
+                    "odds": "-198",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1916,7 +2014,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+154",
+                    "odds": "+164",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1953,7 +2051,7 @@
                 "home": {
                   "close": {
                     "line": "-3.5",
-                    "odds": "-110",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1987,7 +2085,7 @@
                 "away": {
                   "close": {
                     "line": "+3.5",
-                    "odds": "-110",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2147,10 +2245,10 @@
         }
       ],
       "weather": {
-        "displayValue": "Mostly clear",
-        "temperature": 53,
-        "highTemperature": 53,
-        "conditionId": "34",
+        "displayValue": "Clear",
+        "temperature": 57,
+        "highTemperature": 57,
+        "conditionId": "33",
         "link": {
           "language": "en-US",
           "rel": [
@@ -2288,6 +2386,24 @@
               },
               "score": "0",
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "6-9"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-4"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "4-5"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -2409,24 +2525,6 @@
                     }
                   ]
                 }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "6-9"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-4"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "4-5"
-                }
               ]
             },
             {
@@ -2499,6 +2597,24 @@
               },
               "score": "0",
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "11-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "6-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "5-3"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -2619,24 +2735,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "11-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "6-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "5-3"
                 }
               ]
             }
@@ -2794,8 +2892,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $66",
-              "numberAvailable": 1871,
+              "summary": "Tickets as low as $60",
+              "numberAvailable": 1893,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-mercedes-benz-stadium-3-4-2026--sports-nfl-football/production/5470590?wsUser=717"
@@ -3532,26 +3630,26 @@
         "record": "6-10"
       },
       "Las Vegas Raiders": {
-        "offensiveRating": 14.466666666666667,
-        "defensiveRating": 25.733333333333334,
-        "rushYPG": 75.73333333333333,
-        "rushDefYPG": 116.46666666666667,
-        "passYPG": 173.13333333333333,
-        "passDefYPG": 209.66666666666666,
-        "thirdDownPct": 35.32608695652174,
+        "offensiveRating": 14.1875,
+        "defensiveRating": 26.25,
+        "rushYPG": 74.9375,
+        "rushDefYPG": 118.875,
+        "passYPG": 172.8125,
+        "passDefYPG": 208.3125,
+        "thirdDownPct": 34.51776649746193,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -35,
-        "gamesPlayed": 15,
+        "turnoverDiff": -39,
+        "gamesPlayed": 16,
         "wins": 2,
-        "losses": 13,
+        "losses": 14,
         "ties": 0,
-        "pointsScored": 217,
-        "pointsAllowed": 386,
-        "ppg": "14.5",
-        "papg": "25.7",
-        "record": "2-13"
+        "pointsScored": 227,
+        "pointsAllowed": 420,
+        "ppg": "14.2",
+        "papg": "26.3",
+        "record": "2-14"
       },
       "Los Angeles Chargers": {
         "offensiveRating": 22.8125,
@@ -3686,26 +3784,26 @@
         "record": "6-10"
       },
       "New York Giants": {
-        "offensiveRating": 20.866666666666667,
-        "defensiveRating": 27.466666666666665,
-        "rushYPG": 125.26666666666667,
-        "rushDefYPG": 150.93333333333334,
-        "passYPG": 204.46666666666667,
-        "passDefYPG": 222.06666666666666,
-        "thirdDownPct": 38.578680203045685,
+        "offensiveRating": 21.6875,
+        "defensiveRating": 26.375,
+        "rushYPG": 127.125,
+        "rushDefYPG": 145.4375,
+        "passYPG": 203.4375,
+        "passDefYPG": 218.6875,
+        "thirdDownPct": 39.04761904761905,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
         "turnoverDiff": -26,
-        "gamesPlayed": 15,
-        "wins": 2,
+        "gamesPlayed": 16,
+        "wins": 3,
         "losses": 13,
         "ties": 0,
-        "pointsScored": 313,
-        "pointsAllowed": 412,
-        "ppg": "20.9",
-        "papg": "27.5",
-        "record": "2-13"
+        "pointsScored": 347,
+        "pointsAllowed": 422,
+        "ppg": "21.7",
+        "papg": "26.4",
+        "record": "3-13"
       },
       "New York Jets": {
         "offensiveRating": 18.25,
@@ -3924,7 +4022,7 @@
       "Cincinnati Bengals": {
         "rushOffRank": 31,
         "passOffRank": 6,
-        "rushDefRank": 31,
+        "rushDefRank": 32,
         "passDefRank": 27
       },
       "Cleveland Browns": {
@@ -3948,13 +4046,13 @@
       "Detroit Lions": {
         "rushOffRank": 16,
         "passOffRank": 4,
-        "rushDefRank": 17,
+        "rushDefRank": 16,
         "passDefRank": 19
       },
       "Green Bay Packers": {
         "rushOffRank": 18,
         "passOffRank": 10,
-        "rushDefRank": 16,
+        "rushDefRank": 15,
         "passDefRank": 7
       },
       "Houston Texans": {
@@ -3984,7 +4082,7 @@
       "Las Vegas Raiders": {
         "rushOffRank": 32,
         "passOffRank": 27,
-        "rushDefRank": 15,
+        "rushDefRank": 18,
         "passDefRank": 15
       },
       "Los Angeles Chargers": {
@@ -3994,10 +4092,10 @@
         "passDefRank": 6
       },
       "Los Angeles Rams": {
-        "rushOffRank": 6,
+        "rushOffRank": 7,
         "passOffRank": 2,
         "rushDefRank": 11,
-        "passDefRank": 20
+        "passDefRank": 21
       },
       "Miami Dolphins": {
         "rushOffRank": 10,
@@ -4024,13 +4122,13 @@
         "passDefRank": 5
       },
       "New York Giants": {
-        "rushOffRank": 7,
+        "rushOffRank": 5,
         "passOffRank": 21,
-        "rushDefRank": 32,
-        "passDefRank": 21
+        "rushDefRank": 30,
+        "passDefRank": 20
       },
       "New York Jets": {
-        "rushOffRank": 5,
+        "rushOffRank": 6,
         "passOffRank": 32,
         "rushDefRank": 28,
         "passDefRank": 16
@@ -4068,13 +4166,13 @@
       "Tennessee Titans": {
         "rushOffRank": 28,
         "passOffRank": 30,
-        "rushDefRank": 18,
+        "rushDefRank": 17,
         "passDefRank": 23
       },
       "Washington Commanders": {
         "rushOffRank": 4,
         "passOffRank": 24,
-        "rushDefRank": 30,
+        "rushDefRank": 31,
         "passDefRank": 28
       }
     },
@@ -5151,8 +5249,8 @@
         "depthChartOrder": null
       },
       {
-        "longComment": "Ankle",
-        "status": "Questionable",
+        "longComment": "Sprain",
+        "status": "Out",
         "athlete": {
           "displayName": "George Kittle",
           "position": "TE"
@@ -5189,6 +5287,16 @@
         },
         "depthChartPosition": "DL",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Kevin Givens",
+          "position": "DT"
+        },
+        "depthChartPosition": "LDT",
+        "depthChartOrder": 3
       },
       {
         "longComment": "Surgery",
@@ -5231,6 +5339,26 @@
         "depthChartOrder": null
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Curtis Robinson",
+          "position": "LB"
+        },
+        "depthChartPosition": "MLB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Robert Beal",
+          "position": "LB"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 2
+      },
+      {
         "longComment": "Undisclosed",
         "status": "IR",
         "athlete": {
@@ -5251,14 +5379,14 @@
         "depthChartOrder": 10
       },
       {
-        "longComment": "Sprain",
-        "status": "Questionable",
+        "longComment": "Coach's Decision",
+        "status": "Out",
         "athlete": {
-          "displayName": "Ricky Pearsall",
-          "position": "WR"
+          "displayName": "Isaac Guerendo",
+          "position": "RB"
         },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 2
+        "depthChartPosition": "RB",
+        "depthChartOrder": 4
       },
       {
         "longComment": "Neck",
@@ -5289,6 +5417,16 @@
         },
         "depthChartPosition": "DL",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jordan Watkins",
+          "position": "WR"
+        },
+        "depthChartPosition": "SWR",
+        "depthChartOrder": 6
       },
       {
         "longComment": "Forearm",
@@ -5451,6 +5589,390 @@
         },
         "depthChartPosition": "OL",
         "depthChartOrder": null
+      }
+    ],
+    "Las Vegas Raiders": [
+      {
+        "longComment": "Ankle",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Geno Smith",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Phillip Dorsett",
+          "position": "WR"
+        },
+        "depthChartPosition": "LWR",
+        "depthChartOrder": 6
+      },
+      {
+        "longComment": "Ankle",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Raheem Mostert",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 4
+      },
+      {
+        "longComment": "Arm",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Adam Butler",
+          "position": "DT"
+        },
+        "depthChartPosition": "LDT",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Terrell Edmunds",
+          "position": "DB"
+        },
+        "depthChartPosition": "NB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Sprain",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Kolton Miller",
+          "position": "T"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Maxx Crosby",
+          "position": "DE"
+        },
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Back",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Jeremy Chinn",
+          "position": "DB"
+        },
+        "depthChartPosition": "DB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Ankle",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Jordan Meredith",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Illness",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Dylan Parham",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Aidan O'Connell",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brodric Martin",
+          "position": "DT"
+        },
+        "depthChartPosition": "LDT",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Ruptured",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Kyu Blu Kelly",
+          "position": "CB"
+        },
+        "depthChartPosition": "DB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Brock Bowers",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 5
+      },
+      {
+        "longComment": "Ankle",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Jackson Powers-Johnson",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Foot",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Brennan Jackson",
+          "position": "DE"
+        },
+        "depthChartPosition": "LB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Chris Collier",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 5
+      },
+      {
+        "longComment": "Back",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jack Bech",
+          "position": "WR"
+        },
+        "depthChartPosition": "LWR",
+        "depthChartOrder": 10
+      }
+    ],
+    "Chicago Bears": [
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Case Keenum",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Illness",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Olamide Zaccheaus",
+          "position": "WR"
+        },
+        "depthChartPosition": "LWR",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Thomas Ives",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Surgery",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Dayo Odeyingbo",
+          "position": "DE"
+        },
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Illness",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Nick McCloud",
+          "position": "CB"
+        },
+        "depthChartPosition": "LCB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Nikola Kalinic",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 5
+      },
+      {
+        "longComment": "Groin",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Kyler Gordon",
+          "position": "DB"
+        },
+        "depthChartPosition": "NB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Braxton Jones",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Dallis Flowers",
+          "position": "CB"
+        },
+        "depthChartPosition": "RCB",
+        "depthChartOrder": 4
+      },
+      {
+        "longComment": "Thumb",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Roschon Johnson",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 5
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Ricky Stromberg",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Terell Smith",
+          "position": "DB"
+        },
+        "depthChartPosition": "DB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Fracture",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Rome Odunze",
+          "position": "WR"
+        },
+        "depthChartPosition": "LWR",
+        "depthChartOrder": 7
+      },
+      {
+        "longComment": "Elbow",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Kiran Amegadjie",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Qadir Ismail",
+          "position": "WR"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 6
+      },
+      {
+        "longComment": "Knee - ACL",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Shemar Turner",
+          "position": "DE"
+        },
+        "depthChartPosition": "DL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Ruben Hyppolite",
+          "position": "LB"
+        },
+        "depthChartPosition": "ROLB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "PUP",
+        "athlete": {
+          "displayName": "Zah Frazier",
+          "position": "CB"
+        },
+        "depthChartPosition": "RCB",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Foot",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Luke Newman",
+          "position": "OG"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Deion Hankins",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 6
       }
     ],
     "Los Angeles Rams": [
@@ -5825,178 +6347,6 @@
         },
         "depthChartPosition": "NB",
         "depthChartOrder": 2
-      }
-    ],
-    "Las Vegas Raiders": [
-      {
-        "longComment": "Coach's Decision",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Phillip Dorsett",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 6
-      },
-      {
-        "longComment": "Ankle",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Raheem Mostert",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 4
-      },
-      {
-        "longComment": "Arm",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Adam Butler",
-          "position": "DT"
-        },
-        "depthChartPosition": "LDT",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Coach's Decision",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Terrell Edmunds",
-          "position": "DB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Sprain",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Kolton Miller",
-          "position": "T"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Maxx Crosby",
-          "position": "DE"
-        },
-        "depthChartPosition": "DL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Back",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Jeremy Chinn",
-          "position": "DB"
-        },
-        "depthChartPosition": "DB",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Ankle",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Jordan Meredith",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Dylan Parham",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Coach's Decision",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Aidan O'Connell",
-          "position": "QB"
-        },
-        "depthChartPosition": "QB",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Coach's Decision",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brodric Martin",
-          "position": "DT"
-        },
-        "depthChartPosition": "LDT",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Ruptured",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Kyu Blu Kelly",
-          "position": "CB"
-        },
-        "depthChartPosition": "DB",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Brock Bowers",
-          "position": "TE"
-        },
-        "depthChartPosition": "TE",
-        "depthChartOrder": 5
-      },
-      {
-        "longComment": "Ankle",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Jackson Powers-Johnson",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Foot",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Brennan Jackson",
-          "position": "DE"
-        },
-        "depthChartPosition": "LB",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Coach's Decision",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Chris Collier",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 5
-      },
-      {
-        "longComment": "Back",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jack Bech",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 10
       }
     ],
     "Los Angeles Chargers": [
@@ -10255,238 +10605,6 @@
         },
         "depthChartPosition": "NB",
         "depthChartOrder": 2
-      }
-    ],
-    "Chicago Bears": [
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "DJ Moore",
-          "position": "WR"
-        },
-        "depthChartPosition": "RWR",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Knee",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "C.J. Gardner-Johnson",
-          "position": "DB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Lower Body",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "T.J. Edwards",
-          "position": "LB"
-        },
-        "depthChartPosition": "LOLB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Olamide Zaccheaus",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Thomas Ives",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Surgery",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Dayo Odeyingbo",
-          "position": "DE"
-        },
-        "depthChartPosition": "DL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Hamstring",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Nahshon Wright",
-          "position": "CB"
-        },
-        "depthChartPosition": "RCB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Illness",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Nick McCloud",
-          "position": "CB"
-        },
-        "depthChartPosition": "LCB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Nikola Kalinic",
-          "position": "TE"
-        },
-        "depthChartPosition": "TE",
-        "depthChartOrder": 5
-      },
-      {
-        "longComment": "Groin",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Kyler Gordon",
-          "position": "DB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Braxton Jones",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Josh Blackwell",
-          "position": "CB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Thumb",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Roschon Johnson",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 5
-      },
-      {
-        "longComment": "Illness",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Darnell Wright",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Ricky Stromberg",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Terell Smith",
-          "position": "DB"
-        },
-        "depthChartPosition": "DB",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Fracture",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Rome Odunze",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 7
-      },
-      {
-        "longComment": "Elbow",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Kiran Amegadjie",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Qadir Ismail",
-          "position": "WR"
-        },
-        "depthChartPosition": "TE",
-        "depthChartOrder": 6
-      },
-      {
-        "longComment": "Knee - ACL",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Shemar Turner",
-          "position": "DE"
-        },
-        "depthChartPosition": "DL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "PUP",
-        "athlete": {
-          "displayName": "Zah Frazier",
-          "position": "CB"
-        },
-        "depthChartPosition": "RCB",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Foot",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Luke Newman",
-          "position": "OG"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Deion Hankins",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 6
       }
     ],
     "Green Bay Packers": [
