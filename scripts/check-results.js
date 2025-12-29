@@ -36,8 +36,8 @@ async function checkResults() {
         const resultsPath = path.join(__dirname, '..', 'results.json');
         let results = {
             lastUpdated: new Date().toISOString(),
-            version: 'v0.05',
-            method: 'elo-pure',
+            version: 'v0.06',
+            method: 'index.html-algorithm',
             kFactor: 20,
             weeks: 17,
             correct: 0,
@@ -48,9 +48,9 @@ async function checkResults() {
 
         if (fs.existsSync(resultsPath)) {
             results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
-            // Preserve metadata structure
-            if (!results.version) results.version = 'v0.05';
-            if (!results.method) results.method = 'elo-pure';
+            // Update metadata to current version
+            results.version = 'v0.06';
+            results.method = 'index.html-algorithm';
             if (!results.kFactor) results.kFactor = 20;
             if (!results.games) results.games = [];
         }
@@ -133,7 +133,7 @@ async function checkResults() {
                     awayScore: prediction.awayScore,
                     winner: prediction.winner,
                     confidence: confidence,
-                    method: 'elo',
+                    method: 'index.html-algorithm',
                     actualHomeScore: homeScore,
                     actualAwayScore: awayScore,
                     actualWinner: actualWinner,
