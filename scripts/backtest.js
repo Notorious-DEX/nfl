@@ -304,26 +304,31 @@ function loadCachedData() {
             console.warn('⚠️  cached-data.json not found');
         }
 
-        // Load and merge manual injury overrides (CRITICAL - same as index.html)
-        const manualInjuriesPath = path.join(__dirname, '..', 'manual-injuries.json');
-        if (fs.existsSync(manualInjuriesPath)) {
-            const manualInjuries = JSON.parse(fs.readFileSync(manualInjuriesPath, 'utf8'));
-
-            // Merge manual injuries with cached injuries
-            for (const team in manualInjuries) {
-                if (!injuries[team]) {
-                    injuries[team] = [];
-                }
-                injuries[team] = [...injuries[team], ...manualInjuries[team]];
-            }
-
-            console.log(`✅ Merged manual injury overrides\n`);
-        } else {
-            console.log('⚠️  No manual injury overrides found\n');
-        }
+        // Manual injuries will be loaded per-week in the main loop
+        console.log(`✅ Cached injuries loaded (manual injuries applied per week)\n`);
     } catch (error) {
         console.error('Error loading cached data:', error);
     }
+}
+
+function loadManualInjuriesForWeek(week) {
+    // Load manual injuries and filter by week
+    const manualInjuriesPath = path.join(__dirname, '..', 'manual-injuries.json');
+    if (!fs.existsSync(manualInjuriesPath)) {
+        return {};
+    }
+
+    const manualInjuries = JSON.parse(fs.readFileSync(manualInjuriesPath, 'utf8'));
+    const weekSpecificInjuries = {};
+
+    for (const team in manualInjuries) {
+        weekSpecificInjuries[team] = manualInjuries[team].filter(injury => {
+            // Only include injuries that started in or before this week
+            return !injury.startWeek || injury.startWeek <= week;
+        });
+    }
+
+    return weekSpecificInjuries;
 }
 
 async function main() {
@@ -375,6 +380,16 @@ async function main() {
             }
             console.log('📊 Using index.html algorithm predictions');
 
+            // Load manual injuries for this specific week and merge with cached injuries
+            const manualInjuriesThisWeek = loadManualInjuriesForWeek(week);
+            const injuriesForWeek = { ...injuries };
+            for (const team in manualInjuriesThisWeek) {
+                if (!injuriesForWeek[team]) {
+                    injuriesForWeek[team] = [];
+                }
+                injuriesForWeek[team] = [...injuriesForWeek[team], ...manualInjuriesThisWeek[team]];
+            }
+
             // Fetch this week's games
             const games = await fetchWeekGames(week);
             console.log(`\n🎯 Generating predictions for ${games.length} games...`);
@@ -384,8 +399,8 @@ async function main() {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
 
-                // Use shared prediction engine (same as index.html)
-                const prediction = generatePredictionShared(game, null, leagueStats, injuries, qualityWins, eloRatings);
+                // Use shared prediction engine (same as index.html) with week-specific injuries
+                const prediction = generatePredictionShared(game, null, leagueStats, injuriesForWeek, qualityWins, eloRatings);
                 if (!prediction) continue;
 
                 // Get actual result
