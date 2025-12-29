@@ -299,9 +299,27 @@ function loadCachedData() {
             const cachedData = JSON.parse(fs.readFileSync(cachedDataPath, 'utf8'));
             injuries = cachedData.injuries || {};
             qualityWins = cachedData.qualityWins || {};
-            console.log(`✅ Loaded cached data: ${Object.keys(injuries).length} teams with injuries, ${Object.keys(qualityWins).length} teams with quality wins\n`);
+            console.log(`✅ Loaded cached data: ${Object.keys(injuries).length} teams with injuries, ${Object.keys(qualityWins).length} teams with quality wins`);
         } else {
-            console.warn('⚠️  cached-data.json not found\n');
+            console.warn('⚠️  cached-data.json not found');
+        }
+
+        // Load and merge manual injury overrides (CRITICAL - same as index.html)
+        const manualInjuriesPath = path.join(__dirname, '..', 'manual-injuries.json');
+        if (fs.existsSync(manualInjuriesPath)) {
+            const manualInjuries = JSON.parse(fs.readFileSync(manualInjuriesPath, 'utf8'));
+
+            // Merge manual injuries with cached injuries
+            for (const team in manualInjuries) {
+                if (!injuries[team]) {
+                    injuries[team] = [];
+                }
+                injuries[team] = [...injuries[team], ...manualInjuries[team]];
+            }
+
+            console.log(`✅ Merged manual injury overrides\n`);
+        } else {
+            console.log('⚠️  No manual injury overrides found\n');
         }
     } catch (error) {
         console.error('Error loading cached data:', error);

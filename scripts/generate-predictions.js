@@ -407,6 +407,24 @@ async function loadTeamStats() {
         } else {
             console.warn('⚠️ cached-data.json not found');
         }
+
+        // Load and merge manual injury overrides (CRITICAL - same as index.html)
+        const manualInjuriesPath = path.join(__dirname, '..', 'manual-injuries.json');
+        if (fs.existsSync(manualInjuriesPath)) {
+            const manualInjuries = JSON.parse(fs.readFileSync(manualInjuriesPath, 'utf8'));
+
+            // Merge manual injuries with cached injuries
+            for (const team in manualInjuries) {
+                if (!injuries[team]) {
+                    injuries[team] = [];
+                }
+                injuries[team] = [...injuries[team], ...manualInjuries[team]];
+            }
+
+            console.log(`✅ Merged manual injury overrides`);
+        } else {
+            console.log('⚠️  No manual injury overrides found');
+        }
     } catch (error) {
         console.error('Error loading team stats:', error);
     }
