@@ -2234,16 +2234,54 @@
             const weekResultsList = document.getElementById('weekresults-list');
             const weekResultsTitle = document.getElementById('weekresults-title');
 
-            // Filter for completed games only
-            const completedGames = games.filter(game => {
-                const competition = game.competitions[0];
-                return competition.status.type.completed;
-            });
+            // Check if we should display weekly results
+            // Show from Thursday game end through Monday 11:59pm
+            // Hide on Tuesday and Wednesday (until next Thursday game)
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
 
-            if (completedGames.length === 0) {
+            // Hide weekly results on Tuesday and Wednesday, and after Monday 11:59pm
+            const shouldHideResults = dayOfWeek === 2 || dayOfWeek === 3 ||
+                                     (dayOfWeek === 1 && (currentHour > 23 || (currentHour === 23 && currentMinute >= 59)));
+
+            if (shouldHideResults) {
                 weekResultsContainer.style.display = 'none';
                 return;
             }
+
+            // Fetch ALL completed games from the current week to show in results
+            // (not just the recent ones passed from loadGames)
+            let allCompletedGames = [];
+
+            try {
+                // Get current week scoreboard to find all completed games
+                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                const data = await response.json();
+
+                // Filter for completed games only
+                allCompletedGames = (data.events || []).filter(game => {
+                    const competition = game.competitions[0];
+                    return competition.status.type.completed;
+                });
+
+                console.log(`📊 Found ${allCompletedGames.length} completed games for weekly results`);
+            } catch (error) {
+                console.error('Error fetching completed games:', error);
+                // Fall back to using the games passed in
+                allCompletedGames = games.filter(game => {
+                    const competition = game.competitions[0];
+                    return competition.status.type.completed;
+                });
+            }
+
+            if (allCompletedGames.length === 0) {
+                weekResultsContainer.style.display = 'none';
+                return;
+            }
+
+            const completedGames = allCompletedGames;
 
             let correct = 0;
             let total = 0;
