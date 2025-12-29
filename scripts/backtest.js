@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const elo = require('./elo');
+const { generatePrediction: generatePredictionShared } = require('./prediction-engine');
 
 const TEAM_DATA = {
     "Arizona Cardinals": { lat: 33.5276, lon: -112.2626 },
@@ -58,6 +59,8 @@ let leagueStats = {
 
 let eloRatings = null; // Will be loaded from historical-elo.json
 let weeklyEloSnapshots = {}; // Track Elo ratings at the end of each week
+let injuries = {}; // Loaded from cached-data.json
+let qualityWins = {}; // Loaded from cached-data.json
 
 async function fetchLeagueStats(upToWeek, usePreseason = false) {
     console.log(`📊 Calculating team stats ${usePreseason ? 'from preseason' : `through week ${upToWeek - 1}`}...`);
@@ -287,111 +290,30 @@ async function fetchWeekGames(week) {
     return data.events || [];
 }
 
-function generatePrediction(game) {
-    const competition = game.competitions[0];
-    const homeComp = competition.competitors.find(c => c.homeAway === 'home');
-    const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+// Old prediction functions removed - now using shared prediction-engine.js
 
-    const homeTeam = homeComp.team.displayName;
-    const awayTeam = awayComp.team.displayName;
-
-    const homeStats = leagueStats.teams[homeTeam];
-    const awayStats = leagueStats.teams[awayTeam];
-    const homeRankings = leagueStats.rankings[homeTeam];
-    const awayRankings = leagueStats.rankings[awayTeam];
-
-    if (!homeStats || !awayStats || !homeRankings || !awayRankings) {
-        return null;
+function loadCachedData() {
+    try {
+        const cachedDataPath = path.join(__dirname, '..', 'cached-data.json');
+        if (fs.existsSync(cachedDataPath)) {
+            const cachedData = JSON.parse(fs.readFileSync(cachedDataPath, 'utf8'));
+            injuries = cachedData.injuries || {};
+            qualityWins = cachedData.qualityWins || {};
+            console.log(`✅ Loaded cached data: ${Object.keys(injuries).length} teams with injuries, ${Object.keys(qualityWins).length} teams with quality wins\n`);
+        } else {
+            console.warn('⚠️  cached-data.json not found\n');
+        }
+    } catch (error) {
+        console.error('Error loading cached data:', error);
     }
-
-    const baseAwayScore = (awayStats.offensiveRating + homeStats.defensiveRating) / 2;
-    const baseHomeScore = (homeStats.offensiveRating + awayStats.defensiveRating) / 2;
-
-    let ourHomeScore = baseHomeScore + 2.5;
-    let ourAwayScore = baseAwayScore;
-
-    // Apply matchup adjustments (simplified for backtesting)
-    if (leagueStats.hasData) {
-        const homeRushGap = awayRankings.rushDefRank - homeRankings.rushOffRank;
-        if (Math.abs(homeRushGap) > 5) ourHomeScore += homeRushGap * 0.15;
-
-        const homePassGap = awayRankings.passDefRank - homeRankings.passOffRank;
-        if (Math.abs(homePassGap) > 5) ourHomeScore += homePassGap * 0.15;
-
-        const awayRushGap = homeRankings.rushDefRank - awayRankings.rushOffRank;
-        if (Math.abs(awayRushGap) > 5) ourAwayScore += awayRushGap * 0.15;
-
-        const awayPassGap = homeRankings.passDefRank - awayRankings.passOffRank;
-        if (Math.abs(awayPassGap) > 5) ourAwayScore += awayPassGap * 0.15;
-    }
-
-    const homeScore = Math.max(10, Math.round(ourHomeScore));
-    const awayScore = Math.max(10, Math.round(ourAwayScore));
-
-    return {
-        gameId: game.id,
-        week: competition.week?.number,
-        date: game.date,
-        homeTeam,
-        awayTeam,
-        homeScore: homeScore === awayScore ? homeScore + 1 : homeScore,
-        awayScore,
-        winner: (homeScore === awayScore ? homeScore + 1 : homeScore) > awayScore ? homeTeam : awayTeam
-    };
-}
-
-function generateEloPrediction(game) {
-    const competition = game.competitions[0];
-    const homeComp = competition.competitors.find(c => c.homeAway === 'home');
-    const awayComp = competition.competitors.find(c => c.homeAway === 'away');
-
-    const homeTeam = homeComp.team.displayName;
-    const awayTeam = awayComp.team.displayName;
-
-    if (!eloRatings || !eloRatings[homeTeam] || !eloRatings[awayTeam]) {
-        return null;
-    }
-
-    const homeElo = eloRatings[homeTeam];
-    const awayElo = eloRatings[awayTeam];
-
-    // Calculate expected point spread from Elo
-    const expectedSpread = elo.eloToSpread(homeElo, awayElo);
-
-    // Calculate confidence based on Elo rating difference
-    // Larger rating difference = higher confidence
-    const eloDiff = Math.abs(homeElo - awayElo);
-    let confidence;
-    if (eloDiff >= 150) {
-        confidence = 'high';
-    } else if (eloDiff >= 75) {
-        confidence = 'medium';
-    } else {
-        confidence = 'low';
-    }
-
-    // Convert spread to scores (league average ~22 points per team)
-    const leagueAvgScore = 22;
-    const homeScore = Math.max(10, Math.round(leagueAvgScore + expectedSpread / 2));
-    const awayScore = Math.max(10, Math.round(leagueAvgScore - expectedSpread / 2));
-
-    return {
-        gameId: game.id,
-        week: competition.week?.number,
-        date: game.date,
-        homeTeam,
-        awayTeam,
-        homeScore: homeScore === awayScore ? homeScore + 1 : homeScore,
-        awayScore,
-        winner: (homeScore === awayScore ? homeScore + 1 : homeScore) > awayScore ? homeTeam : awayTeam,
-        confidence,
-        method: 'elo'
-    };
 }
 
 async function main() {
     try {
         console.log('🏈 NFL Prediction Backtesting Starting...\n');
+
+        // Load cached data (injuries, quality wins)
+        loadCachedData();
 
         // Load historical Elo ratings for Week 1 predictions
         const eloPath = path.join(__dirname, '..', 'historical-elo.json');
@@ -438,8 +360,8 @@ async function main() {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
 
-                // Use Elo for all predictions
-                const prediction = generateEloPrediction(game);
+                // Use shared prediction engine (same as index.html)
+                const prediction = generatePredictionShared(game, null, leagueStats, injuries, qualityWins, eloRatings);
                 if (!prediction) continue;
 
                 // Get actual result
