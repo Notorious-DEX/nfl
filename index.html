@@ -2251,6 +2251,17 @@
                 return;
             }
 
+            // Load predictions from results.json to ensure consistency
+            let savedResults = null;
+            try {
+                const resultsResponse = await fetch('results.json');
+                if (resultsResponse.ok) {
+                    savedResults = await resultsResponse.json();
+                }
+            } catch (error) {
+                console.warn('Could not load results.json:', error);
+            }
+
             // Fetch ALL completed games from the current week to show in results
             // (not just the recent ones passed from loadGames)
             let allCompletedGames = [];
@@ -2297,15 +2308,33 @@
                 const actualAwayScore = parseInt(awayComp.score) || 0;
                 const actualWinner = actualHomeScore > actualAwayScore ? homeTeam : awayTeam;
 
-                // Get our prediction from localStorage or generate one
-                const savedPrediction = predictions[game.id];
+                // Get prediction from results.json (same as prediction history)
                 let prediction = null;
                 let predictionFailed = false;
 
-                if (savedPrediction && savedPrediction.prediction) {
-                    prediction = savedPrediction.prediction;
-                } else {
-                    // Generate prediction for completed games we didn't predict before
+                if (savedResults && savedResults.games) {
+                    const savedGame = savedResults.games.find(g => g.gameId === game.id);
+                    if (savedGame) {
+                        prediction = {
+                            homeTeam: savedGame.homeTeam,
+                            awayTeam: savedGame.awayTeam,
+                            homeScore: savedGame.homeScore,
+                            awayScore: savedGame.awayScore,
+                            winner: savedGame.winner
+                        };
+                    }
+                }
+
+                // Fallback: check localStorage
+                if (!prediction) {
+                    const savedPrediction = predictions[game.id];
+                    if (savedPrediction && savedPrediction.prediction) {
+                        prediction = savedPrediction.prediction;
+                    }
+                }
+
+                // Last resort: generate prediction (but this will differ from history)
+                if (!prediction) {
                     try {
                         prediction = generatePrediction(game, null, null);
                         if (prediction.error) {
