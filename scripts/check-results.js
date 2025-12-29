@@ -74,70 +74,83 @@ async function checkResults() {
                 continue;
             }
 
-            // Fetch game result
+            // Fetch game result using scoreboard API (same as backtest.js)
             try {
                 const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${prediction.gameId}`);
                 const data = await response.json();
 
-                // Get week number from the game data
-                const weekNumber = data.header?.week || data.boxscore?.week || null;
+                // Get week number and game data
+                const weekNumber = data.header?.week || null;
+                const gameData = data.header?.competitions?.[0];
 
-                const competition = data.boxscore?.teams;
-                if (competition && competition.length === 2) {
-                    const homeTeam = competition.find(t => t.homeAway === 'home');
-                    const awayTeam = competition.find(t => t.homeAway === 'away');
-
-                    const homeScore = parseInt(homeTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
-                    const awayScore = parseInt(awayTeam.statistics.find(s => s.name === 'points')?.displayValue || 0);
-
-                    // Only count if game is complete with valid scores
-                    if (homeScore > 0 || awayScore > 0) {
-                        const actualWinner = homeScore > awayScore ? homeTeam.team.displayName : awayTeam.team.displayName;
-                        const predictedWinner = prediction.winner;
-                        const correct = actualWinner === predictedWinner;
-
-                        results.total++;
-                        if (correct) {
-                            results.correct++;
-                        }
-
-                        // Calculate confidence based on score difference
-                        const scoreDiff = Math.abs(prediction.homeScore - prediction.awayScore);
-                        let confidence = 'medium';
-                        if (scoreDiff >= 7) confidence = 'high';
-                        else if (scoreDiff <= 3) confidence = 'low';
-
-                        // Match the exact format from backtest results
-                        results.games.push({
-                            gameId: prediction.gameId,
-                            week: weekNumber,
-                            date: prediction.date,
-                            homeTeam: prediction.homeTeam,
-                            awayTeam: prediction.awayTeam,
-                            homeScore: prediction.homeScore,
-                            awayScore: prediction.awayScore,
-                            winner: prediction.winner,
-                            confidence: confidence,
-                            method: 'elo',
-                            actualHomeScore: homeScore,
-                            actualAwayScore: awayScore,
-                            actualWinner: actualWinner,
-                            correct: correct
-                        });
-
-                        // Update weeks count if this is a new week
-                        if (weekNumber && (!results.weeks || weekNumber > results.weeks)) {
-                            results.weeks = weekNumber;
-                        }
-
-                        newChecks++;
-
-                        const symbol = correct ? '✅' : '❌';
-                        console.log(`  ${symbol} ${prediction.awayTeam} @ ${prediction.homeTeam} (Week ${weekNumber || '?'})`);
-                        console.log(`     Predicted: ${predictedWinner} (${prediction.awayScore}-${prediction.homeScore})`);
-                        console.log(`     Actual: ${actualWinner} (${awayScore}-${homeScore})\n`);
-                    }
+                if (!gameData) {
+                    console.warn(`  ⚠️  No game data for ${prediction.gameId}`);
+                    continue;
                 }
+
+                // Check if game is completed
+                if (!gameData.status?.type?.completed) {
+                    console.log(`  ⏳ Game ${prediction.gameId} not yet completed`);
+                    continue;
+                }
+
+                // Get scores from competitors (same structure as backtest.js uses)
+                const homeComp = gameData.competitors?.find(c => c.homeAway === 'home');
+                const awayComp = gameData.competitors?.find(c => c.homeAway === 'away');
+
+                if (!homeComp || !awayComp) {
+                    console.warn(`  ⚠️  Missing competitor data for ${prediction.gameId}`);
+                    continue;
+                }
+
+                const homeScore = parseInt(homeComp.score) || 0;
+                const awayScore = parseInt(awayComp.score) || 0;
+                const actualHomeTeam = homeComp.team?.displayName;
+                const actualAwayTeam = awayComp.team?.displayName;
+                const actualWinner = homeScore > awayScore ? actualHomeTeam : actualAwayTeam;
+                const predictedWinner = prediction.winner;
+                const correct = actualWinner === predictedWinner;
+
+                results.total++;
+                if (correct) {
+                    results.correct++;
+                }
+
+                // Calculate confidence based on score difference
+                const scoreDiff = Math.abs(prediction.homeScore - prediction.awayScore);
+                let confidence = 'medium';
+                if (scoreDiff >= 7) confidence = 'high';
+                else if (scoreDiff <= 3) confidence = 'low';
+
+                // Match the exact format from backtest results
+                results.games.push({
+                    gameId: prediction.gameId,
+                    week: weekNumber,
+                    date: prediction.date,
+                    homeTeam: prediction.homeTeam,
+                    awayTeam: prediction.awayTeam,
+                    homeScore: prediction.homeScore,
+                    awayScore: prediction.awayScore,
+                    winner: prediction.winner,
+                    confidence: confidence,
+                    method: 'elo',
+                    actualHomeScore: homeScore,
+                    actualAwayScore: awayScore,
+                    actualWinner: actualWinner,
+                    correct: correct
+                });
+
+                // Update weeks count if this is a new week
+                if (weekNumber && (!results.weeks || weekNumber > results.weeks)) {
+                    results.weeks = weekNumber;
+                }
+
+                newChecks++;
+
+                const symbol = correct ? '✅' : '❌';
+                console.log(`  ${symbol} ${prediction.awayTeam} @ ${prediction.homeTeam} (Week ${weekNumber || '?'})`);
+                console.log(`     Predicted: ${predictedWinner} (${prediction.awayScore}-${prediction.homeScore})`);
+                console.log(`     Actual: ${actualWinner} (${awayScore}-${homeScore})\n`);
             } catch (error) {
                 console.warn(`  ⚠️  Could not check result for game ${prediction.gameId}: ${error.message}`);
             }
