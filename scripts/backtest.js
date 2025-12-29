@@ -367,7 +367,13 @@ async function main() {
                 process.exit(1);
             }
 
-            console.log('📊 Using Elo-based predictions');
+            // Calculate league stats through previous weeks (or use preseason for week 1)
+            if (week === 1) {
+                await fetchLeagueStats(week, true); // Use preseason stats for week 1
+            } else {
+                await fetchLeagueStats(week, false); // Use weeks 1 through week-1
+            }
+            console.log('📊 Using index.html algorithm predictions');
 
             // Fetch this week's games
             const games = await fetchWeekGames(week);
