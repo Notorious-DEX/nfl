@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-05T02:35:23.090Z",
+  "lastUpdated": "2026-01-05T05:28:36.343Z",
   "currentWeek": 18,
   "games": [
     {
@@ -21,7 +21,7 @@
           "id": "401772960",
           "uid": "s:20~l:28~e:401772960~c:401772960",
           "date": "2026-01-05T01:20Z",
-          "attendance": 0,
+          "attendance": 65400,
           "type": {
             "id": "1",
             "abbreviation": "STD"
@@ -48,6 +48,7 @@
               "type": "team",
               "order": 0,
               "homeAway": "home",
+              "winner": true,
               "team": {
                 "id": "23",
                 "uid": "s:20~l:28~t:23",
@@ -110,7 +111,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png"
               },
-              "score": "3",
+              "score": "26",
               "linescores": [
                 {
                   "value": 0,
@@ -121,20 +122,30 @@
                   "value": 3,
                   "displayValue": "3",
                   "period": 2
+                },
+                {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 3
+                },
+                {
+                  "value": 13,
+                  "displayValue": "13",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "9-7"
+                  "summary": "10-7"
                 },
                 {
                   "name": "Home",
                   "type": "home",
-                  "summary": "5-3"
+                  "summary": "6-3"
                 },
                 {
                   "name": "Road",
@@ -149,6 +160,7 @@
               "type": "team",
               "order": 1,
               "homeAway": "away",
+              "winner": false,
               "team": {
                 "id": "33",
                 "uid": "s:20~l:28~t:33",
@@ -211,7 +223,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png"
               },
-              "score": "10",
+              "score": "24",
               "linescores": [
                 {
                   "value": 7,
@@ -222,15 +234,25 @@
                   "value": 3,
                   "displayValue": "3",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 14,
+                  "displayValue": "14",
+                  "period": 4
                 }
               ],
               "statistics": [],
               "records": [
                 {
                   "name": "overall",
-                  "abbreviation": "Any",
+                  "abbreviation": "Game",
                   "type": "total",
-                  "summary": "8-8"
+                  "summary": "8-9"
                 },
                 {
                   "name": "Home",
@@ -240,83 +262,24 @@
                 {
                   "name": "Road",
                   "type": "road",
-                  "summary": "5-2"
+                  "summary": "5-3"
                 }
               ]
             }
           ],
           "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4017729601668",
-              "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
-              },
-              "text": "Official Timeout at 03:09.",
-              "scoreValue": 0,
-              "team": {
-                "id": "23"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.2315,
-                "awayWinPercentage": 0.7685,
-                "secondsLeft": 0
-              },
-              "drive": {
-                "description": "5 plays, 23 yards, 2:30",
-                "start": {
-                  "yardLine": 65,
-                  "text": "BAL 35"
-                },
-                "end": {
-                  "yardLine": 42,
-                  "text": "PIT 42"
-                },
-                "timeElapsed": {
-                  "displayValue": "2:30"
-                },
-                "result": "PUNT"
-              },
-              "start": {
-                "yardLine": 9,
-                "team": {
-                  "id": "23"
-                }
-              },
-              "end": {
-                "yardLine": 9,
-                "team": {
-                  "id": "23"
-                }
-              },
-              "statYardage": 0
-            },
-            "down": 1,
-            "yardLine": 9,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at PIT 9",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "PIT 9",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "23"
-          },
           "status": {
-            "clock": 189,
-            "displayClock": "3:09",
-            "period": 2,
+            "clock": 0,
+            "displayClock": "0:00",
+            "period": 4,
             "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "3:09 - 2nd Quarter",
-              "shortDetail": "3:09 - 2nd"
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final",
+              "shortDetail": "Final"
             },
             "isTBDFlex": false
           },
@@ -337,13 +300,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "4/6, 59 YDS, 1 TD",
-                  "value": 59,
+                  "displayValue": "31/47, 294 YDS, 1 TD",
+                  "value": 294,
                   "athlete": {
-                    "id": "3916387",
-                    "fullName": "Lamar Jackson",
-                    "displayName": "Lamar Jackson",
-                    "shortName": "L. Jackson",
+                    "id": "8439",
+                    "fullName": "Aaron Rodgers",
+                    "displayName": "Aaron Rodgers",
+                    "shortName": "A. Rodgers",
                     "links": [
                       {
                         "rel": [
@@ -351,21 +314,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3916387/lamar-jackson"
+                        "href": "https://www.espn.com/nfl/player/_/id/8439/aaron-rodgers"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3916387.png",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/8439.png",
                     "jersey": "8",
                     "position": {
                       "abbreviation": "QB"
                     },
                     "team": {
-                      "id": "33"
+                      "id": "23"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "33"
+                    "id": "23"
                   }
                 }
               ]
@@ -377,8 +340,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "15 CAR, 112 YDS",
-                  "value": 112,
+                  "displayValue": "20 CAR, 126 YDS",
+                  "value": 126,
                   "athlete": {
                     "id": "3043078",
                     "fullName": "Derrick Henry",
@@ -417,13 +380,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "1 REC, 38 YDS, 1 TD",
-                  "value": 38,
+                  "displayValue": "4 REC, 138 YDS, 2 TD",
+                  "value": 138,
                   "athlete": {
-                    "id": "4696882",
-                    "fullName": "Devontez Walker",
-                    "displayName": "Devontez Walker",
-                    "shortName": "D. Walker",
+                    "id": "4429615",
+                    "fullName": "Zay Flowers",
+                    "displayName": "Zay Flowers",
+                    "shortName": "Z. Flowers",
                     "links": [
                       {
                         "rel": [
@@ -431,11 +394,11 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4696882/devontez-walker"
+                        "href": "https://www.espn.com/nfl/player/_/id/4429615/zay-flowers"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4696882.png",
-                    "jersey": "81",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429615.png",
+                    "jersey": "4",
                     "position": {
                       "abbreviation": "WR"
                     },
@@ -490,18 +453,234 @@
               "region": "us"
             }
           ],
-          "highlights": []
+          "highlights": [
+            {
+              "id": 47509768,
+              "cerebroId": "695b43e5ecde0442814244a4",
+              "source": "espn",
+              "headline": "Steelers survive against Ravens to win AFC North",
+              "description": "The Ravens miss a field goal attempt as time expires to give the Steelers a 26-24 win and the AFC North title.",
+              "lastModified": "2026-01-05T04:56:17Z",
+              "originalPublishDate": "2026-01-05T04:53:34Z",
+              "duration": 73,
+              "timeRestrictions": {
+                "embargoDate": "2026-01-05T04:53:34Z",
+                "expirationDate": "2026-01-07T04:53:34Z"
+              },
+              "deviceRestrictions": {
+                "type": "whitelist",
+                "devices": [
+                  "desktop",
+                  "ipad",
+                  "settop",
+                  "handset",
+                  "tablet"
+                ]
+              },
+              "thumbnail": "https://a.espncdn.com/media/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.jpg",
+              "links": {
+                "web": {
+                  "href": "https://www.espn.com/video/clip?id=47509768",
+                  "self": {
+                    "href": "https://www.espn.com/video/clip?id=47509768"
+                  },
+                  "seo": {
+                    "href": "https://www.espn.com/video/clip/_/id/47509768"
+                  }
+                },
+                "mobile": {
+                  "source": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.mp4"
+                  },
+                  "alert": {
+                    "href": "https://m.espn.com/general/video/videoAlert?vid=47509768"
+                  },
+                  "streaming": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47509768"
+                  },
+                  "progressiveDownload": {
+                    "href": "https://watch.auth.api.espn.com/video/auth/brightcove/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47509768"
+                  }
+                },
+                "api": {
+                  "self": {
+                    "href": "https://content.core.api.espn.com/v1/video/clips/47509768"
+                  },
+                  "artwork": {
+                    "href": "https://artwork.api.espn.com/artwork/collections/media/2ed1c068-a5e4-4e76-9908-4c443cd66b6f"
+                  }
+                },
+                "source": {
+                  "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_360p30_1464k.mp4",
+                  "mezzanine": {
+                    "href": "https://media.video-origin.espn.com/espnvideo/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.mp4"
+                  },
+                  "flash": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.smil"
+                  },
+                  "hds": {
+                    "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_rel.smil/manifest.f4m"
+                  },
+                  "HLS": {
+                    "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8",
+                    "HD": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                    },
+                    "cmaf": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8",
+                      "9x16": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                      }
+                    },
+                    "9x16": {
+                      "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                    },
+                    "shield": {
+                      "href": "https://watch.auth.api.espn.com/video/auth/media/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset"
+                    }
+                  },
+                  "HD": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_720p30_2896k.mp4"
+                  },
+                  "full": {
+                    "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_360p30_1464k.mp4"
+                  }
+                },
+                "sportscenter": {
+                  "href": "sportscenter://x-callback-url/showVideo?videoID=47509768&videoDSI=c7e68ddc00485"
+                }
+              },
+              "ad": {
+                "sport": "nfl",
+                "bundle": "sportscenter"
+              },
+              "tracking": {
+                "sportName": "football",
+                "leagueName": "NFL",
+                "coverageType": "Final Game Highlight",
+                "trackingName": "NFL_One-Play (Steelers survive against Ravens to win AFC North) 2026/01/05 ESHEET",
+                "trackingId": "dm_20260105_NFL_steelers_survive_against_ravens_to_win_afc_north",
+                "program": "espnnfl"
+              }
+            }
+          ],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— Aaron Rodgers threw a go-ahead touchdown pass to Calvin Austin III with 55 seconds left, and the Steelers beat the Ravens 26-24 on Sunday night when Baltimore's Tyler Loop missed a 44-yard field...",
+              "shortLinkText": "Rodgers and Steelers win AFC North, beating Ravens 26-24 after Loop misses kick at buzzer",
+              "video": [
+                {
+                  "id": 47509768,
+                  "source": "espn",
+                  "headline": "Steelers survive against Ravens to win AFC North",
+                  "thumbnail": "https://a.espncdn.com/media/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.jpg",
+                  "duration": 73,
+                  "tracking": {
+                    "sportName": "football",
+                    "leagueName": "NFL",
+                    "coverageType": "Final Game Highlight",
+                    "trackingName": "NFL_One-Play (Steelers survive against Ravens to win AFC North) 2026/01/05 ESHEET",
+                    "trackingId": "dm_20260105_NFL_steelers_survive_against_ravens_to_win_afc_north",
+                    "program": "espnnfl"
+                  },
+                  "deviceRestrictions": {
+                    "type": "whitelist",
+                    "devices": [
+                      "desktop",
+                      "ipad",
+                      "settop",
+                      "handset",
+                      "tablet"
+                    ]
+                  },
+                  "links": {
+                    "web": {
+                      "href": "https://www.espn.com/video/clip?id=47509768",
+                      "self": {
+                        "href": "https://www.espn.com/video/clip?id=47509768"
+                      },
+                      "seo": {
+                        "href": "https://www.espn.com/video/clip/_/id/47509768"
+                      }
+                    },
+                    "mobile": {
+                      "source": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.mp4"
+                      },
+                      "alert": {
+                        "href": "https://m.espn.com/general/video/videoAlert?vid=47509768"
+                      },
+                      "streaming": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47509768"
+                      },
+                      "progressiveDownload": {
+                        "href": "https://watch.auth.api.espn.com/video/auth/brightcove/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset?UMADPARAMreferer=https://www.espn.com/video/clip?id=47509768"
+                      }
+                    },
+                    "api": {
+                      "self": {
+                        "href": "https://content.core.api.espn.com/v1/video/clips/47509768"
+                      },
+                      "artwork": {
+                        "href": "https://artwork.api.espn.com/artwork/collections/media/2ed1c068-a5e4-4e76-9908-4c443cd66b6f"
+                      }
+                    },
+                    "source": {
+                      "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_360p30_1464k.mp4",
+                      "mezzanine": {
+                        "href": "https://media.video-origin.espn.com/espnvideo/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.mp4"
+                      },
+                      "flash": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa.smil"
+                      },
+                      "hds": {
+                        "href": "https://hds.video-cdn.espn.com/z/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_rel.smil/manifest.f4m"
+                      },
+                      "HLS": {
+                        "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8",
+                        "HD": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                        },
+                        "cmaf": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8",
+                          "9x16": {
+                            "href": "https://service-pkgespn.akamaized.net/opp/cmaf/espn/9x16/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                          }
+                        },
+                        "9x16": {
+                          "href": "https://service-pkgespn.akamaized.net/opp/hls/espn/9x16/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa/playlist.m3u8"
+                        },
+                        "shield": {
+                          "href": "https://watch.auth.api.espn.com/video/auth/media/2ed1c068-a5e4-4e76-9908-4c443cd66b6f/asset"
+                        }
+                      },
+                      "HD": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_720p30_2896k.mp4"
+                      },
+                      "full": {
+                        "href": "https://media.video-cdn.espn.com/motion/wsc/2026/0105/faf8c76b-3294-420b-9add-823134d911aa/faf8c76b-3294-420b-9add-823134d911aa_360p30_1464k.mp4"
+                      }
+                    },
+                    "sportscenter": {
+                      "href": "sportscenter://x-callback-url/showVideo?videoID=47509768&videoDSI=c7e68ddc00485"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "links": [
         {
           "language": "en-US",
           "rel": [
-            "live",
+            "summary",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game?gameId=401772960",
+          "href": "https://www.espn.com/nfl/game/_/gameId/401772960/ravens-steelers",
           "text": "Gamecast",
           "shortText": "Gamecast",
           "isExternal": false,
@@ -523,6 +702,18 @@
         {
           "language": "en-US",
           "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401772960",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -532,37 +723,33 @@
           "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "38",
-        "temperature": 23,
-        "highTemperature": 23,
-        "conditionId": "Mostly cloudy",
-        "link": {
+        },
+        {
           "language": "en-US",
           "rel": [
-            "15212"
+            "recap",
+            "desktop",
+            "event"
           ],
-          "href": "http://www.accuweather.com/en/us/acrisure-stadium-pa/15219/current-weather/53633_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
+          "href": "https://www.espn.com/nfl/recap?gameId=401772960",
+          "text": "Recap",
+          "shortText": "Recap",
+          "isExternal": false,
           "isPremium": false
         }
-      },
+      ],
       "status": {
-        "clock": 189,
-        "displayClock": "3:09",
-        "period": 2,
+        "clock": 0,
+        "displayClock": "0:00",
+        "period": 4,
         "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "3:09 - 2nd Quarter",
-          "shortDetail": "3:09 - 2nd"
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final",
+          "shortDetail": "Final"
         }
       }
     }
@@ -1573,16 +1760,6 @@
         "depthChartOrder": 1
       },
       {
-        "longComment": "Ankle",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Ty Johnson",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 2
-      },
-      {
         "longComment": "Hip",
         "status": "IR",
         "athlete": {
@@ -1654,7 +1831,7 @@
       },
       {
         "longComment": "Ankle",
-        "status": "Doubtful",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Maxwell Hairston",
           "position": "DB"
@@ -1713,16 +1890,6 @@
         },
         "depthChartPosition": "RB",
         "depthChartOrder": 5
-      },
-      {
-        "longComment": "Ankle",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Garett Bolles",
-          "position": "OT"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
       },
       {
         "longComment": "COV",
@@ -1883,16 +2050,6 @@
         },
         "depthChartPosition": "RILB",
         "depthChartOrder": 2
-      },
-      {
-        "longComment": "Ankle",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Alex Forsyth",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
       },
       {
         "longComment": "Coach's Decision",
@@ -3127,7 +3284,7 @@
       },
       {
         "longComment": "Biceps",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Corey Levin",
           "position": "G"
@@ -3277,7 +3434,7 @@
       },
       {
         "longComment": "Shoulder",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Cam Ward",
           "position": "QB"
@@ -5457,16 +5614,6 @@
         "depthChartOrder": null
       },
       {
-        "longComment": "Shoulder",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Tyson Campbell",
-          "position": "CB"
-        },
-        "depthChartPosition": "RCB",
-        "depthChartOrder": 1
-      },
-      {
         "longComment": "Coach's Decision",
         "status": "Out",
         "athlete": {
@@ -5650,7 +5797,7 @@
       },
       {
         "longComment": "Ankle",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Josh Oliver",
           "position": "TE"
@@ -5861,16 +6008,6 @@
         "depthChartOrder": 5
       },
       {
-        "longComment": "Shoulder",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Greg Newsome",
-          "position": "CB"
-        },
-        "depthChartPosition": "RCB",
-        "depthChartOrder": 1
-      },
-      {
         "longComment": "Knee",
         "status": "Questionable",
         "athlete": {
@@ -5899,16 +6036,6 @@
         },
         "depthChartPosition": "OL",
         "depthChartOrder": null
-      },
-      {
-        "longComment": "Head",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Brian Thomas",
-          "position": "WR"
-        },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 2
       },
       {
         "longComment": "Coach's Decision",
@@ -6580,7 +6707,7 @@
       },
       {
         "longComment": "Shoulder",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Taysom Hill",
           "position": "TE"
@@ -7879,6 +8006,26 @@
         "depthChartOrder": 7
       },
       {
+        "longComment": "Concussion",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kyle Hamilton",
+          "position": "DB"
+        },
+        "depthChartPosition": "NB",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Foot",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Andrew Vorhees",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
         "longComment": "Dislocated",
         "status": "IR",
         "athlete": {
@@ -8019,16 +8166,6 @@
         },
         "depthChartPosition": "OL",
         "depthChartOrder": null
-      },
-      {
-        "longComment": "Head",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Khalid Kareem",
-          "position": "DE"
-        },
-        "depthChartPosition": "RDE",
-        "depthChartOrder": 3
       },
       {
         "longComment": "Undisclosed",
