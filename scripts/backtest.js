@@ -354,6 +354,30 @@ async function main() {
     try {
         console.log('🏈 NFL Prediction Backtesting Starting...\n');
 
+        // Load existing predictions to preserve them (never regenerate existing predictions!)
+        const resultsPath = path.join(__dirname, '..', 'results.json');
+        let existingPredictions = {};
+        try {
+            if (fs.existsSync(resultsPath)) {
+                const existingData = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+                // Index existing predictions by gameId
+                (existingData.games || []).forEach(game => {
+                    if (game.gameId) {
+                        existingPredictions[game.gameId] = {
+                            homeScore: game.homeScore,
+                            awayScore: game.awayScore,
+                            winner: game.winner,
+                            confidence: game.confidence,
+                            method: game.method
+                        };
+                    }
+                });
+                console.log(`✅ Loaded ${Object.keys(existingPredictions).length} existing predictions to preserve\n`);
+            }
+        } catch (err) {
+            console.log('⚠️  No existing predictions found, will generate all new\n');
+        }
+
         // Load cached data (injuries, quality wins)
         loadCachedData();
 
@@ -451,8 +475,34 @@ async function main() {
                 const competition = game.competitions[0];
                 if (!competition.status.type.completed) continue;
 
-                // Use shared prediction engine (same as index.html) with week-specific injuries
-                const prediction = generatePredictionShared(game, null, leagueStats, injuriesForWeek, qualityWins, eloRatings);
+                // Check if we already have a prediction for this game - NEVER regenerate!
+                let prediction;
+                if (existingPredictions[game.id]) {
+                    // Use existing prediction to preserve original accuracy
+                    const existing = existingPredictions[game.id];
+                    const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+                    const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+
+                    prediction = {
+                        gameId: game.id,
+                        week: week,
+                        date: game.date,
+                        homeTeam: homeComp.team.displayName,
+                        awayTeam: awayComp.team.displayName,
+                        homeScore: existing.homeScore,
+                        awayScore: existing.awayScore,
+                        winner: existing.winner,
+                        confidence: existing.confidence,
+                        method: existing.method || 'elo'
+                    };
+                    console.log(`   ✓ Using existing prediction for ${prediction.awayTeam} @ ${prediction.homeTeam}`);
+                } else {
+                    // Generate new prediction for games we haven't predicted yet
+                    prediction = generatePredictionShared(game, null, leagueStats, injuriesForWeek, qualityWins, eloRatings);
+                    if (!prediction) continue;
+                    console.log(`   + Generated new prediction for ${prediction.awayTeam} @ ${prediction.homeTeam}`);
+                }
+
                 if (!prediction) continue;
 
                 // Get actual result
@@ -547,7 +597,7 @@ async function main() {
         }, null, 2));
 
         // Save historical results (for index.html and prediction-history.html)
-        const resultsPath = path.join(__dirname, '..', 'results.json');
+        // resultsPath already defined at top of main() function
         fs.writeFileSync(resultsPath, JSON.stringify({
             lastUpdated: new Date().toISOString(),
             version: 'v0.06',
