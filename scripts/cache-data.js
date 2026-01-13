@@ -62,7 +62,9 @@ const TEAM_DATA = {
 async function fetchGames() {
     console.log('📅 Fetching current week games...');
     try {
-        const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+        // First, check what the current NFL week/season is for 2025 season
+        // During playoffs (Jan-Feb), we need to explicitly request 2025 data
+        const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025');
         const data = await response.json();
 
         const games = [];
