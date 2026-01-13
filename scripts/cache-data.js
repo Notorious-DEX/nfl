@@ -95,8 +95,65 @@ async function fetchGames() {
         let currentSeasonType = data.week?.type || 2;
 
         // If we're in playoffs (seasontype 3), adjust week number to 19-22
-        if (currentSeasonType === 3) {
+        if (currentSeasonType === 3 && currentWeek) {
             currentWeek = currentWeek + 18;
+        }
+
+        // Fallback: If ESPN didn't return week info, detect it from date
+        // During Jan-Feb with no week data, we're likely in playoffs
+        if (!currentWeek) {
+            const now = new Date();
+            const month = now.getMonth(); // 0=Jan, 1=Feb
+
+            // If January-February, try to detect playoff week from date ranges
+            if (month === 0 || month === 1) {
+                console.log('⚠️  No week data from ESPN, detecting playoff week from date...');
+
+                // Try each playoff week to see if there are games
+                for (let playoffWeek = 1; playoffWeek <= 4; playoffWeek++) {
+                    try {
+                        const testResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=3&week=${playoffWeek}`);
+                        const testData = await testResponse.json();
+
+                        // Check if this week has upcoming or recent games
+                        const hasRelevantGames = (testData.events || []).some(event => {
+                            const gameDate = new Date(event.date);
+                            const hoursSinceGame = (now - gameDate) / (1000 * 60 * 60);
+                            return hoursSinceGame < 168; // Within last week
+                        });
+
+                        if (hasRelevantGames) {
+                            currentWeek = playoffWeek + 18; // Convert to our week numbering
+                            currentSeasonType = 3;
+                            console.log(`✅ Detected playoff week ${playoffWeek} (Week ${currentWeek})`);
+
+                            // Re-fetch games for this specific week
+                            games.length = 0; // Clear array
+                            for (const event of testData.events || []) {
+                                const competition = event.competitions[0];
+                                const status = competition.status;
+                                const gameDate = new Date(event.date);
+
+                                if (status.type.name === 'STATUS_SCHEDULED' ||
+                                    status.type.name === 'STATUS_IN_PROGRESS' ||
+                                    (status.type.completed && gameDate >= fiveHoursAgo)) {
+
+                                    if (status.type.completed) {
+                                        const estimatedEnd = new Date(gameDate.getTime() + 3.5 * 60 * 60 * 1000);
+                                        if (now - estimatedEnd > 60 * 60 * 1000) {
+                                            continue;
+                                        }
+                                    }
+                                    games.push(event);
+                                }
+                            }
+                            break;
+                        }
+                    } catch (err) {
+                        // Week doesn't exist or error, continue
+                    }
+                }
+            }
         }
 
         // If no games found in current week, try next week
