@@ -834,6 +834,24 @@
             "Washington Commanders": { logo: "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png", color: "#5A1414", lat: 38.9076, lon: -76.8645 }
         };
 
+        // ===== HELPER FUNCTIONS =====
+        function getWeekDisplay(weekNumber) {
+            // Convert week number to display string with playoff round labels
+            if (weekNumber <= 18) {
+                return `Week ${weekNumber}`;
+            }
+
+            // Playoff weeks 19-22
+            const playoffRounds = {
+                19: 'Wild Card Round',
+                20: 'Divisional Round',
+                21: 'Conference Championships',
+                22: 'Super Bowl'
+            };
+
+            return playoffRounds[weekNumber] || `Week ${weekNumber}`;
+        }
+
         // League stats cache (comprehensive team statistics & rankings)
         let leagueStats = {
             teams: {}, // Will store comprehensive stats for each team
@@ -1131,12 +1149,13 @@
 
                         // Update week indicator
                         if (cachedData.currentWeek) {
-                            document.getElementById('weekIndicator').textContent = `Week ${cachedData.currentWeek}`;
+                            document.getElementById('weekIndicator').textContent = getWeekDisplay(cachedData.currentWeek);
                         }
 
                         if (games.length === 0) {
                             const weekNum = cachedData.currentWeek || 'current';
-                            document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
+                            const weekDisplay = typeof weekNum === 'number' ? getWeekDisplay(weekNum) : weekNum;
+                            document.getElementById('loading').textContent = `${weekDisplay} games have concluded. New predictions will be available for next week's games.`;
                             return;
                         }
 
@@ -1196,7 +1215,8 @@
 
                     if (games.length === 0) {
                         const weekNum = data.week?.number || 'current';
-                        document.getElementById('loading').textContent = `Week ${weekNum} games have concluded. New predictions will be available for next week's games.`;
+                        const weekDisplay = typeof weekNum === 'number' ? getWeekDisplay(weekNum) : weekNum;
+                        document.getElementById('loading').textContent = `${weekDisplay} games have concluded. New predictions will be available for next week's games.`;
                         return;
                     }
 
@@ -1641,7 +1661,14 @@
             let currentWeek = null;
             if (data.week && data.week.number) {
                 currentWeek = data.week.number;
-                document.getElementById('weekIndicator').textContent = `Week ${currentWeek}`;
+                const currentSeasonType = data.week.type || 2;
+
+                // Adjust for playoffs (seasontype 3)
+                if (currentSeasonType === 3) {
+                    currentWeek = currentWeek + 18;
+                }
+
+                document.getElementById('weekIndicator').textContent = getWeekDisplay(currentWeek);
             }
 
             // Filter games: include future games, in-progress, and completed within last hour
@@ -1684,7 +1711,7 @@
 
                 if (nextWeekData.week && nextWeekData.week.number) {
                     const displayWeek = nextIsPlayoffs ? nextWeekData.week.number + 18 : nextWeekData.week.number;
-                    document.getElementById('weekIndicator').textContent = `Week ${displayWeek}`;
+                    document.getElementById('weekIndicator').textContent = getWeekDisplay(displayWeek);
                 }
 
                 for (const event of nextWeekData.events || []) {
