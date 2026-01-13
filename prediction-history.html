@@ -237,6 +237,13 @@
             white-space: nowrap;
         }
 
+        .week-badge.playoff {
+            background: rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
         .analytics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -679,9 +686,14 @@
                 const confidence = game.confidence || 'medium';
                 const confidenceClass = `confidence-${confidence}`;
 
+                // Show playoff round label for playoff games
+                const weekDisplay = game.playoffRound
+                    ? `<span class="week-badge playoff">Week ${game.week}<br/>${game.playoffRound}</span>`
+                    : `<span class="week-badge">Week ${game.week}</span>`;
+
                 html += `
                     <tr>
-                        <td><span class="week-badge">Week ${game.week}</span></td>
+                        <td>${weekDisplay}</td>
                         <td>${date}</td>
                         <td>${game.awayTeam} @ ${game.homeTeam}</td>
                         <td>${game.winner}</td>

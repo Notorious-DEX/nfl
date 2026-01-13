@@ -90,29 +90,51 @@ async function fetchGames() {
         }
 
         let currentWeek = data.week?.number || null;
+        let currentSeasonType = data.week?.type || 2;
+
+        // If we're in playoffs (seasontype 3), adjust week number to 19-22
+        if (currentSeasonType === 3) {
+            currentWeek = currentWeek + 18;
+        }
 
         // If no games found in current week, try next week
-        if (games.length === 0 && currentWeek && currentWeek < 18) {
-            console.log(`⏭️  No upcoming games in week ${currentWeek}, checking week ${currentWeek + 1}...`);
+        if (games.length === 0 && currentWeek) {
+            console.log(`⏭️  No upcoming games in week ${currentWeek}, checking next week...`);
             try {
-                const nextWeekResponse = await fetch(
-                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${currentWeek + 1}`
-                );
-                const nextWeekData = await nextWeekResponse.json();
+                let nextWeek = currentWeek + 1;
+                let nextSeasonType = 2;
+                let nextApiWeek = nextWeek;
 
-                for (const event of nextWeekData.events || []) {
-                    const competition = event.competitions[0];
-                    const status = competition.status;
-
-                    // Only include upcoming games from next week
-                    if (status.type.name === 'STATUS_SCHEDULED') {
-                        games.push(event);
-                    }
+                // Handle transition to playoffs
+                if (nextWeek === 19) {
+                    nextSeasonType = 3;
+                    nextApiWeek = 1; // Playoff week 1
+                } else if (nextWeek > 19 && nextWeek <= 22) {
+                    nextSeasonType = 3;
+                    nextApiWeek = nextWeek - 18;
                 }
 
-                if (games.length > 0) {
-                    currentWeek = currentWeek + 1;
-                    console.log(`✅ Found ${games.length} games for week ${currentWeek} (next week)`);
+                // Don't try to fetch beyond Super Bowl (week 22)
+                if (nextWeek <= 22) {
+                    const nextWeekResponse = await fetch(
+                        `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=${nextSeasonType}&week=${nextApiWeek}`
+                    );
+                    const nextWeekData = await nextWeekResponse.json();
+
+                    for (const event of nextWeekData.events || []) {
+                        const competition = event.competitions[0];
+                        const status = competition.status;
+
+                        // Only include upcoming games from next week
+                        if (status.type.name === 'STATUS_SCHEDULED') {
+                            games.push(event);
+                        }
+                    }
+
+                    if (games.length > 0) {
+                        currentWeek = nextWeek;
+                        console.log(`✅ Found ${games.length} games for week ${currentWeek} (next week)`);
+                    }
                 }
             } catch (error) {
                 console.log(`⚠️  Could not fetch next week: ${error.message}`);
@@ -152,6 +174,7 @@ async function fetchLeagueStats() {
         let gamesProcessed = 0;
         let gamesWithStats = 0;
 
+        // Fetch regular season games (weeks 1-18)
         for (let week = 1; week <= 18; week++) {
             try {
                 const response = await fetch(
@@ -241,6 +264,97 @@ async function fetchLeagueStats() {
             } catch (error) {
                 log(`❌ Error fetching week ${week}:`, error.message);
                 continue;
+            }
+        }
+
+        // Fetch playoff games (weeks 19-22, which are playoff weeks 1-4 in API)
+        for (let playoffWeek = 1; playoffWeek <= 4; playoffWeek++) {
+            try {
+                const response = await fetch(
+                    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${seasonYear}&seasontype=3&week=${playoffWeek}&limit=100`,
+                    { timeout: 10000 }
+                );
+                const data = await response.json();
+
+                for (const event of data.events || []) {
+                    const competition = event.competitions[0];
+                    if (!competition.status.type.completed) continue;
+
+                    const homeComp = competition.competitors.find(c => c.homeAway === 'home');
+                    const awayComp = competition.competitors.find(c => c.homeAway === 'away');
+
+                    if (!homeComp || !awayComp) continue;
+
+                    const homeTeam = homeComp.team.displayName;
+                    const awayTeam = awayComp.team.displayName;
+                    const homeScore = parseInt(homeComp.score) || 0;
+                    const awayScore = parseInt(awayComp.score) || 0;
+
+                    if (!teamStats[homeTeam] || !teamStats[awayTeam]) continue;
+
+                    gamesProcessed++;
+
+                    // Update game counts and records
+                    teamStats[homeTeam].gamesPlayed++;
+                    teamStats[awayTeam].gamesPlayed++;
+
+                    if (homeScore > awayScore) {
+                        teamStats[homeTeam].wins++;
+                        teamStats[awayTeam].losses++;
+                    } else if (awayScore > homeScore) {
+                        teamStats[awayTeam].wins++;
+                        teamStats[homeTeam].losses++;
+                    } else {
+                        teamStats[homeTeam].ties++;
+                        teamStats[awayTeam].ties++;
+                    }
+
+                    // Update scoring stats
+                    teamStats[homeTeam].pointsScored += homeScore;
+                    teamStats[homeTeam].pointsAllowed += awayScore;
+                    teamStats[awayTeam].pointsScored += awayScore;
+                    teamStats[awayTeam].pointsAllowed += homeScore;
+
+                    // Fetch detailed boxscore for this game
+                    try {
+                        const statsUrl = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${event.id}`;
+                        const statsResponse = await fetch(statsUrl, { timeout: 10000 });
+                        const statsData = await statsResponse.json();
+
+                        const boxscore = statsData.boxscore;
+                        if (boxscore && boxscore.teams) {
+                            const homeStats = boxscore.teams.find(t => t.homeAway === 'home');
+                            const awayStats = boxscore.teams.find(t => t.homeAway === 'away');
+
+                            const homeYards = { rush: 0, pass: 0 };
+                            const awayYards = { rush: 0, pass: 0 };
+
+                            if (homeStats && homeStats.statistics) {
+                                parseBoxscoreStats(homeStats.statistics, teamStats[homeTeam], homeYards);
+                                gamesWithStats++;
+                            }
+                            if (awayStats && awayStats.statistics) {
+                                parseBoxscoreStats(awayStats.statistics, teamStats[awayTeam], awayYards);
+                            }
+
+                            // Update defensive stats (yards allowed)
+                            if (teamStats[homeTeam]) {
+                                teamStats[homeTeam].rushYardsAllowed += awayYards.rush;
+                                teamStats[homeTeam].passYardsAllowed += awayYards.pass;
+                            }
+                            if (teamStats[awayTeam]) {
+                                teamStats[awayTeam].rushYardsAllowed += homeYards.rush;
+                                teamStats[awayTeam].passYardsAllowed += homeYards.pass;
+                            }
+                        }
+                    } catch (boxscoreError) {
+                        // Skip if boxscore unavailable
+                    }
+                }
+            } catch (error) {
+                // Playoff week doesn't exist yet or API error - this is expected
+                // Don't log error for playoff weeks that haven't occurred
+                break;
             }
         }
 
