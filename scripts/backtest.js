@@ -390,8 +390,19 @@ async function main() {
             console.log(`✅ Current NFL week: ${currentWeek}\n`);
         }
 
+        // If we're in offseason or post-playoffs (Jan-Aug),
+        // process the entire completed season (all 22 weeks)
+        const now = new Date();
+        const currentMonth = now.getMonth(); // 0-11 (0=Jan, 1=Feb, etc.)
+        const isOffseason = currentMonth >= 0 && currentMonth <= 7; // Jan-Aug process full season
+
         // Process all weeks up to current week (including playoffs up to week 22)
-        const maxWeek = Math.min(currentWeek, 22); // Cap at Super Bowl (week 22)
+        // During offseason, process entire previous season
+        const maxWeek = isOffseason ? 22 : Math.min(currentWeek, 22); // Cap at Super Bowl (week 22)
+
+        if (isOffseason) {
+            console.log(`📅 Offseason detected - processing entire 2025 season (weeks 1-22)\n`);
+        }
 
         for (let week = 1; week <= maxWeek; week++) {
             const isPlayoffs = week > 18;
