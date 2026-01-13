@@ -1251,17 +1251,30 @@
                 document.getElementById('loading').textContent = `🏈 Detecting current NFL week...`;
                 const currentWeekResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
                 const currentWeekData = await currentWeekResponse.json();
-                const currentWeek = currentWeekData.week?.number || 18;
-                console.log(`📅 Current NFL week: ${currentWeek}`);
+                let currentWeek = currentWeekData.week?.number || 18;
+                const currentSeasonType = currentWeekData.week?.type || 2;
+
+                // If we're in playoffs (seasontype 3), adjust week number to 19-22
+                if (currentSeasonType === 3) {
+                    currentWeek = currentWeek + 18;
+                }
+                console.log(`📅 Current NFL week: ${currentWeek}${currentSeasonType === 3 ? ' (Playoffs)' : ''}`);
 
                 let totalGames = 0;
                 let statsProcessed = 0;
 
-                for (let week = 1; week <= currentWeek; week++) {
-                    try {
-                        document.getElementById('loading').textContent = `🏈 Loading Week ${week} of ${currentWeek}...`;
+                // Process all weeks up to current (including playoffs up to week 22)
+                const maxWeek = Math.min(currentWeek, 22);
 
-                        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${week}`);
+                for (let week = 1; week <= maxWeek; week++) {
+                    try {
+                        const isPlayoffs = week > 18;
+                        const seasonType = isPlayoffs ? 3 : 2;
+                        const apiWeek = isPlayoffs ? week - 18 : week;
+
+                        document.getElementById('loading').textContent = `🏈 Loading Week ${week} of ${maxWeek}...`;
+
+                        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=${seasonType}&week=${apiWeek}`);
                         const data = await response.json();
 
                         for (const event of data.events || []) {
@@ -1658,14 +1671,20 @@
                 }
             }
 
-            // If no games found in current week, try next week
-            if (games.length === 0 && currentWeek && currentWeek < 18) {
+            // If no games found in current week, try next week (up to Super Bowl week 22)
+            if (games.length === 0 && currentWeek && currentWeek < 22) {
                 console.log('📥 No active games this week, fetching next week...');
-                const nextWeekResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${currentWeek + 1}`);
+                const nextWeek = currentWeek + 1;
+                const nextIsPlayoffs = nextWeek > 18;
+                const nextSeasonType = nextIsPlayoffs ? 3 : 2;
+                const nextApiWeek = nextIsPlayoffs ? nextWeek - 18 : nextWeek;
+
+                const nextWeekResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=${nextSeasonType}&week=${nextApiWeek}`);
                 const nextWeekData = await nextWeekResponse.json();
 
                 if (nextWeekData.week && nextWeekData.week.number) {
-                    document.getElementById('weekIndicator').textContent = `Week ${nextWeekData.week.number}`;
+                    const displayWeek = nextIsPlayoffs ? nextWeekData.week.number + 18 : nextWeekData.week.number;
+                    document.getElementById('weekIndicator').textContent = `Week ${displayWeek}`;
                 }
 
                 for (const event of nextWeekData.events || []) {

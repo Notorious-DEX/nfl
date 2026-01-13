@@ -284,10 +284,29 @@ function calculateRankings() {
     passDefRanked.forEach((team, idx) => leagueStats.rankings[team].passDefRank = idx + 1);
 }
 
-async function fetchWeekGames(week) {
-    const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${week}`);
+async function fetchWeekGames(week, isPlayoffs = false) {
+    // Regular season: weeks 1-18, seasontype=2
+    // Playoffs: weeks 19-22, seasontype=3
+    const seasonType = isPlayoffs ? 3 : 2;
+    const playoffWeek = isPlayoffs ? week - 18 : week; // Playoff API uses weeks 1-4
+    const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=${seasonType}&week=${playoffWeek}`);
     const data = await response.json();
     return data.events || [];
+}
+
+function getPlayoffRoundLabel(week) {
+    // NFL Playoff structure:
+    // Week 19: Wild Card Round
+    // Week 20: Divisional Round
+    // Week 21: Conference Championships
+    // Week 22: Super Bowl
+    switch(week) {
+        case 19: return 'Wild Card';
+        case 20: return 'Divisional';
+        case 21: return 'Conference Championship';
+        case 22: return 'Super Bowl';
+        default: return null;
+    }
 }
 
 // Old prediction functions removed - now using shared prediction-engine.js
@@ -359,12 +378,31 @@ async function main() {
         console.log('📅 Fetching current NFL week...');
         const currentWeekResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
         const currentWeekData = await currentWeekResponse.json();
-        const currentWeek = currentWeekData.week?.number || 18;
-        console.log(`✅ Current NFL week: ${currentWeek}\n`);
+        let currentWeek = currentWeekData.week?.number || 18;
 
-        for (let week = 1; week <= currentWeek; week++) {
+        // Check if we're in playoffs (seasontype 3)
+        const currentSeasonType = currentWeekData.week?.type || 2;
+        if (currentSeasonType === 3) {
+            // In playoffs, ESPN API shows playoff week 1-4, but we track as weeks 19-22
+            currentWeek = currentWeek + 18;
+            console.log(`✅ Current NFL week: ${currentWeek} (Playoffs)\n`);
+        } else {
+            console.log(`✅ Current NFL week: ${currentWeek}\n`);
+        }
+
+        // Process all weeks up to current week (including playoffs up to week 22)
+        const maxWeek = Math.min(currentWeek, 22); // Cap at Super Bowl (week 22)
+
+        for (let week = 1; week <= maxWeek; week++) {
+            const isPlayoffs = week > 18;
+            const playoffLabel = getPlayoffRoundLabel(week);
+
             console.log(`\n${'='.repeat(60)}`);
-            console.log(`📅 WEEK ${week}`);
+            if (isPlayoffs) {
+                console.log(`📅 WEEK ${week} - ${playoffLabel.toUpperCase()}`);
+            } else {
+                console.log(`📅 WEEK ${week}`);
+            }
             console.log('='.repeat(60));
 
             if (!eloRatings) {
@@ -373,8 +411,11 @@ async function main() {
             }
 
             // Calculate league stats through previous weeks (or use preseason for week 1)
+            // For playoffs, use all regular season games
             if (week === 1) {
                 await fetchLeagueStats(week, true); // Use preseason stats for week 1
+            } else if (isPlayoffs) {
+                await fetchLeagueStats(19, false); // Use full regular season for playoffs
             } else {
                 await fetchLeagueStats(week, false); // Use weeks 1 through week-1
             }
@@ -390,8 +431,8 @@ async function main() {
                 injuriesForWeek[team] = [...injuriesForWeek[team], ...manualInjuriesThisWeek[team]];
             }
 
-            // Fetch this week's games
-            const games = await fetchWeekGames(week);
+            // Fetch this week's games (use playoff flag for weeks 19+)
+            const games = await fetchWeekGames(week, isPlayoffs);
             console.log(`\n🎯 Generating predictions for ${games.length} games...`);
 
             // Generate predictions
@@ -413,14 +454,22 @@ async function main() {
                 const correct = prediction.winner === actualWinner;
 
                 allPredictions.push(prediction);
-                allResults.push({
+
+                // Add playoff round label if this is a playoff game
+                const resultData = {
                     ...prediction,
                     week, // Explicitly set week from loop variable
                     actualHomeScore,
                     actualAwayScore,
                     actualWinner,
                     correct
-                });
+                };
+
+                if (isPlayoffs && playoffLabel) {
+                    resultData.playoffRound = playoffLabel;
+                }
+
+                allResults.push(resultData);
 
                 if (correct) totalCorrect++;
                 totalGames++;
