@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-17T23:22:20.213Z",
+  "lastUpdated": "2026-01-18T00:59:39.603Z",
   "currentWeek": 20,
   "games": [
     {
@@ -30,7 +30,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "3673",
             "fullName": "Lumen Field",
@@ -623,8 +623,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $530",
-              "numberAvailable": 244,
+              "summary": "Tickets as low as $539",
+              "numberAvailable": 89,
               "links": [
                 {
                   "href": "https://www.vividseats.com/seattle-seahawks-tickets-lumen-field-1-17-2026--sports-nfl-football/production/6198927?wsUser=717"
@@ -710,7 +710,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-305",
+                    "odds": "-310",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -742,7 +742,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+245",
+                    "odds": "+250",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -973,10 +973,10 @@
         }
       ],
       "weather": {
-        "displayValue": "Mostly clear",
-        "temperature": 48,
-        "highTemperature": 48,
-        "conditionId": "34",
+        "displayValue": "Clear",
+        "temperature": 50,
+        "highTemperature": 50,
+        "conditionId": "33",
         "link": {
           "language": "en-US",
           "rel": [
@@ -1626,7 +1626,7 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $256",
+              "summary": "Tickets as low as $262",
               "numberAvailable": 1224,
               "links": [
                 {
@@ -2647,8 +2647,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $415",
-              "numberAvailable": 1396,
+              "summary": "Tickets as low as $420",
+              "numberAvailable": 1187,
               "links": [
                 {
                   "href": "https://www.vividseats.com/chicago-bears-tickets-soldier-field-1-17-2026--sports-nfl-football/production/6198904?wsUser=717"
@@ -4603,6 +4603,16 @@
         "depthChartOrder": 1
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brandon Parker",
+          "position": "T"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null
+      },
+      {
         "longComment": "Surgery",
         "status": "IR",
         "athlete": {
@@ -4613,14 +4623,14 @@
         "depthChartOrder": null
       },
       {
-        "longComment": "Quadriceps",
-        "status": "Questionable",
+        "longComment": "Coach's Decision",
+        "status": "Out",
         "athlete": {
-          "displayName": "Luke Gifford",
-          "position": "LB"
+          "displayName": "Kevin Givens",
+          "position": "DT"
         },
-        "depthChartPosition": "LOLB",
-        "depthChartOrder": 1
+        "depthChartPosition": "LDT",
+        "depthChartOrder": 3
       },
       {
         "longComment": "Surgery",
@@ -4673,6 +4683,16 @@
         "depthChartOrder": 1
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Robert Beal",
+          "position": "LB"
+        },
+        "depthChartPosition": "LDE",
+        "depthChartOrder": 3
+      },
+      {
         "longComment": "Undisclosed",
         "status": "IR",
         "athlete": {
@@ -4681,16 +4701,6 @@
         },
         "depthChartPosition": "DB",
         "depthChartOrder": null
-      },
-      {
-        "longComment": "Ankle",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Dee Winters",
-          "position": "LB"
-        },
-        "depthChartPosition": "ROLB",
-        "depthChartOrder": 1
       },
       {
         "longComment": "Hamstring",
@@ -4703,14 +4713,14 @@
         "depthChartOrder": 8
       },
       {
-        "longComment": "Knee - PCL",
-        "status": "Questionable",
+        "longComment": "Coach's Decision",
+        "status": "Out",
         "athlete": {
-          "displayName": "Ricky Pearsall",
-          "position": "WR"
+          "displayName": "Isaac Guerendo",
+          "position": "RB"
         },
-        "depthChartPosition": "LWR",
-        "depthChartOrder": 4
+        "depthChartPosition": "RB",
+        "depthChartOrder": 5
       },
       {
         "longComment": "Groin",
@@ -4743,6 +4753,16 @@
         "depthChartOrder": null
       },
       {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jordan Watkins",
+          "position": "WR"
+        },
+        "depthChartPosition": "SWR",
+        "depthChartOrder": 9
+      },
+      {
         "longComment": "Forearm",
         "status": "IR",
         "athlete": {
@@ -4750,6 +4770,16 @@
           "position": "CB"
         },
         "depthChartPosition": "DB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Sebastian Valdez",
+          "position": "DL"
+        },
+        "depthChartPosition": null,
         "depthChartOrder": null
       }
     ],
@@ -5262,6 +5292,16 @@
       },
       {
         "longComment": "Knee",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Ed Oliver",
+          "position": "DT"
+        },
+        "depthChartPosition": "LDT",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Knee",
         "status": "IR",
         "athlete": {
           "displayName": "Taylor Rapp",
@@ -5279,16 +5319,6 @@
         },
         "depthChartPosition": "RB",
         "depthChartOrder": 4
-      },
-      {
-        "longComment": "Cramps",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Cam Lewis",
-          "position": "CB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 2
       },
       {
         "longComment": "Knee - ACL",
@@ -6141,6 +6171,16 @@
         "depthChartOrder": 2
       },
       {
+        "longComment": "Ankle",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Alex Forsyth",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
         "longComment": "Coach's Decision",
         "status": "Out",
         "athlete": {
@@ -6152,7 +6192,7 @@
       },
       {
         "longComment": "Hamstring",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Troy Franklin",
           "position": "WR"
@@ -6172,7 +6212,7 @@
       },
       {
         "longComment": "Concussion",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "Pat Bryant",
           "position": "WR"
@@ -9173,128 +9213,6 @@
         "depthChartOrder": 3
       }
     ],
-    "Seattle Seahawks": [
-      {
-        "longComment": "Oblique",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Sam Darnold",
-          "position": "QB"
-        },
-        "depthChartPosition": "QB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Knee",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Josh Jones",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Shane Lemieux",
-          "position": "OL"
-        },
-        "depthChartPosition": "OL",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Groin",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Cody White",
-          "position": "WR"
-        },
-        "depthChartPosition": "KR",
-        "depthChartOrder": 6
-      },
-      {
-        "longComment": "Ankle",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Chazz Surratt",
-          "position": "LB"
-        },
-        "depthChartPosition": "RILB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Knee - ACL",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Kenny McIntosh",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 6
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "AJ Finley",
-          "position": "DB"
-        },
-        "depthChartPosition": "DB",
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Hamstring",
-        "status": "IR",
-        "athlete": {
-          "displayName": "George Holani",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 4
-      },
-      {
-        "longComment": "Shin",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Tory Horton",
-          "position": "WR"
-        },
-        "depthChartPosition": "PR",
-        "depthChartOrder": 7
-      },
-      {
-        "longComment": "Knee",
-        "status": "IR",
-        "athlete": {
-          "displayName": "Elijah Arroyo",
-          "position": "TE"
-        },
-        "depthChartPosition": "TE",
-        "depthChartOrder": 3
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Tyrone Broden",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": 11
-      },
-      {
-        "longComment": "Undisclosed",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jacardia Wright",
-          "position": "RB"
-        },
-        "depthChartPosition": "RB",
-        "depthChartOrder": 9
-      }
-    ],
     "Baltimore Ravens": [
       {
         "longComment": "Knee",
@@ -9828,6 +9746,168 @@
           "position": "DB"
         },
         "depthChartPosition": "FS",
+        "depthChartOrder": 3
+      }
+    ],
+    "Seattle Seahawks": [
+      {
+        "longComment": "Knee",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Josh Jones",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Shane Lemieux",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Groin",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Cody White",
+          "position": "WR"
+        },
+        "depthChartPosition": "KR",
+        "depthChartOrder": 6
+      },
+      {
+        "longComment": "Ankle",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Chazz Surratt",
+          "position": "LB"
+        },
+        "depthChartPosition": "RILB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Knee - ACL",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Kenny McIntosh",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 6
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "AJ Finley",
+          "position": "DB"
+        },
+        "depthChartPosition": "DB",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Hamstring",
+        "status": "IR",
+        "athlete": {
+          "displayName": "George Holani",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 4
+      },
+      {
+        "longComment": "Shin",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Tory Horton",
+          "position": "WR"
+        },
+        "depthChartPosition": "PR",
+        "depthChartOrder": 7
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jalen Milroe",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Knee",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Elijah Arroyo",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 3
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Rylie Mills",
+          "position": "DL"
+        },
+        "depthChartPosition": "RDE",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Bryce Cabeldue",
+          "position": "OT"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Mason Richman",
+          "position": "OL"
+        },
+        "depthChartPosition": "OL",
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Tyrone Broden",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": 11
+      },
+      {
+        "longComment": "Undisclosed",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jacardia Wright",
+          "position": "RB"
+        },
+        "depthChartPosition": "RB",
+        "depthChartOrder": 9
+      },
+      {
+        "longComment": "Coach's Decision",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jared Ivey",
+          "position": "DE"
+        },
+        "depthChartPosition": "LOLB",
         "depthChartOrder": 3
       }
     ],
