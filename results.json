@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-01-18T06:15:52.541Z",
+  "lastUpdated": "2026-01-18T10:24:11.904Z",
   "version": "v0.06",
   "method": "index.html-algorithm",
   "kFactor": 20,
   "weeks": 2,
-  "correct": 168,
-  "total": 278,
+  "correct": 169,
+  "total": 280,
   "accuracy": "60.4",
   "games": [
     {
@@ -4461,6 +4461,40 @@
       "actualWinner": "Houston Texans",
       "correct": true,
       "playoffRound": "Wild Card"
+    },
+    {
+      "gameId": "401772982",
+      "week": 20,
+      "date": "2026-01-17T21:30Z",
+      "homeTeam": "Denver Broncos",
+      "awayTeam": "Buffalo Bills",
+      "homeScore": 18,
+      "awayScore": 24,
+      "winner": "Buffalo Bills",
+      "confidence": "medium",
+      "method": "elo",
+      "actualHomeScore": 33,
+      "actualAwayScore": 30,
+      "actualWinner": "Denver Broncos",
+      "correct": false,
+      "playoffRound": "Divisional"
+    },
+    {
+      "gameId": "401772984",
+      "week": 20,
+      "date": "2026-01-18T01:00Z",
+      "homeTeam": "Seattle Seahawks",
+      "awayTeam": "San Francisco 49ers",
+      "homeScore": 26,
+      "awayScore": 18,
+      "winner": "Seattle Seahawks",
+      "confidence": "high",
+      "method": "elo",
+      "actualHomeScore": 41,
+      "actualAwayScore": 6,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true,
+      "playoffRound": "Divisional"
     }
   ]
 }
