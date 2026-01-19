@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-01-19T06:21:45.502Z",
+  "lastUpdated": "2026-01-19T10:29:29.845Z",
   "version": "v0.06",
   "method": "index.html-algorithm",
   "kFactor": 20,
   "weeks": 2,
-  "correct": 169,
-  "total": 280,
-  "accuracy": "60.4",
+  "correct": 171,
+  "total": 282,
+  "accuracy": "60.6",
   "games": [
     {
       "gameId": "401772510",
@@ -4493,6 +4493,40 @@
       "actualHomeScore": 41,
       "actualAwayScore": 6,
       "actualWinner": "Seattle Seahawks",
+      "correct": true,
+      "playoffRound": "Divisional"
+    },
+    {
+      "gameId": "401772983",
+      "week": 20,
+      "date": "2026-01-18T20:00Z",
+      "homeTeam": "New England Patriots",
+      "awayTeam": "Houston Texans",
+      "homeScore": 24,
+      "awayScore": 16,
+      "winner": "New England Patriots",
+      "confidence": "high",
+      "method": "elo",
+      "actualHomeScore": 28,
+      "actualAwayScore": 16,
+      "actualWinner": "New England Patriots",
+      "correct": true,
+      "playoffRound": "Divisional"
+    },
+    {
+      "gameId": "401772985",
+      "week": 20,
+      "date": "2026-01-18T23:30Z",
+      "homeTeam": "Chicago Bears",
+      "awayTeam": "Los Angeles Rams",
+      "homeScore": 27,
+      "awayScore": 28,
+      "winner": "Los Angeles Rams",
+      "confidence": "low",
+      "method": "elo",
+      "actualHomeScore": 17,
+      "actualAwayScore": 20,
+      "actualWinner": "Los Angeles Rams",
       "correct": true,
       "playoffRound": "Divisional"
     }
