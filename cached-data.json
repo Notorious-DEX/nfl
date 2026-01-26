@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-26T01:00:15.548Z",
+  "lastUpdated": "2026-01-26T02:37:18.658Z",
   "currentWeek": 21,
   "games": [
     {
@@ -110,7 +110,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sea.png"
               },
-              "score": "10",
+              "score": "31",
               "linescores": [
                 {
                   "value": 10,
@@ -118,9 +118,19 @@
                   "period": 1
                 },
                 {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
+                  "value": 14,
+                  "displayValue": "14",
+                  "period": 3
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -211,7 +221,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png"
               },
-              "score": "13",
+              "score": "27",
               "linescores": [
                 {
                   "value": 3,
@@ -222,6 +232,16 @@
                   "value": 10,
                   "displayValue": "10",
                   "period": 2
+                },
+                {
+                  "value": 14,
+                  "displayValue": "14",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -253,94 +273,70 @@
           ],
           "situation": {
             "lastPlay": {
-              "id": "4017729871827",
+              "id": "4017729873873",
               "type": {
-                "id": "24",
-                "text": "Pass Reception",
-                "abbreviation": "REC"
+                "id": "21",
+                "text": "Timeout",
+                "abbreviation": "TO"
               },
-              "text": "(Shotgun) S.Darnold pass short right to J.Smith-Njigba pushed ob at SEA 36 for 10 yards (D.Williams).",
+              "text": "Timeout #1 by SEA at 03:20.",
               "scoreValue": 0,
               "team": {
                 "id": "26"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.4608,
-                "awayWinPercentage": 0.5392,
+                "homeWinPercentage": 0.802,
+                "awayWinPercentage": 0.19799999999999995,
                 "secondsLeft": 0
               },
               "drive": {
-                "description": "1 play, 10 yards, 0:00",
+                "description": "4 plays, 22 yards, 1:34",
                 "start": {
-                  "yardLine": 26,
-                  "text": "SEA 26"
+                  "yardLine": 6,
+                  "text": "SEA 6"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:00"
+                  "displayValue": "1:34"
                 }
               },
               "start": {
-                "yardLine": 26,
+                "yardLine": 27,
                 "team": {
                   "id": "26"
                 }
               },
               "end": {
-                "yardLine": 36,
+                "yardLine": 27,
                 "team": {
                   "id": "26"
                 }
               },
-              "statYardage": 10,
-              "athletesInvolved": [
-                {
-                  "id": "4430878",
-                  "fullName": "Jaxon Smith-Njigba",
-                  "displayName": "Jaxon Smith-Njigba",
-                  "shortName": "J. Smith-Njigba",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4430878/jaxon-smith-njigba"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430878.png",
-                  "jersey": "11",
-                  "position": "WR",
-                  "team": {
-                    "id": "26"
-                  }
-                }
-              ]
+              "statYardage": 0
             },
-            "down": 1,
-            "yardLine": 36,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at SEA 36",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "SEA 36",
+            "down": 3,
+            "yardLine": 27,
+            "distance": 8,
+            "downDistanceText": "3rd & 8 at SEA 27",
+            "shortDownDistanceText": "3rd & 8",
+            "possessionText": "SEA 27",
             "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 1,
+            "homeTimeouts": 2,
+            "awayTimeouts": 2,
             "possession": "26"
           },
           "status": {
-            "clock": 54,
-            "displayClock": "0:54",
-            "period": 2,
+            "clock": 200,
+            "displayClock": "3:20",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "0:54 - 2nd Quarter",
-              "shortDetail": "0:54 - 2nd"
+              "detail": "3:20 - 4th Quarter",
+              "shortDetail": "3:20 - 4th"
             },
             "isTBDFlex": false
           },
@@ -360,13 +356,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "9/13, 140 YDS",
-                  "value": 140,
+                  "displayValue": "20/32, 330 YDS, 3 TD",
+                  "value": 330,
                   "athlete": {
-                    "id": "3912547",
-                    "fullName": "Sam Darnold",
-                    "displayName": "Sam Darnold",
-                    "shortName": "S. Darnold",
+                    "id": "12483",
+                    "fullName": "Matthew Stafford",
+                    "displayName": "Matthew Stafford",
+                    "shortName": "M. Stafford",
                     "links": [
                       {
                         "rel": [
@@ -374,13 +370,53 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3912547/sam-darnold"
+                        "href": "https://www.espn.com/nfl/player/_/id/12483/matthew-stafford"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3912547.png",
-                    "jersey": "14",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/12483.png",
+                    "jersey": "9",
                     "position": {
                       "abbreviation": "QB"
+                    },
+                    "team": {
+                      "id": "14"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "14"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
+              "leaders": [
+                {
+                  "displayValue": "15 CAR, 56 YDS, 1 TD",
+                  "value": 56,
+                  "athlete": {
+                    "id": "4567048",
+                    "fullName": "Kenneth Walker III",
+                    "displayName": "Kenneth Walker III",
+                    "shortName": "K. Walker III",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4567048/kenneth-walker-iii"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4567048.png",
+                    "jersey": "9",
+                    "position": {
+                      "abbreviation": "RB"
                     },
                     "team": {
                       "id": "26"
@@ -394,59 +430,19 @@
               ]
             },
             {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "7 CAR, 40 YDS",
-                  "value": 40,
-                  "athlete": {
-                    "id": "4429096",
-                    "fullName": "Blake Corum",
-                    "displayName": "Blake Corum",
-                    "shortName": "B. Corum",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4429096/blake-corum"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429096.png",
-                    "jersey": "22",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "14"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "14"
-                  }
-                }
-              ]
-            },
-            {
               "name": "receivingYards",
               "displayName": "Receiving Leader",
               "shortDisplayName": "REC",
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 75 YDS",
-                  "value": 75,
+                  "displayValue": "9 REC, 139 YDS, 1 TD",
+                  "value": 139,
                   "athlete": {
-                    "id": "4426515",
-                    "fullName": "Puka Nacua",
-                    "displayName": "Puka Nacua",
-                    "shortName": "P. Nacua",
+                    "id": "4430878",
+                    "fullName": "Jaxon Smith-Njigba",
+                    "displayName": "Jaxon Smith-Njigba",
+                    "shortName": "J. Smith-Njigba",
                     "links": [
                       {
                         "rel": [
@@ -454,21 +450,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4426515/puka-nacua"
+                        "href": "https://www.espn.com/nfl/player/_/id/4430878/jaxon-smith-njigba"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426515.png",
-                    "jersey": "12",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430878.png",
+                    "jersey": "11",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "14"
+                      "id": "26"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "14"
+                    "id": "26"
                   }
                 }
               ]
@@ -560,17 +556,17 @@
         }
       },
       "status": {
-        "clock": 54,
-        "displayClock": "0:54",
-        "period": 2,
+        "clock": 200,
+        "displayClock": "3:20",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "0:54 - 2nd Quarter",
-          "shortDetail": "0:54 - 2nd"
+          "detail": "3:20 - 4th Quarter",
+          "shortDetail": "3:20 - 4th"
         }
       }
     }
@@ -668,15 +664,15 @@
       "Carolina Panthers": {
         "offensiveRating": 19,
         "defensiveRating": 23,
-        "rushYPG": 114.44444444444444,
-        "rushDefYPG": 122.88888888888889,
-        "passYPG": 183.22222222222223,
-        "passDefYPG": 209,
-        "thirdDownPct": 36.405529953917046,
+        "rushYPG": 109.83333333333333,
+        "rushDefYPG": 116.44444444444444,
+        "passYPG": 169.33333333333334,
+        "passDefYPG": 192.61111111111111,
+        "thirdDownPct": 36.09756097560975,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -38,
+        "turnoverDiff": -35,
         "gamesPlayed": 18,
         "wins": 8,
         "losses": 10,
@@ -910,15 +906,15 @@
       "Kansas City Chiefs": {
         "offensiveRating": 21.294117647058822,
         "defensiveRating": 19.294117647058822,
-        "rushYPG": 106.58823529411765,
-        "rushDefYPG": 105.70588235294117,
-        "passYPG": 214.05882352941177,
-        "passDefYPG": 195.8235294117647,
-        "thirdDownPct": 37.44292237442922,
+        "rushYPG": 101.6470588235294,
+        "rushDefYPG": 98.76470588235294,
+        "passYPG": 209.11764705882354,
+        "passDefYPG": 190.76470588235293,
+        "thirdDownPct": 39.10891089108911,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -27,
+        "turnoverDiff": -25,
         "gamesPlayed": 17,
         "wins": 6,
         "losses": 11,
@@ -932,15 +928,15 @@
       "Las Vegas Raiders": {
         "offensiveRating": 14.176470588235293,
         "defensiveRating": 25.41176470588235,
-        "rushYPG": 77.47058823529412,
-        "rushDefYPG": 116.82352941176471,
-        "passYPG": 167.7058823529412,
-        "passDefYPG": 201,
-        "thirdDownPct": 33.80281690140845,
+        "rushYPG": 70.52941176470588,
+        "rushDefYPG": 111.88235294117646,
+        "passYPG": 162.64705882352942,
+        "passDefYPG": 196.05882352941177,
+        "thirdDownPct": 34.51776649746193,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -42,
+        "turnoverDiff": -39,
         "gamesPlayed": 17,
         "wins": 3,
         "losses": 14,
@@ -954,15 +950,15 @@
       "Los Angeles Chargers": {
         "offensiveRating": 20.61111111111111,
         "defensiveRating": 19.77777777777778,
-        "rushYPG": 119.66666666666667,
-        "rushDefYPG": 107.61111111111111,
-        "passYPG": 207.11111111111111,
-        "passDefYPG": 182.94444444444446,
-        "thirdDownPct": 44.44444444444444,
+        "rushYPG": 114.83333333333333,
+        "rushDefYPG": 99.5,
+        "passYPG": 200.44444444444446,
+        "passDefYPG": 169.88888888888889,
+        "thirdDownPct": 45.81673306772908,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -36,
+        "turnoverDiff": -35,
         "gamesPlayed": 18,
         "wins": 11,
         "losses": 7,
@@ -976,15 +972,15 @@
       "Los Angeles Rams": {
         "offensiveRating": 30.105263157894736,
         "defensiveRating": 20.736842105263158,
-        "rushYPG": 125.21052631578948,
-        "rushDefYPG": 111.94736842105263,
-        "passYPG": 267.42105263157896,
-        "passDefYPG": 220.57894736842104,
-        "thirdDownPct": 38.009049773755656,
+        "rushYPG": 119.10526315789474,
+        "rushDefYPG": 107.57894736842105,
+        "passYPG": 251.89473684210526,
+        "passDefYPG": 207.42105263157896,
+        "thirdDownPct": 38.94230769230769,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -25,
+        "turnoverDiff": -23,
         "gamesPlayed": 19,
         "wins": 14,
         "losses": 5,
@@ -1042,15 +1038,15 @@
       "New England Patriots": {
         "offensiveRating": 27.2,
         "defensiveRating": 17.3,
-        "rushYPG": 129.15,
-        "rushDefYPG": 97.15,
-        "passYPG": 235.05,
-        "passDefYPG": 185.25,
-        "thirdDownPct": 40.66390041493776,
+        "rushYPG": 121.85,
+        "rushDefYPG": 92.8,
+        "passYPG": 223.3,
+        "passDefYPG": 179.25,
+        "thirdDownPct": 40.869565217391305,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -31,
+        "turnoverDiff": -28,
         "gamesPlayed": 20,
         "wins": 17,
         "losses": 3,
@@ -1130,11 +1126,11 @@
       "Philadelphia Eagles": {
         "offensiveRating": 22.11111111111111,
         "defensiveRating": 19.333333333333332,
-        "rushYPG": 118.22222222222223,
-        "rushDefYPG": 121.66666666666667,
-        "passYPG": 192.77777777777777,
-        "passDefYPG": 195.11111111111111,
-        "thirdDownPct": 36.72566371681416,
+        "rushYPG": 110.44444444444444,
+        "rushDefYPG": 117.5,
+        "passYPG": 183.5,
+        "passDefYPG": 179.22222222222223,
+        "thirdDownPct": 37.142857142857146,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
@@ -1174,15 +1170,15 @@
       "San Francisco 49ers": {
         "offensiveRating": 24.526315789473685,
         "defensiveRating": 22.68421052631579,
-        "rushYPG": 105.26315789473684,
-        "rushDefYPG": 113.05263157894737,
-        "passYPG": 240.57894736842104,
-        "passDefYPG": 222.31578947368422,
-        "thirdDownPct": 50,
+        "rushYPG": 101.3157894736842,
+        "rushDefYPG": 105.6842105263158,
+        "passYPG": 225.52631578947367,
+        "passDefYPG": 213.52631578947367,
+        "thirdDownPct": 49.77777777777778,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -46,
+        "turnoverDiff": -42,
         "gamesPlayed": 19,
         "wins": 13,
         "losses": 6,
@@ -1285,20 +1281,20 @@
     "rankings": {
       "Arizona Cardinals": {
         "rushOffRank": 31,
-        "passOffRank": 8,
+        "passOffRank": 6,
         "rushDefRank": 25,
         "passDefRank": 24
       },
       "Atlanta Falcons": {
-        "rushOffRank": 8,
+        "rushOffRank": 7,
         "passOffRank": 18,
         "rushDefRank": 24,
-        "passDefRank": 12
+        "passDefRank": 14
       },
       "Baltimore Ravens": {
         "rushOffRank": 2,
-        "passOffRank": 27,
-        "rushDefRank": 9,
+        "passOffRank": 26,
+        "rushDefRank": 11,
         "passDefRank": 30
       },
       "Buffalo Bills": {
@@ -1308,170 +1304,170 @@
         "passDefRank": 2
       },
       "Carolina Panthers": {
-        "rushOffRank": 20,
-        "passOffRank": 25,
-        "rushDefRank": 21,
-        "passDefRank": 15
+        "rushOffRank": 21,
+        "passOffRank": 27,
+        "rushDefRank": 19,
+        "passDefRank": 12
       },
       "Chicago Bears": {
         "rushOffRank": 3,
-        "passOffRank": 7,
+        "passOffRank": 5,
         "rushDefRank": 26,
         "passDefRank": 25
       },
       "Cincinnati Bengals": {
         "rushOffRank": 29,
-        "passOffRank": 5,
+        "passOffRank": 4,
         "rushDefRank": 32,
         "passDefRank": 26
       },
       "Cleveland Browns": {
         "rushOffRank": 27,
-        "passOffRank": 31,
-        "rushDefRank": 17,
+        "passOffRank": 30,
+        "rushDefRank": 18,
         "passDefRank": 3
       },
       "Dallas Cowboys": {
-        "rushOffRank": 9,
-        "passOffRank": 2,
+        "rushOffRank": 8,
+        "passOffRank": 1,
         "rushDefRank": 23,
         "passDefRank": 32
       },
       "Denver Broncos": {
-        "rushOffRank": 21,
+        "rushOffRank": 19,
         "passOffRank": 13,
         "rushDefRank": 5,
-        "passDefRank": 7
+        "passDefRank": 9
       },
       "Detroit Lions": {
-        "rushOffRank": 13,
-        "passOffRank": 3,
-        "rushDefRank": 13,
-        "passDefRank": 19
+        "rushOffRank": 12,
+        "passOffRank": 2,
+        "rushDefRank": 14,
+        "passDefRank": 21
       },
       "Green Bay Packers": {
-        "rushOffRank": 15,
+        "rushOffRank": 14,
         "passOffRank": 15,
-        "rushDefRank": 16,
-        "passDefRank": 14
+        "rushDefRank": 17,
+        "passDefRank": 15
       },
       "Houston Texans": {
         "rushOffRank": 22,
         "passOffRank": 16,
         "rushDefRank": 2,
-        "passDefRank": 4
+        "passDefRank": 5
       },
       "Indianapolis Colts": {
-        "rushOffRank": 17,
-        "passOffRank": 9,
-        "rushDefRank": 7,
+        "rushOffRank": 15,
+        "passOffRank": 7,
+        "rushDefRank": 9,
         "passDefRank": 31
       },
       "Jacksonville Jaguars": {
-        "rushOffRank": 18,
+        "rushOffRank": 16,
         "passOffRank": 11,
         "rushDefRank": 1,
-        "passDefRank": 20
+        "passDefRank": 22
       },
       "Kansas City Chiefs": {
         "rushOffRank": 24,
         "passOffRank": 17,
-        "rushDefRank": 8,
+        "rushDefRank": 6,
         "passDefRank": 11
       },
       "Las Vegas Raiders": {
         "rushOffRank": 32,
-        "passOffRank": 28,
-        "rushDefRank": 18,
+        "passOffRank": 31,
+        "rushDefRank": 13,
         "passDefRank": 13
       },
       "Los Angeles Chargers": {
-        "rushOffRank": 14,
-        "passOffRank": 19,
-        "rushDefRank": 10,
-        "passDefRank": 6
+        "rushOffRank": 17,
+        "passOffRank": 21,
+        "rushDefRank": 8,
+        "passDefRank": 4
       },
       "Los Angeles Rams": {
-        "rushOffRank": 10,
-        "passOffRank": 1,
-        "rushDefRank": 11,
-        "passDefRank": 21
+        "rushOffRank": 13,
+        "passOffRank": 3,
+        "rushDefRank": 12,
+        "passDefRank": 16
       },
       "Miami Dolphins": {
-        "rushOffRank": 12,
-        "passOffRank": 26,
+        "rushOffRank": 11,
+        "passOffRank": 25,
         "rushDefRank": 27,
-        "passDefRank": 18
+        "passDefRank": 20
       },
       "Minnesota Vikings": {
         "rushOffRank": 23,
-        "passOffRank": 29,
+        "passOffRank": 28,
         "rushDefRank": 22,
         "passDefRank": 1
       },
       "New England Patriots": {
-        "rushOffRank": 5,
-        "passOffRank": 6,
-        "rushDefRank": 4,
+        "rushOffRank": 10,
+        "passOffRank": 9,
+        "rushDefRank": 3,
         "passDefRank": 8
       },
       "New Orleans Saints": {
         "rushOffRank": 28,
         "passOffRank": 14,
-        "rushDefRank": 19,
-        "passDefRank": 5
+        "rushDefRank": 21,
+        "passDefRank": 6
       },
       "New York Giants": {
-        "rushOffRank": 6,
-        "passOffRank": 21,
+        "rushOffRank": 5,
+        "passOffRank": 20,
         "rushDefRank": 31,
-        "passDefRank": 16
+        "passDefRank": 18
       },
       "New York Jets": {
-        "rushOffRank": 11,
+        "rushOffRank": 9,
         "passOffRank": 32,
         "rushDefRank": 29,
-        "passDefRank": 17
+        "passDefRank": 19
       },
       "Philadelphia Eagles": {
-        "rushOffRank": 16,
-        "passOffRank": 23,
+        "rushOffRank": 20,
+        "passOffRank": 24,
         "rushDefRank": 20,
-        "passDefRank": 10
+        "passDefRank": 7
       },
       "Pittsburgh Steelers": {
         "rushOffRank": 26,
         "passOffRank": 22,
-        "rushDefRank": 15,
+        "rushDefRank": 16,
         "passDefRank": 29
       },
       "San Francisco 49ers": {
         "rushOffRank": 25,
-        "passOffRank": 4,
-        "rushDefRank": 12,
-        "passDefRank": 22
+        "passOffRank": 8,
+        "rushDefRank": 10,
+        "passDefRank": 17
       },
       "Seattle Seahawks": {
-        "rushOffRank": 7,
+        "rushOffRank": 6,
         "passOffRank": 12,
-        "rushDefRank": 3,
-        "passDefRank": 9
+        "rushDefRank": 4,
+        "passDefRank": 10
       },
       "Tampa Bay Buccaneers": {
-        "rushOffRank": 19,
-        "passOffRank": 20,
-        "rushDefRank": 6,
+        "rushOffRank": 18,
+        "passOffRank": 19,
+        "rushDefRank": 7,
         "passDefRank": 27
       },
       "Tennessee Titans": {
         "rushOffRank": 30,
-        "passOffRank": 30,
-        "rushDefRank": 14,
+        "passOffRank": 29,
+        "rushDefRank": 15,
         "passDefRank": 23
       },
       "Washington Commanders": {
         "rushOffRank": 4,
-        "passOffRank": 24,
+        "passOffRank": 23,
         "rushDefRank": 30,
         "passDefRank": 28
       }
@@ -3521,6 +3517,16 @@
         "depthChartOrder": 3
       },
       {
+        "longComment": "Undisclosed",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kobie Turner",
+          "position": "DT"
+        },
+        "depthChartPosition": "RDE",
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Coach's Decision",
         "status": "Out",
         "athlete": {
@@ -3528,6 +3534,16 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
+        "depthChartOrder": 4
+      },
+      {
+        "longComment": "Chest",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jordan Whittington",
+          "position": "WR"
+        },
+        "depthChartPosition": "RWR",
         "depthChartOrder": 4
       },
       {
@@ -7360,7 +7376,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 4
+        "depthChartOrder": 2
       },
       {
         "longComment": "Knee - ACL",
@@ -7430,7 +7446,7 @@
           "position": "RB"
         },
         "depthChartPosition": "RB",
-        "depthChartOrder": 2
+        "depthChartOrder": 3
       },
       {
         "longComment": "Knee",
