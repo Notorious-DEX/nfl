@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2026-01-26T06:21:04.865Z",
+  "lastUpdated": "2026-01-26T10:29:55.028Z",
   "version": "v0.06",
   "method": "index.html-algorithm",
   "kFactor": 20,
   "weeks": 3,
-  "correct": 171,
-  "total": 282,
+  "correct": 172,
+  "total": 284,
   "accuracy": "60.6",
   "games": [
     {
@@ -4529,6 +4529,40 @@
       "actualWinner": "Los Angeles Rams",
       "correct": true,
       "playoffRound": "Divisional"
+    },
+    {
+      "gameId": "401772986",
+      "week": 21,
+      "date": "2026-01-25T20:00Z",
+      "homeTeam": "Denver Broncos",
+      "awayTeam": "New England Patriots",
+      "homeScore": 24,
+      "awayScore": 22,
+      "winner": "Denver Broncos",
+      "confidence": "low",
+      "method": "elo",
+      "actualHomeScore": 7,
+      "actualAwayScore": 10,
+      "actualWinner": "New England Patriots",
+      "correct": false,
+      "playoffRound": "Conference Championship"
+    },
+    {
+      "gameId": "401772987",
+      "week": 21,
+      "date": "2026-01-25T23:30Z",
+      "homeTeam": "Seattle Seahawks",
+      "awayTeam": "Los Angeles Rams",
+      "homeScore": 26,
+      "awayScore": 25,
+      "winner": "Seattle Seahawks",
+      "confidence": "low",
+      "method": "elo",
+      "actualHomeScore": 31,
+      "actualAwayScore": 27,
+      "actualWinner": "Seattle Seahawks",
+      "correct": true,
+      "playoffRound": "Conference Championship"
     }
   ]
 }
