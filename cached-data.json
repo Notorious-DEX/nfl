@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-01T11:00:33.895Z",
+  "lastUpdated": "2026-05-01T15:45:21.789Z",
   "currentWeek": null,
   "games": [],
   "leagueStats": {
@@ -1246,7 +1246,7 @@
       },
       {
         "longComment": "Surgery",
-        "status": "Questionable",
+        "status": "IR",
         "athlete": {
           "displayName": "Daniel Jones",
           "position": "QB"
@@ -1867,7 +1867,7 @@
     "San Francisco 49ers": [
       {
         "longComment": "Surgery",
-        "status": "Questionable",
+        "status": "IR",
         "athlete": {
           "displayName": "George Kittle",
           "position": "TE"
@@ -2282,6 +2282,16 @@
         "depthChartOrder": 1
       },
       {
+        "longComment": "IR",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Talanoa Hufanga",
+          "position": "DB"
+        },
+        "depthChartPosition": "SS",
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Surgery",
         "status": "Questionable",
         "athlete": {
@@ -2392,109 +2402,17 @@
         "depthChartOrder": 3
       }
     ],
-    "Tennessee Titans": [
+    "Buffalo Bills": [
       {
-        "longComment": "Surgery",
-        "status": "Questionable",
+        "longComment": "IR",
+        "status": "IR",
         "athlete": {
-          "displayName": "Calvin Ridley",
-          "position": "WR"
-        },
-        "depthChartPosition": "RWR",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Donnie Ernsberger",
-          "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null
-      },
-      {
-        "longComment": "Ankle",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Amani Hooker",
-          "position": "DB"
-        },
-        "depthChartPosition": "SS",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Surgery",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Will Levis",
-          "position": "QB"
-        },
-        "depthChartPosition": "QB",
-        "depthChartOrder": 4
-      },
-      {
-        "longComment": "Sprain",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "James Williams",
-          "position": "DB"
-        },
-        "depthChartPosition": "LILB",
-        "depthChartOrder": 2
-      },
-      {
-        "longComment": "Toe",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Gunnar Helm",
-          "position": "TE"
-        },
-        "depthChartPosition": "TE",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Sprain",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Cam Ward",
-          "position": "QB"
-        },
-        "depthChartPosition": "QB",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Fracture",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Oluwafemi Oladejo",
-          "position": "DL"
+          "displayName": "Bradley Chubb",
+          "position": "LB"
         },
         "depthChartPosition": "ROLB",
         "depthChartOrder": 1
       },
-      {
-        "longComment": "Hamstring",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Kevin Winston",
-          "position": "DB"
-        },
-        "depthChartPosition": "FS",
-        "depthChartOrder": 1
-      },
-      {
-        "longComment": "Knee",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Marcus Harris",
-          "position": "DB"
-        },
-        "depthChartPosition": "NB",
-        "depthChartOrder": 1
-      }
-    ],
-    "Buffalo Bills": [
       {
         "longComment": "Fracture",
         "status": "Questionable",
@@ -2664,6 +2582,108 @@
         },
         "depthChartPosition": "SS",
         "depthChartOrder": 2
+      }
+    ],
+    "Tennessee Titans": [
+      {
+        "longComment": "Surgery",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Calvin Ridley",
+          "position": "WR"
+        },
+        "depthChartPosition": "RWR",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Donnie Ernsberger",
+          "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null
+      },
+      {
+        "longComment": "Ankle",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Amani Hooker",
+          "position": "DB"
+        },
+        "depthChartPosition": "SS",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Surgery",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Will Levis",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 4
+      },
+      {
+        "longComment": "Sprain",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "James Williams",
+          "position": "DB"
+        },
+        "depthChartPosition": "LILB",
+        "depthChartOrder": 2
+      },
+      {
+        "longComment": "Toe",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Gunnar Helm",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Sprain",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Cam Ward",
+          "position": "QB"
+        },
+        "depthChartPosition": "QB",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Fracture",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Oluwafemi Oladejo",
+          "position": "DL"
+        },
+        "depthChartPosition": "ROLB",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Hamstring",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kevin Winston",
+          "position": "DB"
+        },
+        "depthChartPosition": "FS",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "Knee",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Marcus Harris",
+          "position": "DB"
+        },
+        "depthChartPosition": "NB",
+        "depthChartOrder": 1
       }
     ],
     "Pittsburgh Steelers": [
@@ -3597,7 +3617,7 @@
       },
       {
         "longComment": "Surgery",
-        "status": "Questionable",
+        "status": "IR",
         "athlete": {
           "displayName": "Malik Nabers",
           "position": "WR"
@@ -3675,6 +3695,16 @@
           "position": "DT"
         },
         "depthChartPosition": "NT",
+        "depthChartOrder": 1
+      },
+      {
+        "longComment": "IR",
+        "status": "IR",
+        "athlete": {
+          "displayName": "Jaelan Phillips",
+          "position": "LB"
+        },
+        "depthChartPosition": "ROLB",
         "depthChartOrder": 1
       },
       {
@@ -3823,7 +3853,7 @@
     "Green Bay Packers": [
       {
         "longComment": "Surgery",
-        "status": "Questionable",
+        "status": "IR",
         "athlete": {
           "displayName": "Micah Parsons",
           "position": "LB"
@@ -4371,7 +4401,7 @@
     "Seattle Seahawks": [
       {
         "longComment": "Surgery",
-        "status": "Questionable",
+        "status": "IR",
         "athlete": {
           "displayName": "Zach Charbonnet",
           "position": "RB"
