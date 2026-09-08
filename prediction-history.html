@@ -1,1 +1,104 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📜 BROpicks - Prediction History</title>
+    <link rel="stylesheet" href="prediction-history.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back to Predictions</a>
+            <h1>📜 BROpicks Prediction History</h1>
+            <p style="opacity: 0.8; margin-top: 0.5rem;">Complete season performance analysis</p>
+        </header>
+
+        <div id="statsOverview" class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-value" id="totalGames">-</div>
+                <div class="stat-label">Total Predictions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="correctPredictions">-</div>
+                <div class="stat-label">Correct Predictions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="overallAccuracy">-</div>
+                <div class="stat-label">Overall Accuracy</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Season</label>
+                <select id="seasonFilter">
+                    <option value="all">All Seasons</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Week</label>
+                <select id="weekFilter">
+                    <option value="all">All Weeks</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Team</label>
+                <select id="teamFilter">
+                    <option value="all">All Teams</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Result</label>
+                <select id="resultFilter">
+                    <option value="all">All Results</option>
+                    <option value="correct">Correct Only</option>
+                    <option value="incorrect">Incorrect Only</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Confidence</label>
+                <select id="confidenceFilter">
+                    <option value="all">All Confidence Levels</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="searchInput" placeholder="Team name...">
+            </div>
+            <button class="reset-btn" onclick="resetFilters()">Reset Filters</button>
+        </div>
+
+        <div class="analytics" id="analytics"></div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="sortable" data-sort="week">Week</th>
+                        <th class="sortable" data-sort="date">Date</th>
+                        <th class="sortable" data-sort="matchup">Matchup</th>
+                        <th class="sortable" data-sort="predicted">Predicted Winner</th>
+                        <th class="sortable" data-sort="confidence">Confidence</th>
+                        <th class="sortable" data-sort="actual">Actual Winner</th>
+                        <th class="sortable" data-sort="predictedScore">Predicted Score</th>
+                        <th class="sortable" data-sort="actualScore">Actual Score</th>
+                        <th class="sortable" data-sort="result">Result</th>
+                    </tr>
+                </thead>
+                <tbody id="gameTable">
+                    <tr>
+                        <td colspan="9" class="loading">Loading prediction history...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <button id="backToTop" title="Back to top">↑</button>
+    <script src="prediction-history.js"></script>
+</body>
+</html>
