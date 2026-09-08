@@ -3,7 +3,7 @@
 /**
  * Shared ESPN/HTTP fetch helper.
  * GitHub Actions runners often get Akamai HTML (403) from site.api.espn.com.
- * That makes response.json() throw: Unexpected token < in JSON at position 0.
+ * Prefer site.web.api.espn.com, which still returns JSON.
  */
 
 const rawFetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -20,15 +20,18 @@ function looksLikeJson(text) {
     return trimmed.startsWith('{') || trimmed.startsWith('[');
 }
 
-function alternateEspnUrl(url) {
-    if (typeof url !== 'string') return null;
+function espnCandidates(url) {
+    if (typeof url !== 'string') return [url];
     if (url.includes('site.api.espn.com')) {
-        return url.replace('site.api.espn.com', 'site.web.api.espn.com');
+        return [
+            url.replace('site.api.espn.com', 'site.web.api.espn.com'),
+            url
+        ];
     }
     if (url.includes('site.web.api.espn.com')) {
-        return url.replace('site.web.api.espn.com', 'site.api.espn.com');
+        return [url, url.replace('site.web.api.espn.com', 'site.api.espn.com')];
     }
-    return null;
+    return [url];
 }
 
 function withTimeout(options = {}) {
@@ -57,10 +60,8 @@ async function fetchOnce(url, options = {}) {
 }
 
 async function fetchJson(url, options = {}) {
-    const retries = options.retries ?? 3;
-    const urls = [url];
-    const alt = alternateEspnUrl(url);
-    if (alt) urls.push(alt);
+    const retries = options.retries ?? 2;
+    const urls = espnCandidates(url);
 
     let lastError;
     for (const candidate of urls) {
@@ -78,22 +79,14 @@ async function fetchJson(url, options = {}) {
             } catch (error) {
                 lastError = error;
             }
-            await new Promise(resolve => setTimeout(resolve, 400 * attempt));
+            await new Promise(resolve => setTimeout(resolve, 300 * attempt));
         }
     }
     throw lastError;
 }
 
-/**
- * Drop-in replacement for node-fetch that:
- * - sends browser-like headers
- * - makes .json() fail with a clear error instead of "Unexpected token <"
- */
 async function fetch(url, options = {}) {
-    const urls = [url];
-    const alt = alternateEspnUrl(url);
-    if (alt) urls.push(alt);
-
+    const urls = espnCandidates(url);
     let lastError;
     let lastText = '';
     let lastResponse = null;
@@ -145,8 +138,6 @@ async function fetch(url, options = {}) {
 }
 
 function currentNflSeasonYear(date = new Date()) {
-    // NFL season year is the calendar year the regular season starts (Sep).
-    // Jan–Jul still belong to the previous season (playoffs / offseason).
     const month = date.getMonth();
     return month < 8 ? date.getFullYear() - 1 : date.getFullYear();
 }
