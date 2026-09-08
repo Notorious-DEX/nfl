@@ -24,7 +24,9 @@ src = src.replace(
     "const { fetch, currentNflSeasonYear } = require('./espn-fetch');\nconst SEASON_YEAR = currentNflSeasonYear();"
 );
 
-src = src.replace(/dates=2025/g, 'dates=${SEASON_YEAR}');
+// Template literals can interpolate. Quoted strings cannot — use concat there.
+src = src.replace(/`([^`]*?)dates=2025([^`]*?)`/g, (_, a, b) => '`' + a + 'dates=${SEASON_YEAR}' + b + '`');
+src = src.replace(/dates=2025/g, "dates=' + SEASON_YEAR + '");
 src = src.replace('const seasonYear = 2025;', 'const seasonYear = SEASON_YEAR;');
 src = src.replace(
     "eloRatings = eloData.seasons?.['2025']?.startOfSeasonRatings || {};",
