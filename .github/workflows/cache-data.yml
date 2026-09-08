@@ -55,6 +55,9 @@ jobs:
       - name: Run cache script
         run: node scripts/patch-and-run.js scripts/cache-data.js
 
+      - name: Apply market priors
+        run: node scripts/apply-market-priors.js
+
       - name: Commit and push cached data
         run: |
           git config --global user.name 'GitHub Actions Bot'
