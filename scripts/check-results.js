@@ -8,7 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { fetch } = require('./espn-fetch');
 
 async function checkResults() {
     try {
@@ -48,7 +48,6 @@ async function checkResults() {
 
         if (fs.existsSync(resultsPath)) {
             results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
-            // Update metadata to current version
             results.version = 'v0.06';
             results.method = 'index.html-algorithm';
             if (!results.kFactor) results.kFactor = 20;
@@ -62,24 +61,19 @@ async function checkResults() {
 
         for (const prediction of predictions) {
             const gameDate = new Date(prediction.date);
-
-            // Skip future games
             if (gameDate > fourHoursAgo) {
                 continue;
             }
 
-            // Check if we've already counted this game
             const alreadyCounted = results.games.some(g => g.gameId === prediction.gameId);
             if (alreadyCounted) {
                 continue;
             }
 
-            // Fetch game result using scoreboard API (same as backtest.js)
             try {
                 const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${prediction.gameId}`);
                 const data = await response.json();
 
-                // Get week number and game data
                 const weekNumber = data.header?.week || null;
                 const gameData = data.header?.competitions?.[0];
 
@@ -88,13 +82,11 @@ async function checkResults() {
                     continue;
                 }
 
-                // Check if game is completed
                 if (!gameData.status?.type?.completed) {
                     console.log(`  ⏳ Game ${prediction.gameId} not yet completed`);
                     continue;
                 }
 
-                // Get scores from competitors (same structure as backtest.js uses)
                 const homeComp = gameData.competitors?.find(c => c.homeAway === 'home');
                 const awayComp = gameData.competitors?.find(c => c.homeAway === 'away');
 
@@ -116,13 +108,11 @@ async function checkResults() {
                     results.correct++;
                 }
 
-                // Calculate confidence based on score difference
                 const scoreDiff = Math.abs(prediction.homeScore - prediction.awayScore);
                 let confidence = 'medium';
                 if (scoreDiff >= 7) confidence = 'high';
                 else if (scoreDiff <= 3) confidence = 'low';
 
-                // Match the exact format from backtest results
                 results.games.push({
                     gameId: prediction.gameId,
                     week: weekNumber,
@@ -140,7 +130,6 @@ async function checkResults() {
                     correct: correct
                 });
 
-                // Update weeks count if this is a new week
                 if (weekNumber && (!results.weeks || weekNumber > results.weeks)) {
                     results.weeks = weekNumber;
                 }
@@ -156,11 +145,9 @@ async function checkResults() {
             }
         }
 
-        // Calculate accuracy
         results.accuracy = results.total > 0 ? ((results.correct / results.total) * 100).toFixed(1) : '0.0';
         results.lastUpdated = new Date().toISOString();
 
-        // Save results with proper structure
         fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));
 
         console.log('📊 Results Summary:');
