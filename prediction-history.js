@@ -16,6 +16,20 @@ function gameSeason(game) {
     return nflSeasonYear(game.date);
 }
 
+function currentNflSeason() {
+    return nflSeasonYear(new Date().toISOString());
+}
+
+function availableSeasons() {
+    const years = new Set(allGames.map(gameSeason).filter(Boolean));
+    const current = currentNflSeason();
+    if (current) {
+        years.add(current);
+        years.add(current - 1);
+    }
+    return [...years].sort((a, b) => b - a);
+}
+
 function fillSelect(select, values, allLabel, labelFn) {
     const previous = select.value || 'all';
     select.innerHTML = '';
@@ -40,8 +54,7 @@ function gamesForSeasonFilter() {
 }
 
 function populateFilters() {
-    const seasons = [...new Set(allGames.map(gameSeason).filter(Boolean))].sort((a, b) => b - a);
-    fillSelect(document.getElementById('seasonFilter'), seasons, 'All Seasons', (y) => y + ' Season');
+    fillSelect(document.getElementById('seasonFilter'), availableSeasons(), 'All Seasons', (y) => y + ' Season');
     const scoped = gamesForSeasonFilter();
     const weeks = [...new Set(scoped.map((g) => g.week).filter((w) => w != null))].sort((a, b) => a - b);
     fillSelect(document.getElementById('weekFilter'), weeks, 'All Weeks', (w) => 'Week ' + w);
@@ -103,12 +116,12 @@ function updateAnalytics() {
         }))
         .sort((a, b) => b.accuracy - a.accuracy);
 
-    let html = statList('\ud83c\udfc6 Best Weeks', weeklyArray.slice(0, 5).map((w) => ({ label: 'Week ' + w.week, value: w.accuracy + '%' })), true);
-    html += statList('\ud83d\udcc9 Worst Weeks', weeklyArray.slice(-5).reverse().map((w) => ({ label: 'Week ' + w.week, value: w.accuracy + '%' })), false);
-    html += statList('\u2b50 Best Team Predictions', teamArray.slice(0, 5).map((t) => ({ label: t.team, value: t.record + ' (' + t.accuracy + '%)' })), true);
-    html += statList('\u274c Worst Team Predictions', teamArray.slice(-5).reverse().map((t) => ({ label: t.team, value: t.record + ' (' + t.accuracy + '%)' })), false);
+    let html = statList('Best Weeks', weeklyArray.slice(0, 5).map((w) => ({ label: 'Week ' + w.week, value: w.accuracy + '%' })), true);
+    html += statList('Worst Weeks', weeklyArray.slice(-5).reverse().map((w) => ({ label: 'Week ' + w.week, value: w.accuracy + '%' })), false);
+    html += statList('Best Team Predictions', teamArray.slice(0, 5).map((t) => ({ label: t.team, value: t.record + ' (' + t.accuracy + '%)' })), true);
+    html += statList('Worst Team Predictions', teamArray.slice(-5).reverse().map((t) => ({ label: t.team, value: t.record + ' (' + t.accuracy + '%)' })), false);
 
-    html += '<div class="analytics-card"><h3>\ud83c\udfaf Confidence Performance</h3>';
+    html += '<div class="analytics-card"><h3>Confidence Performance</h3>';
     ['high', 'medium', 'low'].forEach((conf) => {
         const stats = confidenceStats[conf];
         if (!stats || !stats.total) return;
@@ -124,7 +137,11 @@ function updateAnalytics() {
 function renderTable() {
     const tbody = document.getElementById('gameTable');
     if (!filteredGames.length) {
-        tbody.innerHTML = '<tr><td colspan="9" class="loading">No games match your filters</td></tr>';
+        const season = document.getElementById('seasonFilter').value;
+        const msg = season !== 'all'
+            ? 'No ' + season + ' results yet. Finished games will show up here automatically.'
+            : 'No games match your filters';
+        tbody.innerHTML = '<tr><td colspan="9" class="loading">' + msg + '</td></tr>';
         return;
     }
     tbody.innerHTML = filteredGames.map((game) => {
@@ -172,14 +189,14 @@ function applyFilters() {
 }
 
 function resetFilters() {
-    document.getElementById('seasonFilter').value = 'all';
+    document.getElementById('seasonFilter').value = String(currentNflSeason() || 'all');
     populateFilters();
     document.getElementById('weekFilter').value = 'all';
     document.getElementById('teamFilter').value = 'all';
     document.getElementById('resultFilter').value = 'all';
     document.getElementById('confidenceFilter').value = 'all';
     document.getElementById('searchInput').value = '';
-    filteredGames = [...allGames];
+    filteredGames = gamesForSeasonFilter();
     updateStats();
     updateAnalytics();
     renderTable();
@@ -214,14 +231,13 @@ async function loadPredictionHistory() {
         if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
         allGames = data.games || [];
-        filteredGames = [...allGames];
         populateFilters();
-        const current = nflSeasonYear(new Date().toISOString());
-        if (allGames.some((g) => gameSeason(g) === current)) {
+        const current = currentNflSeason();
+        if (current) {
             document.getElementById('seasonFilter').value = String(current);
             populateFilters();
-            filteredGames = gamesForSeasonFilter();
         }
+        filteredGames = gamesForSeasonFilter();
         updateStats();
         updateAnalytics();
         renderTable();
