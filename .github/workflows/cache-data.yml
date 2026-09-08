@@ -53,7 +53,7 @@ jobs:
         run: npm install node-fetch
 
       - name: Run cache script
-        run: node scripts/cache-data.js
+        run: node scripts/patch-and-run.js scripts/cache-data.js
 
       - name: Commit and push cached data
         run: |
