@@ -2,8 +2,8 @@
 
 /**
  * Check NFL Prediction Results
- * Appends newly completed games onto results.json.
- * Never deletes or replaces previous seasons.
+ * Appends newly completed games onto results.json as soon as ESPN
+ * marks them final. Never deletes previous seasons.
  */
 
 const fs = require('fs');
@@ -27,15 +27,50 @@ function recount(results) {
     if (weeks.length) results.weeks = Math.max(...weeks);
 }
 
+function loadPredictions() {
+    const files = [
+        path.join(__dirname, '..', 'predictions.json'),
+        path.join(__dirname, '..', 'prediction-archive.json')
+    ];
+    const byId = new Map();
+    for (const file of files) {
+        if (!fs.existsSync(file)) continue;
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+        const list = Array.isArray(data) ? data : (data.predictions || []);
+        for (const prediction of list) {
+            if (prediction && prediction.gameId && !byId.has(String(prediction.gameId))) {
+                byId.set(String(prediction.gameId), prediction);
+            }
+        }
+    }
+    return [...byId.values()];
+}
+
+function saveArchive(predictions) {
+    const archivePath = path.join(__dirname, '..', 'prediction-archive.json');
+    let existing = [];
+    if (fs.existsSync(archivePath)) {
+        const data = JSON.parse(fs.readFileSync(archivePath, 'utf8'));
+        existing = data.predictions || [];
+    }
+    const byId = new Map(existing.map((p) => [String(p.gameId), p]));
+    for (const prediction of predictions) {
+        if (prediction && prediction.gameId && !byId.has(String(prediction.gameId))) {
+            byId.set(String(prediction.gameId), prediction);
+        }
+    }
+    fs.writeFileSync(archivePath, JSON.stringify({
+        lastUpdated: new Date().toISOString(),
+        predictions: [...byId.values()]
+    }, null, 2));
+}
+
 async function checkResults() {
     try {
-        console.log('\ud83c\udfc8 Checking prediction results...\n');
+        console.log('Checking prediction results...\n');
 
         const resultsPath = path.join(__dirname, '..', 'results.json');
-        const predictionsPath = path.join(__dirname, '..', 'predictions.json');
-
         if (!fs.existsSync(resultsPath)) {
-            console.log('No results.json yet; starting empty archive.');
             fs.writeFileSync(resultsPath, JSON.stringify({
                 lastUpdated: new Date().toISOString(),
                 version: 'v0.06',
@@ -53,45 +88,40 @@ async function checkResults() {
         if (!Array.isArray(results.games)) results.games = [];
         const archivedCount = results.games.length;
 
-        if (!fs.existsSync(predictionsPath)) {
-            console.log('No predictions file found. Leaving archived results untouched.');
+        const predictions = loadPredictions();
+        saveArchive(predictions);
+
+        if (!predictions.length) {
+            console.log('No predictions to grade. Leaving archived results untouched.');
             recount(results);
             results.lastUpdated = new Date().toISOString();
             fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));
             return;
         }
 
-        const predictionsData = JSON.parse(fs.readFileSync(predictionsPath, 'utf8'));
-        const predictions = predictionsData.predictions || [];
-
-        const now = new Date();
-        const fourHoursAgo = new Date(now.getTime() - 4 * 60 * 60 * 1000);
         let newChecks = 0;
 
         for (const prediction of predictions) {
-            const gameDate = new Date(prediction.date);
-            if (gameDate > fourHoursAgo) continue;
-            if (results.games.some((g) => g.gameId === prediction.gameId)) continue;
+            if (results.games.some((g) => String(g.gameId) === String(prediction.gameId))) continue;
 
             try {
                 const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${prediction.gameId}`);
                 const data = await response.json();
 
-                const weekNumber = data.header?.week || null;
+                const weekNumber = data.header?.week || prediction.week || null;
                 const gameData = data.header?.competitions?.[0];
                 if (!gameData) {
-                    console.warn(`  \u26a0\ufe0f  No game data for ${prediction.gameId}`);
+                    console.warn(`  No game data for ${prediction.gameId}`);
                     continue;
                 }
                 if (!gameData.status?.type?.completed) {
-                    console.log(`  \u23f3 Game ${prediction.gameId} not yet completed`);
                     continue;
                 }
 
                 const homeComp = gameData.competitors?.find((c) => c.homeAway === 'home');
                 const awayComp = gameData.competitors?.find((c) => c.homeAway === 'away');
                 if (!homeComp || !awayComp) {
-                    console.warn(`  \u26a0\ufe0f  Missing competitor data for ${prediction.gameId}`);
+                    console.warn(`  Missing competitor data for ${prediction.gameId}`);
                     continue;
                 }
 
@@ -125,12 +155,12 @@ async function checkResults() {
                 });
 
                 newChecks++;
-                const symbol = correct ? '\u2705' : '\u274c';
-                console.log(`  ${symbol} ${prediction.awayTeam} @ ${prediction.homeTeam} (Week ${weekNumber || '?'})`);
+                const symbol = correct ? 'YES' : 'NO';
+                console.log(`  [${symbol}] ${prediction.awayTeam} @ ${prediction.homeTeam} (Week ${weekNumber || '?'})`);
                 console.log(`     Predicted: ${prediction.winner} (${prediction.awayScore}-${prediction.homeScore})`);
                 console.log(`     Actual: ${actualWinner} (${awayScore}-${homeScore})\n`);
             } catch (error) {
-                console.warn(`  \u26a0\ufe0f  Could not check result for ${prediction.gameId}: ${error.message}`);
+                console.warn(`  Could not check ${prediction.gameId}: ${error.message}`);
             }
         }
 
@@ -145,15 +175,15 @@ async function checkResults() {
 
         fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2));
 
-        console.log('\ud83d\udcca Results Summary:');
+        console.log('Results Summary:');
         console.log(`   Archived games kept: ${archivedCount}`);
         console.log(`   New checks: ${newChecks}`);
         console.log(`   Correct: ${results.correct}`);
         console.log(`   Total: ${results.total}`);
         console.log(`   Accuracy: ${results.accuracy}%`);
-        console.log('\n\u2705 Results saved to results.json');
+        console.log('\nResults saved to results.json');
     } catch (error) {
-        console.error('\u274c Error checking results:', error);
+        console.error('Error checking results:', error);
         process.exit(1);
     }
 }
