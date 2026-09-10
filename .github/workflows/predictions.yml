@@ -2,28 +2,32 @@ name: NFL Predictions
 
 on:
   schedule:
-    # Run every Tuesday at 10 AM UTC (before week starts)
+    # Before the week starts
     - cron: '0 10 * * 2'
 
-    # Check results during and after games
-    # Thursday game day - check after game ends (midnight ET = 5am UTC Friday)
-    - cron: '0 5 * * 5'
+    # Wednesday night opener / late games (kickoff ~00:20 UTC Thursday)
+    - cron: '30 3,4,5 * * 4'
 
-    # Saturday games - check after games end (midnight ET = 5am UTC Sunday)
+    # Thursday night
+    - cron: '0 5 * * 5'
+    - cron: '30 3,4 * * 5'
+
+    # Saturday
     - cron: '0 5 * * 0'
 
-    # Sunday games - check multiple times as games finish
-    - cron: '0 22 * * 0'  # After 1pm ET games (6pm ET = 11pm UTC)
-    - cron: '0 2 * * 1'   # After 4pm ET games (9pm ET = 2am UTC Monday)
-    - cron: '0 5 * * 1'   # After SNF (midnight ET = 5am UTC Monday)
+    # Sunday slate
+    - cron: '0 22 * * 0'
+    - cron: '0 2 * * 1'
+    - cron: '0 5 * * 1'
 
-    # Monday game - check after game ends (midnight ET = 5am UTC Tuesday)
+    # Monday night
     - cron: '0 5 * * 2'
+    - cron: '30 3,4 * * 2'
 
-    # Daily backup check at 6 AM UTC
+    # Daily backup
     - cron: '0 6 * * *'
 
-  workflow_dispatch: # Allow manual triggers
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -50,15 +54,15 @@ jobs:
       - name: Install dependencies
         run: npm install node-fetch
 
-      - name: Generate predictions
-        run: node scripts/generate-predictions.js
-
       - name: Check results
         run: node scripts/check-results.js
+
+      - name: Generate predictions
+        run: node scripts/generate-predictions.js
 
       - name: Commit and push if changed
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add predictions.json results.json
+          git add predictions.json prediction-archive.json results.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update predictions and results [skip ci]" && git push)
