@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-11T01:02:46.766Z",
+  "lastUpdated": "2026-09-11T01:41:46.952Z",
   "currentWeek": 1,
   "games": [
     {
@@ -146,12 +146,17 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png"
               },
-              "score": "0",
+              "score": "7",
               "linescores": [
                 {
                   "value": 0,
                   "displayValue": "0",
                   "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
                 }
               ],
               "statistics": [],
@@ -281,12 +286,17 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sf.png"
               },
-              "score": "3",
+              "score": "10",
               "linescores": [
                 {
                   "value": 3,
                   "displayValue": "3",
                   "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
                 }
               ],
               "statistics": [],
@@ -321,51 +331,52 @@
           ],
           "situation": {
             "lastPlay": {
-              "id": "401872657785",
+              "id": "4018726571631",
               "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": " (Shotgun) B.Purdy pass incomplete short left to C.McCaffrey (O.Speights).",
+              "text": " K.Williams up the middle to SF 42 for 7 yards (F.Warner).",
               "scoreValue": 0,
               "team": {
-                "id": "25"
+                "id": "14"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.546,
-                "awayWinPercentage": 0.45399999999999996,
+                "homeWinPercentage": 0.5625,
+                "awayWinPercentage": 0.4375,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 7,
               "drive": {
-                "description": "2 plays, 8 yards, 0:31",
+                "description": "2 plays, 23 yards, 0:40",
                 "start": {
-                  "yardLine": 83,
-                  "text": "SF 17"
+                  "yardLine": 35,
+                  "text": "LAR 35"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:31"
+                  "displayValue": "0:40"
                 }
               },
               "start": {
-                "yardLine": 75,
+                "yardLine": 51,
                 "team": {
-                  "id": "25"
+                  "id": "14"
                 }
               },
               "end": {
-                "yardLine": 75,
+                "yardLine": 58,
                 "team": {
-                  "id": "25"
+                  "id": "14"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "3117251",
-                  "fullName": "Christian McCaffrey",
-                  "displayName": "Christian McCaffrey",
-                  "shortName": "C. McCaffrey",
+                  "id": "4430737",
+                  "fullName": "Kyren Williams",
+                  "displayName": "Kyren Williams",
+                  "shortName": "K. Williams",
                   "links": [
                     {
                       "rel": [
@@ -373,41 +384,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/3117251/christian-mccaffrey"
+                      "href": "https://www.espn.com/nfl/player/_/id/4430737/kyren-williams"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3117251.png",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430737.png",
                   "jersey": "23",
                   "position": "RB",
                   "team": {
-                    "id": "25"
+                    "id": "14"
                   }
                 }
               ]
             },
-            "down": 4,
-            "yardLine": 75,
-            "distance": 2,
-            "downDistanceText": "4th & 2 at SF 25",
-            "shortDownDistanceText": "4th & 2",
-            "possessionText": "SF 25",
+            "down": 2,
+            "yardLine": 58,
+            "distance": 3,
+            "downDistanceText": "2nd & 3 at SF 42",
+            "shortDownDistanceText": "2nd & 3",
+            "possessionText": "SF 42",
             "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "25"
+            "awayTimeouts": 2,
+            "possession": "14"
           },
           "status": {
-            "clock": 126,
-            "displayClock": "2:06",
-            "period": 1,
+            "clock": 228,
+            "displayClock": "3:48",
+            "period": 2,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "2:06 - 1st Quarter",
-              "shortDetail": "2:06 - 1st"
+              "detail": "3:48 - 2nd Quarter",
+              "shortDetail": "3:48 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -427,8 +438,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "10/14, 63 YDS",
-                  "value": 63,
+                  "displayValue": "15/22, 134 YDS, 1 TD, 1 INT",
+                  "value": 134,
                   "athlete": {
                     "id": "4361741",
                     "fullName": "Brock Purdy",
@@ -467,8 +478,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "2 CAR, 8 YDS",
-                  "value": 8,
+                  "displayValue": "6 CAR, 42 YDS",
+                  "value": 42,
                   "athlete": {
                     "id": "4429096",
                     "fullName": "Blake Corum",
@@ -507,8 +518,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 22 YDS",
-                  "value": 22,
+                  "displayValue": "5 REC, 47 YDS",
+                  "value": 47,
                   "athlete": {
                     "id": "16737",
                     "fullName": "Mike Evans",
@@ -610,17 +621,17 @@
         }
       ],
       "status": {
-        "clock": 126,
-        "displayClock": "2:06",
-        "period": 1,
+        "clock": 228,
+        "displayClock": "3:48",
+        "period": 2,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "2:06 - 1st Quarter",
-          "shortDetail": "2:06 - 1st"
+          "detail": "3:48 - 2nd Quarter",
+          "shortDetail": "3:48 - 2nd"
         }
       }
     },
@@ -952,8 +963,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $126",
-              "numberAvailable": 3084,
+              "summary": "Tickets as low as $121",
+              "numberAvailable": 3132,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-cincinnati-paycor-stadium-3-7-2026/production/6489052?wsUser=717"
@@ -1662,7 +1673,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $183",
-              "numberAvailable": 3529,
+              "numberAvailable": 3509,
               "links": [
                 {
                   "href": "https://www.vividseats.com/detroit-lions-tickets-detroit-ford-field-3-5-2026/production/6489887?wsUser=717"
@@ -1714,7 +1725,7 @@
                 ]
               },
               "details": "DET -7",
-              "overUnder": 50.5,
+              "overUnder": 49.5,
               "spread": -7,
               "awayTeamOdds": {
                 "favorite": false,
@@ -1747,7 +1758,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-305",
+                    "odds": "-310",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1779,7 +1790,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+245",
+                    "odds": "+250",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1887,8 +1898,8 @@
                 "shortDisplayName": "Total",
                 "over": {
                   "close": {
-                    "line": "o50.5",
-                    "odds": "-102",
+                    "line": "o49.5",
+                    "odds": "-118",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1896,7 +1907,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0OU84695643O5050_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0OU84695643O4950_1",
                       "text": "Over Odds",
                       "shortText": "Over Odds",
                       "isExternal": true,
@@ -1909,7 +1920,7 @@
                           "gameId": 401872923,
                           "betSide": "over",
                           "betType": "straight",
-                          "betDetails": "Over:50.5"
+                          "betDetails": "Over:49.5"
                         }
                       }
                     }
@@ -1921,8 +1932,8 @@
                 },
                 "under": {
                   "close": {
-                    "line": "u50.5",
-                    "odds": "-118",
+                    "line": "u49.5",
+                    "odds": "-102",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1930,7 +1941,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0OU84695643U5050_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0OU84695643U4950_3",
                       "text": "Under Odds",
                       "shortText": "Under Odds",
                       "isExternal": true,
@@ -1943,7 +1954,7 @@
                           "gameId": 401872923,
                           "betSide": "under",
                           "betType": "straight",
-                          "betDetails": "Under:50.5"
+                          "betDetails": "Under:49.5"
                         }
                       }
                     }
@@ -2369,8 +2380,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $15",
-              "numberAvailable": 3681,
+              "summary": "Tickets as low as $17",
+              "numberAvailable": 3676,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nashville-nissan-stadium-parking-3-8-2027/production/6493575?wsUser=717"
@@ -3078,7 +3089,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $76",
-              "numberAvailable": 2727,
+              "numberAvailable": 2962,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-indianapolis-lucas-oil-stadium-3-4-2026/production/6490115?wsUser=717"
@@ -3785,8 +3796,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $135",
-              "numberAvailable": 6676,
+              "summary": "Tickets as low as $130",
+              "numberAvailable": 6068,
               "links": [
                 {
                   "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-4-2027/production/6495144?wsUser=717"
@@ -4493,8 +4504,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $140",
-              "numberAvailable": 4343,
+              "summary": "Tickets as low as $134",
+              "numberAvailable": 4358,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-charlotte-bank-of-america-stadium-3-5-2026/production/6488717?wsUser=717"
@@ -5201,8 +5212,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $93",
-              "numberAvailable": 3144,
+              "summary": "Tickets as low as $94",
+              "numberAvailable": 3181,
               "links": [
                 {
                   "href": "https://www.vividseats.com/jacksonville-jaguars-tickets-jacksonville-everbank-stadium-3-4-2026/production/6490150?wsUser=717"
@@ -5910,7 +5921,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $142",
-              "numberAvailable": 5154,
+              "numberAvailable": 5150,
               "links": [
                 {
                   "href": "https://www.vividseats.com/houston-texans-tickets-houston-nrg-stadium-3-6-2026/production/6490070?wsUser=717"
@@ -6617,8 +6628,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $209",
-              "numberAvailable": 5469,
+              "summary": "Tickets as low as $207",
+              "numberAvailable": 5692,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-las-vegas-allegiant-stadium-3-5-2026/production/6491238?wsUser=717"
@@ -7325,8 +7336,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $171",
-              "numberAvailable": 5447,
+              "summary": "Tickets as low as $166",
+              "numberAvailable": 5471,
               "links": [
                 {
                   "href": "https://www.vividseats.com/minnesota-vikings-tickets-minneapolis-us-bank-stadium-3-2-2027/production/6492290?wsUser=717"
@@ -8034,7 +8045,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $129",
-              "numberAvailable": 3255,
+              "numberAvailable": 3360,
               "links": [
                 {
                   "href": "https://www.vividseats.com/philadelphia-eagles-tickets-philadelphia-lincoln-financial-field-12-14-2027/production/6464078?wsUser=717"
@@ -8742,7 +8753,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $29",
-              "numberAvailable": 5939,
+              "numberAvailable": 5924,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-chargers-tickets-inglewood-sofi-stadium-3-6-2026/production/6491367?wsUser=717"
@@ -9450,7 +9461,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $182",
-              "numberAvailable": 5118,
+              "numberAvailable": 5144,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-giants-tickets-east-rutherford-metlife-stadium-3-1-2027/production/6494139?wsUser=717"
@@ -10159,7 +10170,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $181",
-              "numberAvailable": 5440,
+              "numberAvailable": 5457,
               "links": [
                 {
                   "href": "https://www.vividseats.com/kansas-city-chiefs-tickets-kansas-city-geha-field-at-arrowhead-stadium-3-1-2026/production/6491101?wsUser=717"
@@ -13624,6 +13635,16 @@
         },
         "depthChartPosition": "RWR",
         "depthChartOrder": 6
+      },
+      {
+        "longComment": "Ankle",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "De'Zhaun Stribling",
+          "position": "WR"
+        },
+        "depthChartPosition": "SWR",
+        "depthChartOrder": 3
       },
       {
         "longComment": "Coach's Decision",
