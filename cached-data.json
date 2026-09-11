@@ -1,640 +1,7 @@
 {
-  "lastUpdated": "2026-09-11T01:50:30.403Z",
+  "lastUpdated": "2026-09-11T08:12:37.159Z",
   "currentWeek": 1,
   "games": [
-    {
-      "id": "401872657",
-      "uid": "s:20~l:28~e:401872657",
-      "date": "2026-09-11T00:35Z",
-      "name": "San Francisco 49ers at Los Angeles Rams",
-      "shortName": "SF VS LAR",
-      "season": {
-        "year": 2026,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 1
-      },
-      "competitions": [
-        {
-          "id": "401872657",
-          "uid": "s:20~l:28~e:401872657~c:401872657",
-          "date": "2026-09-11T00:35Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": true,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": true,
-          "recent": true,
-          "venue": {
-            "id": "9119",
-            "fullName": "Melbourne Cricket Ground",
-            "address": {
-              "city": "Melbourne",
-              "state": "VIC",
-              "country": "Australia"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "14",
-              "uid": "s:20~l:28~t:14",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "14",
-                "uid": "s:20~l:28~t:14",
-                "location": "Los Angeles",
-                "name": "Rams",
-                "abbreviation": "LAR",
-                "displayName": "Los Angeles Rams",
-                "shortDisplayName": "Rams",
-                "color": "003594",
-                "alternateColor": "ffd100",
-                "isActive": true,
-                "venue": {
-                  "id": "477"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/lar/los-angeles-rams",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/lar/los-angeles-rams",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:14&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/lar/los-angeles-rams",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:14&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/lar",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:14&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png"
-              },
-              "score": "7",
-              "linescores": [
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 1
-                },
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 2
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            },
-            {
-              "id": "25",
-              "uid": "s:20~l:28~t:25",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "25",
-                "uid": "s:20~l:28~t:25",
-                "location": "San Francisco",
-                "name": "49ers",
-                "abbreviation": "SF",
-                "displayName": "San Francisco 49ers",
-                "shortDisplayName": "49ers",
-                "color": "aa0000",
-                "alternateColor": "b3995d",
-                "isActive": true,
-                "venue": {
-                  "id": "4738"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/sf/san-francisco-49ers",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/sf/san-francisco-49ers",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:25&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/sf/san-francisco-49ers",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:25&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/sf",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:25&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sf.png"
-              },
-              "score": "10",
-              "linescores": [
-                {
-                  "value": 3,
-                  "displayValue": "3",
-                  "period": 1
-                },
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 2
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            }
-          ],
-          "notes": [
-            {
-              "type": "event",
-              "headline": "NFL Melbourne Game"
-            }
-          ],
-          "situation": {
-            "lastPlay": {
-              "id": "4018726571784",
-              "type": {
-                "id": "5",
-                "text": "Rush",
-                "abbreviation": "RUSH"
-              },
-              "text": " (Shotgun) C.McCaffrey right guard to SF 27 for 7 yards (K.Kinchens; T.Davis).",
-              "scoreValue": 0,
-              "team": {
-                "id": "25"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.4587,
-                "awayWinPercentage": 0.5413,
-                "secondsLeft": 0
-              },
-              "statYardage": 7,
-              "drive": {
-                "description": "2 plays, 19 yards, 0:43",
-                "start": {
-                  "yardLine": 92,
-                  "text": "SF 8"
-                },
-                "timeElapsed": {
-                  "displayValue": "0:43"
-                }
-              },
-              "start": {
-                "yardLine": 80,
-                "team": {
-                  "id": "25"
-                }
-              },
-              "end": {
-                "yardLine": 73,
-                "team": {
-                  "id": "25"
-                }
-              },
-              "athletesInvolved": [
-                {
-                  "id": "3117251",
-                  "fullName": "Christian McCaffrey",
-                  "displayName": "Christian McCaffrey",
-                  "shortName": "C. McCaffrey",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/3117251/christian-mccaffrey"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3117251.png",
-                  "jersey": "23",
-                  "position": "RB",
-                  "team": {
-                    "id": "25"
-                  }
-                }
-              ]
-            },
-            "down": 2,
-            "yardLine": 73,
-            "distance": 3,
-            "downDistanceText": "2nd & 3 at SF 27",
-            "shortDownDistanceText": "2nd & 3",
-            "possessionText": "SF 27",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "25"
-          },
-          "status": {
-            "clock": 120,
-            "displayClock": "2:00",
-            "period": 2,
-            "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "2:00 - 2nd Quarter",
-              "shortDetail": "2:00 - 2nd"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "Netflix"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "15/22, 134 YDS, 1 TD, 1 INT",
-                  "value": 134,
-                  "athlete": {
-                    "id": "4361741",
-                    "fullName": "Brock Purdy",
-                    "displayName": "Brock Purdy",
-                    "shortName": "B. Purdy",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4361741/brock-purdy"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361741.png",
-                    "jersey": "13",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "25"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "25"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "6 CAR, 42 YDS",
-                  "value": 42,
-                  "athlete": {
-                    "id": "4429096",
-                    "fullName": "Blake Corum",
-                    "displayName": "Blake Corum",
-                    "shortName": "B. Corum",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4429096/blake-corum"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4429096.png",
-                    "jersey": "24",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "14"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "14"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "5 REC, 47 YDS",
-                  "value": 47,
-                  "athlete": {
-                    "id": "16737",
-                    "fullName": "Mike Evans",
-                    "displayName": "Mike Evans",
-                    "shortName": "M. Evans",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/16737/mike-evans"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/16737.png",
-                    "jersey": "5",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "25"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "25"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            }
-          },
-          "startDate": "2026-09-11T00:35Z",
-          "broadcast": "Netflix",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "4",
-                "shortName": "Streaming"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "Netflix"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "live",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game?gameId=401872657",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "boxscore",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872657",
-          "text": "Box Score",
-          "shortText": "Box Score",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "pbp",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872657",
-          "text": "Play-by-Play",
-          "shortText": "Play-by-Play",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "status": {
-        "clock": 120,
-        "displayClock": "2:00",
-        "period": 2,
-        "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "2:00 - 2nd Quarter",
-          "shortDetail": "2:00 - 2nd"
-        }
-      }
-    },
     {
       "id": "401872925",
       "uid": "s:20~l:28~e:401872925",
@@ -963,8 +330,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $121",
-              "numberAvailable": 3132,
+              "summary": "Tickets as low as $122",
+              "numberAvailable": 3073,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-cincinnati-paycor-stadium-3-7-2026/production/6489052?wsUser=717"
@@ -998,7 +365,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1014,7 +381,7 @@
                     ]
                   }
                 ],
-                "displayName": "Draft Kings"
+                "displayName": "DraftKings"
               },
               "details": "CIN -3.5",
               "overUnder": 50.5,
@@ -1057,7 +424,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118140%3Foutcomes%3D0ML84695573_1",
                       "text": "Home Bet",
@@ -1089,7 +456,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118140%3Foutcomes%3D0ML84695573_3",
                       "text": "Away Bet",
@@ -1322,7 +689,7 @@
           "rel": [
             "45202"
           ],
-          "href": "http://www.accuweather.com/en/us/paycor-stadium-oh/45212/hourly-weather-forecast/53622_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/paycor-stadium-oh/45212/hourly-weather-forecast/53622_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -1673,7 +1040,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $183",
-              "numberAvailable": 3509,
+              "numberAvailable": 3507,
               "links": [
                 {
                   "href": "https://www.vividseats.com/detroit-lions-tickets-detroit-ford-field-3-5-2026/production/6489887?wsUser=717"
@@ -1707,7 +1074,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1765,7 +1132,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0ML84695643_1",
                       "text": "Home Bet",
@@ -1797,7 +1164,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118210%3Foutcomes%3D0ML84695643_3",
                       "text": "Away Bet",
@@ -2030,7 +1397,7 @@
           "rel": [
             "48226"
           ],
-          "href": "http://www.accuweather.com/en/us/ford-field-mi/48226/hourly-weather-forecast/43021_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/ford-field-mi/48226/hourly-weather-forecast/43021_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -2381,7 +1748,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $15",
-              "numberAvailable": 3695,
+              "numberAvailable": 3444,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nashville-nissan-stadium-parking-3-8-2027/production/6493575?wsUser=717"
@@ -2415,7 +1782,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -2473,7 +1840,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118237%3Foutcomes%3D0ML84695680_1",
                       "text": "Home Bet",
@@ -2505,7 +1872,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118237%3Foutcomes%3D0ML84695680_3",
                       "text": "Away Bet",
@@ -2729,16 +2096,16 @@
         }
       ],
       "weather": {
-        "displayValue": "Intermittent clouds",
-        "temperature": 86,
-        "highTemperature": 86,
-        "conditionId": "4",
+        "displayValue": "Partly sunny",
+        "temperature": 85,
+        "highTemperature": 85,
+        "conditionId": "3",
         "link": {
           "language": "en-US",
           "rel": [
             "37213"
           ],
-          "href": "http://www.accuweather.com/en/us/nissan-stadium-tn/37219/hourly-weather-forecast/53638_poi?day=4&hbhhour=12&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/nissan-stadium-tn/37219/hourly-weather-forecast/53638_poi?day=3&hbhhour=12&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -3088,8 +2455,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $76",
-              "numberAvailable": 2962,
+              "summary": "Tickets as low as $77",
+              "numberAvailable": 2968,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-indianapolis-lucas-oil-stadium-3-4-2026/production/6490115?wsUser=717"
@@ -3123,7 +2490,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -3181,7 +2548,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118266%3Foutcomes%3D0ML84695709_1",
                       "text": "Home Bet",
@@ -3213,7 +2580,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118266%3Foutcomes%3D0ML84695709_3",
                       "text": "Away Bet",
@@ -3446,7 +2813,7 @@
           "rel": [
             "46225"
           ],
-          "href": "http://www.accuweather.com/en/us/lucas-oil-stadium-in/46204/hourly-weather-forecast/53571_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/lucas-oil-stadium-in/46204/hourly-weather-forecast/53571_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -3796,8 +3163,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $130",
-              "numberAvailable": 6068,
+              "summary": "Tickets as low as $132",
+              "numberAvailable": 6376,
               "links": [
                 {
                   "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-4-2027/production/6495144?wsUser=717"
@@ -3831,7 +3198,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -3889,7 +3256,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118069%3Foutcomes%3D0ML84695502_1",
                       "text": "Home Bet",
@@ -3921,7 +3288,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118069%3Foutcomes%3D0ML84695502_3",
                       "text": "Away Bet",
@@ -4154,7 +3521,7 @@
           "rel": [
             "15212"
           ],
-          "href": "http://www.accuweather.com/en/us/acrisure-stadium-pa/15219/hourly-weather-forecast/53633_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/acrisure-stadium-pa/15219/hourly-weather-forecast/53633_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -4504,8 +3871,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $134",
-              "numberAvailable": 4358,
+              "summary": "Tickets as low as $137",
+              "numberAvailable": 4381,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-charlotte-bank-of-america-stadium-3-5-2026/production/6488717?wsUser=717"
@@ -4539,7 +3906,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -4597,7 +3964,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118028%3Foutcomes%3D0ML84695461_1",
                       "text": "Home Bet",
@@ -4629,7 +3996,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118028%3Foutcomes%3D0ML84695461_3",
                       "text": "Away Bet",
@@ -4862,7 +4229,7 @@
           "rel": [
             "28202"
           ],
-          "href": "http://www.accuweather.com/en/us/bank-of-america-stadium-nc/28202/hourly-weather-forecast/53601_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/bank-of-america-stadium-nc/28202/hourly-weather-forecast/53601_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -5212,8 +4579,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $94",
-              "numberAvailable": 3181,
+              "summary": "Tickets as low as $97",
+              "numberAvailable": 3149,
               "links": [
                 {
                   "href": "https://www.vividseats.com/jacksonville-jaguars-tickets-jacksonville-everbank-stadium-3-4-2026/production/6490150?wsUser=717"
@@ -5247,7 +4614,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -5305,7 +4672,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118250%3Foutcomes%3D0ML84695693_1",
                       "text": "Home Bet",
@@ -5337,7 +4704,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118250%3Foutcomes%3D0ML84695693_3",
                       "text": "Away Bet",
@@ -5570,7 +4937,7 @@
           "rel": [
             "32202"
           ],
-          "href": "http://www.accuweather.com/en/us/everbank-stadium-fl/32202/hourly-weather-forecast/53553_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/everbank-stadium-fl/32202/hourly-weather-forecast/53553_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -5920,8 +5287,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $142",
-              "numberAvailable": 5150,
+              "summary": "Tickets as low as $140",
+              "numberAvailable": 5049,
               "links": [
                 {
                   "href": "https://www.vividseats.com/houston-texans-tickets-houston-nrg-stadium-3-6-2026/production/6490070?wsUser=717"
@@ -5955,7 +5322,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -6013,7 +5380,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118029%3Foutcomes%3D0ML84695462_1",
                       "text": "Home Bet",
@@ -6045,7 +5412,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118029%3Foutcomes%3D0ML84695462_3",
                       "text": "Away Bet",
@@ -6269,16 +5636,16 @@
         }
       ],
       "weather": {
-        "displayValue": "Mostly cloudy",
-        "temperature": 89,
-        "highTemperature": 89,
-        "conditionId": "6",
+        "displayValue": "Intermittent clouds",
+        "temperature": 91,
+        "highTemperature": 91,
+        "conditionId": "4",
         "link": {
           "language": "en-US",
           "rel": [
             "77054"
           ],
-          "href": "http://www.accuweather.com/en/us/nrg-stadium-tx/77002/hourly-weather-forecast/43039_poi?day=4&hbhhour=12&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/nrg-stadium-tx/77002/hourly-weather-forecast/43039_poi?day=3&hbhhour=12&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -6628,8 +5995,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $206",
-              "numberAvailable": 5685,
+              "summary": "Tickets as low as $200",
+              "numberAvailable": 5672,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-las-vegas-allegiant-stadium-3-5-2026/production/6491238?wsUser=717"
@@ -6663,7 +6030,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -6721,7 +6088,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118243%3Foutcomes%3D0ML84695686_1",
                       "text": "Home Bet",
@@ -6753,7 +6120,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118243%3Foutcomes%3D0ML84695686_3",
                       "text": "Away Bet",
@@ -6986,7 +6353,7 @@
           "rel": [
             "89118"
           ],
-          "href": "http://www.accuweather.com/en/us/allegiant-stadium-nv/89101/hourly-weather-forecast/209206_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/allegiant-stadium-nv/89101/hourly-weather-forecast/209206_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -7337,7 +6704,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $166",
-              "numberAvailable": 5517,
+              "numberAvailable": 6089,
               "links": [
                 {
                   "href": "https://www.vividseats.com/minnesota-vikings-tickets-minneapolis-us-bank-stadium-3-2-2027/production/6492290?wsUser=717"
@@ -7371,7 +6738,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -7429,7 +6796,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118152%3Foutcomes%3D0ML84695585_1",
                       "text": "Home Bet",
@@ -7461,7 +6828,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118152%3Foutcomes%3D0ML84695585_3",
                       "text": "Away Bet",
@@ -7694,7 +7061,7 @@
           "rel": [
             "55415"
           ],
-          "href": "http://www.accuweather.com/en/us/us-bank-stadium-mn/55415/hourly-weather-forecast/35911_poi?day=4&hbhhour=15&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/us-bank-stadium-mn/55415/hourly-weather-forecast/35911_poi?day=3&hbhhour=15&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -8044,8 +7411,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $129",
-              "numberAvailable": 3360,
+              "summary": "Tickets as low as $206",
+              "numberAvailable": 3370,
               "links": [
                 {
                   "href": "https://www.vividseats.com/philadelphia-eagles-tickets-philadelphia-lincoln-financial-field-12-14-2027/production/6464078?wsUser=717"
@@ -8079,7 +7446,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -8137,7 +7504,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118074%3Foutcomes%3D0ML84695507_1",
                       "text": "Home Bet",
@@ -8169,7 +7536,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118074%3Foutcomes%3D0ML84695507_3",
                       "text": "Away Bet",
@@ -8402,7 +7769,7 @@
           "rel": [
             "19103"
           ],
-          "href": "http://www.accuweather.com/en/us/lincoln-financial-field-pa/19107/hourly-weather-forecast/43025_poi?day=4&hbhhour=16&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/lincoln-financial-field-pa/19107/hourly-weather-forecast/43025_poi?day=3&hbhhour=16&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -8752,8 +8119,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $29",
-              "numberAvailable": 5893,
+              "summary": "Tickets as low as $31",
+              "numberAvailable": 5653,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-chargers-tickets-inglewood-sofi-stadium-3-6-2026/production/6491367?wsUser=717"
@@ -8787,7 +8154,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -8845,7 +8212,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118231%3Foutcomes%3D0ML84695674_1",
                       "text": "Home Bet",
@@ -8877,7 +8244,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118231%3Foutcomes%3D0ML84695674_3",
                       "text": "Away Bet",
@@ -9110,7 +8477,7 @@
           "rel": [
             "90301"
           ],
-          "href": "http://www.accuweather.com/en/us/sofi-stadium-ca/90301/hourly-weather-forecast/209205_poi?day=4&hbhhour=13&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/sofi-stadium-ca/90301/hourly-weather-forecast/209205_poi?day=3&hbhhour=13&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -9461,7 +8828,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $182",
-              "numberAvailable": 5144,
+              "numberAvailable": 5114,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-giants-tickets-east-rutherford-metlife-stadium-3-1-2027/production/6494139?wsUser=717"
@@ -9495,7 +8862,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -9553,7 +8920,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118096%3Foutcomes%3D0ML84695529_1",
                       "text": "Home Bet",
@@ -9585,7 +8952,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118096%3Foutcomes%3D0ML84695529_3",
                       "text": "Away Bet",
@@ -9818,7 +9185,7 @@
           "rel": [
             "07073"
           ],
-          "href": "http://www.accuweather.com/en/us/metlife-stadium-nj/07073/hourly-weather-forecast/52866_poi?day=4&hbhhour=20&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/metlife-stadium-nj/07073/hourly-weather-forecast/52866_poi?day=3&hbhhour=20&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -10170,7 +9537,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $181",
-              "numberAvailable": 5457,
+              "numberAvailable": 5417,
               "links": [
                 {
                   "href": "https://www.vividseats.com/kansas-city-chiefs-tickets-kansas-city-geha-field-at-arrowhead-stadium-3-1-2026/production/6491101?wsUser=717"
@@ -10223,7 +9590,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -10281,7 +9648,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0ML84695698_1",
                       "text": "Home Bet",
@@ -10313,7 +9680,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0ML84695698_3",
                       "text": "Away Bet",
@@ -10546,7 +9913,7 @@
           "rel": [
             "64129"
           ],
-          "href": "http://www.accuweather.com/en/us/geha-field-at-arrowhead-stadium-mo/64106/hourly-weather-forecast/43032_poi?day=5&hbhhour=19&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/geha-field-at-arrowhead-stadium-mo/64106/hourly-weather-forecast/43032_poi?day=4&hbhhour=19&lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -11647,6 +11014,16 @@
         "depthChartOrder": 2
       },
       {
+        "longComment": "Ankle",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kam Curl",
+          "position": "DB"
+        },
+        "depthChartPosition": "SS",
+        "depthChartOrder": 1
+      },
+      {
         "longComment": "Coach's Decision",
         "status": "Out",
         "athlete": {
@@ -11675,6 +11052,16 @@
         },
         "depthChartPosition": "LB",
         "depthChartOrder": null
+      },
+      {
+        "longComment": "Head",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Davis Allen",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 5
       },
       {
         "longComment": "Undisclosed",
@@ -13537,6 +12924,16 @@
         "depthChartOrder": 4
       },
       {
+        "longComment": "Knee",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jake Tonges",
+          "position": "TE"
+        },
+        "depthChartPosition": "TE",
+        "depthChartOrder": 2
+      },
+      {
         "longComment": "Back",
         "status": "IR",
         "athlete": {
@@ -13638,7 +13035,7 @@
       },
       {
         "longComment": "Ankle",
-        "status": "Questionable",
+        "status": "Out",
         "athlete": {
           "displayName": "De'Zhaun Stribling",
           "position": "WR"
