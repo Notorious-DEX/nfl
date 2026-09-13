@@ -714,6 +714,55 @@
             transform: scale(1.1);
             background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
         }
+
+        .accuracy-filters {
+            display: flex;
+            gap: 0.6rem;
+            margin: 0.65rem 0 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .accuracy-filter {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #7f8c8d;
+        }
+
+        .accuracy-filter select {
+            background: rgba(52, 152, 219, 0.12);
+            border: 1px solid rgba(52, 152, 219, 0.35);
+            color: #5dade2;
+            border-radius: 6px;
+            padding: 0.4rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+            cursor: pointer;
+            min-width: 8.5rem;
+        }
+
+        .accuracy-filter select:hover,
+        .accuracy-filter select:focus {
+            border-color: rgba(52, 152, 219, 0.7);
+            outline: none;
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .accuracy-filter option {
+            background: #1a1a2e;
+            color: #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .accuracy-filters {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -728,7 +777,24 @@
             <div class="scoreboard-content">
                 <div>
                     <h2>📈 Prediction Accuracy</h2>
-                    <p style="color: #95a5a6;">Season Performance</p>
+                    <p id="accuracyScopeLabel" style="color: #95a5a6;">All-Time Performance</p>
+                    <div class="accuracy-filters">
+                        <label class="accuracy-filter">
+                            <span>Season</span>
+                            <select id="accuracySeasonFilter">
+                                <option value="all">All-Time</option>
+                            </select>
+                        </label>
+                        <label class="accuracy-filter">
+                            <span>Confidence</span>
+                            <select id="accuracyConfidenceFilter">
+                                <option value="all">All</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </label>
+                    </div>
                     <a href="prediction-history.html" class="history-button">📜 Prediction History</a>
                 </div>
                 <div class="stats">
@@ -797,6 +863,7 @@
         // ===== CONFIGURATION =====
         let predictions = JSON.parse(localStorage.getItem('nfl_predictions') || '{}');
         let accuracyStats = { correct: 0, total: 0 }; // Will be loaded from results.json
+        let allAccuracyGames = [];
 
         // Team data (logos only - all stats fetched dynamically)
         const TEAM_DATA = {
@@ -1003,12 +1070,11 @@
                 const response = await fetch('results.json');
                 if (response.ok) {
                     const data = await response.json();
-                    accuracyStats = {
-                        correct: data.correct || 0,
-                        total: data.total || 0
-                    };
-                    updateAccuracyDisplay();
-                    console.log(`📊 Loaded global accuracy: ${data.correct}/${data.total} (${data.accuracy}%)`);
+                    allAccuracyGames = data.games || [];
+                    populateAccuracyFilters();
+                    bindAccuracyFilters();
+                    applyAccuracyFilters();
+                    console.log('📊 Loaded ' + allAccuracyGames.length + ' graded games for accuracy filters');
                 } else {
                     console.log('📊 No results.json found, starting with 0% accuracy');
                     updateAccuracyDisplay();
@@ -1052,6 +1118,69 @@
             errorEl.textContent = message;
             errorEl.style.display = 'block';
             setTimeout(() => errorEl.style.display = 'none', 10000);
+        }
+
+        function nflSeasonYearFromDate(dateStr) {
+            if (!dateStr) return null;
+            const d = new Date(dateStr);
+            if (Number.isNaN(d.getTime())) return null;
+            const year = d.getUTCFullYear();
+            const month = d.getUTCMonth();
+            return month >= 7 ? year : year - 1;
+        }
+
+        function gameSeasonYear(game) {
+            if (game.seasonYear) return Number(game.seasonYear);
+            return nflSeasonYearFromDate(game.date);
+        }
+
+        function accuracyScopeLabel(season, confidence) {
+            const seasonText = season === 'all' ? 'All-Time' : season + ' Season';
+            if (confidence === 'all') return seasonText + ' Performance';
+            const conf = confidence.charAt(0).toUpperCase() + confidence.slice(1);
+            return seasonText + ' · ' + conf + ' Confidence';
+        }
+
+        function populateAccuracyFilters() {
+            const seasonSelect = document.getElementById('accuracySeasonFilter');
+            if (!seasonSelect) return;
+            const previous = seasonSelect.value || 'all';
+            const years = [...new Set(allAccuracyGames.map(gameSeasonYear).filter(Boolean))].sort((a, b) => b - a);
+            const current = nflSeasonYearFromDate(new Date().toISOString());
+            if (current && !years.includes(current)) years.unshift(current);
+            seasonSelect.innerHTML = '<option value="all">All-Time</option>' +
+                years.map((year) => '<option value="' + year + '">' + year + ' Season</option>').join('');
+            seasonSelect.value = [...seasonSelect.options].some((o) => o.value === previous) ? previous : 'all';
+        }
+
+        function applyAccuracyFilters() {
+            const season = (document.getElementById('accuracySeasonFilter') || {}).value || 'all';
+            const confidence = (document.getElementById('accuracyConfidenceFilter') || {}).value || 'all';
+            const filtered = allAccuracyGames.filter((game) => {
+                if (season !== 'all' && String(gameSeasonYear(game)) !== String(season)) return false;
+                if (confidence !== 'all' && (game.confidence || 'medium') !== confidence) return false;
+                return true;
+            });
+            accuracyStats = {
+                correct: filtered.filter((g) => g.correct).length,
+                total: filtered.length
+            };
+            const label = document.getElementById('accuracyScopeLabel');
+            if (label) label.textContent = accuracyScopeLabel(season, confidence);
+            updateAccuracyDisplay();
+        }
+
+        function bindAccuracyFilters() {
+            const seasonSelect = document.getElementById('accuracySeasonFilter');
+            const confSelect = document.getElementById('accuracyConfidenceFilter');
+            if (seasonSelect && !seasonSelect.dataset.bound) {
+                seasonSelect.dataset.bound = '1';
+                seasonSelect.addEventListener('change', applyAccuracyFilters);
+            }
+            if (confSelect && !confSelect.dataset.bound) {
+                confSelect.dataset.bound = '1';
+                confSelect.addEventListener('change', applyAccuracyFilters);
+            }
         }
 
         function updateAccuracyDisplay() {
