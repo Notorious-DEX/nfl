@@ -2522,7 +2522,9 @@
                 const homeWinning = actualHomeScore > actualAwayScore;
                 const awayWinning = actualAwayScore > actualHomeScore;
                 liveScoresHTML = `
-                    <div class="live-scores">
+                    <div class="prediction-section live-score-section">
+                        <div class="prediction-title">${isLive ? "🔴 Live Score" : "📋 Final Score"}</div>
+                        <div class="live-scores">
                         <div class="live-score-row ${awayWinning ? 'winning' : ''}">
                             <span>${prediction.awayTeam}</span>
                             <span>${actualAwayScore}</span>
@@ -2531,8 +2533,7 @@
                             <span>${prediction.homeTeam}</span>
                             <span>${actualHomeScore}</span>
                         </div>
-                        ${isLive ? `<div class="game-status">${status.type.shortDetail || 'In Progress'}</div>` : ''}
-                        ${isCompleted ? `<div class="game-status">Final</div>` : ''}
+                    </div>
                     </div>
                 `;
             }
@@ -2789,8 +2790,12 @@
         let refreshInterval = null;
 
         function startAutoRefresh() {
-            // Refresh every 2.5 minutes (150 seconds)
-            refreshInterval = setInterval(async () => {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+                refreshInterval = null;
+            }
+
+            const refreshLiveScores = async () => {
                 console.log('🔄 Auto-refreshing game data...');
                 try {
                     // Fetch latest game data from ESPN
@@ -2853,28 +2858,30 @@
 
                             let liveScoresDiv = gameCard.querySelector('.live-scores');
                             if (!liveScoresDiv) {
-                                // Create live scores div if it doesn't exist
+                                const section = document.createElement('div');
+                                section.className = 'prediction-section live-score-section';
+                                section.innerHTML = '<div class="prediction-title">🔴 Live Score</div>';
                                 liveScoresDiv = document.createElement('div');
                                 liveScoresDiv.className = 'live-scores';
+                                section.appendChild(liveScoresDiv);
                                 const gameBody = gameCard.querySelector('.game-body');
                                 if (gameBody) {
-                                    gameBody.insertBefore(liveScoresDiv, gameBody.firstChild);
+                                    gameBody.insertBefore((liveScoresDiv.parentElement && liveScoresDiv.parentElement.classList.contains('live-score-section')) ? liveScoresDiv.parentElement : liveScoresDiv, gameBody.firstChild);
                                 }
                             }
 
                             liveScoresDiv.innerHTML = `
-                                <div class="live-score-title">🔴 LIVE SCORE</div>
-                                <div class="live-score-grid">
-                                    <div class="live-score-team ${awayScore > homeScore ? 'winning' : ''}">
-                                        <span class="live-score-name">${awayTeam.team.displayName}</span>
-                                        <span class="live-score-value">${awayScore}</span>
-                                    </div>
-                                    <div class="live-score-team ${homeScore > awayScore ? 'winning' : ''}">
-                                        <span class="live-score-name">${homeTeam.team.displayName}</span>
-                                        <span class="live-score-value">${homeScore}</span>
-                                    </div>
+                                <div class="live-score-row ${awayScore > homeScore ? 'winning' : ''}">
+                                    <span>${awayTeam.team.displayName}</span>
+                                    <span>${awayScore}</span>
+                                </div>
+                                <div class="live-score-row ${homeScore > awayScore ? 'winning' : ''}">
+                                    <span>${homeTeam.team.displayName}</span>
+                                    <span>${homeScore}</span>
                                 </div>
                             `;
+                            const titleEl = gameCard.querySelector('.live-score-section .prediction-title');
+                            if (titleEl) titleEl.textContent = '🔴 Live Score';
 
                             console.log(`📺 Updated live game: ${event.shortName} (${awayScore}-${homeScore})`);
                         }
@@ -2937,9 +2944,11 @@
                 } catch (error) {
                     console.error('Error during auto-refresh:', error);
                 }
-            }, 150000); // 150 seconds = 2.5 minutes
+            };
 
-            console.log('✅ Auto-refresh enabled (every 2.5 minutes)');
+            refreshLiveScores();
+            refreshInterval = setInterval(refreshLiveScores, 150000);
+            console.log('✅ Auto-refresh enabled (immediate, then every 2.5 minutes)');
         }
 
         function stopAutoRefresh() {
