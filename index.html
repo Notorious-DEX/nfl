@@ -903,7 +903,9 @@
 
         // ===== HELPER FUNCTIONS =====
         function getWeekDisplay(weekNumber) {
-            // Convert week number to display string with playoff round labels
+            if (weekNumber === 0 || weekNumber == null || weekNumber === '') {
+                return 'Offseason';
+            }
             if (weekNumber <= 18) {
                 return `Week ${weekNumber}`;
             }
@@ -1147,7 +1149,10 @@
             const previous = seasonSelect.value || 'all';
             const years = [...new Set(allAccuracyGames.map(gameSeasonYear).filter(Boolean))].sort((a, b) => b - a);
             const current = nflSeasonYearFromDate(new Date().toISOString());
-            if (current && !years.includes(current)) years.unshift(current);
+            [current - 1, current, current + 1].filter(Boolean).forEach((year) => {
+                if (!years.includes(year)) years.push(year);
+            });
+            years.sort((a, b) => b - a);
             seasonSelect.innerHTML = '<option value="all">All-Time</option>' +
                 years.map((year) => '<option value="' + year + '">' + year + ' Season</option>').join('');
             seasonSelect.value = [...seasonSelect.options].some((o) => o.value === previous) ? previous : 'all';
@@ -1278,7 +1283,7 @@
 
                         // Update week indicator
                         if (cachedData.currentWeek) {
-                            document.getElementById('weekIndicator').textContent = getWeekDisplay(cachedData.currentWeek);
+                            document.getElementById('weekIndicator').textContent = cachedData.weekLabel || getWeekDisplay(cachedData.currentWeek);
                         }
 
                         if (games.length === 0) {
