@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Decode known-good patch script
+        run: python3 -c "import base64,pathlib; pathlib.Path('scripts/patch-live-scores.js').write_bytes(base64.b64decode(pathlib.Path('scripts/patch-live-scores.b64').read_text()))"
       - run: node scripts/patch-live-scores.js
       - run: |
           git config --global user.name 'GitHub Actions Bot'
