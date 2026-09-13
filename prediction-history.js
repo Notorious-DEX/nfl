@@ -1,6 +1,7 @@
 let allGames = [];
 let filteredGames = [];
 let currentSort = { column: 'date', direction: 'asc' };
+let upcomingSeasonYear = null;
 
 function nflSeasonYear(dateStr) {
     if (!dateStr) return null;
@@ -27,6 +28,7 @@ function availableSeasons() {
         years.add(current);
         years.add(current - 1);
     }
+    if (upcomingSeasonYear) years.add(upcomingSeasonYear);
     return [...years].sort((a, b) => b - a);
 }
 
@@ -231,6 +233,17 @@ async function loadPredictionHistory() {
         if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
         allGames = data.games || [];
+        try {
+            const cacheRes = await fetch('cached-data.json');
+            if (cacheRes.ok) {
+                const cache = await cacheRes.json();
+                if (cache.seasonPhase === 'prep' || cache.seasonPhase === 'preseason') {
+                    upcomingSeasonYear = Number(cache.upcomingSeason || cache.seasonYear || 0) || null;
+                } else {
+                    upcomingSeasonYear = null;
+                }
+            }
+        } catch (e) {}
         populateFilters();
         const current = currentNflSeason();
         if (current) {
