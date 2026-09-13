@@ -220,6 +220,11 @@ async function main() {
         } catch (e) {}
 
 for (const game of games) {
+            const gameState = game.competitions && game.competitions[0] && game.competitions[0].status && game.competitions[0].status.type && game.competitions[0].status.type.state;
+            if (gameState === 'in' || gameState === 'post') {
+                console.log('  Skipping live/finished game ' + game.id);
+                continue;
+            }
             if (gradedIds.has(String(game.id))) {
                 console.log('  Keeping stored Week 1+ pick ' + game.id);
                 continue;

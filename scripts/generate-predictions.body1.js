@@ -46,72 +46,104 @@ let eloRatings = {};
 
 function analyzeInjuryImpact(teamName) {
     const teamInjuries = injuries[teamName] || [];
-    let impact = { points: 0, notes: [] };
-
-    console.log(`🏥 Analyzing injuries for ${teamName}, found ${teamInjuries.length} injuries`);
-
+    const seen = new Set();
+    const rows = [];
     for (const injury of teamInjuries) {
+        const playerName = injury.athlete?.displayName || 'Unknown';
+        const key = playerName.toLowerCase();
+        if (seen.has(key)) continue;
+        seen.add(key);
+        rows.push(injury);
+    }
+
+    let impact = { points: 0, notes: [] };
+    let olStartersOut = 0;
+    let starterQbOut = false;
+
+    const depth = (injury) => Number(injury.depthChartOrder || injury.depthChartPosition || 99) || 99;
+    const statusOf = (injury) => String(injury.status || '').toLowerCase();
+    const commentOf = (injury) => String(injury.longComment || '').toLowerCase();
+    const isOut = (injury) => statusOf(injury) === 'out' || commentOf(injury).includes('ruled out') || /\bout\b/.test(statusOf(injury));
+    const isDoubtful = (injury) => statusOf(injury) === 'doubtful' || commentOf(injury).includes('doubtful');
+    const isQuestionable = (injury) => statusOf(injury) === 'questionable' || commentOf(injury).includes('questionable');
+
+    for (const injury of rows) {
         const position = (injury.athlete?.position || '').toUpperCase();
         const playerName = injury.athlete?.displayName || 'Unknown';
-        const status = (injury.status || '').toLowerCase();
-        const comment = (injury.longComment || '').toLowerCase();
+        const slot = depth(injury);
+        const starter = slot === 1;
 
         if (position === 'QB') {
-            const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
-            if (isStarter) {
-                if (status === 'out' || comment.includes('out')) {
+            if (starter) {
+                if (isOut(injury)) {
                     impact.points -= 8;
-                    impact.notes.push(`🏥 ${playerName} (QB) out (-8 pts)`);
-                } else if (status === 'questionable' || status === 'doubtful') {
-                    impact.points -= 4;
-                    impact.notes.push(`🏥 ${playerName} (QB) ${status} (-4 pts)`);
-                }
-            } else if (status === 'out' || comment.includes('out')) {
-                impact.notes.push(`🏥 ${playerName} (Backup QB) out`);
-            }
-        } else if (position === 'RB') {
-            const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
-            if (isStarter) {
-                if (status === 'out' || comment.includes('out')) {
-                    impact.points -= 4;
-                    impact.notes.push(`🏥 ${playerName} (RB) out (-4 pts)`);
-                } else if (status === 'questionable' || status === 'doubtful') {
+                    starterQbOut = true;
+                    impact.notes.push('🏥 ' + playerName + ' (QB1) out (-8 pts)');
+                } else if (isDoubtful(injury)) {
+                    impact.points -= 6;
+                    impact.notes.push('🏥 ' + playerName + ' (QB1) doubtful (-6 pts)');
+                } else if (isQuestionable(injury)) {
                     impact.points -= 2;
-                    impact.notes.push(`🏥 ${playerName} (RB) ${status} (-2 pts)`);
+                    impact.notes.push('🏥 ' + playerName + ' (QB1) questionable (-2 pts)');
                 }
-            } else if (status === 'out' || comment.includes('out')) {
-                impact.notes.push(`🏥 ${playerName} (Backup RB) out`);
+            } else if (starterQbOut) {
+                impact.notes.push('🏥 ' + playerName + ' (QB2) listed; QB1 already applied');
+            } else if (isOut(injury)) {
+                impact.notes.push('🏥 ' + playerName + ' (backup QB) out');
             }
-        } else if (position === 'WR' || position === 'TE') {
-            const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
-            if (isStarter) {
-                if (status === 'out' || comment.includes('out')) {
-                    impact.points -= 3;
-                    impact.notes.push(`🏥 ${playerName} (${position}) out (-3 pts)`);
-                } else if (status === 'questionable' || status === 'doubtful') {
-                    impact.points -= 1.5;
-                    impact.notes.push(`🏥 ${playerName} (${position}) ${status} (-1.5 pts)`);
-                }
-            } else if (status === 'out' || comment.includes('out')) {
-                impact.notes.push(`🏥 ${playerName} (Backup ${position}) out`);
+            continue;
+        }
+
+        if (position === 'RB') {
+            if (starter) {
+                if (isOut(injury)) { impact.points -= 4; impact.notes.push('🏥 ' + playerName + ' (RB1) out (-4 pts)'); }
+                else if (isDoubtful(injury)) { impact.points -= 3; impact.notes.push('🏥 ' + playerName + ' (RB1) doubtful (-3 pts)'); }
+                else if (isQuestionable(injury)) { impact.points -= 1; impact.notes.push('🏥 ' + playerName + ' (RB1) questionable (-1 pt)'); }
+            } else if (isOut(injury)) {
+                impact.notes.push('🏥 ' + playerName + ' (backup RB) out');
             }
-        } else if (position === 'OL' || position === 'T' || position === 'G' || position === 'C') {
-            const isStarter = injury.depthChartPosition === 1 || injury.depthChartOrder === 1;
-            if (isStarter) {
-                if (status === 'out' || comment.includes('out')) {
-                    impact.points -= 2;
-                    impact.notes.push(`🏥 ${playerName} (OL) out (-2 pts)`);
-                }
-            } else if (status === 'out' || comment.includes('out')) {
-                impact.notes.push(`🏥 ${playerName} (Backup OL) out`);
+            continue;
+        }
+
+        if (position === 'WR' || position === 'TE') {
+            if (slot === 1) {
+                if (isOut(injury)) { impact.points -= 3; impact.notes.push('🏥 ' + playerName + ' (' + position + '1) out (-3 pts)'); }
+                else if (isDoubtful(injury)) { impact.points -= 2; impact.notes.push('🏥 ' + playerName + ' (' + position + '1) doubtful (-2 pts)'); }
+                else if (isQuestionable(injury)) { impact.points -= 1; impact.notes.push('🏥 ' + playerName + ' (' + position + '1) questionable (-1 pt)'); }
+            } else if (slot === 2) {
+                if (isOut(injury)) { impact.points -= 1.5; impact.notes.push('🏥 ' + playerName + ' (' + position + '2) out (-1.5 pts)'); }
+                else if (isDoubtful(injury)) { impact.points -= 1; impact.notes.push('🏥 ' + playerName + ' (' + position + '2) doubtful (-1 pt)'); }
+            } else if (isOut(injury)) {
+                impact.notes.push('🏥 ' + playerName + ' (depth ' + position + ') out');
             }
-        } else if ((position === 'CB' || position === 'S') && (status === 'out' || comment.includes('out'))) {
-            impact.notes.push(`ℹ️ ${playerName} (${position}) out`);
+            continue;
+        }
+
+        if (position === 'OL' || position === 'T' || position === 'G' || position === 'C' || position === 'OT' || position === 'OG') {
+            if (starter && (isOut(injury) || isDoubtful(injury))) {
+                olStartersOut += isOut(injury) ? 1 : 0.5;
+                impact.notes.push('🏥 ' + playerName + ' (OL starter) ' + (isOut(injury) ? 'out' : 'doubtful'));
+            } else if (isOut(injury)) {
+                impact.notes.push('🏥 ' + playerName + ' (backup OL) out');
+            }
+            continue;
+        }
+
+        if ((position === 'CB' || position === 'S') && isOut(injury)) {
+            impact.notes.push('ℹ️ ' + playerName + ' (' + position + ') out');
         }
     }
 
+    if (olStartersOut >= 3) impact.points -= 5;
+    else if (olStartersOut >= 2) impact.points -= 3;
+    else if (olStartersOut >= 1) impact.points -= 1.5;
+
+    if (impact.points < -11) {
+        impact.notes.push('Injury cap applied (max -11 pts)');
+        impact.points = -11;
+    }
     return impact;
-}
+        }
 
 function generatePrediction(game, weather) {
     const competition = game.competitions[0];
