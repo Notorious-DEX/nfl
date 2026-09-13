@@ -122,7 +122,7 @@ replaceFn(path.join(__dirname, '..', 'scripts/generate-predictions.body1.js'), 0
 
 const body2 = path.join(__dirname, '..', 'scripts/generate-predictions.body2.js');
 let pred = fs.readFileSync(body2, 'utf8');
-if (!pred.includes('STATUS_IN_PROGRESS')) {
+if (!pred.includes('Skipping live/finished game')) {
     pred = pred.replace(
         'if (gradedIds.has(String(game.id))) {',
         `const gameState = game.competitions && game.competitions[0] && game.competitions[0].status && game.competitions[0].status.type && game.competitions[0].status.type.state;
@@ -134,4 +134,6 @@ if (!pred.includes('STATUS_IN_PROGRESS')) {
     );
     fs.writeFileSync(body2, pred);
     console.log('Patched live/finished skip in generator');
+} else {
+    console.log('Live/finished skip already present');
 }
