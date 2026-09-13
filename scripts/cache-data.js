@@ -882,7 +882,9 @@ async function main() {
     // Fetch all data
     const { games, currentWeek } = await fetchGames();
     const leagueStats = await fetchLeagueStats();
-    const injuries = await fetchInjuries(games);
+    const injuryPack = await require('./fetch-injuries').fetchInjuriesWithFallback();
+    const injuries = injuryPack.injuries;
+    const injuryStatus = injuryPack.status;
     const teamAccuracy = await calculateTeamAccuracy();
     const qualityWins = calculateQualityWins();
 
@@ -904,7 +906,8 @@ async function main() {
         leagueStats,
         injuries,
         teamAccuracy,
-        qualityWins
+        qualityWins,
+        injuryStatus
     };
 
     // Save to file

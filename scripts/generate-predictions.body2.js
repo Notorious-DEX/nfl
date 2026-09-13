@@ -210,7 +210,20 @@ async function main() {
 
         const predictions = [];
 
-        for (const game of games) {
+                const resultsPathFreeze = path.join(__dirname, '..', 'results.json');
+        let gradedIds = new Set();
+        try {
+            if (fs.existsSync(resultsPathFreeze)) {
+                const graded = JSON.parse(fs.readFileSync(resultsPathFreeze, 'utf8'));
+                gradedIds = new Set((graded.games || []).map((g) => String(g.gameId)));
+            }
+        } catch (e) {}
+
+for (const game of games) {
+            if (gradedIds.has(String(game.id))) {
+                console.log('  Keeping stored Week 1+ pick ' + game.id);
+                continue;
+            }
             const homeTeam = game.competitions[0].competitors.find(c => c.homeAway === 'home').team.displayName;
             const weather = await fetchWeather(homeTeam, game.date);
 
