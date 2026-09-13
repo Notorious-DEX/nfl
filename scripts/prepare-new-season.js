@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 const { loadCalendar } = require('./season-calendar');
 
 function latestWinTotals() {
@@ -13,6 +14,12 @@ function latestWinTotals() {
 function main() {
     const calendar = loadCalendar() || {};
     const year = calendar.upcomingSeason || calendar.seasonYear;
+
+    const fetchResult = spawnSync(process.execPath, [path.join(__dirname, 'fetch-win-totals.js')], { stdio: 'inherit' });
+    if (fetchResult.status) {
+        console.log('Win-total fetch exited ' + fetchResult.status + '; using the newest saved file if needed');
+    }
+
     const dest = path.join(__dirname, '..', 'data', 'win-totals.json');
     const yearFile = year ? path.join(__dirname, '..', 'data', year + '-win-totals.json') : null;
     const source = (yearFile && fs.existsSync(yearFile)) ? yearFile : latestWinTotals();
@@ -25,6 +32,7 @@ function main() {
     } else {
         console.log('No win-totals file found; market priors will skip');
     }
+
     fs.writeFileSync(path.join(__dirname, '..', 'data', 'season-prep.json'), JSON.stringify({
         preparedAt: new Date().toISOString(),
         upcomingSeason: year || null,
