@@ -39,6 +39,8 @@ jobs:
         run: node scripts/season-gate.js
       - name: Hide next-season dropdown until prep
         run: node scripts/patch-dropdown-years.js && node scripts/patch-history-dropdown.js
+      - name: Grade week results from stored picks
+        run: node scripts/patch-week-results.js
       - name: Freeze finished season archive
         if: steps.gate.outputs.freeze == 'true'
         run: node scripts/freeze-season-archive.js
