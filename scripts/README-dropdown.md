@@ -1,0 +1,1 @@
+Homepage and history dropdowns include the next NFL year only when cached-data.json seasonPhase is prep or preseason.
