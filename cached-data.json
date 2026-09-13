@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-13T21:52:01.110Z",
+  "lastUpdated": "2026-09-13T21:53:00.433Z",
   "currentWeek": 1,
   "games": [
     {
@@ -326,66 +326,84 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729271984",
+              "id": "4018729271991",
               "type": {
-                "id": "75",
-                "text": "Two-minute warning",
-                "abbreviation": "2Min Warn"
+                "id": "53",
+                "text": "Kickoff",
+                "abbreviation": "K"
               },
-              "text": "Two-Minute Warning",
+              "text": "W.Reichard kicks 63 yards from MIN 35 to GB 2. B.Melton to GB 26 for 24 yards (D.Dallas).",
               "scoreValue": 0,
               "team": {
-                "id": "16"
+                "id": "9"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.369,
-                "awayWinPercentage": 0.631,
+                "homeWinPercentage": 0.3635,
+                "awayWinPercentage": 0.6365000000000001,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 24,
               "drive": {
-                "description": "7 plays, 85 yards, 3:23",
+                "description": "0 plays, 0 yards, 0:00",
                 "start": {
-                  "yardLine": 15,
-                  "text": "MIN 15"
-                },
-                "end": {
-                  "yardLine": 100,
-                  "text": "GB 0"
+                  "yardLine": 0,
+                  "text": "MIN 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "3:23"
-                },
-                "result": "TD"
+                  "displayValue": "0:00"
+                }
               },
               "start": {
-                "yardLine": 85,
+                "yardLine": 35,
                 "team": {
                   "id": "16"
                 }
               },
               "end": {
-                "yardLine": 85,
+                "yardLine": 74,
                 "team": {
-                  "id": "16"
+                  "id": "9"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4259305",
+                  "fullName": "Bo Melton",
+                  "displayName": "Bo Melton",
+                  "shortName": "B. Melton",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4259305/bo-melton"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4259305.png",
+                  "jersey": "16",
+                  "position": "WR",
+                  "team": {
+                    "id": "9"
+                  }
+                }
+              ]
             },
             "down": 1,
-            "yardLine": 85,
+            "yardLine": 74,
             "distance": 10,
-            "downDistanceText": "1st & 10 at GB 15",
+            "downDistanceText": "1st & 10 at GB 26",
             "shortDownDistanceText": "1st & 10",
-            "possessionText": "GB 15",
-            "isRedZone": true,
+            "possessionText": "GB 26",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "16"
+            "awayTimeouts": 3
           },
           "status": {
-            "clock": 115,
-            "displayClock": "1:55",
+            "clock": 109,
+            "displayClock": "1:49",
             "period": 2,
             "type": {
               "id": "2",
@@ -393,8 +411,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "1:55 - 2nd Quarter",
-              "shortDetail": "1:55 - 2nd"
+              "detail": "1:49 - 2nd Quarter",
+              "shortDetail": "1:49 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -614,8 +632,8 @@
         }
       },
       "status": {
-        "clock": 115,
-        "displayClock": "1:55",
+        "clock": 109,
+        "displayClock": "1:49",
         "period": 2,
         "type": {
           "id": "2",
@@ -623,634 +641,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "1:55 - 2nd Quarter",
-          "shortDetail": "1:55 - 2nd"
-        }
-      }
-    },
-    {
-      "id": "401872929",
-      "uid": "s:20~l:28~e:401872929",
-      "date": "2026-09-13T20:25Z",
-      "name": "Washington Commanders at Philadelphia Eagles",
-      "shortName": "WSH @ PHI",
-      "season": {
-        "year": 2026,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 1
-      },
-      "competitions": [
-        {
-          "id": "401872929",
-          "uid": "s:20~l:28~e:401872929~c:401872929",
-          "date": "2026-09-13T20:25Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": false,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": true,
-          "recent": true,
-          "venue": {
-            "id": "3806",
-            "fullName": "Lincoln Financial Field",
-            "address": {
-              "city": "Philadelphia",
-              "state": "PA",
-              "country": "USA"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "21",
-              "uid": "s:20~l:28~t:21",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "21",
-                "uid": "s:20~l:28~t:21",
-                "location": "Philadelphia",
-                "name": "Eagles",
-                "abbreviation": "PHI",
-                "displayName": "Philadelphia Eagles",
-                "shortDisplayName": "Eagles",
-                "color": "06424d",
-                "alternateColor": "000000",
-                "isActive": true,
-                "venue": {
-                  "id": "3806"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/phi/philadelphia-eagles",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:21&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/phi/philadelphia-eagles",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:21&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/phi",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:21&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png"
-              },
-              "score": "14",
-              "linescores": [
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 1
-                },
-                {
-                  "value": 14,
-                  "displayValue": "14",
-                  "period": 2
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            },
-            {
-              "id": "28",
-              "uid": "s:20~l:28~t:28",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "28",
-                "uid": "s:20~l:28~t:28",
-                "location": "Washington",
-                "name": "Commanders",
-                "abbreviation": "WSH",
-                "displayName": "Washington Commanders",
-                "shortDisplayName": "Commanders",
-                "color": "5a1414",
-                "alternateColor": "ffb612",
-                "isActive": true,
-                "venue": {
-                  "id": "3719"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/wsh/washington-commanders",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:28&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/wsh/washington-commanders",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:28&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/wsh",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:28&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png"
-              },
-              "score": "9",
-              "linescores": [
-                {
-                  "value": 3,
-                  "displayValue": "3",
-                  "period": 1
-                },
-                {
-                  "value": 6,
-                  "displayValue": "6",
-                  "period": 2
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            }
-          ],
-          "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4018729292074",
-              "type": {
-                "id": "21",
-                "text": "Timeout",
-                "abbreviation": "TO"
-              },
-              "text": "Timeout #1 by WAS at 00:33.",
-              "scoreValue": 0,
-              "team": {
-                "id": "28"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.7605,
-                "awayWinPercentage": 0.23950000000000005,
-                "secondsLeft": 0
-              },
-              "statYardage": 0,
-              "drive": {
-                "description": "5 plays, 18 yards, 1:20",
-                "start": {
-                  "yardLine": 29,
-                  "text": "PHI 29"
-                },
-                "end": {
-                  "yardLine": 47,
-                  "text": "PHI 47"
-                },
-                "timeElapsed": {
-                  "displayValue": "1:20"
-                },
-                "result": "PUNT"
-              },
-              "start": {
-                "yardLine": 98,
-                "team": {
-                  "id": "28"
-                }
-              },
-              "end": {
-                "yardLine": 98,
-                "team": {
-                  "id": "28"
-                }
-              }
-            },
-            "down": 1,
-            "yardLine": 98,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at WSH 2",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "WSH 2",
-            "isRedZone": false,
-            "homeTimeouts": 2,
-            "awayTimeouts": 2,
-            "possession": "28"
-          },
-          "status": {
-            "clock": 33,
-            "displayClock": "0:33",
-            "period": 2,
-            "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "0:33 - 2nd Quarter",
-              "shortDetail": "0:33 - 2nd"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "FOX"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "8/15, 113 YDS, 2 TD",
-                  "value": 113,
-                  "athlete": {
-                    "id": "4040715",
-                    "fullName": "Jalen Hurts",
-                    "displayName": "Jalen Hurts",
-                    "shortName": "J. Hurts",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4040715/jalen-hurts"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4040715.png",
-                    "jersey": "1",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "21"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "21"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "9 CAR, 64 YDS",
-                  "value": 64,
-                  "athlete": {
-                    "id": "3929630",
-                    "fullName": "Saquon Barkley",
-                    "displayName": "Saquon Barkley",
-                    "shortName": "S. Barkley",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3929630/saquon-barkley"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png",
-                    "jersey": "26",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "21"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "21"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "2 REC, 73 YDS, 1 TD",
-                  "value": 73,
-                  "athlete": {
-                    "id": "4428850",
-                    "fullName": "Dontayvion Wicks",
-                    "displayName": "Dontayvion Wicks",
-                    "shortName": "D. Wicks",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4428850/dontayvion-wicks"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4428850.png",
-                    "jersey": "13",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "21"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "21"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            }
-          },
-          "startDate": "2026-09-13T20:25Z",
-          "broadcast": "FOX",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "1",
-                "shortName": "TV"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "FOX"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "live",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game?gameId=401872929",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "boxscore",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872929",
-          "text": "Box Score",
-          "shortText": "Box Score",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "pbp",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872929",
-          "text": "Play-by-Play",
-          "shortText": "Play-by-Play",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "6",
-        "temperature": 82,
-        "highTemperature": 82,
-        "conditionId": "Mostly cloudy",
-        "link": {
-          "language": "en-US",
-          "rel": [
-            "19103"
-          ],
-          "href": "http://www.accuweather.com/en/us/lincoln-financial-field-pa/19107/current-weather/43025_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
-          "isPremium": false
-        }
-      },
-      "status": {
-        "clock": 33,
-        "displayClock": "0:33",
-        "period": 2,
-        "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "0:33 - 2nd Quarter",
-          "shortDetail": "0:33 - 2nd"
+          "detail": "1:49 - 2nd Quarter",
+          "shortDetail": "1:49 - 2nd"
         }
       }
     },
@@ -8030,27 +7422,27 @@
     },
     "Atlanta Falcons": {
       "correct": 11,
-      "total": 17
+      "total": 18
     },
     "Baltimore Ravens": {
-      "correct": 6,
-      "total": 17
+      "correct": 7,
+      "total": 18
     },
     "Buffalo Bills": {
       "correct": 11,
-      "total": 19
+      "total": 20
     },
     "Carolina Panthers": {
       "correct": 8,
-      "total": 18
+      "total": 19
     },
     "Chicago Bears": {
       "correct": 13,
-      "total": 19
+      "total": 20
     },
     "Cincinnati Bengals": {
       "correct": 9,
-      "total": 17
+      "total": 18
     },
     "Cleveland Browns": {
       "correct": 11,
@@ -8065,8 +7457,8 @@
       "total": 19
     },
     "Detroit Lions": {
-      "correct": 7,
-      "total": 17
+      "correct": 8,
+      "total": 18
     },
     "Green Bay Packers": {
       "correct": 12,
@@ -8074,11 +7466,11 @@
     },
     "Houston Texans": {
       "correct": 12,
-      "total": 19
+      "total": 20
     },
     "Indianapolis Colts": {
-      "correct": 10,
-      "total": 17
+      "correct": 11,
+      "total": 18
     },
     "Jacksonville Jaguars": {
       "correct": 14,
@@ -8113,8 +7505,8 @@
       "total": 21
     },
     "New Orleans Saints": {
-      "correct": 11,
-      "total": 17
+      "correct": 12,
+      "total": 18
     },
     "New York Giants": {
       "correct": 9,
@@ -8122,7 +7514,7 @@
     },
     "New York Jets": {
       "correct": 10,
-      "total": 17
+      "total": 18
     },
     "Philadelphia Eagles": {
       "correct": 10,
@@ -8130,7 +7522,7 @@
     },
     "Pittsburgh Steelers": {
       "correct": 7,
-      "total": 18
+      "total": 19
     },
     "San Francisco 49ers": {
       "correct": 11,
@@ -8142,11 +7534,11 @@
     },
     "Tampa Bay Buccaneers": {
       "correct": 10,
-      "total": 17
+      "total": 18
     },
     "Tennessee Titans": {
       "correct": 13,
-      "total": 17
+      "total": 18
     },
     "Washington Commanders": {
       "correct": 12,
@@ -8176,11 +7568,11 @@
       "differential": -1
     },
     "Kansas City Chiefs": {
-      "wins": 2,
+      "wins": 3,
       "losses": 7,
-      "total": 9,
-      "winPct": 0.2222222222222222,
-      "differential": -5
+      "total": 10,
+      "winPct": 0.3,
+      "differential": -4
     },
     "Atlanta Falcons": {
       "wins": 5,
@@ -8190,24 +7582,24 @@
       "differential": 0
     },
     "Tampa Bay Buccaneers": {
-      "wins": 3,
+      "wins": 2,
       "losses": 6,
-      "total": 9,
-      "winPct": 0.3333333333333333,
-      "differential": -3
+      "total": 8,
+      "winPct": 0.25,
+      "differential": -4
     },
     "Cleveland Browns": {
       "wins": 2,
-      "losses": 8,
-      "total": 10,
-      "winPct": 0.2,
-      "differential": -6
+      "losses": 10,
+      "total": 12,
+      "winPct": 0.16666666666666666,
+      "differential": -8
     },
     "Cincinnati Bengals": {
-      "wins": 3,
-      "losses": 7,
-      "total": 10,
-      "winPct": 0.3,
+      "wins": 4,
+      "losses": 8,
+      "total": 12,
+      "winPct": 0.3333333333333333,
       "differential": -4
     },
     "Indianapolis Colts": {
@@ -8218,11 +7610,11 @@
       "differential": -7
     },
     "Miami Dolphins": {
-      "wins": 2,
+      "wins": 1,
       "losses": 4,
-      "total": 6,
-      "winPct": 0.3333333333333333,
-      "differential": -2
+      "total": 5,
+      "winPct": 0.2,
+      "differential": -3
     },
     "New England Patriots": {
       "wins": 6,
@@ -8233,10 +7625,10 @@
     },
     "Las Vegas Raiders": {
       "wins": 0,
-      "losses": 10,
-      "total": 10,
+      "losses": 11,
+      "total": 11,
       "winPct": 0,
-      "differential": -10
+      "differential": -11
     },
     "New Orleans Saints": {
       "wins": 3,
@@ -8253,11 +7645,11 @@
       "differential": -11
     },
     "New York Jets": {
-      "wins": 0,
-      "losses": 9,
+      "wins": 1,
+      "losses": 8,
       "total": 9,
-      "winPct": 0,
-      "differential": -9
+      "winPct": 0.1111111111111111,
+      "differential": -7
     },
     "Pittsburgh Steelers": {
       "wins": 5,
@@ -8288,11 +7680,11 @@
       "differential": 2
     },
     "Carolina Panthers": {
-      "wins": 4,
+      "wins": 2,
       "losses": 5,
-      "total": 9,
-      "winPct": 0.4444444444444444,
-      "differential": -1
+      "total": 7,
+      "winPct": 0.2857142857142857,
+      "differential": -3
     },
     "Denver Broncos": {
       "wins": 6,
@@ -8323,53 +7715,53 @@
       "differential": 3
     },
     "Green Bay Packers": {
-      "wins": 4,
+      "wins": 5,
       "losses": 6,
-      "total": 10,
-      "winPct": 0.4,
-      "differential": -2
+      "total": 11,
+      "winPct": 0.45454545454545453,
+      "differential": -1
     },
     "Detroit Lions": {
-      "wins": 5,
+      "wins": 6,
       "losses": 4,
-      "total": 9,
-      "winPct": 0.5555555555555556,
-      "differential": 1
+      "total": 10,
+      "winPct": 0.6,
+      "differential": 2
     },
     "Los Angeles Rams": {
+      "wins": 7,
+      "losses": 5,
+      "total": 12,
+      "winPct": 0.5833333333333334,
+      "differential": 2
+    },
+    "Houston Texans": {
       "wins": 7,
       "losses": 6,
       "total": 13,
       "winPct": 0.5384615384615384,
       "differential": 1
     },
-    "Houston Texans": {
-      "wins": 8,
-      "losses": 5,
-      "total": 13,
-      "winPct": 0.6153846153846154,
-      "differential": 3
-    },
     "Buffalo Bills": {
-      "wins": 6,
-      "losses": 4,
-      "total": 10,
-      "winPct": 0.6,
-      "differential": 2
+      "wins": 7,
+      "losses": 2,
+      "total": 9,
+      "winPct": 0.7777777777777778,
+      "differential": 5
     },
     "Baltimore Ravens": {
-      "wins": 3,
+      "wins": 4,
       "losses": 5,
-      "total": 8,
-      "winPct": 0.375,
-      "differential": -2
+      "total": 9,
+      "winPct": 0.4444444444444444,
+      "differential": -1
     },
     "Chicago Bears": {
       "wins": 6,
-      "losses": 4,
-      "total": 10,
-      "winPct": 0.6,
-      "differential": 2
+      "losses": 5,
+      "total": 11,
+      "winPct": 0.5454545454545454,
+      "differential": 1
     },
     "Minnesota Vikings": {
       "wins": 4,
