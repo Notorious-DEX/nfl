@@ -41,6 +41,8 @@ jobs:
         run: node scripts/patch-dropdown-years.js && node scripts/patch-history-dropdown.js
       - name: Grade week results from stored picks
         run: node scripts/patch-week-results.js
+      - name: ESPN injury pipeline and homepage notice
+        run: node scripts/patch-injury-pipeline.js
       - name: Freeze finished season archive
         if: steps.gate.outputs.freeze == 'true'
         run: node scripts/freeze-season-archive.js
@@ -66,5 +68,5 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add cached-data.json cache-debug.log results.json prediction-archive.json historical-elo.json data/ index.html prediction-history.js
+          git add cached-data.json cache-debug.log results.json prediction-archive.json historical-elo.json data/ index.html prediction-history.js scripts/cache-data.js scripts/generate-predictions.body2.js
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update cached data [skip ci]" && git push)
