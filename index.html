@@ -2482,23 +2482,20 @@
                 const actualAwayScore = parseInt(awayComp.score) || 0;
                 const actualWinner = actualHomeScore > actualAwayScore ? homeTeam : awayTeam;
 
-                // Get our prediction from localStorage or generate one
+                const archived = (typeof allAccuracyGames !== 'undefined' ? allAccuracyGames : []).find((row) =>
+                    String(row.gameId) === String(game.id) ||
+                    (row.homeTeam === homeTeam && row.awayTeam === awayTeam)
+                );
                 const savedPrediction = predictions[game.id];
                 let prediction = null;
                 let predictionFailed = false;
 
-                if (savedPrediction && savedPrediction.prediction) {
+                if (archived && archived.winner) {
+                    prediction = { winner: archived.winner };
+                } else if (savedPrediction && savedPrediction.prediction && savedPrediction.prediction.winner) {
                     prediction = savedPrediction.prediction;
                 } else {
-                    // Generate prediction for completed games we didn't predict before
-                    try {
-                        prediction = generatePrediction(game, null, null);
-                        if (prediction.error) {
-                            predictionFailed = true;
-                        }
-                    } catch (err) {
-                        predictionFailed = true;
-                    }
+                    predictionFailed = true;
                 }
 
                 // Show completed game even if prediction failed
