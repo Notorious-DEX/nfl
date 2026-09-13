@@ -1149,9 +1149,14 @@
             const previous = seasonSelect.value || 'all';
             const years = [...new Set(allAccuracyGames.map(gameSeasonYear).filter(Boolean))].sort((a, b) => b - a);
             const current = nflSeasonYearFromDate(new Date().toISOString());
-            [current - 1, current, current + 1].filter(Boolean).forEach((year) => {
+            [current - 1, current].filter(Boolean).forEach((year) => {
                 if (!years.includes(year)) years.push(year);
             });
+            const phase = (typeof cachedData !== 'undefined' && cachedData && cachedData.seasonPhase) || '';
+            const upcoming = typeof cachedData !== 'undefined' && cachedData && cachedData.upcomingSeason;
+            if ((phase === 'prep' || phase === 'preseason') && upcoming && !years.includes(upcoming)) {
+                years.push(upcoming);
+            }
             years.sort((a, b) => b - a);
             seasonSelect.innerHTML = '<option value="all">All-Time</option>' +
                 years.map((year) => '<option value="' + year + '">' + year + ' Season</option>').join('');
