@@ -2025,6 +2025,21 @@
             el.className = 'data-source-notice' + (status.predictionBreaking ? ' critical' : '');
             el.style.display = 'block';
         }
+        
+        function officialPickForGame(game) {
+            const id = String(game && game.id || '');
+            const fromCache = typeof cachedData !== 'undefined' && cachedData && cachedData.officialPicks && cachedData.officialPicks[id];
+            if (fromCache && fromCache.winner) {
+                return {
+                    winner: fromCache.winner,
+                    homeScore: fromCache.homeScore,
+                    awayScore: fromCache.awayScore,
+                    official: true,
+                    confidence: fromCache.confidence || 'Medium'
+                };
+            }
+            return null;
+        }
         function generatePrediction(game, odds, weather) {
             const competition = game.competitions[0];
             const homeComp = competition.competitors.find(c => c.homeAway === 'home');
@@ -2382,7 +2397,9 @@
                 );
 
                 const weather = await fetchWeather(homeTeam, game.date);
-                const prediction = generatePrediction(game, gameOdds, weather);
+                const lockedPick = officialPickForGame(game);
+                const prediction = lockedPick || generatePrediction(game, gameOdds, weather);
+                if (lockedPick) prediction.calculations = prediction.calculations || ['Official locked pick'];
 
                 const gameId = game.id;
 
