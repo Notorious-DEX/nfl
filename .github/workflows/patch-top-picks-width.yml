@@ -1,0 +1,24 @@
+name: Cap Top Picks tile width
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/top-picks-tile-width]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-top-picks-width.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html
+          git diff --staged --quiet || (git commit -m "Keep Top Picks tiles compact [skip ci]" && git push)
