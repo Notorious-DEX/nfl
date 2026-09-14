@@ -1,0 +1,24 @@
+name: Indent game cards and week results
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/indent-games-weekresults]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-indent-layout.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html
+          git diff --staged --quiet || (git commit -m "Keep week results and game cards indented [skip ci]" && git push)
