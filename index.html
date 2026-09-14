@@ -819,13 +819,13 @@
         <div id="loading" class="loading">Enter your API key to load predictions...</div>
         <div id="picksummary" class="scoreboard" style="display: none;">
             <h2 id="picks-title" style="margin-bottom: 1rem;">🎯 Top Picks</h2>
-            <div id="picks-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 280px)); gap: 0.75rem; justify-content: start;"></div>
+            <div id="picks-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem;"></div>
             <div id="also-week-wrap" style="display: none; margin-top: 1.1rem;">
                 <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(148,163,184,0.45), transparent); margin: 0 0 0.9rem;"></div>
                 <h3 id="also-week-title" style="margin: 0 0 0.75rem; font-size: 1.05rem; color: #cbd5e1; font-weight: 600;">📋 Also this week</h3>
-                <div id="also-picks-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 280px)); gap: 0.75rem; justify-content: start; opacity: 0.92;"></div>
+                <div id="also-picks-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.75rem; opacity: 0.92;"></div>
             </div>
-        </div></div>
+        </div>
 
         <div id="weekresults" class="week-results" style="display: none;">
             <div class="week-results-header" onclick="toggleWeekResults()">
