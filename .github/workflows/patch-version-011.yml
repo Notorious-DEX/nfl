@@ -1,0 +1,26 @@
+name: Apply v0.11 in header
+on:
+  workflow_dispatch:
+  push:
+    branches: [chore/bump-version-011]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Set header to VERSION file
+        run: |
+          node -e "const fs=require('fs'); const v=fs.readFileSync('VERSION','utf8').trim(); let h=fs.readFileSync('index.html','utf8'); h=h.replace(/>v\\d+\\.\\d+</, '>v'+v+'<'); fs.writeFileSync('index.html', h); console.log('header v'+v);"
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html VERSION scripts/bump-version.js
+          git diff --staged --quiet || (git commit -m "BROpicks v0.11 [skip ci]" && git push)
