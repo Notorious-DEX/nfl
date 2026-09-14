@@ -778,7 +778,7 @@
             <div class="scoreboard-content">
                 <div>
                     <h2>📈 Prediction Accuracy</h2>
-                    <p id="accuracyScopeLabel" style="color: #95a5a6;">All-Time Performance</p>
+                    <p id="accuracyScopeLabel" style="color: #95a5a6;">All-Time High Confidence Performance</p>
                     <div class="accuracy-filters">
                         <label class="accuracy-filter">
                             <span>Season</span>
@@ -790,7 +790,7 @@
                             <span>Confidence</span>
                             <select id="accuracyConfidenceFilter">
                                 <option value="all">All</option>
-                                <option value="high">High</option>
+                                <option value="high" selected>High</option>
                                 <option value="medium">Medium</option>
                                 <option value="low">Low</option>
                             </select>
@@ -1166,7 +1166,7 @@
 
         function applyAccuracyFilters() {
             const season = (document.getElementById('accuracySeasonFilter') || {}).value || 'all';
-            const confidence = (document.getElementById('accuracyConfidenceFilter') || {}).value || 'all';
+            const confidence = (document.getElementById('accuracyConfidenceFilter') || {}).value || 'high';
             const filtered = allAccuracyGames.filter((game) => {
                 if (season !== 'all' && String(gameSeasonYear(game)) !== String(season)) return false;
                 if (confidence !== 'all' && (game.confidence || 'medium') !== confidence) return false;
@@ -1184,6 +1184,10 @@
         function bindAccuracyFilters() {
             const seasonSelect = document.getElementById('accuracySeasonFilter');
             const confSelect = document.getElementById('accuracyConfidenceFilter');
+            if (confSelect && !confSelect.dataset.defaulted) {
+                confSelect.dataset.defaulted = '1';
+                confSelect.value = 'high';
+            }
             if (seasonSelect && !seasonSelect.dataset.bound) {
                 seasonSelect.dataset.bound = '1';
                 seasonSelect.addEventListener('change', applyAccuracyFilters);
