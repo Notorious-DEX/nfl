@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-14T23:09:48.641Z",
+  "lastUpdated": "2026-09-15T01:28:58.510Z",
   "currentWeek": 1,
   "games": [
     {
@@ -29,8 +29,8 @@
           "timeValid": true,
           "neutralSite": false,
           "conferenceCompetition": false,
-          "playByPlayAvailable": false,
-          "recent": false,
+          "playByPlayAvailable": true,
+          "recent": true,
           "venue": {
             "id": "3622",
             "fullName": "Arrowhead Stadium",
@@ -146,11 +146,23 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
               },
-              "score": "0",
+              "score": "7",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
               "curatedRank": {
                 "current": 99
               },
-              "statistics": [],
               "records": [
                 {
                   "name": "overall",
@@ -274,11 +286,23 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/den.png"
               },
-              "score": "0",
+              "score": "7",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 2
+                }
+              ],
+              "statistics": [],
               "curatedRank": {
                 "current": 99
               },
-              "statistics": [],
               "records": [
                 {
                   "name": "overall",
@@ -300,18 +324,72 @@
             }
           ],
           "notes": [],
+          "situation": {
+            "lastPlay": {
+              "id": "4018729311810",
+              "type": {
+                "id": "75",
+                "text": "Two-minute warning",
+                "abbreviation": "2Min Warn"
+              },
+              "text": "Two-Minute Warning",
+              "scoreValue": 0,
+              "team": {
+                "id": "12"
+              },
+              "probability": {
+                "tiePercentage": 0,
+                "homeWinPercentage": 0.6769,
+                "awayWinPercentage": 0.32310000000000005,
+                "secondsLeft": 0
+              },
+              "statYardage": 0,
+              "drive": {
+                "description": "7 plays, 54 yards, 2:41",
+                "start": {
+                  "yardLine": 20,
+                  "text": "KC 20"
+                },
+                "timeElapsed": {
+                  "displayValue": "2:41"
+                }
+              },
+              "start": {
+                "yardLine": 74,
+                "team": {
+                  "id": "12"
+                }
+              },
+              "end": {
+                "yardLine": 74,
+                "team": {
+                  "id": "12"
+                }
+              }
+            },
+            "down": 1,
+            "yardLine": 74,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at DEN 26",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "DEN 26",
+            "isRedZone": false,
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "12"
+          },
           "status": {
-            "clock": 0,
-            "displayClock": "0:00",
-            "period": 0,
+            "clock": 120,
+            "displayClock": "2:00",
+            "period": 2,
             "type": {
-              "id": "1",
-              "name": "STATUS_SCHEDULED",
-              "state": "pre",
+              "id": "2",
+              "name": "STATUS_IN_PROGRESS",
+              "state": "in",
               "completed": false,
-              "description": "Scheduled",
-              "detail": "Mon, September 14th at 8:15 PM EDT",
-              "shortDetail": "9/14 - 8:15 PM EDT"
+              "description": "In Progress",
+              "detail": "2:00 - 2nd Quarter",
+              "shortDetail": "2:00 - 2nd"
             },
             "isTBDFlex": false
           },
@@ -324,25 +402,133 @@
               ]
             }
           ],
+          "leaders": [
+            {
+              "name": "passingYards",
+              "displayName": "Passing Leader",
+              "shortDisplayName": "PASS",
+              "abbreviation": "PYDS",
+              "leaders": [
+                {
+                  "displayValue": "11/15, 88 YDS, 1 TD, 1 INT",
+                  "value": 88,
+                  "athlete": {
+                    "id": "4426338",
+                    "fullName": "Bo Nix",
+                    "displayName": "Bo Nix",
+                    "shortName": "B. Nix",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4426338/bo-nix"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426338.png",
+                    "jersey": "10",
+                    "position": {
+                      "abbreviation": "QB"
+                    },
+                    "team": {
+                      "id": "7"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "7"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
+              "leaders": [
+                {
+                  "displayValue": "14 CAR, 89 YDS",
+                  "value": 89,
+                  "athlete": {
+                    "id": "4567048",
+                    "fullName": "Kenneth Walker III",
+                    "displayName": "Kenneth Walker III",
+                    "shortName": "K. Walker III",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4567048/kenneth-walker-iii"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4567048.png",
+                    "jersey": "9",
+                    "position": {
+                      "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "12"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "12"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "receivingYards",
+              "displayName": "Receiving Leader",
+              "shortDisplayName": "REC",
+              "abbreviation": "RECYDS",
+              "leaders": [
+                {
+                  "displayValue": "3 REC, 32 YDS",
+                  "value": 32,
+                  "athlete": {
+                    "id": "4600981",
+                    "fullName": "Pat Bryant",
+                    "displayName": "Pat Bryant",
+                    "shortName": "P. Bryant",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4600981/pat-bryant"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4600981.png",
+                    "jersey": "13",
+                    "position": {
+                      "abbreviation": "WR"
+                    },
+                    "team": {
+                      "id": "7"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "7"
+                  }
+                }
+              ]
+            }
+          ],
           "format": {
             "regulation": {
               "periods": 4
             }
           },
-          "tickets": [
-            {
-              "summary": "Tickets as low as $228",
-              "numberAvailable": 978,
-              "links": [
-                {
-                  "href": "https://www.vividseats.com/kansas-city-chiefs-tickets-kansas-city-geha-field-at-arrowhead-stadium-3-1-2026/production/6491101?wsUser=717"
-                },
-                {
-                  "href": "https://www.vividseats.com/geha-field-at-arrowhead-stadium-tickets/venue/92?wsUser=717"
-                }
-              ]
-            }
-          ],
           "startDate": "2026-09-15T00:15Z",
           "broadcast": "ESPN/ABC",
           "geoBroadcasts": [
@@ -381,306 +567,6 @@
               "region": "us"
             }
           ],
-          "odds": [
-            {
-              "provider": {
-                "id": "100",
-                "name": "DraftKings",
-                "priority": 1,
-                "logos": [
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Light.svg",
-                    "rel": [
-                      "light"
-                    ]
-                  },
-                  {
-                    "href": "https://a.espncdn.com/i/betting/Draftkings_Dark.svg",
-                    "rel": [
-                      "dark"
-                    ]
-                  }
-                ],
-                "displayName": "DraftKings"
-              },
-              "details": "KC -2.5",
-              "overUnder": 42.5,
-              "spread": -2.5,
-              "awayTeamOdds": {
-                "favorite": false,
-                "underdog": true,
-                "team": {
-                  "id": "7",
-                  "uid": "s:20~l:28~t:7",
-                  "abbreviation": "DEN",
-                  "name": "Broncos",
-                  "displayName": "Denver Broncos",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/den.png"
-                },
-                "favoriteAtOpen": false
-              },
-              "homeTeamOdds": {
-                "favorite": true,
-                "underdog": false,
-                "team": {
-                  "id": "12",
-                  "uid": "s:20~l:28~t:12",
-                  "abbreviation": "KC",
-                  "name": "Chiefs",
-                  "displayName": "Kansas City Chiefs",
-                  "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
-                },
-                "favoriteAtOpen": true
-              },
-              "moneyline": {
-                "displayName": "Moneyline",
-                "shortDisplayName": "ML",
-                "home": {
-                  "close": {
-                    "odds": "-130",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "home",
-                        "desktop",
-                        "bets",
-                        "draftkings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0ML84695698_1",
-                      "text": "Home Bet",
-                      "shortText": "Home Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "home",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "-155"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "odds": "+110",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "away",
-                        "desktop",
-                        "bets",
-                        "draftkings"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0ML84695698_3",
-                      "text": "Away Bet",
-                      "shortText": "Away Bet",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "away",
-                          "betType": "straight"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "odds": "+130"
-                  }
-                }
-              },
-              "pointSpread": {
-                "displayName": "Spread",
-                "shortDisplayName": "Spread",
-                "home": {
-                  "close": {
-                    "line": "-2.5",
-                    "odds": "-108",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "homeSpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0HC84695698N250_1",
-                      "text": "Home Point Spread",
-                      "shortText": "Home Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:KC-2.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "-2.5",
-                    "odds": "-120"
-                  }
-                },
-                "away": {
-                  "close": {
-                    "line": "+2.5",
-                    "odds": "-112",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "awaySpread",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0HC84695698P250_3",
-                      "text": "Away Point Spread",
-                      "shortText": "Away Point Spread",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "none",
-                          "betType": "straight",
-                          "betDetails": "Spread:DEN+2.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "+2.5",
-                    "odds": "+100"
-                  }
-                }
-              },
-              "total": {
-                "displayName": "Total",
-                "shortDisplayName": "Total",
-                "over": {
-                  "close": {
-                    "line": "o42.5",
-                    "odds": "-110",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "over",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0OU84695698O4250_1",
-                      "text": "Over Odds",
-                      "shortText": "Over Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "over",
-                          "betType": "straight",
-                          "betDetails": "Over:42.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "o42.5",
-                    "odds": "-110"
-                  }
-                },
-                "under": {
-                  "close": {
-                    "line": "u42.5",
-                    "odds": "-110",
-                    "link": {
-                      "language": "en-US",
-                      "rel": [
-                        "under",
-                        "desktop",
-                        "bets"
-                      ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255%3Foutcomes%3D0OU84695698U4250_3",
-                      "text": "Under Odds",
-                      "shortText": "Under Odds",
-                      "isExternal": true,
-                      "isPremium": false,
-                      "tracking": {
-                        "campaign": "betting-integrations",
-                        "tags": {
-                          "league": "nfl",
-                          "sport": "football",
-                          "gameId": 401872931,
-                          "betSide": "under",
-                          "betType": "straight",
-                          "betDetails": "Under:42.5"
-                        }
-                      }
-                    }
-                  },
-                  "open": {
-                    "line": "u42.5",
-                    "odds": "-110"
-                  }
-                }
-              },
-              "link": {
-                "language": "en-US",
-                "rel": [
-                  "game",
-                  "desktop",
-                  "bets"
-                ],
-                "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118255",
-                "text": "See More Odds",
-                "shortText": "Game",
-                "isExternal": true,
-                "isPremium": false,
-                "tracking": {
-                  "campaign": "betting-integrations",
-                  "tags": {
-                    "league": "nfl",
-                    "sport": "football",
-                    "gameId": 401872931,
-                    "betSide": "none",
-                    "betType": "straight"
-                  }
-                }
-              },
-              "header": {
-                "logo": {
-                  "dark": "https://a.espncdn.com/i/espnbet/dark/espn-bet-square-off.svg",
-                  "light": "https://a.espncdn.com/i/espnbet/espn-bet-square-off.svg",
-                  "exclusivesLogoDark": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg",
-                  "exclusivesLogoLight": "https://a.espncdn.com/i/espnbet/espn-bet-square-mint.svg"
-                },
-                "text": "Game Odds"
-              },
-              "footer": {
-                "disclaimer": "GAMBLING PROBLEM? CALL 1-800-GAMBLER or 1-800-MY-RESET, (800) 327-5050 or visit gamblinghelplinema.org (MA). Call 877-8-HOPENY/text HOPENY (467369) (NY). Call 888-789-7777/visit ccpg.org (CT), or visit www.mdgamblinghelp.org (MD), 1-800-981-0023 (PR). 21+ and present in most states. (18+ DC/KY/NH/PR/WY). Void in ONT. Eligibility restrictions apply. Terms: draftkings.com/sportsbook. On behalf of Boot Hill Casino (KS). Pass-thru of per wager tax may apply in IL."
-              }
-            }
-          ],
           "highlights": []
         }
       ],
@@ -688,28 +574,66 @@
         {
           "language": "en-US",
           "rel": [
-            "summary",
+            "live",
             "desktop",
             "event"
           ],
-          "href": "https://www.espn.com/nfl/game/_/gameId/401872931/broncos-chiefs",
+          "href": "https://www.espn.com/nfl/game?gameId=401872931",
           "text": "Gamecast",
           "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872931",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401872931",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872931",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
           "isExternal": false,
           "isPremium": false
         }
       ],
       "weather": {
-        "displayValue": "Sunny",
-        "temperature": 89,
-        "highTemperature": 89,
-        "conditionId": "1",
+        "displayValue": "35",
+        "temperature": 87,
+        "highTemperature": 87,
+        "conditionId": "Partly cloudy",
         "link": {
           "language": "en-US",
           "rel": [
             "64129"
           ],
-          "href": "http://www.accuweather.com/en/us/geha-field-at-arrowhead-stadium-mo/64106/hourly-weather-forecast/43032_poi?day=1&hbhhour=19&lang=en-us",
+          "href": "http://www.accuweather.com/en/us/geha-field-at-arrowhead-stadium-mo/64106/current-weather/43032_poi?lang=en-us",
           "text": "Weather",
           "shortText": "Weather",
           "isExternal": true,
@@ -717,17 +641,17 @@
         }
       },
       "status": {
-        "clock": 0,
-        "displayClock": "0:00",
-        "period": 0,
+        "clock": 120,
+        "displayClock": "2:00",
+        "period": 2,
         "type": {
-          "id": "1",
-          "name": "STATUS_SCHEDULED",
-          "state": "pre",
+          "id": "2",
+          "name": "STATUS_IN_PROGRESS",
+          "state": "in",
           "completed": false,
-          "description": "Scheduled",
-          "detail": "Mon, September 14th at 8:15 PM EDT",
-          "shortDetail": "9/14 - 8:15 PM EDT"
+          "description": "In Progress",
+          "detail": "2:00 - 2nd Quarter",
+          "shortDetail": "2:00 - 2nd"
         }
       }
     }
@@ -1760,6 +1684,21 @@
     ],
     "Atlanta Falcons": [
       {
+        "longComment": "Hand will be forced to miss the remainder of the season while recovering from surgery. In his absence, Maason Smith will have the opportunity to carve out a more significant role for himself on the defensive line with Atlanta.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Da'Shawn Hand",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "out",
         "status": "Out",
         "athlete": {
@@ -1805,21 +1744,6 @@
         }
       },
       {
-        "longComment": "out",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Da'Shawn Hand",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "With Lindstrom done for the day, Kyle Hinton has taken over at right guard. Lindstrom will have to clear the league's concussion protocol in order to be available for the Falcons' Week 2 clash against the Panthers on Sunday, Sept. 20.",
         "status": "Questionable",
         "athlete": {
@@ -1840,21 +1764,6 @@
         "athlete": {
           "displayName": "Cameron Williams",
           "position": "OL"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Trey Sermon",
-          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -1912,7 +1821,7 @@
         }
       },
       {
-        "longComment": "Minter's comments essentially match what Ian Rapoport of NFL Network reported earlier Monday, as Flowers' left hamstring injury isn't considered serious and is unlikely to result in the wideout missing much time, if any. Before departing Sunday's 41-23 win over the Colts with just under six minutes remaining in the second quarter, Flowers had a banner day, recording five receptions for a career-high 150 yards and a touchdown. If Flowers able to make enough progress in his recovery from the hamstring injury as Week 2 prep rolls along and is cleared to play next Sunday versus the Saints, he should be locked in as quarterback Lamar Jackson's top target.",
+        "longComment": "Minter's comments essentially match what Ian Rapoport of NFL Network reported earlier Monday, as Flowers' left hamstring injury isn't considered serious and is unlikely to result in the wideout missing much time, if any. Before departing Sunday's 41-23 win over the Colts with just under six minutes remaining in the second quarter, Flowers had a banner day, recording five receptions for a career-high 150 yards and a touchdown. If Flowers is able to make enough progress in his recovery from the hamstring injury as Week 2 prep rolls along and is cleared to play next Sunday versus the Saints, he should be locked in as quarterback Lamar Jackson's top target.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Zay Flowers",
@@ -2017,51 +1926,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "out",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Tyrell Shavers",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "nfi-r",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Dorian Strong",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Zane Durant",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Carolina Panthers": [
@@ -2081,56 +1945,11 @@
         }
       },
       {
-        "longComment": "Coker said he rolled his ankle in the first quarter against Chicago, but he deemed the injury minor and suggested the boot is for precautionary reasons. The second-year wideout expects to play next Sunday against the Falcons. In the Panthers's Week 1 loss to the Bears, Coker paced the Panthers in receiving with a monster 8-138-2 receiving line on nine targets. He's emerged as a clear-cut every-down receiver and should be viewed as an upside WR3 in fantasy.",
+        "longComment": "Coker said he rolled his ankle in the first quarter against Chicago, but he deemed the injury minor and suggested the boot is for precautionary reasons. The second-year wideout expects to play next Sunday against the Falcons. In the Panthers' Week 1 loss to the Bears, Coker paced Carolna in receiving with a monster 8-138-2 line on nine targets. He's emerged as a clear-cut every-down receiver and should be viewed as an upside WR3 in fantasy.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jalen Coker",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Trevor Etienne",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Christensen will be required to miss the first four games of the regular season on IR before becoming eligible to return to the Panthers' active roster. Mike Kaye of ESPN.com reports that general manager Dan Morgan said he expects Christensen to return at some point during the regular season, but it remains unclear when that will be.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Brady Christensen",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Martin-Scott picked up a hamstring injury during training camp practice, preventing him from playing in the Panthers' preseason finale against the Texans on Friday. The injury is severe enough for the South Carolina product to start the regular season on IR, meaning he won't be eligible to play until at least Week 6 against the Eagles on Sunday, Oct. 18. Martin-Scott mostly served on special teams for the Panthers in 2025, finishing with 21 tackles (seven solo) and one forced fumble across 17 regular-season games.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Bam Martin-Scott",
-          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2208,36 +2027,6 @@
         "athlete": {
           "displayName": "Shemar Turner",
           "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Dallis Flowers",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jonathan Garvin",
-          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2430,30 +2219,15 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Royer has been designated to return to the team but will be required to miss at least the first four weeks of the regular season. The rookie fifth-rounder missed the entirety of the preseason due to a personal issue. It remains unclear when the tight end will be ready to return to football.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Joe Royer",
-          "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Dallas Cowboys": [
       {
-        "longComment": "Hooker left the game in the fourth quarter and recorded just one solo tackle prior to his departure. P.J. Locke and Markquese Bell are next in line for snaps at safety alongside Jalen Thompson.",
-        "status": "Doubtful",
+        "longComment": "Overshown was forced out of the Cowboys' regular-season debut early with a hamstring issue, and it seems like he'll likely have to sit out at least one game as he recovers. Any time he spends on the sidelines could open up additional time at linebacker for rookie third-rounder Jaishawn Barham.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Malik Hooker",
-          "position": "S"
+          "displayName": "DeMarvion Overshown",
+          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2464,11 +2238,11 @@
         }
       },
       {
-        "longComment": "Overshown left the game in the second half and was spotted on the sideline without his helmet, suggesting his night may be over. Prior to the injury, Overshown racked up seven tackles (one solo). Jaishawn Barham and Shemar James are next up at linebacker alongside Dee Winters.",
-        "status": "Questionable",
+        "longComment": "The safety left Sunday's loss to the Giants in the fourth quarter and did not return. He seems likely to miss at least two weeks, according to Calvin Watkins of The Dallas Morning News.  P.J. Locke and Markquese Bell would be the next two up at safety if Hooker has to sit for an extended period.",
+        "status": "Doubtful",
         "athlete": {
-          "displayName": "DeMarvion Overshown",
-          "position": "LB"
+          "displayName": "Malik Hooker",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2648,7 +2422,22 @@
     ],
     "Detroit Lions": [
       {
-        "longComment": "Pacheco was already on injured reserve, but he's looking at a lengthy recovery. According to Ian Rapoport of NFL Network, the running back is expected to be sidelined 12 weeks, giving him a \"chance\" to return sometime in December. With Pacheco sidelined in Week 1 against the Saints, Jahmyr Gibbs handled 29 of the team's 31 backfield carries, turning them into 156 yards and two touchdowns on the ground. Gibbs also caught all five of his targets for 30 yards and played 57 of 77 offensive snaps. Sione Vaki played 22 snaps on offense but touched the ball just three times for 18 yards. Gibbs cemented himself as the premier player in fantasy football.",
+        "longComment": "Mahogany suffered a lower-body injury in the first half of the team's Week 1 victory, and he was unable to return to the contest. The offensive lineman was ruled out with a knee injury, and the imaging results appear to have ruled out any significant damage to the knee. Head coach Dan Campbell explained that the team is \"out of the woods\" quite yet though, stating that Mahogany may be dealing with a hip injury instead. The Lions are set to face the Bills on Thursday night in Buffalo, so Mahogany may have a tough time being available for Week 2.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Christian Mahogany",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Pacheco was already on injured reserve, but he's looking at a lengthy recovery. According to Ian Rapoport of NFL Network, the running back is expected to be sidelined 12 weeks, giving him a \"chance\" to return sometime in December. With Pacheco sidelined Week 1 against the Saints, Jahmyr Gibbs handled 29 of the team's 31 backfield carries, turning them into 156 yards and two touchdowns. Gibbs also caught all five of his targets for 30 yards and played 57 of 77 offensive snaps. Sione Vaki played 22 snaps on offense but touched the ball just three times for 18 yards. Gibbs cemented himself as the premier player in fantasy football.",
         "status": "Injured Reserve",
         "athlete": {
           "displayName": "Isiah Pacheco",
@@ -2682,21 +2471,6 @@
         "status": "Questionable",
         "athlete": {
           "displayName": "Juice Scruggs",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Mahogany went down with a knee injury in the first half. The injury is severe enough for the third-year lineman to be sidelined for the rest of Sunday's game, and he'll undergo more tests to determine whether he'll miss time beyond Week 1. Ben Bartch will fill in at left guard for the time being.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Mahogany",
           "position": "G"
         },
         "depthChartPosition": null,
@@ -2828,26 +2602,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Savion Williams",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Houston Texans": [
       {
-        "longComment": "To'oTo'o suffered a shoulder injury in the fourth quarter of Sunday's loss. The linebacker was seen after the contest in a sling but it is unclear how severe the issue truly is.",
+        "longComment": "Texans coach DeMeco Ryans said Monday that the team was still deciding on To'oTo'o's status. The linebacker was seen wearing a sling after the game. To'oTo'o suffered the injury late in the fourth quarter after playing 46 snaps.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Henry To'oTo'o",
@@ -2862,7 +2621,7 @@
         }
       },
       {
-        "longComment": "Hummel went down in the third quarter with an abdominal injury. The starting outside linebacker signed with the Texans in March on a two-year deal. Wade Woodaz will likely play most of the starting snaps opposite Henry To'oTo'o in Hummel's absence.",
+        "longComment": "Hummel suffered a groin injury in the third quarter of Sunday's 36-31 loss to the Bills. The linebacker will almost certainly miss the Texans' Week 2 game against the Bengals. Jake Hansen will likely start as the second outside linebacker in Hummel's absence, but the team will probably rely on more nickel packages with Jalen Pitre in the slot while Hummel is absent.",
         "status": "Doubtful",
         "athlete": {
           "displayName": "Jake Hummel",
@@ -2939,7 +2698,7 @@
         }
       },
       {
-        "longComment": "After undergoing offseason ankle surgery and missing most of training camp, Pierce was expected to have his snaps limited to some degree in Week 1. He ended up finishing with four receptions for 61 yards on six targets while taking the field for 32 of the Colts' 54 snaps, but it's unclear what affect the wrist issue may have had on his workload. With X-rays on Pierce's left hand having already returned negative, Pierce is expected to be ready to play in the Colts' Week 2 contest in Kansas City, though he may not necessarily be a full participant in all of the team's practices leading up to gameday.",
+        "longComment": "After undergoing offseason ankle surgery and missing most of training camp, Pierce was expected to have his snaps limited to some degree in Week 1. He ended up finishing with four receptions for 61 yards on six targets while taking the field for 32 of the Colts' 54 snaps, but it's unclear what affect the wrist issue may have had on his workload. With X-rays on Pierce's left hand having already returned negative, Pierce is expected to be ready to play in the Colts' Week 2 contest in Kansas City, though he may not necessarily be a full participant in all of the team's practices leading up to game day.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Alec Pierce",
@@ -3059,41 +2818,41 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Mekari will be required to miss at least the first four games of the regular season, meaning Week 5 against the Eagles on Sunday, Oct. 11 is the earliest he can play. The California product is recovering from back surgery that he underwent in mid-August. Ezra Cleveland is in line to start at right guard for as long as Mekari is out of action.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Patrick Mekari",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "The 2026 seventh-rounder will need to miss the first four weeks of the regular season at least before he is eligible to return to the active roster. Durfee is set to be a reserve piece of the Jaguars' defensive line throughout the 2026 season, and once he is healthy there should be a path to reserve snaps.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Zach Durfee",
-          "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "Simmons has been dealing with a persistent back injury throughout the offseason. The 2025 first-rounder has seemingly not been able to progress much in his recovery. With Simmons unable to suit up, rookie undrafted free agent Kahlil Benson is set to make his NFL debut protecting Patrick Mahomes' blindside.",
+        "longComment": "The linebacker made one tackle before exiting. McDonald played far more on special teams than defense a year ago and is likely in a similar role for Kansas City this year.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Cooper McDonald",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "The rookie first-round pick intercepted a Bo Nix on Denver's first possession of the game, leading to a Kansas City touchdown. Delane was dealing with a shoulder injury during OTAs and was limited to start training camp as a result of the issue. Kristian Fulton, Nohl Williams and Christian Roland-Wallace could see more snaps in his absence.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Mansoor Delane",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Josh Simmons",
@@ -3108,7 +2867,7 @@
         }
       },
       {
-        "longComment": "Connor is still dealing with a knee issue he picked up during the preseason and was unable to get right in time to suit up for the Week 1 divisional showdown. Jaden Hicks will likely start at strong safety in Connor's stead.",
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Chamarri Conner",
@@ -3155,7 +2914,7 @@
     ],
     "Las Vegas Raiders": [
       {
-        "longComment": "After Bowers underwent a meniscus trim procedure last Tuesday, Adam Schefter of ESPN reported that the star tight end expected to miss only \"a game or two\" before making his 2026 debut. Though a partial meniscectomy often entails a recovery period closer to one month, Bowers -- who sat out the Raiders' season-opening win over the Dolphins -- appears to be bouncing back well from his operation and looks like he could have a real chance of suiting up next Sunday against the Chargers. Per Ryan McFadden of ESPN.com, Kubiak said that he'll heed the advice of trainers in determining when Bowers will be ready to play, and the 23-year-old's activity in practices is also likely to be a factor in the decision. While Bowers was sidelined for Week 1, Michael Mayer stepped in as the Raiders' top tight end against the Dolphins and finished with six catches for 32 yards on seven targets.",
+        "longComment": "After Bowers underwent a meniscus trim procedure last Tuesday, Adam Schefter of ESPN reported that the star tight end expected to miss only \"a game or two\" before making his 2026 debut. Though a partial meniscectomy often entails a recovery period closer to one month, Bowers -- who sat out the Raiders' season-opening win over the Dolphins -- appears to be bouncing back well from his operation and looks like he could have a real chance of suiting up next Sunday against the Chargers. Per Ryan McFadden of ESPN.com, Kubiak said that he'll heed the advice of trainers in determining when Bowers will be ready to play, and the 23-year-old's activity in practices is also likely to be a factor in the decision. While Bowers was sidelined for Week 1, Michael Mayer stepped in as the Raiders' top tight end versus Miami and finished with six catches for 32 yards on seven targets.",
         "status": "Out",
         "athlete": {
           "displayName": "Brock Bowers",
@@ -3232,6 +2991,36 @@
     ],
     "Los Angeles Chargers": [
       {
+        "longComment": "Molden exited the third quarter of last Sunday's contest with a hamstring injury and is now day-to-day as he deals with the issue. If the starting free safety cannot participate in multiple limited practices or full practices throughout Week 2, he will likely not be able to suit up for next Sunday's game against the Raiders.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Elijah Molden",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Davis appears to have been injured on Justin Herbert's fourth-quarter interception as safety Andrew Wingard crushed him in the process of catching the ball. The wide receiver's status for next Sunday's game against the Raiders will depend on his practice participation throughout Week 2.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Derius Davis",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "doubtful",
         "status": "Doubtful",
         "athlete": {
@@ -3247,22 +3036,7 @@
         }
       },
       {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Derius Davis",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "McConkey delivered a 5-82-1 receiving line on seven targets before exiting late in the third quarter of Sunday's 26-14 loss to the Cardinals due to what the Chargers initially referred to as a chest injury. Ian Rapoport of NFL Network clarified earlier Monday that McConkey is instead recovering from a rib injury, and the wideout was set to undergo further testing. While Harbaugh didn't elaborate on what medical testing revealed, McConkey appears to have avoided anything significant. That said, his status for Week 2 appears to be in flux at the moment, and his activity in practices Wednesday through Friday will likely be the determining factor in whether or not he suits up Sunday.",
+        "longComment": "McConkey delivered a 5-82-1 line on seven targets before exiting late in the third quarter of Sunday's 26-14 loss to the Cardinals due to what the Chargers initially referred to as a chest injury. Ian Rapoport of NFL Network clarified earlier Monday that McConkey is instead recovering from a rib issue, and the wideout was set to undergo further testing. While Harbaugh didn't elaborate on what medical testing revealed, McConkey appears to have avoided anything significant. That said, McConkey's status for Week 2 appears to be in flux at the moment, and his activity in practices Wednesday through Friday likely will be the determining factor in whether or not he suits up Sunday.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Ladd McConkey",
@@ -3281,21 +3055,6 @@
         "status": "Out",
         "athlete": {
           "displayName": "Deane Leonard",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Molden exited the third quarter of Sunday's contest with a new hamstring issue. Genesis Smith will likely take over at free safety while Molden is sidelined.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Elijah Molden",
           "position": "CB"
         },
         "depthChartPosition": null,
@@ -3350,41 +3109,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Taylor will be forced to miss at least the first four games of the season before he's eligible to return due to an undisclosed injury. The rookie sixth-round pick should serve as a depth tackle once healthy.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Branson Taylor",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Los Angeles Rams": [
       {
-        "longComment": "\"Thought we would take an approach where he'd be feeling good enough to go contribute positive change and be the player that he's capable of,\" McVay said. \"That wasn't the case. And so the next right thing for us is to be able to get this thing fixed.\" Garrett will miss at least the next four games, but McVay wouldn't comment on a definitive timeline for the star edge rusher to return to the field. Garrett generated zero pressures and no stats in the box score across 40 defensive snaps against San Francisco last week.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Myles Garrett",
-          "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
+        "longComment": "The linebacker suffered the injury in the first quarter, left the game briefly and then returned in the second quarter. He didn't exit again and ended up playing 30 defensive snaps and nine special-teams snaps. Rams coach Sean McVay told reporters Monday that Speights is \"feeling better than what we had anticipated\" and is \"making positive gains right now.\"",
         "status": "Questionable",
         "athlete": {
           "displayName": "Omar Speights",
@@ -3399,7 +3128,7 @@
         }
       },
       {
-        "longComment": "questionable",
+        "longComment": "Landman picked up two injuries in the Rams' Week 1 loss to the 49ers. The inside linebacker made eight tackles in the contest, logging a strong start to the veteran's fifth NFL campaign. The 27-year-old will likely start the week as a limited participant in practice, hopefully working his way up to full participation by Saturday to be cleared of any injury designation by the team.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Nate Landman",
@@ -3412,12 +3141,42 @@
           "description": "basic/manual",
           "state": "basic"
         }
+      },
+      {
+        "longComment": "Curl should be fine, but there is a chance the free safety will start preparing for Week 2 against the Giants as a limited participant. The safety logged 94 percent or more of the defensive snaps for the Rams in every single 2025 contest, so the chance of a minor injury stopping the starter is quite low.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kam Curl",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "\"Thought we would take an approach where he'd be feeling good enough to go contribute positive change and be the player that he's capable of,\" McVay said. \"That wasn't the case. And so the next right thing for us is to be able to get this thing fixed.\" Garrett will miss at least the next four games, but McVay wouldn't comment on a definitive timeline for the star edge rusher to return to the field. Garrett generated zero pressures and no stats in the box score across 40 defensive snaps against San Francisco last week.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Myles Garrett",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
       }
     ],
     "Miami Dolphins": [
       {
-        "longComment": "Louis was ruled out in the second half Sunday during his NFL debut. His absence will primarily affect Miami's special-teams unit.",
-        "status": "Questionable",
+        "longComment": "Louis suffered a knee injury in Sunday's 27-13 loss to the Raiders, and he will now be sidelined for at least one contest moving forward. The rookie logged three snaps on defense and 14 snaps with the special-teams unit before his departure in Week 1, and his absence will likely have little impact on the team's defensive approach versus San Francisco.",
+        "status": "Out",
         "athlete": {
           "displayName": "Kyle Louis",
           "position": "LB"
@@ -3489,26 +3248,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Baker suffered an undisclosed injury in July, and he was sidelined for the entirety of training camp and the preseason. Head coach Jeff Hafley stated in late July that the cornerback will likely be out until midseason, and the earliest he can return from the reserve/PUP list is Week 5 against the Bengals on Oct. 11.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Darrell Baker Jr.",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Minnesota Vikings": [
       {
-        "longComment": "Mason (30 of 65 offensive snaps) and Aaron Jones (29 snaps) had a near-even split of the backfield reps in Week 1, with the former leading the ground attack with 59 yards and a touchdown on 15 carries while going without a target. The 27-year-old apparently hurt his thumb at some point during the contest, but the Vikings haven't yet indicated that the injury is anything more than a day-to-day concern. Mason will likely be put through more tests before the Vikings have a clearer picture of his status heading into a Week 2 matchup with the Bears.",
+        "longComment": "Mason (30 of 65 offensive snaps) and Aaron Jones (29 snaps) had a near-even split of the backfield reps Week 1, with the former leading the ground attack with 59 yards and a touchdown on 15 carries while going without a target. The 27-year-old apparently hurt his thumb at some point during the contest, but the Vikings haven't yet indicated that the injury is anything more than a day-to-day concern. Mason will likely be put through more tests before the Vikings have a clearer picture of his status heading into a Week 2 matchup with the Bears.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jordan Mason",
@@ -3558,21 +3302,6 @@
         "athlete": {
           "displayName": "Michael Jurgens",
           "position": "C"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Batty suffered a torn ACL during Friday's preseason loss to the Broncos and will now be forced to miss the upcoming season. He logged 12 tackles (nine solo) across 12 games with Minnesota last season and will now shift his focus to getting healthy for the 2027 campaign.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Tyler Batty",
-          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3727,21 +3456,6 @@
         "athlete": {
           "displayName": "Dillon Radunz",
           "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Ford had a strong preseason with 15 tackles and an interception over three games but appears to have picked up an injury along the way. He'll need to sit out at least the first four games of the regular season, but the designation to return means he could be activated as soon as Week 5 against Minnesota.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jaylan Ford",
-          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3938,6 +3652,21 @@
     ],
     "Philadelphia Eagles": [
       {
+        "longComment": "Dickerson struggled in the team's regular-season opener against the Commanders on Sunday, and he now appears to be in need of some time away while nursing a knee issue. The offensive lineman is first eligible to return to action Week 6 versus Carolina on Oct. 18, and in the meantime, Drew Kendall or Willie Lampkin will likely be asked to step in as the team's starting left guard.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Landon Dickerson",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "out",
         "status": "Out",
         "athlete": {
@@ -4003,21 +3732,6 @@
         "athlete": {
           "displayName": "Grant Calcaterra",
           "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Wilson was let go by Philadelphia on Friday but is set to return to the team after clearing waivers, albeit on injured reserve. The 25-year-old will now be forced to miss the entirety of the upcoming campaign unless he's waived with an injury settlement.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Johnny Wilson",
-          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4139,6 +3853,21 @@
     ],
     "Seattle Seahawks": [
       {
+        "longComment": "Darnold appears to be dealing with a less serious issue than initially feared, as the injury isn't structural and isn't to his hip. The veteran QB still doesn't have a firm return timeline, but the latest update supports the expectation that his absence should be brief. While Darnold is out, Drew Lock is expected to direct Seattle's offense.",
+        "status": "Doubtful",
+        "athlete": {
+          "displayName": "Sam Darnold",
+          "position": "QB"
+        },
+        "depthChartPosition": 1,
+        "depthChartOrder": 1,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "out",
         "status": "Out",
         "athlete": {
@@ -4182,24 +3911,24 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Tampa Bay Buccaneers": [
       {
-        "longComment": "Darnold played just five snaps in Wednesday's 13-10 win over the Patriots before being removed from the game due to an apparent right hip injury. The Seahawks sent the quarterback in for an MRI and CT scan, and while an exact diagnosis of his injury wasn't provided by the team, head coach Mike Macdonald relayed that Darnold received favorable news from his medical tests. Drew Lock appears poised to start Week 2 while Darnold receives additional time to heal from the glute injury, but the Seahawks haven't closed the door on Darnold being ready to go for Week 3.",
-        "status": "Doubtful",
+        "longComment": "Both the MRI and X-ray came back negative, so the cornerback has avoided any significant damage to his spine. Parrish's ability to return to the field will now be entirely dictated by how well he can manage and play through the pain. The 22-year-old's ability to play in next Sunday's game against the Browns will likely be determined by his ability to log limited or better practices in Wednesday, Thursday and Friday's sessions.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Sam Darnold",
-          "position": "QB"
+          "displayName": "Jacob Parrish",
+          "position": "CB"
         },
-        "depthChartPosition": 1,
-        "depthChartOrder": 1,
+        "depthChartPosition": null,
+        "depthChartOrder": null,
         "source": {
           "id": "1",
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Tampa Bay Buccaneers": [
+      },
       {
         "longComment": "out",
         "status": "Out",
@@ -4236,21 +3965,6 @@
         "athlete": {
           "displayName": "Jalen McMillan",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Parrish had to go to the locker room after sustaining a back injury in the second quarter, and the injury is severe enough for him to not return to Sunday's contest. Benjamin Morrison will be more heavily involved defensively in Parrish's absence.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jacob Parrish",
-          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4308,7 +4022,7 @@
     ],
     "Tennessee Titans": [
       {
-        "longComment": "out",
+        "longComment": "Wyatt was citing Tennessee coach Robert Saleh, who also said that Gray still needs to clear the concussion protocol. The linebacker got into a UTV accident on Labor Day weekend but avoided a serious injury. Gray broke out in 2025, recording 164 tackles (97 solo) and four pass breakups.",
         "status": "Out",
         "athlete": {
           "displayName": "Cedric Gray",
@@ -4869,7 +4583,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-14T23:09:48.537Z",
+    "checkedAt": "2026-09-15T01:28:58.507Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
