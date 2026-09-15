@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-15T01:28:58.510Z",
+  "lastUpdated": "2026-09-15T02:13:08.868Z",
   "currentWeek": 1,
   "games": [
     {
@@ -146,7 +146,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
               },
-              "score": "7",
+              "score": "21",
               "linescores": [
                 {
                   "value": 7,
@@ -154,9 +154,14 @@
                   "period": 1
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -297,6 +302,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -326,70 +336,99 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729311810",
+              "id": "4018729312531",
               "type": {
-                "id": "75",
-                "text": "Two-minute warning",
-                "abbreviation": "2Min Warn"
+                "id": "26",
+                "text": "Pass Interception Return",
+                "abbreviation": "INTR"
               },
-              "text": "Two-Minute Warning",
+              "text": " P.Mahomes pass deep middle intended for X.Worthy INTERCEPTED by B.Jones at KC 28. B.Jones to KC 5 for 23 yards (J.Moore).",
               "scoreValue": 0,
               "team": {
-                "id": "12"
+                "id": "7"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.6769,
-                "awayWinPercentage": 0.32310000000000005,
+                "homeWinPercentage": 0.8395,
+                "awayWinPercentage": 0.16049999999999998,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 23,
               "drive": {
-                "description": "7 plays, 54 yards, 2:41",
+                "description": "1 play, 0 yards, 0:13",
                 "start": {
-                  "yardLine": 20,
-                  "text": "KC 20"
+                  "yardLine": 3,
+                  "text": "KC 3"
+                },
+                "end": {
+                  "yardLine": 3,
+                  "text": "KC 3"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:41"
-                }
+                  "displayValue": "0:13"
+                },
+                "result": "INT"
               },
               "start": {
-                "yardLine": 74,
+                "yardLine": 3,
                 "team": {
                   "id": "12"
                 }
               },
               "end": {
-                "yardLine": 74,
+                "yardLine": 5,
                 "team": {
-                  "id": "12"
+                  "id": "7"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4039059",
+                  "fullName": "Brandon Jones",
+                  "displayName": "Brandon Jones",
+                  "shortName": "B. Jones",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4039059/brandon-jones"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4039059.png",
+                  "jersey": "22",
+                  "position": "S",
+                  "team": {
+                    "id": "7"
+                  }
+                }
+              ]
             },
             "down": 1,
-            "yardLine": 74,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at DEN 26",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "DEN 26",
-            "isRedZone": false,
+            "yardLine": 5,
+            "distance": 5,
+            "downDistanceText": "1st & Goal at KC 5",
+            "shortDownDistanceText": "1st & Goal",
+            "possessionText": "KC 5",
+            "isRedZone": true,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
-            "possession": "12"
+            "possession": "7"
           },
           "status": {
-            "clock": 120,
-            "displayClock": "2:00",
-            "period": 2,
+            "clock": 574,
+            "displayClock": "9:34",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "2:00 - 2nd Quarter",
-              "shortDetail": "2:00 - 2nd"
+              "detail": "9:34 - 3rd Quarter",
+              "shortDetail": "9:34 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -410,8 +449,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "11/15, 88 YDS, 1 TD, 1 INT",
-                  "value": 88,
+                  "displayValue": "12/18, 98 YDS, 1 TD, 1 INT",
+                  "value": 98,
                   "athlete": {
                     "id": "4426338",
                     "fullName": "Bo Nix",
@@ -450,8 +489,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "14 CAR, 89 YDS",
-                  "value": 89,
+                  "displayValue": "16 CAR, 149 YDS, 1 TD",
+                  "value": 149,
                   "athlete": {
                     "id": "4567048",
                     "fullName": "Kenneth Walker III",
@@ -490,8 +529,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 32 YDS",
-                  "value": 32,
+                  "displayValue": "4 REC, 42 YDS",
+                  "value": 42,
                   "athlete": {
                     "id": "4600981",
                     "fullName": "Pat Bryant",
@@ -625,8 +664,8 @@
       ],
       "weather": {
         "displayValue": "35",
-        "temperature": 87,
-        "highTemperature": 87,
+        "temperature": 89,
+        "highTemperature": 89,
         "conditionId": "Partly cloudy",
         "link": {
           "language": "en-US",
@@ -641,17 +680,17 @@
         }
       },
       "status": {
-        "clock": 120,
-        "displayClock": "2:00",
-        "period": 2,
+        "clock": 574,
+        "displayClock": "9:34",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "2:00 - 2nd Quarter",
-          "shortDetail": "2:00 - 2nd"
+          "detail": "9:34 - 3rd Quarter",
+          "shortDetail": "9:34 - 3rd"
         }
       }
     }
@@ -2822,7 +2861,7 @@
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "The linebacker made one tackle before exiting. McDonald played far more on special teams than defense a year ago and is likely in a similar role for Kansas City this year.",
+        "longComment": "McDonald made one tackle before exiting the game. The second-year player out of TCU is a rotational edge rusher on the Chiefs' defense, and his absence will likely mean more supplemental pass rushes from R Mason Thomas.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Cooper McDonald",
@@ -2837,8 +2876,8 @@
         }
       },
       {
-        "longComment": "The rookie first-round pick intercepted a Bo Nix on Denver's first possession of the game, leading to a Kansas City touchdown. Delane was dealing with a shoulder injury during OTAs and was limited to start training camp as a result of the issue. Kristian Fulton, Nohl Williams and Christian Roland-Wallace could see more snaps in his absence.",
-        "status": "Questionable",
+        "longComment": "Delane started his NFL debut by intercepting Bo Nix on the Broncos' opening possession. The cornerback's injury may be a flare-up of an existing issue he struggled with throughout OTAs. With the first-round rookie ruled out, Nohl Williams will likely see more snaps at outside cornerback.",
+        "status": "Out",
         "athlete": {
           "displayName": "Mansoor Delane",
           "position": "CB"
@@ -2972,13 +3011,15 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Los Angeles Chargers": [
       {
-        "longComment": "Crawford was not given a tag that designated his return during 2026, meaning the rookie third-rounder will spend the entirety of his first season on IR. The linebacker will need to look toward 2027 to make his NFL debut. With Crawford out, Malcolm Koonce becomes the primary depth option at outside linebacker behind Kwity Paye and Maxx Crosby.",
-        "status": "Injured Reserve",
+        "longComment": "Lambert-Smith exited the second half of last Sunday's contest with a significant hamstring injury. The wide receiver will likely miss multiple weeks due to the issue. The Chargers will need to look for some practice squad elevations at wide receiver with Lambert-Smith out and Derius Davis (undisclosed) also dealing with an injury. No. 1 wide receiver Ladd McConkey (ribs) is also dealing with an injury, leaving the team even thinner at the position.",
+        "status": "Doubtful",
         "athlete": {
-          "displayName": "Keyron Crawford",
-          "position": "DE"
+          "displayName": "KeAndre Lambert-Smith",
+          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2987,9 +3028,7 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Los Angeles Chargers": [
+      },
       {
         "longComment": "Molden exited the third quarter of last Sunday's contest with a hamstring injury and is now day-to-day as he deals with the issue. If the starting free safety cannot participate in multiple limited practices or full practices throughout Week 2, he will likely not be able to suit up for next Sunday's game against the Raiders.",
         "status": "Questionable",
@@ -3010,21 +3049,6 @@
         "status": "Questionable",
         "athlete": {
           "displayName": "Derius Davis",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "doubtful",
-        "status": "Doubtful",
-        "athlete": {
-          "displayName": "KeAndre Lambert-Smith",
           "position": "WR"
         },
         "depthChartPosition": null,
@@ -3225,21 +3249,6 @@
         "athlete": {
           "displayName": "Kenneth Grant",
           "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Duck spent the entirety of training camp and the preseason on the active/PUP list as he continues to nurse a knee injury that he suffered in October. The cornerback will now be forced to miss at least four contests to open the 2026 campaign, and the earliest he'd be able to return to action is Week 5 against the Bengals on Oct. 11.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Storm Duck",
-          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3481,21 +3490,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "The cornerback got injured during New York's final preseason game against the Jets. Black had broken up four passes during preseason action and had likely earned his spot on the active roster. He'll now have to miss the first four games, but the designation to return indicates that the coaching staff sees him as a part of the 53 once he's healthy.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Korie Black",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "New York Jets": [
@@ -3625,21 +3619,6 @@
         "athlete": {
           "displayName": "Tre Brown",
           "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Baron opened training camp on the active/PUP list due to a knee injury he sustained last December. He's not quite ready to participate in practice, and the move to reserve/PUP means he'll be required to miss at least the first four games of the regular season. The second-year pro logged nine tackles (five solo) across six regular-season games last year before his knee injury.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Tyler Baron",
-          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4125,21 +4104,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "ir",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jaylen Harrell",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Washington Commanders": [
@@ -4583,7 +4547,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-15T01:28:58.507Z",
+    "checkedAt": "2026-09-15T02:13:08.833Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
