@@ -768,7 +768,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.11</span></h1>
+            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.12</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
             <div id="dataSourceNotice" class="data-source-notice" style="display:none;"></div>
@@ -829,7 +829,7 @@
 
         <div id="weekresults" class="week-results" style="display: none;">
             <div class="week-results-header" onclick="toggleWeekResults()">
-                <h2 id="weekresults-title">📊 Week Results: 0-0 (0%)</h2>
+                <h2 id="weekresults-title">📊 Week Results</h2>
                 <span class="week-results-toggle" id="weekresults-toggle">▼</span>
             </div>
             <div class="week-results-content" id="weekresults-content">
@@ -2498,8 +2498,20 @@
 
             try {
                 // Get current week scoreboard to find all completed games
-                const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
+                const weekNum = (typeof cachedData !== 'undefined' && cachedData && cachedData.currentWeek) || '';
+                const seasonYear = (typeof cachedData !== 'undefined' && cachedData && cachedData.seasonYear) || new Date().getFullYear();
+                const scoreboardUrl = weekNum
+                    ? ('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?week=' + weekNum + '&seasontype=2&dates=' + seasonYear)
+                    : 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
+                const response = await fetch(scoreboardUrl);
                 const data = await response.json();
+                if (data && data.week && data.week.number && document.getElementById('weekIndicator')) {
+                    document.getElementById('weekIndicator').textContent = 'Week ' + data.week.number;
+                    if (typeof cachedData !== 'undefined' && cachedData) {
+                        cachedData.currentWeek = data.week.number;
+                        cachedData.weekLabel = 'Week ' + data.week.number;
+                    }
+                }
 
                 // Filter for completed games only
                 allCompletedGames = (data.events || []).filter(game => {
@@ -2589,7 +2601,7 @@
             }
 
             const percentage = total > 0 ? ((correct / total) * 100).toFixed(0) : 0;
-            weekResultsTitle.textContent = `📊 Week Results: ${correct}-${total - correct} (${percentage}%)`;
+            weekResultsTitle.textContent = '📊 Week ' + ((typeof cachedData !== 'undefined' && cachedData && cachedData.currentWeek) || '') + ' Results: ' + correct + '-' + (total - correct) + ' (' + percentage + '%)';
             weekResultsContainer.style.display = 'block';
         }
 

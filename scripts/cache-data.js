@@ -91,7 +91,8 @@ async function fetchGames() {
             }
         }
 
-        let currentWeek = data.week?.number || null;
+        const { displayNflWeek } = require('./nfl-week-boundary');
+        let currentWeek = displayNflWeek(data.week?.number || null);
         let currentSeasonType = data.week?.type || 2;
 
         // If we're in playoffs (seasontype 3), adjust week number to 19-22
