@@ -16,9 +16,10 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/patch-week-results-current-week.js
+      - run: node scripts/patch-cache-week-boundary.js
       - name: Commit
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
-          git add index.html VERSION
-          git diff --staged --quiet || (git commit -m "Show current week in Week Results [skip ci]" && git push)
+          git add index.html VERSION scripts/cache-data.js
+          git diff --staged --quiet || (git commit -m "Week results follow Monday 11:59pm cutoff [skip ci]" && git push)
