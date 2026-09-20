@@ -2618,6 +2618,14 @@
             }
         }
 
+        function isLiveGameStatus(status) {
+            const type = (status && status.type) || {};
+            const name = String(type.name || '');
+            const state = String(type.state || '');
+            if (type.completed) return false;
+            if (state === 'in') return true;
+            return name === 'STATUS_IN_PROGRESS' || name === 'STATUS_HALFTIME' || name === 'STATUS_END_PERIOD' || name === 'STATUS_END_OF_PERIOD' || name === 'STATUS_DELAYED' || name === 'STATUS_RAIN_DELAY';
+        }
         function createGameCard(game, prediction, gameId) {
             // Handle error predictions
             if (prediction.error) {
@@ -2692,7 +2700,7 @@
             // Get game status from ESPN data
             const competition = game.competitions[0];
             const status = competition.status;
-            const isLive = status.type.name === 'STATUS_IN_PROGRESS';
+            const isLive = isLiveGameStatus(status);
             const isCompleted = status.type.completed;
             const homeComp = competition.competitors.find(c => c.homeAway === 'home');
             const awayComp = competition.competitors.find(c => c.homeAway === 'away');
@@ -3033,7 +3041,7 @@
                         }
 
                         // Update live game status and scores
-                        if (status.type.name === 'STATUS_IN_PROGRESS') {
+                        if (isLiveGameStatus(status)) {
                             hasUpdates = true;
                             const period = status.period || 1;
                             const clock = status.displayClock || '';
