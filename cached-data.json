@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21T01:03:42.747Z",
+  "lastUpdated": "2026-09-21T02:06:19.845Z",
   "currentWeek": 2,
   "games": [
     {
@@ -146,7 +146,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
               },
-              "score": "10",
+              "score": "17",
               "linescores": [
                 {
                   "value": 10,
@@ -154,9 +154,14 @@
                   "period": 1
                 },
                 {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -286,7 +291,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
               },
-              "score": "10",
+              "score": "20",
               "linescores": [
                 {
                   "value": 7,
@@ -294,9 +299,14 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 13,
+                  "displayValue": "13",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -326,52 +336,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729451024",
+              "id": "4018729452334",
               "type": {
-                "id": "53",
-                "text": "Kickoff",
-                "abbreviation": "K"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "S.Shrader kicks 64 yards from IND 35 to KC 1. E.Johnson pushed ob at KC 35 for 34 yards (T.Chambers).\nPENALTY on KC-C.Roland-Wallace, Illegal Formation, 5 yards, enforced at KC 35.",
+              "text": " K.Walker left end to KC 47 for 4 yards (J.Tuimoloau).",
               "scoreValue": 0,
               "team": {
                 "id": "12"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.7601,
-                "awayWinPercentage": 0.2399,
+                "homeWinPercentage": 0.649,
+                "awayWinPercentage": 0.351,
                 "secondsLeft": 0
               },
-              "statYardage": 29,
+              "statYardage": 4,
               "drive": {
-                "description": "0 plays, 0 yards, 0:00",
+                "description": "3 plays, 23 yards, 1:07",
                 "start": {
-                  "yardLine": 0,
-                  "text": "KC 0"
+                  "yardLine": 20,
+                  "text": "KC 20"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:00"
+                  "displayValue": "1:07"
                 }
               },
               "start": {
-                "yardLine": 65,
+                "yardLine": 43,
                 "team": {
-                  "id": "11"
+                  "id": "12"
                 }
               },
               "end": {
-                "yardLine": 30,
+                "yardLine": 47,
                 "team": {
                   "id": "12"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4692638",
-                  "fullName": "Tahj Chambers",
-                  "displayName": "Tahj Chambers",
-                  "shortName": "T. Chambers",
+                  "id": "4567048",
+                  "fullName": "Kenneth Walker III",
+                  "displayName": "Kenneth Walker III",
+                  "shortName": "K. Walker III",
                   "links": [
                     {
                       "rel": [
@@ -379,40 +389,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4692638/tahj-chambers"
+                      "href": "https://www.espn.com/nfl/player/_/id/4567048/kenneth-walker-iii"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4692638.png",
-                  "jersey": "44",
-                  "position": "LB",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4567048.png",
+                  "jersey": "9",
+                  "position": "RB",
                   "team": {
-                    "id": "11"
+                    "id": "12"
                   }
                 }
               ]
             },
-            "down": 1,
-            "yardLine": 30,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at KC 30",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "KC 30",
+            "down": 2,
+            "yardLine": 47,
+            "distance": 6,
+            "downDistanceText": "2nd & 6 at KC 47",
+            "shortDownDistanceText": "2nd & 6",
+            "possessionText": "KC 47",
             "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2
+            "awayTimeouts": 3,
+            "possession": "12"
           },
           "status": {
-            "clock": 888,
-            "displayClock": "14:48",
-            "period": 2,
+            "clock": 833,
+            "displayClock": "13:53",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "14:48 - 2nd Quarter",
-              "shortDetail": "14:48 - 2nd"
+              "detail": "13:53 - 3rd Quarter",
+              "shortDetail": "13:53 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -432,13 +443,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "6/10, 50 YDS, 1 TD, 1 INT",
-                  "value": 50,
+                  "displayValue": "14/19, 138 YDS, 2 TD",
+                  "value": 138,
                   "athlete": {
-                    "id": "3917792",
-                    "fullName": "Daniel Jones",
-                    "displayName": "Daniel Jones",
-                    "shortName": "D. Jones",
+                    "id": "3139477",
+                    "fullName": "Patrick Mahomes",
+                    "displayName": "Patrick Mahomes",
+                    "shortName": "P. Mahomes",
                     "links": [
                       {
                         "rel": [
@@ -446,21 +457,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3917792/daniel-jones"
+                        "href": "https://www.espn.com/nfl/player/_/id/3139477/patrick-mahomes"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3917792.png",
-                    "jersey": "17",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png",
+                    "jersey": "15",
                     "position": {
                       "abbreviation": "QB"
                     },
                     "team": {
-                      "id": "11"
+                      "id": "12"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "11"
+                    "id": "12"
                   }
                 }
               ]
@@ -472,8 +483,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "10 CAR, 41 YDS",
-                  "value": 41,
+                  "displayValue": "14 CAR, 75 YDS, 1 TD",
+                  "value": 75,
                   "athlete": {
                     "id": "4242335",
                     "fullName": "Jonathan Taylor",
@@ -512,13 +523,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "2 REC, 25 YDS",
-                  "value": 25,
+                  "displayValue": "2 REC, 46 YDS",
+                  "value": 46,
                   "athlete": {
-                    "id": "4688813",
-                    "fullName": "Josh Downs",
-                    "displayName": "Josh Downs",
-                    "shortName": "J. Downs",
+                    "id": "4428331",
+                    "fullName": "Rashee Rice",
+                    "displayName": "Rashee Rice",
+                    "shortName": "R. Rice",
                     "links": [
                       {
                         "rel": [
@@ -526,21 +537,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4688813/josh-downs"
+                        "href": "https://www.espn.com/nfl/player/_/id/4428331/rashee-rice"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4688813.png",
-                    "jersey": "2",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4428331.png",
+                    "jersey": "4",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "11"
+                      "id": "12"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "11"
+                    "id": "12"
                   }
                 }
               ]
@@ -615,10 +626,10 @@
         }
       ],
       "weather": {
-        "displayValue": "38",
+        "displayValue": "7",
         "temperature": 70,
         "highTemperature": 70,
-        "conditionId": "Mostly cloudy",
+        "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
           "rel": [
@@ -632,17 +643,17 @@
         }
       },
       "status": {
-        "clock": 888,
-        "displayClock": "14:48",
-        "period": 2,
+        "clock": 833,
+        "displayClock": "13:53",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "14:48 - 2nd Quarter",
-          "shortDetail": "14:48 - 2nd"
+          "detail": "13:53 - 3rd Quarter",
+          "shortDetail": "13:53 - 3rd"
         }
       }
     },
@@ -1341,8 +1352,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $114",
-              "numberAvailable": 3172,
+              "summary": "Tickets as low as $110",
+              "numberAvailable": 3115,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-rams-tickets-inglewood-sofi-stadium-3-5-2026/production/6491618?wsUser=717"
@@ -3694,6 +3705,21 @@
     ],
     "Indianapolis Colts": [
       {
+        "longComment": "Pierce was ruled out shortly after being carted to the locker room. He came up limping on a non-contact play in the first half and couldn't put weight on his left leg. This injury is likely tied to the procedure Pierce underwent on his left ankle during the offseason, which kept him sidelined for the preseason. Pierce's next chance to take the field will come next Sunday against the Texans.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Alec Pierce",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Giddens was inactive Week 1 as a healthy scratch, and he will now be forced to miss the team's second contest of the year as he nurses an apparent knee injury. In his absence, Seth McGowan will operate as the team's primary reserve option behind starting running back Jonathan Taylor versus Kansas City.",
         "status": "Out",
         "athlete": {
@@ -3850,6 +3876,21 @@
     ],
     "Las Vegas Raiders": [
       {
+        "longComment": "Bowers has missed the first two games of the season, but the Raiders are off to a 2-0 start despite their star tight end's absence. He could be ready to return from a meniscus trim for Week 3 at New Orleans. Bowers' practice participation level during the week will provide an indication of his potential availability.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brock Bowers",
+          "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Young exited the second half of Sunday's game with a hamstring injury. The wide receiver is the fifth option for the Raiders' offense, with sixth option Cody White recording two touchdowns in Sunday's contest. It is unclear how significant Young's injury is.",
         "status": "Questionable",
         "athlete": {
@@ -3885,21 +3926,6 @@
         "athlete": {
           "displayName": "Darien Porter",
           "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Bowers underwent a meniscus trim in his left knee on Sept. 8, and while he'll miss the first two games of the campaign as a result, he did practice in a limited capacity Friday, and Ian Rapoport of NFL Network reported Sunday morning that the stud tight end is likely to make his season debut Week 3 in New Orleans. In Bowers' continued absence, though, Michael Mayer will act as the primary TE for the Raiders.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brock Bowers",
-          "position": "TE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -5504,7 +5530,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-21T01:03:42.744Z",
+    "checkedAt": "2026-09-21T02:06:19.841Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
