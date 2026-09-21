@@ -1,662 +1,7 @@
 {
-  "lastUpdated": "2026-09-21T02:06:19.845Z",
+  "lastUpdated": "2026-09-21T04:43:03.520Z",
   "currentWeek": 2,
   "games": [
-    {
-      "id": "401872945",
-      "uid": "s:20~l:28~e:401872945",
-      "date": "2026-09-21T00:20Z",
-      "name": "Indianapolis Colts at Kansas City Chiefs",
-      "shortName": "IND @ KC",
-      "season": {
-        "year": 2026,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 2
-      },
-      "competitions": [
-        {
-          "id": "401872945",
-          "uid": "s:20~l:28~e:401872945~c:401872945",
-          "date": "2026-09-21T00:20Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": false,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": true,
-          "recent": true,
-          "venue": {
-            "id": "3622",
-            "fullName": "Arrowhead Stadium",
-            "address": {
-              "city": "Kansas City",
-              "state": "MO",
-              "country": "USA"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "12",
-              "uid": "s:20~l:28~t:12",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "12",
-                "uid": "s:20~l:28~t:12",
-                "location": "Kansas City",
-                "name": "Chiefs",
-                "abbreviation": "KC",
-                "displayName": "Kansas City Chiefs",
-                "shortDisplayName": "Chiefs",
-                "color": "e31837",
-                "alternateColor": "ffb612",
-                "isActive": true,
-                "venue": {
-                  "id": "3622"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/kc/kansas-city-chiefs",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/kc/kansas-city-chiefs",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/kc/kansas-city-chiefs",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/kc",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
-              },
-              "score": "17",
-              "linescores": [
-                {
-                  "value": 10,
-                  "displayValue": "10",
-                  "period": 1
-                },
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 2
-                },
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 3
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            },
-            {
-              "id": "11",
-              "uid": "s:20~l:28~t:11",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "11",
-                "uid": "s:20~l:28~t:11",
-                "location": "Indianapolis",
-                "name": "Colts",
-                "abbreviation": "IND",
-                "displayName": "Indianapolis Colts",
-                "shortDisplayName": "Colts",
-                "color": "003b75",
-                "alternateColor": "ffffff",
-                "isActive": true,
-                "venue": {
-                  "id": "3812"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/ind/indianapolis-colts",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/ind/indianapolis-colts",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/ind",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
-              },
-              "score": "20",
-              "linescores": [
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 1
-                },
-                {
-                  "value": 13,
-                  "displayValue": "13",
-                  "period": 2
-                },
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 3
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
-                }
-              ]
-            }
-          ],
-          "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4018729452334",
-              "type": {
-                "id": "5",
-                "text": "Rush",
-                "abbreviation": "RUSH"
-              },
-              "text": " K.Walker left end to KC 47 for 4 yards (J.Tuimoloau).",
-              "scoreValue": 0,
-              "team": {
-                "id": "12"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.649,
-                "awayWinPercentage": 0.351,
-                "secondsLeft": 0
-              },
-              "statYardage": 4,
-              "drive": {
-                "description": "3 plays, 23 yards, 1:07",
-                "start": {
-                  "yardLine": 20,
-                  "text": "KC 20"
-                },
-                "timeElapsed": {
-                  "displayValue": "1:07"
-                }
-              },
-              "start": {
-                "yardLine": 43,
-                "team": {
-                  "id": "12"
-                }
-              },
-              "end": {
-                "yardLine": 47,
-                "team": {
-                  "id": "12"
-                }
-              },
-              "athletesInvolved": [
-                {
-                  "id": "4567048",
-                  "fullName": "Kenneth Walker III",
-                  "displayName": "Kenneth Walker III",
-                  "shortName": "K. Walker III",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4567048/kenneth-walker-iii"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4567048.png",
-                  "jersey": "9",
-                  "position": "RB",
-                  "team": {
-                    "id": "12"
-                  }
-                }
-              ]
-            },
-            "down": 2,
-            "yardLine": 47,
-            "distance": 6,
-            "downDistanceText": "2nd & 6 at KC 47",
-            "shortDownDistanceText": "2nd & 6",
-            "possessionText": "KC 47",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "12"
-          },
-          "status": {
-            "clock": 833,
-            "displayClock": "13:53",
-            "period": 3,
-            "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "13:53 - 3rd Quarter",
-              "shortDetail": "13:53 - 3rd"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "NBC"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "14/19, 138 YDS, 2 TD",
-                  "value": 138,
-                  "athlete": {
-                    "id": "3139477",
-                    "fullName": "Patrick Mahomes",
-                    "displayName": "Patrick Mahomes",
-                    "shortName": "P. Mahomes",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3139477/patrick-mahomes"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png",
-                    "jersey": "15",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "12"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "12"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "14 CAR, 75 YDS, 1 TD",
-                  "value": 75,
-                  "athlete": {
-                    "id": "4242335",
-                    "fullName": "Jonathan Taylor",
-                    "displayName": "Jonathan Taylor",
-                    "shortName": "J. Taylor",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4242335.png",
-                    "jersey": "28",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "11"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "11"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "2 REC, 46 YDS",
-                  "value": 46,
-                  "athlete": {
-                    "id": "4428331",
-                    "fullName": "Rashee Rice",
-                    "displayName": "Rashee Rice",
-                    "shortName": "R. Rice",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4428331/rashee-rice"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4428331.png",
-                    "jersey": "4",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "12"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "12"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            }
-          },
-          "startDate": "2026-09-21T00:20Z",
-          "broadcast": "NBC",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "1",
-                "shortName": "TV"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "NBC"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "live",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game?gameId=401872945",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "boxscore",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872945",
-          "text": "Box Score",
-          "shortText": "Box Score",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "pbp",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872945",
-          "text": "Play-by-Play",
-          "shortText": "Play-by-Play",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "7",
-        "temperature": 70,
-        "highTemperature": 70,
-        "conditionId": "Cloudy",
-        "link": {
-          "language": "en-US",
-          "rel": [
-            "64129"
-          ],
-          "href": "http://www.accuweather.com/en/us/geha-field-at-arrowhead-stadium-mo/64106/current-weather/43032_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
-          "isPremium": false
-        }
-      },
-      "status": {
-        "clock": 833,
-        "displayClock": "13:53",
-        "period": 3,
-        "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "13:53 - 3rd Quarter",
-          "shortDetail": "13:53 - 3rd"
-        }
-      }
-    },
     {
       "id": "401872947",
       "uid": "s:20~l:28~e:401872947",
@@ -1352,8 +697,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $110",
-              "numberAvailable": 3115,
+              "summary": "Tickets as low as $114",
+              "numberAvailable": 3891,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-rams-tickets-inglewood-sofi-stadium-3-5-2026/production/6491618?wsUser=717"
@@ -1749,6 +1094,622 @@
           "description": "Scheduled",
           "detail": "Mon, September 21st at 8:15 PM EDT",
           "shortDetail": "9/21 - 8:15 PM EDT"
+        }
+      }
+    },
+    {
+      "id": "401872945",
+      "uid": "s:20~l:28~e:401872945",
+      "date": "2026-09-21T00:20Z",
+      "name": "Indianapolis Colts at Kansas City Chiefs",
+      "shortName": "IND @ KC",
+      "season": {
+        "year": 2026,
+        "type": 2,
+        "slug": "regular-season"
+      },
+      "week": {
+        "number": 2
+      },
+      "competitions": [
+        {
+          "id": "401872945",
+          "uid": "s:20~l:28~e:401872945~c:401872945",
+          "date": "2026-09-21T00:20Z",
+          "attendance": 73351,
+          "type": {
+            "id": "1",
+            "abbreviation": "STD"
+          },
+          "timeValid": true,
+          "neutralSite": false,
+          "conferenceCompetition": false,
+          "playByPlayAvailable": true,
+          "recent": true,
+          "venue": {
+            "id": "3622",
+            "fullName": "Arrowhead Stadium",
+            "address": {
+              "city": "Kansas City",
+              "state": "MO",
+              "country": "USA"
+            },
+            "indoor": false
+          },
+          "competitors": [
+            {
+              "id": "12",
+              "uid": "s:20~l:28~t:12",
+              "type": "team",
+              "order": 0,
+              "homeAway": "home",
+              "winner": true,
+              "team": {
+                "id": "12",
+                "uid": "s:20~l:28~t:12",
+                "location": "Kansas City",
+                "name": "Chiefs",
+                "abbreviation": "KC",
+                "displayName": "Kansas City Chiefs",
+                "shortDisplayName": "Chiefs",
+                "color": "e31837",
+                "alternateColor": "ffb612",
+                "isActive": true,
+                "venue": {
+                  "id": "3622"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/kc/kansas-city-chiefs",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/kc/kansas-city-chiefs",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=roster",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/kc/kansas-city-chiefs",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=stats",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/kc",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:12&section=scores",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png"
+              },
+              "score": "33",
+              "linescores": [
+                {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 4
+                },
+                {
+                  "value": 6,
+                  "displayValue": "6",
+                  "period": 5
+                }
+              ],
+              "statistics": [],
+              "curatedRank": {
+                "current": 99
+              },
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Game",
+                  "type": "total",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-0"
+                }
+              ]
+            },
+            {
+              "id": "11",
+              "uid": "s:20~l:28~t:11",
+              "type": "team",
+              "order": 1,
+              "homeAway": "away",
+              "winner": false,
+              "team": {
+                "id": "11",
+                "uid": "s:20~l:28~t:11",
+                "location": "Indianapolis",
+                "name": "Colts",
+                "abbreviation": "IND",
+                "displayName": "Indianapolis Colts",
+                "shortDisplayName": "Colts",
+                "color": "003b75",
+                "alternateColor": "ffffff",
+                "isActive": true,
+                "venue": {
+                  "id": "3812"
+                },
+                "links": [
+                  {
+                    "rel": [
+                      "clubhouse",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts",
+                    "text": "Clubhouse",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/roster/_/name/ind/indianapolis-colts",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "roster",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=roster",
+                    "text": "Roster",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/stats/_/name/ind/indianapolis-colts",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "stats",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=stats",
+                    "text": "Statistics",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "desktop",
+                      "team"
+                    ],
+                    "href": "https://www.espn.com/nfl/team/schedule/_/name/ind",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  },
+                  {
+                    "rel": [
+                      "schedule",
+                      "sportscenter",
+                      "app",
+                      "team"
+                    ],
+                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:11&section=scores",
+                    "text": "Schedule",
+                    "isExternal": false,
+                    "isPremium": false
+                  }
+                ],
+                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+              },
+              "score": "30",
+              "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 13,
+                  "displayValue": "13",
+                  "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 5
+                }
+              ],
+              "statistics": [],
+              "curatedRank": {
+                "current": 99
+              },
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Game",
+                  "type": "total",
+                  "summary": "0-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-1"
+                }
+              ]
+            }
+          ],
+          "notes": [],
+          "status": {
+            "clock": 0,
+            "displayClock": "0:00",
+            "period": 5,
+            "type": {
+              "id": "3",
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "completed": true,
+              "description": "Final",
+              "detail": "Final/OT",
+              "shortDetail": "Final/OT",
+              "altDetail": "OT"
+            },
+            "isTBDFlex": false
+          },
+          "broadcasts": [
+            {
+              "market": "national",
+              "names": [
+                "NBC"
+              ]
+            }
+          ],
+          "leaders": [
+            {
+              "name": "passingYards",
+              "displayName": "Passing Leader",
+              "shortDisplayName": "PASS",
+              "abbreviation": "PYDS",
+              "leaders": [
+                {
+                  "displayValue": "32/47, 382 YDS, 3 TD",
+                  "value": 382,
+                  "athlete": {
+                    "id": "3139477",
+                    "fullName": "Patrick Mahomes",
+                    "displayName": "Patrick Mahomes",
+                    "shortName": "P. Mahomes",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/3139477/patrick-mahomes"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3139477.png",
+                    "jersey": "15",
+                    "position": {
+                      "abbreviation": "QB"
+                    },
+                    "team": {
+                      "id": "12"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "12"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
+              "leaders": [
+                {
+                  "displayValue": "24 CAR, 117 YDS",
+                  "value": 117,
+                  "athlete": {
+                    "id": "4567048",
+                    "fullName": "Kenneth Walker III",
+                    "displayName": "Kenneth Walker III",
+                    "shortName": "K. Walker III",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4567048/kenneth-walker-iii"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4567048.png",
+                    "jersey": "9",
+                    "position": {
+                      "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "12"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "12"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "receivingYards",
+              "displayName": "Receiving Leader",
+              "shortDisplayName": "REC",
+              "abbreviation": "RECYDS",
+              "leaders": [
+                {
+                  "displayValue": "9 REC, 101 YDS, 1 TD",
+                  "value": 101,
+                  "athlete": {
+                    "id": "15847",
+                    "fullName": "Travis Kelce",
+                    "displayName": "Travis Kelce",
+                    "shortName": "T. Kelce",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/15847/travis-kelce"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/15847.png",
+                    "jersey": "87",
+                    "position": {
+                      "abbreviation": "TE"
+                    },
+                    "team": {
+                      "id": "12"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "12"
+                  }
+                }
+              ]
+            }
+          ],
+          "format": {
+            "regulation": {
+              "periods": 4
+            }
+          },
+          "startDate": "2026-09-21T00:20Z",
+          "broadcast": "NBC",
+          "geoBroadcasts": [
+            {
+              "type": {
+                "id": "1",
+                "shortName": "TV"
+              },
+              "market": {
+                "id": "1",
+                "type": "National"
+              },
+              "media": {
+                "shortName": "NBC"
+              },
+              "lang": "en",
+              "region": "us"
+            }
+          ],
+          "highlights": [],
+          "headlines": [
+            {
+              "type": "Recap",
+              "description": "— Harrison Butker kicked two field goals in overtime, the second a 40-yarder as time expired that Patrick Mahomes and Kenneth Walker III set up with a series of big plays, giving the Kansas City Chiefs a 33-30 victory over the Indianapolis Colts on...",
+              "shortLinkText": "Mahomes and Walker shine, Butker hits winning 40-yarder as Chiefs beat Colts 33-30 in OT"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "language": "en-US",
+          "rel": [
+            "summary",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/game/_/gameId/401872945/colts-chiefs",
+          "text": "Gamecast",
+          "shortText": "Gamecast",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "boxscore",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872945",
+          "text": "Box Score",
+          "shortText": "Box Score",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401872945",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "pbp",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872945",
+          "text": "Play-by-Play",
+          "shortText": "Play-by-Play",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
+            "recap",
+            "desktop",
+            "event"
+          ],
+          "href": "https://www.espn.com/nfl/recap?gameId=401872945",
+          "text": "Recap",
+          "shortText": "Recap",
+          "isExternal": false,
+          "isPremium": false
+        }
+      ],
+      "status": {
+        "clock": 0,
+        "displayClock": "0:00",
+        "period": 5,
+        "type": {
+          "id": "3",
+          "name": "STATUS_FINAL",
+          "state": "post",
+          "completed": true,
+          "description": "Final",
+          "detail": "Final/OT",
+          "shortDetail": "Final/OT",
+          "altDetail": "OT"
         }
       }
     }
@@ -2674,7 +2635,7 @@
         }
       },
       {
-        "longComment": "Theo Mackie of The Arizona Republic reported that Melton returned to the locker room with his left shoe off. Kalen King is set to take over at slot cornerback for the rest of Sunday's divisional showdown with the Seahawks.",
+        "longComment": "Theo Mackie of The Arizona Republic reported that Melton went to the locker room with his left shoe off. Kalen King is set to take over at slot cornerback for the rest of Sunday's divisional showdown with Seattle.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Max Melton",
@@ -2781,7 +2742,7 @@
         }
       },
       {
-        "longComment": "Terrell was listed as doubtful to return to Sunday's contest after sustaining a groin injury in the first half. The cornerback avoided a concussion, but the groin issue has stuck enough to rule him out for the remainder of the game. C.J. Henderson is set to play outside cornerback for the Falcons' secondary in Terrell's absence.",
+        "longComment": "Terrell was listed as doubtful to return to Sunday's contest after sustaining a groin injury in the first half. The cornerback avoided a concussion, but the groin issue has stuck enough to rule him out for the remainder of the game. C.J. Henderson is set to play outside cornerback for the Falcons secondary in Terrell's absence.",
         "status": "Questionable",
         "athlete": {
           "displayName": "A.J. Terrell Jr.",
@@ -3012,7 +2973,7 @@
     ],
     "Carolina Panthers": [
       {
-        "longComment": "Brooks aggravated a groin injury stemming from training camp during the fourth quarter of Sunday's game and did not return. It looks like the injury is not considered a long-term issue, but it puts his status for Week 3 against the Browns on Sept. 27 in jeopardy. Chubba Hubbard would see an even bigger role if Brooks were to miss time, and AJ Dillon would be next in line for RB2 duties.",
+        "longComment": "Brooks aggravated a groin injury that dates back to training camp during the fourth quarter of Sunday's game and did not return. It looks like the injury is not considered a long-term issue, but it puts his status for Week 3 against the Browns on Sept. 27 in jeopardy. Chubba Hubbard would see an even bigger role if Brooks were to miss time, and AJ Dillon would be next in line for RB2 duties.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jonathon Brooks",
@@ -3104,8 +3065,8 @@
     ],
     "Chicago Bears": [
       {
-        "longComment": "ir",
-        "status": "Injured Reserve",
+        "longComment": "out",
+        "status": "Out",
         "athlete": {
           "displayName": "Anthony Johnson Jr.",
           "position": "S"
@@ -3275,7 +3236,7 @@
         }
       },
       {
-        "longComment": "Locke exited the first quarter of Sunday's contest with a foot injury. The Cowboys will need to finish the divisional contest with the Commanders without Locke or Malik Hooker (forearm), leaving slot cornerback Caleb Downs or reserve strong safety Markquese Bell to play free safety.",
+        "longComment": "Locke exited the first quarter of Sunday's contest due to a foot injury. The Cowboys will need to finish the divisional contest with the Commanders without Locke or Malik Hooker (forearm), leaving slot cornerback Caleb Downs or reserve strong safety Markquese Bell to play free safety.",
         "status": "Questionable",
         "athlete": {
           "displayName": "P.J. Locke",
@@ -3705,8 +3666,8 @@
     ],
     "Indianapolis Colts": [
       {
-        "longComment": "Pierce was ruled out shortly after being carted to the locker room. He came up limping on a non-contact play in the first half and couldn't put weight on his left leg. This injury is likely tied to the procedure Pierce underwent on his left ankle during the offseason, which kept him sidelined for the preseason. Pierce's next chance to take the field will come next Sunday against the Texans.",
-        "status": "Out",
+        "longComment": "Pierce caught his only target for 11 yards prior to exiting the game. He came up lame while running a route and was subsequently carted to the locker room. Pierce's left heel injury is perhaps connected to an offseason ankle surgery that prevented him from practicing prior to September. Further details on Pierce's injury will be provided prior to the Colts' Week 3 home game against the Texans.",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Alec Pierce",
           "position": "WR"
@@ -3720,7 +3681,37 @@
         }
       },
       {
-        "longComment": "Giddens was inactive Week 1 as a healthy scratch, and he will now be forced to miss the team's second contest of the year as he nurses an apparent knee injury. In his absence, Seth McGowan will operate as the team's primary reserve option behind starting running back Jonathan Taylor versus Kansas City.",
+        "longComment": "Clemons suffered a toe injury at some point during the second half of the contest, and his availability for the rest of the game is now unclear. In his absence, JT Tuimoloau could see an increase in opportunities on the defensive line.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Micheal Clemons",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Ward suffered a groin injury in the second half, and his status for the stretch run is now uncertain. In Ward's absence, Cam Taylor-Britt will stand to step into a prominent role in the secondary with Indianapolis.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Charvarius Ward",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Giddens was inactive Week 1 as a healthy scratch, and he will now be forced to miss the team's second contest of the year as he nurses an apparent knee injury. In Giddens' absence, Seth McGowan will operate as the team's primary reserve option behind starting running back Jonathan Taylor versus Kansas City.",
         "status": "Out",
         "athlete": {
           "displayName": "DJ Giddens",
@@ -3778,26 +3769,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Montgomery signed with the team in early August, ultimately reeling in two of three targets for 21 yards during the preseason. The wide receiver appears to have picked up an abdominal injury at some point during the preseason, and he is now set to miss the entire 2026 campaign while on IR, unless he reaches an injury settlement with Indianapolis.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "D.J. Montgomery",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Jacksonville Jaguars": [
       {
-        "longComment": "Hamilton suffered a back injury in the fourth quarter of Sunday's contest. The starting defensive tackle logged five tackles in the game before succumbing to injury. It is unclear how significant the back issue is and whether it will affect the starter long-term.",
+        "longComment": "Hamilton suffered a back injury in the fourth quarter of Sunday's matchup. The starting defensive tackle logged five tackles before succumbing to injury. It is unclear how significant the back issue is and whether it will affect the starter long-term.",
         "status": "Questionable",
         "athlete": {
           "displayName": "DaVon Hamilton",
@@ -3891,7 +3867,7 @@
         }
       },
       {
-        "longComment": "Young exited the second half of Sunday's game with a hamstring injury. The wide receiver is the fifth option for the Raiders' offense, with sixth option Cody White recording two touchdowns in Sunday's contest. It is unclear how significant Young's injury is.",
+        "longComment": "Young exited the second half of Sunday's contest due to a hamstring injury. The wide receiver is the fifth option for the Raiders offense, with sixth option Cody White recording two touchdowns Week 2. It is unclear how significant Young's injury is.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Dareke Young",
@@ -3906,7 +3882,7 @@
         }
       },
       {
-        "longComment": "Stukes exited the first half of Sunday's contest with a head injury. The starting free safety will be evaluated by the Raiders' training staff and an independent neurologist to determine the severity of the injury and whether he will be able to return to the contest. Stukes logged three tackles before exiting.",
+        "longComment": "Stukes was officially diagnosed with the injury after he was removed from the contest for the second time for evaluation, per Ryan McFadden of ESPN.com. In Stukes' absence, Isaiah Pola-Mao will stand to operate as the team's primary free safety versus Los Angeles.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Treydan Stukes",
@@ -3953,21 +3929,6 @@
     ],
     "Los Angeles Chargers": [
       {
-        "longComment": "The star safety said Sunday that he'll play the remainder of the 2026 season with a cast, suggesting he doesn't plan to miss any game action moving forward. James recorded seven tackles (two solo) in the 26-14 loss to Las Vegas.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Derwin James Jr.",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Awosika injured his leg in the fourth quarter of Sunday's contest. The starting left guard's exit makes the Chargers even thinner on the offensive line after already losing center Tyler Biadasz (knee) for the season. Travis Burke or Trevor Penning will likely finish the game at left guard.",
         "status": "Questionable",
         "athlete": {
@@ -3998,7 +3959,7 @@
         }
       },
       {
-        "longComment": "Tomlinson exited the second half of Sunday's game with a hamstring issue. Justin Eboigbe or Nick Barrett will likely fill in for the starting nose tackle while the Chargers' medical staff determines if Tomlinson can return to the game.",
+        "longComment": "Tomlinson exited the second half of Sunday's matchup with a hamstring issue. Justin Eboigbe or Nick Barrett will likely fill in for the starting nose tackle while the Chargers' medical staff determines if Tomlinson can return to the game.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Dalvin Tomlinson",
@@ -4018,6 +3979,21 @@
         "athlete": {
           "displayName": "David Njoku",
           "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "James suffered a hand injury in the first quarter, and his status for the rest of the game is now up in the air. In James' absence, Tony Jefferson is a top candidate to see an increase in workload at safety.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Derwin James Jr.",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4167,7 +4143,7 @@
         }
       },
       {
-        "longComment": "Beal is dealing with a hamstring injury, and as a result, he may not be able to return to the team's Week 2 battle with San Francisco. In his absence, Mark Herring and Clelin Ferrell will stand to see an increase in workload on the defensive line.",
+        "longComment": "Beal is dealing with a hamstring injury, and as a result, he may not be able to return to the team's Week 2 battle with San Francisco. In his absence, Malik Herring and Clelin Ferrell will stand to see an increase in workload on the defensive line.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Robert Beal Jr.",
@@ -4306,7 +4282,7 @@
         }
       },
       {
-        "longComment": "Pettus exited the game in the second quarter with an ankle injury. The safety will not return to the contest, leaving Jaylen Reed and Kevin Byard as the two healthy safeties for the Patriots.",
+        "longComment": "Pettus exited the game in the second quarter with an ankle injury. The safety will not reenter the contest, leaving Jaylen Reed and Kevin Byard as the two healthy safeties for the Patriots.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Dell Pettus",
@@ -4336,7 +4312,7 @@
         }
       },
       {
-        "longComment": "Woodson sustained a shoulder injury in the second half, and medical staff have determined that the injury is severe enough for him to be sidelined for the rest of Sunday's game. Jaylen Reed will stay in at safety in Woodson's absence.",
+        "longComment": "Woodson sustained a shoulder injury in the second half, and medical staff have determined that the injury is severe enough for him to be sidelined for the rest of Week 2. Jaylen Reed will stay in at safety in Woodson's absence.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Craig Woodson",
@@ -4787,21 +4763,6 @@
         "status": "Questionable",
         "athlete": {
           "displayName": "Mike Evans",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Robinson was injured in the second quarter and had to be carted to the locker room. He was already replacing De'Zhaun Stribling as the Niners' WR3 after Stribling suffered a serious ankle injury in Week 1 against the Rams that is expected to sideline the rookie receiver for 10 weeks. San Francisco will have to delve deeper into its wideout depth chart, with Jacob Cowing, Jordan Watkins and KhaDarel Hodge the only healthy bodies behind Mike Evans (hip) and Deebo Samuel.",
-        "status": "Doubtful",
-        "athlete": {
-          "displayName": "Demarcus Robinson",
           "position": "WR"
         },
         "depthChartPosition": null,
@@ -5530,7 +5491,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-21T02:06:19.841Z",
+    "checkedAt": "2026-09-21T04:43:03.516Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
