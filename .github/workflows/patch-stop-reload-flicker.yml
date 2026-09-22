@@ -1,0 +1,24 @@
+name: Stop homepage reload flicker
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/stop-reload-flicker]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-stop-reload-flicker.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html VERSION
+          git diff --staged --quiet || (git commit -m "Stop completed-game reload flicker [skip ci]" && git push)
