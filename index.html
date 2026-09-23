@@ -768,7 +768,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.15</span></h1>
+            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.16</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
             <div id="dataSourceNotice" class="data-source-notice" style="display:none;"></div>
@@ -1304,7 +1304,7 @@
                         if (games.length === 0) {
                             const weekNum = cachedData.currentWeek || 'current';
                             const weekDisplay = typeof weekNum === 'number' ? getWeekDisplay(weekNum) : weekNum;
-                            document.getElementById('loading').textContent = (cachedData.weekLabel || 'This week') + ' games have concluded. Next week's picks load when the new slate is cached.';
+                            document.getElementById("loading").textContent = (cachedData.weekLabel || "This week") + " games have concluded. Next week picks load when the new slate is cached.";
                             return;
                         }
 
@@ -2379,7 +2379,8 @@
         }
 
         // ===== DISPLAY GAMES =====
-        async function displayGames(games, oddsData) {
+        async function displayGames(gameList, oddsData) {
+            let games = gameList;
             const gamesContainer = document.getElementById('games');
             const picksList = document.getElementById('picks-list');
             const picksSummary = document.getElementById('picksummary');
@@ -2401,7 +2402,7 @@
                 if (picksSummary) picksSummary.style.display = 'none';
                 return;
             }
-            games = openGames;
+            games = openGames.slice();
 
 
             const gamesWithPredictions = [];
