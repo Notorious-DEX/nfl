@@ -1,0 +1,24 @@
+name: Fix Week 3 game fetch
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/week3-games-fetch]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-week3-games-fetch.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add scripts/cache-data.js index.html VERSION
+          git diff --staged --quiet || (git commit -m "Fetch real Week 3 slate [skip ci]" && git push)

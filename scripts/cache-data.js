@@ -64,7 +64,7 @@ async function fetchGames() {
     try {
         // First, check what the current NFL week/season is for 2025 season
         // During playoffs (Jan-Feb), we need to explicitly request 2025 data
-        const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${new Date().getFullYear()}');
+        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${new Date().getFullYear()}`);
         const data = await response.json();
 
         const games = [];
@@ -200,6 +200,21 @@ async function fetchGames() {
             }
         }
 
+                if (games.length === 0) {
+            const year = new Date().getFullYear();
+            for (let week = 1; week <= 18 && games.length === 0; week++) {
+                try {
+                    const probe = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=' + year + '&seasontype=2&week=' + week);
+                    const probeData = await probe.json();
+                    const upcoming = (probeData.events || []).filter((event) => event.competitions && event.competitions[0] && event.competitions[0].status && event.competitions[0].status.type && event.competitions[0].status.type.name === 'STATUS_SCHEDULED');
+                    if (upcoming.length) {
+                        upcoming.forEach((event) => games.push(event));
+                        currentWeek = week;
+                        console.log('Loaded ' + upcoming.length + ' scheduled games for week ' + week);
+                    }
+                } catch (e) {}
+            }
+        }
         console.log(`✅ Found ${games.length} games for week ${currentWeek}`);
         return { games, currentWeek };
     } catch (error) {
