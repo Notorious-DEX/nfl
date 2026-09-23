@@ -768,7 +768,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.13</span></h1>
+            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.14</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
             <div id="dataSourceNotice" class="data-source-notice" style="display:none;"></div>
@@ -1304,7 +1304,7 @@
                         if (games.length === 0) {
                             const weekNum = cachedData.currentWeek || 'current';
                             const weekDisplay = typeof weekNum === 'number' ? getWeekDisplay(weekNum) : weekNum;
-                            document.getElementById('loading').textContent = `${weekDisplay} games have concluded. New predictions will be available for next week's games.`;
+                            document.getElementById('loading').textContent = (cachedData.weekLabel || 'This week') + ' games have concluded. Week 3 picks load when the new slate is cached.';
                             return;
                         }
 
