@@ -1,0 +1,24 @@
+name: Fix homepage syntax and week slate
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/homepage-syntax-week3]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-homepage-syntax.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html VERSION
+          git diff --staged --quiet || (git commit -m "Fix homepage syntax [skip ci]" && git push)
