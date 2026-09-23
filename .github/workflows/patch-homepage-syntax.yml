@@ -16,24 +16,9 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/patch-homepage-syntax.js
-      - name: Add fill-current-slate to cache workflow
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('.github/workflows/cache-data.yml')
-          t = p.read_text()
-          step = "      - name: Fill current week slate\n        if: steps.gate.outputs.active == 'true'\n        run: node scripts/fill-current-slate.js\n"
-          needle = "      - name: Apply market priors\n"
-          if 'Fill current week slate' not in t and needle in t:
-              t = t.replace(needle, step + needle)
-              p.write_text(t)
-              print('workflow updated')
-          else:
-              print('workflow already patched or needle missing')
-          PY
       - name: Commit
         run: |
           git config user.name 'GitHub Actions Bot'
           git config user.email 'actions@github.com'
-          git add index.html VERSION .github/workflows/cache-data.yml scripts/fill-current-slate.js
-          git diff --staged --quiet || (git commit -m "Fix homepage syntax and Week 3 slate fill [skip ci]" && git push)
+          git add index.html VERSION
+          git diff --staged --quiet || (git commit -m "Fix homepage syntax [skip ci]" && git push)

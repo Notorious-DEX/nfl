@@ -52,6 +52,9 @@ jobs:
       - name: Finalize slate
         if: steps.gate.outputs.active == 'true'
         run: node scripts/finalize-cache.js
+      - name: Fill current week slate
+        if: steps.gate.outputs.active == 'true'
+        run: node scripts/fill-current-slate.js
       - name: Apply market priors
         if: steps.gate.outputs.active == 'true'
         run: node scripts/apply-market-priors.js
