@@ -64,7 +64,7 @@ async function fetchGames() {
     try {
         // First, check what the current NFL week/season is for 2025 season
         // During playoffs (Jan-Feb), we need to explicitly request 2025 data
-        const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025');
+        const response = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${new Date().getFullYear()}');
         const data = await response.json();
 
         const games = [];
@@ -91,8 +91,7 @@ async function fetchGames() {
             }
         }
 
-        const { displayNflWeek } = require('./nfl-week-boundary');
-        let currentWeek = displayNflWeek(data.week?.number || null);
+        let currentWeek = data.week?.number || null;
         let currentSeasonType = data.week?.type || 2;
 
         // If we're in playoffs (seasontype 3), adjust week number to 19-22
@@ -113,7 +112,7 @@ async function fetchGames() {
                 // Try each playoff week to see if there are games
                 for (let playoffWeek = 1; playoffWeek <= 4; playoffWeek++) {
                     try {
-                        const testResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=3&week=${playoffWeek}`);
+                        const testResponse = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${new Date().getFullYear()}&seasontype=3&week=${playoffWeek}`);
                         const testData = await testResponse.json();
 
                         // Check if this week has upcoming or recent games
@@ -177,7 +176,7 @@ async function fetchGames() {
                 // Don't try to fetch beyond Super Bowl (week 22)
                 if (nextWeek <= 22) {
                     const nextWeekResponse = await fetch(
-                        `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=${nextSeasonType}&week=${nextApiWeek}`
+                        `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${new Date().getFullYear()}&seasontype=${nextSeasonType}&week=${nextApiWeek}`
                     );
                     const nextWeekData = await nextWeekResponse.json();
 
