@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-24T22:48:02.071Z",
+  "lastUpdated": "2026-09-24T23:10:46.154Z",
   "currentWeek": 3,
   "games": [
     {
@@ -430,32 +430,20 @@
                       "displayValue": "22/39, 229 YDS, 1 TD, 4 INT",
                       "value": 229,
                       "athlete": {
-                        "id": "2972515",
-                        "fullName": "Cooper Rush",
-                        "displayName": "Cooper Rush",
-                        "shortName": "C. Rush",
-                        "links": [
-                          {
-                            "rel": [
-                              "playercard",
-                              "desktop",
-                              "athlete"
-                            ],
-                            "href": "https://www.espn.com/nfl/player/_/id/2972515/cooper-rush"
-                          }
-                        ],
-                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2972515.png",
-                        "jersey": "13",
-                        "position": {
-                          "abbreviation": "QB"
-                        },
-                        "team": {
-                          "id": "1"
-                        },
-                        "active": true
+                        "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/athletes/2972515?lang=en&region=us"
                       },
                       "team": {
-                        "id": "1"
+                        "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
+                      }
+                    },
+                    {
+                      "displayValue": "8/15, 59 YDS, 1 INT",
+                      "value": 59,
+                      "athlete": {
+                        "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/athletes/5344782?lang=en&region=us"
+                      },
+                      "team": {
+                        "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/nfl/seasons/2026/teams/1?lang=en&region=us"
                       }
                     }
                   ]
@@ -699,8 +687,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $117",
-              "numberAvailable": 2703,
+              "summary": "Tickets as low as $127",
+              "numberAvailable": 2609,
               "links": [
                 {
                   "href": "https://www.vividseats.com/green-bay-packers-tickets-green-bay-lambeau-field-3-4-2026/production/6489939?wsUser=717"
@@ -927,7 +915,7 @@
                 "over": {
                   "close": {
                     "line": "o43.5",
-                    "odds": "-102",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -961,7 +949,7 @@
                 "under": {
                   "close": {
                     "line": "u43.5",
-                    "odds": "-118",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1777,8 +1765,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $255",
-              "numberAvailable": 1928,
+              "summary": "Tickets as low as $271",
+              "numberAvailable": 1917,
               "links": [
                 {
                   "href": "https://www.vividseats.com/buffalo-bills-tickets-orchard-park-highmark-stadium-3-3-2026/production/6488324?wsUser=717"
@@ -1863,7 +1851,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-345",
+                    "odds": "-325",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1895,7 +1883,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+275",
+                    "odds": "+260",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1932,7 +1920,7 @@
                 "home": {
                   "close": {
                     "line": "-7",
-                    "odds": "-115",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1966,7 +1954,7 @@
                 "away": {
                   "close": {
                     "line": "+7",
-                    "odds": "-105",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2545,6 +2533,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-0"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -2665,24 +2671,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-0"
                 }
               ]
             }
@@ -2843,8 +2831,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $42",
-              "numberAvailable": 5461,
+              "summary": "Tickets as low as $44",
+              "numberAvailable": 5439,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cleveland-browns-tickets-cleveland-huntington-bank-field-3-7-2026/production/6489438?wsUser=717"
@@ -4449,6 +4437,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "0-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -4569,24 +4575,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-1"
                 }
               ]
             },
@@ -4997,8 +4985,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $37",
-              "numberAvailable": 4475,
+              "summary": "Tickets as low as $27",
+              "numberAvailable": 4433,
               "links": [
                 {
                   "href": "https://www.vividseats.com/indianapolis-colts-tickets-indianapolis-lucas-oil-stadium-3-1-2026/production/6490109?wsUser=717"
@@ -6075,7 +6063,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $86",
-              "numberAvailable": 4634,
+              "numberAvailable": 4652,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-miami-gardens-hard-rock-stadium-3-4-2026/production/6492066?wsUser=717"
@@ -8229,7 +8217,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $92",
-              "numberAvailable": 4890,
+              "numberAvailable": 4849,
               "links": [
                 {
                   "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-2-2027/production/6495079?wsUser=717"
@@ -9306,7 +9294,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $81",
-              "numberAvailable": 4442,
+              "numberAvailable": 4382,
               "links": [
                 {
                   "href": "https://www.vividseats.com/washington-commanders-tickets-landover-northwest-stadium-3-5-2026/production/6493321?wsUser=717"
@@ -10382,8 +10370,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $164",
-              "numberAvailable": 3448,
+              "summary": "Tickets as low as $161",
+              "numberAvailable": 3436,
               "links": [
                 {
                   "href": "https://www.vividseats.com/jacksonville-jaguars-tickets-jacksonville-everbank-stadium-3-8-2026/production/6490174?wsUser=717"
@@ -11459,8 +11447,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $88",
-              "numberAvailable": 7167,
+              "summary": "Tickets as low as $94",
+              "numberAvailable": 7105,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-santa-clara-levis-stadium-3-1-2027/production/6495869?wsUser=717"
@@ -11545,7 +11533,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-455",
+                    "odds": "-440",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -11577,7 +11565,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+350",
+                    "odds": "+340",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -12536,8 +12524,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $66",
-              "numberAvailable": 3723,
+              "summary": "Tickets as low as $64",
+              "numberAvailable": 3770,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tampa-bay-buccaneers-tickets-tampa-raymond-james-stadium-3-7-2027/production/6496279?wsUser=717"
@@ -14664,7 +14652,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $73",
-              "numberAvailable": 2844,
+              "numberAvailable": 2813,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-orleans-saints-tickets-new-orleans-caesars-superdome-3-6-2027/production/6493135?wsUser=717"
@@ -14749,7 +14737,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "-185",
+                    "odds": "-180",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -14781,7 +14769,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "+154",
+                    "odds": "+150",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -14818,7 +14806,7 @@
                 "home": {
                   "close": {
                     "line": "-3",
-                    "odds": "-122",
+                    "odds": "-120",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -14852,7 +14840,7 @@
                 "away": {
                   "close": {
                     "line": "+3",
-                    "odds": "+102",
+                    "odds": "+100",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -15442,6 +15430,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-0"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -15562,24 +15568,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-0"
                 }
               ]
             }
@@ -15741,7 +15729,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $139",
-              "numberAvailable": 5527,
+              "numberAvailable": 5558,
               "links": [
                 {
                   "href": "https://www.vividseats.com/denver-broncos-tickets-denver-empower-field-at-mile-high-3-6-2026/production/6489686?wsUser=717"
@@ -15967,7 +15955,7 @@
                 "over": {
                   "close": {
                     "line": "o44.5",
-                    "odds": "-115",
+                    "odds": "-112",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -16001,7 +15989,7 @@
                 "under": {
                   "close": {
                     "line": "u44.5",
-                    "odds": "-105",
+                    "odds": "-108",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -16519,6 +16507,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-0"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -16639,24 +16645,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-0"
                 }
               ]
             }
@@ -16819,7 +16807,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $244",
-              "numberAvailable": 4682,
+              "numberAvailable": 4680,
               "links": [
                 {
                   "href": "https://www.vividseats.com/chicago-bears-tickets-chicago-soldier-field-3-5-2026/production/6488786?wsUser=717"
@@ -18231,21 +18219,6 @@
         }
       },
       {
-        "longComment": "Atlanta only held a walkthrough practice Wednesday, but Bowman was estimated as a full participant, so it seems he's trending in a positive direction ahead of Thursday's contest. If he's not able to make his 2026 debut in Week 3, however, rookie second-rounder Avieon Terrell could continue to see an expanded role in the secondary.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Billy Bowman Jr.",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Terrell will be sidelined for at least the Falcons' next four games after sustaining a groin injury in the first quarter of Sunday's 34-3 loss to the Panthers. In Week 2, C.J. Henderson ended up filling in for Terrell at the boundary corner spot opposite Mike Hughes and appears primed to make regular starts so long as Terrell is out of action. The 27-year-old Terrell totaled six tackles and two pass breakups through the Falcons' first two contests of 2026.",
         "status": "Injured Reserve",
         "athlete": {
@@ -18539,11 +18512,11 @@
     ],
     "Chicago Bears": [
       {
-        "longComment": "Santos had a kick blocked in this past Sunday's weather-affected 9-3 loss to the Vikings, but he's otherwise been perfect through the first two weeks of the season, converting on field-goal tries of 40 and 50 yards and going 8-for-8 on extra-point attempts. The Bears don't have any kickers on their practice squad, and Brad Biggs of the Chicago Tribune notes that the team didn't bring in any kickers for workouts Thursday either, so the expectation is that Santos' hip injury is a minor concern that won't prevent him from playing Monday night against the Eagles.",
-        "status": "Questionable",
+        "longComment": "ir",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Cairo Santos",
-          "position": "PK"
+          "displayName": "Anthony Johnson Jr.",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18554,11 +18527,11 @@
         }
       },
       {
-        "longComment": "ir",
-        "status": "Injured Reserve",
+        "longComment": "Santos had a kick blocked in this past Sunday's weather-affected 9-3 loss to the Vikings, but he's otherwise been perfect through the first two weeks of the season, converting on field-goal tries of 40 and 50 yards and going 8-for-8 on extra-point attempts. The Bears don't have any kickers on their practice squad, and Brad Biggs of the Chicago Tribune notes that the team didn't bring in any kickers for workouts Thursday either, so the expectation is that Santos' hip injury is a minor concern that won't prevent him from playing Monday night against the Eagles.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Anthony Johnson Jr.",
-          "position": "S"
+          "displayName": "Cairo Santos",
+          "position": "PK"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18832,36 +18805,6 @@
         }
       },
       {
-        "longComment": "After sitting out the Broncos' Week 2 win over the Jaguars, Harvey opened Week 3 prep as a limited participant Wednesday. If he can upgrade to full activity Thursday, it would clear up any concern about his status heading into Sunday's game against the Rams. He's one of three Denver running backs on the injury report this week, as J.K. Dobbins (hamstring) was limited and Jonah Coleman (ankle) didn't participate in the team's first practice of the week.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "RJ Harvey",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Dobbins opened Week 3 prep as a limited participant Wednesday, so if he can upgrade to full activity Thursday, it would clear up any concern about his status heading into Sunday's game against the Rams. He's one of three Denver running backs on the injury report this week, as RJ Harvey (hamstring) was limited and Jonah Coleman (ankle) didn't participate in the team's first practice of the week.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "J.K. Dobbins",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Mims was forced to miss the team's 20-13 win over the Jaguars in Week 2 after suffering a foot injury in the regular-season opener versus Kansas City. The wide receiver is primarily a special-teams asset, but if he is able to play Sunday, he'll provide the team with an additional dynamic option versus the Rams' impressive secondary.",
         "status": "Questionable",
         "athlete": {
@@ -19016,6 +18959,51 @@
     ],
     "Green Bay Packers": [
       {
+        "longComment": "inactive",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jayden Reed",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "inactive",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Zach Bako-Bewele",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "inactive",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Anthony Campbell",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Banks exited the Packers' Week 2 overtime win over the Jets in the second quarter with a toe injury. The left guard was unable to participate in any Week 3 preparation due to the injury. Donovan Jennings is set to start at left guard for Thursday's game.",
         "status": "Out",
         "athlete": {
@@ -19035,66 +19023,6 @@
         "status": "Out",
         "athlete": {
           "displayName": "Warren Brinson",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Hargrave logged limited participation throughout the Packers' Week 3 practices as he deals with both a knee injury and a concussion. The starting nose tackle will need to be cleared by an independent neurologist for full contact by Thursday's game to be able to suit up.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Javon Hargrave",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "This was merely a formality after Reed was placed on a backboard and carted off the field after the Packers' second offensive play of this past Sunday's 20-17 overtime win at the Jets. He remained in the New York area afterward for further evaluation, and upon Reed's return to Green Bay on Tuesday, coach Matt LaFleur told Rob Demovsky of ESPN.com that the wide receiver's injury was contained to his neck area, and it's \"way too early\" to tell if he has a chance to play again this season until he undergoes additional medical tests. Christian Watson, Matthew Golden, Skyy Moore, Bo Melton and J. Michael Sturdivant will man the team's receiving corps Week 3 and beyond.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jayden Reed",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Widely viewed as the Packers' top offensive lineman, Bako-Bewele will face a roughly nine-month recovery from surgery, which he previously required for the same knee after suffering a partial patellar tendon tear last December. Anthony Belton is expected to take over as the Packers' new starting right tackle in place of Bako-Bewele, who will eye a return to the field in Week 1 of the 2027 season.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Zach Bako-Bewele",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Campbell exited the Sunday overtime win against the Jets early. The reserve defensive lineman for the Packers was unable to return to the game due to an ankle injury and was projected to have been unable to practice Monday had Green Bay held an official session. The 26-year-old will need to upgrade his participation level by Wednesday for any chance to suit up in Thursday night's game against the Falcons.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Anthony Campbell",
           "position": "DT"
         },
         "depthChartPosition": null,
@@ -20394,10 +20322,10 @@
     ],
     "Philadelphia Eagles": [
       {
-        "longComment": "questionable",
+        "longComment": "Barkley missed most of the first half of the Eagles' Week 2 win at Tennessee due to a stinger, but he returned in the second half and ended the contest with five touches for 20 yards from scrimmage. He told Jeff McLane of The Philadelphia Inquirer on Thursday that an MRI on his left shoulder \"went well,\" and during the corresponding session, he was spotted wearing a protective device on his shoulder and neck area, per Zach Berman of The Athletic. Barkley is actually the healthiest of the running backs on Philadelphia's active roster, as both Tank Bigsby (abdomen) and Will Shipley (foot) were held out of drills entirely to begin Week 3 prep. The overall situation bears monitoring in the coming days to see who among the trio will be available Monday in Chicago.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Tank Bigsby",
+          "displayName": "Saquon Barkley",
           "position": "RB"
         },
         "depthChartPosition": null,
@@ -20409,10 +20337,40 @@
         }
       },
       {
-        "longComment": "Barkley departed after the Eagles' first offensive snap this past Sunday at Tennessee and was diagnosed with a stinger, but he returned after halftime and finished Week 2 with four carries for nine yards and one catch (on two targets) for 11 yards. Because the Eagles play the Bears on Monday Night Football in Week 3, Philadelphia didn't hold practice until Thursday this week, and Barkley was seen wearing a protective device on his shoulder and neck area during the open portion of that session, per Zach Berman of The Athletic. Barkley's activity level will become known once the team posts its first injury report of the week.",
+        "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Saquon Barkley",
+          "displayName": "Will Shipley",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "DeVonta Smith",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Tank Bigsby",
           "position": "RB"
         },
         "depthChartPosition": null,
@@ -21565,7 +21523,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-24T22:48:01.642Z",
+    "checkedAt": "2026-09-24T23:10:45.821Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
