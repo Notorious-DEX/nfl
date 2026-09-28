@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28T01:38:48.828Z",
+  "lastUpdated": "2026-09-28T02:20:08.520Z",
   "currentWeek": 3,
   "games": [
     {
@@ -157,6 +157,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -286,7 +291,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png"
               },
-              "score": "13",
+              "score": "16",
               "linescores": [
                 {
                   "value": 7,
@@ -294,9 +299,14 @@
                   "period": 1
                 },
                 {
-                  "value": 6,
-                  "displayValue": "6",
+                  "value": 9,
+                  "displayValue": "9",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -326,70 +336,94 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729621925",
+              "id": "4018729622729",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "Official Timeout at 02:58.",
+              "text": " B.Nix up the middle to LA 21 for 1 yard (K.Turner).",
               "scoreValue": 0,
               "team": {
                 "id": "7"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.1304,
-                "awayWinPercentage": 0.8696,
+                "homeWinPercentage": 0.0945,
+                "awayWinPercentage": 0.9055,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 1,
               "drive": {
-                "description": "4 plays, 25 yards, 1:45",
+                "description": "6 plays, 21 yards, 2:16",
                 "start": {
-                  "yardLine": 24,
-                  "text": "DEN 24"
+                  "yardLine": 58,
+                  "text": "LAR 42"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:45"
+                  "displayValue": "2:16"
                 }
               },
               "start": {
-                "yardLine": 49,
+                "yardLine": 78,
                 "team": {
                   "id": "7"
                 }
               },
               "end": {
-                "yardLine": 49,
+                "yardLine": 79,
                 "team": {
                   "id": "7"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4426338",
+                  "fullName": "Bo Nix",
+                  "displayName": "Bo Nix",
+                  "shortName": "B. Nix",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4426338/bo-nix"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426338.png",
+                  "jersey": "10",
+                  "position": "QB",
+                  "team": {
+                    "id": "7"
+                  }
+                }
+              ]
             },
             "down": 1,
-            "yardLine": 49,
+            "yardLine": 79,
             "distance": 10,
-            "downDistanceText": "1st & 10 at DEN 49",
+            "downDistanceText": "1st & 10 at LAR 21",
             "shortDownDistanceText": "1st & 10",
-            "possessionText": "DEN 49",
+            "possessionText": "LAR 21",
             "isRedZone": false,
-            "homeTimeouts": 2,
-            "awayTimeouts": 1,
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
             "possession": "7"
           },
           "status": {
-            "clock": 178,
-            "displayClock": "2:58",
-            "period": 2,
+            "clock": 602,
+            "displayClock": "10:02",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "2:58 - 2nd Quarter",
-              "shortDetail": "2:58 - 2nd"
+              "detail": "10:02 - 3rd Quarter",
+              "shortDetail": "10:02 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -409,8 +443,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "15/25, 143 YDS, 1 TD",
-                  "value": 143,
+                  "displayValue": "19/34, 190 YDS, 1 TD",
+                  "value": 190,
                   "athlete": {
                     "id": "12483",
                     "fullName": "Matthew Stafford",
@@ -449,8 +483,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "7 CAR, 57 YDS",
-                  "value": 57,
+                  "displayValue": "9 CAR, 69 YDS",
+                  "value": 69,
                   "athlete": {
                     "id": "4430737",
                     "fullName": "Kyren Williams",
@@ -489,8 +523,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "2 REC, 44 YDS",
-                  "value": 44,
+                  "displayValue": "4 REC, 71 YDS",
+                  "value": 71,
                   "athlete": {
                     "id": "16800",
                     "fullName": "Davante Adams",
@@ -595,10 +629,10 @@
         }
       ],
       "weather": {
-        "displayValue": "12",
-        "temperature": 70,
-        "highTemperature": 70,
-        "conditionId": "Light rain",
+        "displayValue": "7",
+        "temperature": 73,
+        "highTemperature": 73,
+        "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
           "rel": [
@@ -612,17 +646,17 @@
         }
       },
       "status": {
-        "clock": 178,
-        "displayClock": "2:58",
-        "period": 2,
+        "clock": 602,
+        "displayClock": "10:02",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "2:58 - 2nd Quarter",
-          "shortDetail": "2:58 - 2nd"
+          "detail": "10:02 - 3rd Quarter",
+          "shortDetail": "10:02 - 3rd"
         }
       }
     },
@@ -3687,6 +3721,21 @@
     ],
     "Los Angeles Rams": [
       {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jaylen Watson",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Kinchens will be forced to miss a second straight game after suffering a hamstring injury Week 1 versus San Francisco. In his absence, Josh Wallace will stand to see a larger workload at safety during Sunday Night Football.",
         "status": "Out",
         "athlete": {
@@ -4618,21 +4667,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "After undergoing surgery in October 2024 to address ACL and MCL tears in his right knee, Aiyuk is likely fully healthy at this point, but the mercurial wideout appears to have worn out his welcome with the 49ers. General manager John Lynch said in January that Aiyuk had played his last snap with the franchise, and little on that front appears to have changed in the ensuing months. The 49ers still hold the 28-year-old's rights after placing him on the reserve/left squad list last December, and he's already had his $26.66 million salary for 2026 voided since he failed to attend mandatory rehab sessions and meetings. In order to force his release from the 49ers, Aiyuk will need to formally apply for reinstatement with the league, but he indicated in a July 7 story on his personal Instagram account that he has no plans to immediately do so, per David Lombardi of SFStandard.com.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brandon Aiyuk",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Seattle Seahawks": [
@@ -5262,7 +5296,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-28T01:38:48.438Z",
+    "checkedAt": "2026-09-28T02:20:08.103Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
