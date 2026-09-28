@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-28T11:18:32.483Z",
+  "lastUpdated": "2026-09-28T20:54:34.322Z",
   "currentWeek": 3,
   "games": [
     {
@@ -30,7 +30,7 @@
           "neutralSite": false,
           "conferenceCompetition": false,
           "playByPlayAvailable": false,
-          "recent": false,
+          "recent": true,
           "venue": {
             "id": "3933",
             "fullName": "Soldier Field",
@@ -700,8 +700,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $222",
-              "numberAvailable": 2754,
+              "summary": "Tickets as low as $261",
+              "numberAvailable": 1422,
               "links": [
                 {
                   "href": "https://www.vividseats.com/chicago-bears-tickets-chicago-soldier-field-3-5-2026/production/6488786?wsUser=717"
@@ -875,7 +875,7 @@
                 "home": {
                   "close": {
                     "line": "+3.5",
-                    "odds": "-108",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -909,7 +909,7 @@
                 "away": {
                   "close": {
                     "line": "-3.5",
-                    "odds": "-112",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -947,7 +947,7 @@
                 "over": {
                   "close": {
                     "line": "o41.5",
-                    "odds": "-110",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -981,7 +981,7 @@
                 "under": {
                   "close": {
                     "line": "u41.5",
-                    "odds": "-110",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2007,7 +2007,7 @@
   "injuries": {
     "Arizona Cardinals": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Dadrion Taylor-Demerson",
@@ -2039,7 +2039,7 @@
     ],
     "Atlanta Falcons": [
       {
-        "longComment": "Ebukam was not able to practice during the week, and he'll now have to miss at least one game as he recovers from the hamstring injury he suffered during Atlanta's loss versus the Panthers in Week 2. In his absence, Jared Ivey figures to see increased reps on the edge.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Samson Ebukam",
@@ -2056,7 +2056,7 @@
     ],
     "Baltimore Ravens": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Ronnie Stanley",
@@ -2073,22 +2073,7 @@
     ],
     "Buffalo Bills": [
       {
-        "longComment": "Benford left the game in the third quarter due to a toe injury, which is severe enough for him to be sidelined for the rest of Sunday's contest. Te'Cory Couch and Davison Igbinosun will continue to operate in elevated roles in Benford's absence.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Benford",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "An elbow injury limited Reed-Adams' practice participation all week, and he has not been given clearance by medical staff to play Sunday. The rookie seventh-rounder's next chance to suit up is Week 4 against the Patriots on Sunday, Oct. 4.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Ar'maj Reed-Adams",
@@ -2103,11 +2088,26 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "T.J. Sanders",
           "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Benford left the game in the third quarter due to a toe injury, which is severe enough for him to be sidelined for the rest of Sunday's contest. Te'Cory Couch and Davison Igbinosun will continue to operate in elevated roles in Benford's absence.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Christian Benford",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2135,7 +2135,67 @@
     ],
     "Carolina Panthers": [
       {
-        "longComment": "Coker was forced to exit Sunday's 21-18 loss to the Browns in the second half with a quadriceps injury, and he was unable to return before the conclusion of the contest. The wide receiver explained following game that he was frustrated to not be able to finish the game, but he isn't overly concerned about the injury. Coker will likely undergo additional imaging in the near future, and his status at the team's first practice of the week Wednesday will shed more light on his chances to play Week 4 versus Detroit.",
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Nick Scott",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Xavier Legette",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Devin Lloyd",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Horn plans to seek a second opinion before establishing a treatment plan for the injury, which could include surgery. Regardless, the two-time Pro Bowler will be headed for injured reserve, with his loss further weakening an already depleted Carolina defensive backfield. Along with Horn, Mike Jackson (groin) exited Sunday's game with an injury, so Carolina could need to break in two new starting cornerbacks Week 4 against the Lions.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jaycee Horn",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Coker made an early exit from Sunday's 21-18 loss to the Browns due to the quad issue, but follow-up tests Monday appear to have revealed nothing overly significant. That being said, Coker's status for Week 4 is still up in the air, with his practice activity Wednesday through Friday likely to be the determining factor in whether he plays. Despite leaving early in Week 3 in addition to being a regular on injury reports ahead of the Panthers' last two games due to an ankle issue, Coker has gotten off to a stellar start to the season with an 18-222-2 receiving line on 22 targets.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jalen Coker",
@@ -2180,71 +2240,11 @@
         }
       },
       {
-        "longComment": "Legette popped up on the Panthers' practice report Thursday as a non-participant due to a knee injury, which he followed up with a limited session Friday before being tagged as questionable to play Sunday. Mike Kaye of ESPN.com reported that Legette was expected to be a game-time decision, and Carolina has determined that a week off is prudent for the wide receiver. In Legette's absence, Brycen Tremayne, John Metchie and David Moore will be the tertiary options at the position behind Tetairoa McMillan and Jalen Coker (ankle).",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Xavier Legette",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Nick Scott",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Devin Lloyd",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Cherelus has not practiced since sustaining a shoulder injury in the Panthers' Week 2 win over the Falcons. The linebacker will now need to miss at least four games before he can return to the team's active roster from injured reserve. Tyrel Dodson will likely take Cherelus' place as a special-teamer and reserve linebacker for the Panthers' defense.",
         "status": "Injured Reserve",
         "athlete": {
           "displayName": "Claudin Cherelus",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Brooks is expected to be officially placed on injured reserve in the coming days after he exited this past Sunday's 34-3 win over the Falcons due to what had previously been labeled as a groin injury. With Brooks set to miss time, Chuba Hubbard should be further insulated as the Panthers' No. 1 back, while AJ Dillon is lone healthy backup option on the 53-man roster. Aaron Wilson of KPRC 2 Houston relays that the Panthers plan to work out veteran Austin Ekeler on Wednesday, and he could eventually be signed to provide further depth in the backfield.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jonathon Brooks",
-          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2319,6 +2319,21 @@
     ],
     "Cincinnati Bengals": [
       {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "B.J. Hill",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
@@ -2349,21 +2364,6 @@
         }
       },
       {
-        "longComment": "Hill drew the doubtful tag after not practicing during Week 3 prep, and the veteran defensive tackle will not be on the Bengals' active roster for Sunday's AFC North tilt. His next chance to play is Week 4 against the Jaguars on Sunday, Oct. 4.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "B.J. Hill",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Iosivas is having surgery to repair a torn ligament in his thumb, necessitating his move to injured reserve. As such, he will not be allowed to play for at least the next four games, so the earliest Iosivas can return is Week 8 against the Titans on Sunday, Nov. 1. Ja'Marr Chase and Tee Higgins will continue to serve as the Bengals' top pass catchers, but in Iosivas' absence, there are more offensive snaps available for rookie fourth-rounder Colbie Young, Dohnte Meyers and Ke'Shawn Williams.",
         "status": "Injured Reserve",
         "athlete": {
@@ -2381,22 +2381,7 @@
     ],
     "Cleveland Browns": [
       {
-        "longComment": "Campbell drew the questionable tag for Sunday's home opener after being limited in all three practices during Week 3 prep, but he wasn't cleared by medical staff to play against Carolina. As such, Mekhi Blackmon will start at outside cornerback opposite Denzel Ward, and Campbell's next opportunity to play is Thursday against the Steelers.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Tyson Campbell",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Teven Jenkins",
@@ -2409,15 +2394,13 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Dallas Cowboys": [
+      },
       {
-        "longComment": "Thompson suffered a hamstring injury in the second quarter, and he will now be forced to sit out the remainder of Week 3. In his absence, Alijah Clark will continue to operate in a more prominent role in the secondary with Dallas.",
-        "status": "Questionable",
+        "longComment": "out",
+        "status": "Out",
         "athlete": {
-          "displayName": "Jalen Thompson",
-          "position": "S"
+          "displayName": "Tyson Campbell",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2426,9 +2409,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Dallas Cowboys": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "DeMarvion Overshown",
@@ -2443,7 +2428,22 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Cobie Durant",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Malik Hooker",
@@ -2458,11 +2458,11 @@
         }
       },
       {
-        "longComment": "inactive",
-        "status": "Out",
+        "longComment": "Thompson suffered a hamstring injury in the second quarter, and he will now be forced to sit out the remainder of Week 3. In his absence, Alijah Clark will continue to operate in a more prominent role in the secondary with Dallas.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Cobie Durant",
-          "position": "CB"
+          "displayName": "Jalen Thompson",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2490,7 +2490,7 @@
     ],
     "Denver Broncos": [
       {
-        "longComment": "Despite being limited on all three of Denver's Week 3 practice reports, Mims will miss a second contest in a row due to a foot issue. His next chance to play is next Sunday at San Francisco. Kolbe Katsis likely will handle return duties in Mims' absence.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Marvin Mims Jr.",
@@ -2522,7 +2522,7 @@
     ],
     "Detroit Lions": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Ben Bartch",
@@ -2569,6 +2569,96 @@
     ],
     "Green Bay Packers": [
       {
+        "longComment": "Reed is just over a week removed from sustaining a serious-looking neck injury during the Packers' Sept. 20 win over the Jets, which resulted in the wide receiver being stretchered off the field and required an overnight hospital stay. Since Reed returned to Green Bay, the Packers haven't provided many details on his status, as the 26-year-old is seemingly still being evaluated before a timeline for a return is established. Though LaFleur didn't definitively rule Reed out for Week 4 matchup against the Buccaneers, all signs point to the wideout missing a second straight game.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jayden Reed",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Zach Bako-Bewele",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Aaron Banks",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Warren Brinson",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Anthony Campbell",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Because he was placed on the PUP list July 28, Parsons has been eligible to resume practicing since Week 2, but the Packers aren't yet ready to open his 21-day evaluation window. Parsons had previously told Ryan Wood of USA Today that the Packers' Oct. 18 game against the Cowboys was a \"very realistic\" target for him to make his 2026 debut, but in order for that to happen, the star edge rusher would likely have to start practicing by next week.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Micah Parsons",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Monk was attended to by medical staff during the two-minute warning of the fourth quarter. It's unclear what type of injury he's working through, though the Packers should have an update on the third-year offensive lineman once he undergoes more tests.",
         "status": "Questionable",
         "athlete": {
@@ -2597,57 +2687,14 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Houston Texans": [
       {
-        "longComment": "The defensive lineman exited Green Bay's overtime win over the Jets early last Sunday due to an ankle injury, but he returned to practice on a limited basis Tuesday and Wednesday. Nevertheless, the issue appears to still be serious enough to hold Campbell out for Thursday's matchup.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
-          "displayName": "Anthony Campbell",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jayden Reed",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Zach Bako-Bewele",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Banks exited the Packers' Week 2 overtime win over the Jets in the second quarter with a toe injury. The left guard was unable to participate in any Week 3 preparation due to the injury. Donovan Jennings is set to start at left guard for Thursday's game.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Aaron Banks",
+          "displayName": "Ed Ingram",
           "position": "G"
         },
         "depthChartPosition": null,
@@ -2657,11 +2704,24 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Houston Texans": [
+      },
       {
-        "longComment": "Collins was forced to miss Sunday's 19-17 loss to the Colts as he continues to nurse a hamstring injury that he suffered Week 1. It was his second straight contest on the bench, but head coach DeMeco Ryans explained following Sunday's loss that the wide receiver has been \"progressing really well,\" leaving the door open for a return in Week 4 for Collins.",
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jadeveon Clowney",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Nico Collins",
@@ -2681,36 +2741,6 @@
         "athlete": {
           "displayName": "Mario Edwards Jr.",
           "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Ed Ingram",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Clowney failed to participate in any of the three practices during Week 3 prep, resulting in him being ruled out for a second consecutive game. A return to practice, even in a limited capacity, would have the veteran pass rusher potentially on track to return for a Week 4 home tilt against the Cowboys on Sunday, Oct. 4. In Clowney's absence, Sabastian Harsh and Dominique Robinson will both see a slight uptick in defensive snaps while operating in rotational roles behind starters Danielle Hunter and Will Anderson.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jadeveon Clowney",
-          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2768,10 +2798,10 @@
     ],
     "Indianapolis Colts": [
       {
-        "longComment": "inactive",
-        "status": "Out",
+        "longComment": "Ian Rapoport of NFL Network had previously relayed last week that Pierce would avoid another procedure after aggravating his surgically repaired heel in a Sept. 20 loss to the Chiefs, but that report was called into question after the wideout was spotted Sunday moving around the Colts locker room with the aid of a scooter while he had a cast on his left foot. Apparently, Pierce is using the cast for extra protection and using the scooter to keep weight off the injured foot, which he hopes will accelerate the healing process. Pierce is without a timeline to return to game action, but he'll have to miss at least three more contests after landing on injured reserve over the weekend.",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Ashton Dulin",
+          "displayName": "Alec Pierce",
           "position": "WR"
         },
         "depthChartPosition": null,
@@ -2783,10 +2813,10 @@
         }
       },
       {
-        "longComment": "A stint on IR requires a player to miss at least four games, but Pierce is expected to be sidelined for several weeks while rehabbing from a heel injury that he aggravated during the Colts' overtime loss to the Chiefs in Week 2. The good news for Pierce is that X-rays game back negative on the heel, but in his absence, the Colts will rely more heavily on Josh Downs, Keenan Allen, Darius Slayton and Tyler Warren in the passing game. In a corresponding move, Anthony Gould was signed from the Colts' practice squad to the active roster.",
-        "status": "Injured Reserve",
+        "longComment": "out",
+        "status": "Out",
         "athlete": {
-          "displayName": "Alec Pierce",
+          "displayName": "Ashton Dulin",
           "position": "WR"
         },
         "depthChartPosition": null,
@@ -2815,7 +2845,7 @@
     ],
     "Jacksonville Jaguars": [
       {
-        "longComment": "Regis amassed a combine 18 snaps over the first two weeks of his rookie season while working in a depth role at defensive tackle. He only saw the practice field on a limited basis Friday, setting the stage for an inactive status. The Texas A&amp;M product will look to return Week 4 against Cincinnati.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Albert Regis",
@@ -2847,7 +2877,7 @@
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Josh Simmons",
@@ -2862,7 +2892,7 @@
         }
       },
       {
-        "longComment": "Conner was limited in practice all week by a knee injury and initially drew the doubtful tag following Friday's session. Now that he's been officially ruled out, Jaden Hicks figures to join Alohi Gilman as the Chiefs' starting safeties for Sunday's game, with Xavier Nwankpa providing depth at the position. Conner's next opportunity to play is Week 4 against the Raiders on Sunday, Oct. 4.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Chamarri Conner",
@@ -2879,23 +2909,8 @@
     ],
     "Las Vegas Raiders": [
       {
-        "longComment": "Powers-Johnson is being evaluated by medical staff late in the fourth quarter of Sunday's game. Caleb Rogers figures to be the next man up at right guard if Powers-Johnson is unable to return.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jackson Powers-Johnson",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Bech's broken forearm isn't expected to be season-ending, but the wide receiver will face an absence of at least four games if he's placed on injured reserve, which would require an official transaction from the Raiders. He didn't record a catch Sunday prior to being ruled out against the Saints.",
-        "status": "Doubtful",
+        "longComment": "Bech will be sidelined for at least the next four games after he sustained a broken left forearm in Sunday's 35-27 win over the Saints. His impending move to IR could open up a roster spot for fellow wideout Cody White, who is no longer eligible to be elevated from the practice squad after being called up for each of the first three games. Bech had served as Las Vegas' No. 3 receiver to begin the season, tallying five receptions for 48 yards and a touchdown on six targets.",
+        "status": "Out",
         "athlete": {
           "displayName": "Jack Bech",
           "position": "WR"
@@ -2909,7 +2924,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Treydan Stukes",
@@ -2924,7 +2939,7 @@
         }
       },
       {
-        "longComment": "O'Connell is in the midst of an ongoing personal matter that will have him sidelined for consecutive weeks. It remains to be seen how much longer the reserve quarterback will be out. Kirk Cousins and Fernando Mendoza will once again likely be the only two active quarterbacks on game day.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Aidan O'Connell",
@@ -2937,15 +2952,13 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Los Angeles Chargers": [
+      },
       {
-        "longComment": "questionable",
+        "longComment": "Powers-Johnson is being evaluated by medical staff late in the fourth quarter of Sunday's game. Caleb Rogers figures to be the next man up at right guard if Powers-Johnson is unable to return.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Donte Jackson",
-          "position": "CB"
+          "displayName": "Jackson Powers-Johnson",
+          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2954,9 +2967,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Los Angeles Chargers": [
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Brenen Thompson",
@@ -2971,7 +2986,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Dalvin Tomlinson",
@@ -2986,7 +3001,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Charlie Kolar",
@@ -3001,7 +3016,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Elijah Molden",
@@ -3016,11 +3031,26 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Kayode Awosika",
           "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Donte Jackson",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3140,8 +3170,8 @@
     ],
     "Miami Dolphins": [
       {
-        "longComment": "Achane lasted a shade more than four minutes of game time before he exited with what eventually was termed a knee injury, which didn't allow him to return. Hafley's comments indicate Achane is very likely dealing with a serious health concern, but in the wake of Sunday's contest, the team lacks clarity regarding a diagnosis and prognosis. If Achane needs to miss time, Jaylen Wright (foot), who was inactive Sunday, and Ollie Gordon (20 touches for 55 total yards and one TD) would be the immediate candidates to fill in in Miami's backfield.",
-        "status": "Doubtful",
+        "longComment": "Achane's move to injured reserve was merely a formality after head coach Jeff Hafley confirmed earlier Monday that the running back would be lost for the season after sustaining an ACL tear in his left knee during Sunday's 24-10 loss to https://www.palmbeachpost.com/story/sports/nfl/dolphins/2026/09/28/miami-dolphins-jeff-hafley-devon-achane/91989229007/\"&gt;Hal Habib of The Palm Beach Post. With Achane out of the mix for the rest of 2026, the Dolphins are left with Jaylen Wright (foot) and Ollie Gordon as the lone running backs on the 53-man roster.",
+        "status": "Injured Reserve",
         "athlete": {
           "displayName": "De'Von Achane",
           "position": "RB"
@@ -3155,22 +3185,7 @@
         }
       },
       {
-        "longComment": "Wright was considered doubtful for this contest after missing practice Friday due to a foot issue and a stinger. His next chance to suit up will come in Week 4 against the Vikings. In the meantime, Ollie Gordon could see more involvement behind De'Von Achane.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jaylen Wright",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
+        "longComment": "Douglas was inactive for Sunday's 24-10 loss to the Chiefs due to the ankle injury, but the Dolphins are seemingly optimistic that his absence won't extend beyond that. The rookie wideout has carved out a notable role right off the bat for Miami, logging snap shares north of 85 percent in both of the team's first two games while producing a 7-113-0 receiving line on 10 targets.",
         "status": "Out",
         "athlete": {
           "displayName": "Caleb Douglas",
@@ -3185,7 +3200,22 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "Wright's health is notable considering the Dolphins lost No. 1 RB De'Von Achane to a torn ACL during Sunday's loss to the Chiefs. Having said that, Hafley also called Wright \"day-to-day\" last Monday after he emerged from Week 2 at San Francisco with a stinger and foot injury, which didn't allow him to play Week 3. Wright likely will need to get through this week without a DNP to put himself in the running to help cover for the absent Achane. Currently, Ollie Gordon is the only healthy RB on Miami's active roster.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jaylen Wright",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Robert Beal Jr.",
@@ -3217,7 +3247,7 @@
     ],
     "Minnesota Vikings": [
       {
-        "longComment": "Jefferson sustained an ankle injury in the first half and ultimately was ruled out for the remainder of the game after catching both of his early targets for 32 yards. The Vikings held on without their star receiver to improve to 3-0 heading into a Week 4 home game against the Dolphins. Jefferson's ankle injury will be evaluated further, but O'Connell sounded optimistic that Jefferson may not face much, if any, additional missed time.",
+        "longComment": "Jefferson missed the final two quarters of this past Sunday's 23-16 win over the Buccaneers after injuring the ankle, but head coach Kevin O'Connell downplayed any major concern afterward, noting that he considered having the star wideout check back in \"a couple times\" during the second half. The receiver's imaging a day later ruled out any long-term concern with the ankle, and though his practice activity could be managed to some degree during the upcoming week, he has a chance to avoid missing any further game action.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Justin Jefferson",
@@ -3232,8 +3262,23 @@
         }
       },
       {
-        "longComment": "Oliver went to the locker room during the fourth quarter of Sunday's game and was promptly ruled out after being evaluated by medical staff. Gavin Bartholomew will be the top backup behind T.J. Hockenson for the rest of Sunday's game.",
-        "status": "Questionable",
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brett Thorson",
+          "position": "P"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "According to Fowler, Oliver is a long shot to make a full recovery from surgery before the end of the regular season, though the tight end may have an outside chance at being available in the playoffs, should the Vikings qualify. A key blocker for the Vikings, Oliver had taken the field for 56.9 percent of the team's offensive snaps through the first three games and recorded three receptions for 46 yards on five targets.",
+        "status": "Out",
         "athlete": {
           "displayName": "Josh Oliver",
           "position": "TE"
@@ -3262,21 +3307,6 @@
         }
       },
       {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brett Thorson",
-          "position": "P"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Samac appeared on the Vikings' injury report during Week 3 prep with a new knee injury. The backup center's issue must be significant, as he was promptly moved to IR. Samac will need to miss at least four games on IR before becoming eligible to return to the Vikings' active roster.",
         "status": "Injured Reserve",
         "athlete": {
@@ -3293,6 +3323,66 @@
       }
     ],
     "New England Patriots": [
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Craig Woodson",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Eli Raridon",
+          "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Dre'Mont Jones",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Kyles noted that Brown was wearing cleats, which could hint that he was able to do some on-field exercises. After being placed on injured reserve Sept. 12, Brown won't be eligible to start practicing with his teammates until Week 6, but the wideout at least seems to be making good progress in his recovery from the high-ankle sprain he sustained in the season-opening loss to the Seahawks.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "A.J. Brown",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Walter Rouse has taken over at right guard with Van Roten -- who was in for the injured Mike Onwenu (ankle, IR) -- being evaluated by medical staff to determine whether he can return to Sunday's game.",
         "status": "Questionable",
@@ -3314,51 +3404,6 @@
         "athlete": {
           "displayName": "Christian Barmore",
           "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Woodson only saw the practice field this week for a limited session on Friday, so it's not too surprising to see the second-year safety end up on the shelf. Jaylen Reed and Mike Brown are candidates to see extra snaps in the secondary in Woodson's stead.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Craig Woodson",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Raridon saw the field for 36 snaps in Week 1, but his Week 2 showing was cut short due to his thigh injury. After sitting out practice Thursday and Friday, the rookie will ultimately miss his first career game, paving the way for Cameron Latu and Tanner Arkin to work in a reserve capacity behind starting tight end Hunter Henry.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Eli Raridon",
-          "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Dre'Mont Jones",
-          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3412,13 +3457,15 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "New Orleans Saints": [
       {
-        "longComment": "Onwenu suffered a broken right ankle in the Patriots' win over the Steelers on Sunday, and he appears likely to miss the remainder of the 2026 season. Greg Van Roten is likely the next man up at right guard for New England.",
-        "status": "Injured Reserve",
+        "longComment": "Moore noted that a specific timeline for Etienne's return hasn't been established, making it uncertain whether or not the running back will be able to avoid a stint on injured reserve. At the very least, Etienne will be sidelined for the Saints' Week 4 game against the Falcons next Monday, which likely paves the way for Alvin Kamara to take on an expanded profile in the backfield after working in a complementary role the previous two weeks. Reserve backs Kendre Miller and CJ Donaldson should also be in store for more opportunities for however long Etienne is out.",
+        "status": "Out",
         "athlete": {
-          "displayName": "Mike Onwenu",
-          "position": "G"
+          "displayName": "Travis Etienne Jr.",
+          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3427,15 +3474,28 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "New Orleans Saints": [
+      },
       {
-        "longComment": "Etienne's second-half hamstring injury was an aggravation of a previous injury, which limited his practice participation Wednesday and Thursday. Soft-tissue injuries have a tendency to linger, so it wouldn't be surprising if Etienne missed some game action to allow his hamstring to heal, especially since the Saints could opt for a cautious approach with Etienne after signing him to a four-year, $52 million contract in March. Further testing on the injury may be required before a return timetable is established, though Moore said that an update on Etienne and other injured players may be provided Monday. If Etienne were to miss any time, more touches would be available for Alvin Kamara, CJ Donaldson and Kendre Miller.",
-        "status": "Questionable",
+        "longComment": "out",
+        "status": "Out",
         "athlete": {
-          "displayName": "Travis Etienne Jr.",
-          "position": "RB"
+          "displayName": "Christen Miller",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Barion Brown",
+          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3491,36 +3551,6 @@
         }
       },
       {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Christen Miller",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Barion Brown",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "While head coach Kellen Moore indicated that the procedure went well, Banks will remain on injured reserve for the foreseeable future. As a result, Mason Murphy should continue to be more involved.",
         "status": "Injured Reserve",
         "athlete": {
@@ -3538,8 +3568,8 @@
     ],
     "New York Giants": [
       {
-        "longComment": "Burns had to be carted off the field after sustaining a right knee injury during he second half of Sunday's game. He's scheduled for an MRI later this evening, at which point the Giants will have a better sense of the recovery timeline for the veteran pass rusher. Kayvon Thibodeaux would be in line for a larger role defensively if Burns were to miss time.",
-        "status": "Questionable",
+        "longComment": "The loss of Burns -- who finished second in the NFL to only Myles Garrett with 16.5 sacks in 2025 -- is a massive blow to the Giants' pass rush. With Burns headed for knee surgery, Kayvon Thibodeaux is expected to move into a full-time role on the edge opposite 2025 first-round pick Abdul Carter. Given the timing of his knee injury, the 28-year-old Burns has a chance at completing his rehab and being ready to go for Week 1 of the 2027 campaign.",
+        "status": "Out",
         "athlete": {
           "displayName": "Brian Burns",
           "position": "LB"
@@ -3553,11 +3583,11 @@
         }
       },
       {
-        "longComment": "Banks practiced in a limited capacity leading into Week 3, but will miss his second straight game due to a calf injury. Colton Hood should see more playing time in his absence.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
-          "displayName": "Deonte Banks",
-          "position": "CB"
+          "displayName": "Tyler Nubin",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3568,11 +3598,11 @@
         }
       },
       {
-        "longComment": "Nubin was a limited participant in practice every day leading into Week 3. With the 25-year-old out, both Ar'Darius Washington and Jason Pinnock are in line for larger roles against Tennessee.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
-          "displayName": "Tyler Nubin",
-          "position": "S"
+          "displayName": "Deonte Banks",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3600,11 +3630,86 @@
     ],
     "New York Jets": [
       {
-        "longComment": "Hall was forced out of the game in the fourth quarter after sustaining a leg injury while being tackled. The running back was unable to return to the contest, and he will likely undergo additional imaging to determine the severity of the injury. If he is forced to miss any action moving forward, Braelon Allen would stand to operate as the team's No. 1 option in the backfield.",
+        "longComment": "Jets head coach Aaron Glenn shed more light on the severity of Hall's injury when he speaks to the media Wednesday, but the running back seemingly avoided any sort of a major damage to his thigh that would result in an extended stint on injured reserve. However, with Hall being classified as week-to-week, he may be facing an uphill battle to make it back for the Jets' next game Sunday at Chicago. After Hall exited in the fourth quarter of this past Sunday's 31-24 loss to the Lions, Braelon Allen handled six touches over the Jets' final two possessions. Allen and Isaiah Davis would both be in store for expanded roles if Hall ends up missing any time.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Breece Hall",
           "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Mason Taylor",
+          "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Kiko Mauigoa",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Adonai Mitchell",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Kene Nwangwu",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Minkah Fitzpatrick",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3620,81 +3725,6 @@
         "athlete": {
           "displayName": "Dylan Parham",
           "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Mason Taylor",
-          "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Kiko Mauigoa",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Minkah Fitzpatrick",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Mitchell was listed as questionable for Week 3 after sustaining a finger injury last week, and it turns out he is not ready to take the field Sunday. Mitchell -- who garnered 12 targets last week -- joins fellow pass catchers Omar Cooper (ankle) and Mason Taylor (thumb) on the sidelines, so Kenyon Sadiq and Isaiah Williams figure to see some extra opportunities behind top option Garrett Wilson.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Adonai Mitchell",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Nwangwu was listed as doubtful for Sunday's contest after Friday's practice. The Jets' kick returner had an outside chance to suit up Sunday despite not logging a single day of practice throughout Week 3 prep. After a Saturday examination, it's been determined that Nwangwu will not be ready for the game, leaving Isaiah Williams as the primary kick and punt returner for the Jets' showdown with the Lions.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Kene Nwangwu",
-          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3814,11 +3844,11 @@
     ],
     "Pittsburgh Steelers": [
       {
-        "longComment": "Echols took a hit to the head while on special teams but was able to walk off the field under his own power. He hasn't seen much playing time on defense this season, but if he can't return, then Daylen Everette and Doneiko Slaughter would be the primary depth options at cornerback.",
-        "status": "Questionable",
+        "longComment": "Dowdle was unable to practice in any fashion last week before being ruled out ahead of Sunday's 30-27 win over the Bengals. The Steelers will face a quick turnaround for Week 4, when they'll travel to Cleveland for a Thursday night matchup with the Browns. Dowdle's lack of involvement in the team stretch and walkthrough Monday doesn't bode well for his chances of being ready to play three days later.",
+        "status": "Out",
         "athlete": {
-          "displayName": "Brandin Echols",
-          "position": "CB"
+          "displayName": "Rico Dowdle",
+          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3829,7 +3859,7 @@
         }
       },
       {
-        "longComment": "Porter had the conditioning label next to his questionable tag for Sunday's AFC North tilt after being limited in practice all week, but he won't make his 2026 regular-season debut Sunday. Asante Samuel will continue to start opposite Jamel Dean at outside cornerback in Porter's absence. Porter's next opportunity to play is Thursday against the Browns.",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Joey Porter Jr.",
@@ -3844,11 +3874,11 @@
         }
       },
       {
-        "longComment": "inactive",
-        "status": "Out",
+        "longComment": "Echols took a hit to the head while on special teams but was able to walk off the field under his own power. He hasn't seen much playing time on defense this season, but if he can't return, then Daylen Everette and Doneiko Slaughter would be the primary depth options at cornerback.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Rico Dowdle",
-          "position": "RB"
+          "displayName": "Brandin Echols",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3876,11 +3906,56 @@
     ],
     "San Francisco 49ers": [
       {
-        "longComment": "Evans was ruled out of the game due to a rib injury after absorbing a big hit, but it sounds like the veteran wide receiver is also dealing with an oblique injury. Further clarification on Evans' status will surface before the 3-0 49ers host the Broncos in Week 4.",
+        "longComment": "Following his early exit from Sunday's game, Evans underwent a full evaluation Monday that revealed no significant injury. Even so, Evans' practice participation in Week 4 could be affected as the 49ers prepare for a matchup next Sunday against the Broncos. With four receivers already on injured reserve, the 49ers can ill afford an absence from Evans, who has recorded 12 catches for 137 yards and two touchdowns on 16 targets through the club's first three games.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Mike Evans",
           "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "James Thompson Jr.",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Romello Height",
+          "position": "DE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Nick Bosa",
+          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3936,51 +4011,6 @@
         }
       },
       {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "James Thompson Jr.",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Romello Height",
-          "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Nick Bosa",
-          "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Robinson was carted off the field due to a right ankle injury during San Francisco's Week 2 win against the Dolphins, after which coach Kyle Shanahan relayed that the wide receiver likely suffered a high-ankle sprain. On Monday, Shanahan said that Robinson was facing a recovery timeline of 3-to-6 weeks, so this move to injured reserve doesn't come as a surprise. Robinson will be first eligible to return to action Sunday, Oct. 25 in Atlanta, but with all of Christian Kirk (calf), De'Zhaun Stribling (ankle), Ricky Pearsall (knee) and Robinson on IR, the 49ers will be going with Mike Evans (hip), Deebo Samuel, Jacob Cowing, Jordan Watkins and KhaDarel Hodge at wide receiver this Sunday against the Cardinals.",
         "status": "Injured Reserve",
         "athlete": {
@@ -4013,22 +4043,7 @@
     ],
     "Seattle Seahawks": [
       {
-        "longComment": "Pili drew the questionable tag for Sunday after ending Week 3 prep with back-to-back limited practices. He has not progressed enough in the league's concussion protocol to play against Washington, and his next chance to take the field is Week 4 against the Chargers on Sunday, Oct. 4. Rylie Mills and Mike Morris are both in line to see a slight bump in defensive snaps due to Pili's absence.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brandon Pili",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Julian Love",
@@ -4043,11 +4058,26 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Ty Okada",
           "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brandon Pili",
+          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4090,37 +4120,7 @@
     ],
     "Tampa Bay Buccaneers": [
       {
-        "longComment": "Mayfield exited Sunday's loss late in the fourth quarter after sustaining the thumb injury to his throwing hand. Jalon Daniels played Tampa Bay's final possession after Mayfield got hurt. The undrafted rookie backup failed to complete a pass and threw an interception on the game's final play. A recovery timeline for Mayfield likely will be established based on the results of his upcoming MRI, but Daniels may get a chance to make his first NFL start when the 0-3 Buccaneers host the 1-2 Packers in Week 4.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Baker Mayfield",
-          "position": "QB"
-        },
-        "depthChartPosition": 1,
-        "depthChartOrder": 1,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "McMillan left in the first quarter due to a left knee injury, which is severe enough for the third-year wideout to not return to Sunday's game. Tez Johnson and rookie third-rounder Ted Hurst are candidates to see a significant boost in offensive snaps in McMillan's absence.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jalen McMillan",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Josiah Trotter",
@@ -4135,7 +4135,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Rueben Bain Jr.",
@@ -4148,9 +4148,54 @@
           "description": "basic/manual",
           "state": "basic"
         }
+      },
+      {
+        "longComment": "Earlier Monday, Jeremy Fowler of ESPN.com reported than an MRI on Mayfield's dislocated right thumb ruled out a fracture as well as any tendon or ligament damage. While Mayfield appears set to avoid surgery, he'll still need some time off to regain strength in his thumb so that he can properly grip the football and throw accurately and at full velocity. Per Cameron Wolfe of NFL Network, Bowles said that Mayfield won't be placed on injured reserve, so the Buccaneers could be targeting a Week 10 game in Carolina for his return to the lineup. Undrafted rookie Jalon Daniels will step in as the Buccaneers' new starting quarterback beginning with Sunday's game versus Green Bay.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Baker Mayfield",
+          "position": "QB"
+        },
+        "depthChartPosition": 1,
+        "depthChartOrder": 1,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "McMillan missed the Buccaneers' season-opening loss to the Bengals while recovering from a knee injury, then was cleared to play in the Week 2 loss to the Browns but was limited to just seven snaps. He had been expected to play a more substantial role in Sunday's 23-16 loss to the Vikings, but he logged just two snaps before going down with the knee injury on the Buccaneers' first possession and missing the rest of the game. The MRI will provide clarity on the extent of McMillan's latest setback with his knee, but even if imaging reveals nothing overly concerning, the wideout could still be at risk of missing next Sunday's game against the Packers.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jalen McMillan",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
       }
     ],
     "Tennessee Titans": [
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jackson Slater",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "questionable",
         "status": "Questionable",
@@ -4169,8 +4214,8 @@
     ],
     "Washington Commanders": [
       {
-        "longComment": "Chenal was carted off the field after suffering the injury, so the latest update is hardly a surprise. While it's too early to speculate, his status for the Week 4 meeting with the Colts is in jeopardy. However, an absence could extend beyond that contest, considering it's a neck injury.",
-        "status": "Questionable",
+        "longComment": "The fifth-year linebacker required the procedure after he was carted off the field in the second quarter of Sunday's 33-31 win over the Seahawks, when he appeared to lead with his head while tackling running back Emanuel Wilson. Chenal had tallied 18 tackles over the Commanders' first three games, starting the last two in place of the injured Frankie Luvu (groin).",
+        "status": "Out",
         "athlete": {
           "displayName": "Leo Chenal",
           "position": "LB"
@@ -4184,7 +4229,22 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "According to JP Finlay of NBC Sports Washington, Daniels remains far from certain to play Sunday, but his ability to practice in any capacity indicates that he's displayed some progress in his recovery from the dislocated left elbow he sustained Sept. 20. In this past Sunday's game against the Seahawks, Marcus Mariota stepped in as the Commanders' starting quarterback and performed admirably in Daniels' stead, throwing for three touchdowns in a 33-31 upset win. Unless Daniels is fully cleared to take most of the first-team reps in practice this week, Mariota still looks like the favorite to start against the Colts.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jayden Daniels",
+          "position": "QB"
+        },
+        "depthChartPosition": 1,
+        "depthChartOrder": 1,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Frankie Luvu",
@@ -4199,7 +4259,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Chig Okonkwo",
@@ -4214,7 +4274,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Sam Cosmi",
@@ -4229,7 +4289,7 @@
         }
       },
       {
-        "longComment": "inactive",
+        "longComment": "out",
         "status": "Out",
         "athlete": {
           "displayName": "Nick Cross",
@@ -4237,21 +4297,6 @@
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "inactive",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Jayden Daniels",
-          "position": "QB"
-        },
-        "depthChartPosition": 1,
-        "depthChartOrder": 1,
         "source": {
           "id": "1",
           "description": "basic/manual",
@@ -4638,7 +4683,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-28T11:18:32.017Z",
+    "checkedAt": "2026-09-28T20:54:33.468Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
