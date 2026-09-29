@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29T02:35:08.150Z",
+  "lastUpdated": "2026-09-29T03:04:30.585Z",
   "currentWeek": 3,
   "games": [
     {
@@ -146,7 +146,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png"
               },
-              "score": "20",
+              "score": "27",
               "linescores": [
                 {
                   "value": 7,
@@ -162,6 +162,11 @@
                   "value": 10,
                   "displayValue": "10",
                   "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -307,6 +312,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -336,52 +346,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729633070",
+              "id": "4018729633795",
               "type": {
-                "id": "24",
-                "text": "Pass Reception",
-                "abbreviation": "REC"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": " (Shotgun) J.Hurts pass short right to D.Smith to CHI 46 for 4 yards (E.Hicks).",
+              "text": " D.Swift left tackle to CHI 48 for 9 yards (T.Robinson; A.Mukuba).",
               "scoreValue": 0,
               "team": {
-                "id": "21"
+                "id": "3"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.8995,
-                "awayWinPercentage": 0.10050000000000003,
+                "homeWinPercentage": 0.999,
+                "awayWinPercentage": 0.0010000000000000009,
                 "secondsLeft": 0
               },
-              "statYardage": 4,
+              "statYardage": 9,
               "drive": {
-                "description": "4 plays, 24 yards, 1:22",
+                "description": "1 play, 9 yards, 0:00",
                 "start": {
-                  "yardLine": 70,
-                  "text": "PHI 30"
+                  "yardLine": 39,
+                  "text": "CHI 39"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:22"
+                  "displayValue": "0:00"
                 }
               },
               "start": {
-                "yardLine": 50,
+                "yardLine": 39,
                 "team": {
-                  "id": "21"
+                  "id": "3"
                 }
               },
               "end": {
-                "yardLine": 46,
+                "yardLine": 48,
                 "team": {
-                  "id": "21"
+                  "id": "3"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4241478",
-                  "fullName": "DeVonta Smith",
-                  "displayName": "DeVonta Smith",
-                  "shortName": "D. Smith",
+                  "id": "4259545",
+                  "fullName": "D'Andre Swift",
+                  "displayName": "D'Andre Swift",
+                  "shortName": "D. Swift",
                   "links": [
                     {
                       "rel": [
@@ -389,41 +399,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4241478/devonta-smith"
+                      "href": "https://www.espn.com/nfl/player/_/id/4259545/dandre-swift"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241478.png",
-                  "jersey": "6",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4259545.png",
+                  "jersey": "4",
+                  "position": "RB",
                   "team": {
-                    "id": "21"
+                    "id": "3"
                   }
                 }
               ]
             },
-            "down": 4,
-            "yardLine": 46,
-            "distance": 5,
-            "downDistanceText": "4th & 5 at CHI 46",
-            "shortDownDistanceText": "4th & 5",
-            "possessionText": "CHI 46",
+            "down": 2,
+            "yardLine": 48,
+            "distance": 1,
+            "downDistanceText": "2nd & 1 at CHI 48",
+            "shortDownDistanceText": "2nd & 1",
+            "possessionText": "CHI 48",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
-            "possession": "21"
+            "possession": "3"
           },
           "status": {
-            "clock": 71,
-            "displayClock": "1:11",
-            "period": 3,
+            "clock": 270,
+            "displayClock": "4:30",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "1:11 - 3rd Quarter",
-              "shortDetail": "1:11 - 3rd"
+              "detail": "4:30 - 4th Quarter",
+              "shortDetail": "4:30 - 4th"
             },
             "isTBDFlex": false
           },
@@ -444,8 +454,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "23/32, 240 YDS, 2 TD",
-                  "value": 240,
+                  "displayValue": "24/34, 247 YDS, 2 TD",
+                  "value": 247,
                   "athlete": {
                     "id": "15168",
                     "fullName": "Case Keenum",
@@ -662,8 +672,8 @@
       ],
       "weather": {
         "displayValue": "33",
-        "temperature": 64,
-        "highTemperature": 64,
+        "temperature": 63,
+        "highTemperature": 63,
         "conditionId": "Clear",
         "link": {
           "language": "en-US",
@@ -678,17 +688,17 @@
         }
       },
       "status": {
-        "clock": 71,
-        "displayClock": "1:11",
-        "period": 3,
+        "clock": 270,
+        "displayClock": "4:30",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "1:11 - 3rd Quarter",
-          "shortDetail": "1:11 - 3rd"
+          "detail": "4:30 - 4th Quarter",
+          "shortDetail": "4:30 - 4th"
         }
       }
     }
@@ -1909,8 +1919,8 @@
     ],
     "Chicago Bears": [
       {
-        "longComment": "Jones had to be helped off the field in the third quarter after sustaining a knee injury. While Jones is absent, Theo Benedet should act as the Bears' left tackle.",
-        "status": "Questionable",
+        "longComment": "Jones will now be sidelined for the remainder of the game after suffering a knee injury in the third quarter. In his absence, Theo Benedet has taken over a left tackle versus Philadelphia.",
+        "status": "Doubtful",
         "athlete": {
           "displayName": "Braxton Jones",
           "position": "OT"
@@ -4440,7 +4450,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-29T02:35:07.786Z",
+    "checkedAt": "2026-09-29T03:04:30.255Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
