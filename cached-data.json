@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-29T00:23:17.838Z",
+  "lastUpdated": "2026-09-29T02:35:08.150Z",
   "currentWeek": 3,
   "games": [
     {
@@ -146,12 +146,22 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png"
               },
-              "score": "0",
+              "score": "20",
               "linescores": [
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 7,
+                  "displayValue": "7",
                   "period": 1
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 2
+                },
+                {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -281,12 +291,22 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png"
               },
-              "score": "0",
+              "score": "7",
               "linescores": [
                 {
                   "value": 0,
                   "displayValue": "0",
                   "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -316,52 +336,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "401872963271",
+              "id": "4018729633070",
               "type": {
-                "id": "5",
-                "text": "Rush",
-                "abbreviation": "RUSH"
+                "id": "24",
+                "text": "Pass Reception",
+                "abbreviation": "REC"
               },
-              "text": " L.Burden left end to PHI 9 for 7 yards (J.Campbell).",
+              "text": " (Shotgun) J.Hurts pass short right to D.Smith to CHI 46 for 4 yards (E.Hicks).",
               "scoreValue": 0,
               "team": {
-                "id": "3"
+                "id": "21"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.4899,
-                "awayWinPercentage": 0.5101,
+                "homeWinPercentage": 0.8995,
+                "awayWinPercentage": 0.10050000000000003,
                 "secondsLeft": 0
               },
-              "statYardage": 7,
+              "statYardage": 4,
               "drive": {
-                "description": "9 plays, 57 yards, 4:47",
+                "description": "4 plays, 24 yards, 1:22",
                 "start": {
-                  "yardLine": 34,
-                  "text": "CHI 34"
+                  "yardLine": 70,
+                  "text": "PHI 30"
                 },
                 "timeElapsed": {
-                  "displayValue": "4:47"
+                  "displayValue": "1:22"
                 }
               },
               "start": {
-                "yardLine": 84,
+                "yardLine": 50,
                 "team": {
-                  "id": "3"
+                  "id": "21"
                 }
               },
               "end": {
-                "yardLine": 91,
+                "yardLine": 46,
                 "team": {
-                  "id": "3"
+                  "id": "21"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4685278",
-                  "fullName": "Luther Burden III",
-                  "displayName": "Luther Burden III",
-                  "shortName": "L. Burden III",
+                  "id": "4241478",
+                  "fullName": "DeVonta Smith",
+                  "displayName": "DeVonta Smith",
+                  "shortName": "D. Smith",
                   "links": [
                     {
                       "rel": [
@@ -369,41 +389,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4685278/luther-burden-iii"
+                      "href": "https://www.espn.com/nfl/player/_/id/4241478/devonta-smith"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685278.png",
-                  "jersey": "10",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241478.png",
+                  "jersey": "6",
                   "position": "WR",
                   "team": {
-                    "id": "3"
+                    "id": "21"
                   }
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 91,
-            "distance": 3,
-            "downDistanceText": "2nd & 3 at PHI 9",
-            "shortDownDistanceText": "2nd & 3",
-            "possessionText": "PHI 9",
-            "isRedZone": true,
+            "down": 4,
+            "yardLine": 46,
+            "distance": 5,
+            "downDistanceText": "4th & 5 at CHI 46",
+            "shortDownDistanceText": "4th & 5",
+            "possessionText": "CHI 46",
+            "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
-            "possession": "3"
+            "possession": "21"
           },
           "status": {
-            "clock": 613,
-            "displayClock": "10:13",
-            "period": 1,
+            "clock": 71,
+            "displayClock": "1:11",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "10:13 - 1st Quarter",
-              "shortDetail": "10:13 - 1st"
+              "detail": "1:11 - 3rd Quarter",
+              "shortDetail": "1:11 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -424,8 +444,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "4/5, 37 YDS",
-                  "value": 37,
+                  "displayValue": "23/32, 240 YDS, 2 TD",
+                  "value": 240,
                   "athlete": {
                     "id": "15168",
                     "fullName": "Case Keenum",
@@ -464,13 +484,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "3 CAR, 13 YDS",
-                  "value": 13,
+                  "displayValue": "15 CAR, 82 YDS",
+                  "value": 82,
                   "athlete": {
-                    "id": "4259545",
-                    "fullName": "D'Andre Swift",
-                    "displayName": "D'Andre Swift",
-                    "shortName": "D. Swift",
+                    "id": "3929630",
+                    "fullName": "Saquon Barkley",
+                    "displayName": "Saquon Barkley",
+                    "shortName": "S. Barkley",
                     "links": [
                       {
                         "rel": [
@@ -478,21 +498,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4259545/dandre-swift"
+                        "href": "https://www.espn.com/nfl/player/_/id/3929630/saquon-barkley"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4259545.png",
-                    "jersey": "4",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3929630.png",
+                    "jersey": "26",
                     "position": {
                       "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "3"
+                      "id": "21"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "3"
+                    "id": "21"
                   }
                 }
               ]
@@ -504,13 +524,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "1 REC, 16 YDS",
-                  "value": 16,
+                  "displayValue": "6 REC, 90 YDS, 1 TD",
+                  "value": 90,
                   "athlete": {
-                    "id": "4685504",
-                    "fullName": "Sam Roush",
-                    "displayName": "Sam Roush",
-                    "shortName": "S. Roush",
+                    "id": "2973405",
+                    "fullName": "Kalif Raymond",
+                    "displayName": "Kalif Raymond",
+                    "shortName": "K. Raymond",
                     "links": [
                       {
                         "rel": [
@@ -518,13 +538,13 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4685504/sam-roush"
+                        "href": "https://www.espn.com/nfl/player/_/id/2973405/kalif-raymond"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685504.png",
-                    "jersey": "87",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2973405.png",
+                    "jersey": "14",
                     "position": {
-                      "abbreviation": "TE"
+                      "abbreviation": "WR"
                     },
                     "team": {
                       "id": "3"
@@ -617,6 +637,18 @@
         {
           "language": "en-US",
           "rel": [
+            "highlights",
+            "desktop"
+          ],
+          "href": "https://www.espn.com/nfl/video?gameId=401872963",
+          "text": "Highlights",
+          "shortText": "Highlights",
+          "isExternal": false,
+          "isPremium": false
+        },
+        {
+          "language": "en-US",
+          "rel": [
             "pbp",
             "desktop",
             "event"
@@ -646,17 +678,17 @@
         }
       },
       "status": {
-        "clock": 613,
-        "displayClock": "10:13",
-        "period": 1,
+        "clock": 71,
+        "displayClock": "1:11",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "10:13 - 1st Quarter",
-          "shortDetail": "10:13 - 1st"
+          "detail": "1:11 - 3rd Quarter",
+          "shortDetail": "1:11 - 3rd"
         }
       }
     }
@@ -1616,7 +1648,7 @@
     ],
     "Baltimore Ravens": [
       {
-        "longComment": "out",
+        "longComment": "Pocic suffered a knee injury during the Ravens' Week 3 win over the Cowboys in Rio. Pocic's exit marks the third significant injury to a Ravens center, following Danny Pinter's (knee) August fall and former starter Jovaughn Gwyn's (ankle) injury in the Week 3 contest as well. With all three offensive linemen out for either the season or a large amount of time, Olaivavega Ioane will be the new starter for the Ravens.",
         "status": "Out",
         "athlete": {
           "displayName": "Ethan Pocic",
@@ -1631,7 +1663,7 @@
         }
       },
       {
-        "longComment": "out",
+        "longComment": "Gwyn suffered a serious ankle injury during the Ravens' Week 3 win over the Cowboys in Rio. The starting center will likely be transferred to injured reserve soon as he focuses on recovering from the injury for a potential late-season playoff push. Olaivavega Ioane is set to start at center for Sunday's game against the Titans.",
         "status": "Out",
         "athlete": {
           "displayName": "Jovaughn Gwyn",
@@ -1858,9 +1890,39 @@
           "description": "basic/manual",
           "state": "basic"
         }
+      },
+      {
+        "longComment": "Brooks is expected to be officially placed on injured reserve in the coming days after he exited this past Sunday's 34-3 win over the Falcons due to what had previously been labeled as a groin injury. With Brooks set to miss time, Chuba Hubbard should be further insulated as the Panthers' No. 1 back, while AJ Dillon is lone healthy backup option on the 53-man roster. Aaron Wilson of KPRC 2 Houston relays that the Panthers plan to work out veteran Austin Ekeler on Wednesday, and he could eventually be signed to provide further depth in the backfield.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Jonathon Brooks",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
       }
     ],
     "Chicago Bears": [
+      {
+        "longComment": "Jones had to be helped off the field in the third quarter after sustaining a knee injury. While Jones is absent, Theo Benedet should act as the Bears' left tackle.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Braxton Jones",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "ir",
         "status": "Injured Reserve",
@@ -2001,7 +2063,7 @@
         }
       },
       {
-        "longComment": "Delpit played all 74 defensive snaps for the Browns in Sunday's 21-18 win over the Panthers despite battling through a shoulder injury. The strong safety suited up after only logging limited sessions in the Browns' Week 3 prep, meaning Delpit is on track to match that effort in Week 4.",
+        "longComment": "Delpit played all 74 defensive snaps for the Browns in Sunday's 21-18 win over the Panthers despite battling through a shoulder injury. The strong safety suited up after only logging limited sessions in the Browns' Week 3 prep, and Delpit may be on track to mirror that participation pattern leading into Thursday's Week 4 matchup against the Steelers.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Grant Delpit",
@@ -2016,7 +2078,7 @@
         }
       },
       {
-        "longComment": "Wallace stayed down on the field after a kickoff return during the Browns' 21-18 win over the Panthers on Sunday, Daniel Oyefusi of ESPN.com reports. The wide receiver's injury wasn't announced until Monday, so the knee issue may be minor. If Wallace cannot suit up for Tuesday's practice session in at least a limited capacity, his ability to suit up for Thursday night's game against the Steelers will likely be in jeopardy.",
+        "longComment": "Wallace stayed down on the field after a kickoff return during the Browns' 21-18 win over the Panthers on Sunday, Daniel Oyefusi of ESPN.com reports. The wide receiver's injury wasn't announced until Monday, so the knee issue may be minor. If Wallace cannot suit up for Tuesday's practice session in at least a limited capacity, his chances of playing in Thursday night's game against the Steelers will likely be in jeopardy.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Tylan Wallace",
@@ -2187,6 +2249,21 @@
     ],
     "Detroit Lions": [
       {
+        "longComment": "Mays was placed on IR during the Aug. 30 cutdown day. The center fractured his wrist in the preseason but is set to return to the active roster soon. If Mays can get back in action after the Lions' Week 6 bye, he should be able to reclaim the starting center role from Juice Scruggs to boost the team's interior offensive line.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Cade Mays",
+          "position": "C"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "out",
         "status": "Out",
         "athlete": {
@@ -2234,11 +2311,11 @@
     ],
     "Green Bay Packers": [
       {
-        "longComment": "Reed is just over a week removed from sustaining a serious-looking neck injury during the Packers' Sept. 20 win over the Jets, which resulted in the wide receiver being stretchered off the field and required an overnight hospital stay. Since Reed returned to Green Bay, the Packers haven't provided many details on his status, as the 26-year-old is seemingly still being evaluated before a timeline for a return is established. Though LaFleur didn't definitively rule Reed out for Week 4 matchup against the Buccaneers, all signs point to the wideout missing a second straight game.",
+        "longComment": "Bako-Bewele sustained a complete tear of his right patellar tendon in the Packers' Week 2 overtime win over the Jets. The right tackle is out for the season and has thus been placed on injured reserve. Laken Tomlinson is the new reserve offensive lineman for the team, and Anthony Belton is expected to be the starting right tackle for the remainder of the 2026 season.",
         "status": "Out",
         "athlete": {
-          "displayName": "Jayden Reed",
-          "position": "WR"
+          "displayName": "Zach Bako-Bewele",
+          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2249,11 +2326,11 @@
         }
       },
       {
-        "longComment": "out",
+        "longComment": "Reed is just over a week removed from sustaining a serious-looking neck injury during the Packers' Sept. 20 win over the Jets, which resulted in the wide receiver being stretchered off the field and required an overnight hospital stay. Since Reed returned to Green Bay, the Packers haven't provided many details on his status, as the 26-year-old is seemingly still being evaluated before a timeline for a return is established. Though LaFleur didn't definitively rule Reed out for Week 4 matchup against the Buccaneers, all signs point to the wideout missing a second straight game.",
         "status": "Out",
         "athlete": {
-          "displayName": "Zach Bako-Bewele",
-          "position": "OT"
+          "displayName": "Jayden Reed",
+          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2542,7 +2619,7 @@
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "Conner's game-day status will rely on a promising week of practice. The strong safety was a limited participant in the lead-up to Sunday's win over the Dolphins but was ultimately unable to suit up for the contest. Conner will likely need to achieve full participation in at least one session before being greenlit to play in the Chiefs' divisional matchup with the Raiders on Sunday.",
+        "longComment": "Conner's game-day status will rely on his upcoming week of practice. The strong safety was a limited participant in the lead-up to Sunday's win over the Dolphins but was ultimately unable to suit up for the contest. Conner will likely need to achieve full participation in at least one practice session during Week 4 prep before being greenlit to play in the Chiefs' divisional matchup with the Raiders on Sunday.",
         "status": "Out",
         "athlete": {
           "displayName": "Chamarri Conner",
@@ -2573,6 +2650,21 @@
       }
     ],
     "Las Vegas Raiders": [
+      {
+        "longComment": "Powers-Johnson was questionable to return to Sunday's win over the Saints and was never able to reenter the contest. More clarity on the severity of the offensive lineman's injury and potential recovery timetable should be gleaned in coming days.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jackson Powers-Johnson",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Bech will be sidelined for at least the next four games after he sustained a broken left forearm in Sunday's 35-27 win over the Saints. His impending move to IR could open up a roster spot for fellow wideout Cody White, who is no longer eligible to be elevated from the practice squad after being called up for each of the first three games. Bech had served as Las Vegas' No. 3 receiver to begin the season, tallying five receptions for 48 yards and a touchdown on six targets.",
         "status": "Out",
@@ -2609,21 +2701,6 @@
         "athlete": {
           "displayName": "Aidan O'Connell",
           "position": "QB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Powers-Johnson is being evaluated by medical staff late in the fourth quarter of Sunday's game. Caleb Rogers figures to be the next man up at right guard if Powers-Johnson is unable to return.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jackson Powers-Johnson",
-          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2731,6 +2808,21 @@
         "athlete": {
           "displayName": "Trey Pipkins III",
           "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Njoku will be sidelined for at least the Chargers' next four games after sustaining a fibula injury in Sunday's 26-14 loss to the Raiders. Fellow tight end Charlie Kolar (forearm) was able to avoid placement on IR but has already been ruled out for the Chargers' Week 3 contest in Buffalo, leaving Oronde Gadsden as the top option on the depth chart heading into that game.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "David Njoku",
+          "position": "TE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2927,6 +3019,21 @@
     ],
     "Minnesota Vikings": [
       {
+        "longComment": "Demmings injured his hamstring during the second half of Sunday's win over the Buccaneers and is now expected to miss the Week 4 matchup versus Miami, at minimum. The rookie fifth-round pick failed to record any tackles across his first three outings and should continue to serve a depth role once healthy.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Charles Demmings",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Jefferson missed the final two quarters of this past Sunday's 23-16 win over the Buccaneers after injuring the ankle, but head coach Kevin O'Connell downplayed any major concern afterward, noting that he considered having the star wideout check back in \"a couple times\" during the second half. The receiver's imaging a day later ruled out any long-term concern with the ankle, and though his practice activity could be managed to some degree during the upcoming week, he has a chance to avoid missing any further game action.",
         "status": "Questionable",
         "athlete": {
@@ -2962,21 +3069,6 @@
         "athlete": {
           "displayName": "Josh Oliver",
           "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Demmings suffered a hamstring injury in the third quarter, and his day has now officially come to a premature end. In his absence, the Vikings have become rather thin in the secondary.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Charles Demmings",
-          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3571,6 +3663,21 @@
     ],
     "San Francisco 49ers": [
       {
+        "longComment": "Thompson is in line to miss a second consecutive game due to the high-ankle sprain he suffered during the Week 2 win over the Dolphins. While there's currently no timetable for his return, his next chance to play will be the Week 6 matchup against Seattle.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "James Thompson Jr.",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "After Bosa strained his calf at practice last Thursday, Shanahan told Matt Barrows of The Athletic that the pass rusher would miss \"a few weeks,\" so a second consecutive absence in Week 4 comes as no surprise. The 49ers started Ogbo Okoronkwo and Keion White at defensive end during Sunday's win versus the Cardinals and likely will continue to lean on the duo until Bosa is able to return to action.",
         "status": "Out",
         "athlete": {
@@ -3591,21 +3698,6 @@
         "athlete": {
           "displayName": "Mike Evans",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "out",
-        "status": "Out",
-        "athlete": {
-          "displayName": "James Thompson Jr.",
-          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3847,10 +3939,10 @@
     ],
     "Tennessee Titans": [
       {
-        "longComment": "Slater managed to finish the game but will now seemingly be forced to miss extended time. With starting right guard Fernando Carmona (foot) also sustaining an injury during Sunday's loss, the Titans could find themselves shorthanded along the interior of the offensive line, as Peter Skoronski and Atonio Mafi are currently the only healthy guards on the active roster.",
-        "status": "Questionable",
+        "longComment": "Carmona sustained the injury during Sunday's loss to the Giants, and it was serious enough for him to be carted off the field. With Jackson Slater (foot) also suffering an injury during Sunday's loss, the Titans could find themselves short-handed at guard for the time being.",
+        "status": "Doubtful",
         "athlete": {
-          "displayName": "Jackson Slater",
+          "displayName": "Fernando Carmona",
           "position": "G"
         },
         "depthChartPosition": null,
@@ -3862,10 +3954,10 @@
         }
       },
       {
-        "longComment": "doubtful",
-        "status": "Doubtful",
+        "longComment": "Slater managed to finish the game but will now seemingly be forced to miss extended time. With starting right guard Fernando Carmona (foot) also sustaining an injury during Sunday's loss, the Titans could find themselves short-handed along the interior of the offensive line, as Peter Skoronski and Atonio Mafi are currently the only healthy guards on the active roster.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Fernando Carmona",
+          "displayName": "Jackson Slater",
           "position": "G"
         },
         "depthChartPosition": null,
@@ -4348,7 +4440,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-09-29T00:23:17.416Z",
+    "checkedAt": "2026-09-29T02:35:07.786Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
