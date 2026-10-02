@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T02:13:30.276Z",
+  "lastUpdated": "2026-10-02T02:46:39.388Z",
   "currentWeek": 4,
   "games": [
     {
@@ -162,6 +162,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -307,6 +312,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -336,42 +346,42 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729642551",
+              "id": "4018729643299",
               "type": {
                 "id": "5",
                 "text": "Rush",
                 "abbreviation": "RUSH"
               },
-              "text": " (Shotgun) Q.Judkins right tackle to CLV 10 for 1 yard (K.Benton; P.Wilson).",
+              "text": " (Shotgun) Q.Judkins up the middle to CLV 35 for 7 yards (P.Queen; R.Spears-Jennings).",
               "scoreValue": 0,
               "team": {
                 "id": "5"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.8034,
-                "awayWinPercentage": 0.1966,
+                "homeWinPercentage": 0.9082,
+                "awayWinPercentage": 0.09179999999999999,
                 "secondsLeft": 0
               },
-              "statYardage": 1,
+              "statYardage": 7,
               "drive": {
-                "description": "1 play, 6 yards, 0:25",
+                "description": "3 plays, 15 yards, 1:13",
                 "start": {
-                  "yardLine": 4,
-                  "text": "CLE 4"
+                  "yardLine": 20,
+                  "text": "CLE 20"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:25"
+                  "displayValue": "1:13"
                 }
               },
               "start": {
-                "yardLine": 9,
+                "yardLine": 28,
                 "team": {
                   "id": "5"
                 }
               },
               "end": {
-                "yardLine": 10,
+                "yardLine": 35,
                 "team": {
                   "id": "5"
                 }
@@ -401,29 +411,29 @@
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 10,
-            "distance": 4,
-            "downDistanceText": "2nd & 4 at CLE 10",
-            "shortDownDistanceText": "2nd & 4",
-            "possessionText": "CLE 10",
+            "down": 1,
+            "yardLine": 35,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at CLE 35",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "CLE 35",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "5"
           },
           "status": {
-            "clock": 777,
-            "displayClock": "12:57",
-            "period": 3,
+            "clock": 900,
+            "displayClock": "15:00",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "12:57 - 3rd Quarter",
-              "shortDetail": "12:57 - 3rd"
+              "detail": "15:00 - 4th Quarter",
+              "shortDetail": "15:00 - 4th"
             },
             "isTBDFlex": false
           },
@@ -443,8 +453,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "14/17, 181 YDS, 1 TD",
-                  "value": 181,
+                  "displayValue": "17/22, 197 YDS, 1 TD",
+                  "value": 197,
                   "athlete": {
                     "id": "3122840",
                     "fullName": "Deshaun Watson",
@@ -483,8 +493,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "12 CAR, 61 YDS",
-                  "value": 61,
+                  "displayValue": "14 CAR, 79 YDS",
+                  "value": 79,
                   "athlete": {
                     "id": "4569987",
                     "fullName": "Jaylen Warren",
@@ -630,8 +640,8 @@
       ],
       "weather": {
         "displayValue": "7",
-        "temperature": 80,
-        "highTemperature": 80,
+        "temperature": 79,
+        "highTemperature": 79,
         "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
@@ -646,17 +656,17 @@
         }
       },
       "status": {
-        "clock": 777,
-        "displayClock": "12:57",
-        "period": 3,
+        "clock": 900,
+        "displayClock": "15:00",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "12:57 - 3rd Quarter",
-          "shortDetail": "12:57 - 3rd"
+          "detail": "15:00 - 4th Quarter",
+          "shortDetail": "15:00 - 4th"
         }
       },
       "tuneInPrompt": {
@@ -664,9 +674,9 @@
         "isAutomated": false,
         "title": "Consecutive Completions",
         "description": "Tune-in Prompt 401872964",
-        "caption": "Deshaun Watson has 12 completions in a row.",
+        "caption": "Deshaun Watson has 13 completions in a row.",
         "rating": "Unrated",
-        "shortText": "Deshaun Watson has 12 completions in a row.",
+        "shortText": "Deshaun Watson has 13 completions in a row.",
         "images": [
           {
             "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3122840.png",
@@ -865,24 +875,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -1004,6 +996,24 @@
                     }
                   ]
                 }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-2"
+                }
               ]
             },
             {
@@ -1115,6 +1125,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -1235,24 +1263,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-1"
                 }
               ]
             }
@@ -2482,7 +2492,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $243",
-              "numberAvailable": 2794,
+              "numberAvailable": 2802,
               "links": [
                 {
                   "href": "https://www.vividseats.com/buffalo-bills-tickets-orchard-park-highmark-stadium-3-5-2026/production/6488357?wsUser=717"
@@ -3548,7 +3558,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $277",
-              "numberAvailable": 2913,
+              "numberAvailable": 2972,
               "links": [
                 {
                   "href": "https://www.vividseats.com/chicago-bears-tickets-chicago-soldier-field-3-7-2026/production/6488798?wsUser=717"
@@ -4625,7 +4635,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $108",
-              "numberAvailable": 3424,
+              "numberAvailable": 3392,
               "links": [
                 {
                   "href": "https://www.vividseats.com/cincinnati-bengals-tickets-cincinnati-paycor-stadium-3-4-2026/production/6489032?wsUser=717"
@@ -7855,8 +7865,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $93",
-              "numberAvailable": 5062,
+              "summary": "Tickets as low as $92",
+              "numberAvailable": 5029,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tampa-bay-buccaneers-tickets-tampa-raymond-james-stadium-3-4-2027/production/6496265?wsUser=717"
@@ -8933,7 +8943,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $61",
-              "numberAvailable": 5346,
+              "numberAvailable": 5354,
               "links": [
                 {
                   "href": "https://www.vividseats.com/baltimore-ravens-tickets-baltimore-mt-bank-stadium-3-5-2026/production/6487397?wsUser=717"
@@ -11865,6 +11875,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-0"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-0"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -11985,24 +12013,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-0"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-0"
                 }
               ]
             }
@@ -12164,7 +12174,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $295",
-              "numberAvailable": 4637,
+              "numberAvailable": 4765,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-las-vegas-allegiant-stadium-3-2-2026/production/6491232?wsUser=717"
@@ -13240,8 +13250,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $115",
-              "numberAvailable": 6314,
+              "summary": "Tickets as low as $128",
+              "numberAvailable": 6312,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-santa-clara-levis-stadium-3-4-2027/production/6495881?wsUser=717"
@@ -15395,7 +15405,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $122",
-              "numberAvailable": 3029,
+              "numberAvailable": 3033,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-charlotte-bank-of-america-stadium-3-4-2026/production/6488715?wsUser=717"
@@ -18434,7 +18444,7 @@
     ],
     "Cleveland Browns": [
       {
-        "longComment": "Graham suffered a knee injury early in the contest and was shown limping to the locker room with the training staff. If Graham doesn't return Thursday, Adin Huntington may be more involved the rest of the way.",
+        "longComment": "Graham suffered a knee injury early in the first half and was ruled out shortly after halftime. The second-year pro didn't record any defensive statistics prior to his exit. Mike Hall suffered an ankle injury in the contest and is questionable to return, leaving Maliek Collins and Adin Huntington as Cleveland's only defensive tackles.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Mason Graham",
@@ -20557,7 +20567,7 @@
     ],
     "Pittsburgh Steelers": [
       {
-        "longComment": "Pittsburgh was already lacking depth at the cornerback position ahead of this contest, so Dean's injury isn't good news as it relates to slowing down the surging Browns offense. If Dean can't return in Week 4, Daylen Everette should see more snaps.",
+        "longComment": "Dean was injured in the first half and ruled out shortly after halftime. Prior to his exit, he recorded one tackle and one defensed pass. Per Fittipaldo, Daylen Everette will likely take over for Dean for the remainder of Thursday Night Football.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jamel Dean",
@@ -21606,7 +21616,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-02T02:13:29.658Z",
+    "checkedAt": "2026-10-02T02:46:38.707Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
