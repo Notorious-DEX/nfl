@@ -768,7 +768,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.16</span></h1>
+            <h1>🏈 BROpicks <span style="font-size: 0.4em; color: #95a5a6; font-weight: 400;">v0.17</span></h1>
             <p class="tagline">Advanced NFL Predictions & Matchup Analysis</p>
             <div class="week-indicator" id="weekIndicator">Loading...</div>
             <div id="dataSourceNotice" class="data-source-notice" style="display:none;"></div>
@@ -2563,15 +2563,17 @@
                 const actualAwayScore = parseInt(awayComp.score) || 0;
                 const actualWinner = actualHomeScore > actualAwayScore ? homeTeam : awayTeam;
 
+                const locked = typeof officialPickForGame === 'function' ? officialPickForGame(game) : null;
                 const archived = (typeof allAccuracyGames !== 'undefined' ? allAccuracyGames : []).find((row) =>
-                    String(row.gameId) === String(game.id) ||
-                    (row.homeTeam === homeTeam && row.awayTeam === awayTeam)
+                    String(row.gameId) === String(game.id)
                 );
                 const savedPrediction = predictions[game.id];
                 let prediction = null;
                 let predictionFailed = false;
 
-                if (archived && archived.winner) {
+                if (locked && locked.winner) {
+                    prediction = locked;
+                } else if (archived && archived.winner) {
                     prediction = { winner: archived.winner };
                 } else if (savedPrediction && savedPrediction.prediction && savedPrediction.prediction.winner) {
                     prediction = savedPrediction.prediction;

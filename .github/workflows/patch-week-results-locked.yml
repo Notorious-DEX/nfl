@@ -1,0 +1,24 @@
+name: Grade Week Results from locked pick
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/week-results-locked-pick]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-week-results-locked.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html VERSION
+          git diff --staged --quiet || (git commit -m "Grade Week Results from locked pick [skip ci]" && git push)
