@@ -1,713 +1,7 @@
 {
-  "lastUpdated": "2026-10-05T02:47:23.896Z",
+  "lastUpdated": "2026-10-05T05:24:03.541Z",
   "currentWeek": 4,
   "games": [
-    {
-      "id": "401872978",
-      "uid": "s:20~l:28~e:401872978",
-      "date": "2026-10-05T00:20Z",
-      "name": "Detroit Lions at Carolina Panthers",
-      "shortName": "DET @ CAR",
-      "season": {
-        "year": 2026,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 4
-      },
-      "competitions": [
-        {
-          "id": "401872978",
-          "uid": "s:20~l:28~e:401872978~c:401872978",
-          "date": "2026-10-05T00:20Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": false,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": true,
-          "recent": true,
-          "venue": {
-            "id": "3628",
-            "fullName": "Bank of America Stadium",
-            "address": {
-              "city": "Charlotte",
-              "state": "NC",
-              "country": "USA"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "29",
-              "uid": "s:20~l:28~t:29",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "29",
-                "uid": "s:20~l:28~t:29",
-                "location": "Carolina",
-                "name": "Panthers",
-                "abbreviation": "CAR",
-                "displayName": "Carolina Panthers",
-                "shortDisplayName": "Panthers",
-                "color": "0085ca",
-                "alternateColor": "000000",
-                "isActive": true,
-                "venue": {
-                  "id": "3628"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/car/carolina-panthers",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/car/carolina-panthers",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:29&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/car/carolina-panthers",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:29&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/car",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:29&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png"
-              },
-              "score": "29",
-              "linescores": [
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 1
-                },
-                {
-                  "value": 9,
-                  "displayValue": "9",
-                  "period": 2
-                },
-                {
-                  "value": 13,
-                  "displayValue": "13",
-                  "period": 3
-                },
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 4
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-1"
-                }
-              ]
-            },
-            {
-              "id": "8",
-              "uid": "s:20~l:28~t:8",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "8",
-                "uid": "s:20~l:28~t:8",
-                "location": "Detroit",
-                "name": "Lions",
-                "abbreviation": "DET",
-                "displayName": "Detroit Lions",
-                "shortDisplayName": "Lions",
-                "color": "0076b6",
-                "alternateColor": "bbbbbb",
-                "isActive": true,
-                "venue": {
-                  "id": "3727"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/det/detroit-lions",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/det/detroit-lions",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:8&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/det/detroit-lions",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:8&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/det",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:8&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/det.png"
-              },
-              "score": "19",
-              "linescores": [
-                {
-                  "value": 3,
-                  "displayValue": "3",
-                  "period": 1
-                },
-                {
-                  "value": 13,
-                  "displayValue": "13",
-                  "period": 2
-                },
-                {
-                  "value": 3,
-                  "displayValue": "3",
-                  "period": 3
-                },
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 4
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-1"
-                }
-              ]
-            }
-          ],
-          "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4018729783429",
-              "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
-              },
-              "text": "Official Timeout at 14:43.",
-              "scoreValue": 0,
-              "team": {
-                "id": "29"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.8541,
-                "awayWinPercentage": 0.14590000000000003,
-                "secondsLeft": 0
-              },
-              "statYardage": 0,
-              "drive": {
-                "description": "7 plays, 27 yards, 3:04",
-                "start": {
-                  "yardLine": 75,
-                  "text": "DET 25"
-                },
-                "end": {
-                  "yardLine": 48,
-                  "text": "CAR 48"
-                },
-                "timeElapsed": {
-                  "displayValue": "3:04"
-                },
-                "result": "PUNT"
-              },
-              "start": {
-                "yardLine": 14,
-                "team": {
-                  "id": "29"
-                }
-              },
-              "end": {
-                "yardLine": 14,
-                "team": {
-                  "id": "29"
-                }
-              }
-            },
-            "down": 1,
-            "yardLine": 14,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at CAR 14",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "CAR 14",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "29"
-          },
-          "status": {
-            "clock": 883,
-            "displayClock": "14:43",
-            "period": 4,
-            "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "14:43 - 4th Quarter",
-              "shortDetail": "14:43 - 4th"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "NBC"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "24/30, 282 YDS, 2 TD",
-                  "value": 282,
-                  "athlete": {
-                    "id": "4685720",
-                    "fullName": "Bryce Young",
-                    "displayName": "Bryce Young",
-                    "shortName": "B. Young",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4685720/bryce-young"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685720.png",
-                    "jersey": "9",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "29"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "29"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "14 CAR, 68 YDS, 2 TD",
-                  "value": 68,
-                  "athlete": {
-                    "id": "4241416",
-                    "fullName": "Chuba Hubbard",
-                    "displayName": "Chuba Hubbard",
-                    "shortName": "C. Hubbard",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4241416/chuba-hubbard"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241416.png",
-                    "jersey": "30",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "29"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "29"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "11 REC, 162 YDS, 2 TD",
-                  "value": 162,
-                  "athlete": {
-                    "id": "4685472",
-                    "fullName": "Tetairoa McMillan",
-                    "displayName": "Tetairoa McMillan",
-                    "shortName": "T. McMillan",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4685472/tetairoa-mcmillan"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685472.png",
-                    "jersey": "4",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "29"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "29"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            },
-            "overtime": {
-              "periods": 1
-            }
-          },
-          "startDate": "2026-10-05T00:20Z",
-          "broadcast": "NBC",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "1",
-                "shortName": "TV"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "NBC"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "live",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game?gameId=401872978",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "boxscore",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401872978",
-          "text": "Box Score",
-          "shortText": "Box Score",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "pbp",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401872978",
-          "text": "Play-by-Play",
-          "shortText": "Play-by-Play",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "7",
-        "temperature": 64,
-        "highTemperature": 64,
-        "conditionId": "Cloudy",
-        "link": {
-          "language": "en-US",
-          "rel": [
-            "28202"
-          ],
-          "href": "http://www.accuweather.com/en/us/bank-of-america-stadium-nc/28202/current-weather/53601_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
-          "isPremium": false
-        }
-      },
-      "status": {
-        "clock": 883,
-        "displayClock": "14:43",
-        "period": 4,
-        "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "14:43 - 4th Quarter",
-          "shortDetail": "14:43 - 4th"
-        }
-      },
-      "tuneInPrompt": {
-        "id": "93dc0bdd40eac",
-        "isAutomated": false,
-        "title": "Big-Play Clinic",
-        "description": "Tune-in Prompt 401872978",
-        "caption": "Tetairoa McMillan has 162 receiving yards through 3 quarters.",
-        "rating": "Unrated",
-        "shortText": "Tetairoa McMillan has 162 receiving yards through 3 quarters.",
-        "images": [
-          {
-            "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4685472.png",
-            "alt": "Tetairoa McMillan"
-          }
-        ],
-        "imageType": "playerHeadshot",
-        "backgroundImages": [
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "default"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "dark"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/car.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard",
-              "dark"
-            ]
-          }
-        ],
-        "color": "0085ca",
-        "alternateColor": "000000"
-      }
-    },
     {
       "id": "401872979",
       "uid": "s:20~l:28~e:401872979",
@@ -1107,6 +401,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -1227,24 +539,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-1"
                 }
               ]
             }
@@ -1405,8 +699,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $127",
-              "numberAvailable": 2191,
+              "summary": "Tickets as low as $121",
+              "numberAvailable": 2107,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-orleans-saints-tickets-new-orleans-caesars-superdome-3-1-2027/production/6493107?wsUser=717"
@@ -1442,7 +736,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1458,7 +752,7 @@
                     ]
                   }
                 ],
-                "displayName": "Draft Kings"
+                "displayName": "DraftKings"
               },
               "details": "NO -1.5",
               "overUnder": 47.5,
@@ -1501,7 +795,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118279%3Foutcomes%3D0ML84695722_1",
                       "text": "Home Bet",
@@ -1533,7 +827,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118279%3Foutcomes%3D0ML84695722_3",
                       "text": "Away Bet",
@@ -2865,7 +2159,7 @@
       },
       {
         "longComment": "Smythe joins an extensive list of Baltimore injuries in Week 4. Without Smythe on the field for the remainder of Sunday's meeting with Tennessee, Matthew Hibner and Josh Cuevas could see some snaps behind Mark Andrews.",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Durham Smythe",
           "position": "TE"
@@ -3048,6 +2342,36 @@
     ],
     "Carolina Panthers": [
       {
+        "longComment": "Phillips is also being evaluated for a concussion, making it unlikely that he'll be able to return to the field before the game's conclusion. In his absence, Trevis Gipson and Princely Umanmielen are both candidates to see an increase in workload at outside linebacker.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jaelan Phillips",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Freeling suffered a knee injury in the third quarter, and his night has now officially come to a premature end. In his absence, Stone Forsythe has taken over as the team's starting right tackle. Freeling will have a chance to get some extra rest during the team's bye week in Week 5 before Carolina returns to action Oct. 18 against the Eagles.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Monroe Freeling",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Jackson will be forced to miss Week 4 as he nurses a knee injury. In his absence, Lee Hunter will handle the lion's share of snaps at nose tackle versus Detroit.",
         "status": "Out",
         "athlete": {
@@ -3078,7 +2402,7 @@
         }
       },
       {
-        "longComment": "Coker thus will miss his first contest of the season due to a quadriceps issue that he picked up last Sunday in Cleveland. He was able to log limited sessions Thursday and Friday, so his absence in Week 4 may be the Panthers exercising caution with a Week 5 bye on tap to ensure he's good to go afterward. With Coker out of the lineup this weekend and Xavier Legette (knee) getting moved to IR on Saturday, Tetairoa McMillan will be Carolina's clear-cut No. 1 pass catcher Sunday, with Brycen Tremayne, John Metchie, David Moore and Ja'seem Reed the options to fill in the other wide receivers spots.",
+        "longComment": "Coker thus will miss his first contest of the season due to a quadriceps issue that he picked up last Sunday in Cleveland. He was able to log limited sessions Thursday and Friday, so his absence in Week 4 may be the Panthers exercising caution with a Week 5 bye on tap to ensure he's good to go afterward. With Coker out of the lineup this weekend and Xavier Legette (knee) getting moved to IR on Saturday, Tetairoa McMillan will be Carolina's clear-cut No. 1 pass catcher Sunday, with Brycen Tremayne, John Metchie, David Moore and Ja'seem Reed the options to fill in the other wide receiver spots.",
         "status": "Out",
         "athlete": {
           "displayName": "Jalen Coker",
@@ -3538,6 +2862,21 @@
     ],
     "Denver Broncos": [
       {
+        "longComment": "Surtain will undergo further testing to determine the extent of his injury, but his Achilles is intact, according to Pelissero. The star cornerback was injured on a non-contact play in the first half and headed to the locker room. With Riley Moss (ribs) also dinged up against San Francisco, Jahdae Barron, Kris Abrams-Draine and Ja'Quan McMillian closed out the game at cornerback for Denver.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Pat Surtain II",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Bryant was injured at the tail end of a catch in the second half and had to be carted to the locker room. That he's being considered questionable to return may suggest it's not a serious injury for Bryant. Prior to leaving, he caught all three of his targets for 47 yards. Marvin Mims and Troy Franklin are next in line for snaps behind Jaylen Waddle and Courtland Sutton.",
         "status": "Questionable",
         "athlete": {
@@ -3554,24 +2893,9 @@
       },
       {
         "longComment": "After Patrick Surtain (ankle) exited the contest, Moss followed suit. Now, with both Surtain and Moss officially ruled out for the remainder of Sunday's meeting with the 49ers, Kris Abrams-Draine and Jahdae Barron should see more work for the rest of Week 4.",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Riley Moss",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Surtain suffered a non-contact injury in the first half and needed assistance off the field. He was initially listed as questionable to return, though most had assumed at that point he wouldn't be back on the field again in Week 4. With Riley Moss (ribs) also ruled out, Kris Abrams-Draine and Jahdae Barron will need to step up the rest of the way.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Pat Surtain II",
           "position": "CB"
         },
         "depthChartPosition": null,
@@ -3615,7 +2939,7 @@
     ],
     "Detroit Lions": [
       {
-        "longComment": "Ya-Sin is dealing with a hamstring injury, and his status for the rest of the game is now uncertain. In his absence, D.J. Reed and Ennis Rakestraw will operate as the primary options at cornerback for Detroit.",
+        "longComment": "Ya-Sin suffered a hamstring injury in the second half, and his night has now officially come to a premature end. The Lions are having a fair amount of trouble stopping the Panthers' passing attack, and Detroit will now be even thinner in the secondary for the stretch run of the contest.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Rock Ya-Sin",
@@ -3708,7 +3032,7 @@
       },
       {
         "longComment": "Cooper did not return in Week 4 after sustaining the injury. While nothing has been confirmed, head coach Matt LaFleur \"suspects\" Cooper is done for the remainder of the 2026 campaign. If that's the case, it would be a tough blow, considering the 24-year-old amassed 21 total tackles (14 solo) and 2.0 sacks heading into Sunday's meeting with the Buccaneers.",
-        "status": "Questionable",
+        "status": "Doubtful",
         "athlete": {
           "displayName": "Edgerrin Cooper",
           "position": "LB"
@@ -3844,6 +3168,21 @@
     ],
     "Houston Texans": [
       {
+        "longComment": "Crumedy exited the game with a shoulder injury in the second half, finishing his day having recorded one tackles, including 0.5 sacks. The defensive tackle's first chance to prove his health ahead of Week 5 will come Wednesday at the team's first practice session of the week.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jaden Crumedy",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Smith was injured on special teams in the first half. He entered Sunday having logged just seven defensive snaps across the first three weeks of the season.",
         "status": "Questionable",
         "athlete": {
@@ -3864,21 +3203,6 @@
         "athlete": {
           "displayName": "Kenneth Murray Jr.",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jaden Crumedy",
-          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4060,7 +3384,7 @@
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "Thornton had his dislocated ankle put back into place by doctors Sunday and flew home with the team, but he's facing an extended absence due to the injury he sustained in the fourth quarter of Sunday's win in Vegas. He scored twice before getting injured at the end of a 55-yard catch, which brought Thornton up to five receptions for 111 yards on eight targets. Thornton will undergo a full evaluation of the injured left ankle Monday morning.",
+        "longComment": "Thornton was injured at the end of a long catch in the fourth quarter when he was tackled from behind, as the defender fell on his ankle. It was an obviously serious injury, with Thornton's foot pointing in the wrong direction. He was put in a cast and carted off the field. Thornton was having a career game in Las Vegas, catching five of eight targets for 111 yards and two touchdowns prior to his injury. Jalen Royals is next up at wideout alongside Xavier Worthy after Rashee Rice (hamstring) left with an injury earlier in the day Sunday.",
         "status": "Out",
         "athlete": {
           "displayName": "Tyquan Thornton",
@@ -4075,7 +3399,7 @@
         }
       },
       {
-        "longComment": "Considering the downgrade from questionable to doubtful, Rice appears poised to finish Week 4 without a target in about half of a quarter of play. Xavier Worthy, Tyquan Thornton, Jalen Royals and Cyrus Allen will be the primary wide receivers available to QB Patrick Mahomes for as long as Rice is sidelined.",
+        "longComment": "Considering the downgrade from questionable to doubtful, Rice appears poised to finish Week 4 without a target in about half a quarter of play. Xavier Worthy, Tyquan Thornton, Jalen Royals and Cyrus Allen will be the primary wide receivers available to QB Patrick Mahomes for as long as Rice is sidelined.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Rashee Rice",
@@ -4413,6 +3737,21 @@
     ],
     "Miami Dolphins": [
       {
+        "longComment": "Woodard recorded one solo tackle before his departure from the contest. It's unclear how bad the ankle injury is, and his status at the team's first practice of the week Wednesday will shed a better light on his status for Week 5 against Cincinnati.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jackson Woodard",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Taylor suffered a quad injury in the first half, and his day will ultimately come to a premature end. The cornerback operates primary as a special-teams option, so his absence won't have much of an impact on Miami's defense.",
         "status": "Questionable",
         "athlete": {
@@ -4433,21 +3772,6 @@
         "athlete": {
           "displayName": "Dante Trader Jr.",
           "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jackson Woodard",
-          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4933,11 +4257,11 @@
     ],
     "New York Jets": [
       {
-        "longComment": "Prior to his departure, McGregor recorded one solo tackle. He entered Week 4 having logged just 24.1 percent of the Jets' defensive snaps as a rotational defensive lineman and special-teams contributor.",
+        "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Braiden McGregor",
-          "position": "DE"
+          "displayName": "Jarvis Brownlee Jr.",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4948,11 +4272,11 @@
         }
       },
       {
-        "longComment": "Brownlee exited the contest to be evaluated for a concussion and was replaced by rookie D'Angelo Ponds. If Brownlee can't suit up in Week 5 against the Browns, Ponds may be needed to fill the void in the slot.",
-        "status": "Out",
+        "longComment": "Prior to his departure, McGregor recorded one solo tackle. He entered Week 4 having logged just 24.1 percent of the Jets' defensive snaps as a rotational defensive lineman and special-teams contributor.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Jarvis Brownlee Jr.",
-          "position": "CB"
+          "displayName": "Braiden McGregor",
+          "position": "DE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -5086,7 +4410,7 @@
       },
       {
         "longComment": "Greenard suffered an ankle injury and was initially listed as questionable to return. However, he has since been ruled out for the remainder of Sunday's contest. Without Greenard on the field, Nolan Smith and Jalyx Hunt are in line for more defensive snaps the rest of the way.",
-        "status": "Out",
+        "status": "Questionable",
         "athlete": {
           "displayName": "Jonathan Greenard",
           "position": "LB"
@@ -5357,26 +4681,11 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Williams spent his first practice back with the 49ers as a limited participant. The team has until Oct. 21. to add the linebacker to the 53-man roster, or he will remain on the reserve/PUP list for the remainder of the 2026 season. Williams is still recovering from a torn ACL he suffered in November 2025, but he'll be eligible to suit up as early as Week 5.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Mykel Williams",
-          "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Seattle Seahawks": [
       {
-        "longComment": "questionable",
+        "longComment": "Prior to his departure, Williams recorded just one quarterback hit. Jarran Reed and Rylie Mills should see more snaps alongside Byron Murphy while Williams nurses his injury.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Leonard Williams",
@@ -6121,7 +5430,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-05T02:47:23.413Z",
+    "checkedAt": "2026-10-05T05:24:03.303Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
