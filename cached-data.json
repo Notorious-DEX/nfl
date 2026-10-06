@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06T01:18:45.586Z",
+  "lastUpdated": "2026-10-06T02:59:28.988Z",
   "currentWeek": 4,
   "games": [
     {
@@ -146,7 +146,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/no.png"
               },
-              "score": "7",
+              "score": "17",
               "linescores": [
                 {
                   "value": 0,
@@ -157,6 +157,16 @@
                   "value": 7,
                   "displayValue": "7",
                   "period": 2
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -286,7 +296,7 @@
                 ],
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png"
               },
-              "score": "14",
+              "score": "31",
               "linescores": [
                 {
                   "value": 14,
@@ -294,9 +304,19 @@
                   "period": 1
                 },
                 {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -326,52 +346,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729791417",
+              "id": "4018729793626",
               "type": {
                 "id": "5",
                 "text": "Rush",
                 "abbreviation": "RUSH"
               },
-              "text": " Br.Robinson up the middle to NO 42 for 2 yards (C.Jordan; P.Werner).",
+              "text": " Bi.Robinson right end to NO 31 for 5 yards (J.Sanker; Q.Riley).",
               "scoreValue": 0,
               "team": {
                 "id": "1"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.342,
-                "awayWinPercentage": 0.6579999999999999,
+                "homeWinPercentage": 0.0165,
+                "awayWinPercentage": 0.9835,
                 "secondsLeft": 0
               },
-              "statYardage": 2,
+              "statYardage": 5,
               "drive": {
-                "description": "4 plays, 23 yards, 1:51",
+                "description": "4 plays, 41 yards, 2:18",
                 "start": {
-                  "yardLine": 65,
-                  "text": "ATL 35"
+                  "yardLine": 72,
+                  "text": "ATL 28"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:51"
+                  "displayValue": "2:18"
                 }
               },
               "start": {
-                "yardLine": 44,
+                "yardLine": 36,
                 "team": {
                   "id": "1"
                 }
               },
               "end": {
-                "yardLine": 42,
+                "yardLine": 31,
                 "team": {
                   "id": "1"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4241474",
-                  "fullName": "Brian Robinson Jr.",
-                  "displayName": "Brian Robinson Jr.",
-                  "shortName": "B. Robinson Jr.",
+                  "id": "4430807",
+                  "fullName": "Bijan Robinson",
+                  "displayName": "Bijan Robinson",
+                  "shortName": "B. Robinson",
                   "links": [
                     {
                       "rel": [
@@ -379,11 +399,11 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4241474/brian-robinson-jr"
+                      "href": "https://www.espn.com/nfl/player/_/id/4430807/bijan-robinson"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241474.png",
-                  "jersey": "15",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430807.png",
+                  "jersey": "7",
                   "position": "RB",
                   "team": {
                     "id": "1"
@@ -391,29 +411,29 @@
                 }
               ]
             },
-            "down": 3,
-            "yardLine": 42,
-            "distance": 1,
-            "downDistanceText": "3rd & 1 at NO 42",
-            "shortDownDistanceText": "3rd & 1",
-            "possessionText": "NO 42",
+            "down": 1,
+            "yardLine": 31,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at NO 31",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "NO 31",
             "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
+            "awayTimeouts": 3,
             "possession": "1"
           },
           "status": {
-            "clock": 786,
-            "displayClock": "13:06",
-            "period": 2,
+            "clock": 642,
+            "displayClock": "10:42",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "13:06 - 2nd Quarter",
-              "shortDetail": "13:06 - 2nd"
+              "detail": "10:42 - 4th Quarter",
+              "shortDetail": "10:42 - 4th"
             },
             "isTBDFlex": false
           },
@@ -433,8 +453,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "7/10, 100 YDS",
-                  "value": 100,
+                  "displayValue": "22/37, 234 YDS",
+                  "value": 234,
                   "athlete": {
                     "id": "4360689",
                     "fullName": "Tyler Shough",
@@ -473,8 +493,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "7 CAR, 78 YDS, 2 TD",
-                  "value": 78,
+                  "displayValue": "19 CAR, 145 YDS, 2 TD",
+                  "value": 145,
                   "athlete": {
                     "id": "4430807",
                     "fullName": "Bijan Robinson",
@@ -513,13 +533,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "1 REC, 44 YDS",
-                  "value": 44,
+                  "displayValue": "5 REC, 96 YDS",
+                  "value": 96,
                   "athlete": {
-                    "id": "4361370",
-                    "fullName": "Chris Olave",
-                    "displayName": "Chris Olave",
-                    "shortName": "C. Olave",
+                    "id": "4426502",
+                    "fullName": "Drake London",
+                    "displayName": "Drake London",
+                    "shortName": "D. London",
                     "links": [
                       {
                         "rel": [
@@ -527,21 +547,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4361370/chris-olave"
+                        "href": "https://www.espn.com/nfl/player/_/id/4426502/drake-london"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361370.png",
-                    "jersey": "12",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426502.png",
+                    "jersey": "5",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "18"
+                      "id": "1"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "18"
+                    "id": "1"
                   }
                 }
               ]
@@ -634,8 +654,8 @@
       ],
       "weather": {
         "displayValue": "7",
-        "temperature": 78,
-        "highTemperature": 78,
+        "temperature": 76,
+        "highTemperature": 76,
         "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
@@ -650,17 +670,17 @@
         }
       },
       "status": {
-        "clock": 786,
-        "displayClock": "13:06",
-        "period": 2,
+        "clock": 642,
+        "displayClock": "10:42",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "13:06 - 2nd Quarter",
-          "shortDetail": "13:06 - 2nd"
+          "detail": "10:42 - 4th Quarter",
+          "shortDetail": "10:42 - 4th"
         }
       }
     }
@@ -1663,7 +1683,7 @@
     ],
     "Atlanta Falcons": [
       {
-        "longComment": "Matthews exited Monday's contest in the first quarter with a groin injury. The left tackle promptly returned to the game and was blocking for Bijan Robinson on his second touchdown of the night near the end of the first quarter. In his absence, Michael Jerrell has replaced Matthews on the offensive line.",
+        "longComment": "Matthews sustained a groin injury toward the end of the first quarter, and after being evaluated by medical staff, it has been determined that the veteran offensive lineman will not return ot Monday night's game. Michael Jerrell will remain at left tackle the rest of the way in Matthews' absence.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jake Matthews",
@@ -1678,7 +1698,7 @@
         }
       },
       {
-        "longComment": "Smith took a knee to the helmet early in the first quarter and was down on the field for several minutes, but the veteran pass rusher was able to jog off the field and into the blue medical tent. Cameron Thomas and Yasir Abdullah should both see more defensive snaps for as long as Smith is on the sidelines being evaluated by medical staff.",
+        "longComment": "Smith exited the contest in the first quarter after being down on the field for several minutes. An independent neurologist ruled that the outside linebacker had sustained a concussion, and he will not be allowed to return to the game. Smith will now enter the league's five-step protocol to return to full contact play.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Za'Darius Smith",
@@ -2382,6 +2402,21 @@
     ],
     "Dallas Cowboys": [
       {
+        "longComment": "Smith was cleared to return to practice Monday after spending the first four weeks of the 2026 regular season on injured reserve. The offensive guard was limited in his first session back and has three full weeks to upgrade to a full participant before he will be forced to return to the active roster or miss the remainder of the 2026 season.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Tyler Smith",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Overshown has sat out Dallas' last three contests due to a hamstring injury he suffered in Week 1 against the Giants, and his availability for Thursday is now in doubt as well. He'll probably need to practice in some capacity Tuesday or Wednesday to put himself in a position to play in Week 5.",
         "status": "Out",
         "athlete": {
@@ -2417,21 +2452,6 @@
         "athlete": {
           "displayName": "Drew Shelton",
           "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Smith missed the Cowboys' first four games of the season after undergoing surgery in early September to address a thumb injury, but he looks like he'll have a chance at returning to action when first eligible Week 5. Per Nick Harris of the Fort Worth Star-Telegram, the Cowboys are aiming for the three-time Pro Bowler to return to action Thursday versus the Buccaneers, providing he responds well to practice over the next few days. Once he's reinstated, Smith will take over as the Cowboys' starting left guard, sending T.J. Bass back to the bench.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Tyler Smith",
-          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2860,21 +2880,6 @@
         "athlete": {
           "displayName": "British Brooks",
           "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Stewart opened the season on the PUP list and was designated to return Sept. 23. He began this week with a limited practice session Wednesday before upgrading to full participation Thursday. Stewart isn't eligible to play this Sunday, but he could make his season debut in Week 5 against Tennessee.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "M.J. Stewart",
-          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3895,21 +3900,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Dart's ACL and PCL were apparently spared, but the quarterback remains done for the 2026 regular season after he was injured in the first quarter of Week 2 against the Rams. It's unclear if Dart could make a postseason return if the Giants are able to make it that far. Jameis Winston and newly acquired J.J. McCarthy will handle quarterback duties moving forward this season.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jaxson Dart",
-          "position": "QB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "New York Jets": [
@@ -4047,15 +4037,30 @@
           "description": "basic/manual",
           "state": "basic"
         }
+      },
+      {
+        "longComment": "Onyemata was injured during the 20-17 overtime loss to Green Bay in Week 2. He was placed on the injured reserve list Tuesday, and while that means he will miss at least four games, he is anticipated to be out longer, though head coach Aaron Glenn expects him back before the end of the season. While Onyemata is out of commission, Darrell Jackson, Jowon Briggs, T'Vondre Sweat and Harrison Phillips will presumably see more snaps in each game moving ahead.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "David Onyemata",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
       }
     ],
     "Philadelphia Eagles": [
       {
-        "longComment": "After exiting early in Sunday's loss to the Rams with the hamstring issue, Barkley now appears likely to miss at least some time. However, the Eagles -- and Barkley's fantasy managers -- can breathe a sign of relief since the injury doesn't appear likely to sideline the star running back for a substantial period of time. With Tank Bigsby (abdomen) expected to land on IR, Philadelphia's backfield is down to just Will Shipley among healthy options on the active roster. The Eagles will likely turn to one or more of Jaydon Blue, Dameon Pierce and Carson Steele from the practice squad for Week 5 and potentially beyond.",
+        "longComment": "Jurgens self-reported concussion symptoms Monday morning and was deemed to have sustained a concussion during the Eagles' Week 4 loss to the Rams. The starting left guard will now need to progress through the league's five-step protocol to return to full practice and be cleared to participate in Sunday's game against the Jaguars in London.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Saquon Barkley",
-          "position": "RB"
+          "displayName": "Cam Jurgens",
+          "position": "C"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4066,11 +4071,11 @@
         }
       },
       {
-        "longComment": "questionable",
+        "longComment": "After exiting early in Sunday's loss to the Rams with the hamstring issue, Barkley now appears likely to miss at least some time. However, the Eagles -- and Barkley's fantasy managers -- can breathe a sign of relief since the injury doesn't appear likely to sideline the star running back for a substantial period of time. With Tank Bigsby (abdomen) expected to land on IR, Philadelphia's backfield is down to just Will Shipley among healthy options on the active roster. The Eagles will likely turn to one or more of Jaydon Blue, Dameon Pierce and Carson Steele from the practice squad for Week 5 and potentially beyond.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Cam Jurgens",
-          "position": "C"
+          "displayName": "Saquon Barkley",
+          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -5102,7 +5107,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-06T01:18:45.380Z",
+    "checkedAt": "2026-10-06T02:59:27.882Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
