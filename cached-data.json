@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-09T02:56:00.919Z",
+  "lastUpdated": "2026-10-09T03:18:54.504Z",
   "currentWeek": 5,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/dal.png"
               },
-              "score": "10",
+              "score": "16",
               "linescores": [
                 {
                   "value": 7,
@@ -165,8 +165,8 @@
                   "period": 3
                 },
                 {
-                  "value": 0,
-                  "displayValue": "0",
+                  "value": 6,
+                  "displayValue": "6",
                   "period": 4
                 }
               ],
@@ -348,51 +348,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018729803646",
+              "id": "4018729804233",
               "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": " (No Huddle, Shotgun) D.Prescott pass incomplete deep left to J.Mingo.",
+              "text": " J.Daniels kneels to TB 30 for -1 yards.",
               "scoreValue": 0,
               "team": {
-                "id": "6"
+                "id": "27"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.0573,
-                "awayWinPercentage": 0.9427,
+                "homeWinPercentage": 0.001,
+                "awayWinPercentage": 0.999,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": -1,
               "drive": {
-                "description": "6 plays, 68 yards, 2:13",
+                "description": "4 plays, 18 yards, 0:45",
                 "start": {
-                  "yardLine": 1,
-                  "text": "DAL 1"
+                  "yardLine": 88,
+                  "text": "TB 12"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:13"
+                  "displayValue": "0:45"
                 }
               },
               "start": {
                 "yardLine": 69,
                 "team": {
-                  "id": "6"
+                  "id": "27"
                 }
               },
               "end": {
-                "yardLine": 69,
+                "yardLine": 70,
                 "team": {
-                  "id": "6"
+                  "id": "27"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4426485",
-                  "fullName": "Jonathan Mingo",
-                  "displayName": "Jonathan Mingo",
-                  "shortName": "J. Mingo",
+                  "id": "4596472",
+                  "fullName": "Jalon Daniels",
+                  "displayName": "Jalon Daniels",
+                  "shortName": "J. Daniels",
                   "links": [
                     {
                       "rel": [
@@ -400,32 +401,32 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4426485/jonathan-mingo"
+                      "href": "https://www.espn.com/nfl/player/_/id/4596472/jalon-daniels"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426485.png",
-                  "jersey": "18",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4596472.png",
+                  "jersey": "10",
+                  "position": "QB",
                   "team": {
-                    "id": "6"
+                    "id": "27"
                   }
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 69,
-            "distance": 10,
-            "downDistanceText": "2nd & 10 at TB 31",
-            "shortDownDistanceText": "2nd & 10",
-            "possessionText": "TB 31",
+            "down": 3,
+            "yardLine": 70,
+            "distance": 12,
+            "downDistanceText": "3rd & 12 at TB 30",
+            "shortDownDistanceText": "3rd & 12",
+            "possessionText": "TB 30",
             "isRedZone": false,
-            "homeTimeouts": 3,
+            "homeTimeouts": 1,
             "awayTimeouts": 2,
-            "possession": "6"
+            "possession": "27"
           },
           "status": {
-            "clock": 379,
-            "displayClock": "6:19",
+            "clock": 31,
+            "displayClock": "0:31",
             "period": 4,
             "type": {
               "id": "2",
@@ -433,8 +434,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "6:19 - 4th Quarter",
-              "shortDetail": "6:19 - 4th"
+              "detail": "0:31 - 4th Quarter",
+              "shortDetail": "0:31 - 4th"
             },
             "isTBDFlex": false
           },
@@ -454,8 +455,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "17/33, 230 YDS, 1 INT",
-                  "value": 230,
+                  "displayValue": "24/42, 316 YDS, 1 TD, 2 INT",
+                  "value": 316,
                   "athlete": {
                     "id": "2577417",
                     "fullName": "Dak Prescott",
@@ -494,8 +495,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "17 CAR, 138 YDS, 1 TD",
-                  "value": 138,
+                  "displayValue": "21 CAR, 165 YDS, 1 TD",
+                  "value": 165,
                   "athlete": {
                     "id": "4596448",
                     "fullName": "Bucky Irving",
@@ -534,8 +535,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "6 REC, 96 YDS",
-                  "value": 96,
+                  "displayValue": "9 REC, 130 YDS, 1 TD",
+                  "value": 130,
                   "athlete": {
                     "id": "4426354",
                     "fullName": "George Pickens",
@@ -640,10 +641,10 @@
         }
       ],
       "weather": {
-        "displayValue": "33",
+        "displayValue": "34",
         "temperature": 76,
         "highTemperature": 76,
-        "conditionId": "Clear",
+        "conditionId": "Mostly clear",
         "link": {
           "language": "en-US",
           "rel": [
@@ -657,8 +658,8 @@
         }
       },
       "status": {
-        "clock": 379,
-        "displayClock": "6:19",
+        "clock": 31,
+        "displayClock": "0:31",
         "period": 4,
         "type": {
           "id": "2",
@@ -666,8 +667,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "6:19 - 4th Quarter",
-          "shortDetail": "6:19 - 4th"
+          "detail": "0:31 - 4th Quarter",
+          "shortDetail": "0:31 - 4th"
         }
       }
     },
@@ -820,24 +821,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-1"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -958,6 +941,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-1"
                 }
               ]
             },
@@ -2969,24 +2970,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -3107,6 +3090,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "0-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-2"
                 }
               ]
             },
@@ -7536,6 +7537,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -7656,24 +7675,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-1"
                 }
               ]
             }
@@ -8615,24 +8616,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-1"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -8753,6 +8736,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-1"
                 }
               ]
             }
@@ -8913,8 +8914,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $79",
-              "numberAvailable": 4115,
+              "summary": "Tickets as low as $78",
+              "numberAvailable": 4101,
               "links": [
                 {
                   "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-8-2027/production/6495169?wsUser=717"
@@ -9993,7 +9994,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $102",
-              "numberAvailable": 3941,
+              "numberAvailable": 3975,
               "links": [
                 {
                   "href": "https://www.vividseats.com/washington-commanders-tickets-landover-northwest-stadium-3-2-2026/production/6493301?wsUser=717"
@@ -12151,7 +12152,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $57",
-              "numberAvailable": 4974,
+              "numberAvailable": 4951,
               "links": [
                 {
                   "href": "https://www.vividseats.com/arizona-cardinals-tickets-glendale-state-farm-stadium-3-5-2026/production/6487006?wsUser=717"
@@ -13759,6 +13760,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "2-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -13879,24 +13898,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "2-1"
                 }
               ]
             },
@@ -15089,24 +15090,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-1"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-0"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -15227,6 +15210,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-1"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-0"
                 }
               ]
             }
@@ -15389,7 +15390,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $130",
-              "numberAvailable": 4660,
+              "numberAvailable": 4601,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-rams-tickets-inglewood-sofi-stadium-3-9-2026/production/6491666?wsUser=717"
@@ -17669,6 +17670,36 @@
       }
     ],
     "Dallas Cowboys": [
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Tyler Guyton",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Lamb was standing on the sideline with his helmet on in the fourth quarter, suggesting the injury isn't serious, but he watched as the offense marched down the field and put it in the end zone. Ryan Flournoy, Jonathan Mingo and KaVontae Turpin will soak up additional snaps at wideout, while George Pickens handles clear WR1 duties with Lamb sidelined. Prior to his injury, Lamb caught two of five targets for nine yards.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "CeeDee Lamb",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Clark is dealing with an apparent hamstring injury, and as a result, his night has come to a premature end. The safety plays primarily with the special-teams unit, so his absence won't impact the Cowboys' defense.",
         "status": "Questionable",
@@ -21350,7 +21381,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-09T02:56:00.393Z",
+    "checkedAt": "2026-10-09T03:18:53.944Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
