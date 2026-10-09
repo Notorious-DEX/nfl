@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-09T00:18:23.707Z",
+  "lastUpdated": "2026-10-09T02:56:00.919Z",
   "currentWeek": 5,
   "games": [
     {
@@ -147,12 +147,27 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/dal.png"
               },
-              "score": "0",
+              "score": "10",
               "linescores": [
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 1
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 2
+                },
                 {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 1
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -283,12 +298,27 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/tb.png"
               },
-              "score": "0",
+              "score": "24",
               "linescores": [
                 {
                   "value": 0,
                   "displayValue": "0",
                   "period": 1
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
+                  "value": 17,
+                  "displayValue": "17",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -318,52 +348,51 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "401872980116",
+              "id": "4018729803646",
               "type": {
-                "id": "24",
-                "text": "Pass Reception",
-                "abbreviation": "REC"
+                "id": "3",
+                "text": "Pass Incompletion"
               },
-              "text": " (Shotgun) D.Prescott pass short left to G.Pickens to DAL 46 for 8 yards (J.Parrish).",
+              "text": " (No Huddle, Shotgun) D.Prescott pass incomplete deep left to J.Mingo.",
               "scoreValue": 0,
               "team": {
                 "id": "6"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.881,
-                "awayWinPercentage": 0.119,
+                "homeWinPercentage": 0.0573,
+                "awayWinPercentage": 0.9427,
                 "secondsLeft": 0
               },
-              "statYardage": 8,
+              "statYardage": 0,
               "drive": {
-                "description": "3 plays, 16 yards, 0:45",
+                "description": "6 plays, 68 yards, 2:13",
                 "start": {
-                  "yardLine": 30,
-                  "text": "DAL 30"
+                  "yardLine": 1,
+                  "text": "DAL 1"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:45"
+                  "displayValue": "2:13"
                 }
               },
               "start": {
-                "yardLine": 38,
+                "yardLine": 69,
                 "team": {
                   "id": "6"
                 }
               },
               "end": {
-                "yardLine": 46,
+                "yardLine": 69,
                 "team": {
                   "id": "6"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4426354",
-                  "fullName": "George Pickens",
-                  "displayName": "George Pickens",
-                  "shortName": "G. Pickens",
+                  "id": "4426485",
+                  "fullName": "Jonathan Mingo",
+                  "displayName": "Jonathan Mingo",
+                  "shortName": "J. Mingo",
                   "links": [
                     {
                       "rel": [
@@ -371,11 +400,11 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4426354/george-pickens"
+                      "href": "https://www.espn.com/nfl/player/_/id/4426485/jonathan-mingo"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426354.png",
-                  "jersey": "3",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426485.png",
+                  "jersey": "18",
                   "position": "WR",
                   "team": {
                     "id": "6"
@@ -383,29 +412,29 @@
                 }
               ]
             },
-            "down": 1,
-            "yardLine": 46,
+            "down": 2,
+            "yardLine": 69,
             "distance": 10,
-            "downDistanceText": "1st & 10 at DAL 46",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "DAL 46",
+            "downDistanceText": "2nd & 10 at TB 31",
+            "shortDownDistanceText": "2nd & 10",
+            "possessionText": "TB 31",
             "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 3,
+            "awayTimeouts": 2,
             "possession": "6"
           },
           "status": {
-            "clock": 855,
-            "displayClock": "14:15",
-            "period": 1,
+            "clock": 379,
+            "displayClock": "6:19",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "14:15 - 1st Quarter",
-              "shortDetail": "14:15 - 1st"
+              "detail": "6:19 - 4th Quarter",
+              "shortDetail": "6:19 - 4th"
             },
             "isTBDFlex": false
           },
@@ -425,8 +454,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "2/3, 16 YDS",
-                  "value": 16,
+                  "displayValue": "17/33, 230 YDS, 1 INT",
+                  "value": 230,
                   "athlete": {
                     "id": "2577417",
                     "fullName": "Dak Prescott",
@@ -459,19 +488,19 @@
               ]
             },
             {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
+              "name": "rushingYards",
+              "displayName": "Rushing Leader",
+              "shortDisplayName": "RUSH",
+              "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "1 REC, 8 YDS",
-                  "value": 8,
+                  "displayValue": "17 CAR, 138 YDS, 1 TD",
+                  "value": 138,
                   "athlete": {
-                    "id": "4361579",
-                    "fullName": "Javonte Williams",
-                    "displayName": "Javonte Williams",
-                    "shortName": "J. Williams",
+                    "id": "4596448",
+                    "fullName": "Bucky Irving",
+                    "displayName": "Bucky Irving",
+                    "shortName": "B. Irving",
                     "links": [
                       {
                         "rel": [
@@ -479,13 +508,53 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4361579/javonte-williams"
+                        "href": "https://www.espn.com/nfl/player/_/id/4596448/bucky-irving"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361579.png",
-                    "jersey": "33",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4596448.png",
+                    "jersey": "7",
                     "position": {
                       "abbreviation": "RB"
+                    },
+                    "team": {
+                      "id": "27"
+                    },
+                    "active": true
+                  },
+                  "team": {
+                    "id": "27"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "receivingYards",
+              "displayName": "Receiving Leader",
+              "shortDisplayName": "REC",
+              "abbreviation": "RECYDS",
+              "leaders": [
+                {
+                  "displayValue": "6 REC, 96 YDS",
+                  "value": 96,
+                  "athlete": {
+                    "id": "4426354",
+                    "fullName": "George Pickens",
+                    "displayName": "George Pickens",
+                    "shortName": "G. Pickens",
+                    "links": [
+                      {
+                        "rel": [
+                          "playercard",
+                          "desktop",
+                          "athlete"
+                        ],
+                        "href": "https://www.espn.com/nfl/player/_/id/4426354/george-pickens"
+                      }
+                    ],
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426354.png",
+                    "jersey": "3",
+                    "position": {
+                      "abbreviation": "WR"
                     },
                     "team": {
                       "id": "6"
@@ -571,10 +640,10 @@
         }
       ],
       "weather": {
-        "displayValue": "1",
-        "temperature": 85,
-        "highTemperature": 85,
-        "conditionId": "Sunny",
+        "displayValue": "33",
+        "temperature": 76,
+        "highTemperature": 76,
+        "conditionId": "Clear",
         "link": {
           "language": "en-US",
           "rel": [
@@ -588,17 +657,17 @@
         }
       },
       "status": {
-        "clock": 855,
-        "displayClock": "14:15",
-        "period": 1,
+        "clock": 379,
+        "displayClock": "6:19",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "14:15 - 1st Quarter",
-          "shortDetail": "14:15 - 1st"
+          "detail": "6:19 - 4th Quarter",
+          "shortDetail": "6:19 - 4th"
         }
       }
     },
@@ -1306,7 +1375,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $332",
-              "numberAvailable": 1185,
+              "numberAvailable": 1180,
               "links": [
                 {
                   "href": "https://www.vividseats.com/jacksonville-jaguars-tickets-tottenham-hotspur-stadium-10-11-2026--sports-nfl-football/production/7027971?wsUser=717"
@@ -1342,7 +1411,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1358,7 +1427,7 @@
                     ]
                   }
                 ],
-                "displayName": "DraftKings"
+                "displayName": "Draft Kings"
               },
               "details": "JAX -7.5",
               "overUnder": 41.5,
@@ -1401,7 +1470,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118254%3Foutcomes%3D0ML84695697_1",
                       "text": "Home Bet",
@@ -1433,7 +1502,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118254%3Foutcomes%3D0ML84695697_3",
                       "text": "Away Bet",
@@ -2370,8 +2439,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $256",
-              "numberAvailable": 1240,
+              "summary": "Tickets as low as $260",
+              "numberAvailable": 1238,
               "links": [
                 {
                   "href": "https://www.vividseats.com/green-bay-packers-tickets-green-bay-lambeau-field-3-1-2026/production/6489933?wsUser=717"
@@ -2405,7 +2474,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -2422,9 +2491,9 @@
                   }
                 ]
               },
-              "details": "CHI -2.5",
+              "details": "CHI -1.5",
               "overUnder": 45.5,
-              "spread": 2.5,
+              "spread": 1.5,
               "awayTeamOdds": {
                 "favorite": true,
                 "underdog": false,
@@ -2456,14 +2525,14 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+110",
+                    "odds": "+100",
                     "link": {
                       "language": "en-US",
                       "rel": [
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0ML84695609_1",
                       "text": "Home Bet",
@@ -2488,14 +2557,14 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-130",
+                    "odds": "-120",
                     "link": {
                       "language": "en-US",
                       "rel": [
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0ML84695609_3",
                       "text": "Away Bet",
@@ -2524,8 +2593,8 @@
                 "shortDisplayName": "Spread",
                 "home": {
                   "close": {
-                    "line": "+2.5",
-                    "odds": "-115",
+                    "line": "+1.5",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2533,7 +2602,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0HC84695609P250_1",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0HC84695609P150_1",
                       "text": "Home Point Spread",
                       "shortText": "Home Point Spread",
                       "isExternal": true,
@@ -2546,7 +2615,7 @@
                           "gameId": 401872990,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:GB+2.5"
+                          "betDetails": "Spread:GB+1.5"
                         }
                       }
                     }
@@ -2558,8 +2627,8 @@
                 },
                 "away": {
                   "close": {
-                    "line": "-2.5",
-                    "odds": "-105",
+                    "line": "-1.5",
+                    "odds": "-110",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -2567,7 +2636,7 @@
                         "desktop",
                         "bets"
                       ],
-                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0HC84695609N250_3",
+                      "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118176%3Foutcomes%3D0HC84695609N150_3",
                       "text": "Away Point Spread",
                       "shortText": "Away Point Spread",
                       "isExternal": true,
@@ -2580,7 +2649,7 @@
                           "gameId": 401872990,
                           "betSide": "none",
                           "betType": "straight",
-                          "betDetails": "Spread:CHI-2.5"
+                          "betDetails": "Spread:CHI-1.5"
                         }
                       }
                     }
@@ -3151,24 +3220,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-4"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-3"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-1"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -3289,6 +3340,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "0-4"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-3"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-1"
                 }
               ]
             }
@@ -3449,8 +3518,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $30",
-              "numberAvailable": 3274,
+              "summary": "Tickets as low as $33",
+              "numberAvailable": 3232,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nashville-nissan-stadium-3-1-2027/production/6493536?wsUser=717"
@@ -3484,7 +3553,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -3542,7 +3611,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118229%3Foutcomes%3D0ML84695672_1",
                       "text": "Home Bet",
@@ -3574,7 +3643,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118229%3Foutcomes%3D0ML84695672_3",
                       "text": "Away Bet",
@@ -4528,8 +4597,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $50",
-              "numberAvailable": 3660,
+              "summary": "Tickets as low as $54",
+              "numberAvailable": 3417,
               "links": [
                 {
                   "href": "https://www.vividseats.com/miami-dolphins-tickets-miami-gardens-hard-rock-stadium-3-8-2027/production/6492191?wsUser=717"
@@ -4563,7 +4632,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -4621,7 +4690,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118195%3Foutcomes%3D0ML84695628_1",
                       "text": "Home Bet",
@@ -4653,7 +4722,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118195%3Foutcomes%3D0ML84695628_3",
                       "text": "Away Bet",
@@ -5058,24 +5127,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -5196,6 +5247,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-2"
                 }
               ]
             },
@@ -5607,8 +5676,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $185",
-              "numberAvailable": 2691,
+              "summary": "Tickets as low as $193",
+              "numberAvailable": 2626,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-england-patriots-tickets-foxborough-gillette-stadium-3-4-2027/production/6492616?wsUser=717"
@@ -5642,7 +5711,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -5700,7 +5769,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118223%3Foutcomes%3D0ML84695656_1",
                       "text": "Home Bet",
@@ -5732,7 +5801,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118223%3Foutcomes%3D0ML84695656_3",
                       "text": "Away Bet",
@@ -6686,8 +6755,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $50",
-              "numberAvailable": 3503,
+              "summary": "Tickets as low as $51",
+              "numberAvailable": 3446,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-orleans-saints-tickets-new-orleans-caesars-superdome-3-7-2027/production/6493143?wsUser=717"
@@ -6721,7 +6790,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -6779,7 +6848,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118174%3Foutcomes%3D0ML84695607_1",
                       "text": "Home Bet",
@@ -6811,7 +6880,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118174%3Foutcomes%3D0ML84695607_3",
                       "text": "Away Bet",
@@ -7216,6 +7285,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "1-3"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-2"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -7336,24 +7423,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-3"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-2"
                 }
               ]
             },
@@ -7766,7 +7835,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $47",
-              "numberAvailable": 5122,
+              "numberAvailable": 5010,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-jets-tickets-east-rutherford-metlife-stadium-3-5-2027/production/6494610?wsUser=717"
@@ -7800,7 +7869,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -7858,7 +7927,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118204%3Foutcomes%3D0ML84695637_1",
                       "text": "Home Bet",
@@ -7890,7 +7959,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118204%3Foutcomes%3D0ML84695637_3",
                       "text": "Away Bet",
@@ -8844,8 +8913,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $76",
-              "numberAvailable": 4204,
+              "summary": "Tickets as low as $79",
+              "numberAvailable": 4115,
               "links": [
                 {
                   "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-8-2027/production/6495169?wsUser=717"
@@ -8879,7 +8948,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -8937,7 +9006,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118065%3Foutcomes%3D0ML84695498_1",
                       "text": "Home Bet",
@@ -8969,7 +9038,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118065%3Foutcomes%3D0ML84695498_3",
                       "text": "Away Bet",
@@ -9924,7 +9993,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $102",
-              "numberAvailable": 3978,
+              "numberAvailable": 3941,
               "links": [
                 {
                   "href": "https://www.vividseats.com/washington-commanders-tickets-landover-northwest-stadium-3-2-2026/production/6493301?wsUser=717"
@@ -9958,7 +10027,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -10016,7 +10085,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118048%3Foutcomes%3D0ML84695481_1",
                       "text": "Home Bet",
@@ -10048,7 +10117,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118048%3Foutcomes%3D0ML84695481_3",
                       "text": "Away Bet",
@@ -11002,8 +11071,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $54",
-              "numberAvailable": 2674,
+              "summary": "Tickets as low as $55",
+              "numberAvailable": 2568,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-chargers-tickets-inglewood-sofi-stadium-3-1-2026/production/6491346?wsUser=717"
@@ -11037,7 +11106,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -11095,7 +11164,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118147%3Foutcomes%3D0ML84695580_1",
                       "text": "Home Bet",
@@ -11127,7 +11196,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118147%3Foutcomes%3D0ML84695580_3",
                       "text": "Away Bet",
@@ -11783,24 +11852,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-2"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -11921,6 +11972,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-2"
                 }
               ]
             }
@@ -12082,7 +12151,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $57",
-              "numberAvailable": 4906,
+              "numberAvailable": 4974,
               "links": [
                 {
                   "href": "https://www.vividseats.com/arizona-cardinals-tickets-glendale-state-farm-stadium-3-5-2026/production/6487006?wsUser=717"
@@ -12116,7 +12185,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -12174,7 +12243,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118121%3Foutcomes%3D0ML84695554_1",
                       "text": "Home Bet",
@@ -12206,7 +12275,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118121%3Foutcomes%3D0ML84695554_3",
                       "text": "Away Bet",
@@ -13160,8 +13229,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $244",
-              "numberAvailable": 2755,
+              "summary": "Tickets as low as $303",
+              "numberAvailable": 2712,
               "links": [
                 {
                   "href": "https://www.vividseats.com/seattle-seahawks-tickets-seattle-lumen-field-3-3-2027/production/6492967?wsUser=717"
@@ -13195,7 +13264,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -13253,7 +13322,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118017%3Foutcomes%3D0ML84695450_1",
                       "text": "Home Bet",
@@ -13285,7 +13354,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118017%3Foutcomes%3D0ML84695450_3",
                       "text": "Away Bet",
@@ -13690,24 +13759,6 @@
                 "current": 99
               },
               "statistics": [],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "2-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "2-1"
-                }
-              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -13828,6 +13879,24 @@
                       }
                     }
                   ]
+                }
+              ],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "2-1"
                 }
               ]
             },
@@ -14239,8 +14308,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $167",
-              "numberAvailable": 2773,
+              "summary": "Tickets as low as $176",
+              "numberAvailable": 2709,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-atlanta-mercedes-benz-stadium-3-6-2026/production/6487171?wsUser=717"
@@ -14274,7 +14343,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -14332,7 +14401,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118099%3Foutcomes%3D0ML84695532_1",
                       "text": "Home Bet",
@@ -14364,7 +14433,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118099%3Foutcomes%3D0ML84695532_3",
                       "text": "Away Bet",
@@ -15320,7 +15389,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $130",
-              "numberAvailable": 4681,
+              "numberAvailable": 4660,
               "links": [
                 {
                   "href": "https://www.vividseats.com/los-angeles-rams-tickets-inglewood-sofi-stadium-3-9-2026/production/6491666?wsUser=717"
@@ -15373,7 +15442,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -15431,7 +15500,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118101%3Foutcomes%3D0ML84695534_1",
                       "text": "Home Bet",
@@ -15463,7 +15532,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118101%3Foutcomes%3D0ML84695534_3",
                       "text": "Away Bet",
@@ -16747,6 +16816,21 @@
     ],
     "Atlanta Falcons": [
       {
+        "longComment": "Matthews injured his groin in Monday's win over the Saints and didn't return. He was listed as DNP in Wednesday's estimated report, though his limited participation Thursday is an encouraging sign heading into Sunday's meeting with Baltimore. If Matthews can't get out there in Week 5, Michael Jerrell could continue to see more action.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jake Matthews",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
@@ -16782,21 +16866,6 @@
         "athlete": {
           "displayName": "Yasir Abdullah",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Matthews sustained a groin injury toward the end of the first quarter, and after being evaluated by medical staff, it has been determined that the veteran offensive lineman will not return to Monday night's game. Michael Jerrell will remain at left tackle the rest of the way in Matthews' absence.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jake Matthews",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -16946,6 +17015,21 @@
     ],
     "Buffalo Bills": [
       {
+        "longComment": "Benford suffered a toe injury against the Chargers in Week 3 and didn't practice at all last week. After missing Sunday's matchup against the Patriots, the veteran cornerback was able to return to practice, albeit in a limited capacity, Thursday. The Bills play Monday against the Rams, so Benford will have two more days to try to ramp up to full practice participation and avoid an injury designation ahead of that contest.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Christian Benford",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
@@ -16961,7 +17045,7 @@
         }
       },
       {
-        "longComment": "Moore made an early departure this past Sunday against the Patriots in the second quarter with a shoulder injury and wasn't able to return. While the issue isn't considered to be long term and head coach Joe Brady didn't rule Moore out for Monday's game at the Rams as of Thursday, per Katherine Fitzgerald of The Buffalo News, the wide receiver kicked off the week with no on-field work. Moore will have two more chances to prove his health before the Bills potentially make a ruling on his status on Saturday's injury report.",
+        "longComment": "Moore made an early departure this past Sunday against the Patriots in the second quarter with a shoulder injury and wasn't able to return. While the issue isn't considered to be long term and head coach Joe Brady didn't rule Moore out for Monday's game at the Rams as of Thursday, per Katherine Fitzgerald of The Buffalo News, the wide receiver kicked off the week with no on-field work. Moore will have two more chances to prove his health before the Bills potentially make a ruling on his status once they post Saturday's injury report.",
         "status": "Questionable",
         "athlete": {
           "displayName": "DJ Moore",
@@ -16976,7 +17060,7 @@
         }
       },
       {
-        "longComment": "Per Lysowski, coach Joe Brady said Thursday that the ankle injury Alford sustained in Week 4 versus New England is not expected to be a long-term problem. The Bills' matchup against the Rams in Week 5 won't kick off until Monday, so Alford will have an extra day to potentially get right in anticipation of that contest.",
+        "longComment": "Per Lysowski, coach Joe Brady said Thursday that the ankle injury Alford sustained in Week 4 versus New England is not expected to be a long-term problem. The Bills' matchup against the Rams in Week 5 won't kick off until Monday, so Alford will have an extra day to potentially get healthy in anticipation of that contest.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Dee Alford",
@@ -16996,21 +17080,6 @@
         "athlete": {
           "displayName": "Ed Oliver",
           "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Benford",
-          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -17601,6 +17670,21 @@
     ],
     "Dallas Cowboys": [
       {
+        "longComment": "Clark is dealing with an apparent hamstring injury, and as a result, his night has come to a premature end. The safety plays primarily with the special-teams unit, so his absence won't impact the Cowboys' defense.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Alijah Clark",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "inactive",
         "status": "Out",
         "athlete": {
@@ -17862,6 +17946,66 @@
     ],
     "Green Bay Packers": [
       {
+        "longComment": "Burton did not practice Wednesday, so his activity Thursday was actually a step in the right direction ahead of Sunday's game versus the Bears. If he can upgrade to full participation at practice Friday, he may still be able to avoid carrying an injury designation into the weekend.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jager Burton",
+          "position": "C"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Belton played all 60 of the Packers' offensive snaps in Week 4 at Tampa Bay, but his status for Week 5 now seems to be in question due to a knee issue. He'll likely need to log a full practice Friday to avoid carrying an injury designation into the weekend.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Anthony Belton",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Monk has missed back-to-back practices to open the week as he continues to recover from a quadriceps injury he suffered during the team's Week 3 loss to Atlanta. The 25-year-old appears to be set to miss a second straight game, and Travis Glover could draw another start at left guard Sunday versus Chicago.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jacob Monk",
+          "position": "C"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Banks has sat out the Packers' last two games with toe and knee injuries, and his availability for Week 5 is now also in serious doubt. Unless he's able to practice in some capacity Friday, he'll probably be on track to be sidelined Sunday versus the Bears.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Aaron Banks",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Brooks was held out of practice for a second straight day, and his consecutive absences could put his availability in jeopardy for Sunday's game against the Bears. Perhaps out of concern for Brooks' status heading into the weekend, the Packers signed Pierre Strong off their practice squad Thursday to give the team another healthy option in the backfield behind MarShawn Lloyd and Kaleb Johnson. If Brooks ends up sitting out Sunday, Strong could end up handling some of Brooks' responsibilities on passing downs.",
         "status": "Questionable",
         "athlete": {
@@ -17922,71 +18066,11 @@
         }
       },
       {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Anthony Belton",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jager Burton",
-          "position": "C"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Cooper suffered a torn Achilles in Sunday's win over the Buccaneers, and he will now spend the rest of the season on IR. In his absence, Zaire Franklin and Isaiah McDuffie will operate as the team's primary options at inside linebacker.",
         "status": "Injured Reserve",
         "athlete": {
           "displayName": "Edgerrin Cooper",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jacob Monk",
-          "position": "C"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Aaron Banks",
-          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18043,6 +18127,36 @@
       }
     ],
     "Houston Texans": [
+      {
+        "longComment": "The Texans designated Smith to return from injured reserve Wednesday, opening the 21-day window for him to be activated to the 53-man roster. He likely has some hurdles to clear before getting the green light to suit up in Week 5 against the Titans. However, Smith appears to be trending favorably toward playing Sunday after sitting on the IR to begin the 2026 campaign.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Braden Smith",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "The Texans designated McDonald for return from injured reserve Wednesday, opening his 21-day window to be activated to the 53-man roster. While the rookie isn't a lock to suit up Sunday versus the Titans, he's heading in a positive direction toward making his NFL debut after missing the first four games of the 2026 campaign.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Kayden McDonald",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Though he didn't take a step forward in terms of activity after being listed as limited Wednesday upon having his 21-day practice window opened, Dell was seen donning full pads Thursday, per DJ Bien-Aime of ESPN.com. The wideout will likely still need to complete multiple full practices before being activated from injured reserve, so he could face an uphill battle to play in Sunday's game against the Titans. However, so long as Dell's surgically repaired left knee responds well as he ramps up his practice activity, he should be on pace to make his 2026 debut by midseason.",
         "status": "Injured Reserve",
@@ -18119,41 +18233,11 @@
         }
       },
       {
-        "longComment": "Smith opened the regular season on IR due to a torn plantar fascia, a diagnosis that came with a four- to six-week recovery timeline. Now that he's been designated to return, Smith will have 21 days to be activated from IR, otherwise he would be forced to sit for the entire 2026 season. The 2018 second-rounder was limited in Wednesday's practice.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Braden Smith",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Al-Shaair didn't practice in any capacity last week before he was ruled out ahead of Sunday's loss to the Cowboys. The veteran linebacker is taking a notable step forward by opening Week 5 prep as a limited participant, and if he can upgrade to full activity by Friday, he should be cleared to play this weekend against the Titans.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Azeez Al-Shaair",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "The rookie second-round pick was a limited participant Wednesday as the Texans opened up his 21-day window for a return to the 53-man roster. Given that he missed the Texans' first four games while recovering from an ankle sprain, McDonald could need to turn in multiple full practices before he's cleared to make his NFL debut.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Kayden McDonald",
-          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18226,7 +18310,7 @@
         }
       },
       {
-        "longComment": "It was another limited session for Allen, who is working his way back from a groin injury that kept him out against the Commanders in Week 4. Allen is trending toward being ready to go against the Steelers on Sunday, which would give this receiving corps a much-needed boost.",
+        "longComment": "It was another limited session for Allen, who is working his way back from a groin injury that kept him out against the Commanders in Week 4. Allen is trending toward being ready to go against the Steelers on Sunday, which would give the Colts' receiving corps a much-needed boost.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Keenan Allen",
@@ -18609,6 +18693,51 @@
     ],
     "Los Angeles Chargers": [
       {
+        "longComment": "Awosika has missed each of the team's first two practices of the week as he continues to recover from a fibula injury that he suffered Week 2. The 27-year-old appears to be unlikely to return to action Sunday versus the Broncos. With Trevor Penning (concussion) also on track to be unavailable, Logan Taylor may be the next man up at left guard for Los Angeles.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kayode Awosika",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Penning has missed back-to-back practices to open the week while in concussion protocol. The offensive lineman appears to be rather unlikely to be available for Sunday's matchup with Denver, and Logan Taylor would be a candidate to draw a start at left guard in his place.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Trevor Penning",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Alt has missed each of the team's first two practices of the week while nursing a neck injury that he suffered Week 4 against Seattle. The offensive lineman appears to be unlikely to play Sunday versus Denver, and Travis Burke could draw a start at right tackle in his place.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Joe Alt",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Thompson returned to practice Wednesday for the first time in multiple weeks, logging a limited session. The wide receiver has now taken a step back in his participation, failing to practice Thursday. Thompson expressed some doubt about his availability for Week 5 when he spoke with the media Wednesday, and he appears to be in danger of missing another contest while recovering from a quadriceps injury.",
         "status": "Questionable",
         "athlete": {
@@ -18674,36 +18803,6 @@
         "athlete": {
           "displayName": "Ladd McConkey",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Alt suffered a neck injury in the second quarter of the Chargers' Week 4 loss to the Seahawks. The right tackle was promptly ruled out for the remainder of the contest. The 2024 first-round pick will likely need to upgrade to at least limited participation by Friday for a shot at playing in Sunday's game against the Broncos.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Joe Alt",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Penning exited the Chargers' Week 4 loss to the Seahawks early with a head injury. The offensive guard has entered the league's five-step concussion protocol and will need to be cleared by an independent neurologist to return to full contact.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Trevor Penning",
-          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18819,21 +18918,6 @@
         }
       },
       {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Kayode Awosika",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "The Chargers placed Matlock on IR with a designation to return in late August. The team now has until Oct. 26 to return the fullback to the active roster, or he will spend the entirety of the 2026 season on IR. Matlock played 16 regular-season games for the Chargers in 2025, logging four receptions for 12 yards and a touchdown over 333 offensive snaps.",
         "status": "Injured Reserve",
         "athlete": {
@@ -18866,6 +18950,96 @@
     ],
     "Los Angeles Rams": [
       {
+        "longComment": "Watson was able to practice Thursday for the first time since dislocating his shoulder in Week 3 at Denver. Whether he'll be available for Week 5 appears to be a live question, and the Rams' official injury reports Friday and Saturday should provide more insight on that front.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jaylen Watson",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Landman played 57 of the Rams' 61 defensive snaps in Sunday's game at Philadelphia, so it's not clear when he hurt his shoulder. He'll probably need to return to practice Friday or Saturday to have a shot at suiting up Monday versus the Bills.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Nate Landman",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Lake was on the field for all 61 of the Rams' defensive snaps in Week 4, so it's not clear when he picked up the injury. He'll likely have to get back on the practice field Friday or Saturday to put himself on pace to play Monday versus the Bills.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Quentin Lake",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Grant Stuard",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Josaiah Stewart",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "While Parkinson was limited to begin the week, coach Sean McVay said the plan is to ramp the tight end up throughout the week and have him available Monday night against the Bills, according to Stu Jackson of the Rams' official site. Parkinson missed last Sunday's win over the Eagles. With Terrance Ferguson (ankle) still sidelined, Parkinson would allow Tyler Higbee to focus on pass-catching duties at the position.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Colby Parkinson",
+          "position": "TE"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Donald has a chance to return for Monday's game against the Bills after missing the Rams' Week 4 win over the Eagles. The veteran defensive lineman's status will bear monitoring as the Rams begin practicing ahead of Monday's primetime matchup, with injury designations for Week 5 to come Saturday.",
         "status": "Questionable",
         "athlete": {
@@ -18886,51 +19060,6 @@
         "athlete": {
           "displayName": "Terrance Ferguson",
           "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jaylen Watson",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Colby Parkinson",
-          "position": "TE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Mumpfield briefly exited the game before returning to the field, and head coach Sean McVay and the team don't appear to be overly worried about the injury. With Puka Nacua returning to action Sunday, Mumpfield saw only three targets, reeling in one catch for seven yards in the victory.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Konata Mumpfield",
-          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19140,6 +19269,36 @@
     ],
     "Minnesota Vikings": [
       {
+        "longComment": "That's two straight limited practice sessions to begin the week for O'Neill, who is dealing with a knee injury. It's unclear if the current issue is related to the knee injury that he dealt with earlier in the campaign. Regardless, O'Neill has a chance of suiting up Sunday in New Orleans, but he'll likely carry an injury designation into the weekend unless he's able to practice in full Friday.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Brian O'Neill",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Darrisaw suffered a concussion Sunday against Miami. He's currently in the league's five step protocol, and he'll need to be cleared by an independent neurologist before he's able to suit up for game action. Darrisaw is in real danger of missing Sunday's matchup against New Orleans, and if that happens, Ryan Van Demark will likely step in to start at left tackle.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Christian Darrisaw",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "One day removed from missing Wednesday's practice due to a sore hamstring, Addison rejoined his teammates and fellow WR Justin Jefferson, who missed a Week 4 win against the Dolphins due to an ankle injury but so far has been limited this week. Friday's practice report may provide insight regarding the statuses of both players ahead of Sunday's game at New Orleans.",
         "status": "Questionable",
         "athlete": {
@@ -19175,21 +19334,6 @@
         "athlete": {
           "displayName": "Michael Jurgens",
           "position": "C"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Brian O'Neill",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19245,21 +19389,6 @@
         }
       },
       {
-        "longComment": "Darrisaw left Sunday's contest early with an apparent concussion, and now it's now uncertain whether he'll be able to suit up in Week 5. His name will be one to watch for when the Vikings publish their first official injury report of the week Wednesday.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Darrisaw",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Oliver's move to IR was expected after the tight end was diagnosed with a torn bicep Monday. The tight end will likely miss most, if not all, of the 2026 season as he recovers from surgery. T.J. Hockenson and Gavin Bartholomew are now the only tight ends on the Vikings' roster, meaning practice-squad elevations ahead of Week 4 will likely include at least one more option at the position. The Vikings signed linebacker Kyle Van Noy to the 53-man roster in a corresponding move.",
         "status": "Injured Reserve",
         "athlete": {
@@ -19276,6 +19405,21 @@
       }
     ],
     "New England Patriots": [
+      {
+        "longComment": "Gilliam opened the week as a limited participant Wednesday, but he took a step backwards one day later. The fullback is nursing an ankle injury that he suffered in the team's Week 4 win over the Bills, and he'll have one more chance to practice before Sunday's contest versus Las Vegas.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Reggie Gilliam",
+          "position": "FB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Gonzalez missed his fifth straight practice as he continues to work his way back from a shoulder injury that he suffered Week 3 against Jacksonville. The cornerback seems likely to miss a second straight contest in Week 5, setting up Charles Woods (shoulder) and Karon Prunty (hamstring) to potentially operate in more substantial roles again Sunday versus Las Vegas.",
         "status": "Questionable",
@@ -19415,21 +19559,6 @@
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Reggie Gilliam",
-          "position": "FB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
           "displayName": "Karon Prunty",
           "position": "CB"
         },
@@ -19488,6 +19617,21 @@
       }
     ],
     "New Orleans Saints": [
+      {
+        "longComment": "Blackmon has played every defensive snap for New Orleans so far this season, but he appears to have hurt his shoulder in Monday's loss to Atlanta. With a pair of limited practices under his belt to begin Week 5 prep, Blackmon has a chance to suit up Sunday versus Minnesota, though he may enter the weekend with an injury designation if he's not able to practice in full Friday.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Julian Blackmon",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Elliss was also deemed DNP on Wednesday's practice estimate. The veteran linebacker didn't practice at all last week due to a calf injury and missed this past Monday's loss to Atlanta. Elliss is looking unlikely to play against Minnesota in Week 5, though there's a chance he can suit up if he's able to practice in some capacity Friday.",
         "status": "Questionable",
@@ -19554,21 +19698,6 @@
         "athlete": {
           "displayName": "Chris Olave",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Blackmon played all 57 of the Saints' defensive snaps in the blowout loss. Despite a long night for the defensive unit, the free safety tallied four more tackles than the next closest Saints defenders (Tyree Wilson and Jonas Sanker).",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Julian Blackmon",
-          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19656,6 +19785,21 @@
     ],
     "New York Giants": [
       {
+        "longComment": "Thomas has been dealing with a groin issue for the past few weeks, but he's yet to miss an offensive snap this season. Despite beginning Week 5 as a DNP and logging a limited session Thursday, it seems likely the standout left tackle will be able to suit up Sunday against the Commanders.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Andrew Thomas",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Likely maintained his activity level from Wednesday's session as he deals with knee and groin injuries. There's been nothing to suggest that he's in danger of missing Sunday's game at Washington, but he still may be tagged with a designation on the Giants' final practice report of the week Friday.",
         "status": "Questionable",
         "athlete": {
@@ -19721,21 +19865,6 @@
         "athlete": {
           "displayName": "Braxton Berrios",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Andrew Thomas",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19900,6 +20029,36 @@
     ],
     "Philadelphia Eagles": [
       {
+        "longComment": "Mitchell suffered a knee injury during the Week 4 loss to the Rams. He was scheduled to undergo imaging Monday. However, Mitchell's availability at practice Thursday suggests things went well, meaning he will likely be on the field in Week 5 versus the Jaguars, barring a setback.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Quinyon Mitchell",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Campbell didn't practice Wednesday, but he was out there in a limited capacity Thursday, which is an encouraging sign regarding his potential to play against Jacksonville in Week 5. The 22-year-old has had a fantastic 2026 campaign thus far, amassing 37 total tackles (24 solo), 1.0 sacks and one forced fumble (four games).",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jihaad Campbell",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Goedert maintained his activity level from Wednesday as he looks to put a sprained MCL in his right knee further in the rearview mirror. Friday's practice report will reveal his odds to return to action Sunday in Jacksonville, but if he's inhibited or sidelined again this weekend, Johnny Mundt, E.J. Jenkins and practice-squad member Zach Ertz again will man tight end for the Eagles.",
         "status": "Questionable",
         "athlete": {
@@ -19960,21 +20119,6 @@
         }
       },
       {
-        "longComment": "Mitchell exited Sunday's 24-20 loss to the Rams. He was scheduled to undergo testing Monday, but his limited participation at practice Wednesday seemingly keeps the door open regarding his availability for Week 5 versus Jacksonville.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Quinyon Mitchell",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Epps didn't play in Sunday's loss to the Rams. If that trend continues in Week 5 versus Jacksonville, Michael Carter should remain in line to see an uptick in defensive snaps.",
         "status": "Questionable",
         "athlete": {
@@ -19994,21 +20138,6 @@
         "status": "Questionable",
         "athlete": {
           "displayName": "Jonathan Greenard",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Campbell has played well this season, recording at least nine tackles in each of the Eagles' first four games of the 2026 campaign. It's possible he didn't practice Wednesday as a precautionary measure, so he could be out there at some point ahead of the Week 5 meeting with Jacksonville.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jihaad Campbell",
           "position": "LB"
         },
         "depthChartPosition": null,
@@ -20097,7 +20226,7 @@
     ],
     "Pittsburgh Steelers": [
       {
-        "longComment": "The 21-day practice window opened Thursday. While Elliott was only back on the practice field in a limited capacity, it was still a step in the right direction. However, despite his presence at practice Thursday, the team might need to wait a few more weeks before he's ready to suit up, with Mike DeFabo of The Athletic reporting his return may not happen until the Steelers play the Saints in Paris on Oct. 25.",
+        "longComment": "Elliott's 21-day practice window to return from injured reserve opened Thursday. While Elliott was only back on the practice field in a limited capacity, it was still a step in the right direction. However, despite his presence at practice Thursday, the team might need to wait a few more weeks before he's ready to suit up, with Mike DeFabo of The Athletic reporting the veteran defensive back's return may not happen until the Steelers play the Saints in Paris on Oct. 25.",
         "status": "Injured Reserve",
         "athlete": {
           "displayName": "DeShon Elliott",
@@ -20296,11 +20425,11 @@
     ],
     "Seattle Seahawks": [
       {
-        "longComment": "Holani played through the issue last Sunday against the Chargers and turned eight touches into 20 yards as the change-of-pace back behind Emanuel Wilson. He should fill a similar role again this Sunday against the 49ers. Holani has minimal fantasy appeal.",
+        "longComment": "Neal was added to the injury report with a hamstring injury Thursday after opening the week as a full participant Wednesday. The cornerback's status for Sunday's matchup with the 49ers is now a little murky, and he'll have one more chance to practice before Week 5.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "George Holani",
-          "position": "RB"
+          "displayName": "Julian Neal",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -20311,11 +20440,26 @@
         }
       },
       {
-        "longComment": "questionable",
+        "longComment": "Williams was limited to open the week at Wednesday's practice, but he was unable to participant one day later. He is dealing with an ankle injury, but head coach Mike Macdonald said Monday that he expects Williams to play Sunday versus the 49ers. The defensive lineman will have one more chance to practice Friday and erase any concern about his availability for Week 5.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Julian Neal",
-          "position": "CB"
+          "displayName": "Leonard Williams",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Holani played through the issue last Sunday against the Chargers and turned eight touches into 20 yards as the change-of-pace back behind Emanuel Wilson. He should fill a similar role again this Sunday against the 49ers. Holani has minimal fantasy appeal.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "George Holani",
+          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -20361,21 +20505,6 @@
         "athlete": {
           "displayName": "Chazz Surratt",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Williams suffered an ankle injury during the Seahawks' 30-23 win over the Chargers in Week 4 and did not return, finishing the game with just one quarterback hit and zero tackles. His practice participation over the coming days will shed light on his status for Week 5, but if he cannot play or operates under a snap count, then Jarran Reed and Rylie Mills would both be in line for more defensive snaps against San Francisco.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Leonard Williams",
-          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -20632,7 +20761,7 @@
         }
       },
       {
-        "longComment": "Omenihu suffered a groin injury during Sunday's loss to the Colts. However, he seemingly picked up an ankle injury as well, increasing his odds of missing the divisional clash with the Giants. If Omenihu isn't out there in Week 5, Shy Tuttle is in line for more snaps.",
+        "longComment": "Omenihu suffered a groin injury during Sunday's loss to the Colts. However, he seemingly picked up an ankle injury as well, increasing his odds of missing Sunday's divisional clash with the Giants. If Omenihu isn't out there in Week 5, Shy Tuttle will be in line for more snaps.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Charles Omenihu",
@@ -21221,7 +21350,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-09T00:18:23.221Z",
+    "checkedAt": "2026-10-09T02:56:00.393Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
