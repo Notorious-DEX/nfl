@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-10-11T23:17:11.418Z",
+  "lastUpdated": "2026-10-12T00:02:40.445Z",
   "version": "v0.06",
   "method": "index.html-algorithm",
   "kFactor": 20,
   "weeks": 21,
-  "correct": 214,
-  "total": 358,
-  "accuracy": "59.8",
+  "correct": 215,
+  "total": 361,
+  "accuracy": "59.6",
   "games": [
     {
       "gameId": "401772510",
@@ -5821,6 +5821,57 @@
       "actualAwayScore": 27,
       "actualWinner": "New York Giants",
       "correct": true
+    },
+    {
+      "gameId": "401872989",
+      "seasonYear": 2026,
+      "week": 5,
+      "date": "2026-10-11T20:05Z",
+      "homeTeam": "Los Angeles Chargers",
+      "awayTeam": "Denver Broncos",
+      "homeScore": 19,
+      "awayScore": 18,
+      "winner": "Los Angeles Chargers",
+      "confidence": "low",
+      "method": "index.html-algorithm",
+      "actualHomeScore": 17,
+      "actualAwayScore": 23,
+      "actualWinner": "Denver Broncos",
+      "correct": false
+    },
+    {
+      "gameId": "401872991",
+      "seasonYear": 2026,
+      "week": 5,
+      "date": "2026-10-11T20:25Z",
+      "homeTeam": "Arizona Cardinals",
+      "awayTeam": "Detroit Lions",
+      "homeScore": 24,
+      "awayScore": 33,
+      "winner": "Detroit Lions",
+      "confidence": "high",
+      "method": "index.html-algorithm",
+      "actualHomeScore": 21,
+      "actualAwayScore": 45,
+      "actualWinner": "Detroit Lions",
+      "correct": true
+    },
+    {
+      "gameId": "401872992",
+      "seasonYear": 2026,
+      "week": 5,
+      "date": "2026-10-11T20:25Z",
+      "homeTeam": "Seattle Seahawks",
+      "awayTeam": "San Francisco 49ers",
+      "homeScore": 29,
+      "awayScore": 21,
+      "winner": "Seattle Seahawks",
+      "confidence": "high",
+      "method": "index.html-algorithm",
+      "actualHomeScore": 29,
+      "actualAwayScore": 32,
+      "actualWinner": "San Francisco 49ers",
+      "correct": false
     }
   ]
 }
