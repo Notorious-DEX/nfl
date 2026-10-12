@@ -82,7 +82,7 @@ async function checkResults() {
                 const awayScore = parseInt(awayComp.score) || 0;
                 const actualHomeTeam = homeComp.team && homeComp.team.displayName;
                 const actualAwayTeam = awayComp.team && awayComp.team.displayName;
-                const actualWinner = homeScore > awayScore ? actualHomeTeam : actualAwayTeam;
+                const actualWinner = homeScore === awayScore ? 'Tie' : (homeScore > awayScore ? actualHomeTeam : actualAwayTeam);
                 const correct = actualWinner === prediction.winner;
                 const scoreDiff = Math.abs(prediction.homeScore - prediction.awayScore);
                 let confidence = 'medium';
