@@ -1,0 +1,24 @@
+name: Grade ties as ties
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/grade-ties]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node scripts/patch-grade-ties.js
+      - name: Commit
+        run: |
+          git config user.name 'GitHub Actions Bot'
+          git config user.email 'actions@github.com'
+          git add index.html VERSION scripts/check-results.js results.json
+          git diff --staged --quiet || (git commit -m "Grade equal scores as a tie [skip ci]" && git push)
