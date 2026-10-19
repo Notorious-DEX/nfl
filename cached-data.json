@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-19T01:15:20.804Z",
+  "lastUpdated": "2026-10-19T02:10:38.452Z",
   "currentWeek": 6,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/gb.png"
               },
-              "score": "7",
+              "score": "17",
               "linescores": [
                 {
                   "value": 7,
@@ -155,9 +155,14 @@
                   "period": 1
                 },
                 {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -299,6 +304,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -328,51 +338,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730071332",
+              "id": "4018730072542",
               "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
+                "id": "24",
+                "text": "Pass Reception",
+                "abbreviation": "REC"
               },
-              "text": " (Shotgun) J.Love pass incomplete deep left to M.Golden.",
+              "text": " (Shotgun) D.Prescott pass short right to C.Lamb to GB 45 for 1 yard (X.McKinney).",
               "scoreValue": 0,
               "team": {
-                "id": "9"
+                "id": "6"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.7142,
-                "awayWinPercentage": 0.28580000000000005,
+                "homeWinPercentage": 0.9099,
+                "awayWinPercentage": 0.09009999999999996,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 1,
               "drive": {
-                "description": "6 plays, 37 yards, 2:58",
+                "description": "2 plays, 1 yard, 0:05",
                 "start": {
-                  "yardLine": 20,
-                  "text": "GB 20"
+                  "yardLine": 46,
+                  "text": "GB 46"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:58"
+                  "displayValue": "0:05"
                 }
               },
               "start": {
-                "yardLine": 57,
+                "yardLine": 46,
                 "team": {
-                  "id": "9"
+                  "id": "6"
                 }
               },
               "end": {
-                "yardLine": 57,
+                "yardLine": 45,
                 "team": {
-                  "id": "9"
+                  "id": "6"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4701936",
-                  "fullName": "Matthew Golden",
-                  "displayName": "Matthew Golden",
-                  "shortName": "M. Golden",
+                  "id": "4241389",
+                  "fullName": "CeeDee Lamb",
+                  "displayName": "CeeDee Lamb",
+                  "shortName": "C. Lamb",
                   "links": [
                     {
                       "rel": [
@@ -380,41 +391,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4701936/matthew-golden"
+                      "href": "https://www.espn.com/nfl/player/_/id/4241389/ceedee-lamb"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4701936.png",
-                  "jersey": "0",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4241389.png",
+                  "jersey": "88",
                   "position": "WR",
                   "team": {
-                    "id": "9"
+                    "id": "6"
                   }
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 57,
-            "distance": 10,
-            "downDistanceText": "2nd & 10 at DAL 43",
-            "shortDownDistanceText": "2nd & 10",
-            "possessionText": "DAL 43",
+            "down": 3,
+            "yardLine": 45,
+            "distance": 9,
+            "downDistanceText": "3rd & 9 at GB 45",
+            "shortDownDistanceText": "3rd & 9",
+            "possessionText": "GB 45",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
-            "possession": "9"
+            "possession": "6"
           },
           "status": {
-            "clock": 677,
-            "displayClock": "11:17",
-            "period": 2,
+            "clock": 826,
+            "displayClock": "13:46",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "11:17 - 2nd Quarter",
-              "shortDetail": "11:17 - 2nd"
+              "detail": "13:46 - 3rd Quarter",
+              "shortDetail": "13:46 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -434,8 +445,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "9/14, 154 YDS, 1 TD, 1 INT",
-                  "value": 154,
+                  "displayValue": "15/25, 193 YDS, 1 TD, 1 INT",
+                  "value": 193,
                   "athlete": {
                     "id": "4036378",
                     "fullName": "Jordan Love",
@@ -474,8 +485,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "3 CAR, 10 YDS",
-                  "value": 10,
+                  "displayValue": "6 CAR, 21 YDS",
+                  "value": 21,
                   "athlete": {
                     "id": "4361579",
                     "fullName": "Javonte Williams",
@@ -514,13 +525,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "2 REC, 55 YDS",
-                  "value": 55,
+                  "displayValue": "4 REC, 71 YDS, 1 TD",
+                  "value": 71,
                   "athlete": {
-                    "id": "4248528",
-                    "fullName": "Christian Watson",
-                    "displayName": "Christian Watson",
-                    "shortName": "C. Watson",
+                    "id": "4701936",
+                    "fullName": "Matthew Golden",
+                    "displayName": "Matthew Golden",
+                    "shortName": "M. Golden",
                     "links": [
                       {
                         "rel": [
@@ -528,11 +539,11 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4248528/christian-watson"
+                        "href": "https://www.espn.com/nfl/player/_/id/4701936/matthew-golden"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4248528.png",
-                    "jersey": "9",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4701936.png",
+                    "jersey": "0",
                     "position": {
                       "abbreviation": "WR"
                     },
@@ -621,8 +632,8 @@
       ],
       "weather": {
         "displayValue": "33",
-        "temperature": 56,
-        "highTemperature": 56,
+        "temperature": 54,
+        "highTemperature": 54,
         "conditionId": "Clear",
         "link": {
           "language": "en-US",
@@ -637,17 +648,17 @@
         }
       },
       "status": {
-        "clock": 677,
-        "displayClock": "11:17",
-        "period": 2,
+        "clock": 826,
+        "displayClock": "13:46",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "11:17 - 2nd Quarter",
-          "shortDetail": "11:17 - 2nd"
+          "detail": "13:46 - 3rd Quarter",
+          "shortDetail": "13:46 - 3rd"
         }
       },
       "tuneInPrompt": {
@@ -1410,8 +1421,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $115",
-              "numberAvailable": 4327,
+              "summary": "Tickets as low as $108",
+              "numberAvailable": 4277,
               "links": [
                 {
                   "href": "https://www.vividseats.com/san-francisco-49ers-tickets-santa-clara-levis-stadium-3-7-2027/production/6495891?wsUser=717"
@@ -1464,7 +1475,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1480,7 +1491,7 @@
                     ]
                   }
                 ],
-                "displayName": "Draft Kings"
+                "displayName": "DraftKings"
               },
               "details": "SF -7.5",
               "overUnder": 52.5,
@@ -1523,7 +1534,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118064%3Foutcomes%3D0ML84695497_1",
                       "text": "Home Bet",
@@ -1555,7 +1566,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118064%3Foutcomes%3D0ML84695497_3",
                       "text": "Away Bet",
@@ -3393,7 +3404,22 @@
     ],
     "Dallas Cowboys": [
       {
-        "longComment": "Turpin suffered an injury to his ribs during the games opening kickoff, and his status for the rest of the contest is now unclear. In his absence, Dallas will have to find replacements at both kick and punt returner versus the Packers.",
+        "longComment": "Winters suffered an ankle injury in the second quarter, and his availability for the rest of the game is now up in the air. The linebacker has already recorded a pick-six Sunday night, and in his absence, Shemar James will stand to see an increase in workload at inside linebacker.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Dee Winters",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Turpin suffered an injury to his ribs during the game's opening kickoff, and his status for the rest of the contest is now unclear. In Turpin's absence, Dallas will have to find replacements at both kick returning and punt returning vs. the Packers.",
         "status": "Questionable",
         "athlete": {
           "displayName": "KaVontae Turpin",
@@ -3609,7 +3635,7 @@
     ],
     "Green Bay Packers": [
       {
-        "longComment": "Banks will miss his fourth straight game, so Laken Tomlinson should remain in the starting lineup t left guard for Green Bay.",
+        "longComment": "Banks will miss his fourth straight game, so Laken Tomlinson should remain in the starting lineup at left guard for Green Bay.",
         "status": "Out",
         "athlete": {
           "displayName": "Aaron Banks",
@@ -3977,7 +4003,7 @@
     ],
     "Kansas City Chiefs": [
       {
-        "longComment": "Moore has enterted the NFL's five-step concussion protocol and will not return to Sunday's game. Joshua Ezeudu will likely finish out the contest at right tackle.",
+        "longComment": "Moore has entered the NFL's five-step concussion protocol and will not return to Sunday's game. Joshua Ezeudu will likely finish out the contest at right tackle.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Jaylon Moore",
@@ -4651,7 +4677,7 @@
         }
       },
       {
-        "longComment": "Riley suffered a neck injury late in the fourth quarter of Sunday's contest. Coach Kellen Moore seemed confident that the cornerback was okay, but Week 7 preparation should more accurately reflect Riley's current state.",
+        "longComment": "Riley suffered a neck injury late in the fourth quarter of Sunday's contest. Coach Kellen Moore seemed confident the cornerback is okay, but Week 7 preparation should offer more insight on the injury.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Quincy Riley",
@@ -4758,7 +4784,7 @@
         }
       },
       {
-        "longComment": "The Giants' starting inside linebacker played 100 percent of the team's defensive snaps and logged nine tackles (six solo), including 1.0 sacks, in the contest. Edmunds suffered a shoulder injury on the final play of the game and it is unclear how significant the injury is.",
+        "longComment": "The Giants' starting inside linebacker played 100 percent of the team's defensive snaps and logged nine tackles (six solo), including 1.0 sacks, in the contest. Edmunds suffered a shoulder injury on the final play of the game, and it is unclear how significant the injury is.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Tremaine Edmunds",
@@ -6143,7 +6169,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-19T01:15:20.305Z",
+    "checkedAt": "2026-10-19T02:10:38.171Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
