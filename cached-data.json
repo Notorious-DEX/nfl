@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-23T01:28:12.196Z",
+  "lastUpdated": "2026-10-23T02:12:15.833Z",
   "currentWeek": 7,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/chi.png"
               },
-              "score": "13",
+              "score": "27",
               "linescores": [
                 {
                   "value": 10,
@@ -155,9 +155,14 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 10,
+                  "displayValue": "10",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -288,7 +293,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/ne.png"
               },
-              "score": "7",
+              "score": "14",
               "linescores": [
                 {
                   "value": 0,
@@ -296,9 +301,14 @@
                   "period": 1
                 },
                 {
-                  "value": 7,
-                  "displayValue": "7",
+                  "value": 14,
+                  "displayValue": "14",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -328,75 +338,93 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730101676",
+              "id": "4018730102512",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "3",
+                "text": "Pass Incompletion"
               },
-              "text": "Official Timeout at 03:25.",
+              "text": " (Shotgun) D.Maye pass incomplete deep left to A.Brown (M.Muhammad).",
               "scoreValue": 0,
               "team": {
-                "id": "3"
+                "id": "17"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.752,
-                "awayWinPercentage": 0.248,
+                "homeWinPercentage": 0.9008,
+                "awayWinPercentage": 0.09919999999999995,
                 "secondsLeft": 0
               },
               "statYardage": 0,
               "drive": {
-                "description": "6 plays, 53 yards, 3:39",
+                "description": "2 plays, 14 yards, 0:34",
                 "start": {
-                  "yardLine": 68,
-                  "text": "NE 32"
-                },
-                "end": {
-                  "yardLine": 15,
-                  "text": "CHI 15"
+                  "yardLine": 80,
+                  "text": "NE 20"
                 },
                 "timeElapsed": {
-                  "displayValue": "3:39"
-                },
-                "result": "INT"
+                  "displayValue": "0:34"
+                }
               },
               "start": {
-                "yardLine": 20,
+                "yardLine": 66,
                 "team": {
-                  "id": "3"
+                  "id": "17"
                 }
               },
               "end": {
-                "yardLine": 20,
+                "yardLine": 66,
                 "team": {
-                  "id": "3"
+                  "id": "17"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4047646",
+                  "fullName": "A.J. Brown",
+                  "displayName": "A.J. Brown",
+                  "shortName": "A.J. Brown",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4047646/aj-brown"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4047646.png",
+                  "jersey": "1",
+                  "position": "WR",
+                  "team": {
+                    "id": "17"
+                  }
+                }
+              ]
             },
-            "down": 1,
-            "yardLine": 20,
+            "down": 2,
+            "yardLine": 66,
             "distance": 10,
-            "downDistanceText": "1st & 10 at CHI 20",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "CHI 20",
+            "downDistanceText": "2nd & 10 at NE 34",
+            "shortDownDistanceText": "2nd & 10",
+            "possessionText": "NE 34",
             "isRedZone": false,
-            "homeTimeouts": 2,
-            "awayTimeouts": 2,
-            "possession": "3"
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "17"
           },
           "status": {
-            "clock": 205,
-            "displayClock": "3:25",
-            "period": 2,
+            "clock": 547,
+            "displayClock": "9:07",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "3:25 - 2nd Quarter",
-              "shortDetail": "3:25 - 2nd"
+              "detail": "9:07 - 3rd Quarter",
+              "shortDetail": "9:07 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -416,8 +444,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "6/10, 115 YDS",
-                  "value": 115,
+                  "displayValue": "14/21, 225 YDS, 2 TD",
+                  "value": 225,
                   "athlete": {
                     "id": "4431611",
                     "fullName": "Caleb Williams",
@@ -456,13 +484,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "3 CAR, 22 YDS, 1 TD",
-                  "value": 22,
+                  "displayValue": "11 CAR, 47 YDS, 1 TD",
+                  "value": 47,
                   "athlete": {
-                    "id": "4431452",
-                    "fullName": "Drake Maye",
-                    "displayName": "Drake Maye",
-                    "shortName": "D. Maye",
+                    "id": "4259545",
+                    "fullName": "D'Andre Swift",
+                    "displayName": "D'Andre Swift",
+                    "shortName": "D. Swift",
                     "links": [
                       {
                         "rel": [
@@ -470,21 +498,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4431452/drake-maye"
+                        "href": "https://www.espn.com/nfl/player/_/id/4259545/dandre-swift"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4431452.png",
-                    "jersey": "10",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4259545.png",
+                    "jersey": "4",
                     "position": {
-                      "abbreviation": "QB"
+                      "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "17"
+                      "id": "3"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "17"
+                    "id": "3"
                   }
                 }
               ]
@@ -496,8 +524,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "2 REC, 84 YDS",
-                  "value": 84,
+                  "displayValue": "4 REC, 130 YDS, 1 TD",
+                  "value": 130,
                   "athlete": {
                     "id": "4685278",
                     "fullName": "Luther Burden III",
@@ -603,8 +631,8 @@
       ],
       "weather": {
         "displayValue": "33",
-        "temperature": 62,
-        "highTemperature": 62,
+        "temperature": 61,
+        "highTemperature": 61,
         "conditionId": "Clear",
         "link": {
           "language": "en-US",
@@ -619,17 +647,17 @@
         }
       },
       "status": {
-        "clock": 205,
-        "displayClock": "3:25",
-        "period": 2,
+        "clock": 547,
+        "displayClock": "9:07",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "3:25 - 2nd Quarter",
-          "shortDetail": "3:25 - 2nd"
+          "detail": "9:07 - 3rd Quarter",
+          "shortDetail": "9:07 - 3rd"
         }
       }
     },
@@ -1337,7 +1365,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $75",
-              "numberAvailable": 1301,
+              "numberAvailable": 1299,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-orleans-saints-tickets-stade-de-france-10-25-2026--sports-nfl-football/production/7028012?wsUser=717"
@@ -1373,7 +1401,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -1389,7 +1417,7 @@
                     ]
                   }
                 ],
-                "displayName": "Draft Kings"
+                "displayName": "DraftKings"
               },
               "details": "PIT -3.5",
               "overUnder": 44.5,
@@ -1432,7 +1460,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118009%3Foutcomes%3D0ML84695442_1",
                       "text": "Home Bet",
@@ -1464,7 +1492,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118009%3Foutcomes%3D0ML84695442_3",
                       "text": "Away Bet",
@@ -2402,7 +2430,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $133",
-              "numberAvailable": 2730,
+              "numberAvailable": 2716,
               "links": [
                 {
                   "href": "https://www.vividseats.com/atlanta-falcons-tickets-atlanta-mercedes-benz-stadium-3-8-2026/production/6487181?wsUser=717"
@@ -2436,7 +2464,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -2494,7 +2522,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118095%3Foutcomes%3D0ML84695528_1",
                       "text": "Home Bet",
@@ -2526,7 +2554,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118095%3Foutcomes%3D0ML84695528_3",
                       "text": "Away Bet",
@@ -3481,7 +3509,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $41",
-              "numberAvailable": 1757,
+              "numberAvailable": 1770,
               "links": [
                 {
                   "href": "https://www.vividseats.com/tennessee-titans-tickets-nashville-nissan-stadium-3-4-2027/production/6493543?wsUser=717"
@@ -3515,7 +3543,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -3573,7 +3601,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118233%3Foutcomes%3D0ML84695676_1",
                       "text": "Home Bet",
@@ -3605,7 +3633,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118233%3Foutcomes%3D0ML84695676_3",
                       "text": "Away Bet",
@@ -4594,7 +4622,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -4652,7 +4680,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118173%3Foutcomes%3D0ML84695606_1",
                       "text": "Home Bet",
@@ -4684,7 +4712,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118173%3Foutcomes%3D0ML84695606_3",
                       "text": "Away Bet",
@@ -5340,6 +5368,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "0-5"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "0-2"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "0-3"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -5460,24 +5506,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "0-5"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "0-2"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "0-3"
                 }
               ]
             }
@@ -5638,8 +5666,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $52",
-              "numberAvailable": 3666,
+              "summary": "Tickets as low as $53",
+              "numberAvailable": 3605,
               "links": [
                 {
                   "href": "https://www.vividseats.com/new-york-jets-tickets-east-rutherford-metlife-stadium-3-7-2027/production/6494615?wsUser=717"
@@ -5673,7 +5701,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -5731,7 +5759,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118187%3Foutcomes%3D0ML84695620_1",
                       "text": "Home Bet",
@@ -5763,7 +5791,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118187%3Foutcomes%3D0ML84695620_3",
                       "text": "Away Bet",
@@ -6168,6 +6196,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "1-1"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "2-1"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -6288,24 +6334,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "2-1"
                 }
               ]
             },
@@ -6718,7 +6746,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $81",
-              "numberAvailable": 3457,
+              "numberAvailable": 3401,
               "links": [
                 {
                   "href": "https://www.vividseats.com/carolina-panthers-tickets-charlotte-bank-of-america-stadium-3-1-2026/production/6488703?wsUser=717"
@@ -6752,7 +6780,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -6810,7 +6838,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118024%3Foutcomes%3D0ML84695457_1",
                       "text": "Home Bet",
@@ -6842,7 +6870,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118024%3Foutcomes%3D0ML84695457_3",
                       "text": "Away Bet",
@@ -6872,7 +6900,7 @@
                 "home": {
                   "close": {
                     "line": "-3",
-                    "odds": "-120",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -6906,7 +6934,7 @@
                 "away": {
                   "close": {
                     "line": "+3",
-                    "odds": "+100",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -7796,8 +7824,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $104",
-              "numberAvailable": 3705,
+              "summary": "Tickets as low as $109",
+              "numberAvailable": 3674,
               "links": [
                 {
                   "href": "https://www.vividseats.com/baltimore-ravens-tickets-baltimore-mt-bank-stadium-3-1-2026/production/6487365?wsUser=717"
@@ -7831,7 +7859,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -7889,7 +7917,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118156%3Foutcomes%3D0ML84695589_1",
                       "text": "Home Bet",
@@ -7921,7 +7949,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118156%3Foutcomes%3D0ML84695589_3",
                       "text": "Away Bet",
@@ -8876,7 +8904,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $90",
-              "numberAvailable": 3569,
+              "numberAvailable": 3544,
               "links": [
                 {
                   "href": "https://www.vividseats.com/houston-texans-tickets-houston-nrg-stadium-3-8-2026/production/6490076?wsUser=717"
@@ -8910,7 +8938,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -8968,7 +8996,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118038%3Foutcomes%3D0ML84695471_1",
                       "text": "Home Bet",
@@ -9000,7 +9028,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118038%3Foutcomes%3D0ML84695471_3",
                       "text": "Away Bet",
@@ -9954,8 +9982,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $129",
-              "numberAvailable": 2595,
+              "summary": "Tickets as low as $133",
+              "numberAvailable": 2556,
               "links": [
                 {
                   "href": "https://www.vividseats.com/arizona-cardinals-tickets-glendale-state-farm-stadium-3-3-2026/production/6486973?wsUser=717"
@@ -9989,7 +10017,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -10047,7 +10075,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118123%3Foutcomes%3D0ML84695556_1",
                       "text": "Home Bet",
@@ -10079,7 +10107,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118123%3Foutcomes%3D0ML84695556_3",
                       "text": "Away Bet",
@@ -10484,6 +10512,24 @@
                 "current": 99
               },
               "statistics": [],
+              "records": [
+                {
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-2"
+                },
+                {
+                  "name": "Home",
+                  "type": "home",
+                  "summary": "2-0"
+                },
+                {
+                  "name": "Road",
+                  "type": "road",
+                  "summary": "1-2"
+                }
+              ],
               "leaders": [
                 {
                   "name": "passingLeader",
@@ -10604,24 +10650,6 @@
                       }
                     }
                   ]
-                }
-              ],
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "2-0"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "1-2"
                 }
               ]
             },
@@ -11034,7 +11062,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $169",
-              "numberAvailable": 3353,
+              "numberAvailable": 3340,
               "links": [
                 {
                   "href": "https://www.vividseats.com/detroit-lions-tickets-detroit-ford-field-3-2-2026/production/6489844?wsUser=717"
@@ -11068,7 +11096,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -11126,7 +11154,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118203%3Foutcomes%3D0ML84695636_1",
                       "text": "Home Bet",
@@ -11158,7 +11186,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118203%3Foutcomes%3D0ML84695636_3",
                       "text": "Away Bet",
@@ -12112,8 +12140,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $254",
-              "numberAvailable": 5466,
+              "summary": "Tickets as low as $255",
+              "numberAvailable": 5421,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-las-vegas-allegiant-stadium-3-6-2026/production/6491240?wsUser=717"
@@ -12147,7 +12175,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -12205,7 +12233,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118247%3Foutcomes%3D0ML84695690_1",
                       "text": "Home Bet",
@@ -12237,7 +12265,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118247%3Foutcomes%3D0ML84695690_3",
                       "text": "Away Bet",
@@ -13192,7 +13220,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $320",
-              "numberAvailable": 3207,
+              "numberAvailable": 3227,
               "links": [
                 {
                   "href": "https://www.vividseats.com/seattle-seahawks-tickets-seattle-lumen-field-3-6-2027/production/6492975?wsUser=717"
@@ -13226,7 +13254,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -13284,7 +13312,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118035%3Foutcomes%3D0ML84695468_1",
                       "text": "Home Bet",
@@ -13316,7 +13344,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118035%3Foutcomes%3D0ML84695468_3",
                       "text": "Away Bet",
@@ -14273,7 +14301,7 @@
           "tickets": [
             {
               "summary": "Tickets as low as $71",
-              "numberAvailable": 4703,
+              "numberAvailable": 4707,
               "links": [
                 {
                   "href": "https://www.vividseats.com/philadelphia-eagles-tickets-philadelphia-lincoln-financial-field-3-1-2027/production/6494930?wsUser=717"
@@ -14343,7 +14371,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "Draft Kings",
+                "name": "DraftKings",
                 "priority": 1,
                 "logos": [
                   {
@@ -14401,7 +14429,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118071%3Foutcomes%3D0ML84695504_1",
                       "text": "Home Bet",
@@ -14433,7 +14461,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draft-kings"
+                        "draftkings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118071%3Foutcomes%3D0ML84695504_3",
                       "text": "Away Bet",
@@ -15595,6 +15623,36 @@
   "injuries": {
     "Arizona Cardinals": [
       {
+        "longComment": "Wingard has sat out the Cardinals' last two games due to a bone bruise in his knee he sustained back in Week 4 against the Giants, and his availability for Week 7 is now in serious doubt. He'll likely have to practice in some capacity Friday to have a realistic chance of playing Sunday versus the Broncos.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Andrew Wingard",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Melton popped up on the Cardinals' injury report with a knee issue Wednesday, but he was at least able to practice in a limited capacity at that point. Now, he's trending in the wrong direction ahead of Sunday's game versus the Broncos, and he'll probably have to practice again Friday to put himself back on track to suit up in Week 7.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Max Melton",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Baker played through a groin issue in the Cardinals' contest against the Rams in Week 6, but he has now missed two straight practice sessions after an illness was added to his status on the injury report. If he can't practice Friday, he'll be facing an uphill battle to be available Sunday versus the Broncos.",
         "status": "Questionable",
         "athlete": {
@@ -15688,21 +15746,6 @@
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Max Melton",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
           "displayName": "Walter Nolen III",
           "position": "DT"
         },
@@ -15728,13 +15771,15 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Atlanta Falcons": [
       {
-        "longComment": "questionable",
-        "status": "Questionable",
+        "longComment": "Per Tori McElhaney of the team's official site, Williams was a limited participant at practice Thursday. The transaction opens a 21-day window during which Atlanta can take Williams off IR, after which point he'd be required to stay there for the remainder of the campaign.",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Andrew Wingard",
-          "position": "S"
+          "displayName": "Cameron Williams",
+          "position": "OL"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -15743,9 +15788,7 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Atlanta Falcons": [
+      },
       {
         "longComment": "It's the second straight limited practice to begin the week for Zaccheaus, who is dealing with a shoulder injury. He may need to upgrade to full participation Friday to avoid being tagged with a designation heading into the weekend. Zaccheaus had four catches on six targets through three weeks but hasn't caught any of his five targets over Atlanta's past three contests.",
         "status": "Questionable",
@@ -16145,8 +16188,8 @@
     ],
     "Chicago Bears": [
       {
-        "longComment": "ir",
-        "status": "Injured Reserve",
+        "longComment": "out",
+        "status": "Out",
         "athlete": {
           "displayName": "Anthony Johnson Jr.",
           "position": "S"
@@ -16466,6 +16509,21 @@
     ],
     "Dallas Cowboys": [
       {
+        "longComment": "The move opens Liufau's 21-day practice window, meaning the Cowboys can take up to three weeks to decide whether to activate the third-year defender or rule him out for the season. Liufau was a limited participant in practice Thursday, per Tommy Yarrish of the Cowboys' official site, and it's unclear if he'll be activated ahead of Monday's matchup in Philadelphia. Liufau was primarily a special-teamer last season and could take on a similar role as a rotational linebacker upon his potential return.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Marist Liufau",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Durant has been sidelined for the Cowboys' past four games with a hamstring injury he suffered back in Week 2 versus the Commanders, and his availability for Week 7 is now in question. His activity at practice Friday and Saturday should offer more insight into whether he'll be able to play Monday at Philadelphia.",
         "status": "Questionable",
         "athlete": {
@@ -16757,6 +16815,21 @@
     ],
     "Green Bay Packers": [
       {
+        "longComment": "Banks has now been limited at each of Green Bay's past six practices. He's been sidelined since getting hurt Week 2, though he at least entered last weekend deemed questionable to suit up. Banks may carry the same tag into this Sunday's matchup against Detroit, but it would help his case to be able to return to action if he's able to upgrade to full participation Friday.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Aaron Banks",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Van Ness is under the weather, but he was at least able to practice in a limited capacity Thursday. That suggests that he'll likely be able to suit up Sunday against the Lions, though the Packers' injury report Friday will reveal whether he'll enter the weekend with a designation. Van Ness has a team-leading 3.5 sacks through six games.",
         "status": "Questionable",
         "athlete": {
@@ -16897,21 +16970,6 @@
         "athlete": {
           "displayName": "Benjamin St-Juste",
           "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Aaron Banks",
-          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -17915,6 +17973,21 @@
     ],
     "Minnesota Vikings": [
       {
+        "longComment": "Darrisaw has opened the week with back-to-back full practices, but it is unclear if he has cleared concussion protocol quite yet. The offensive lineman's status for Week 7 will become much more clear when Minnesota releases its final injury report of the week following Friday's practice.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Christian Darrisaw",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Hockenson is inching closer to clearing the protocol for head injuries after sustaining a concussion during the Vikings' Week 5 win at New Orleans. At the very least, he must gain clearance from an independent neurologist in order to suit up again Sunday against the Colts.",
         "status": "Questionable",
         "athlete": {
@@ -17935,21 +18008,6 @@
         "athlete": {
           "displayName": "Jordan Mason",
           "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Christian Darrisaw",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18191,6 +18249,21 @@
         }
       },
       {
+        "longComment": "Thomas has been dealing with a groin injury for a series of weeks, but he has been able to play through it. The offensive lineman was a non-participant at practice Wednesday, but his ability to return to the field Thursday suggests that he will be good to go for Week 7 versus the Texans.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Andrew Thomas",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Hood wasn't able to practice at full speed Wednesday due to the concussion that knocked him out of the Giants' game versus the Saints in Week 6 early, but it didn't hold him back Thursday. He'll still have to clear league concussion protocol to be eligible to suit up in Week 7 at Houston, so there's no guarantee yet that he'll be available come Sunday.",
         "status": "Questionable",
         "athlete": {
@@ -18314,21 +18387,6 @@
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Andrew Thomas",
-          "position": "OT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
           "displayName": "Marcus Mbow",
           "position": "OT"
         },
@@ -18357,6 +18415,21 @@
       }
     ],
     "New York Jets": [
+      {
+        "longComment": "Mitchell was added to the injury report with a concussion Thursday, and he was forced to miss practice as a result. The offensive lineman seems to be unlikely to be available for Sunday's matchup with the Dolphins, but he'll have one more chance to practice Friday.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Max Mitchell",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Nwangwu has now been unable to practice for two straight days because of a knee issue, and his availability for Week 7 is in serious doubt. He'll probably need to get back onto the practice field Friday to have a realistic chance of suiting up Sunday versus the Dolphins.",
         "status": "Questionable",
@@ -18393,21 +18466,6 @@
         "athlete": {
           "displayName": "Breece Hall",
           "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Max Mitchell",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -18737,6 +18795,21 @@
     ],
     "Pittsburgh Steelers": [
       {
+        "longComment": "Echols suffered a hamstring injury in the first half of the team's 26-19 overtime win over the Buccaneers, and he will now be forced to miss at least one additional contest as a result. The cornerback plays primarily on special teams, so his absence won't have much of an impact on the Steelers' defensive approach in Week 7.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Brandin Echols",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Joseph-Day is dealing with an apparent triceps injury, and he will now be forced to miss at least four contests while recovering. In his absence, Gabriel Rubio and Kevin Jobity are both candidates to see an increase in workload on Pittsburgh's defensive line.",
         "status": "Injured Reserve",
         "athlete": {
@@ -18787,21 +18860,6 @@
         "athlete": {
           "displayName": "Rico Dowdle",
           "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "out",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Brandin Echols",
-          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19193,11 +19251,11 @@
     ],
     "Tampa Bay Buccaneers": [
       {
-        "longComment": "McCollum missed the team's first practice of the week Wednesday while dealing with an illness, but he was able to return to the practice field one day later. The cornerback will have one more chance to log a full practice Friday before the team squares off with the Panthers in Week 7.",
-        "status": "Questionable",
+        "longComment": "Rozeboom will be forced to miss at least four games while recovering from a finger injury that he likely suffered in Week 6 against the Steelers. In his absence, SirVocea Dennis will stand to see an increase in workload at inside linebacker behind starters Alex Anzalone and Josiah Trotter.",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Zyon McCollum",
-          "position": "CB"
+          "displayName": "Christian Rozeboom",
+          "position": "LB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19208,11 +19266,26 @@
         }
       },
       {
-        "longComment": "ir",
-        "status": "Injured Reserve",
+        "longComment": "Goedeke popped up on the Buccaneers' injury report with a calf issue Wednesday, and he's now sat out two straight practice sessions because of it. He'll likely have to get back on the practice field Friday to have a realistic chance of playing Sunday at Carolina.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Christian Rozeboom",
-          "position": "LB"
+          "displayName": "Luke Goedeke",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "McCollum missed the team's first practice of the week Wednesday while dealing with an illness, but he was able to return to the practice field one day later. The cornerback will have one more chance to log a full practice Friday before the team squares off with the Panthers in Week 7.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Zyon McCollum",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19273,21 +19346,6 @@
         "athlete": {
           "displayName": "Antoine Winfield Jr.",
           "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Luke Goedeke",
-          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -19831,7 +19889,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-23T01:28:11.558Z",
+    "checkedAt": "2026-10-23T02:12:15.319Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
