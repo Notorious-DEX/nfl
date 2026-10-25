@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-25T17:56:19.352Z",
+  "lastUpdated": "2026-10-25T19:21:47.308Z",
   "currentWeek": 7,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/atl.png"
               },
-              "score": "9",
+              "score": "26",
               "linescores": [
                 {
                   "value": 3,
@@ -155,9 +155,19 @@
                   "period": 1
                 },
                 {
-                  "value": 6,
-                  "displayValue": "6",
+                  "value": 9,
+                  "displayValue": "9",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -299,6 +309,16 @@
                   "value": 7,
                   "displayValue": "7",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -328,71 +348,94 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730171264",
+              "id": "4018730173151",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "24",
+                "text": "Pass Reception",
+                "abbreviation": "REC"
               },
-              "text": "Official Timeout at 08:47.",
+              "text": " (Shotgun) B.Purdy pass short right to J.Cowing to ATL 23 for 11 yards (M.Hughes).",
               "scoreValue": 0,
               "team": {
-                "id": "1"
+                "id": "25"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.1511,
-                "awayWinPercentage": 0.8489,
+                "homeWinPercentage": 0.7558,
+                "awayWinPercentage": 0.24419999999999997,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 11,
               "drive": {
-                "description": "10 plays, 68 yards, 6:07",
+                "description": "7 plays, 50 yards, 2:28",
                 "start": {
-                  "yardLine": 32,
-                  "text": "ATL 32"
-                },
-                "end": {
-                  "yardLine": 100,
-                  "text": "SF 0"
+                  "yardLine": 73,
+                  "text": "SF 27"
                 },
                 "timeElapsed": {
-                  "displayValue": "6:07"
-                },
-                "result": "TD"
+                  "displayValue": "2:28"
+                }
               },
               "start": {
-                "yardLine": 85,
+                "yardLine": 34,
                 "team": {
-                  "id": "1"
+                  "id": "25"
                 }
               },
               "end": {
-                "yardLine": 85,
+                "yardLine": 23,
                 "team": {
-                  "id": "1"
+                  "id": "25"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4575665",
+                  "fullName": "Jacob Cowing",
+                  "displayName": "Jacob Cowing",
+                  "shortName": "J. Cowing",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4575665/jacob-cowing"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4575665.png",
+                  "jersey": "4",
+                  "position": "WR",
+                  "team": {
+                    "id": "25"
+                  }
+                }
+              ]
             },
-            "down": -1,
-            "yardLine": 85,
-            "distance": 0,
-            "isRedZone": true,
-            "homeTimeouts": 2,
-            "awayTimeouts": 2
+            "down": 1,
+            "yardLine": 23,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at ATL 23",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "ATL 23",
+            "isRedZone": false,
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "25"
           },
           "status": {
-            "clock": 527,
-            "displayClock": "8:47",
-            "period": 2,
+            "clock": 747,
+            "displayClock": "12:27",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "8:47 - 2nd Quarter",
-              "shortDetail": "8:47 - 2nd"
+              "detail": "12:27 - 4th Quarter",
+              "shortDetail": "12:27 - 4th"
             },
             "isTBDFlex": false
           },
@@ -412,13 +455,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "6/7, 75 YDS",
-                  "value": 75,
+                  "displayValue": "23/30, 192 YDS, 3 TD",
+                  "value": 192,
                   "athlete": {
-                    "id": "4361741",
-                    "fullName": "Brock Purdy",
-                    "displayName": "Brock Purdy",
-                    "shortName": "B. Purdy",
+                    "id": "4360423",
+                    "fullName": "Michael Penix Jr.",
+                    "displayName": "Michael Penix Jr.",
+                    "shortName": "M. Penix Jr.",
                     "links": [
                       {
                         "rel": [
@@ -426,21 +469,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4361741/brock-purdy"
+                        "href": "https://www.espn.com/nfl/player/_/id/4360423/michael-penix-jr"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4361741.png",
-                    "jersey": "13",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4360423.png",
+                    "jersey": "9",
                     "position": {
                       "abbreviation": "QB"
                     },
                     "team": {
-                      "id": "25"
+                      "id": "1"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "25"
+                    "id": "1"
                   }
                 }
               ]
@@ -452,8 +495,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "8 CAR, 53 YDS, 1 TD",
-                  "value": 53,
+                  "displayValue": "12 CAR, 63 YDS, 1 TD",
+                  "value": 63,
                   "athlete": {
                     "id": "4696044",
                     "fullName": "Kaelon Black",
@@ -492,13 +535,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 45 YDS",
-                  "value": 45,
+                  "displayValue": "6 REC, 64 YDS, 1 TD",
+                  "value": 64,
                   "athlete": {
-                    "id": "3117251",
-                    "fullName": "Christian McCaffrey",
-                    "displayName": "Christian McCaffrey",
-                    "shortName": "C. McCaffrey",
+                    "id": "4426502",
+                    "fullName": "Drake London",
+                    "displayName": "Drake London",
+                    "shortName": "D. London",
                     "links": [
                       {
                         "rel": [
@@ -506,21 +549,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3117251/christian-mccaffrey"
+                        "href": "https://www.espn.com/nfl/player/_/id/4426502/drake-london"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3117251.png",
-                    "jersey": "23",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4426502.png",
+                    "jersey": "5",
                     "position": {
-                      "abbreviation": "RB"
+                      "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "25"
+                      "id": "1"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "25"
+                    "id": "1"
                   }
                 }
               ]
@@ -599,8 +642,8 @@
       ],
       "weather": {
         "displayValue": "1",
-        "temperature": 68,
-        "highTemperature": 68,
+        "temperature": 70,
+        "highTemperature": 70,
         "conditionId": "Sunny",
         "link": {
           "language": "en-US",
@@ -615,78 +658,18 @@
         }
       },
       "status": {
-        "clock": 527,
-        "displayClock": "8:47",
-        "period": 2,
+        "clock": 747,
+        "displayClock": "12:27",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "8:47 - 2nd Quarter",
-          "shortDetail": "8:47 - 2nd"
+          "detail": "12:27 - 4th Quarter",
+          "shortDetail": "12:27 - 4th"
         }
-      },
-      "tuneInPrompt": {
-        "id": "f394cce8f17a7",
-        "isAutomated": false,
-        "title": "Milestone Watch",
-        "description": "Tune-in Prompt 401873017",
-        "caption": "Za'Darius Smith is one sack from 75.",
-        "dateModified": "2026-10-25T12:00:09Z",
-        "rating": "Unrated",
-        "shortText": "Za'Darius Smith is one sack from 75.",
-        "longText": "Za'Darius Smith is one sack from 75.",
-        "images": [
-          {
-            "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3043168.png",
-            "alt": "Za'Darius Smith"
-          }
-        ],
-        "imageType": "playerHeadshot",
-        "backgroundImages": [
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "default"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/atl.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "dark"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/atl.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard",
-              "dark"
-            ]
-          }
-        ],
-        "color": "a71930",
-        "alternateColor": "000000",
-        "categoryGuid": "da509193-a675-3500-cb74-268a98f38882"
       }
     },
     {
@@ -845,6 +828,11 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -975,7 +963,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/cle.png"
               },
-              "score": "7",
+              "score": "17",
               "linescores": [
                 {
                   "value": 7,
@@ -983,9 +971,14 @@
                   "period": 1
                 },
                 {
+                  "value": 10,
+                  "displayValue": "10",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -1015,52 +1008,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730131260",
+              "id": "4018730133204",
               "type": {
                 "id": "24",
                 "text": "Pass Reception",
                 "abbreviation": "REC"
               },
-              "text": " (Shotgun) C.Ward pass short left to E.Ayomanor to CLV 4 for 7 yards (T.Campbell).",
+              "text": " (Shotgun) D.Watson pass short left to D.Sampson to CLV 46 for 22 yards (K.Winston).",
               "scoreValue": 0,
               "team": {
-                "id": "10"
+                "id": "5"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.8103,
-                "awayWinPercentage": 0.18969999999999998,
+                "homeWinPercentage": 0.3091,
+                "awayWinPercentage": 0.6909000000000001,
                 "secondsLeft": 0
               },
-              "statYardage": 7,
+              "statYardage": 22,
               "drive": {
-                "description": "10 plays, 52 yards, 5:29",
+                "description": "3 plays, 28 yards, 1:41",
                 "start": {
-                  "yardLine": 44,
-                  "text": "TEN 44"
+                  "yardLine": 82,
+                  "text": "CLE 18"
                 },
                 "timeElapsed": {
-                  "displayValue": "5:29"
+                  "displayValue": "1:41"
                 }
               },
               "start": {
-                "yardLine": 89,
+                "yardLine": 76,
                 "team": {
-                  "id": "10"
+                  "id": "5"
                 }
               },
               "end": {
-                "yardLine": 96,
+                "yardLine": 54,
                 "team": {
-                  "id": "10"
+                  "id": "5"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4883647",
-                  "fullName": "Elic Ayomanor",
-                  "displayName": "Elic Ayomanor",
-                  "shortName": "E. Ayomanor",
+                  "id": "5081397",
+                  "fullName": "Dylan Sampson",
+                  "displayName": "Dylan Sampson",
+                  "shortName": "D. Sampson",
                   "links": [
                     {
                       "rel": [
@@ -1068,41 +1061,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4883647/elic-ayomanor"
+                      "href": "https://www.espn.com/nfl/player/_/id/5081397/dylan-sampson"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4883647.png",
-                  "jersey": "5",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/5081397.png",
+                  "jersey": "22",
+                  "position": "RB",
                   "team": {
-                    "id": "10"
+                    "id": "5"
                   }
                 }
               ]
             },
             "down": 1,
-            "yardLine": 96,
-            "distance": 4,
-            "downDistanceText": "1st & Goal at CLE 4",
-            "shortDownDistanceText": "1st & Goal",
-            "possessionText": "CLE 4",
-            "isRedZone": true,
+            "yardLine": 54,
+            "distance": 10,
+            "downDistanceText": "1st & 10 at CLE 46",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "CLE 46",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2,
-            "possession": "10"
+            "awayTimeouts": 3,
+            "possession": "5"
           },
           "status": {
-            "clock": 684,
-            "displayClock": "11:24",
-            "period": 2,
+            "clock": 114,
+            "displayClock": "1:54",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "11:24 - 2nd Quarter",
-              "shortDetail": "11:24 - 2nd"
+              "detail": "1:54 - 3rd Quarter",
+              "shortDetail": "1:54 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -1122,13 +1115,13 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "7/8, 58 YDS",
-                  "value": 58,
+                  "displayValue": "18/26, 224 YDS, 1 INT",
+                  "value": 224,
                   "athlete": {
-                    "id": "4688380",
-                    "fullName": "Cam Ward",
-                    "displayName": "Cam Ward",
-                    "shortName": "C. Ward",
+                    "id": "3122840",
+                    "fullName": "Deshaun Watson",
+                    "displayName": "Deshaun Watson",
+                    "shortName": "D. Watson",
                     "links": [
                       {
                         "rel": [
@@ -1136,21 +1129,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4688380/cam-ward"
+                        "href": "https://www.espn.com/nfl/player/_/id/3122840/deshaun-watson"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4688380.png",
-                    "jersey": "1",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3122840.png",
+                    "jersey": "4",
                     "position": {
                       "abbreviation": "QB"
                     },
                     "team": {
-                      "id": "10"
+                      "id": "5"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "10"
+                    "id": "5"
                   }
                 }
               ]
@@ -1162,8 +1155,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "14 CAR, 88 YDS, 2 TD",
-                  "value": 88,
+                  "displayValue": "20 CAR, 110 YDS, 2 TD",
+                  "value": 110,
                   "athlete": {
                     "id": "3916148",
                     "fullName": "Tony Pollard",
@@ -1202,8 +1195,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 36 YDS",
-                  "value": 36,
+                  "displayValue": "8 REC, 129 YDS",
+                  "value": 129,
                   "athlete": {
                     "id": "4870653",
                     "fullName": "KC Concepcion",
@@ -1309,8 +1302,8 @@
       ],
       "weather": {
         "displayValue": "1",
-        "temperature": 73,
-        "highTemperature": 73,
+        "temperature": 74,
+        "highTemperature": 74,
         "conditionId": "Sunny",
         "link": {
           "language": "en-US",
@@ -1325,17 +1318,17 @@
         }
       },
       "status": {
-        "clock": 684,
-        "displayClock": "11:24",
-        "period": 2,
+        "clock": 114,
+        "displayClock": "1:54",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "11:24 - 2nd Quarter",
-          "shortDetail": "11:24 - 2nd"
+          "detail": "1:54 - 3rd Quarter",
+          "shortDetail": "1:54 - 3rd"
         }
       }
     },
@@ -1484,7 +1477,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/min.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/min.png"
               },
-              "score": "3",
+              "score": "13",
               "linescores": [
                 {
                   "value": 0,
@@ -1492,9 +1485,19 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 6,
+                  "displayValue": "6",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -1625,7 +1628,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/ind.png"
               },
-              "score": "7",
+              "score": "10",
               "linescores": [
                 {
                   "value": 7,
@@ -1633,9 +1636,19 @@
                   "period": 1
                 },
                 {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -1665,51 +1678,51 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730141421",
+              "id": "4018730143139",
               "type": {
-                "id": "3",
-                "text": "Pass Incompletion"
+                "id": "7",
+                "text": "Sack"
               },
-              "text": " K.Murray pass incomplete deep left to J.Jennings.",
+              "text": " (Shotgun) K.Murray sacked at IND 41 for -2 yards (A.Adebawore).",
               "scoreValue": 0,
               "team": {
                 "id": "16"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.5692,
-                "awayWinPercentage": 0.43079999999999996,
+                "homeWinPercentage": 0.7436,
+                "awayWinPercentage": 0.25639999999999996,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": -2,
               "drive": {
-                "description": "9 plays, 66 yards, 4:25",
+                "description": "5 plays, 37 yards, 2:56",
                 "start": {
-                  "yardLine": 4,
-                  "text": "MIN 4"
+                  "yardLine": 22,
+                  "text": "MIN 22"
                 },
                 "timeElapsed": {
-                  "displayValue": "4:25"
+                  "displayValue": "2:56"
                 }
               },
               "start": {
-                "yardLine": 70,
+                "yardLine": 61,
                 "team": {
                   "id": "16"
                 }
               },
               "end": {
-                "yardLine": 70,
+                "yardLine": 59,
                 "team": {
                   "id": "16"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "3886598",
-                  "fullName": "Jauan Jennings",
-                  "displayName": "Jauan Jennings",
-                  "shortName": "J. Jennings",
+                  "id": "4427635",
+                  "fullName": "Adetomiwa Adebawore",
+                  "displayName": "Adetomiwa Adebawore",
+                  "shortName": "A. Adebawore",
                   "links": [
                     {
                       "rel": [
@@ -1717,41 +1730,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/3886598/jauan-jennings"
+                      "href": "https://www.espn.com/nfl/player/_/id/4427635/adetomiwa-adebawore"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3886598.png",
-                  "jersey": "14",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4427635.png",
+                  "jersey": "95",
+                  "position": "DT",
                   "team": {
-                    "id": "16"
+                    "id": "11"
                   }
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 70,
-            "distance": 10,
-            "downDistanceText": "2nd & 10 at IND 30",
-            "shortDownDistanceText": "2nd & 10",
-            "possessionText": "IND 30",
+            "down": 3,
+            "yardLine": 59,
+            "distance": 12,
+            "downDistanceText": "3rd & 12 at IND 41",
+            "shortDownDistanceText": "3rd & 12",
+            "possessionText": "IND 41",
             "isRedZone": false,
-            "homeTimeouts": 2,
+            "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "16"
           },
           "status": {
-            "clock": 459,
-            "displayClock": "7:39",
-            "period": 2,
+            "clock": 566,
+            "displayClock": "9:26",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "7:39 - 2nd Quarter",
-              "shortDetail": "7:39 - 2nd"
+              "detail": "9:26 - 4th Quarter",
+              "shortDetail": "9:26 - 4th"
             },
             "isTBDFlex": false
           },
@@ -1771,8 +1784,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "11/17, 102 YDS",
-                  "value": 102,
+                  "displayValue": "13/21, 130 YDS, 1 TD",
+                  "value": 130,
                   "athlete": {
                     "id": "3917315",
                     "fullName": "Kyler Murray",
@@ -1811,8 +1824,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "4 CAR, 45 YDS, 1 TD",
-                  "value": 45,
+                  "displayValue": "14 CAR, 80 YDS, 1 TD",
+                  "value": 80,
                   "athlete": {
                     "id": "4242335",
                     "fullName": "Jonathan Taylor",
@@ -1851,8 +1864,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 43 YDS",
-                  "value": 43,
+                  "displayValue": "4 REC, 44 YDS",
+                  "value": 44,
                   "athlete": {
                     "id": "4262921",
                     "fullName": "Justin Jefferson",
@@ -1957,10 +1970,10 @@
         }
       ],
       "weather": {
-        "displayValue": "7",
+        "displayValue": "12",
         "temperature": 53,
         "highTemperature": 53,
-        "conditionId": "Cloudy",
+        "conditionId": "A shower",
         "link": {
           "language": "en-US",
           "rel": [
@@ -1974,17 +1987,17 @@
         }
       },
       "status": {
-        "clock": 459,
-        "displayClock": "7:39",
-        "period": 2,
+        "clock": 566,
+        "displayClock": "9:26",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "7:39 - 2nd Quarter",
-          "shortDetail": "7:39 - 2nd"
+          "detail": "9:26 - 4th Quarter",
+          "shortDetail": "9:26 - 4th"
         }
       }
     },
@@ -2133,7 +2146,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyj.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/nyj.png"
               },
-              "score": "7",
+              "score": "17",
               "linescores": [
                 {
                   "value": 7,
@@ -2144,6 +2157,16 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -2274,7 +2297,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/mia.png"
               },
-              "score": "14",
+              "score": "21",
               "linescores": [
                 {
                   "value": 14,
@@ -2282,9 +2305,19 @@
                   "period": 1
                 },
                 {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -2314,75 +2347,93 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730151393",
+              "id": "4018730153066",
               "type": {
-                "id": "74",
-                "text": "Official Timeout",
-                "abbreviation": "Off TO"
+                "id": "53",
+                "text": "Kickoff",
+                "abbreviation": "K"
               },
-              "text": "Official Timeout at 08:44.",
+              "text": "A.McNamara kicks 62 yards from NYJ 35 to MIA 3. J.Wright to MIA 24 for 21 yards (A.Beck).",
               "scoreValue": 0,
               "team": {
                 "id": "15"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.4204,
-                "awayWinPercentage": 0.5796,
+                "homeWinPercentage": 0.2838,
+                "awayWinPercentage": 0.7162,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 21,
               "drive": {
-                "description": "4 plays, 13 yards, 2:26",
+                "description": "0 plays, 0 yards, 0:00",
                 "start": {
-                  "yardLine": 30,
-                  "text": "NYJ 30"
-                },
-                "end": {
-                  "yardLine": 43,
-                  "text": "NYJ 43"
+                  "yardLine": 0,
+                  "text": "NYJ 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:26"
-                },
-                "result": "PUNT"
+                  "displayValue": "0:00"
+                }
               },
               "start": {
-                "yardLine": 91,
+                "yardLine": 35,
                 "team": {
-                  "id": "15"
+                  "id": "20"
                 }
               },
               "end": {
-                "yardLine": 91,
+                "yardLine": 76,
                 "team": {
                   "id": "15"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4682745",
+                  "fullName": "Jaylen Wright",
+                  "displayName": "Jaylen Wright",
+                  "shortName": "J. Wright",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4682745/jaylen-wright"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4682745.png",
+                  "jersey": "5",
+                  "position": "RB",
+                  "team": {
+                    "id": "15"
+                  }
+                }
+              ]
             },
             "down": 1,
-            "yardLine": 91,
+            "yardLine": 76,
             "distance": 10,
-            "downDistanceText": "1st & 10 at MIA 9",
+            "downDistanceText": "1st & 10 at MIA 24",
             "shortDownDistanceText": "1st & 10",
-            "possessionText": "MIA 9",
+            "possessionText": "MIA 24",
             "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "15"
+            "homeTimeouts": 2,
+            "awayTimeouts": 3
           },
           "status": {
-            "clock": 524,
-            "displayClock": "8:44",
-            "period": 2,
+            "clock": 537,
+            "displayClock": "8:57",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "8:44 - 2nd Quarter",
-              "shortDetail": "8:44 - 2nd"
+              "detail": "8:57 - 4th Quarter",
+              "shortDetail": "8:57 - 4th"
             },
             "isTBDFlex": false
           },
@@ -2402,8 +2453,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "8/10, 86 YDS, 1 TD, 1 INT",
-                  "value": 86,
+                  "displayValue": "16/20, 218 YDS, 2 TD, 1 INT",
+                  "value": 218,
                   "athlete": {
                     "id": "15864",
                     "fullName": "Geno Smith",
@@ -2442,13 +2493,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "8 CAR, 29 YDS, 1 TD",
-                  "value": 29,
+                  "displayValue": "17 CAR, 104 YDS",
+                  "value": 104,
                   "athlete": {
-                    "id": "4711533",
-                    "fullName": "Ollie Gordon II",
-                    "displayName": "Ollie Gordon II",
-                    "shortName": "O. Gordon II",
+                    "id": "4685247",
+                    "fullName": "Braelon Allen",
+                    "displayName": "Braelon Allen",
+                    "shortName": "B. Allen",
                     "links": [
                       {
                         "rel": [
@@ -2456,21 +2507,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4711533/ollie-gordon-ii"
+                        "href": "https://www.espn.com/nfl/player/_/id/4685247/braelon-allen"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4711533.png",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685247.png",
                     "jersey": "0",
                     "position": {
                       "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "15"
+                      "id": "20"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "15"
+                    "id": "20"
                   }
                 }
               ]
@@ -2482,13 +2533,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "3 REC, 55 YDS",
-                  "value": 55,
+                  "displayValue": "4 REC, 112 YDS, 1 TD",
+                  "value": 112,
                   "athlete": {
-                    "id": "4367209",
-                    "fullName": "Greg Dulcich",
-                    "displayName": "Greg Dulcich",
-                    "shortName": "G. Dulcich",
+                    "id": "4723820",
+                    "fullName": "Omar Cooper Jr.",
+                    "displayName": "Omar Cooper Jr.",
+                    "shortName": "O. Cooper Jr.",
                     "links": [
                       {
                         "rel": [
@@ -2496,21 +2547,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4367209/greg-dulcich"
+                        "href": "https://www.espn.com/nfl/player/_/id/4723820/omar-cooper-jr"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4367209.png",
-                    "jersey": "85",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4723820.png",
+                    "jersey": "11",
                     "position": {
-                      "abbreviation": "TE"
+                      "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "15"
+                      "id": "20"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "15"
+                    "id": "20"
                   }
                 }
               ]
@@ -2589,8 +2640,8 @@
       ],
       "weather": {
         "displayValue": "1",
-        "temperature": 65,
-        "highTemperature": 65,
+        "temperature": 70,
+        "highTemperature": 70,
         "conditionId": "Sunny",
         "link": {
           "language": "en-US",
@@ -2605,17 +2656,17 @@
         }
       },
       "status": {
-        "clock": 524,
-        "displayClock": "8:44",
-        "period": 2,
+        "clock": 537,
+        "displayClock": "8:57",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "8:44 - 2nd Quarter",
-          "shortDetail": "8:44 - 2nd"
+          "detail": "8:57 - 4th Quarter",
+          "shortDetail": "8:57 - 4th"
         }
       }
     },
@@ -2775,6 +2826,16 @@
                   "value": 6,
                   "displayValue": "6",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -2905,7 +2966,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/tb.png"
               },
-              "score": "19",
+              "score": "36",
               "linescores": [
                 {
                   "value": 7,
@@ -2913,9 +2974,19 @@
                   "period": 1
                 },
                 {
-                  "value": 12,
-                  "displayValue": "12",
+                  "value": 26,
+                  "displayValue": "26",
                   "period": 2
+                },
+                {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -2945,57 +3016,52 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730181260",
+              "id": "4018730183134",
               "type": {
-                "id": "67",
-                "text": "Passing Touchdown",
-                "abbreviation": "TD"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "(Shotgun) B.Young pass deep middle to D.Waller for 50 yards, TOUCHDOWN.",
-              "scoreValue": 6,
+              "text": " (Shotgun) K.Gainwell up the middle to CAR 46 for 5 yards (B.Okereke; T.Dodson).",
+              "scoreValue": 0,
               "team": {
-                "id": "29"
+                "id": "27"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.2335,
-                "awayWinPercentage": 0.7665,
+                "homeWinPercentage": 0.001,
+                "awayWinPercentage": 0.999,
                 "secondsLeft": 0
               },
-              "statYardage": 50,
+              "statYardage": 5,
               "drive": {
-                "description": "5 plays, 72 yards, 1:56",
+                "description": "8 plays, 48 yards, 5:34",
                 "start": {
-                  "yardLine": 28,
-                  "text": "CAR 28"
-                },
-                "end": {
-                  "yardLine": 100,
-                  "text": "TB 0"
+                  "yardLine": 94,
+                  "text": "TB 6"
                 },
                 "timeElapsed": {
-                  "displayValue": "1:56"
-                },
-                "result": "TD"
+                  "displayValue": "5:34"
+                }
               },
               "start": {
-                "yardLine": 50,
+                "yardLine": 51,
                 "team": {
-                  "id": "29"
+                  "id": "27"
                 }
               },
               "end": {
-                "yardLine": 100,
+                "yardLine": 46,
                 "team": {
-                  "id": "29"
+                  "id": "27"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "2576925",
-                  "fullName": "Darren Waller",
-                  "displayName": "Darren Waller",
-                  "shortName": "D. Waller",
+                  "id": "4371733",
+                  "fullName": "Kenny Gainwell",
+                  "displayName": "Kenny Gainwell",
+                  "shortName": "K. Gainwell",
                   "links": [
                     {
                       "rel": [
@@ -3003,37 +3069,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/2576925/darren-waller"
+                      "href": "https://www.espn.com/nfl/player/_/id/4371733/kenny-gainwell"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2576925.png",
-                  "jersey": "88",
-                  "position": "TE",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4371733.png",
+                  "jersey": "1",
+                  "position": "RB",
                   "team": {
-                    "id": "29"
+                    "id": "27"
                   }
                 }
               ]
             },
-            "down": -1,
-            "yardLine": 100,
+            "down": 1,
+            "yardLine": 46,
             "distance": 10,
-            "isRedZone": true,
+            "downDistanceText": "1st & 10 at CAR 46",
+            "shortDownDistanceText": "1st & 10",
+            "possessionText": "CAR 46",
+            "isRedZone": false,
             "homeTimeouts": 3,
-            "awayTimeouts": 2
+            "awayTimeouts": 3,
+            "possession": "27"
           },
           "status": {
-            "clock": 549,
-            "displayClock": "9:09",
-            "period": 2,
+            "clock": 676,
+            "displayClock": "11:16",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "9:09 - 2nd Quarter",
-              "shortDetail": "9:09 - 2nd"
+              "detail": "11:16 - 4th Quarter",
+              "shortDetail": "11:16 - 4th"
             },
             "isTBDFlex": false
           },
@@ -3053,8 +3123,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "6/9, 85 YDS, 1 TD",
-                  "value": 85,
+                  "displayValue": "14/27, 163 YDS, 1 TD, 2 INT",
+                  "value": 163,
                   "athlete": {
                     "id": "4685720",
                     "fullName": "Bryce Young",
@@ -3093,8 +3163,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "11 CAR, 50 YDS, 1 TD",
-                  "value": 50,
+                  "displayValue": "24 CAR, 106 YDS, 2 TD",
+                  "value": 106,
                   "athlete": {
                     "id": "4596448",
                     "fullName": "Bucky Irving",
@@ -3240,8 +3310,8 @@
       ],
       "weather": {
         "displayValue": "1",
-        "temperature": 68,
-        "highTemperature": 68,
+        "temperature": 70,
+        "highTemperature": 70,
         "conditionId": "Sunny",
         "link": {
           "language": "en-US",
@@ -3256,18 +3326,78 @@
         }
       },
       "status": {
-        "clock": 549,
-        "displayClock": "9:09",
-        "period": 2,
+        "clock": 676,
+        "displayClock": "11:16",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "9:09 - 2nd Quarter",
-          "shortDetail": "9:09 - 2nd"
+          "detail": "11:16 - 4th Quarter",
+          "shortDetail": "11:16 - 4th"
         }
+      },
+      "tuneInPrompt": {
+        "id": "79d366f74eb72",
+        "isAutomated": false,
+        "title": "Pressure Game",
+        "description": "Tune-in Prompt 401873018",
+        "caption": "Yaya Diaby has 3 sacks.",
+        "dateModified": "2026-10-25T18:43:20Z",
+        "rating": "Unrated",
+        "shortText": "Yaya Diaby has 3 sacks.",
+        "longText": "Yaya Diaby has 3 sacks.",
+        "images": [
+          {
+            "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4686334.png",
+            "alt": "Yaya Diaby"
+          }
+        ],
+        "imageType": "playerHeadshot",
+        "backgroundImages": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/tb.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "dark"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "scoreboard"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/tb.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "scoreboard",
+              "dark"
+            ]
+          }
+        ],
+        "color": "bd1c36",
+        "alternateColor": "3e3a35",
+        "categoryGuid": "611a369f-e3a9-3d5f-b416-7bbe0c90e6c1"
       }
     },
     {
@@ -3415,7 +3545,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/bal.png"
               },
-              "score": "10",
+              "score": "13",
               "linescores": [
                 {
                   "value": 7,
@@ -3423,9 +3553,19 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 6,
+                  "displayValue": "6",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -3556,7 +3696,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cin.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/cin.png"
               },
-              "score": "0",
+              "score": "21",
               "linescores": [
                 {
                   "value": 0,
@@ -3567,6 +3707,16 @@
                   "value": 0,
                   "displayValue": "0",
                   "period": 2
+                },
+                {
+                  "value": 14,
+                  "displayValue": "14",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -3596,99 +3746,71 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730121349",
+              "id": "4018730123121",
               "type": {
-                "id": "52",
-                "text": "Punt",
-                "abbreviation": "PUNT"
+                "id": "74",
+                "text": "Official Timeout",
+                "abbreviation": "Off TO"
               },
-              "text": "R.Rehkow punts 42 yards to BLT 12, Center-W.Wagner, fair catch by L.Wester.",
+              "text": "Official Timeout at 11:14.",
               "scoreValue": 0,
               "team": {
-                "id": "33"
+                "id": "4"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.6778,
-                "awayWinPercentage": 0.32220000000000004,
+                "homeWinPercentage": 0.1359,
+                "awayWinPercentage": 0.8641,
                 "secondsLeft": 0
               },
               "statYardage": 0,
               "drive": {
-                "description": "6 plays, 19 yards, 2:43",
+                "description": "6 plays, 88 yards, 3:41",
                 "start": {
-                  "yardLine": 73,
-                  "text": "CIN 27"
+                  "yardLine": 88,
+                  "text": "CIN 12"
                 },
                 "end": {
-                  "yardLine": 54,
-                  "text": "CIN 46"
+                  "yardLine": 0,
+                  "text": "BAL 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:43"
+                  "displayValue": "3:41"
                 },
-                "result": "PUNT"
+                "result": "TD"
               },
               "start": {
-                "yardLine": 54,
+                "yardLine": 15,
                 "team": {
                   "id": "4"
                 }
               },
               "end": {
-                "yardLine": 12,
+                "yardLine": 15,
                 "team": {
-                  "id": "33"
+                  "id": "4"
                 }
-              },
-              "athletesInvolved": [
-                {
-                  "id": "4690143",
-                  "fullName": "LaJohntay Wester",
-                  "displayName": "LaJohntay Wester",
-                  "shortName": "L. Wester",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4690143/lajohntay-wester"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4690143.png",
-                  "jersey": "10",
-                  "position": "WR",
-                  "team": {
-                    "id": "33"
-                  }
-                }
-              ]
+              }
             },
-            "down": 1,
-            "yardLine": 12,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at BAL 12",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "BAL 12",
-            "isRedZone": false,
+            "down": -1,
+            "yardLine": 15,
+            "distance": 0,
+            "isRedZone": true,
             "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "33"
+            "awayTimeouts": 3
           },
           "status": {
-            "clock": 419,
-            "displayClock": "6:59",
-            "period": 2,
+            "clock": 674,
+            "displayClock": "11:14",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "6:59 - 2nd Quarter",
-              "shortDetail": "6:59 - 2nd"
+              "detail": "11:14 - 4th Quarter",
+              "shortDetail": "11:14 - 4th"
             },
             "isTBDFlex": false
           },
@@ -3708,8 +3830,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "11/15, 153 YDS, 1 TD",
-                  "value": 153,
+                  "displayValue": "19/28, 258 YDS, 1 TD",
+                  "value": 258,
                   "athlete": {
                     "id": "4035671",
                     "fullName": "Tyler Huntley",
@@ -3748,13 +3870,13 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "3 CAR, 14 YDS",
-                  "value": 14,
+                  "displayValue": "17 CAR, 45 YDS",
+                  "value": 45,
                   "athlete": {
-                    "id": "4362238",
-                    "fullName": "Chase Brown",
-                    "displayName": "Chase Brown",
-                    "shortName": "C. Brown",
+                    "id": "3043078",
+                    "fullName": "Derrick Henry",
+                    "displayName": "Derrick Henry",
+                    "shortName": "D. Henry",
                     "links": [
                       {
                         "rel": [
@@ -3762,21 +3884,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4362238/chase-brown"
+                        "href": "https://www.espn.com/nfl/player/_/id/3043078/derrick-henry"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4362238.png",
-                    "jersey": "30",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3043078.png",
+                    "jersey": "22",
                     "position": {
                       "abbreviation": "RB"
                     },
                     "team": {
-                      "id": "4"
+                      "id": "33"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "4"
+                    "id": "33"
                   }
                 }
               ]
@@ -3788,8 +3910,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 85 YDS, 1 TD",
-                  "value": 85,
+                  "displayValue": "6 REC, 120 YDS, 1 TD",
+                  "value": 120,
                   "athlete": {
                     "id": "4429615",
                     "fullName": "Zay Flowers",
@@ -3895,8 +4017,8 @@
       ],
       "weather": {
         "displayValue": "1",
-        "temperature": 64,
-        "highTemperature": 64,
+        "temperature": 65,
+        "highTemperature": 65,
         "conditionId": "Sunny",
         "link": {
           "language": "en-US",
@@ -3911,17 +4033,17 @@
         }
       },
       "status": {
-        "clock": 419,
-        "displayClock": "6:59",
-        "period": 2,
+        "clock": 674,
+        "displayClock": "11:14",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "6:59 - 2nd Quarter",
-          "shortDetail": "6:59 - 2nd"
+          "detail": "11:14 - 4th Quarter",
+          "shortDetail": "11:14 - 4th"
         }
       }
     },
@@ -4070,7 +4192,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/hou.png"
               },
-              "score": "3",
+              "score": "14",
               "linescores": [
                 {
                   "value": 3,
@@ -4078,9 +4200,14 @@
                   "period": 1
                 },
                 {
+                  "value": 11,
+                  "displayValue": "11",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -4211,7 +4338,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/nyg.png"
               },
-              "score": "7",
+              "score": "14",
               "linescores": [
                 {
                   "value": 7,
@@ -4219,9 +4346,14 @@
                   "period": 1
                 },
                 {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -4251,52 +4383,51 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730161269",
+              "id": "4018730163004",
               "type": {
-                "id": "8",
-                "text": "Penalty",
-                "abbreviation": "PEN"
+                "id": "3",
+                "text": "Pass Incompletion"
               },
-              "text": " (Shotgun) B.Smith reported in as eligible.  C.Stroud pass incomplete short right to N.Collins.\nPENALTY on NYG-A.Phillips, Defensive Holding, 5 yards, enforced at NYG 48 - No Play.",
+              "text": " (Shotgun) C.Stroud pass incomplete short right to D.Schultz.",
               "scoreValue": 0,
               "team": {
                 "id": "34"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.7719,
-                "awayWinPercentage": 0.22809999999999997,
+                "homeWinPercentage": 0.7048,
+                "awayWinPercentage": 0.2952,
                 "secondsLeft": 0
               },
-              "statYardage": 5,
+              "statYardage": 0,
               "drive": {
-                "description": "3 plays, 35 yards, 2:08",
+                "description": "9 plays, 21 yards, 4:29",
                 "start": {
-                  "yardLine": 22,
-                  "text": "HOU 22"
+                  "yardLine": 20,
+                  "text": "HOU 20"
                 },
                 "timeElapsed": {
-                  "displayValue": "2:08"
+                  "displayValue": "4:29"
                 }
               },
               "start": {
-                "yardLine": 52,
+                "yardLine": 41,
                 "team": {
                   "id": "34"
                 }
               },
               "end": {
-                "yardLine": 57,
+                "yardLine": 41,
                 "team": {
                   "id": "34"
                 }
               },
               "athletesInvolved": [
                 {
-                  "id": "4258173",
-                  "fullName": "Nico Collins",
-                  "displayName": "Nico Collins",
-                  "shortName": "N. Collins",
+                  "id": "3117256",
+                  "fullName": "Dalton Schultz",
+                  "displayName": "Dalton Schultz",
+                  "shortName": "D. Schultz",
                   "links": [
                     {
                       "rel": [
@@ -4304,41 +4435,41 @@
                         "desktop",
                         "athlete"
                       ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4258173/nico-collins"
+                      "href": "https://www.espn.com/nfl/player/_/id/3117256/dalton-schultz"
                     }
                   ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4258173.png",
-                  "jersey": "12",
-                  "position": "WR",
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3117256.png",
+                  "jersey": "86",
+                  "position": "TE",
                   "team": {
                     "id": "34"
                   }
                 }
               ]
             },
-            "down": 1,
-            "yardLine": 57,
-            "distance": 10,
-            "downDistanceText": "1st & 10 at NYG 43",
-            "shortDownDistanceText": "1st & 10",
-            "possessionText": "NYG 43",
+            "down": 4,
+            "yardLine": 41,
+            "distance": 13,
+            "downDistanceText": "4th & 13 at HOU 41",
+            "shortDownDistanceText": "4th & 13",
+            "possessionText": "HOU 41",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "34"
           },
           "status": {
-            "clock": 631,
-            "displayClock": "10:31",
-            "period": 2,
+            "clock": 146,
+            "displayClock": "2:26",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "10:31 - 2nd Quarter",
-              "shortDetail": "10:31 - 2nd"
+              "detail": "2:26 - 3rd Quarter",
+              "shortDetail": "2:26 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -4358,8 +4489,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "6/7, 105 YDS",
-                  "value": 105,
+                  "displayValue": "11/18, 206 YDS",
+                  "value": 206,
                   "athlete": {
                     "id": "4433970",
                     "fullName": "J.J. McCarthy",
@@ -4398,8 +4529,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "4 CAR, 20 YDS",
-                  "value": 20,
+                  "displayValue": "13 CAR, 49 YDS",
+                  "value": 49,
                   "athlete": {
                     "id": "4429059",
                     "fullName": "Woody Marks",
@@ -4438,8 +4569,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "2 REC, 50 YDS",
-                  "value": 50,
+                  "displayValue": "4 REC, 94 YDS",
+                  "value": 94,
                   "athlete": {
                     "id": "4595348",
                     "fullName": "Malik Nabers",
@@ -4544,10 +4675,10 @@
         }
       ],
       "weather": {
-        "displayValue": "2",
+        "displayValue": "1",
         "temperature": 77,
         "highTemperature": 77,
-        "conditionId": "Mostly sunny",
+        "conditionId": "Sunny",
         "link": {
           "language": "en-US",
           "rel": [
@@ -4561,17 +4692,17 @@
         }
       },
       "status": {
-        "clock": 631,
-        "displayClock": "10:31",
-        "period": 2,
+        "clock": 146,
+        "displayClock": "2:26",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "10:31 - 2nd Quarter",
-          "shortDetail": "10:31 - 2nd"
+          "detail": "2:26 - 3rd Quarter",
+          "shortDetail": "2:26 - 3rd"
         }
       }
     },
@@ -5274,8 +5405,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $117",
-              "numberAvailable": 1361,
+              "summary": "Tickets as low as $108",
+              "numberAvailable": 805,
               "links": [
                 {
                   "href": "https://www.vividseats.com/arizona-cardinals-tickets-glendale-state-farm-stadium-3-3-2026/production/6486973?wsUser=717"
@@ -5309,7 +5440,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -5325,7 +5456,7 @@
                     ]
                   }
                 ],
-                "displayName": "DraftKings"
+                "displayName": "Draft Kings"
               },
               "details": "DEN -4.5",
               "overUnder": 43.5,
@@ -5368,7 +5499,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118123%3Foutcomes%3D0ML84695556_1",
                       "text": "Home Bet",
@@ -5400,7 +5531,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118123%3Foutcomes%3D0ML84695556_3",
                       "text": "Away Bet",
@@ -5502,7 +5633,7 @@
                 "over": {
                   "close": {
                     "line": "o43.5",
-                    "odds": "-110",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5536,7 +5667,7 @@
                 "under": {
                   "close": {
                     "line": "u43.5",
-                    "odds": "-110",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -5625,8 +5756,8 @@
       ],
       "weather": {
         "displayValue": "Sunny",
-        "temperature": 79,
-        "highTemperature": 79,
+        "temperature": 78,
+        "highTemperature": 78,
         "conditionId": "1",
         "link": {
           "language": "en-US",
@@ -6354,8 +6485,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $148",
-              "numberAvailable": 1467,
+              "summary": "Tickets as low as $139",
+              "numberAvailable": 1126,
               "links": [
                 {
                   "href": "https://www.vividseats.com/detroit-lions-tickets-detroit-ford-field-3-2-2026/production/6489844?wsUser=717"
@@ -6389,7 +6520,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -6447,7 +6578,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118203%3Foutcomes%3D0ML84695636_1",
                       "text": "Home Bet",
@@ -6479,7 +6610,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118203%3Foutcomes%3D0ML84695636_3",
                       "text": "Away Bet",
@@ -7493,8 +7624,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $257",
-              "numberAvailable": 3482,
+              "summary": "Tickets as low as $290",
+              "numberAvailable": 2307,
               "links": [
                 {
                   "href": "https://www.vividseats.com/las-vegas-raiders-tickets-las-vegas-allegiant-stadium-3-6-2026/production/6491240?wsUser=717"
@@ -7528,7 +7659,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -7586,7 +7717,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118247%3Foutcomes%3D0ML84695690_1",
                       "text": "Home Bet",
@@ -7618,7 +7749,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118247%3Foutcomes%3D0ML84695690_3",
                       "text": "Away Bet",
@@ -7720,7 +7851,7 @@
                 "over": {
                   "close": {
                     "line": "o48.5",
-                    "odds": "-110",
+                    "odds": "-115",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -7754,7 +7885,7 @@
                 "under": {
                   "close": {
                     "line": "u48.5",
-                    "odds": "-110",
+                    "odds": "-105",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -8632,8 +8763,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $284",
-              "numberAvailable": 1762,
+              "summary": "Tickets as low as $292",
+              "numberAvailable": 1636,
               "links": [
                 {
                   "href": "https://www.vividseats.com/seattle-seahawks-tickets-seattle-lumen-field-3-6-2027/production/6492975?wsUser=717"
@@ -8667,7 +8798,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -8725,7 +8856,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118035%3Foutcomes%3D0ML84695468_1",
                       "text": "Home Bet",
@@ -8757,7 +8888,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118035%3Foutcomes%3D0ML84695468_3",
                       "text": "Away Bet",
@@ -9773,8 +9904,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $109",
-              "numberAvailable": 4058,
+              "summary": "Tickets as low as $105",
+              "numberAvailable": 4027,
               "links": [
                 {
                   "href": "https://www.vividseats.com/philadelphia-eagles-tickets-philadelphia-lincoln-financial-field-3-1-2027/production/6494930?wsUser=717"
@@ -9844,7 +9975,7 @@
             {
               "provider": {
                 "id": "100",
-                "name": "DraftKings",
+                "name": "Draft Kings",
                 "priority": 1,
                 "logos": [
                   {
@@ -9902,7 +10033,7 @@
                         "home",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118071%3Foutcomes%3D0ML84695504_1",
                       "text": "Home Bet",
@@ -9934,7 +10065,7 @@
                         "away",
                         "desktop",
                         "bets",
-                        "draftkings"
+                        "draft-kings"
                       ],
                       "href": "https://sportsbook.draftkings.com/gateway?s=__s__&wpcid=__wpcid__&wpsrc=413&wpcn=ESPN&wpscn=Widget&wpcrn=BetSlipDeepLink&wpscid=__wpscid__&wpcrid=xx&preurl=https%3A%2F%2Fsportsbook.draftkings.com%2Fevent%2F34118071%3Foutcomes%3D0ML84695504_3",
                       "text": "Away Bet",
@@ -11096,26 +11227,11 @@
   "injuries": {
     "Arizona Cardinals": [
       {
-        "longComment": "Baker missed the first two practices of the week due to both an illness and a groin injury before logging a limited session Friday. That was enough for him to draw the questionable tag for Week 7, and it appears the veteran safety will suit up against Denver.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Budda Baker",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Gaines remains sidelined with a bad ankle. Hayden Conner is set to start at right guard against the Broncos in the 27-year-old's place.",
+        "longComment": "There was optimism that Melton would be cleared to play, but the third-year defensive back will be sidelined by a knee issue and observe Sunday's game from street clothes. Kalen King is in line for more defensive snaps due to the absence of Melton, whose next chance to play is Week 8 against the Cowboys on Sunday, Nov. 1.",
         "status": "Out",
         "athlete": {
-          "displayName": "Jon Gaines II",
-          "position": "G"
+          "displayName": "Max Melton",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11126,7 +11242,7 @@
         }
       },
       {
-        "longComment": "Wingard will miss a third consecutive game due to a bone bruise in his knee, and his next chance to play is Week 8 against the Cowboys on Sunday, Nov. 1. Budda Baker (groin/illness) is questionable, so Wydett Williams, Dadrion Taylor-Demerson and Kitan Crawford are all candidates to start at safety against Denver on Sunday.",
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Andrew Wingard",
@@ -11141,52 +11257,7 @@
         }
       },
       {
-        "longComment": "Melton missed the last two practices of the week while tending to a knee injury, but head coach Mike LaFleur said Friday that the third-year defensive back is \"trending in a positive direction\" ahead of Sunday's game, per Bo Brack of GoPHNX.com. Kalen King would see more defensive snaps if Melton does not play against Denver.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Max Melton",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Beck was unable to practice Thursday and Friday while working through back spasms, per Tyler Drake of ArizonaSports.com. He's been the emergency QB3 in each of the Cardinals' first six games of the season, and since Arizona doesn't have another quarterback on the practice squad, the team could just roll with starter Jacoby Brissett and backup Gardner Minshew for Sunday's contest.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Carson Beck",
-          "position": "QB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Nolen suffered an ankle injury during the Cardinals' Week 6 win over the Rams. The defensive tackle has not practiced since sustaining the injury and has naturally been ruled out ahead of Sunday's contest. Andrew Billings and L.J. Collier will need to step up on the defensive line next to Roy Lopez for Sunday's game against the Broncos.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Walter Nolen III",
-          "position": "DT"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Love thus will miss a second consecutive contest as he tends to a lingering ankle injury. With Love again sidelined, Tyler Allgeier and Bam Knight will man Arizona's backfield, as they did during last Sunday's win at the Rams. In that contest, Allgeier out-snapped Knight, 40-32, but the latter had 17 touches for 98 yards from scrimmage, while the former recorded 19 touches for just 48 total yards. Love's next chance for game action is Sunday, Nov. 1, in Dallas.",
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Jeremiyah Love",
@@ -11201,11 +11272,26 @@
         }
       },
       {
-        "longComment": "questionable",
-        "status": "Questionable",
+        "longComment": "inactive",
+        "status": "Out",
         "athlete": {
-          "displayName": "Darius Robinson",
-          "position": "DE"
+          "displayName": "Walter Nolen III",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "inactive",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jon Gaines II",
+          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11340,7 +11426,7 @@
     ],
     "Baltimore Ravens": [
       {
-        "longComment": "questionable",
+        "longComment": "Ioane exited the first quarter of Sunday's game with a knee injury. The rookie right guard's injury has been deemed too severe to return to the divisional contest against the Bengals, meaning Emery Jones will likely finish out the game with the Ravens' offensive line.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Olaivavega Ioane",
@@ -11463,6 +11549,21 @@
       }
     ],
     "Carolina Panthers": [
+      {
+        "longComment": "questionable",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Taylor Moton",
+          "position": "OT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "inactive",
         "status": "Out",
@@ -11682,11 +11783,11 @@
     ],
     "Dallas Cowboys": [
       {
-        "longComment": "Shelton continues to be sidelined by a hamstring injury he sustained against the Texans in Week 4. His next opportunity to suit up is Week 8 against the Cardinals on Sunday, Nov. 1.",
-        "status": "Out",
+        "longComment": "Locke's 21-day practice window opened Friday, and he was a limited participant in each of the last two practices of Week 7 prep. He's in the final stages of his recovery from a foot injury, but he's not quite ready to be activated from IR. His next opportunity to play is Week 8 against the Cardinals on Sunday, Nov. 1.",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Drew Shelton",
-          "position": "OT"
+          "displayName": "P.J. Locke",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11697,11 +11798,26 @@
         }
       },
       {
-        "longComment": "Liufa broke his left forearm during the Cowboys' preseason finale against the Saints in late August, which prompted his placement on injured reserve to open the regular season. He was cleared to return to practice Thursday and ended Week 7 prep with back-to-back full sessions, but he would need to be activated from IR in order to be available for Monday night's contest.",
+        "longComment": "Liufau was designated to return from injured reserve Thursday and was a full practice participant Friday and Saturday. That was enough for him to draw the questionable tag, but the third-year pro has not progressed enough in his recovery from a broken left forearm. Given his ability to practice without restrictions, Liufau has a good chance of being activated from IR for Week 8 against the Cardinals on Nov. 1.",
         "status": "Injured Reserve",
         "athlete": {
           "displayName": "Marist Liufau",
           "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Shelton continues to be sidelined by a hamstring injury he sustained against the Texans in Week 4. His next opportunity to suit up is Week 8 against the Cardinals on Sunday, Nov. 1.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Drew Shelton",
+          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11740,13 +11856,15 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
+      }
+    ],
+    "Denver Broncos": [
       {
-        "longComment": "The Cowboys placed Locke on injured reserve Sept. 26. The safety likely won't be available for Monday night's showdown with the Eagles, but Week 8 against the Cardinals is on the table. Locke will need to be activated by Nov. 13, or he must spend the remainder of the 2026 season on IR.",
-        "status": "Injured Reserve",
+        "longComment": "Surtain was a limited participant throughout Week 7 prep and had an outside chance to suit up for Sunday's game. The star cornerback isn't quite ready to return to the field, leaving Kris Abrams-Draine to once again fill in at outside cornerback opposite Riley Moss.",
+        "status": "Out",
         "athlete": {
-          "displayName": "P.J. Locke",
-          "position": "S"
+          "displayName": "Pat Surtain II",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11755,15 +11873,13 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      }
-    ],
-    "Denver Broncos": [
+      },
       {
-        "longComment": "Despite being limited on all three of the Broncos' Week 7 practice reports and entering the weekend listed as questionable, Surtain appears as if he'll log a third straight absence due to the sprained ankle that he sustained in Week 4 at San Francisco. Having said that , Rapoport also reported that Surtain has a \"good chance\" to return next Sunday versus the Chiefs, assuming the cornerback doesn't play this weekend.",
-        "status": "Questionable",
+        "longComment": "inactive",
+        "status": "Out",
         "athlete": {
-          "displayName": "Pat Surtain II",
-          "position": "CB"
+          "displayName": "Talanoa Hufanga",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11794,36 +11910,6 @@
         "athlete": {
           "displayName": "Jonah Elliss",
           "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Though he'll still carry a designation into Sunday, Coleman's reinstatement from IR indicates that he's on track to play for the first time since Week 2. With Tyler Badie (thumb) on injured reserve, Coleman will likely in as the No. 3 back behind J.K. Dobbins and RJ Harvey. Though Harvey remains the Broncos' clear favored option on passing downs, if Dobbins goes down with an injury at any point, Coleman might be the favorite to lead Denver in carries.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Jonah Coleman",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Hufanga was held out of practice all week due to an ankle injury, which he picked up during the Broncos' Week 5 win over the Chargers. He'll be sidelined for a second consecutive game, and his next opportunity to play is Week 8 against the Chiefs on Sunday, Nov. 1. Devon Key and Jahdae Barron will both continue to see more work in the secondary in Hufanga's absence.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Talanoa Hufanga",
-          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11898,11 +11984,11 @@
     ],
     "Green Bay Packers": [
       {
-        "longComment": "Riley remains questionable to suit up for Sunday's contest against the Lions as he continues to acclimate to NFL physicality. If the defensive lineman can suit up, he will provide excellent rotational depth at nose tackle behind Chris McClellan.",
-        "status": "Questionable",
+        "longComment": "St-Juste will miss consecutive games with a hamstring injury he aggravated during the Packers' Week 5 win over the Bears. The cornerback's absence leaves Carrington Valentine and Kamal Hadden as the only depth options behind Brandon Cisse and Keisean Nixon in Sunday's contest.",
+        "status": "Out",
         "athlete": {
-          "displayName": "Jordon Riley",
-          "position": "DT"
+          "displayName": "Benjamin St-Juste",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -11913,37 +11999,7 @@
         }
       },
       {
-        "longComment": "Banks has missed the Packers' last four games while working through toe and knee injuries, but he has a chance to make his return for Sunday's NFC North tilt. Laken Tomlinson would continue to start at left guard if Banks cannot play.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Aaron Banks",
-          "position": "G"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Melton opened Week 7 prep with back-to-back DNP's, but his limited session Friday was enough for him to draw the questionable tag for Sunday's NFC North tilt. Savion Williams would see an uptick on both offense and special teams as a returner on kickoffs and punts if Melton cannot play against Detroit.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Bo Melton",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Head coach Mike LaFleur told reporters Friday that Franklin injured his shin on a collision during Thursday's practice, and the injury is severe enough for the veteran linebacker to miss his first game of the 2026 season. He's played every defensive snap in five of six games, and that workload will likely fall on Isaiah McDuffie or Nick Niemann for Sunday's NFC North tilt. Franklin's next chance to play is Week 8 against the Panthers on Thursday.",
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Zaire Franklin",
@@ -11973,41 +12029,11 @@
         }
       },
       {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Benjamin St-Juste",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "With Green Bay not yet ready to open Parsons' 21-day practice window this week, the star edge rusher can safely be ruled out from making his 2026 debut Sunday in Detroit. LaFleur isn't dismissing the possibility of Parsons playing Week 8 versus the Panthers, though because that game will be a Thursday night matchup, the five-time Pro Bowler may face an uphill battle to gain clearance. At this point, the Packers' Week 9 matchup with the Patriots on Nov. 8 looks to be a more realistic target for Parsons to make his return to action, after his 2025 season came to an end when he tore his ACL on Dec. 14.",
         "status": "Out",
         "athlete": {
           "displayName": "Micah Parsons",
           "position": "DE"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Ford emerged from this past Sunday's win over Chicago with a calf injury and didn't practice at all this week. He's now slated to miss a minimum of four contests while on IR. Ford has been working in a rotational role along Green Bay's defensive line this season and has amassed five tackles, including 0.5 sacks, through five contests.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jonathan Ford",
-          "position": "DT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -12343,36 +12369,6 @@
         }
       },
       {
-        "longComment": "Washington managed just one limited session (Wednesday) during Week 7 prep due to foot and back injuries, but a listing of questionable has kept the door open for the rookie fourth-round pick to suit up Sunday. His status will be clarified about 90 minutes before a 4:25 p.m. ET kickoff, but if Washington is inhibited or sidelined, Dylan Laube will be the primary backup to No. 1 RB Ashton Jeanty.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Mike Washington Jr.",
-          "position": "RB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Despite finishing Friday's practice session as a full participant with no injury designation, Walker has now been downgraded to questionable for Sunday's contest. The linebacker likely had a setback with his persistent chest injury, making it uncertain whether he will be able to suit up Sunday.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Quay Walker",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
         "longComment": "Thornton logged a trio of full practices during Week 7 prep, but head coach Klint Kubiak told reporters Friday that the second-year wide receiver will remain on injured reserve for at least one more week. Thornton's 21-day practice window opened Oct. 7, and he would be forced to miss the rest of the 2026 season if the Raiders do not activate him from IR by Wednesday.",
         "status": "Injured Reserve",
         "athlete": {
@@ -12557,41 +12553,26 @@
     ],
     "Los Angeles Rams": [
       {
-        "longComment": "The injury-plagued Rams endured another scare this week when Nacua made an early exit from Thursday's practice due to a calf injury. Ian Rapoport of NFL Network reported Friday that Nacua's new health concern is believed to be \"more minor than anything else\" and \"not significant,\" but the wide receiver sat out the team's last Week 7 session and was listed as questionable ahead of the weekend. Nacua likely is poised for a pregame workout before L.A. makes a call on his status about 90 minutes before Sunday's 4:25 p.m. ET kickoff.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Puka Nacua",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Despite the fact that McDuffie didn't practice all week, head coach Sean McVay indicated Friday that the star cornerback has a chance to return from a one-game absence due to a groin injury. If he's absent again, however, Jaylen Watson and Josh Wallace will serve as the Rams' starting outside cornerbacks for Sunday's matchup.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Trent McDuffie",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Landman entered the league's concussion protocol following the Rams' Week 6 loss to the Cardinals, and he was unable to practice all week. His next chance to play is Week 8 against the Chiefs on Sunday, Nov. 1, though he would have to return to practice in at least a limited capacity to have a realistic shot at playing in that contest. The Rams may turn to Grant Stuard, Shaun Dolac or practice squad linebacker Eric Kendricks in Landman's absence.",
+        "longComment": "inactive",
         "status": "Out",
         "athlete": {
           "displayName": "Nate Landman",
           "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "inactive",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Trent McDuffie",
+          "position": "CB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -12694,7 +12675,22 @@
     ],
     "Miami Dolphins": [
       {
-        "longComment": "Beal has been sidelined with a hamstring injury since Week 3. The rotational defensive end continues to miss time but has not yet been placed on IR, meaning the team likely expects him to overcome the injury any week now.",
+        "longComment": "Trader exited the third quarter of Sunday's game with a shoulder injury. While Trader is absent, Michael Taaffe has taken over at strong safety.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Dante Trader Jr.",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Beal has been sidelined with a hamstring injury since Week 3. The rotational defensive end continues to miss time but has not yet been placed on IR, meaning the team likely expects him to overcome the injury soon.",
         "status": "Out",
         "athlete": {
           "displayName": "Robert Beal Jr.",
@@ -12709,7 +12705,7 @@
         }
       },
       {
-        "longComment": "Gay popped up on Thursday's practice report as a DNP due to an illness. He was able to return to practice Friday in a limited capacity, but his illness is severe enough for him to be sidelined for Sunday's AFC East tilt. Jackson Woodward and Shaka Heyward are the top candidates to start alongside Jordyn Brooks and Jacob Rodriguez at linebacker. Gay's next opportunity to play is Week 8 against the Patriots on Nov. 1.",
+        "longComment": "Gay popped up on Thursday's practice report as a DNP due to an illness. He was able to return to practice Friday in a limited capacity, but his illness is severe enough for him to be sidelined for Sunday's AFC East tilt. Jackson Woodard and Shaka Heyward are the top candidates to start alongside Jordyn Brooks and Jacob Rodriguez at linebacker. Gay's next opportunity to play is Week 8 against the Patriots on Nov. 1.",
         "status": "Out",
         "athlete": {
           "displayName": "Willie Gay Jr.",
@@ -12740,21 +12736,6 @@
       }
     ],
     "Minnesota Vikings": [
-      {
-        "longComment": "Price appeared to sustain the injury while catching a punt in the first quarter, and he's being evaluated by medical staff to determine whether he can return to Sunday's game. Tai Felton could handle return duties on kickoffs and punts for as long as Price is out of the game.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Myles Price",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
       {
         "longComment": "Jackson suffered a torn meniscus during Sunday's 15-10 win over Miami, and he was already set to miss the rest of the regular season, so Tuesday's move to the IR comes as no surprise. Joe Huber is the top candidate to take over as Minnesota's starting left guard in Jackson's absence.",
         "status": "Injured Reserve",
@@ -12942,6 +12923,21 @@
     ],
     "New York Giants": [
       {
+        "longComment": "Tracy made his way off the field slowly with 5:29 left in the second quarter and was deemed questionable to return not long afterward. At the time of his exit, he had six carries for 15 yards and one touchdown and one catch (on one target) for two yards. Cam Skattebo and Devin Singletary will handle the Giants backfield for as long as Tracy is sidelined.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Tyrone Tracy Jr.",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "inactive",
         "status": "Out",
         "athlete": {
@@ -13019,6 +13015,21 @@
     ],
     "New York Jets": [
       {
+        "longComment": "Sweat exited during the third quarter with a knee injury. The starting defensive tackle will likely be replaced by a rotation of Darrell Jackson and Jowon Briggs.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "T'Vondre Sweat",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Parham will be sidelined for a fourth consecutive game due to a lingering knee injury. The good news for the 2022 third-rounder is that he was able to practice during Week 7 prep, so he's progressing in his recovery and could return for Week 8 against the Raiders on Nov. 1. Jordan Meredith will continue to start at left guard in Parham's absence.",
         "status": "Out",
         "athlete": {
@@ -13049,7 +13060,7 @@
         }
       },
       {
-        "longComment": "Early Sunday reports indicated Hall was unlikely to play, and a fourth straight absence for the star running back is now official. With Hall sidelined again Sunday, Braelon Allen, who's averaged 18.3 carries, 84.3 rushing yards, 1.7 receptions and 11.3 receiving yards over the past three games while serving in the lead role, will once again helm the Jets' ground attack. Meanwhile, Hall will target a return to action in a Week 8 home matchup against the Raiders next Sunday.",
+        "longComment": "Early Sunday reports indicated Hall was unlikely to play, and a fourth straight absence for the star running back is now official. With Hall sidelined again Sunday, Braelon Allen, who's averaged 18.3 carries, 84.3 rushing yards, 1.7 receptions and 11.3 receiving yards over the past three games while serving in the lead role, once again will helm the Jets' ground attack. Meanwhile, Hall will target a return to action in a Week 8 home matchup against the Raiders next Sunday.",
         "status": "Out",
         "athlete": {
           "displayName": "Breece Hall",
@@ -13554,6 +13565,21 @@
     ],
     "Tampa Bay Buccaneers": [
       {
+        "longComment": "Gainwell carried nine times for 49 yards and didn't draw a target before checking out of the game to have his hip injury further evaluated. If Gainwell is unable to return, the Buccaneers will be left with Bucky Irving and Sean Tucker as their running backs for the rest of Sunday's contest.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Kenny Gainwell",
+          "position": "RB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "inactive",
         "status": "Out",
         "athlete": {
@@ -13615,6 +13641,21 @@
       }
     ],
     "Tennessee Titans": [
+      {
+        "longComment": "Townsend exited the third quarter of Sunday's game with a knee injury. Kicker Joey Slye will likely serve as the Titans' punter while Townsend is absent.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Tommy Townsend",
+          "position": "P"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Ridley opened Week 7 prep with a limited session Wednesday due to a hip injury, but he followed it up with back-to-back DNPs, leaving him questionable ahead of the weekend. With inactive status confirmed Sunday, Ridley will cede his role to some combination of Wan'Dale Robinson, Elic Ayomanor, Chimere Dike and K.J. Osborn behind top WR Carnell Tate. Ridley's next chance for game action is Sunday, Nov. 1, at Cincinnati.",
         "status": "Out",
@@ -13844,8 +13885,8 @@
       "total": 27
     },
     "New Orleans Saints": {
-      "correct": 12,
-      "total": 23
+      "correct": 13,
+      "total": 24
     },
     "New York Giants": {
       "correct": 12,
@@ -13860,8 +13901,8 @@
       "total": 24
     },
     "Pittsburgh Steelers": {
-      "correct": 11,
-      "total": 24
+      "correct": 12,
+      "total": 25
     },
     "San Francisco 49ers": {
       "correct": 15,
@@ -13971,10 +14012,10 @@
     },
     "New Orleans Saints": {
       "wins": 5,
-      "losses": 8,
-      "total": 13,
-      "winPct": 0.38461538461538464,
-      "differential": -3
+      "losses": 9,
+      "total": 14,
+      "winPct": 0.35714285714285715,
+      "differential": -4
     },
     "Arizona Cardinals": {
       "wins": 2,
@@ -14132,7 +14173,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-10-25T17:56:18.941Z",
+    "checkedAt": "2026-10-25T19:21:46.658Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
