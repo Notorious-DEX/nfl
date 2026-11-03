@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-03T02:22:25.911Z",
+  "lastUpdated": "2026-11-03T03:56:00.570Z",
   "currentWeek": 8,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sea.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/sea.png"
               },
-              "score": "3",
+              "score": "17",
               "linescores": [
                 {
                   "value": 0,
@@ -155,9 +155,19 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 9,
+                  "displayValue": "9",
                   "period": 2
+                },
+                {
+                  "value": 0,
+                  "displayValue": "0",
+                  "period": 3
+                },
+                {
+                  "value": 8,
+                  "displayValue": "8",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -288,7 +298,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/chi.png"
               },
-              "score": "10",
+              "score": "27",
               "linescores": [
                 {
                   "value": 7,
@@ -296,9 +306,19 @@
                   "period": 1
                 },
                 {
-                  "value": 3,
-                  "displayValue": "3",
+                  "value": 6,
+                  "displayValue": "6",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 4
                 }
               ],
               "statistics": [],
@@ -328,42 +348,41 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730361558",
+              "id": "-482886",
               "type": {
-                "id": "5",
-                "text": "Rush",
-                "abbreviation": "RUSH"
+                "id": "61",
+                "text": "Extra Point Good",
+                "abbreviation": "XP"
               },
-              "text": " (Shotgun) D.Swift left guard to CHI 30 for 5 yards (D.Thomas; J.Love).",
-              "scoreValue": 0,
+              "text": "(Cairo Santos Kick)",
+              "scoreValue": 1,
               "team": {
                 "id": "3"
               },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.32,
-                "awayWinPercentage": 0.6799999999999999,
-                "secondsLeft": 0
-              },
-              "statYardage": 5,
+              "statYardage": 0,
               "drive": {
-                "description": "1 play, 5 yards, 0:00",
+                "description": "6 plays, 56 yards, 3:18",
                 "start": {
-                  "yardLine": 75,
-                  "text": "CHI 25"
+                  "yardLine": 56,
+                  "text": "CHI 44"
+                },
+                "end": {
+                  "yardLine": 0,
+                  "text": "SEA 0"
                 },
                 "timeElapsed": {
-                  "displayValue": "0:00"
-                }
+                  "displayValue": "3:18"
+                },
+                "result": "TD"
               },
               "start": {
-                "yardLine": 75,
+                "yardLine": 15,
                 "team": {
                   "id": "3"
                 }
               },
               "end": {
-                "yardLine": 70,
+                "yardLine": 65,
                 "team": {
                   "id": "3"
                 }
@@ -393,29 +412,26 @@
                 }
               ]
             },
-            "down": 2,
-            "yardLine": 70,
-            "distance": 5,
-            "downDistanceText": "2nd & 5 at CHI 30",
-            "shortDownDistanceText": "2nd & 5",
-            "possessionText": "CHI 30",
+            "down": 1,
+            "yardLine": 65,
+            "distance": 10,
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "3"
           },
           "status": {
-            "clock": 288,
-            "displayClock": "4:48",
-            "period": 2,
+            "clock": 508,
+            "displayClock": "8:28",
+            "period": 4,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "4:48 - 2nd Quarter",
-              "shortDetail": "4:48 - 2nd"
+              "detail": "8:28 - 4th Quarter",
+              "shortDetail": "8:28 - 4th"
             },
             "isTBDFlex": false
           },
@@ -435,8 +451,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "13/18, 107 YDS, 1 TD",
-                  "value": 107,
+                  "displayValue": "24/34, 247 YDS, 1 TD",
+                  "value": 247,
                   "athlete": {
                     "id": "4431611",
                     "fullName": "Caleb Williams",
@@ -475,8 +491,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "8 CAR, 20 YDS",
-                  "value": 20,
+                  "displayValue": "20 CAR, 49 YDS, 2 TD",
+                  "value": 49,
                   "athlete": {
                     "id": "4259545",
                     "fullName": "D'Andre Swift",
@@ -515,13 +531,13 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "6 REC, 53 YDS, 1 TD",
-                  "value": 53,
+                  "displayValue": "4 REC, 92 YDS, 1 TD",
+                  "value": 92,
                   "athlete": {
-                    "id": "4685278",
-                    "fullName": "Luther Burden III",
-                    "displayName": "Luther Burden III",
-                    "shortName": "L. Burden III",
+                    "id": "4430878",
+                    "fullName": "Jaxon Smith-Njigba",
+                    "displayName": "Jaxon Smith-Njigba",
+                    "shortName": "J. Smith-Njigba",
                     "links": [
                       {
                         "rel": [
@@ -529,21 +545,21 @@
                           "desktop",
                           "athlete"
                         ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4685278/luther-burden-iii"
+                        "href": "https://www.espn.com/nfl/player/_/id/4430878/jaxon-smith-njigba"
                       }
                     ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685278.png",
-                    "jersey": "10",
+                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4430878.png",
+                    "jersey": "11",
                     "position": {
                       "abbreviation": "WR"
                     },
                     "team": {
-                      "id": "3"
+                      "id": "26"
                     },
                     "active": true
                   },
                   "team": {
-                    "id": "3"
+                    "id": "26"
                   }
                 }
               ]
@@ -635,10 +651,10 @@
         }
       ],
       "weather": {
-        "displayValue": "38",
-        "temperature": 47,
-        "highTemperature": 47,
-        "conditionId": "Mostly cloudy",
+        "displayValue": "7",
+        "temperature": 48,
+        "highTemperature": 48,
+        "conditionId": "Cloudy",
         "link": {
           "language": "en-US",
           "rel": [
@@ -652,17 +668,17 @@
         }
       },
       "status": {
-        "clock": 288,
-        "displayClock": "4:48",
-        "period": 2,
+        "clock": 508,
+        "displayClock": "8:28",
+        "period": 4,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "4:48 - 2nd Quarter",
-          "shortDetail": "4:48 - 2nd"
+          "detail": "8:28 - 4th Quarter",
+          "shortDetail": "8:28 - 4th"
         }
       }
     }
@@ -1802,6 +1818,36 @@
     ],
     "Baltimore Ravens": [
       {
+        "longComment": "Hawkins has already missed the last two games, and now the Ravens are on a short week ahead of Thursday night's date with the Jaguars. K'Von Wallace will continue to see extra defensive snaps if Hamilton is unable to return for Week 9.",
+        "status": "Out",
+        "athlete": {
+          "displayName": "Jaylinn Hawkins",
+          "position": "S"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Smith dealt with a knee injury in practice last week, so the foot issue is a new one for the star linebacker. He's started all eight games this season, producing 66 tackles (30 solo), including 2.0 sacks, four pass breakups, including an interception, and a pair of forced fumbles.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Roquan Smith",
+          "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Loop is not expected to kick Thursday night against the Jaguars, and there's a chance he lands on injured reserve. Jake Moody will be elevated from the practice squad to handle kicking duties against Jacksonville, coach Jesse Minter said Monday. After winning the kicking job over the summer, Loop has struggled through eight games, making just 13 of 17 FGAs.",
         "status": "Questionable",
         "athlete": {
@@ -1880,21 +1926,6 @@
         "longComment": "questionable",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Roquan Smith",
-          "position": "LB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "questionable",
-        "status": "Questionable",
-        "athlete": {
           "displayName": "John Jenkins",
           "position": "DT"
         },
@@ -1940,21 +1971,6 @@
         "longComment": "out",
         "status": "Out",
         "athlete": {
-          "displayName": "Jaylinn Hawkins",
-          "position": "S"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "out",
-        "status": "Out",
-        "athlete": {
           "displayName": "Olaivavega Ioane",
           "position": "G"
         },
@@ -1972,21 +1988,6 @@
         "athlete": {
           "displayName": "Lamar Jackson",
           "position": "QB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Randall was placed on injured reserve to open the regular season due to a neck injury. He was cleared to return to practice Wednesday and logged three consecutive full sessions, but the Ravens will wait at least one more week before bringing him back from IR. The rookie fifth-round running back's next opportunity to make his NFL debut will arrive Thursday against the Jaguars.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Adam Randall",
-          "position": "RB"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2064,21 +2065,6 @@
         "athlete": {
           "displayName": "Dee Alford",
           "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Shavers has progressed enough in his recovery from a torn ACL to return to practice, and he was a limited participant in Wednesday's session. Shavers saw his role in the Bills' offense steadily increase over the course of the 2025 season before suffering his injury in the wild-card round against the Jaguars in January. His next opportunity to play is Week 9 against the Vikings on Monday, Nov. 9.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Tyrell Shavers",
-          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3196,11 +3182,11 @@
     ],
     "Los Angeles Chargers": [
       {
-        "longComment": "Njoku landed on IR after sustaining a fibula injury in Week 2, but the tight end's looming return to practice should provide a nice boost to a Chargers' TE corps that also includes Oronde Gadsden and Charlie Kolar. In his only full game with the team (Week 1 versus the Cardinals), Njoku recorded a 55 percent snap share en route to catching all five of his targets for 58 yards. If he can approach that level of production once he's back in the lineup, Njoku could resurface as a fantasy option as the season rolls along.",
-        "status": "Injured Reserve",
+        "longComment": "Thompson recently suffered a setback with his pair of soft-tissue injuries. Another one of OC Mike McDaniel's swings and misses this offseason, Thompson hasn't played since Week 2 and has just one catch for 13 yards on 22 offensive snaps. The fourth-round rookie has been a non-factor.",
+        "status": "Out",
         "athlete": {
-          "displayName": "David Njoku",
-          "position": "TE"
+          "displayName": "Brenen Thompson",
+          "position": "WR"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3211,11 +3197,11 @@
         }
       },
       {
-        "longComment": "out",
-        "status": "Out",
+        "longComment": "Njoku landed on IR after sustaining a fibula injury in Week 2, but the tight end's looming return to practice should provide a nice boost to a Chargers' TE corps that also includes Oronde Gadsden and Charlie Kolar. In his only full game with the team (Week 1 versus the Cardinals), Njoku recorded a 55 percent snap share en route to catching all five of his targets for 58 yards. If he can approach that level of production once he's back in the lineup, Njoku could resurface as a fantasy option as the season rolls along.",
+        "status": "Injured Reserve",
         "athlete": {
-          "displayName": "Brenen Thompson",
-          "position": "WR"
+          "displayName": "David Njoku",
+          "position": "TE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4097,6 +4083,21 @@
           "description": "basic/manual",
           "state": "basic"
         }
+      },
+      {
+        "longComment": "Joseph-Day is dealing with an apparent triceps injury, and he will now be forced to miss at least four contests while recovering. In his absence, Gabriel Rubio and Kevin Jobity are both candidates to see an increase in workload on Pittsburgh's defensive line.",
+        "status": "Injured Reserve",
+        "athlete": {
+          "displayName": "Sebastian Joseph-Day",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
       }
     ],
     "San Francisco 49ers": [
@@ -4267,6 +4268,21 @@
       }
     ],
     "Seattle Seahawks": [
+      {
+        "longComment": "The defensive end made three tackles (two solo) before exiting. Mike Morris and Rylie Mills are Seattle's backups at the position.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Leonard Williams",
+          "position": "DT"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "The nose tackle popped up on the injury report with a back issue Friday and missed the last two practice sessions of the week. Pili has only played 19 defensive snaps in four games this season.",
         "status": "Out",
@@ -5028,7 +5044,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-11-03T02:22:25.289Z",
+    "checkedAt": "2026-11-03T03:55:59.976Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
