@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-03T03:56:00.570Z",
+  "lastUpdated": "2026-11-03T04:22:49.929Z",
   "currentWeek": 8,
   "games": [
     {
@@ -298,7 +298,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/chi.png"
               },
-              "score": "27",
+              "score": "34",
               "linescores": [
                 {
                   "value": 7,
@@ -316,8 +316,8 @@
                   "period": 3
                 },
                 {
-                  "value": 7,
-                  "displayValue": "7",
+                  "value": 14,
+                  "displayValue": "14",
                   "period": 4
                 }
               ],
@@ -348,41 +348,42 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "-482886",
+              "id": "4018730364246",
               "type": {
-                "id": "61",
-                "text": "Extra Point Good",
-                "abbreviation": "XP"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "(Cairo Santos Kick)",
-              "scoreValue": 1,
+              "text": " D.Swift right tackle to CHI 15 for 4 yards (J.Reed).",
+              "scoreValue": 0,
               "team": {
                 "id": "3"
               },
-              "statYardage": 0,
+              "probability": {
+                "tiePercentage": 0,
+                "homeWinPercentage": 0.001,
+                "awayWinPercentage": 0.999,
+                "secondsLeft": 0
+              },
+              "statYardage": 4,
               "drive": {
-                "description": "6 plays, 56 yards, 3:18",
+                "description": "2 plays, 8 yards, 0:16",
                 "start": {
-                  "yardLine": 56,
-                  "text": "CHI 44"
-                },
-                "end": {
-                  "yardLine": 0,
-                  "text": "SEA 0"
+                  "yardLine": 93,
+                  "text": "CHI 7"
                 },
                 "timeElapsed": {
-                  "displayValue": "3:18"
-                },
-                "result": "TD"
+                  "displayValue": "0:16"
+                }
               },
               "start": {
-                "yardLine": 15,
+                "yardLine": 89,
                 "team": {
                   "id": "3"
                 }
               },
               "end": {
-                "yardLine": 65,
+                "yardLine": 85,
                 "team": {
                   "id": "3"
                 }
@@ -412,17 +413,20 @@
                 }
               ]
             },
-            "down": 1,
-            "yardLine": 65,
-            "distance": 10,
+            "down": 3,
+            "yardLine": 85,
+            "distance": 2,
+            "downDistanceText": "3rd & 2 at CHI 15",
+            "shortDownDistanceText": "3rd & 2",
+            "possessionText": "CHI 15",
             "isRedZone": false,
             "homeTimeouts": 3,
             "awayTimeouts": 3,
             "possession": "3"
           },
           "status": {
-            "clock": 508,
-            "displayClock": "8:28",
+            "clock": 120,
+            "displayClock": "2:00",
             "period": 4,
             "type": {
               "id": "2",
@@ -430,8 +434,8 @@
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "8:28 - 4th Quarter",
-              "shortDetail": "8:28 - 4th"
+              "detail": "2:00 - 4th Quarter",
+              "shortDetail": "2:00 - 4th"
             },
             "isTBDFlex": false
           },
@@ -491,8 +495,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "20 CAR, 49 YDS, 2 TD",
-                  "value": 49,
+                  "displayValue": "26 CAR, 65 YDS, 3 TD",
+                  "value": 65,
                   "athlete": {
                     "id": "4259545",
                     "fullName": "D'Andre Swift",
@@ -531,8 +535,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "4 REC, 92 YDS, 1 TD",
-                  "value": 92,
+                  "displayValue": "6 REC, 118 YDS, 1 TD",
+                  "value": 118,
                   "athlete": {
                     "id": "4430878",
                     "fullName": "Jaxon Smith-Njigba",
@@ -668,8 +672,8 @@
         }
       },
       "status": {
-        "clock": 508,
-        "displayClock": "8:28",
+        "clock": 120,
+        "displayClock": "2:00",
         "period": 4,
         "type": {
           "id": "2",
@@ -677,8 +681,8 @@
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "8:28 - 4th Quarter",
-          "shortDetail": "8:28 - 4th"
+          "detail": "2:00 - 4th Quarter",
+          "shortDetail": "2:00 - 4th"
         }
       }
     }
@@ -2369,11 +2373,11 @@
     "Cleveland Browns": [],
     "Dallas Cowboys": [
       {
-        "longComment": "Ferguson hurt his ankle early in Sunday's eventual overtime loss to the Cardinals, eventually was ruled out and then diagnosed with a low-ankle sprain. Schottenheimer's comments one day later follow the general belief that players often are able to gut out such injuries, but how Ferguson fares in practice Wednesday through Friday will determine his availability for Week 9.",
+        "longComment": "Downs has started all eight games after being selected with the No. 11 overall pick in the 2026 Draft. He's racked up 52 tackles (30 solo), including 1.0 sacks, two forced fumbles and one pass breakup on 92 percent of the defensive snaps. Cobie Durant, Markquese Bell and Alijah Clark could all see elevated snaps if Downs is unable to play Week 9 against the Colts.",
         "status": "Questionable",
         "athlete": {
-          "displayName": "Jake Ferguson",
-          "position": "TE"
+          "displayName": "Caleb Downs",
+          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2384,11 +2388,26 @@
         }
       },
       {
-        "longComment": "questionable",
+        "longComment": "Coach Brian Schottenheimer said the first-round rookie could miss some time with the injury. Across eight games this season, Lawrence has posted 13 tackles (six solo), including 1.0 sacks, and a pair of bass breakups on 41 percent of Dallas' defensive snaps.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Malachi Lawrence",
           "position": "LB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "Ferguson hurt his ankle early in Sunday's eventual overtime loss to the Cardinals, eventually was ruled out and then diagnosed with a low-ankle sprain. Schottenheimer's comments one day later follow the general belief that players often are able to gut out such injuries, but how Ferguson fares in practice Wednesday through Friday will determine his availability for Week 9.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Jake Ferguson",
+          "position": "TE"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -2449,21 +2468,6 @@
         "athlete": {
           "displayName": "KaVontae Turpin",
           "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
-      },
-      {
-        "longComment": "Downs registered four tackles (two solo) before checking out of the contest. The Cowboys will likely clarify whether or not he's been diagnosed with a concussion no later than Wednesday, when the team releases its first Week 9 injury report.",
-        "status": "Questionable",
-        "athlete": {
-          "displayName": "Caleb Downs",
-          "position": "S"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -5044,7 +5048,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-11-03T03:55:59.976Z",
+    "checkedAt": "2026-11-03T04:22:49.397Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
