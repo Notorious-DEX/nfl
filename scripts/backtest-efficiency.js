@@ -13,7 +13,14 @@
 
 const fs = require('fs');
 const path = require('path');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { fetchJson, currentNflSeasonYear } = require('./espn-fetch');
+
+const SCOREBOARD = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
+const SUMMARY = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=';
+
+let seasonYear = null;
+const weekGamesCache = new Map();
+const summaryCache = new Map();
 
 const TEAM_DATA = {
     "Arizona Cardinals": { lat: 33.5276, lon: -112.2626 },
@@ -58,18 +65,26 @@ let leagueStats = {
 
 let qualityWins = {};
 
-// Fetch week games
+// Fetch week games. GitHub Actions is often blocked by site.api.espn.com;
+// fetchJson falls back to site.web.api.espn.com and rejects HTML block pages.
 async function fetchWeekGames(week) {
-    const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2025&seasontype=2&week=${week}`);
-    const data = await response.json();
-    return data.events || [];
+    if (weekGamesCache.has(week)) return weekGamesCache.get(week);
+    const data = await fetchJson(`${SCOREBOARD}?dates=${seasonYear}&seasontype=2&week=${week}`);
+    const events = data.events || [];
+    weekGamesCache.set(week, events);
+    return events;
 }
 
 // Process boxscore to get detailed stats
 async function processBoxScore(eventId, homeTeam, awayTeam, teamStats) {
     try {
-        const response = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`);
-        const data = await response.json();
+        let pending = summaryCache.get(eventId);
+        if (!pending) {
+            pending = fetchJson(`${SUMMARY}${eventId}`).catch(() => null);
+            summaryCache.set(eventId, pending);
+        }
+        const data = await pending;
+        if (!data) return;
 
         const boxscore = data.boxscore;
         if (boxscore && boxscore.teams) {
@@ -425,11 +440,15 @@ async function main() {
     try {
         console.log('🏈 NFL Efficiency Rating Backtest Starting...\n');
 
-        // Get current week
-        const currentWeekResponse = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
-        const currentWeekData = await currentWeekResponse.json();
-        const currentWeek = currentWeekData.week?.number || 18;
-        console.log(`📅 Current NFL week: ${currentWeek}\n`);
+        // The live scoreboard is the current season. Outside the regular season
+        // its week number is not a regular-season week, so replay the full slate.
+        const currentWeekData = await fetchJson(SCOREBOARD);
+        const season = currentWeekData.leagues?.[0]?.season;
+        seasonYear = season?.year || currentNflSeasonYear();
+        const seasonType = season?.type?.type;
+        const liveWeek = currentWeekData.week?.number || 18;
+        const currentWeek = seasonType === 2 ? Math.min(liveWeek, 18) : 18;
+        console.log(`📅 ${seasonYear} regular season through week ${currentWeek}\n`);
 
         const allPredictions = [];
         const allResults = [];
@@ -529,6 +548,7 @@ async function main() {
         const output = {
             lastUpdated: new Date().toISOString(),
             method: 'efficiency',
+            season: seasonYear,
             weeks: currentWeek,
             correct: totalCorrect,
             total: totalGames,
