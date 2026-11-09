@@ -1,727 +1,7 @@
 {
-  "lastUpdated": "2026-11-09T03:25:28.830Z",
+  "lastUpdated": "2026-11-09T05:59:55.326Z",
   "currentWeek": 9,
   "games": [
-    {
-      "id": "401873050",
-      "uid": "s:20~l:28~e:401873050",
-      "date": "2026-11-09T01:20Z",
-      "name": "Tampa Bay Buccaneers at Chicago Bears",
-      "shortName": "TB @ CHI",
-      "season": {
-        "year": 2026,
-        "type": 2,
-        "slug": "regular-season"
-      },
-      "week": {
-        "number": 9
-      },
-      "competitions": [
-        {
-          "id": "401873050",
-          "uid": "s:20~l:28~e:401873050~c:401873050",
-          "date": "2026-11-09T01:20Z",
-          "attendance": 0,
-          "type": {
-            "id": "1",
-            "abbreviation": "STD"
-          },
-          "timeValid": true,
-          "neutralSite": false,
-          "conferenceCompetition": false,
-          "playByPlayAvailable": true,
-          "recent": true,
-          "venue": {
-            "id": "3933",
-            "fullName": "Soldier Field",
-            "address": {
-              "city": "Chicago",
-              "state": "IL",
-              "country": "USA"
-            },
-            "indoor": false
-          },
-          "competitors": [
-            {
-              "id": "3",
-              "uid": "s:20~l:28~t:3",
-              "type": "team",
-              "order": 0,
-              "homeAway": "home",
-              "team": {
-                "id": "3",
-                "uid": "s:20~l:28~t:3",
-                "location": "Chicago",
-                "name": "Bears",
-                "abbreviation": "CHI",
-                "displayName": "Chicago Bears",
-                "shortDisplayName": "Bears",
-                "color": "0b1c3a",
-                "alternateColor": "e64100",
-                "isActive": true,
-                "venue": {
-                  "id": "3933"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/chi/chicago-bears",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/chi/chicago-bears",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:3&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/chi/chicago-bears",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:3&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/chi",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:3&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
-                "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/chi.png"
-              },
-              "score": "17",
-              "linescores": [
-                {
-                  "value": 14,
-                  "displayValue": "14",
-                  "period": 1
-                },
-                {
-                  "value": 3,
-                  "displayValue": "3",
-                  "period": 2
-                },
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 3
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "6-2"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "3-1"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "3-1"
-                }
-              ]
-            },
-            {
-              "id": "27",
-              "uid": "s:20~l:28~t:27",
-              "type": "team",
-              "order": 1,
-              "homeAway": "away",
-              "team": {
-                "id": "27",
-                "uid": "s:20~l:28~t:27",
-                "location": "Tampa Bay",
-                "name": "Buccaneers",
-                "abbreviation": "TB",
-                "displayName": "Tampa Bay Buccaneers",
-                "shortDisplayName": "Buccaneers",
-                "color": "bd1c36",
-                "alternateColor": "3e3a35",
-                "isActive": true,
-                "venue": {
-                  "id": "3886"
-                },
-                "links": [
-                  {
-                    "rel": [
-                      "clubhouse",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/_/name/tb/tampa-bay-buccaneers",
-                    "text": "Clubhouse",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/roster/_/name/tb/tampa-bay-buccaneers",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "roster",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:27&section=roster",
-                    "text": "Roster",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/stats/_/name/tb/tampa-bay-buccaneers",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "stats",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:27&section=stats",
-                    "text": "Statistics",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "desktop",
-                      "team"
-                    ],
-                    "href": "https://www.espn.com/nfl/team/schedule/_/name/tb",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  },
-                  {
-                    "rel": [
-                      "schedule",
-                      "sportscenter",
-                      "app",
-                      "team"
-                    ],
-                    "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:27&section=scores",
-                    "text": "Schedule",
-                    "isExternal": false,
-                    "isPremium": false
-                  }
-                ],
-                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
-                "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/tb.png"
-              },
-              "score": "13",
-              "linescores": [
-                {
-                  "value": 0,
-                  "displayValue": "0",
-                  "period": 1
-                },
-                {
-                  "value": 6,
-                  "displayValue": "6",
-                  "period": 2
-                },
-                {
-                  "value": 7,
-                  "displayValue": "7",
-                  "period": 3
-                }
-              ],
-              "statistics": [],
-              "curatedRank": {
-                "current": 99
-              },
-              "records": [
-                {
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-5"
-                },
-                {
-                  "name": "Home",
-                  "type": "home",
-                  "summary": "1-4"
-                },
-                {
-                  "name": "Road",
-                  "type": "road",
-                  "summary": "2-1"
-                }
-              ]
-            }
-          ],
-          "notes": [],
-          "situation": {
-            "lastPlay": {
-              "id": "4018730502641",
-              "type": {
-                "id": "24",
-                "text": "Pass Reception",
-                "abbreviation": "REC"
-              },
-              "text": " (Shotgun) B.Mayfield pass short right to C.Otton to TB 23 for 8 yards (D.Bush).",
-              "scoreValue": 0,
-              "team": {
-                "id": "27"
-              },
-              "probability": {
-                "tiePercentage": 0,
-                "homeWinPercentage": 0.7209,
-                "awayWinPercentage": 0.2791,
-                "secondsLeft": 0
-              },
-              "statYardage": 8,
-              "drive": {
-                "description": "2 plays, 5 yards, 0:41",
-                "start": {
-                  "yardLine": 82,
-                  "text": "TB 18"
-                },
-                "timeElapsed": {
-                  "displayValue": "0:41"
-                }
-              },
-              "start": {
-                "yardLine": 85,
-                "team": {
-                  "id": "27"
-                }
-              },
-              "end": {
-                "yardLine": 77,
-                "team": {
-                  "id": "27"
-                }
-              },
-              "athletesInvolved": [
-                {
-                  "id": "4243331",
-                  "fullName": "Cade Otton",
-                  "displayName": "Cade Otton",
-                  "shortName": "C. Otton",
-                  "links": [
-                    {
-                      "rel": [
-                        "playercard",
-                        "desktop",
-                        "athlete"
-                      ],
-                      "href": "https://www.espn.com/nfl/player/_/id/4243331/cade-otton"
-                    }
-                  ],
-                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4243331.png",
-                  "jersey": "88",
-                  "position": "TE",
-                  "team": {
-                    "id": "27"
-                  }
-                }
-              ]
-            },
-            "down": 3,
-            "yardLine": 77,
-            "distance": 5,
-            "downDistanceText": "3rd & 5 at TB 23",
-            "shortDownDistanceText": "3rd & 5",
-            "possessionText": "TB 23",
-            "isRedZone": false,
-            "homeTimeouts": 3,
-            "awayTimeouts": 3,
-            "possession": "27"
-          },
-          "status": {
-            "clock": 590,
-            "displayClock": "9:50",
-            "period": 3,
-            "type": {
-              "id": "2",
-              "name": "STATUS_IN_PROGRESS",
-              "state": "in",
-              "completed": false,
-              "description": "In Progress",
-              "detail": "9:50 - 3rd Quarter",
-              "shortDetail": "9:50 - 3rd"
-            },
-            "isTBDFlex": false
-          },
-          "broadcasts": [
-            {
-              "market": "national",
-              "names": [
-                "NBC"
-              ]
-            }
-          ],
-          "leaders": [
-            {
-              "name": "passingYards",
-              "displayName": "Passing Leader",
-              "shortDisplayName": "PASS",
-              "abbreviation": "PYDS",
-              "leaders": [
-                {
-                  "displayValue": "14/22, 212 YDS, 1 INT",
-                  "value": 212,
-                  "athlete": {
-                    "id": "3052587",
-                    "fullName": "Baker Mayfield",
-                    "displayName": "Baker Mayfield",
-                    "shortName": "B. Mayfield",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/3052587/baker-mayfield"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/3052587.png",
-                    "jersey": "6",
-                    "position": {
-                      "abbreviation": "QB"
-                    },
-                    "team": {
-                      "id": "27"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "27"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "rushingYards",
-              "displayName": "Rushing Leader",
-              "shortDisplayName": "RUSH",
-              "abbreviation": "RYDS",
-              "leaders": [
-                {
-                  "displayValue": "14 CAR, 41 YDS, 1 TD",
-                  "value": 41,
-                  "athlete": {
-                    "id": "4596448",
-                    "fullName": "Bucky Irving",
-                    "displayName": "Bucky Irving",
-                    "shortName": "B. Irving",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4596448/bucky-irving"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4596448.png",
-                    "jersey": "7",
-                    "position": {
-                      "abbreviation": "RB"
-                    },
-                    "team": {
-                      "id": "27"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "27"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "receivingYards",
-              "displayName": "Receiving Leader",
-              "shortDisplayName": "REC",
-              "abbreviation": "RECYDS",
-              "leaders": [
-                {
-                  "displayValue": "4 REC, 88 YDS, 1 TD",
-                  "value": 88,
-                  "athlete": {
-                    "id": "4685278",
-                    "fullName": "Luther Burden III",
-                    "displayName": "Luther Burden III",
-                    "shortName": "L. Burden III",
-                    "links": [
-                      {
-                        "rel": [
-                          "playercard",
-                          "desktop",
-                          "athlete"
-                        ],
-                        "href": "https://www.espn.com/nfl/player/_/id/4685278/luther-burden-iii"
-                      }
-                    ],
-                    "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4685278.png",
-                    "jersey": "10",
-                    "position": {
-                      "abbreviation": "WR"
-                    },
-                    "team": {
-                      "id": "3"
-                    },
-                    "active": true
-                  },
-                  "team": {
-                    "id": "3"
-                  }
-                }
-              ]
-            }
-          ],
-          "format": {
-            "regulation": {
-              "periods": 4
-            },
-            "overtime": {
-              "periods": 1
-            }
-          },
-          "startDate": "2026-11-09T01:20Z",
-          "broadcast": "NBC",
-          "geoBroadcasts": [
-            {
-              "type": {
-                "id": "1",
-                "shortName": "TV"
-              },
-              "market": {
-                "id": "1",
-                "type": "National"
-              },
-              "media": {
-                "shortName": "NBC"
-              },
-              "lang": "en",
-              "region": "us"
-            }
-          ],
-          "highlights": []
-        }
-      ],
-      "links": [
-        {
-          "language": "en-US",
-          "rel": [
-            "live",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/game?gameId=401873050",
-          "text": "Gamecast",
-          "shortText": "Gamecast",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "boxscore",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/boxscore/_/gameId/401873050",
-          "text": "Box Score",
-          "shortText": "Box Score",
-          "isExternal": false,
-          "isPremium": false
-        },
-        {
-          "language": "en-US",
-          "rel": [
-            "pbp",
-            "desktop",
-            "event"
-          ],
-          "href": "https://www.espn.com/nfl/playbyplay/_/gameId/401873050",
-          "text": "Play-by-Play",
-          "shortText": "Play-by-Play",
-          "isExternal": false,
-          "isPremium": false
-        }
-      ],
-      "weather": {
-        "displayValue": "33",
-        "temperature": 48,
-        "highTemperature": 48,
-        "conditionId": "Clear",
-        "link": {
-          "language": "en-US",
-          "rel": [
-            "60605"
-          ],
-          "href": "http://www.accuweather.com/en/us/soldier-field-il/60608/current-weather/18170_poi?lang=en-us",
-          "text": "Weather",
-          "shortText": "Weather",
-          "isExternal": true,
-          "isPremium": false
-        }
-      },
-      "status": {
-        "clock": 590,
-        "displayClock": "9:50",
-        "period": 3,
-        "type": {
-          "id": "2",
-          "name": "STATUS_IN_PROGRESS",
-          "state": "in",
-          "completed": false,
-          "description": "In Progress",
-          "detail": "9:50 - 3rd Quarter",
-          "shortDetail": "9:50 - 3rd"
-        }
-      },
-      "tuneInPrompt": {
-        "id": "f523a62f497ba",
-        "isAutomated": false,
-        "title": "Defensive Takeover",
-        "description": "Tune-in Prompt 401873050",
-        "caption": "Zyon McCollum has 2 INTs.",
-        "dateModified": "2026-11-09T02:45:51Z",
-        "rating": "Unrated",
-        "shortText": "Zyon McCollum has 2 INTs.",
-        "longText": "Zyon McCollum has 2 INTs.",
-        "images": [
-          {
-            "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4250392.png",
-            "alt": "Zyon McCollum"
-          }
-        ],
-        "imageType": "playerHeadshot",
-        "backgroundImages": [
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "default"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/tb.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "dark"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard"
-            ]
-          },
-          {
-            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/tb.png",
-            "width": 500,
-            "height": 500,
-            "rel": [
-              "full",
-              "scoreboard",
-              "dark"
-            ]
-          }
-        ],
-        "color": "bd1c36",
-        "alternateColor": "3e3a35",
-        "categoryGuid": "89572d34-a399-be00-d274-26e1a84e87f2"
-      }
-    },
     {
       "id": "401873051",
       "uid": "s:20~l:28~e:401873051",
@@ -1422,8 +702,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $210",
-              "numberAvailable": 2485,
+              "summary": "Tickets as low as $213",
+              "numberAvailable": 2428,
               "links": [
                 {
                   "href": "https://www.vividseats.com/minnesota-vikings-tickets-minneapolis-us-bank-stadium-3-8-2027/production/6492316?wsUser=717"
@@ -1528,7 +808,7 @@
                 "shortDisplayName": "ML",
                 "home": {
                   "close": {
-                    "odds": "+142",
+                    "odds": "+145",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1560,7 +840,7 @@
                 },
                 "away": {
                   "close": {
-                    "odds": "-170",
+                    "odds": "-175",
                     "link": {
                       "language": "en-US",
                       "rel": [
@@ -1936,26 +1216,26 @@
         "record": "3-5"
       },
       "Chicago Bears": {
-        "offensiveRating": 26.75,
-        "defensiveRating": 20,
-        "rushYPG": 150.75,
-        "rushDefYPG": 86.75,
-        "passYPG": 236.5,
-        "passDefYPG": 219,
-        "thirdDownPct": 44.34782608695652,
+        "offensiveRating": 26.77777777777778,
+        "defensiveRating": 20.444444444444443,
+        "rushYPG": 142,
+        "rushDefYPG": 91.11111111111111,
+        "passYPG": 241,
+        "passDefYPG": 219.77777777777777,
+        "thirdDownPct": 45.3125,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -17,
-        "gamesPlayed": 8,
-        "wins": 6,
+        "turnoverDiff": -26,
+        "gamesPlayed": 9,
+        "wins": 7,
         "losses": 2,
         "ties": 0,
-        "pointsScored": 214,
-        "pointsAllowed": 160,
+        "pointsScored": 241,
+        "pointsAllowed": 184,
         "ppg": "26.8",
-        "papg": "20.0",
-        "record": "6-2"
+        "papg": "20.4",
+        "record": "7-2"
       },
       "Cincinnati Bengals": {
         "offensiveRating": 30,
@@ -2464,26 +1744,26 @@
         "record": "5-4"
       },
       "Tampa Bay Buccaneers": {
-        "offensiveRating": 22.25,
-        "defensiveRating": 18.875,
-        "rushYPG": 168.625,
-        "rushDefYPG": 80,
-        "passYPG": 131.375,
-        "passDefYPG": 205.875,
-        "thirdDownPct": 38.392857142857146,
+        "offensiveRating": 22.444444444444443,
+        "defensiveRating": 19.77777777777778,
+        "rushYPG": 163.88888888888889,
+        "rushDefYPG": 79.11111111111111,
+        "passYPG": 141.88888888888889,
+        "passDefYPG": 213.77777777777777,
+        "thirdDownPct": 36.29032258064516,
         "redZonePct": 50,
         "sacksAllowedPG": 0,
         "sacksTakenPG": 0,
-        "turnoverDiff": -19,
-        "gamesPlayed": 8,
+        "turnoverDiff": -23,
+        "gamesPlayed": 9,
         "wins": 3,
-        "losses": 5,
+        "losses": 6,
         "ties": 0,
-        "pointsScored": 178,
-        "pointsAllowed": 151,
-        "ppg": "22.3",
-        "papg": "18.9",
-        "record": "3-5"
+        "pointsScored": 202,
+        "pointsAllowed": 178,
+        "ppg": "22.4",
+        "papg": "19.8",
+        "record": "3-6"
       },
       "Tennessee Titans": {
         "offensiveRating": 18,
@@ -2550,7 +1830,7 @@
         "passDefRank": 23
       },
       "Buffalo Bills": {
-        "rushOffRank": 3,
+        "rushOffRank": 2,
         "passOffRank": 11,
         "rushDefRank": 9,
         "passDefRank": 30
@@ -2559,12 +1839,12 @@
         "rushOffRank": 23,
         "passOffRank": 4,
         "rushDefRank": 28,
-        "passDefRank": 10
+        "passDefRank": 9
       },
       "Chicago Bears": {
-        "rushOffRank": 2,
+        "rushOffRank": 3,
         "passOffRank": 13,
-        "rushDefRank": 4,
+        "rushDefRank": 6,
         "passDefRank": 14
       },
       "Cincinnati Bengals": {
@@ -2618,14 +1898,14 @@
       "Jacksonville Jaguars": {
         "rushOffRank": 14,
         "passOffRank": 15,
-        "rushDefRank": 6,
+        "rushDefRank": 5,
         "passDefRank": 22
       },
       "Kansas City Chiefs": {
         "rushOffRank": 5,
         "passOffRank": 10,
         "rushDefRank": 10,
-        "passDefRank": 8
+        "passDefRank": 7
       },
       "Las Vegas Raiders": {
         "rushOffRank": 31,
@@ -2697,19 +1977,19 @@
         "rushOffRank": 7,
         "passOffRank": 12,
         "rushDefRank": 2,
-        "passDefRank": 9
+        "passDefRank": 8
       },
       "Seattle Seahawks": {
         "rushOffRank": 19,
         "passOffRank": 17,
-        "rushDefRank": 5,
+        "rushDefRank": 4,
         "passDefRank": 2
       },
       "Tampa Bay Buccaneers": {
         "rushOffRank": 1,
         "passOffRank": 32,
         "rushDefRank": 1,
-        "passDefRank": 7
+        "passDefRank": 10
       },
       "Tennessee Titans": {
         "rushOffRank": 24,
@@ -3219,6 +2499,36 @@
     ],
     "Chicago Bears": [
       {
+        "longComment": "Burden left the game in the fourth quarter after taking a high hit, and a subsequent evaluation has revealed a concussion for Chicago's leading receiver. He will have to clear the NFL's five-step concussion protocol in order to be eligible to play in Week 11 against the Saints, with Chicago's Week 10 bye offering Burden an extra week to recover. Burden extended his touchdown streak to three games with a 56-yard touchdown catch in the first quarter.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Luther Burden III",
+          "position": "WR"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
+        "longComment": "With Stevenson sidelined and Malik Muhammad (toe) inactive, Josh Blackwell and Clark Phillips will take on more defensive snaps alongside Jaylon Phillips and Kyler Gordon at cornerback for the Bears.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Tyrique Stevenson Sr.",
+          "position": "CB"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
+      {
         "longComment": "Muhammad was expected to be able to return to action in Week 9, but the cornerback will now be forced to miss a second straight game while nursing a toe injury he suffered in Week 7. In his absence, Josh Blackwell is a top candidate to see an increase in opportunities at cornerback behind starters Jaylon Johnson and Tyrique Stevenson versus the Buccaneers.",
         "status": "Out",
         "athlete": {
@@ -3557,7 +2867,7 @@
     ],
     "Denver Broncos": [
       {
-        "longComment": "Moss took a knee to the head while making a tackle in the second quarter and was down on the field for some time before walking to the locker room with trainers. He was quickly deemed questionable to return. Jahdae Barron has entered at cornerback in Moss's stead.",
+        "longComment": "Moss has enterted the NFL's five-step concussion protocol and will not return to Sunday's game. Jahdae Barron will likely finish the game at outside cornerback for the Broncos.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Riley Moss",
@@ -4109,7 +3419,7 @@
         }
       },
       {
-        "longComment": "questionable",
+        "longComment": "Matt Derrick of ChiefsDigest.com previously noted that Worthy immediately grabbed his hamstring and was unable to put weight on his leg after sustaining his injury Sunday. That Worthy was so quickly ruled out for the remainder of the contest is certainly concerning in terms of his status for next week's game against the Falcons. In his absence versus the Jets, Cyrus Allen, Jalen Royals, Andrew Armstrong and Nikko Remigio are available to work behind top WR Rashee Rice.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Xavier Worthy",
@@ -4233,7 +3543,7 @@
     ],
     "Los Angeles Chargers": [
       {
-        "longComment": "Coach Jim Harbaugh said after the latest loss that Herbert \"could\" have a fracture. The quarterback was pulled from the game with the score out of hand in the fourth quarter, but Herbert apparently lobbied to stay in the contest. He'll have an extra day to heal up ahead of next Monday night's date with the Ravens. Herbert has been well off the fantasy radar for much of the season in this broken Los Angeles offense. If he can't face Baltimore, DJ Uiagalelei would likely get the nod under center. He completed a pitiful two of seven passes for 24 yards and a touchdown in relief of Herbert on Sunday.",
+        "longComment": "Coach Jim Harbaugh said after the latest loss that Herbert \"could\" have a fracture. The quarterback was pulled from the game with the score out of hand in the fourth quarter, but Herbert apparently lobbied to stay in the contest. He'll have an extra day to heal up ahead of next Monday night's date with the Ravens. Herbert has been well off the fantasy radar for much of the season in this broken Los Angeles offense. If he can't face Baltimore, DJ Uiagalelei would likely get the nod under center. He completed two of seven passes for 24 yards and a touchdown in relief of Herbert on Sunday.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Justin Herbert",
@@ -4520,21 +3830,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "Baker has been on the reserve/PUP list since Aug. 31 after suffering an undisclosed injury in July. The cornerback is eligible to have his 21-day practice window opened and begin practicing at any point, but he doesn't appear to be healthy enough to do so yet.",
-        "status": "Out",
-        "athlete": {
-          "displayName": "Darrell Baker Jr.",
-          "position": "CB"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Minnesota Vikings": [
@@ -4646,7 +3941,7 @@
         }
       },
       {
-        "longComment": "Stevenson went to the locker room in the second half and has been ruled out shortly thereafter. The extent and nature of his knee injury will be clarified in the coming days, with Stevenson's next chance to suit up coming Nov. 15 against the Lions in Munich. Corey Kiner and Lan Larison are New England's remaining healthy running backs, as TreVeyon Henderson (illness) is inactive. Stevenson rushed six times for 32 yards while catching three of four targets for 46 yards and a touchdown prior to exiting.",
+        "longComment": "Before that, Stevenson carried six times for 32 yards and caught three of his four targets for 46 yards and a TD. With TreVeyon Henderson (illness) sidelined for an undetermined amount of time, Corey Kiner and Lan Larison are available to handle New England's backfield duties Sunday for as long as Stevenson is out of the game.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Rhamondre Stevenson",
@@ -5337,7 +4632,7 @@
     ],
     "Tampa Bay Buccaneers": [
       {
-        "longComment": "Winfield suffered an ankle injury in the second quarter, and his availability for the rest of the game is now uncertain. In his absence, Ifeatu Melifonwu will stand to operate in a more substantial role in Tampa Bay's secondary.",
+        "longComment": "Winfield sustained an ankle injury late in the first half, and his night has now officially come to a premature end. With Winfield unavailable, Ifeatu Melifonwu will continue to operate as one of Tampa Bay's primary safeties versus Chicago.",
         "status": "Questionable",
         "athlete": {
           "displayName": "Antoine Winfield Jr.",
@@ -5990,7 +5285,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-11-09T03:25:28.277Z",
+    "checkedAt": "2026-11-09T05:59:54.665Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
