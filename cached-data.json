@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16T02:43:09.918Z",
+  "lastUpdated": "2026-11-16T03:34:03.183Z",
   "currentWeek": 10,
   "games": [
     {
@@ -147,7 +147,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cin.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/cin.png"
               },
-              "score": "17",
+              "score": "31",
               "linescores": [
                 {
                   "value": 3,
@@ -155,9 +155,14 @@
                   "period": 1
                 },
                 {
-                  "value": 14,
-                  "displayValue": "14",
+                  "value": 21,
+                  "displayValue": "21",
                   "period": 2
+                },
+                {
+                  "value": 7,
+                  "displayValue": "7",
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -288,7 +293,7 @@
                 "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png",
                 "logoDark": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/pit.png"
               },
-              "score": "0",
+              "score": "3",
               "linescores": [
                 {
                   "value": 0,
@@ -296,9 +301,14 @@
                   "period": 1
                 },
                 {
+                  "value": 3,
+                  "displayValue": "3",
+                  "period": 2
+                },
+                {
                   "value": 0,
                   "displayValue": "0",
-                  "period": 2
+                  "period": 3
                 }
               ],
               "statistics": [],
@@ -328,70 +338,94 @@
           "notes": [],
           "situation": {
             "lastPlay": {
-              "id": "4018730641942",
+              "id": "4018730642972",
               "type": {
-                "id": "21",
-                "text": "Timeout",
-                "abbreviation": "TO"
+                "id": "5",
+                "text": "Rush",
+                "abbreviation": "RUSH"
               },
-              "text": "Timeout #1 by PIT at 01:29.",
+              "text": " (Shotgun) C.Brown left tackle to CIN 38 for 1 yard (P.Queen).",
               "scoreValue": 0,
               "team": {
-                "id": "23"
+                "id": "4"
               },
               "probability": {
                 "tiePercentage": 0,
-                "homeWinPercentage": 0.9421,
-                "awayWinPercentage": 0.05789999999999995,
+                "homeWinPercentage": 0.999,
+                "awayWinPercentage": 0.0010000000000000009,
                 "secondsLeft": 0
               },
-              "statYardage": 0,
+              "statYardage": 1,
               "drive": {
-                "description": "9 plays, 42 yards, 3:59",
+                "description": "1 play, 1 yard, 0:00",
                 "start": {
-                  "yardLine": 69,
-                  "text": "PIT 31"
+                  "yardLine": 37,
+                  "text": "CIN 37"
                 },
                 "timeElapsed": {
-                  "displayValue": "3:59"
+                  "displayValue": "0:00"
                 }
               },
               "start": {
-                "yardLine": 26,
+                "yardLine": 37,
                 "team": {
-                  "id": "23"
+                  "id": "4"
                 }
               },
               "end": {
-                "yardLine": 26,
+                "yardLine": 38,
                 "team": {
-                  "id": "23"
+                  "id": "4"
                 }
-              }
+              },
+              "athletesInvolved": [
+                {
+                  "id": "4362238",
+                  "fullName": "Chase Brown",
+                  "displayName": "Chase Brown",
+                  "shortName": "C. Brown",
+                  "links": [
+                    {
+                      "rel": [
+                        "playercard",
+                        "desktop",
+                        "athlete"
+                      ],
+                      "href": "https://www.espn.com/nfl/player/_/id/4362238/chase-brown"
+                    }
+                  ],
+                  "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4362238.png",
+                  "jersey": "30",
+                  "position": "RB",
+                  "team": {
+                    "id": "4"
+                  }
+                }
+              ]
             },
-            "down": 4,
-            "yardLine": 26,
-            "distance": 16,
-            "downDistanceText": "4th & 16 at CIN 26",
-            "shortDownDistanceText": "4th & 16",
-            "possessionText": "CIN 26",
+            "down": 2,
+            "yardLine": 38,
+            "distance": 9,
+            "downDistanceText": "2nd & 9 at CIN 38",
+            "shortDownDistanceText": "2nd & 9",
+            "possessionText": "CIN 38",
             "isRedZone": false,
-            "homeTimeouts": 0,
-            "awayTimeouts": 2,
-            "possession": "23"
+            "homeTimeouts": 3,
+            "awayTimeouts": 3,
+            "possession": "4"
           },
           "status": {
-            "clock": 89,
-            "displayClock": "1:29",
-            "period": 2,
+            "clock": 162,
+            "displayClock": "2:42",
+            "period": 3,
             "type": {
               "id": "2",
               "name": "STATUS_IN_PROGRESS",
               "state": "in",
               "completed": false,
               "description": "In Progress",
-              "detail": "1:29 - 2nd Quarter",
-              "shortDetail": "1:29 - 2nd"
+              "detail": "2:42 - 3rd Quarter",
+              "shortDetail": "2:42 - 3rd"
             },
             "isTBDFlex": false
           },
@@ -411,8 +445,8 @@
               "abbreviation": "PYDS",
               "leaders": [
                 {
-                  "displayValue": "21/26, 245 YDS, 2 TD",
-                  "value": 245,
+                  "displayValue": "32/41, 359 YDS, 4 TD",
+                  "value": 359,
                   "athlete": {
                     "id": "3915511",
                     "fullName": "Joe Burrow",
@@ -451,8 +485,8 @@
               "abbreviation": "RYDS",
               "leaders": [
                 {
-                  "displayValue": "4 CAR, 23 YDS",
-                  "value": 23,
+                  "displayValue": "8 CAR, 39 YDS",
+                  "value": 39,
                   "athlete": {
                     "id": "4362238",
                     "fullName": "Chase Brown",
@@ -491,8 +525,8 @@
               "abbreviation": "RECYDS",
               "leaders": [
                 {
-                  "displayValue": "6 REC, 135 YDS",
-                  "value": 135,
+                  "displayValue": "10 REC, 188 YDS",
+                  "value": 188,
                   "athlete": {
                     "id": "4362628",
                     "fullName": "Ja'Marr Chase",
@@ -598,8 +632,8 @@
       ],
       "weather": {
         "displayValue": "38",
-        "temperature": 43,
-        "highTemperature": 43,
+        "temperature": 42,
+        "highTemperature": 42,
         "conditionId": "Mostly cloudy",
         "link": {
           "language": "en-US",
@@ -614,18 +648,78 @@
         }
       },
       "status": {
-        "clock": 89,
-        "displayClock": "1:29",
-        "period": 2,
+        "clock": 162,
+        "displayClock": "2:42",
+        "period": 3,
         "type": {
           "id": "2",
           "name": "STATUS_IN_PROGRESS",
           "state": "in",
           "completed": false,
           "description": "In Progress",
-          "detail": "1:29 - 2nd Quarter",
-          "shortDetail": "1:29 - 2nd"
+          "detail": "2:42 - 3rd Quarter",
+          "shortDetail": "2:42 - 3rd"
         }
+      },
+      "tuneInPrompt": {
+        "id": "9bfcc271d7a14",
+        "isAutomated": false,
+        "title": "Chasing Five",
+        "description": "Tune-in Prompt 401873064",
+        "caption": "Joe Burrow has 4 TD passes.",
+        "dateModified": "2026-11-16T03:26:21Z",
+        "rating": "Unrated",
+        "shortText": "Joe Burrow has 4 TD passes.",
+        "longText": "Joe Burrow has 4 TD passes.",
+        "images": [
+          {
+            "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3915511.png",
+            "alt": "Joe Burrow"
+          }
+        ],
+        "imageType": "playerHeadshot",
+        "backgroundImages": [
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "default"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/cin.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "dark"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cin.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "scoreboard"
+            ]
+          },
+          {
+            "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/cin.png",
+            "width": 500,
+            "height": 500,
+            "rel": [
+              "full",
+              "scoreboard",
+              "dark"
+            ]
+          }
+        ],
+        "color": "fb4f14",
+        "alternateColor": "000000",
+        "categoryGuid": "e6957db5-5b2e-a82d-c788-d889115d9772"
       }
     },
     {
@@ -1327,8 +1421,8 @@
           },
           "tickets": [
             {
-              "summary": "Tickets as low as $39",
-              "numberAvailable": 4741,
+              "summary": "Tickets as low as $44",
+              "numberAvailable": 4702,
               "links": [
                 {
                   "href": "https://www.vividseats.com/baltimore-ravens-tickets-baltimore-mt-bank-stadium-3-8-2026/production/6487949?wsUser=717"
@@ -3079,11 +3173,11 @@
     ],
     "Cincinnati Bengals": [
       {
-        "longComment": "Hinton is dealing with an illness and was added to the Bengals' injury report Sunday morning. He's not feeling well enough to be able to play against Pittsburgh. Hinton's absence will lessen Cincinnati's depth on the offensive line.",
-        "status": "Out",
+        "longComment": "The veteran right guard was initially able to stay in the contest after the injury, but he went to the locker room following the end of the first-half drive. Jalen Rivers has entered in Risner's place on the offensive line.",
+        "status": "Questionable",
         "athlete": {
-          "displayName": "Myles Hinton",
-          "position": "OT"
+          "displayName": "Dalton Risner",
+          "position": "G"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -3094,11 +3188,11 @@
         }
       },
       {
-        "longComment": "Risner was a Sunday addition to Cincinnati's injury report due to an illness. He was initially tagged as questionable to play, but he'll ultimately be able to suit up. Risner should assume his regular role as the Bengals' starting right guard.",
-        "status": "Questionable",
+        "longComment": "Hinton is dealing with an illness and was added to the Bengals' injury report Sunday morning. He's not feeling well enough to be able to play against Pittsburgh. Hinton's absence will lessen Cincinnati's depth on the offensive line.",
+        "status": "Out",
         "athlete": {
-          "displayName": "Dalton Risner",
-          "position": "G"
+          "displayName": "Myles Hinton",
+          "position": "OT"
         },
         "depthChartPosition": null,
         "depthChartOrder": null,
@@ -4406,21 +4500,6 @@
           "description": "basic/manual",
           "state": "basic"
         }
-      },
-      {
-        "longComment": "This is another blow to the Rams' receiving corps, as Davante Adams (hamstring) is still on IR and Puka Nacua (knee/toe) is slated to miss several weeks. Whittington would have had a chance to carve out a major role in Los Angeles' wideout room, but instead he'll be sidelined until at least Dec. 20. The Rams signed Xavier Smith off San Francisco's practice squad Tuesday to take Whittington's place on the 53-man roster and in the WR corps.",
-        "status": "Injured Reserve",
-        "athlete": {
-          "displayName": "Jordan Whittington",
-          "position": "WR"
-        },
-        "depthChartPosition": null,
-        "depthChartOrder": null,
-        "source": {
-          "id": "1",
-          "description": "basic/manual",
-          "state": "basic"
-        }
       }
     ],
     "Miami Dolphins": [
@@ -5113,6 +5192,21 @@
       }
     ],
     "Pittsburgh Steelers": [
+      {
+        "longComment": "The Steelers' left guard went down toward the end of the first half and was immediately placed in an air cast and carted off the field, suggesting this is a long-term injury for the third-year lineman. Spencer Anderson will handle left-guard duties for Pittsburgh the remainder of Sunday night's game.",
+        "status": "Questionable",
+        "athlete": {
+          "displayName": "Mason McCormick",
+          "position": "G"
+        },
+        "depthChartPosition": null,
+        "depthChartOrder": null,
+        "source": {
+          "id": "1",
+          "description": "basic/manual",
+          "state": "basic"
+        }
+      },
       {
         "longComment": "Elliott dealt with an ankle issue during Week 10 prep but was initially cleared to suit up Sunday. However, he's now dealing with a knee injury that occurred during pregame warmups. Elliott's loss is a blow to Pittsburgh's secondary, though he's played in only two games so far this season. Robert Spears-Jennings figures to take on a large defensive snap share Sunday in Elliott's stead.",
         "status": "Out",
@@ -5938,7 +6032,7 @@
     ],
     "teams": 32,
     "snapshotAt": null,
-    "checkedAt": "2026-11-16T02:43:09.500Z",
+    "checkedAt": "2026-11-16T03:34:02.988Z",
     "detail": "Using ESPN injury report."
   },
   "seasonYear": 2026,
